@@ -1,0 +1,21 @@
+{
+ "truth": "dj-mix-01: every transition = 16-bar overlap, bass swap in 1 beat at bar 9 (from mix.py design / tracklist)",
+ "measured_overlap_bars": [
+  24,
+  30,
+  11,
+  16,
+  7,
+  18
+ ],
+ "overlap_mae_bars": 6.333333333333333,
+ "measured_swap_len_bars": [
+  2,
+  2,
+  12,
+  2,
+  8,
+  3
+ ],
+ "swap_note": "true swap is 1 beat; measured 2,2,12,2,8,3 bars => 4/6 within 3 bars, 2 badly smeared: swap_len is noisy, low weight in scoring"
+}

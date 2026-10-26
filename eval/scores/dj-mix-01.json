@@ -1,0 +1,167 @@
+{
+ "mix": "dj-mix-01",
+ "overall": 84.5,
+ "variety": 56.3,
+ "loop_extensions": 0,
+ "primary_techniques": [
+  "16_bar_blend",
+  "16_bar_blend",
+  "short_blend",
+  "16_bar_blend",
+  "short_blend",
+  "16_bar_blend"
+ ],
+ "mean_transition": 90.6,
+ "min_transition": 86.9,
+ "n_transitions": 6,
+ "set_notes": [
+  "median time between transitions 218s vs pro sets 82-275s",
+  "technique labels used: ['16', 'beat_clarity_drop', 'breakdown_or_echo_entry', 'double_drop_or_drop_blend', 'hard_bass_swap', 'short_blend', 'vocal_over_transition']",
+  "variety 56.3: top technique '16_bar_blend' = 67% of transitions (pro max share 53%); longest same-technique run 2 (pro median 3.0)"
+ ],
+ "weakest": [
+  "3:27: inside pro ranges",
+  "15:23: beats get muddy in the blend (clarity 0.29x of outside vs pro p10 0.40) - likely grid slip or two kick patterns fighting",
+  "18:23: inside pro ranges"
+ ],
+ "transitions": [
+  {
+   "idx": 1,
+   "at": "3:27",
+   "time_sec": 207.35,
+   "score": 86.9,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 0.75,
+    "low_dip_db": 1.0,
+    "energy_delta_db": 0.75,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 0.75
+   },
+   "techniques": [
+    "16_bar_blend",
+    "breakdown_or_echo_entry",
+    "hard_bass_swap",
+    "vocal_over_transition",
+    "beat_clarity_drop"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  },
+  {
+   "idx": 2,
+   "at": "6:33",
+   "time_sec": 393.53,
+   "score": 91.1,
+   "parts": {
+    "overlap_bars": 0.744,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 1.0,
+    "low_dip_db": 0.575,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "16_bar_blend",
+    "double_drop_or_drop_blend",
+    "hard_bass_swap"
+   ],
+   "notes": [
+    "blend is very long (30 bars; pros mostly 8-24)"
+   ]
+  },
+  {
+   "idx": 3,
+   "at": "11:35",
+   "time_sec": 695.95,
+   "score": 97.6,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 0.75,
+    "beat_clarity_ratio": 1.0,
+    "low_dip_db": 1.0,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "short_blend"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  },
+  {
+   "idx": 4,
+   "at": "15:23",
+   "time_sec": 923.53,
+   "score": 88.3,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 0.628,
+    "low_dip_db": 0.698,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "16_bar_blend",
+    "double_drop_or_drop_blend",
+    "hard_bass_swap",
+    "vocal_over_transition",
+    "beat_clarity_drop"
+   ],
+   "notes": [
+    "beats get muddy in the blend (clarity 0.29x of outside vs pro p10 0.40) - likely grid slip or two kick patterns fighting"
+   ]
+  },
+  {
+   "idx": 5,
+   "at": "18:23",
+   "time_sec": 1103.53,
+   "score": 89.3,
+   "parts": {
+    "overlap_bars": 0.75,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 1.0,
+    "low_dip_db": 0.75,
+    "energy_delta_db": 0.75,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "short_blend",
+    "double_drop_or_drop_blend"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  },
+  {
+   "idx": 6,
+   "at": "22:01",
+   "time_sec": 1321.47,
+   "score": 90.5,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 0.75,
+    "low_dip_db": 1.0,
+    "energy_delta_db": 0.75,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "16_bar_blend",
+    "beat_clarity_drop"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  }
+ ]
+}

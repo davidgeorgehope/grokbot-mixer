@@ -1,0 +1,818 @@
+{
+ "mix": "mix360",
+ "mp3": "/workspace/mixes/dj-mix-03-60.mp3",
+ "thresholds": {
+  "E1_db": 6,
+  "E2_lufs": -35,
+  "N1_ms": 10,
+  "N1_db": 3,
+  "F1_ms": 15,
+  "G1_jit_ms": 8,
+  "G1_abs_ms": 15,
+  "K1_steps": 2,
+  "L1_db": 3,
+  "P1_tp": -1.0,
+  "P1_dc": 0.005,
+  "D1_ramp_db": 3,
+  "S1_db": 20
+ },
+ "info": {
+  "integrated_lufs": -9.3,
+  "true_peak_dbtp": -1.1,
+  "dc": 1.7169205648315256e-06,
+  "grid": []
+ },
+ "n_fail": 62,
+ "by_check": {
+  "O1": 11,
+  "S1": 14,
+  "F1": 15,
+  "D1": 2,
+  "X1": 5,
+  "C2": 1,
+  "E1": 4,
+  "E2": 8,
+  "N1": 2
+ },
+ "failures": [
+  {
+   "check": "O1",
+   "t": "5:07",
+   "t_end": "5:51",
+   "sec": 307.59,
+   "msg": "only 2 bars with both decks audible at musical level (need >= 8)",
+   "trans": 0
+  },
+  {
+   "check": "S1",
+   "t": "5:32",
+   "t_end": "5:50",
+   "sec": 332.41,
+   "msg": "outgoing yogt46dJJ4g plays its own fade/silent tail during the transition; then its loop pops back in at 5:50",
+   "trans": 0
+  },
+  {
+   "check": "S1",
+   "t": "9:40",
+   "t_end": "9:54",
+   "sec": 580.69,
+   "msg": "outgoing n1dOiesZS1g plays its own fade/silent tail during the transition",
+   "trans": 1
+  },
+  {
+   "check": "F1",
+   "t": "11:32",
+   "t_end": "11:33",
+   "sec": 692.41,
+   "msg": "AC3eEHeLd8A vs F1NCnCxyhqc beats 22.0 ms apart",
+   "trans": 2
+  },
+  {
+   "check": "S1",
+   "t": "14:08",
+   "t_end": "14:09",
+   "sec": 848.28,
+   "msg": "outgoing F1NCnCxyhqc plays its own fade/silent tail during the transition; then its loop pops back in at 14:09",
+   "trans": 3
+  },
+  {
+   "check": "O1",
+   "t": "17:24",
+   "t_end": "18:30",
+   "sec": 1044.14,
+   "msg": "only 7 bars with both decks audible at musical level (need >= 8)",
+   "trans": 4
+  },
+  {
+   "check": "D1",
+   "t": "18:08",
+   "t_end": "18:09",
+   "sec": 1088.28,
+   "msg": "rJuyd8koFAU drop with no build (ramp +0.3 dB, no riser/HPF)"
+  },
+  {
+   "check": "S1",
+   "t": "18:19",
+   "t_end": "18:24",
+   "sec": 1099.31,
+   "msg": "outgoing _K2sC9nrf_A plays its own fade/silent tail during the transition; then its loop pops back in at 18:24",
+   "trans": 4
+  },
+  {
+   "check": "O1",
+   "t": "20:42",
+   "t_end": "21:26",
+   "sec": 1242.76,
+   "msg": "only 7 bars with both decks audible at musical level (need >= 8)",
+   "trans": 5
+  },
+  {
+   "check": "S1",
+   "t": "21:06",
+   "t_end": "21:14",
+   "sec": 1266.21,
+   "msg": "outgoing rJuyd8koFAU plays its own fade/silent tail during the transition; then its loop pops back in at 21:14",
+   "trans": 5
+  },
+  {
+   "check": "O1",
+   "t": "22:33",
+   "t_end": "23:17",
+   "sec": 1353.1,
+   "msg": "only 3 bars with both decks audible at musical level (need >= 8)",
+   "trans": 6
+  },
+  {
+   "check": "F1",
+   "t": "22:56",
+   "t_end": "22:57",
+   "sec": 1376.55,
+   "msg": "nAV4i1YIwQI vs EiZVTuiqo0w beats 20.0 ms apart",
+   "trans": 6
+  },
+  {
+   "check": "X1",
+   "t": "26:35",
+   "t_end": "26:52",
+   "sec": 1595.86,
+   "msg": "EiZVTuiqo0w -> KdtDm5cBsFo is an echo-out/stop-start ('echo-out wash (1/2-beat ping-pong tail) '), not a blend",
+   "trans": 7
+  },
+  {
+   "check": "O1",
+   "t": "26:35",
+   "t_end": "26:46",
+   "sec": 1595.86,
+   "msg": "only 0 bars with both decks audible at musical level (need >= 8)",
+   "trans": 7
+  },
+  {
+   "check": "C2",
+   "t": "26:35",
+   "t_end": "26:41",
+   "sec": 1595.86,
+   "msg": "outgoing EiZVTuiqo0w -37.8 dB under its body in the first half of the overlap",
+   "trans": 7
+  },
+  {
+   "check": "S1",
+   "t": "26:37",
+   "t_end": "26:46",
+   "sec": 1597.24,
+   "msg": "outgoing EiZVTuiqo0w plays its own fade/silent tail during the transition",
+   "trans": 7
+  },
+  {
+   "check": "E1",
+   "t": "26:39",
+   "t_end": "26:47",
+   "sec": 1599.3,
+   "msg": "3s loudness -39.8 LUFS is 26.4 dB under the 30s median -13.4",
+   "unexcused_bars": [
+    "26:38",
+    "26:40",
+    "26:41",
+    "26:42",
+    "26:44"
+   ]
+  },
+  {
+   "check": "E2",
+   "t": "26:39",
+   "t_end": "26:42",
+   "sec": 1599.9,
+   "msg": "momentary loudness down to -49.7 LUFS (near silence)"
+  },
+  {
+   "check": "E2",
+   "t": "26:43",
+   "t_end": "26:43",
+   "sec": 1603.6,
+   "msg": "momentary loudness down to -52.9 LUFS (near silence)"
+  },
+  {
+   "check": "E2",
+   "t": "26:44",
+   "t_end": "26:44",
+   "sec": 1604.1,
+   "msg": "momentary loudness down to -59.5 LUFS (near silence)"
+  },
+  {
+   "check": "E2",
+   "t": "26:44",
+   "t_end": "26:44",
+   "sec": 1604.9,
+   "msg": "momentary loudness down to -35.7 LUFS (near silence)"
+  },
+  {
+   "check": "E2",
+   "t": "26:45",
+   "t_end": "26:45",
+   "sec": 1605.5,
+   "msg": "momentary loudness down to -45.0 LUFS (near silence)"
+  },
+  {
+   "check": "E2",
+   "t": "26:46",
+   "t_end": "26:46",
+   "sec": 1606.3,
+   "msg": "momentary loudness down to -49.6 LUFS (near silence)"
+  },
+  {
+   "check": "E2",
+   "t": "26:46",
+   "t_end": "26:46",
+   "sec": 1606.8,
+   "msg": "momentary loudness down to -37.7 LUFS (near silence)"
+  },
+  {
+   "check": "S1",
+   "t": "29:17",
+   "t_end": "29:20",
+   "sec": 1757.24,
+   "msg": "outgoing KdtDm5cBsFo plays its own fade/silent tail during the transition; then its loop pops back in at 29:20",
+   "trans": 8
+  },
+  {
+   "check": "S1",
+   "t": "32:15",
+   "t_end": "32:20",
+   "sec": 1935.17,
+   "msg": "outgoing l4XZ-wqc4vQ plays its own fade/silent tail during the transition",
+   "trans": 9
+  },
+  {
+   "check": "E1",
+   "t": "32:15",
+   "t_end": "32:20",
+   "sec": 1935.9,
+   "msg": "3s loudness -28.0 LUFS is 18.7 dB under the 30s median -9.3",
+   "unexcused_bars": [
+    "32:15",
+    "32:16",
+    "32:17"
+   ]
+  },
+  {
+   "check": "X1",
+   "t": "32:20",
+   "t_end": "32:26",
+   "sec": 1940.69,
+   "msg": "l4XZ-wqc4vQ -> uMDP4VTzlBI is an echo-out/stop-start ('echo-out wash with an 8-bar riser over t'), not a blend",
+   "trans": 9
+  },
+  {
+   "check": "O1",
+   "t": "32:20",
+   "t_end": "32:20",
+   "sec": 1940.69,
+   "msg": "only 0 bars with both decks audible at musical level (need >= 8)",
+   "trans": 9
+  },
+  {
+   "check": "S1",
+   "t": "35:18",
+   "t_end": "35:22",
+   "sec": 2118.62,
+   "msg": "outgoing uMDP4VTzlBI plays its own fade/silent tail during the transition; then its loop pops back in at 35:22",
+   "trans": 10
+  },
+  {
+   "check": "F1",
+   "t": "35:26",
+   "t_end": "35:28",
+   "sec": 2126.9,
+   "msg": "uMDP4VTzlBI vs q_IuTV23x7Q beats 16.0 ms apart",
+   "trans": 10
+  },
+  {
+   "check": "F1",
+   "t": "35:31",
+   "t_end": "35:32",
+   "sec": 2131.03,
+   "msg": "uMDP4VTzlBI vs q_IuTV23x7Q beats 16.0 ms apart",
+   "trans": 10
+  },
+  {
+   "check": "S1",
+   "t": "39:11",
+   "t_end": "39:13",
+   "sec": 2351.72,
+   "msg": "outgoing q_IuTV23x7Q plays its own fade/silent tail during the transition; then its loop pops back in at 39:13",
+   "trans": 11
+  },
+  {
+   "check": "X1",
+   "t": "41:47",
+   "t_end": "41:53",
+   "sec": 2507.59,
+   "msg": "pUUrJH7jzAQ -> 5196v8VY1LI is an echo-out/stop-start ('echo-out wash (1/2-beat ping-pong tail) '), not a blend",
+   "trans": 12
+  },
+  {
+   "check": "O1",
+   "t": "41:47",
+   "t_end": "41:47",
+   "sec": 2507.59,
+   "msg": "only 0 bars with both decks audible at musical level (need >= 8)",
+   "trans": 12
+  },
+  {
+   "check": "X1",
+   "t": "44:22",
+   "t_end": "44:38",
+   "sec": 2662.07,
+   "msg": "5196v8VY1LI -> N-j7tIeGm1E is an echo-out/stop-start ('echo-out wash (1/2-beat ping-pong tail) '), not a blend",
+   "trans": 13
+  },
+  {
+   "check": "O1",
+   "t": "44:22",
+   "t_end": "44:33",
+   "sec": 2662.07,
+   "msg": "only 0 bars with both decks audible at musical level (need >= 8)",
+   "trans": 13
+  },
+  {
+   "check": "O1",
+   "t": "46:59",
+   "t_end": "47:43",
+   "sec": 2819.31,
+   "msg": "only 7 bars with both decks audible at musical level (need >= 8)",
+   "trans": 14
+  },
+  {
+   "check": "S1",
+   "t": "47:22",
+   "t_end": "47:25",
+   "sec": 2842.76,
+   "msg": "outgoing N-j7tIeGm1E plays its own fade/silent tail during the transition; then its loop pops back in at 47:25",
+   "trans": 14
+  },
+  {
+   "check": "F1",
+   "t": "47:26",
+   "t_end": "47:28",
+   "sec": 2846.9,
+   "msg": "N-j7tIeGm1E vs 6YDKymmWe9o beats 18.0 ms apart",
+   "trans": 14
+  },
+  {
+   "check": "F1",
+   "t": "47:28",
+   "t_end": "47:29",
+   "sec": 2848.28,
+   "msg": "N-j7tIeGm1E vs 6YDKymmWe9o beats 22.0 ms apart",
+   "trans": 14
+  },
+  {
+   "check": "F1",
+   "t": "47:32",
+   "t_end": "47:33",
+   "sec": 2852.41,
+   "msg": "N-j7tIeGm1E vs 6YDKymmWe9o beats 24.0 ms apart",
+   "trans": 14
+  },
+  {
+   "check": "F1",
+   "t": "47:33",
+   "t_end": "47:35",
+   "sec": 2853.79,
+   "msg": "N-j7tIeGm1E vs 6YDKymmWe9o beats 18.0 ms apart",
+   "trans": 14
+  },
+  {
+   "check": "E2",
+   "t": "48:34",
+   "t_end": "48:34",
+   "sec": 2914.2,
+   "msg": "momentary loudness down to -35.2 LUFS (near silence)"
+  },
+  {
+   "check": "O1",
+   "t": "51:25",
+   "t_end": "52:09",
+   "sec": 3085.52,
+   "msg": "only 5 bars with both decks audible at musical level (need >= 8)",
+   "trans": 15
+  },
+  {
+   "check": "N1",
+   "t": "51:28",
+   "t_end": "51:31",
+   "sec": 3088.28,
+   "msg": "MoYkYkoeb84 enters -13 ms off the grid",
+   "trans": 15
+  },
+  {
+   "check": "F1",
+   "t": "51:33",
+   "t_end": "51:35",
+   "sec": 3093.79,
+   "msg": "6YDKymmWe9o vs MoYkYkoeb84 beats 20.0 ms apart",
+   "trans": 15
+  },
+  {
+   "check": "F1",
+   "t": "51:35",
+   "t_end": "51:36",
+   "sec": 3095.17,
+   "msg": "6YDKymmWe9o vs MoYkYkoeb84 beats 20.0 ms apart",
+   "trans": 15
+  },
+  {
+   "check": "F1",
+   "t": "51:40",
+   "t_end": "51:42",
+   "sec": 3100.69,
+   "msg": "6YDKymmWe9o vs MoYkYkoeb84 beats 16.0 ms apart",
+   "trans": 15
+  },
+  {
+   "check": "S1",
+   "t": "52:05",
+   "t_end": "52:09",
+   "sec": 3125.52,
+   "msg": "outgoing 6YDKymmWe9o plays its own fade/silent tail during the transition",
+   "trans": 15
+  },
+  {
+   "check": "S1",
+   "t": "54:44",
+   "t_end": "54:49",
+   "sec": 3284.14,
+   "msg": "outgoing MoYkYkoeb84 plays its own fade/silent tail during the transition; then its loop pops back in at 54:49",
+   "trans": 16
+  },
+  {
+   "check": "D1",
+   "t": "54:44",
+   "t_end": "54:45",
+   "sec": 3284.14,
+   "msg": "nT25guf4DRU drop with no build (ramp -1.0 dB, no riser/HPF)"
+  },
+  {
+   "check": "F1",
+   "t": "54:49",
+   "t_end": "54:51",
+   "sec": 3289.66,
+   "msg": "MoYkYkoeb84 vs nT25guf4DRU beats 18.0 ms apart",
+   "trans": 16
+  },
+  {
+   "check": "F1",
+   "t": "54:51",
+   "t_end": "54:52",
+   "sec": 3291.03,
+   "msg": "MoYkYkoeb84 vs nT25guf4DRU beats 16.0 ms apart",
+   "trans": 16
+  },
+  {
+   "check": "F1",
+   "t": "54:55",
+   "t_end": "54:56",
+   "sec": 3295.17,
+   "msg": "MoYkYkoeb84 vs nT25guf4DRU beats 18.0 ms apart",
+   "trans": 16
+  },
+  {
+   "check": "F1",
+   "t": "54:56",
+   "t_end": "54:57",
+   "sec": 3296.55,
+   "msg": "MoYkYkoeb84 vs nT25guf4DRU beats 18.0 ms apart",
+   "trans": 16
+  },
+  {
+   "check": "E1",
+   "t": "56:16",
+   "t_end": "56:20",
+   "sec": 3376.6,
+   "msg": "3s loudness -22.1 LUFS is 10.1 dB under the 30s median -12.1",
+   "unexcused_bars": [
+    "56:16",
+    "56:17"
+   ]
+  },
+  {
+   "check": "N1",
+   "t": "56:55",
+   "t_end": "56:57",
+   "sec": 3415.17,
+   "msg": "K6dMmz0jLcI enters -13 ms off the grid",
+   "trans": 17
+  },
+  {
+   "check": "S1",
+   "t": "58:02",
+   "t_end": "58:11",
+   "sec": 3482.76,
+   "msg": "outgoing nT25guf4DRU plays its own fade/silent tail during the transition; then its loop pops back in at 58:11",
+   "trans": 17
+  },
+  {
+   "check": "E1",
+   "t": "59:26",
+   "t_end": "59:27",
+   "sec": 3566.8,
+   "msg": "3s loudness -19.3 LUFS is 6.8 dB under the 30s median -12.5",
+   "unexcused_bars": [
+    "59:25"
+   ]
+  },
+  {
+   "check": "X1",
+   "t": "60:44",
+   "t_end": "60:49",
+   "sec": 3644.14,
+   "msg": "K6dMmz0jLcI -> N4mzOUMNsuI is an echo-out/stop-start ('echo-out wash with an 8-bar riser over t'), not a blend",
+   "trans": 18
+  },
+  {
+   "check": "O1",
+   "t": "60:44",
+   "t_end": "60:44",
+   "sec": 3644.14,
+   "msg": "only 0 bars with both decks audible at musical level (need >= 8)",
+   "trans": 18
+  }
+ ],
+ "transitions": [
+  {
+   "i": 0,
+   "t": "5:07",
+   "swap": "5:29",
+   "a": "yogt46dJJ4g",
+   "b": "n1dOiesZS1g",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "1B->2B",
+   "flam_max": 14.0,
+   "fails": [
+    "O1",
+    "S1"
+   ]
+  },
+  {
+   "i": 1,
+   "t": "9:10",
+   "swap": "9:32",
+   "a": "n1dOiesZS1g",
+   "b": "AC3eEHeLd8A",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "2B->2B",
+   "flam_max": 12.0,
+   "fails": [
+    "S1"
+   ]
+  },
+  {
+   "i": 2,
+   "t": "11:10",
+   "swap": "11:32",
+   "a": "AC3eEHeLd8A",
+   "b": "F1NCnCxyhqc",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "2B->2A",
+   "flam_max": 22.0,
+   "fails": [
+    "F1"
+   ]
+  },
+  {
+   "i": 3,
+   "t": "13:43",
+   "swap": "14:05",
+   "a": "F1NCnCxyhqc",
+   "b": "_K2sC9nrf_A",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "2A->2A",
+   "flam_max": 6.0,
+   "fails": [
+    "S1"
+   ]
+  },
+  {
+   "i": 4,
+   "t": "17:24",
+   "swap": "18:08",
+   "a": "_K2sC9nrf_A",
+   "b": "rJuyd8koFAU",
+   "tech": "32-bar beat-through blend + 3-band bass swap",
+   "keys": "2A->3A",
+   "flam_max": 0,
+   "fails": [
+    "O1",
+    "S1"
+   ]
+  },
+  {
+   "i": 5,
+   "t": "20:42",
+   "swap": "21:04",
+   "a": "rJuyd8koFAU",
+   "b": "nAV4i1YIwQI",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "3A->3A",
+   "flam_max": 10.0,
+   "fails": [
+    "O1",
+    "S1"
+   ]
+  },
+  {
+   "i": 6,
+   "t": "22:33",
+   "swap": "22:55",
+   "a": "nAV4i1YIwQI",
+   "b": "EiZVTuiqo0w",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "3A->3B",
+   "flam_max": 20.0,
+   "fails": [
+    "O1",
+    "F1"
+   ]
+  },
+  {
+   "i": 7,
+   "t": "26:35",
+   "swap": "26:46",
+   "a": "EiZVTuiqo0w",
+   "b": "KdtDm5cBsFo",
+   "tech": "echo-out wash (1/2-beat ping-pong tail) into a 8-bar breakdown, 8-bar filter+riser +snare-roll build into the drop",
+   "keys": "3B->10A",
+   "flam_max": 0,
+   "fails": [
+    "X1",
+    "O1",
+    "C2",
+    "S1"
+   ]
+  },
+  {
+   "i": 8,
+   "t": "28:22",
+   "swap": "29:17",
+   "a": "KdtDm5cBsFo",
+   "b": "l4XZ-wqc4vQ",
+   "tech": "40-bar beat-through blend + 3-band bass swap",
+   "keys": "10A->9A",
+   "flam_max": 12.0,
+   "fails": [
+    "S1"
+   ]
+  },
+  {
+   "i": 9,
+   "t": "32:20",
+   "swap": "32:20",
+   "a": "l4XZ-wqc4vQ",
+   "b": "uMDP4VTzlBI",
+   "tech": "echo-out wash with an 8-bar riser over the outgoing tail, slamming straight into the incoming drop +snare-roll build into the drop",
+   "keys": "9A->9A",
+   "flam_max": 0,
+   "fails": [
+    "S1",
+    "X1",
+    "O1"
+   ]
+  },
+  {
+   "i": 10,
+   "t": "34:53",
+   "swap": "35:15",
+   "a": "uMDP4VTzlBI",
+   "b": "q_IuTV23x7Q",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "9A->9A",
+   "flam_max": 16.0,
+   "fails": [
+    "S1",
+    "F1",
+    "F1"
+   ]
+  },
+  {
+   "i": 11,
+   "t": "38:34",
+   "swap": "38:56",
+   "a": "q_IuTV23x7Q",
+   "b": "pUUrJH7jzAQ",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "9A->8A",
+   "flam_max": 8.0,
+   "fails": [
+    "S1"
+   ]
+  },
+  {
+   "i": 12,
+   "t": "41:47",
+   "swap": "41:47",
+   "a": "pUUrJH7jzAQ",
+   "b": "5196v8VY1LI",
+   "tech": "echo-out wash (1/2-beat ping-pong tail) into a 8-bar breakdown, 8-bar filter+riser +snare-roll build into the drop",
+   "keys": "8A->6A",
+   "flam_max": 0,
+   "fails": [
+    "X1",
+    "O1"
+   ]
+  },
+  {
+   "i": 13,
+   "t": "44:22",
+   "swap": "44:33",
+   "a": "5196v8VY1LI",
+   "b": "N-j7tIeGm1E",
+   "tech": "echo-out wash (1/2-beat ping-pong tail) into a 8-bar breakdown, 8-bar filter+riser +snare-roll build into the drop",
+   "keys": "6A->6A",
+   "flam_max": 0,
+   "fails": [
+    "X1",
+    "O1"
+   ]
+  },
+  {
+   "i": 14,
+   "t": "46:59",
+   "swap": "47:21",
+   "a": "N-j7tIeGm1E",
+   "b": "6YDKymmWe9o",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "6A->5A",
+   "flam_max": 24.0,
+   "fails": [
+    "O1",
+    "S1",
+    "F1",
+    "F1",
+    "F1",
+    "F1"
+   ]
+  },
+  {
+   "i": 15,
+   "t": "51:25",
+   "swap": "51:47",
+   "a": "6YDKymmWe9o",
+   "b": "MoYkYkoeb84",
+   "tech": "16-bar beat-through blend + 3-band bass swap",
+   "keys": "5A->5A",
+   "flam_max": 20.0,
+   "fails": [
+    "O1",
+    "N1",
+    "F1",
+    "F1",
+    "F1",
+    "S1"
+   ]
+  },
+  {
+   "i": 16,
+   "t": "54:00",
+   "swap": "54:44",
+   "a": "MoYkYkoeb84",
+   "b": "nT25guf4DRU",
+   "tech": "32-bar beat-through blend + 3-band bass swap",
+   "keys": "5A->5A",
+   "flam_max": 18.0,
+   "fails": [
+    "S1",
+    "F1",
+    "F1",
+    "F1",
+    "F1"
+   ]
+  },
+  {
+   "i": 17,
+   "t": "56:53",
+   "swap": "58:00",
+   "a": "nT25guf4DRU",
+   "b": "K6dMmz0jLcI",
+   "tech": "48-bar beat-through blend + 3-band bass swap",
+   "keys": "5A->5B",
+   "flam_max": 12.0,
+   "fails": [
+    "N1",
+    "S1"
+   ]
+  },
+  {
+   "i": 18,
+   "t": "60:44",
+   "swap": "60:44",
+   "a": "K6dMmz0jLcI",
+   "b": "N4mzOUMNsuI",
+   "tech": "echo-out wash with an 8-bar riser over the outgoing tail, slamming straight into the incoming drop +snare-roll build into the drop",
+   "keys": "5B->12B",
+   "flam_max": 0,
+   "fails": [
+    "X1",
+    "O1"
+   ]
+  }
+ ]
+}

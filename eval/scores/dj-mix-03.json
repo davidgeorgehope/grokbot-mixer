@@ -1,0 +1,315 @@
+{
+ "mix": "dj-mix-03",
+ "overall": 80.8,
+ "variety": 69.2,
+ "loop_extensions": null,
+ "primary_techniques": [
+  "16_bar_blend",
+  "16_bar_blend",
+  "short_blend",
+  "short_blend",
+  "16_bar_blend",
+  "32plus_bar_blend",
+  "16_bar_blend",
+  "short_blend",
+  "32plus_bar_blend",
+  "16_bar_blend",
+  "32plus_bar_blend",
+  "16_bar_blend"
+ ],
+ "mean_transition": 86.4,
+ "min_transition": 74.2,
+ "n_transitions": 12,
+ "set_notes": [
+  "median time between transitions 172s vs pro sets 82-275s",
+  "technique labels used: ['16', '32plus', 'beat_clarity_drop', 'breakdown_or_echo_entry', 'double_drop_or_drop_blend', 'hard_bass_swap', 'short_blend', 'vocal_over_transition']",
+  "variety 69.2: top technique '16_bar_blend' = 50% of transitions (pro max share 53%); longest same-technique run 2 (pro median 3.0)"
+ ],
+ "weakest": [
+  "24:34: blend is very long (48 bars; pros mostly 8-24); bass handover smeared over ~26 bars (pros p90 19); low end dips -18.3 dB at the swap (pros p10 -16.4) - a hole in the bass",
+  "22:24: low end dips -33.3 dB at the swap (pros p10 -16.4) - a hole in the bass; key jump of 6 Camelot steps (pros p90 5)",
+  "13:43: beats get muddy in the blend (clarity 0.27x of outside vs pro p10 0.40) - likely grid slip or two kick patterns fighting; low end dips -33.6 dB at the swap (pros p10 -16.4) - a hole in the bass"
+ ],
+ "transitions": [
+  {
+   "idx": 1,
+   "at": "2:33",
+   "time_sec": 153.11,
+   "score": 87.0,
+   "parts": {
+    "overlap_bars": 0.75,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 1.0,
+    "low_dip_db": 0.595,
+    "energy_delta_db": 0.695,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "16_bar_blend",
+    "double_drop_or_drop_blend"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  },
+  {
+   "idx": 2,
+   "at": "4:34",
+   "time_sec": 274.48,
+   "score": 86.9,
+   "parts": {
+    "overlap_bars": 0.75,
+    "swap_len_bars": 0.75,
+    "beat_clarity_ratio": 0.75,
+    "low_dip_db": 1.0,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "16_bar_blend"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  },
+  {
+   "idx": 3,
+   "at": "8:13",
+   "time_sec": 493.8,
+   "score": 97.6,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 1.0,
+    "low_dip_db": 0.75,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "short_blend",
+    "double_drop_or_drop_blend",
+    "hard_bass_swap"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  },
+  {
+   "idx": 4,
+   "at": "10:00",
+   "time_sec": 600.0,
+   "score": 97.6,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 1.0,
+    "low_dip_db": 0.75,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "short_blend",
+    "double_drop_or_drop_blend",
+    "hard_bass_swap",
+    "vocal_over_transition"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  },
+  {
+   "idx": 5,
+   "at": "13:43",
+   "time_sec": 823.45,
+   "score": 81.1,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 0.608,
+    "low_dip_db": 0.0,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "16_bar_blend",
+    "breakdown_or_echo_entry",
+    "vocal_over_transition",
+    "beat_clarity_drop"
+   ],
+   "notes": [
+    "beats get muddy in the blend (clarity 0.27x of outside vs pro p10 0.40) - likely grid slip or two kick patterns fighting",
+    "low end dips -33.6 dB at the swap (pros p10 -16.4) - a hole in the bass"
+   ]
+  },
+  {
+   "idx": 6,
+   "at": "15:42",
+   "time_sec": 942.06,
+   "score": 91.0,
+   "parts": {
+    "overlap_bars": 0.65,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 1.0,
+    "low_dip_db": 1.0,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 0.75,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "32plus_bar_blend",
+    "hard_bass_swap",
+    "vocal_over_transition"
+   ],
+   "notes": [
+    "blend is very long (33 bars; pros mostly 8-24)"
+   ]
+  },
+  {
+   "idx": 7,
+   "at": "19:32",
+   "time_sec": 1172.42,
+   "score": 85.7,
+   "parts": {
+    "overlap_bars": 0.75,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 0.75,
+    "low_dip_db": 1.0,
+    "energy_delta_db": 0.75,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "16_bar_blend",
+    "vocal_over_transition",
+    "beat_clarity_drop"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  },
+  {
+   "idx": 8,
+   "at": "22:24",
+   "time_sec": 1344.83,
+   "score": 78.2,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 0.75,
+    "beat_clarity_ratio": 0.75,
+    "low_dip_db": 0.0,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 0.583,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "short_blend",
+    "breakdown_or_echo_entry",
+    "vocal_over_transition",
+    "beat_clarity_drop"
+   ],
+   "notes": [
+    "low end dips -33.3 dB at the swap (pros p10 -16.4) - a hole in the bass",
+    "key jump of 6 Camelot steps (pros p90 5)"
+   ]
+  },
+  {
+   "idx": 9,
+   "at": "24:34",
+   "time_sec": 1474.47,
+   "score": 74.2,
+   "parts": {
+    "overlap_bars": 0.181,
+    "swap_len_bars": 0.312,
+    "beat_clarity_ratio": 1.0,
+    "low_dip_db": 0.618,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "32plus_bar_blend",
+    "breakdown_or_echo_entry"
+   ],
+   "notes": [
+    "blend is very long (48 bars; pros mostly 8-24)",
+    "bass handover smeared over ~26 bars (pros p90 19)",
+    "low end dips -18.3 dB at the swap (pros p10 -16.4) - a hole in the bass"
+   ]
+  },
+  {
+   "idx": 10,
+   "at": "28:14",
+   "time_sec": 1694.15,
+   "score": 90.8,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 0.75,
+    "low_dip_db": 0.664,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "16_bar_blend",
+    "double_drop_or_drop_blend",
+    "vocal_over_transition"
+   ],
+   "notes": [
+    "inside pro ranges"
+   ]
+  },
+  {
+   "idx": 11,
+   "at": "32:12",
+   "time_sec": 1932.76,
+   "score": 81.4,
+   "parts": {
+    "overlap_bars": 0.15,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 1.0,
+    "low_dip_db": 0.75,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 1.0,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "32plus_bar_blend",
+    "breakdown_or_echo_entry",
+    "hard_bass_swap",
+    "vocal_over_transition"
+   ],
+   "notes": [
+    "blend is very long (49 bars; pros mostly 8-24)"
+   ]
+  },
+  {
+   "idx": 12,
+   "at": "34:40",
+   "time_sec": 2080.35,
+   "score": 85.7,
+   "parts": {
+    "overlap_bars": 1.0,
+    "swap_len_bars": 1.0,
+    "beat_clarity_ratio": 0.75,
+    "low_dip_db": 0.372,
+    "energy_delta_db": 1.0,
+    "camelot_dist": 0.75,
+    "vocal_active_frac_overlap": 1.0
+   },
+   "techniques": [
+    "16_bar_blend",
+    "breakdown_or_echo_entry",
+    "vocal_over_transition"
+   ],
+   "notes": [
+    "low end dips -21.9 dB at the swap (pros p10 -16.4) - a hole in the bass"
+   ]
+  }
+ ]
+}

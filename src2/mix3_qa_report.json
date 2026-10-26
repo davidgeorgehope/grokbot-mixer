@@ -1,0 +1,266 @@
+[
+ {
+  "a": "AC3eEHeLd8A",
+  "b": "F1NCnCxyhqc",
+  "tech": "16-bar beat-through blend + 3-band bass swap",
+  "t": "2:22",
+  "grid_phase_dev_ms": 3.0,
+  "drift_ms": 5,
+  "drift_windows": 15,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.89
+  },
+  "downbeat_B": {
+   "lag_ms": 0,
+   "corr": 0.99
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "2B->2A",
+  "key_ok": true,
+  "harm_overlap": 30
+ },
+ {
+  "a": "F1NCnCxyhqc",
+  "b": "rJuyd8koFAU",
+  "tech": "32-bar beat-through blend + 3-band bass swap",
+  "t": "4:33",
+  "grid_phase_dev_ms": 4.0,
+  "drift_ms": 5,
+  "drift_windows": 16,
+  "downbeat_A": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": 0,
+   "corr": 0.99
+  },
+  "overlap_bars": 48,
+  "echo": false,
+  "keys": "2A->3A",
+  "key_ok": true,
+  "harm_overlap": 34
+ },
+ {
+  "a": "rJuyd8koFAU",
+  "b": "nAV4i1YIwQI",
+  "tech": "16-bar beat-through blend + 3-band bass swap",
+  "t": "7:51",
+  "grid_phase_dev_ms": 6.0,
+  "drift_ms": 6,
+  "drift_windows": 14,
+  "downbeat_A": {
+   "lag_ms": -4,
+   "corr": 0.98
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.97
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "3A->3A",
+  "key_ok": true,
+  "harm_overlap": 22
+ },
+ {
+  "a": "nAV4i1YIwQI",
+  "b": "EiZVTuiqo0w",
+  "tech": "16-bar beat-through blend + 3-band bass swap",
+  "t": "9:42",
+  "grid_phase_dev_ms": 3.0,
+  "drift_ms": 5,
+  "drift_windows": 12,
+  "downbeat_A": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "3A->3B",
+  "key_ok": true,
+  "harm_overlap": 30
+ },
+ {
+  "a": "EiZVTuiqo0w",
+  "b": "KdtDm5cBsFo",
+  "tech": "echo-out wash (1/2-beat ping-pong tail) into a 8-bar breakdown, 8-bar filter+riser +snare-roll build into the drop",
+  "t": "13:44",
+  "grid_phase_dev_ms": 10.0,
+  "drift_ms": 5,
+  "drift_windows": 5,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 1.0
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "overlap_bars": 0,
+  "echo": true,
+  "keys": "3B->10A",
+  "key_ok": false,
+  "harm_overlap": 0
+ },
+ {
+  "a": "KdtDm5cBsFo",
+  "b": "l4XZ-wqc4vQ",
+  "tech": "40-bar beat-through blend + 3-band bass swap",
+  "t": "15:31",
+  "grid_phase_dev_ms": 3.0,
+  "drift_ms": 5,
+  "drift_windows": 18,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.96
+  },
+  "downbeat_B": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "overlap_bars": 56,
+  "echo": false,
+  "keys": "10A->9A",
+  "key_ok": true,
+  "harm_overlap": 40
+ },
+ {
+  "a": "l4XZ-wqc4vQ",
+  "b": "uMDP4VTzlBI",
+  "tech": "echo-out wash with an 8-bar riser over the outgoing tail, slamming straight into the incoming drop +snare-roll build into the drop",
+  "t": "19:29",
+  "grid_phase_dev_ms": 29.0,
+  "drift_ms": 3,
+  "drift_windows": 3,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 1.0
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "overlap_bars": 0,
+  "echo": true,
+  "keys": "9A->9A",
+  "key_ok": true,
+  "harm_overlap": 0
+ },
+ {
+  "a": "uMDP4VTzlBI",
+  "b": "5196v8VY1LI",
+  "tech": "echo-out wash (1/2-beat ping-pong tail) into a 8-bar breakdown, 8-bar filter+riser +snare-roll build into the drop",
+  "t": "22:31",
+  "grid_phase_dev_ms": 3.0,
+  "drift_ms": 8,
+  "drift_windows": 4,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 1.0
+  },
+  "downbeat_B": {
+   "lag_ms": -4,
+   "corr": 0.98
+  },
+  "overlap_bars": 0,
+  "echo": true,
+  "keys": "9A->6A",
+  "key_ok": false,
+  "harm_overlap": 0
+ },
+ {
+  "a": "5196v8VY1LI",
+  "b": "MoYkYkoeb84",
+  "tech": "echo-out wash (1/2-beat ping-pong tail) into a 4-bar breakdown, 8-bar filter+riser +snare-roll build into the drop",
+  "t": "25:06",
+  "grid_phase_dev_ms": 6.0,
+  "drift_ms": 5,
+  "drift_windows": 7,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": 0,
+   "corr": 0.99
+  },
+  "overlap_bars": 0,
+  "echo": true,
+  "keys": "6A->5A",
+  "key_ok": true,
+  "harm_overlap": 0
+ },
+ {
+  "a": "MoYkYkoeb84",
+  "b": "nT25guf4DRU",
+  "tech": "32-bar beat-through blend + 3-band bass swap",
+  "t": "27:35",
+  "grid_phase_dev_ms": 6.0,
+  "drift_ms": 6.0,
+  "drift_windows": 16,
+  "downbeat_A": {
+   "lag_ms": -4,
+   "corr": 0.97
+  },
+  "downbeat_B": {
+   "lag_ms": 0,
+   "corr": 1.0
+  },
+  "overlap_bars": 48,
+  "echo": false,
+  "keys": "5A->5A",
+  "key_ok": true,
+  "harm_overlap": 35
+ },
+ {
+  "a": "nT25guf4DRU",
+  "b": "K6dMmz0jLcI",
+  "tech": "48-bar beat-through blend + 3-band bass swap",
+  "t": "30:28",
+  "grid_phase_dev_ms": 5.0,
+  "drift_ms": 5,
+  "drift_windows": 20,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 1.0
+  },
+  "overlap_bars": 64,
+  "echo": false,
+  "keys": "5A->5B",
+  "key_ok": true,
+  "harm_overlap": 47
+ },
+ {
+  "a": "K6dMmz0jLcI",
+  "b": "N4mzOUMNsuI",
+  "tech": "echo-out wash with an 8-bar riser over the outgoing tail, slamming straight into the incoming drop +snare-roll build into the drop",
+  "t": "34:19",
+  "grid_phase_dev_ms": 9.0,
+  "drift_ms": 3,
+  "drift_windows": 4,
+  "downbeat_A": {
+   "lag_ms": 0,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 1.0
+  },
+  "overlap_bars": 0,
+  "echo": true,
+  "keys": "5B->12B",
+  "key_ok": false,
+  "harm_overlap": 0
+ }
+]

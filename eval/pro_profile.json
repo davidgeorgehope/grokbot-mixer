@@ -1,0 +1,199 @@
+{
+ "sources": [
+  "wilkinson_boomtown2026",
+  "dimension_allstars360",
+  "wilkinson_oldguard",
+  "hospital_podcast393"
+ ],
+ "sets_used": [
+  "wilkinson_boomtown2026",
+  "dimension_allstars360",
+  "wilkinson_oldguard",
+  "hospital_podcast393"
+ ],
+ "n_transitions": 77,
+ "metrics": {
+  "overlap_bars": {
+   "n": 77,
+   "mean": 16.974,
+   "p10": 4.0,
+   "p25": 8.0,
+   "median": 14.0,
+   "p75": 24.0,
+   "p90": 29.8
+  },
+  "swap_len_bars": {
+   "n": 77,
+   "mean": 7.377,
+   "p10": 2.0,
+   "p25": 2.0,
+   "median": 4.0,
+   "p75": 10.0,
+   "p90": 19.0
+  },
+  "swap_pos_in_overlap": {
+   "n": 77,
+   "mean": 0.55,
+   "p10": -0.33,
+   "p25": 0.06,
+   "median": 0.58,
+   "p75": 0.93,
+   "p90": 1.25
+  },
+  "swap_to_drop_bars": {
+   "n": 69,
+   "mean": 10.768,
+   "p10": -15.4,
+   "p25": -1.0,
+   "median": 8.0,
+   "p75": 27.0,
+   "p90": 33.0
+  },
+  "low_dip_db": {
+   "n": 77,
+   "mean": -9.548,
+   "p10": -16.38,
+   "p25": -12.6,
+   "median": -8.9,
+   "p75": -5.3,
+   "p90": -2.86
+  },
+  "energy_delta_db": {
+   "n": 77,
+   "mean": -0.325,
+   "p10": -2.84,
+   "p25": -1.1,
+   "median": -0.2,
+   "p75": 0.9,
+   "p90": 1.78
+  },
+  "overlap_level_db": {
+   "n": 77,
+   "mean": -2.505,
+   "p10": -4.48,
+   "p25": -2.9,
+   "median": -2.2,
+   "p75": -1.3,
+   "p90": -0.86
+  },
+  "beat_clarity_ratio": {
+   "n": 77,
+   "mean": 2.946,
+   "p10": 0.396,
+   "p25": 0.714,
+   "median": 0.932,
+   "p75": 1.154,
+   "p90": 1.484
+  },
+  "camelot_dist": {
+   "n": 77,
+   "mean": 2.403,
+   "p10": 0.0,
+   "p25": 1.0,
+   "median": 3.0,
+   "p75": 4.0,
+   "p90": 5.0
+  },
+  "vocal_active_frac_overlap": {
+   "n": 77,
+   "mean": 0.564,
+   "p10": 0.112,
+   "p25": 0.32,
+   "median": 0.6,
+   "p75": 0.87,
+   "p90": 0.964
+  },
+  "vocal_chroma_entropy": {
+   "n": 71,
+   "mean": 3.333,
+   "p10": 3.134,
+   "p25": 3.266,
+   "median": 3.389,
+   "p75": 3.461,
+   "p90": 3.501
+  }
+ },
+ "technique_freq": {
+  "vocal_over_transition": 0.584,
+  "short_blend": 0.532,
+  "16_bar_blend": 0.364,
+  "breakdown_or_echo_entry": 0.312,
+  "hard_bass_swap": 0.299,
+  "double_drop_or_drop_blend": 0.26,
+  "beat_clarity_drop": 0.182,
+  "32plus_bar_blend": 0.078,
+  "cut": 0.026
+ },
+ "primary_technique_freq": {
+  "short_blend": 0.532,
+  "16_bar_blend": 0.364,
+  "32plus_bar_blend": 0.078,
+  "cut": 0.026
+ },
+ "max_same_technique_run_median": 3.0,
+ "overlap_bars_hist_8bar_bins": {
+  "0-7": 19,
+  "8-15": 24,
+  "16-23": 12,
+  "24-31": 16,
+  "32-39": 3,
+  "40-47": 0,
+  "48-55": 1,
+  "56-63": 1
+ },
+ "swap_on_8bar_grid_pm1": 0.377,
+ "per_set": {
+  "wilkinson_boomtown2026": {
+   "detection": "anchored",
+   "bpm": 175.66,
+   "duration_min": 73.1,
+   "n_transitions": 20,
+   "median_track_time_sec": 194.1,
+   "median_overlap_bars": 11.5,
+   "energy_arc_range_db": 6.0
+  },
+  "dimension_allstars360": {
+   "detection": "blind",
+   "bpm": 177.62,
+   "duration_min": 56.7,
+   "n_transitions": 24,
+   "median_track_time_sec": 63.4,
+   "median_overlap_bars": 24.0,
+   "energy_arc_range_db": 4.9
+  },
+  "wilkinson_oldguard": {
+   "detection": "blind",
+   "bpm": 177.62,
+   "duration_min": 62.1,
+   "n_transitions": 23,
+   "median_track_time_sec": 126.1,
+   "median_overlap_bars": 15.0,
+   "energy_arc_range_db": 11.3
+  },
+  "hospital_podcast393": {
+   "detection": "anchored",
+   "bpm": 173.32,
+   "duration_min": 60.2,
+   "n_transitions": 10,
+   "median_track_time_sec": 309.6,
+   "median_overlap_bars": 11.5,
+   "energy_arc_range_db": 9.6
+  }
+ },
+ "set_level": {
+  "track_time_sec": {
+   "n": 4,
+   "mean": 173.3,
+   "p10": 82.21,
+   "p25": 110.425,
+   "median": 160.1,
+   "p75": 222.975,
+   "p90": 274.95
+  }
+ },
+ "caveats": [
+  "Track boundaries for Wilkinson Boomtown and Hospital 393 are anchored to published YouTube chapter timestamps; Dimension and Old Guard are blind-detected (higher false-positive/miss risk).",
+  "Vocal metrics include MC/hype vocals in live sets (Wilkinson Boomtown has MC AD-APT).",
+  "Overlap length validated on dj-mix-01 (truth: 16 bars every transition) - see eval/validation.json for measured error."
+ ]
+}

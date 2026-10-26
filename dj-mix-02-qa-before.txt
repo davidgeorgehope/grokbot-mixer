@@ -1,0 +1,89 @@
+..F..FF..FFF                                                             [100%]
+=================================== FAILURES ===================================
+____________________________ test_downbeats_aligned ____________________________
+
+T = [{'a': '1q43f05ChUs', 'b': 'OPuVVhbkicU', 'tech': '32-bar beat-through blend + 3-band bass swap', 't': '3:39', ...}, {...a': 'hNV8hn33JUU', 'b': 'hY2IB2gGC14', 'tech': '32-bar beat-through blend + 3-band bass swap', 't': '16:30', ...}, ...]
+
+    def test_downbeats_aligned(T):
+      assert all(float(d['start_bar']).is_integer() for d in C.decks())
+>     bad=[(r['t'],r['a'],r['b'],r['downbeat_A'],r['downbeat_B']) for r in T for x in (r['downbeat_A'],r['downbeat_B']) if abs(x['lag_ms'])>C.TOL_DRIFT_MS];assert not bad,bad
+                                                                                                                                                            ^^^^^^^^^^^^^^^^^^
+E     AssertionError: [('16:30', 'hNV8hn33JUU', 'hY2IB2gGC14', {'lag_ms': -2, 'corr': 0.97}, {'lag_ms': -458, 'corr': 0.05}), ('19:39', 'hY2IB2gGC14', 'FYpf8-UvCUk', {'lag_ms': 298, 'corr': 0.06}, {'lag_ms': -4, 'corr': 0.99})]
+E     assert not [('16:30', 'hNV8hn33JUU', 'hY2IB2gGC14', {'lag_ms': -2, 'corr': 0.97}, {'lag_ms': -458, 'corr': 0.05}), ('19:39', 'hY2IB2gGC14', 'FYpf8-UvCUk', {'lag_ms': 298, 'corr': 0.06}, {'lag_ms': -4, 'corr': 0.99})]
+
+test_mix.py:13: AssertionError
+________________________ test_anchor_tracks_long_enough ________________________
+
+    def test_anchor_tracks_long_enough():
+      m=C.meta();anchors=[p['id'] for p in m['plan'] if p.get('anchor')]
+      for a in anchors:
+        d=[x for x in C.decks() if x['id']==a and not x['acap']][0];s=(d['end_bar']-d['start_bar'])*C.BAR
+>       assert s>=C.MIN_ANCHOR_S,f'{a} only {s:.0f}s'
+E       AssertionError: hY2IB2gGC14 only 189s
+E       assert 188.96551724137933 >= 210
+E        +  where 210 = C.MIN_ANCHOR_S
+
+test_mix.py:22: AssertionError
+______________________ test_no_unintentional_energy_drops ______________________
+
+    def test_no_unintentional_energy_drops():
+>     bad=[e for e in C.energy_events() if not e['phrase'] and not e['echo']];assert not bad,bad
+                                                                              ^^^^^^^^^^^^^^^^^^
+E     AssertionError: [{'bar': 786, 't': '18:04', 'drop_db': 9.0, 'phrase': False, ...}]
+E     assert not [{'bar': 786, 't': '18:04', 'drop_db': 9.0, 'phrase': False, ...}]
+
+test_mix.py:24: AssertionError
+______________________ test_every_deck_on_its_planned_bar ______________________
+
+    def test_every_deck_on_its_planned_bar():
+      bad=[]
+      for d in C.decks():
+        if d['acap'] or d['end_bar']-d['start_bar']<24:continue
+        mid=(d['start_bar']+d['end_bar'])//2;a=C.deck_alignment(d,mid)
+        if abs(a['lag_ms'])>C.TOL_DRIFT_MS:bad.append((d['id'],round(mid*C.BAR/60,2),a))
+>     assert not bad,bad
+E     AssertionError: [('hY2IB2gGC14', 18.07, {'lag_ms': -392, 'corr': 0.13})]
+E     assert not [('hY2IB2gGC14', 18.07, {'lag_ms': -392, 'corr': 0.13})]
+
+test_mix.py:39: AssertionError
+_____________________________ test_no_vocal_clash ______________________________
+
+    def test_no_vocal_clash():
+>     bad=[c for c in C.vocal_clashes() if not c['whitelisted'] and c['bars']>=1];assert not bad,bad
+                                                                                  ^^^^^^^^^^^^^^^^^^
+E     AssertionError: [{'a': 'hY2IB2gGC14', 'b': 'hNV8hn33JUU', 'bars': 8, 't': '16:52', ...}]
+E     assert not [{'a': 'hY2IB2gGC14', 'b': 'hNV8hn33JUU', 'bars': 8, 't': '16:52', ...}]
+
+test_mix.py:41: AssertionError
+_________________ test_mixdown_beats_aligned_every_overlap_bar _________________
+
+    def test_mixdown_beats_aligned_every_overlap_bar():
+      R=C.bar_alignment_report();bad=[r for r in R if abs(r['lag'])>C.TOL_DRIFT_MS]
+      assert len(R)>50,'too few measurable overlap bars'
+>     assert not bad,f'{len(bad)}/{len(R)} overlap bars off by >10ms: {bad[:15]}'
+E     AssertionError: 1/594 overlap bars off by >10ms: [{'bar': 983, 'deck': 'onLHBSeOOJg', 'lag': -14, 'corr': 0.7}]
+E     assert not [{'bar': 983, 'deck': 'onLHBSeOOJg', 'lag': -14, 'corr': 0.7}]
+
+test_mix.py:45: AssertionError
+
+PER-TRANSITION REPORT
+{'a': '1q43f05ChUs', 'b': 'OPuVVhbkicU', 'tech': '32-bar beat-through blend + 3-band bass swap', 't': '3:39', 'grid_phase_dev_ms': 4.0, 'drift_ms': 6, 'drift_windows': 16, 'downbeat_A': {'lag_ms': -4, 'corr': 0.93}, 'downbeat_B': {'lag_ms': -2, 'corr': 1.0}, 'overlap_bars': 48, 'echo': False, 'keys': '6A->7A', 'key_ok': True, 'harm_overlap': 24}
+{'a': 'OPuVVhbkicU', 'b': 'rpIpJQ7ujzc', 'tech': 'double drop (drops layered; incoming takes the bass, outgoing drums/top ride 16 bars)', 't': '6:27', 'grid_phase_dev_ms': 4.0, 'drift_ms': 6, 'drift_windows': 18, 'downbeat_A': {'lag_ms': -2, 'corr': 0.9}, 'downbeat_B': {'lag_ms': -2, 'corr': 0.94}, 'overlap_bars': 40, 'echo': False, 'keys': '7A->7A', 'key_ok': True, 'harm_overlap': 38}
+{'a': 'rpIpJQ7ujzc', 'b': '5gFutO20uKA', 'tech': '32-bar beat-through blend + 3-band bass swap', 't': '8:35', 'grid_phase_dev_ms': 8.0, 'drift_ms': 8.0, 'drift_windows': 16, 'downbeat_A': {'lag_ms': -4, 'corr': 0.97}, 'downbeat_B': {'lag_ms': -2, 'corr': 0.99}, 'overlap_bars': 48, 'echo': False, 'keys': '7A->8A', 'key_ok': True, 'harm_overlap': 38}
+{'a': '5gFutO20uKA', 'b': 'gbD9mt0T10g', 'tech': 'echo-out (1/2-beat ping-pong delay tail) into the next track', 't': '11:37', 'grid_phase_dev_ms': 31.2, 'drift_ms': 3, 'drift_windows': 4, 'downbeat_A': {'lag_ms': -2, 'corr': 1.0}, 'downbeat_B': {'lag_ms': -2, 'corr': 1.0}, 'overlap_bars': 0, 'echo': True, 'keys': '8A->10B', 'key_ok': False, 'harm_overlap': 0}
+{'a': 'gbD9mt0T10g', 'b': 'hNV8hn33JUU', 'tech': 'double drop (drops layered; incoming takes the bass, outgoing drums/top ride 16 bars)', 't': '13:28', 'grid_phase_dev_ms': 7.0, 'drift_ms': 7.0, 'drift_windows': 19, 'downbeat_A': {'lag_ms': -2, 'corr': 0.87}, 'downbeat_B': {'lag_ms': 0, 'corr': 0.95}, 'overlap_bars': 40, 'echo': False, 'keys': '10B->10B', 'key_ok': True, 'harm_overlap': 38}
+{'a': 'hNV8hn33JUU', 'b': 'hY2IB2gGC14', 'tech': '32-bar beat-through blend + 3-band bass swap', 't': '16:30', 'grid_phase_dev_ms': 5.0, 'drift_ms': 6, 'drift_windows': 10, 'downbeat_A': {'lag_ms': -2, 'corr': 0.97}, 'downbeat_B': {'lag_ms': -458, 'corr': 0.05}, 'overlap_bars': 48, 'echo': False, 'keys': '10B->10B', 'key_ok': True, 'harm_overlap': 35}
+{'a': 'hY2IB2gGC14', 'b': 'FYpf8-UvCUk', 'tech': 'echo-out (1/2-beat ping-pong delay tail) into the next track', 't': '19:39', 'grid_phase_dev_ms': 2.0, 'drift_ms': 3, 'drift_windows': 3, 'downbeat_A': {'lag_ms': 298, 'corr': 0.06}, 'downbeat_B': {'lag_ms': -4, 'corr': 0.99}, 'overlap_bars': 0, 'echo': True, 'keys': '10B->4A', 'key_ok': False, 'harm_overlap': 0}
+{'a': 'FYpf8-UvCUk', 'b': 'onLHBSeOOJg', 'tech': '32-bar beat-through blend + 3-band bass swap', 't': '22:15', 'grid_phase_dev_ms': 5.0, 'drift_ms': 5, 'drift_windows': 16, 'downbeat_A': {'lag_ms': -4, 'corr': 1.0}, 'downbeat_B': {'lag_ms': 0, 'corr': 0.99}, 'overlap_bars': 48, 'echo': False, 'keys': '4A->3A', 'key_ok': True, 'harm_overlap': 33}
+{'a': 'onLHBSeOOJg', 'b': 'h1RNzaTfRyY', 'tech': '32-bar beat-through blend + 3-band bass swap', 't': '24:30', 'grid_phase_dev_ms': 7.0, 'drift_ms': 7.0, 'drift_windows': 16, 'downbeat_A': {'lag_ms': 0, 'corr': 0.9}, 'downbeat_B': {'lag_ms': 0, 'corr': 1.0}, 'overlap_bars': 48, 'echo': False, 'keys': '3A->4A', 'key_ok': True, 'harm_overlap': 15}
+{'a': 'h1RNzaTfRyY', 'b': 'luB7w7JBT14', 'tech': 'echo-out (1/2-beat ping-pong delay tail) into the next track', 't': '28:56', 'grid_phase_dev_ms': 6.0, 'drift_ms': 2, 'drift_windows': 5, 'downbeat_A': {'lag_ms': -2, 'corr': 0.99}, 'downbeat_B': {'lag_ms': -4, 'corr': 0.99}, 'overlap_bars': 0, 'echo': True, 'keys': '4A->1A', 'key_ok': False, 'harm_overlap': 0}
+{'a': 'luB7w7JBT14', 'b': 'j9AuFRpLk7U', 'tech': '32-bar beat-through blend + 3-band bass swap', 't': '31:53', 'grid_phase_dev_ms': 7.0, 'drift_ms': 7.0, 'drift_windows': 10, 'downbeat_A': {'lag_ms': -4, 'corr': 0.56}, 'downbeat_B': {'lag_ms': -2, 'corr': 0.69}, 'overlap_bars': 48, 'echo': False, 'keys': '1A->1A', 'key_ok': True, 'harm_overlap': 39}
+{'a': 'j9AuFRpLk7U', 'b': 'PYxgKt-Sr9A', 'tech': 'double drop (drops layered; incoming takes the bass, outgoing drums/top ride 16 bars)', 't': '33:43', 'grid_phase_dev_ms': 3.0, 'drift_ms': 5, 'drift_windows': 15, 'downbeat_A': {'lag_ms': -2, 'corr': 0.99}, 'downbeat_B': {'lag_ms': 0, 'corr': 0.99}, 'overlap_bars': 40, 'echo': False, 'keys': '1A->1A', 'key_ok': True, 'harm_overlap': 38}
+=========================== short test summary info ============================
+FAILED test_mix.py::test_downbeats_aligned - AssertionError: [('16:30', 'hNV8...
+FAILED test_mix.py::test_anchor_tracks_long_enough - AssertionError: hY2IB2gG...
+FAILED test_mix.py::test_no_unintentional_energy_drops - AssertionError: [{'b...
+FAILED test_mix.py::test_every_deck_on_its_planned_bar - AssertionError: [('h...
+FAILED test_mix.py::test_no_vocal_clash - AssertionError: [{'a': 'hY2IB2gGC14...
+FAILED test_mix.py::test_mixdown_beats_aligned_every_overlap_bar - AssertionE...
+6 failed, 6 passed, 1 deselected in 54.48s

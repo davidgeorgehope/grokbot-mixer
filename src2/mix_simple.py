@@ -1,7 +1,10 @@
 """The mix engine (crossfader only, the listener 2026-10-28): two decks, ONE crossfader x(t) 0->1 per blend,
 deck gains derived only from x (equal-power), channel faders at unity, no stems/EQ/ducking in playback.
 Vocal clashes avoided by choosing mix points from full-track analysis; else loop a clean instrumental
-phrase (seams overlap-added at bar boundaries)."""
+phrase (seams overlap-added at bar boundaries).
+Bass handoff (BASS_SWAP_BARS, default 2; 0 = off): the only EQ move. At each blend's midpoint the outgoing deck's
+low band (<150 Hz) ramps 1->0 while the incoming one ramps 0->1 (raised cosine), so one bassline plays at a time.
+Window choice uses cached Demucs activity maps (bar.voc, bar.bass) for analysis only."""
 import numpy as np,soundfile as sf,json,sys,os
 from engine import track,render_deck,SR,BAR,BEAT,BS
 plan=json.load(open(sys.argv[sys.argv.index('--plan')+1]));OUT=sys.argv[sys.argv.index('--out')+1]
@@ -16,19 +19,26 @@ def clean_phrases(b):
 # per-track in/out plan: score every phrase-aligned candidate window by simulating the guardrails
 # (V1 vocal clash, L1 double bass, O1 both audible >=8 bars, C2 outgoing not too quiet) under the crossfader.
 ANCH={p['id'] for p in plan if p.get('anchor')};HEAVY=float(os.environ.get('HEAVY',-6))
+SW=float(os.environ.get('BASS_SWAP_BARS',2))
 def F(b):
   g=track(b)['g']['bar'];al=np.array(g['all'],float);lo=np.array(g['low'],float);v=np.array(g.get('voc',[-100]*len(al)),float)
-  return al,lo,v,float(np.percentile(v,95))
+  bs=np.array(g['bass'],float) if 'bass' in g else None
+  bact=(bs>np.percentile(bs,90)-10) if bs is not None else (lo-al>HEAVY)
+  return al,lo,v,float(np.percentile(v,95)),bact
 def score(a,b,wa,wb,refA):
-  alA,loA,vA,rvA=F(a);alB,loB,vB,rvB=F(b);V=L=C=both=0
+  alA,loA,vA,rvA,bA=F(a);alB,loB,vB,rvB,bB=F(b);V=L=C=both=G=0
   for k,(xa,xb) in enumerate(zip(wa,wb)):
     x=(k+0.5)/X;ga,gb=np.cos(x*np.pi/2),np.sin(x*np.pi/2);da,dbb=20*np.log10(ga),20*np.log10(gb)
     LA,LB=alA[xa]+da,alB[xb]+dbb
     if LA>refA-12 and LB>refA-12:both+=1
     if k<X/2 and LA<refA-10:C+=1
     if vA[xa]>rvA-12 and ga>0.3 and vB[xb]>rvB-12 and gb>0.3:V+=1
-    if loA[xa]-alA[xa]>HEAVY and loB[xb]-alB[xb]>HEAVY and min(loA[xa]+da,loB[xb]+dbb)>refA-12:L+=1
-  return dict(V=V,L=L,C=C,both=both,pen=10*V+4*L+6*max(0,8-both)+3*C)
+    if SW>0:  # with the bass handoff only the swap bars can double up; elsewhere the bassline must not drop out
+      if abs(k+0.5-X/2)<SW/2+0.5:
+        if bA[xa] and bB[xb]:L+=1
+      elif (k<X/2 and not bA[xa]) or (k>=X/2 and not bB[xb]):G+=1
+    elif loA[xa]-alA[xa]>HEAVY and loB[xb]-alB[xb]>HEAVY and min(loA[xa]+da,loB[xb]+dbb)>refA-12:L+=1
+  return dict(V=V,L=L,C=C,both=both,G=G,pen=10*V+4*L+6*max(0,8-both)+3*C+float(os.environ.get('GAPPEN',0.5))*G)
 inn={ids[0]:0};outs={};loops={};notes={};info_={}
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];ta,ala,ba,va,na=A_(a);tb,alb,bb,vb,nb=A_(b)
@@ -75,7 +85,7 @@ for i in range(len(ids)-1):
   A,B=decks[i],decks[i+1];s=B['start_bar'];e=s+X
   xs=[[s+k/4,round(k/(4*X),5)] for k in range(4*X+1)]  # crossfader position per beat, linear 0->1
   n,cl=notes[(A['id'],B['id'])]
-  trans.append(dict(tech=f'{X}-bar crossfader blend (equal-power, single control)',a=A['id'],b=B['id'],start_bar=s,swap_bar=s+X//2,end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,notes=n or ['vocal-free mix points chosen from full-track analysis']))
+  trans.append(dict(tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+X//2,end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+X/2-SW/2,s+X/2+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
 def gA(x):return float(np.cos(x*np.pi/2))
 def gB(x):return float(np.sin(x*np.pi/2))
 for i,d in enumerate(decks):
@@ -83,6 +93,13 @@ for i,d in enumerate(decks):
   if i>0:g+=[[p[0],gB(p[1])] for p in trans[i-1]['xfader']]
   if i<len(decks)-1:g+=[[p[0],gA(p[1])] for p in trans[i]['xfader']]
   d['auto']={'gain':g}
+  if SW>0:
+    lo=[]
+    def ramp(c,up):
+      return [[c-SW/2+SW*j/16,round(float((1-np.cos(np.pi*j/16))/2 if up else (1+np.cos(np.pi*j/16))/2),5)] for j in range(17)]
+    if i>0:lo+=ramp(trans[i-1]['swap_bar'],True)
+    if i<len(decks)-1:lo+=ramp(trans[i]['swap_bar'],False)
+    d['auto']['low']=lo
   d['end_bar']=d['start_bar']+len(d['full_map']);d['echo']=False;d['label']='';d['map']=d['full_map'][:1]+d['full_map'][-1:];d['acap']=False;d['drop_bar']=None
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])

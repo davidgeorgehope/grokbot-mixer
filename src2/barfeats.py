@@ -1,4 +1,4 @@
-"""Per-bar dB features -> st/<id>.json["bar"]: all, low (<150 Hz), hat (6-16 kHz), voc + drums (from temporary demucs stems).
+"""Per-bar dB features -> st/<id>.json["bar"]: all, low (<150 Hz), hat (6-16 kHz), voc + drums + bass (from temporary demucs stems).
 usage: BF='st/<id>.json' python3 barfeats.py   (default: every st/*.json)"""
 import numpy as np,json,glob,os,soundfile as sf
 from scipy.signal import butter,sosfilt
@@ -16,12 +16,13 @@ for f in sorted(glob.glob(os.environ.get('BF','st/*.json'))):
   if os.path.exists(vp):
     v,_=sf.read(vp);E['voc']=v.mean(1)**2
     d,_=sf.read(f'{SEP}/{b}/drums.wav');E['drums']=d.mean(1)**2
+    d,_=sf.read(f'{SEP}/{b}/bass.wav');E['bass']=d.mean(1)**2
   feats={k:[] for k in E}
   for d0 in downs:
     i0=int(d0*SR);i1=int((d0+bar)*SR)
     for k in E:feats[k].append(float(10*np.log10(E[k][i0:i1].mean()+1e-10)) if i1<=len(m) else -100)
   old=g.get('bar',{});g['bar']={k:np.round(v,2).tolist() for k,v in feats.items()}
-  for k in ('voc','drums'):  # no stems now: keep the cached vocal/drum features
+  for k in ('voc','drums','bass'):  # no stems now: keep the cached vocal/drum features
     if k not in g['bar'] and k in old:g['bar'][k]=old[k]
   json.dump(g,open(f,'w'))
   lo=np.array(feats['low']);ref=np.percentile(lo,90);bass=lo>ref-8

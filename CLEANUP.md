@@ -38,3 +38,15 @@
 - Single entry point: src/render_and_test.sh.
 - pytest on mixS: 6 failed / 17 passed. Before: 6 failed / 27 passed. The same 6 known failures remain; the 10 deleted Q1/H1/M1 tests account for the difference in the pass count.
 - Guardrails on mixS: 39 fails (V1 6, O1 4, N1 5, R1 6, L1 14, E1 3, E2 1). Before: 38 fails (V1 6, O1 7, N1 5, R1 5, L1 11, E1 3, E2 1). Per-deck renders now go through the real engine (1-beat seams) instead of the old Deck path, so the deck-alone checks shift slightly.
+
+## Checkpoint 2026-10-28 11:52 ET
+- Cleanup pushed: private yt-dj-crate main 98cc779c, public grokbot-mixer main 98f5b93c. The public audit passed. No open PRs.
+- Visuals: rendering visuals/dj-mix-03-60-mixS-visuals-1080p30.mp4 from the new tracks JSON mix03_60_tracks.json. The YouTube description is ready in /tmp/yt_desc_03.txt.
+- home Mac reachable over ssh (checked 08:05).
+
+## Checkpoint 2026-10-28 11:52 PDT — Mix 03 (mixS) visuals delivered
+- YouTube (private, the listener Hope channel): https://youtu.be/aKG5Jxs1Prk ("DJ Grok Bot - Mix 03 (60 min)")
+- iCloud "DJ Mixes" on the home Mac: replaced "DJ Mix 03 - Liquid 60 min (Visuals).mp4" (old partial 202 MB copy) with the new video (2,167,391,012 bytes, size verified)
+- Deleted local visuals/dj-mix-03-60-visuals-1080p30.mp4 (old v3 video)
+- src/yt_upload.py: added resume-on-network-error retry (first attempt died with RemoteDisconnected at 0%)
+- Not done: old v3 private YouTube video https://youtu.be/hsMGVeo8tMQ is still up (script has upload scope only, no delete)

@@ -26,3 +26,17 @@ def test_x1_on_mix():
   M=json.load(open(f'{SRC}/{NAME}_meta.json'))
   if M.get('engine')!='simple_crossfader':pytest.skip('legacy engine')
   assert run(M)==[]
+def bass(M,swap=(7,9),steps=16,up_extra=None):
+  c0,c1=swap
+  def r(up):return [[c0+(c1-c0)*j/steps,float((1-np.cos(np.pi*j/steps))/2 if up else (1+np.cos(np.pi*j/steps))/2)] for j in range(steps+1)]
+  M['decks'][0]['auto']['low']=r(False);M['decks'][1]['auto']['low']=r(True)+(up_extra or []);return M
+def test_x1_passes_one_smooth_bass_swap():
+  assert run(bass(synth([[k/4,k/64] for k in range(65)])))==[]
+def test_x1_fails_bass_swap_too_fast():
+  assert run(bass(synth([[k/4,k/64] for k in range(65)]),swap=(8,8.25),steps=2))
+def test_x1_fails_bass_swap_too_long():
+  assert run(bass(synth([[k/4,k/64] for k in range(65)]),swap=(4,12)))
+def test_x1_fails_second_bass_move():
+  assert run(bass(synth([[k/4,k/64] for k in range(65)]),up_extra=[[12,1],[13,0.3],[14,1]]))
+def test_x1_fails_bass_move_outside_blend():
+  M=bass(synth([[k/4,k/64] for k in range(65)]),up_extra=[[30,1],[31,0.5],[32,1]]);assert run(M)

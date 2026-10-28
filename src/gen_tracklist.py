@@ -18,7 +18,7 @@ fmt=lambda s:f"{int(s)//60}:{int(s)%60:02d}"
 key=lambda i:f"  [{K[i]}]" if K.get(i) and K[i]!='None' else ''
 short=lambda i:T[i].split('–',1)[-1].strip() if i in T else i
 order=[(M['plan'][0]['id'],0.0)]+[(t['b'],t['start_bar']*BAR) for t in M['trans']]
-md=[f"# {TITLE}\n",f"Length {fmt(M['len_sec'])} · 174 BPM · times from {meta} · crossfader engine: one monotonic equal-power 16-bar crossfade per blend, constant per-track gain (-16 LUFS), no stems/EQ/ducking\n"]
+md=[f"# {TITLE}\n",f"Length {fmt(M['len_sec'])} · 174 BPM · times from {meta} · crossfader engine: one monotonic equal-power crossfade per blend (32 bars, 16 minimum) with a 2-bar low-band bass handoff tied to the crossfader at 35%, constant per-track gain (-16 LUFS), no stems or ducking\n"]
 md+=[f"{i:2d}. {fmt(s)}  {T.get(b,b)}{key(b)}  (youtu.be/{b})" for i,(b,s) in enumerate(order,1)]
 md.append("\n## Transitions")
 for t in M['trans']:

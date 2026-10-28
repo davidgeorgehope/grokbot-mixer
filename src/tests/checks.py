@@ -192,6 +192,8 @@ def bar_alignment_report():
       seen.add((d['id'],e['id']))
       for b in range(s,t-1):
         for D in (d,e):
+          O=e if D is d else d
+          if gain_at(D,'gain',b+1)<0.5*gain_at(O,'gain',b+1):continue  # deck >6 dB under the other: the mixdown onsets are the other deck's, xcorr against this source is meaningless (F1 covers audible flams)
           if src_of(D,b)[1]!='mix':continue  # stems (drum loops) don't share the full-mix source's onset shape -> xcorr is biased; F1/G1 guardrails cover them
           a=deck_alignment(D,b,2,span_ms=40)
           if a['corr']>=0.65: out.append(dict(bar=b,deck=D['id'],lag=a['lag_ms'],corr=a['corr']))

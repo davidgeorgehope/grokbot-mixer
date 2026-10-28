@@ -40,3 +40,15 @@ def test_x1_fails_second_bass_move():
   assert run(bass(synth([[k/4,k/64] for k in range(65)]),up_extra=[[12,1],[13,0.3],[14,1]]))
 def test_x1_fails_bass_move_outside_blend():
   M=bass(synth([[k/4,k/64] for k in range(65)]),up_extra=[[30,1],[31,0.5],[32,1]]);assert run(M)
+def test_x1_passes_bass_swap_at_35pct():
+  assert run(bass(synth([[k/4,k/64] for k in range(65)]),swap=(4.5,6.5)))==[]
+def test_x1_fails_bass_swap_not_tied_to_crossfader():
+  assert run(bass(synth([[k/4,k/64] for k in range(65)]),swap=(13,15)))
+def test_mix_bass_swaps_monotonic_smooth():
+  if not os.path.exists(f'{SRC}/{NAME}_meta.json'):pytest.skip('mix meta missing')
+  M=json.load(open(f'{SRC}/{NAME}_meta.json'))
+  for d in M['decks']:
+    lo=d['auto'].get('low') or []
+    v=np.array([p[1] for p in lo]);
+    if len(v)<2:continue
+    assert np.abs(np.diff(v)).max()<=0.25,(d['id'],'bass EQ step too big')

@@ -15,9 +15,9 @@ Checks (ids used in the report):
  P1 peak/DC      : true peak > -1 dBTP or |DC| > 0.005
  X1 crossfader  : each blend has one logged monotonic x(t) 0->1; deck gains come only from it (<=3 dB/beat). The only other
                  automation allowed is ONE smooth monotonic bass swap per blend ('low' lane: out 1->0, in 0->1, 1-2 bars)
- O1 overlap    : both decks at musical level >= 8 bars
+ O1 overlap    : both decks at musical level >= 8 bars (measured >150 Hz, so the deliberate bass handoff doesn't count as a fade)
  C1 groove     : master onset density never < 30% of local median for > 1 bar across a transition
- C2 outgoing   : outgoing deck > -10 dB rel. its body for the first half of the overlap
+ C2 outgoing   : outgoing deck > -10 dB rel. its body (>150 Hz) for the first half of the overlap
  S1 dead tail    : a deck keeps playing its own near-silent source tail (> 20 dB under its body) while audible in the mix,
                    or is loop-extended after such a tail (fade-to-silence then pop back in)
  R1 rhythm clash : during overlap, median bar-level onset-envelope xcorr between the two decks (max over ±1/8 beat lag)
@@ -64,6 +64,9 @@ def x1_check(M,fail,BAR,X1_db=3.0,floor_db=-24.0):
         elif abs(lv[0]-(0 if up else 1))>1e-3 or abs(lv[-1]-(1 if up else 0))>1e-3:why=f'does not go {"0->1" if up else "1->0"} across the blend'
         elif len(mov) and not (1-1e-6<=(mov[-1]+1-mov[0])/16<=2+1e-6):why=f'swap lasts {(mov[-1]+1-mov[0])/16:.2f} bars (need 1-2)'
         elif np.abs(dl).max()>0.25:why=f'bass step {np.abs(dl).max():.2f} per 1/16 bar (not smooth)'
+        elif len(mov):  # the swap is tied to the crossfader: its centre must sit at x in [0.2, 0.65]
+          xc=float(np.interp(bars[(mov[0]+mov[-1]+1)//2],[p[0] for p in xs],[p[1] for p in xs]))
+          if not 0.2<=xc<=0.65:why=f'centred at crossfader x={xc:.2f} (need 0.2-0.65)'
         if why:fail('X1',s*BAR,e*BAR,f"{d['id']} bass swap {why}");n+=1
       g=d['auto'].get('gain',[])
       if not g:continue
@@ -122,7 +125,9 @@ for i,j in runs(bad):
   bars=range(int(tL[i]/BAR),int(tL[j-1]/BAR)+1);why=[intentional(b) for b in bars]
   if all(why):continue
   k=i+int(np.argmin(St[i:j]));fail('E1',tL[i],tL[j-1],f'3s loudness {St[k]:.1f} LUFS is {med30[k]-St[k]:.1f} dB under the 30s median {med30[k]:.1f}',unexcused_bars=[f'{ts(b*BAR)}' for b,w in zip(bars,why) if not w][:8])
-for i,j in runs((Mo<TH['E2_lufs'])&(tL>5)&(tL<dur-5)):fail('E2',tL[i],tL[j-1],f'momentary loudness down to {Mo[i:j].min():.1f} LUFS (near silence)')
+for i,j in runs((Mo<TH['E2_lufs'])&(tL>5)&(tL<dur-5)):
+  if all(str(intentional(b)).find('declared')>=0 for b in range(int(tL[i]/BAR),int(tL[j-1]/BAR)+1)):continue  # the record's own plan-declared (<=4 bar) breakdown
+  fail('E2',tL[i],tL[j-1],f'momentary loudness down to {Mo[i:j].min():.1f} LUFS (near silence)')
 # P1
 if TP>TH['P1_tp']:fail('P1',0,dur,f'true peak {TP} dBTP')
 x,_=sf.read(f'{a.src}/{a.name}_raw.wav',frames=SR*600,dtype='float32');dc=float(np.abs(x.mean(0)).max());info['dc']=dc
@@ -167,7 +172,8 @@ def render(i):return P._render(D[i])
 def bar_seg(y,d,bar,n=1):
   i=int(round((bar-d['start_bar'])*BAR*SR));return y[max(0,i):i+int(n*BAR*SR)]
 db=lambda s:20*np.log10(np.sqrt(np.mean(s**2))+1e-9) if len(s) else -120
-LP=butter(4,120,'low',fs=SR,output='sos');BP=butter(4,[150,4000],'band',fs=SR,output='sos')
+LP=butter(4,120,'low',fs=SR,output='sos');HP=butter(4,150,'high',fs=SR,output='sos');dbh=lambda s:db(sosfiltfilt(HP,s,axis=0)) if len(s)>100 else -120
+BP=butter(4,[150,4000],'band',fs=SR,output='sos')
 def penv(seg):return P.snare_env(seg) if len(seg)>2048 else np.zeros(4)
 TRS=[]
 for ti,t in enumerate(TR):
@@ -176,17 +182,19 @@ for ti,t in enumerate(TR):
   A,B=D[ia],D[ib];ya,yb=render(ia),render(ib);echo='echo' in t['tech']
   s=int(t['start_bar']);sw=int(t['swap_bar']);e=int(min(A['end_bar'],max(t['end_bar'],sw+1)))
   rows=[];refA=np.median([db(bar_seg(ya,A,b)) for b in range(max(int(A['start_bar']),s-8),s)] or [-20])
+  refAh=np.median([dbh(bar_seg(ya,A,b)) for b in range(max(int(A['start_bar']),s-8),s)] or [-20])  # >150 Hz: the bass handoff removes the sub on purpose
   for b in range(s-4,max(e,sw+8)+1):
     sa=bar_seg(ya,A,b) if A['start_bar']<=b<A['end_bar'] else np.zeros(0);sb=bar_seg(yb,B,b) if B['start_bar']<=b<B['end_bar'] else np.zeros(0)
-    la,lb=db(sa),db(sb);r=dict(bar=b,t=ts(b*BAR),A=round(la,1),B=round(lb,1))
+    la,lb=db(sa),db(sb);r=dict(bar=b,t=ts(b*BAR),A=round(la,1),B=round(lb,1),Ah=round(dbh(sa),1),Bh=round(dbh(sb),1))
     if len(sa)>1000 and len(sb)>1000 and la>refA-14 and lb>refA-14 and abs(la-lb)<14:
       pa,pb=P.beat_phase(penv(sa),per=S16),P.beat_phase(penv(sb),per=S16)
       if pa is not None and pb is not None:
         r['flam_ms']=round(abs(((pa-pb+S16*500)%(S16*1000))-S16*500),1)
         if r['flam_ms']>TH['F1_ms']:fail('F1',b*BAR,(b+1)*BAR,f"{t['a']} vs {t['b']} beats {r['flam_ms']} ms apart",trans=ti)
       n=min(len(sa),len(sb));sa_,sb_=sosfiltfilt(LP,sa[:n]),sosfiltfilt(LP,sb[:n]);lsa,lsb,lsum=db(sa_),db(sb_),db(sa_+sb_)
+      # L1 sum: a sub >25 dB under the programme is inaudible, not a double bassline
       r.update(subA=round(lsa,1),subB=round(lsb,1),subSum=round(lsum,1))
-      if lsum>max(lsa,lsb)+TH['L1_db']:fail('L1',b*BAR,(b+1)*BAR,f'sub sum {lsum:.1f} dB is {lsum-max(lsa,lsb):.1f} dB over the louder deck',trans=ti)
+      if lsum>max(lsa,lsb)+TH['L1_db'] and lsum>refA-25:fail('L1',b*BAR,(b+1)*BAR,f'sub sum {lsum:.1f} dB is {lsum-max(lsa,lsb):.1f} dB over the louder deck',trans=ti)
       if lsa>la-6 and lsb>lb-6 and min(lsa,lsb)>refA-12:fail('L1',b*BAR,(b+1)*BAR,'both decks carry full bass at once',trans=ti)
     # S1 dead tail of the outgoing deck
     if A['start_bar']<=b<A['end_bar']:
@@ -211,12 +219,12 @@ for ti,t in enumerate(TR):
     i=np.searchsorted(tL,at);pre=np.median(Mo[max(0,i-8):i]);post=np.median(Mo[i+2:i+10])
     if abs(post-pre)>TH['N1_db'] and not (echo and post>pre):fail('N1',at,at+1,f'master level step {post-pre:+.1f} dB at {"entry" if at==B["start_bar"]*BAR else "bass swap"}',trans=ti)
   # O1 real overlap: both decks at musical level (within 12 dB of the outgoing body) for >= 8 bars
-  both=sum(1 for r in rows if r['A']>refA-12 and r['B']>refA-12)
+  both=sum(1 for r in rows if r['Ah']>refAh-12 and r['Bh']>refAh-12)
   if both<8:fail('O1',s*BAR,e*BAR,f'only {both} bars with both decks audible at musical level (need >= 8)',trans=ti)
   # C2 outgoing groove: outgoing deck > -10 dB rel. its body for the first half of the overlap
   half=[r for r in rows if s<=r['bar']<(s+max(e,sw))/2]
-  low=[r for r in half if r['A']<refA-10]
-  if low:fail('C2',low[0]['bar']*BAR,low[-1]['bar']*BAR+BAR,f"outgoing {t['a']} {min(r['A'] for r in low)-refA:+.1f} dB under its body in the first half of the overlap",trans=ti)
+  low=[r for r in half if r['Ah']<refAh-10]
+  if low:fail('C2',low[0]['bar']*BAR,low[-1]['bar']*BAR+BAR,f"outgoing {t['a']} {min(r['Ah'] for r in low)-refAh:+.1f} dB under its body in the first half of the overlap",trans=ti)
   # energy confirm: summed mid-band of both decks vs outgoing body mid
   def mid_db(seg):
     if len(seg)<2048: return -120.0

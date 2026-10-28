@@ -1,0 +1,1 @@
+- 12:55 PDT: dropped Midnight Sound opener (vocals wall-to-wall, no clean window into Kismet); plan_60h now opens with Kismet, dry len 61.8 min. A/B renders mixH35/mixH50 (/tmp/runH35.log, runH50.log). Earlier mixA35 (old order) guardrails 35 fails, L1 14->2.

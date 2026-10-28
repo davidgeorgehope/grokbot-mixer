@@ -6,12 +6,7 @@ out={}
 for f in sorted(glob.glob('st/*.wav')):
   b=os.path.basename(f)[:-4]
   if b.endswith('_in'):continue
-  if src=='stems':
-    d=f'sep/htdemucs/{b}'
-    if not os.path.exists(d+'/other.wav'):continue
-    import numpy as np
-    a=es.MonoLoader(filename=d+'/other.wav',sampleRate=44100)()+0.7*es.MonoLoader(filename=d+'/bass.wav',sampleRate=44100)()+0.5*es.MonoLoader(filename=d+'/vocals.wav',sampleRate=44100)()
-  else: a=es.MonoLoader(filename=f,sampleRate=44100)()
+  a=es.MonoLoader(filename=f,sampleRate=44100)()
   r={}
   for p in ['edma','bgate','krumhansl','temperley']:
     k,s,st=es.KeyExtractor(profileType=p,sampleRate=44100)(a);r[p]=(CAM[(k,s)],k+' '+s,round(st,2))

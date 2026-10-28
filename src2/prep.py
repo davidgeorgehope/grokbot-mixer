@@ -1,5 +1,6 @@
 # stretch each track to 174 BPM, build beat/downbeat/phrase grid
 import librosa,numpy as np,soundfile as sf,subprocess,json,sys,os
+import pbpm
 T=174.0;SR=44100
 def true_bpm(y,sr):
   oe=librosa.onset.onset_strength(y=y,sr=sr,hop_length=256)
@@ -41,7 +42,15 @@ def grid(y,sr):
   return dict(per=per,beats=beats.tolist(),downs=downs.tolist(),phrases=phr.tolist(),barrms=bR.tolist())
 f=sys.argv[1];b=os.path.splitext(os.path.basename(f))[0]
 y,sr=librosa.load(f,sr=22050,mono=True)
-bpm=float(sys.argv[2]) if len(sys.argv)>2 else true_bpm(y,sr)
+# Reject non-DnB before stretching (pbpm searches 70-180; UK-breaks like original Just Hold On fail here)
+_bpm, _meta = pbpm.analyze(f)
+if not _meta['ok']:
+  raise SystemExit(f"prep REJECT {b}: not DnB ({_meta['reason']}) tops={_meta['tops'][:3]} dnb={_meta['dnb']} breaks={_meta['breaks']}")
+bpm=float(sys.argv[2]) if len(sys.argv)>2 else float(_meta['bpm'])
+# If caller passed a bpm, still require detector OK; prefer detector bpm when close
+if abs(bpm - _meta['bpm']) > 3:
+  print(f'WARN {b}: caller bpm {bpm} vs detector {_meta["bpm"]:.3f} ({_meta["reason"]}); using detector', flush=True)
+  bpm=float(_meta['bpm'])
 out=f'st/{b}.wav';os.makedirs('st',exist_ok=True)
 tmp=f'st/{b}_in.wav'
 subprocess.run(['ffmpeg','-loglevel','error','-y','-i',f,'-af','volume=-9dB','-c:a','pcm_f32le',tmp],check=True)

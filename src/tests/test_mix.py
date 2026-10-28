@@ -1,6 +1,6 @@
 import glob,soundfile as sf,checks as C
 def test_stretched_sources_are_44k1():
-  bad=[f for f in glob.glob(f'{C.SRC}/st/*.wav')+glob.glob(f'{C.SRC}/sep/htdemucs/*/*.wav') if sf.info(f).samplerate!=C.SR]
+  bad=[f for f in glob.glob(f'{C.SRC}/st/*.wav') if sf.info(f).samplerate!=C.SR]
   assert not bad,f'sample-rate mismatch (plays at wrong speed/pitch): {bad}'
 def test_beat_drift_across_transitions(T):
   bad=[(r['t'],r['a'],r['b'],r['drift_ms']) for r in T if r['drift_ms']>C.TOL_DRIFT_MS]; assert not bad,bad

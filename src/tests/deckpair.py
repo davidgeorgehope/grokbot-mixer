@@ -7,7 +7,7 @@
   hole      - bars where summed level drops >6 dB under the pre-transition level (energy hole)"""
 import os,sys,json,functools,numpy as np,librosa
 from scipy.signal import butter,sosfiltfilt
-SRC=os.environ.get('MIX_SRC','/workspace/mixes/src2');NAME=os.environ.get('MIX_NAME','mix360')
+SRC=os.environ.get('MIX_SRC','/workspace/mixes/src2');NAME=os.environ.get('MIX_NAME','mixS')
 SR=44100;BAR=4*60/174.0
 @functools.lru_cache()
 def meta(): return json.load(open(f'{SRC}/{NAME}_meta.json'))
@@ -15,8 +15,7 @@ def _render(d):
   cwd=os.getcwd();os.chdir(SRC);sys.path.insert(0,SRC)
   try:
     import engine
-    D=engine.Deck(d['id'],d['start_bar'],0,0);D.map=[tuple(x) for x in d['full_map']]
-    D.auto={k:[tuple(p) for p in v] for k,v in d['auto'].items()};y=D.render().mean(1).astype(np.float32)
+    y=engine.render_deck(d).mean(1).astype(np.float32)
     engine._cache.clear();return y
   finally: os.chdir(cwd)
 LP=butter(4,150,'low',fs=SR,output='sos')

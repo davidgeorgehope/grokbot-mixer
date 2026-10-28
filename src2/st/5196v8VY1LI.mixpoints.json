@@ -1,0 +1,149 @@
+{
+ "id": "5196v8VY1LI",
+ "n_bars": 171,
+ "body_db": -17.27,
+ "tail0": 168,
+ "vthr": -39.9,
+ "vocal_runs": [
+  [
+   3,
+   4
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   20,
+   27
+  ],
+  [
+   28,
+   62
+  ],
+  [
+   68,
+   75
+  ],
+  [
+   76,
+   86
+  ],
+  [
+   87,
+   95
+  ],
+  [
+   115,
+   118
+  ]
+ ],
+ "mix_in_candidates": [
+  {
+   "start": 136,
+   "len": 8,
+   "score": -26.49,
+   "voc_frac": 0.0,
+   "drums": -23.02,
+   "kind": "phrase"
+  },
+  {
+   "start": 120,
+   "len": 8,
+   "score": -26.59,
+   "voc_frac": 0.0,
+   "drums": -23.11,
+   "kind": "phrase"
+  },
+  {
+   "start": 128,
+   "len": 8,
+   "score": -27.74,
+   "voc_frac": 0.0,
+   "drums": -24.27,
+   "kind": "phrase"
+  },
+  {
+   "start": 64,
+   "len": 8,
+   "score": -28.36,
+   "voc_frac": 0.5,
+   "drums": -24.25,
+   "kind": "phrase"
+  },
+  {
+   "start": 56,
+   "len": 8,
+   "score": -31.27,
+   "voc_frac": 0.75,
+   "drums": -23.38,
+   "kind": "phrase"
+  },
+  {
+   "start": 72,
+   "len": 8,
+   "score": -33.07,
+   "voc_frac": 0.875,
+   "drums": -23.12,
+   "kind": "phrase"
+  }
+ ],
+ "mix_out_candidates": [
+  {
+   "start": 136,
+   "len": 8,
+   "score": -26.49,
+   "voc_frac": 0.0,
+   "drums": -23.02,
+   "kind": "phrase"
+  },
+  {
+   "start": 120,
+   "len": 8,
+   "score": -26.59,
+   "voc_frac": 0.0,
+   "drums": -23.11,
+   "kind": "phrase"
+  },
+  {
+   "start": 128,
+   "len": 8,
+   "score": -27.74,
+   "voc_frac": 0.0,
+   "drums": -24.27,
+   "kind": "phrase"
+  },
+  {
+   "start": 64,
+   "len": 8,
+   "score": -28.36,
+   "voc_frac": 0.5,
+   "drums": -24.25,
+   "kind": "phrase"
+  },
+  {
+   "start": 56,
+   "len": 8,
+   "score": -31.27,
+   "voc_frac": 0.75,
+   "drums": -23.38,
+   "kind": "phrase"
+  },
+  {
+   "start": 72,
+   "len": 8,
+   "score": -33.07,
+   "voc_frac": 0.875,
+   "drums": -23.12,
+   "kind": "phrase"
+  }
+ ],
+ "instrumental_loops": [
+  {
+   "start": 136,
+   "len": 8,
+   "stem": "drums"
+  }
+ ],
+ "needs_loop_extension": false
+}

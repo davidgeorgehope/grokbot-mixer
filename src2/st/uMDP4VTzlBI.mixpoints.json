@@ -1,0 +1,153 @@
+{
+ "id": "uMDP4VTzlBI",
+ "n_bars": 148,
+ "body_db": -14.93,
+ "tail0": 145,
+ "vthr": -36.28,
+ "vocal_runs": [
+  [
+   11,
+   14
+  ],
+  [
+   15,
+   34
+  ],
+  [
+   35,
+   37
+  ],
+  [
+   39,
+   49
+  ],
+  [
+   55,
+   56
+  ],
+  [
+   63,
+   81
+  ],
+  [
+   87,
+   113
+  ],
+  [
+   119,
+   121
+  ],
+  [
+   127,
+   145
+  ]
+ ],
+ "mix_in_candidates": [
+  {
+   "start": 112,
+   "len": 8,
+   "score": -21.18,
+   "voc_frac": 0.25,
+   "drums": -18.02,
+   "kind": "phrase"
+  },
+  {
+   "start": 48,
+   "len": 8,
+   "score": -21.26,
+   "voc_frac": 0.25,
+   "drums": -18.12,
+   "kind": "phrase"
+  },
+  {
+   "start": 56,
+   "len": 8,
+   "score": -21.5,
+   "voc_frac": 0.125,
+   "drums": -18.34,
+   "kind": "phrase"
+  },
+  {
+   "start": 120,
+   "len": 8,
+   "score": -21.56,
+   "voc_frac": 0.25,
+   "drums": -18.35,
+   "kind": "phrase"
+  },
+  {
+   "start": 40,
+   "len": 8,
+   "score": -31.66,
+   "voc_frac": 1.0,
+   "drums": -20.75,
+   "kind": "phrase"
+  },
+  {
+   "start": 64,
+   "len": 8,
+   "score": -31.99,
+   "voc_frac": 1.0,
+   "drums": -18.43,
+   "kind": "phrase"
+  }
+ ],
+ "mix_out_candidates": [
+  {
+   "start": 112,
+   "len": 8,
+   "score": -21.18,
+   "voc_frac": 0.25,
+   "drums": -18.02,
+   "kind": "phrase"
+  },
+  {
+   "start": 48,
+   "len": 8,
+   "score": -21.26,
+   "voc_frac": 0.25,
+   "drums": -18.12,
+   "kind": "phrase"
+  },
+  {
+   "start": 56,
+   "len": 8,
+   "score": -21.5,
+   "voc_frac": 0.125,
+   "drums": -18.34,
+   "kind": "phrase"
+  },
+  {
+   "start": 120,
+   "len": 8,
+   "score": -21.56,
+   "voc_frac": 0.25,
+   "drums": -18.35,
+   "kind": "phrase"
+  },
+  {
+   "start": 40,
+   "len": 8,
+   "score": -31.66,
+   "voc_frac": 1.0,
+   "drums": -20.75,
+   "kind": "phrase"
+  },
+  {
+   "start": 64,
+   "len": 8,
+   "score": -31.99,
+   "voc_frac": 1.0,
+   "drums": -18.43,
+   "kind": "phrase"
+  }
+ ],
+ "instrumental_loops": [
+  {
+   "start": 112,
+   "len": 8,
+   "stem": "drums"
+  }
+ ],
+ "needs_loop_extension": false
+}

@@ -1,0 +1,181 @@
+{
+ "id": "AC3eEHeLd8A",
+ "n_bars": 153,
+ "body_db": -14.63,
+ "tail0": 152,
+ "vthr": -42.99,
+ "vocal_runs": [
+  [
+   7,
+   8
+  ],
+  [
+   15,
+   16
+  ],
+  [
+   17,
+   22
+  ],
+  [
+   31,
+   32
+  ],
+  [
+   47,
+   48
+  ],
+  [
+   55,
+   56
+  ],
+  [
+   63,
+   64
+  ],
+  [
+   67,
+   68
+  ],
+  [
+   71,
+   72
+  ],
+  [
+   79,
+   80
+  ],
+  [
+   85,
+   88
+  ],
+  [
+   103,
+   106
+  ],
+  [
+   110,
+   112
+  ],
+  [
+   119,
+   122
+  ],
+  [
+   126,
+   128
+  ],
+  [
+   135,
+   136
+  ]
+ ],
+ "mix_in_candidates": [
+  {
+   "start": 136,
+   "len": 8,
+   "score": -26.04,
+   "voc_frac": 0.0,
+   "drums": -22.09,
+   "kind": "phrase"
+  },
+  {
+   "start": 120,
+   "len": 8,
+   "score": -26.44,
+   "voc_frac": 0.5,
+   "drums": -22.81,
+   "kind": "phrase"
+  },
+  {
+   "start": 48,
+   "len": 8,
+   "score": -26.45,
+   "voc_frac": 0.125,
+   "drums": -23.22,
+   "kind": "phrase"
+  },
+  {
+   "start": 64,
+   "len": 8,
+   "score": -26.49,
+   "voc_frac": 0.25,
+   "drums": -23.47,
+   "kind": "phrase"
+  },
+  {
+   "start": 56,
+   "len": 8,
+   "score": -26.77,
+   "voc_frac": 0.125,
+   "drums": -23.33,
+   "kind": "phrase"
+  },
+  {
+   "start": 104,
+   "len": 8,
+   "score": -27.17,
+   "voc_frac": 0.5,
+   "drums": -23.68,
+   "kind": "phrase"
+  }
+ ],
+ "mix_out_candidates": [
+  {
+   "start": 136,
+   "len": 8,
+   "score": -26.04,
+   "voc_frac": 0.0,
+   "drums": -22.09,
+   "kind": "phrase"
+  },
+  {
+   "start": 120,
+   "len": 8,
+   "score": -26.44,
+   "voc_frac": 0.5,
+   "drums": -22.81,
+   "kind": "phrase"
+  },
+  {
+   "start": 48,
+   "len": 8,
+   "score": -26.45,
+   "voc_frac": 0.125,
+   "drums": -23.22,
+   "kind": "phrase"
+  },
+  {
+   "start": 64,
+   "len": 8,
+   "score": -26.49,
+   "voc_frac": 0.25,
+   "drums": -23.47,
+   "kind": "phrase"
+  },
+  {
+   "start": 56,
+   "len": 8,
+   "score": -26.77,
+   "voc_frac": 0.125,
+   "drums": -23.33,
+   "kind": "phrase"
+  },
+  {
+   "start": 104,
+   "len": 8,
+   "score": -27.17,
+   "voc_frac": 0.5,
+   "drums": -23.68,
+   "kind": "phrase"
+  }
+ ],
+ "instrumental_loops": [
+  {
+   "start": 136,
+   "len": 8,
+   "stem": "drums"
+  }
+ ],
+ "needs_loop_extension": false
+}

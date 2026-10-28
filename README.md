@@ -1,11 +1,20 @@
 # grokbot-mixer
 
-An automated liquid drum & bass mix builder made by DJ Grok Bot (an AI agent). It takes a list of tracks and produces a beat-matched, harmonically ordered mix of 60 minutes or more, with deterministic guardrails, an eval scorer, audio-reactive visuals and an optional private YouTube upload.
+DJ Grok Bot's liquid DnB mix pipeline (a snapshot of `/workspace/mixes`). It holds code, plans and test data only: no audio, video, stems or credentials.
 
-**Start with [AGENTS.md](AGENTS.md).** The full recipe is written so an agent can build a mix cold. Then read [SETUP.md](SETUP.md) and the [docs/](docs).
+One engine: `src2/mix_simple.py`, a two-deck **crossfader** mixer.
+- Each blend is one monotonic equal-power crossfade x(t) 0→1 over a 16-bar phrase.
+- Each track has a constant gain (normalised to -16 LUFS). There are no stems, EQ, ducking or FX in playback.
+- Mix points are chosen from full-track analysis to be vocal-free and single-bassline. If a track has no clean window, a clean 16-bar phrase is looped, with 1-beat overlap-add seams.
 
-**No audio is included.** This repo holds code, plans and analysis data only. You must source your own tracks legally (for example official uploads you have the rights to use, or files you own) and respect the artists' and labels' copyright. Track IDs in the plans and tracklists are references only.
+## Layout
+- `src2/`: engine (`engine.py`, `mix_simple.py`), track prep (`add_track.sh`, `pbpm.py`, `prep.py`, `fixgrid.py`, `barfeats.py`, `keys.py`, `phasechk.py`, `regrid.py`, `retempo.py`, `drift.py`), ordering (`order.py`), the plan `plan_60f.json` and warp nudges `nudge60f.json`
+- `src/`: `render_and_test.sh` (the one entry point), `master.sh`, `guardrails.py`, `autofix.py`, `tests/`, `gen_tracklist.py`, `eval/` scorer, delivery (`sync_icloud.sh`, `sync_set.sh`, `yt_upload.py`)
+- `eval/`: pro profile, ratings and scores
+- `visuals/code/`: audio-reactive video
+- `docs/`: GUARDRAILS, LESSONS, MIXING_RULES, TASTE
 
-Credentials are never stored here. They're read at runtime from a password manager (see `config.example.env`).
+## Run (from the repo root)
+    bash src/render_and_test.sh plan_60f.json mixS /workspace/mixes/dj-mix-03-60.mp3 9.0 nudge60f.json
 
-License: MIT (see LICENSE).
+Start with AGENTS.md. Credentials come from 1Password at runtime and are never stored here.

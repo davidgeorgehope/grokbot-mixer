@@ -1,0 +1,145 @@
+{
+ "id": "l4XZ-wqc4vQ",
+ "n_bars": 173,
+ "body_db": -17.46,
+ "tail0": 168,
+ "vthr": -36.86,
+ "vocal_runs": [
+  [
+   7,
+   55
+  ],
+  [
+   58,
+   60
+  ],
+  [
+   61,
+   64
+  ],
+  [
+   66,
+   68
+  ],
+  [
+   71,
+   100
+  ],
+  [
+   103,
+   153
+  ],
+  [
+   164,
+   168
+  ]
+ ],
+ "mix_in_candidates": [
+  {
+   "start": 152,
+   "len": 8,
+   "score": -26.17,
+   "voc_frac": 0.125,
+   "drums": -22.57,
+   "kind": "phrase"
+  },
+  {
+   "start": 56,
+   "len": 8,
+   "score": -26.37,
+   "voc_frac": 0.625,
+   "drums": -22.58,
+   "kind": "phrase"
+  },
+  {
+   "start": 64,
+   "len": 8,
+   "score": -26.73,
+   "voc_frac": 0.375,
+   "drums": -22.83,
+   "kind": "phrase"
+  },
+  {
+   "start": 160,
+   "len": 8,
+   "score": -27.14,
+   "voc_frac": 0.5,
+   "drums": -23.11,
+   "kind": "phrase"
+  },
+  {
+   "start": 48,
+   "len": 8,
+   "score": -34.31,
+   "voc_frac": 0.875,
+   "drums": -22.9,
+   "kind": "phrase"
+  },
+  {
+   "start": 72,
+   "len": 8,
+   "score": -36.06,
+   "voc_frac": 1.0,
+   "drums": -22.64,
+   "kind": "phrase"
+  }
+ ],
+ "mix_out_candidates": [
+  {
+   "start": 152,
+   "len": 8,
+   "score": -26.17,
+   "voc_frac": 0.125,
+   "drums": -22.57,
+   "kind": "phrase"
+  },
+  {
+   "start": 56,
+   "len": 8,
+   "score": -26.37,
+   "voc_frac": 0.625,
+   "drums": -22.58,
+   "kind": "phrase"
+  },
+  {
+   "start": 64,
+   "len": 8,
+   "score": -26.73,
+   "voc_frac": 0.375,
+   "drums": -22.83,
+   "kind": "phrase"
+  },
+  {
+   "start": 160,
+   "len": 8,
+   "score": -27.14,
+   "voc_frac": 0.5,
+   "drums": -23.11,
+   "kind": "phrase"
+  },
+  {
+   "start": 48,
+   "len": 8,
+   "score": -34.31,
+   "voc_frac": 0.875,
+   "drums": -22.9,
+   "kind": "phrase"
+  },
+  {
+   "start": 72,
+   "len": 8,
+   "score": -36.06,
+   "voc_frac": 1.0,
+   "drums": -22.64,
+   "kind": "phrase"
+  }
+ ],
+ "instrumental_loops": [
+  {
+   "start": 152,
+   "len": 8,
+   "stem": "drums"
+  }
+ ],
+ "needs_loop_extension": false
+}

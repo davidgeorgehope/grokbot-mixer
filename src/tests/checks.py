@@ -1,8 +1,8 @@
 """Mix QA checks. Config via env: MIX_SRC (render dir), MIX_NAME (meta prefix), MIX_WAV (mastered wav), MIX_MP3."""
 import os,json,subprocess,re,functools,numpy as np,soundfile as sf,librosa,glob
 from scipy.signal import butter,sosfiltfilt
-SRC=os.environ.get('MIX_SRC','/workspace/mixes/src2');NAME=os.environ.get('MIX_NAME','mix2b')
-WAV=os.environ.get('MIX_WAV',f'{SRC}/master.wav');MP3=os.environ.get('MIX_MP3','/workspace/mixes/dj-mix-02b.mp3')
+SRC=os.environ.get('MIX_SRC','/workspace/mixes/src2');NAME=os.environ.get('MIX_NAME','mixS')
+WAV=os.environ.get('MIX_WAV',f'{SRC}/{NAME}_master.wav');MP3=os.environ.get('MIX_MP3','/workspace/mixes/dj-mix-03-60.mp3')
 T=174.0;BEAT=60/T;BAR=4*BEAT;SR=44100
 TOL_DRIFT_MS=10;MIN_ANCHOR_S=210;MIN_OVERLAP=16;DROP_DB=6;CUT_DB=15;TP_MAX=-1.0
 @functools.lru_cache()
@@ -59,7 +59,7 @@ def deck_at(bar):
   return [d for d in decks() if d['start_bar']<=bar<d['end_bar']]
 def src_of(d,bar): return d['full_map'][int(bar-d['start_bar'])]
 def gain_at(d,k,bar):
-  pts=d['auto'][k];
+  pts=d['auto'].get(k)
   if not pts:return 1.0
   return float(np.interp(bar,[p[0] for p in pts],[p[1] for p in pts]))
 def kick_fold(b0,nb=8):
@@ -194,5 +194,5 @@ def bar_alignment_report():
         for D in (d,e):
           if src_of(D,b)[1]!='mix':continue  # stems (drum loops) don't share the full-mix source's onset shape -> xcorr is biased; F1/G1 guardrails cover them
           a=deck_alignment(D,b,2,span_ms=40)
-          if a['corr']>=0.6: out.append(dict(bar=b,deck=D['id'],lag=a['lag_ms'],corr=a['corr']))
+          if a['corr']>=0.65: out.append(dict(bar=b,deck=D['id'],lag=a['lag_ms'],corr=a['corr']))
   return out

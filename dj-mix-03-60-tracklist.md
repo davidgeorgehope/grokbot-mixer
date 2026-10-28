@@ -1,45 +1,45 @@
 # DJ Mix 03 – Liquid (60 min)
 
-Length 63:43 · 174 BPM · times from the render (mix360_meta.json)
+Length 66:35 · 174 BPM · times from src2/mixS_meta.json · crossfader engine: one monotonic equal-power 16-bar crossfade per blend, constant per-track gain (-16 LUFS), no stems/EQ/ducking
 
- 1. 0:00  Hybrid Minds ft. Riya – Kismet (Spearhead)  (youtu.be/yogt46dJJ4g)
- 2. 5:07  Hybrid Minds ft. Alexa Harley – Solitude  (youtu.be/n1dOiesZS1g)
- 3. 9:10  Soul Central x Clipz – Strings Of Life (Junglist Mix)  (youtu.be/AC3eEHeLd8A)
- 4. 11:10  Kanine & Raphaella – Deeper  (youtu.be/F1NCnCxyhqc)
- 5. 13:43  Sub Focus & Wilkinson – Just Hold On  (youtu.be/_K2sC9nrf_A)
- 6. 17:24  Son & Lauren Walton – Always Be  (youtu.be/rJuyd8koFAU)
- 7. 20:42  Leah Guest – Love & War (Macca Remix)  (youtu.be/nAV4i1YIwQI)
- 8. 22:33  Hybrid Minds ft. Catching Cairo – Supernova  (youtu.be/EiZVTuiqo0w)
- 9. 26:35  Mollie Collins & Shanice Forster – Golden Hour  (youtu.be/KdtDm5cBsFo)
-10. 28:22  Kanine & Jem Cooke – Surrender  (youtu.be/l4XZ-wqc4vQ)
-11. 32:20  Andy C – Come Together (Extended Mix)  (youtu.be/uMDP4VTzlBI)
-12. 34:53  BCee & Bladerunner ft. Philippa Hanna – In The Shadows  (youtu.be/q_IuTV23x7Q)
-13. 38:34  Dimension ft. Sharlene Hector – Saviour  (youtu.be/pUUrJH7jzAQ)
-14. 41:47  Etherwood & Grace Barton – Haven  (youtu.be/5196v8VY1LI)
-15. 44:22  Culture Shock – U & I  (youtu.be/N-j7tIeGm1E)
-16. 46:59  Camo & Krooked – Ember  (youtu.be/6YDKymmWe9o)
-17. 51:25  Fred V & Ayah Marar – Daydreaming  (youtu.be/MoYkYkoeb84)
-18. 54:00  Hybrid Minds ft. Grace Grundy – Bad To Me  (youtu.be/nT25guf4DRU)
-19. 56:53  Hybrid Minds ft. Dylan – Blame You  (youtu.be/K6dMmz0jLcI)
-20. 60:44  Flowidus ft. HARLEE – Midnight Sound  (youtu.be/N4mzOUMNsuI)
+ 1. 0:00  Flowidus ft. HARLEE – Midnight Sound  [12B]  (youtu.be/N4mzOUMNsuI)
+ 2. 2:56  Hybrid Minds ft. Riya – Kismet (Spearhead)  [1B]  (youtu.be/yogt46dJJ4g)
+ 3. 8:27  Hybrid Minds ft. Alexa Harley – Solitude  [2B]  (youtu.be/n1dOiesZS1g)
+ 4. 12:52  Soul Central x Clipz – Strings Of Life (Junglist Mix)  [2B]  (youtu.be/AC3eEHeLd8A)
+ 5. 15:48  Kanine & Raphaella – Deeper  [2A]  (youtu.be/F1NCnCxyhqc)
+ 6. 19:07  Sub Focus & Wilkinson – Just Hold On (Sub Focus & Wilkinson vs. Pola & Bryson Remix)  [2A]  (youtu.be/cxS6yd0UAxw)
+ 7. 23:32  Son & Lauren Walton – Always Be  [3A]  (youtu.be/rJuyd8koFAU)
+ 8. 26:51  Leah Guest – Love & War (Macca Remix)  [3A]  (youtu.be/nAV4i1YIwQI)
+ 9. 29:03  Hybrid Minds ft. Catching Cairo – Supernova  [3B]  (youtu.be/EiZVTuiqo0w)
+10. 32:00  Hybrid Minds ft. Dylan – Blame You  [5B]  (youtu.be/K6dMmz0jLcI)
+11. 35:40  Camo & Krooked – Ember  [5A]  (youtu.be/6YDKymmWe9o)
+12. 38:59  Fred V & Ayah Marar – Daydreaming  [5A]  (youtu.be/MoYkYkoeb84)
+13. 41:33  Hybrid Minds ft. Grace Grundy – Bad To Me  [5A]  (youtu.be/nT25guf4DRU)
+14. 44:52  Etherwood & Grace Barton – Haven  [6A]  (youtu.be/5196v8VY1LI)
+15. 48:11  Culture Shock – U & I  [6A]  (youtu.be/N-j7tIeGm1E)
+16. 51:07  Dimension ft. Sharlene Hector – Saviour  [8A]  (youtu.be/pUUrJH7jzAQ)
+17. 54:04  BCee & Bladerunner ft. Philippa Hanna – In The Shadows  [9A]  (youtu.be/q_IuTV23x7Q)
+18. 58:51  Kanine & Jem Cooke – Surrender  [9A]  (youtu.be/l4XZ-wqc4vQ)
+19. 62:31  Andy C – Come Together (Extended Mix)  [9A]  (youtu.be/uMDP4VTzlBI)
+20. 64:00  Mollie Collins & Shanice Forster – Golden Hour  [10A]  (youtu.be/KdtDm5cBsFo)
 
 ## Transitions
-- 5:29 Kismet (Spearhead) → Solitude: 16-bar beat-through blend + 3-band bass swap
-- 9:32 Solitude → Strings Of Life (Junglist Mix): 16-bar beat-through blend + 3-band bass swap
-- 11:32 Strings Of Life (Junglist Mix) → Deeper: 16-bar beat-through blend + 3-band bass swap
-- 14:05 Deeper → Just Hold On: 16-bar beat-through blend + 3-band bass swap
-- 18:08 Just Hold On → Always Be: 32-bar beat-through blend + 3-band bass swap
-- 21:04 Always Be → Love & War (Macca Remix): 16-bar beat-through blend + 3-band bass swap
-- 22:55 Love & War (Macca Remix) → Supernova: 16-bar beat-through blend + 3-band bass swap
-- 26:46 Supernova → Golden Hour: echo-out wash (1/2-beat ping-pong tail) into a 8-bar breakdown, 8-bar filter+riser +snare-roll build into the drop
-- 29:17 Golden Hour → Surrender: 40-bar beat-through blend + 3-band bass swap
-- 32:20 Surrender → Come Together (Extended): echo-out wash with an 8-bar riser over the outgoing tail, slamming straight into the incoming drop +snare-roll build into the drop
-- 35:15 Come Together (Extended) → In The Shadows: 16-bar beat-through blend + 3-band bass swap
-- 38:56 In The Shadows → Saviour: 16-bar beat-through blend + 3-band bass swap
-- 41:47 Saviour → Haven: echo-out wash (1/2-beat ping-pong tail) into a 8-bar breakdown, 8-bar filter+riser +snare-roll build into the drop
-- 44:33 Haven → U & I: echo-out wash (1/2-beat ping-pong tail) into a 8-bar breakdown, 8-bar filter+riser +snare-roll build into the drop
-- 47:21 U & I → Ember: 16-bar beat-through blend + 3-band bass swap
-- 51:47 Ember → Daydreaming: 16-bar beat-through blend + 3-band bass swap
-- 54:44 Daydreaming → Bad To Me: 32-bar beat-through blend + 3-band bass swap
-- 58:00 Bad To Me → Blame You: 48-bar beat-through blend + 3-band bass swap
-- 60:44 Blame You → Midnight Sound: echo-out wash with an 8-bar riser over the outgoing tail, slamming straight into the incoming drop +snare-roll build into the drop
+- 2:56 Midnight Sound  [12B] → Kismet (Spearhead)  [1B]: 16-bar crossfader blend (equal-power, single control) (mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 0)
+- 8:27 Kismet (Spearhead)  [1B] → Solitude  [2B]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 240, then repeats its 16-bar phrase 128-144 under the blend (cleaner window than its real outro))
+- 12:52 Solitude  [2B] → Strings Of Life (Junglist Mix)  [2B]: 16-bar crossfader blend (equal-power, single control) (mix points from full-track analysis: outgoing out at bar 224, incoming in at bar 16)
+- 15:48 Strings Of Life (Junglist Mix)  [2B] → Deeper  [2A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 144, then repeats its 16-bar phrase 32-48 under the blend (cleaner window than its real outro))
+- 19:07 Deeper  [2A] → Just Hold On (Sub Focus & Wilkinson vs. Pola & Bryson Remix)  [2A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 144, then repeats its 16-bar phrase 16-32 under the blend (cleaner window than its real outro))
+- 23:32 Just Hold On (Sub Focus & Wilkinson vs. Pola & Bryson Remix)  [2A] → Always Be  [3A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 208, then repeats its 16-bar phrase 16-32 under the blend (cleaner window than its real outro))
+- 26:51 Always Be  [3A] → Love & War (Macca Remix)  [3A]: 16-bar crossfader blend (equal-power, single control) (mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 16)
+- 29:03 Love & War (Macca Remix)  [3A] → Supernova  [3B]: 16-bar crossfader blend (equal-power, single control) (mix points from full-track analysis: outgoing out at bar 128, incoming in at bar 0)
+- 32:00 Supernova  [3B] → Blame You  [5B]: 16-bar crossfader blend (equal-power, single control) (mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 0)
+- 35:40 Blame You  [5B] → Ember  [5A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 160, then repeats its 16-bar phrase 144-160 under the blend (cleaner window than its real outro))
+- 38:59 Ember  [5A] → Daydreaming  [5A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 192, then repeats its 16-bar phrase 80-96 under the blend (cleaner window than its real outro))
+- 41:33 Daydreaming  [5A] → Bad To Me  [5A]: 16-bar crossfader blend (equal-power, single control) (mix points from full-track analysis: outgoing out at bar 128, incoming in at bar 16)
+- 44:52 Bad To Me  [5A] → Haven  [6A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 160, then repeats its 16-bar phrase 80-96 under the blend (cleaner window than its real outro))
+- 48:11 Haven  [6A] → U & I  [6A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 160, then repeats its 16-bar phrase 96-112 under the blend (cleaner window than its real outro))
+- 51:07 U & I  [6A] → Saviour  [8A]: 16-bar crossfader blend (equal-power, single control) (mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 0)
+- 54:04 Saviour  [8A] → In The Shadows  [9A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 128, then repeats its 16-bar phrase 96-112 under the blend (cleaner window than its real outro))
+- 58:51 In The Shadows  [9A] → Surrender  [9A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 208, then repeats its 16-bar phrase 96-112 under the blend (cleaner window than its real outro))
+- 62:31 Surrender  [9A] → Come Together (Extended Mix)  [9A]: 16-bar crossfader blend (equal-power, single control) (outgoing plays to bar 160, then repeats its 16-bar phrase 16-32 under the blend (cleaner window than its real outro))
+- 64:00 Come Together (Extended Mix)  [9A] → Golden Hour  [10A]: 16-bar crossfader blend (equal-power, single control) (mix points from full-track analysis: outgoing out at bar 128, incoming in at bar 16)

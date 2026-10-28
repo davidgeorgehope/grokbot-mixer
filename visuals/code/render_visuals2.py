@@ -26,7 +26,7 @@ PAL=[((.6,.45,.5),(.4,.3,.35),(1,1,1),(0,.1,.2),(1,.7,.6)),
 ctx=moderngl.create_context(standalone=True,backend='egl')
 VS="""#version 330
 in vec2 p; out vec2 uv; void main(){uv=p*.5+.5; gl_Position=vec4(p,0,1);}"""
-FS=open(os.path.join(os.path.dirname(__file__),os.environ.get('FRAG','liquid.frag'))).read()
+FS=open(os.path.join(os.path.dirname(__file__),os.environ.get('FRAG','liquid2.frag'))).read()
 prog=ctx.program(vertex_shader=VS,fragment_shader=FS)
 vbo=ctx.buffer(np.array([-1,-1,1,-1,-1,1,1,1],'f4')); vao=ctx.simple_vertex_array(prog,vbo,'p')
 fbo=ctx.simple_framebuffer((W,H)); fbo.use()

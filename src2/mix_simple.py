@@ -155,7 +155,8 @@ for i,d in enumerate(decks):
   d['end_bar']=d['start_bar']+len(d['full_map']);d['echo']=False;d['label']='';d['map']=d['full_map'][:1]+d['full_map'][-1:];d['acap']=False;d['drop_bar']=None
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])
-  print('len min',round((decks[-1]['end_bar'])*BAR/60,2));sys.exit()
+  print('len min',round((decks[-1]['end_bar'])*BAR/60,2))
+  json.dump(dict(engine='simple_crossfader',decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=decks[-1]['end_bar']*BAR,dry=True),open(OUT+'_dry_meta.json','w'),default=float);sys.exit()
 total=decks[-1]['end_bar'];N=int(total*BS)+SR;M=np.zeros((N,2),np.float32)
 import engine
 for j,d in enumerate(decks):

@@ -26,6 +26,10 @@ Checks (ids used in the report):
                    (165-180), with DnB band height < 0.45 — track is not DnB; pbpm.py's 170-177-only search lied about orig_bpm.
  E3 blend sag    : >25% of the blend's first half has both decks' mid band >8 dB under the outgoing body (melody lost)
  J1 level jump   : at phrase-loop seams only, adjacent-bar RMS jump > J1_db (6.5 dB).
+ E4 long lull    : short-term (3 s) loudness > 6 dB under the WHOLE-mix median for > 8 bars (11 s) straight, outside the first/last
+                   45 s. No breakdown excuse: E1 compares to a 30 s local median, so a record's long breakdown running into a quiet
+                   intro hides from it. Mix 02 (the listener's reference) never sags longer than ~6 bars; old Mix 03 (19:15, 30 bars)
+                   and mixT (15:06, ~45 bars, Always Be breakdown into the Supernova intro) did (MIX2_VS_MIX3.md).
 """
 import os,sys,json,re,subprocess,argparse,functools,numpy as np,soundfile as sf,librosa
 from scipy.signal import butter,sosfiltfilt
@@ -37,7 +41,7 @@ os.environ['NUDGE']=a.nudge;sys.path.insert(0,os.path.join(os.path.dirname(os.pa
 os.environ['MIX_SRC']=a.src;os.environ['MIX_NAME']=a.name;os.environ['MIX_MP3']=a.mp3;os.environ['MIX_WAV']=f'{a.src}/{a.name}_raw.wav'
 import deckpair as P,checks as C
 SR=44100;T=174.0;BEAT=60/T;BAR=4*BEAT;FR=22050/64;S16=BEAT/4  # phases folded on the 16th grid: every DnB hit sits on it, no kick/snare/2-step ambiguity
-TH=dict(E1_db=6,E2_lufs=-35,N1_ms=10,N1_db=3,F1_ms=15,G1_jit_ms=8,G1_abs_ms=15,K1_steps=2,L1_db=3,P1_tp=-1.0,P1_dc=0.005,S1_db=20,R1_xcorr=0.20,T1_dnb_min=0.45,T1_breaks_min=0.50,J1_db=6.5)
+TH=dict(E1_db=6,E2_lufs=-35,N1_ms=10,N1_db=3,F1_ms=15,G1_jit_ms=8,G1_abs_ms=15,K1_steps=2,L1_db=3,P1_tp=-1.0,P1_dc=0.005,S1_db=20,R1_xcorr=0.20,T1_dnb_min=0.45,T1_breaks_min=0.50,J1_db=6.5,E4_db=6,E4_bars=8)
 M=json.load(open(f'{a.src}/{a.name}_meta.json'));D=M['decks'];TR=M['trans'];FX=M.get('fx',[])
 ts=lambda s:f"{int(s//60)}:{int(s%60):02d}"
 fails=[];info={}
@@ -128,6 +132,9 @@ for i,j in runs(bad):
 for i,j in runs((Mo<TH['E2_lufs'])&(tL>5)&(tL<dur-5)):
   if all(str(intentional(b)).find('declared')>=0 for b in range(int(tL[i]/BAR),int(tL[j-1]/BAR)+1)):continue  # the record's own plan-declared (<=4 bar) breakdown
   fail('E2',tL[i],tL[j-1],f'momentary loudness down to {Mo[i:j].min():.1f} LUFS (near silence)')
+medall=float(np.median(St[(tL>45)&(tL<dur-45)]))
+for i,j in runs((St<medall-TH['E4_db'])&(tL>45)&(tL<dur-45)):
+  if tL[j-1]-tL[i]>TH['E4_bars']*BAR:fail('E4',tL[i],tL[j-1],f'{(tL[j-1]-tL[i])/BAR:.0f} bars more than {TH["E4_db"]} dB under the mix median {medall:.1f} LUFS (min {St[i:j].min():.1f})')
 # P1
 if TP>TH['P1_tp']:fail('P1',0,dur,f'true peak {TP} dBTP')
 x,_=sf.read(f'{a.src}/{a.name}_raw.wav',frames=SR*600,dtype='float32');dc=float(np.abs(x.mean(0)).max());info['dc']=dc

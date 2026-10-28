@@ -76,3 +76,17 @@
 - 15:47 local: mixT re-test: guardrails 0 + pytest 31/31 (the pipeline's run had 1 overlap-alignment fail; two reruns pass — flaky borderline bar).
 - 2026-10-28 15:49:16 delivery: 320k+128k+tracklist made from mixT; uploading 128k to Drive
 - 2026-10-28 15:50:37 Drive: new 1Ay6Qi_-hXfTFPCSoDTHZK2WiwwXHFvBZ, old trashed; iCloud replaced (51 min)
+- 2026-10-28 15:50:48 backup done: main 205c8b9, public 1c935a2. DONE.
+- 2026-10-28 15:51:23 NEW TASK: Mix02 vs Mix03 analysis started
+- 2026-10-28 15:54:44 step1: metrics (m23/compare.py, drops.py) done for mix02 (mix2b_meta, dj-mix-02b.mp3), old03 (mix360f_meta from git, pro_sets/wav/dj-mix-03-60.wav), new03 (mixT)
+- 2026-10-28 15:56:44 step2: running current guardrails+pytest on mix02/old03 (m23/run/runqa.sh, logs in m23/run)
+- 2026-10-28 16:01:52 step3: mix_simple: added sag() scorer term (SAGPEN default 5, SAGMAX 6, SAGN 24) + --dry writes <out>_dry_meta.json; dry sweeps in /workspace/m23/dry_*.log; old-mix QA rerun with PYTHONPATH
+- 2026-10-28 16:03 MDT LENGTH TASK: plan_60i = mixT plan + Son–Fine Line(3A), Zero T–When My Love(4A), Technimatic–Parallel(5A), Etherwood–Souvenirs(7A) (all already prepped in st/). keys_extra +2. Dry run.
+- 2026-10-28 16:05 MDT dry mixU 62.5 min, V=2 bars nAV4->onLH. Rendering mixU (/tmp/mixU.log)
+- 2026-10-28 16:06:39 step4: guardrails E4 long-lull check added (validated: mix02 max 5.3 bars pass; old03 19:33 17.7 bars, mixT 15:24 17.5 bars fail). sag() now scans outgoing's whole solo run; dry sweep F* running
+- 2026-10-28 16:10:01 step5: test_mix02_traits.py added (body coverage, 32-bar share, drums-only). Validated: mix02 3/3 pass, old03 fails drums-only (14 bars @25:14), mixT fails coverage (0.74, AC3e .47). Rendering mixU (SAGPEN=5 whole-solo scan) -> /tmp/mixU.log
+
+## Step 6 (Mix2 vs Mix3) — mixU result, sag penalty reverted
+- mixU (SAGPEN=5) still had E4 lull 16:30-16:54 (17 bars) and added vocal-clash + beat-alignment fails and coverage/32-bar fails → penalty made the plan worse. Removed sag()/SAGPEN from mix_simple (no dead code). Kept: E4 guardrail, test_mix02_traits.py, --dry meta dump.
+- Delivered mixT now honestly FAILS E4 (15:06-16:10) and body coverage (0.74). Not relaxed. Fix needs a plan change (Always Be / Strings Of Life placement), not done.
+- 2026-10-28 16:15 MDT LENGTH TASK: name clash — Mix2-vs-3 worker also used 'mixU'. My length renders now use names mixLen<N>. Rendering mixLen1 (plan_60i) -> /tmp/mixLen1.log

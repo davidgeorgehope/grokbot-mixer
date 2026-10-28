@@ -29,7 +29,7 @@ Checks (ids used in the report):
  E4 long lull    : short-term (3 s) loudness > 6 dB under the WHOLE-mix median for > 8 bars (11 s) straight, outside the first/last
                    45 s. No breakdown excuse: E1 compares to a 30 s local median, so a record's long breakdown running into a quiet
                    intro hides from it. Mix 02 (the listener's reference) never sags longer than ~6 bars; old Mix 03 (19:15, 30 bars)
-                   and mixT (15:06, ~45 bars, Always Be breakdown into the Supernova intro) did (MIX2_VS_MIX3.md).
+                   and mixT (15:06, ~45 bars, Always Be breakdown into the Supernova intro) did (MIX_REFERENCE.md).
 """
 import os,sys,json,re,subprocess,argparse,functools,numpy as np,soundfile as sf,librosa
 from scipy.signal import butter,sosfiltfilt

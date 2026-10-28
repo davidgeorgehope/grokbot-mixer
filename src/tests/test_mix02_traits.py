@@ -1,4 +1,4 @@
-"""What made Mix 02 good, as tests (MIX2_VS_MIX3.md, 2026-10-28). Each threshold is set so that Mix 02 (mix2b) passes
+"""What made Mix 02 good, as tests (MIX_REFERENCE.md, 2026-10-28). Each threshold is set so that Mix 02 (mix2b) passes
 and the measured failure in old Mix 03 (mix360f) or mixT is caught. The long-lull trait is guardrail E4 (audio-based)."""
 import os,json,sys,numpy as np,pytest
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))

@@ -1,6 +1,6 @@
 """Plan everything before rendering (additive to mix_simple.py; this file never renders audio).
   python3 plan_search.py table  --base plan.json           pairwise blend table for every analysed crate track -> pair_table.json (cached)
-  python3 plan_search.py search --base plan.json --out p.json [--min 58 --max 62] [--exclude id,id]  (exclude = tracks a render proved unplaceable)   order + windows meeting every test target
+  python3 plan_search.py search --base plan.json --out p.json [--min 58 --max 62] [--exclude id,id] [--require a>b,...]  (exclude = tracks a render proved unplaceable)   order + windows meeting every test target
   python3 plan_search.py predict <name>                    test metrics predicted from <name>_meta.json alone (no audio)
   python3 plan_search.py validate                          predicted vs rendered results for every mix with guard_<name>/guardrails.json
 The chosen windows are written into the plan as 'out_win' so mix_simple renders exactly what was planned.
@@ -12,8 +12,27 @@ import pair_feats as PF
 MELMAX=int(os.environ.get('MELMAX',8))      # max blend bars where both decks' melody/chord layer is above its own median (Bad To Me->Blame You 34:05, rated 1/5: 11; Parallel->Bad To Me 30:56, 5/5: 0)
 MELPEN=float(os.environ.get('MELPEN',4))    # search cost per such bar, scaled by chord rub
 DRIFTPEN=float(os.environ.get('DRIFTPEN',2))  # search cost per ms of median 16th-grid phase gap between the decks' source bars above 5 ms
+STEPMAX=float(os.environ.get('STEPMAX',9.5))  # predicted entry level step cap (guardrail N1): renders failed at +9.8/+10.2/+14.8; the one pass above it (+10.7) is Parallel->Bad To Me, which a render proved fine, so pairs the listener rated 4+ are exempt
+STEPPEN=float(os.environ.get('STEPPEN',0))   # optional cost per dB of predicted entry step above 6 dB
+PREFW=float(os.environ.get('PREFW',60))       # cost per rating point away from 3 for pairs the listener rated (pair_prefs.json): 5/5 -> -120, 1/5 -> +120
+SIL_DB=20                                     # a source beat this far under the track's median is near-silent (guardrail E2 when it plays solo)
+def prefs():return {k:v for k,v in json.load(open('pair_prefs.json')).items() if not k.startswith('_')}
+def bad_windows():
+  """windows a render proved bad: every guardrail failure tied to a blend, from every guard_mixPlan*/ run, keyed a>b -> [window]"""
+  out={}
+  for g in glob.glob('guard_mixPlan*/guardrails.json'):
+    n=g.split('/')[0][6:];G=json.load(open(g))
+    if not os.path.exists(f'{n}_meta.json'):continue
+    P={p['id']:p for p in json.load(open(f'{n}_meta.json'))['plan']}
+    for f in G['failures']:
+      if f.get('trans') is None:continue
+      t=G['transitions'][f['trans']] if isinstance(G['transitions'],list) else None
+      a,b=(t['a'],t['b']) if t else (None,None);w=P.get(a,{}).get('out_win')
+      if a and w:out.setdefault(f'{a}>{b}',[]).append(w)
+  return out
 SCORER_ENV=('XBARS','SWAP_POS','HEAVY','BASS_SWAP_BARS','DRUMPEN','SGPEN','VPEN','BOTHPEN','GAPPEN','CUEW','LW','SEAMPEN','RPEN','HOLE_DB','HOLEPEN','SEAMMAX','BOTHMIN','HARDPEN','SHORTPEN','LOOPPEN')
 E4_DB,E4_BARS=10,12  # E4 on predicted (pre-master) levels: calibrated on 12 renders by `validate` (the master compresses dips, so 6 dB/8 bars in LUFS ~ 10 dB/12 bars here)
+E4_REF_OFS=1.0  # whole-mix median sits ~0.7 dB above the median of the tracks' own medians (blends sum two decks); measured on a dry plan
 MIN_S=45/C.BAR      # E4 ignores the first/last 45 s
 
 def _reset(name):
@@ -72,7 +91,7 @@ def windows(kind,e,p,ib,X):
 def crate():
   K=C.keys();return sorted(b for b in (os.path.basename(f)[:-5] for f in glob.glob('st/*.json')) if b in K and glob.glob(f'st/{b}*.wav'))
 def table_key(base):
-  h=[os.environ.get(k) for k in SCORER_ENV]+[os.path.getmtime(f) for f in('mix_simple.py','cue_model.json','pair_feats.py')]
+  h=[os.environ.get(k) for k in SCORER_ENV]+[os.path.getmtime(f) for f in('mix_simple.py','cue_model.json','pair_feats.py','plan_search.py')]
   return json.dumps([h,[(p['id'],p.get('anchor'),p.get('anchor_in'),p.get('out_max')) for p in json.load(open(base))],crate()],default=str)
 def clash(fa,fb,wa,wb):
   """melodic + grid clash of one window, from the pair_feats per-bar features, over the bars where both crossfader gains are >= 0.38
@@ -85,6 +104,16 @@ def clash(fa,fb,wa,wb):
     if ea[sa]>ma and eb[sb]>mb:mel+=1;rub.append(PF.clash(ca[sa],cb[sb]))
     if not(np.isnan(pa[sa]) or np.isnan(pb[sb])):dr.append(abs(pa[sa]-pb[sb]))
   return dict(mel=mel,rub=round(float(np.mean(rub)),3) if rub else 0.0,drift=round(float(np.median(dr)),1) if dr else 0.0)
+BOFFMAX=8  # = test_ears BEATOFF_MAX_BARS; the source-bar prediction matched the rendered ears count within 3 bars on all 37 blends of mixLen21b + mixPlan3
+def beat_off_bars(pa,pb,da,db,wa,wb):
+  """blend bars where both decks drum and their kick+snare patterns sit on different beats (ears.beat_off > 0.3, the test's threshold)"""
+  import ears as E
+  return sum(1 for sa,sb in zip(wa,wb) if sa<len(pa) and sb<len(pb) and sa<len(da) and sb<len(db) and da[sa] and db[sb] and E.beat_off(pa[sa],pb[sb])>0.3)
+def entry_step(beats,wa,prev):
+  """predicted master step at blend entry (guardrail N1): the outgoing deck's level over the first 3 beats of the window vs the last 3
+  beats of the source bar it played just before (the incoming deck is still at gain 0)"""
+  g=lambda s,q:beats[s*4+q] if 0<=s*4+q<len(beats) else -120.
+  return round(float(np.median([g(wa[0],q) for q in range(3)])-np.median([g(prev,q) for q in (1,2,3)])),1)
 def table(base,path='pair_table.json',K=40):
   """every ordered pair of crate tracks: key compatibility, and for key-compatible pairs the K best windows (scored as if the outgoing
   track started at bar 0; search re-checks each window against the real start) with predicted beat-on-beat run, beatless bars, vocal clash
@@ -93,7 +122,8 @@ def table(base,path='pair_table.json',K=40):
   if os.path.exists(path):
     T=json.load(open(path))
     if T['key']==key:return T
-  import cue;CM=cue.load();ns=scorer(base);KE=C.keys();ids=crate();t0=time.time();tr={};pairs={};FT={b:PF.load(b) for b in ids}
+  import cue;CM=cue.load();ns=scorer(base);KE=C.keys();ids=crate();t0=time.time();tr={};pairs={};FT={b:PF.load(b) for b in ids};BT={b:PF.beats(b)[0] for b in ids};PT={b:PF.pattern(b) for b in ids}
+  DA={b:(lambda x:x>np.percentile(x,75)-8)(np.array(json.load(open(f'st/{b}.json'))['bar']['drums'])) for b in ids}  # the ears test's drum-activity rule
   for b in ids:
     t,al,body,v,nb=ns['A_'](b);g=t['g']['bar']
     tr[b]=dict(key=KE[b],nb=nb,body=float(body),tail=int(ns['tail0'](al,body)),e_max=int(min(ns['tail0'](al,body),nb,ns['OUTMAX'].get(b,nb))//16*16),
@@ -109,7 +139,7 @@ def table(base,path='pair_table.json',K=40):
           none=sum(not(xa<len(dA) and dA[xa]) and not(xb<len(dB) and dB[xb]) for xa,xb in zip(wa,wb))
           x=(np.arange(X)+.5)/X;lv=10*np.log10(np.cos(x*np.pi/2)**2*10**(alA[wa]/10)+np.sin(x*np.pi/2)**2*10**(alB[np.minimum(wb,len(alB)-1)]/10))
           row['wins'].append(dict(w=[kind,int(e),None if p is None else int(p),int(ib),int(X)],pen=round(float(r['pen']),1),bob=int(r['DT']),beatless=int(none),
-            voc=int(r['V']),both=int(r['both']),L=int(r['L']),R=r['R'],dip=round(float(tr[a]['body']-lv.min()),1),lv=[round(float(x),1) for x in lv],cue=round(1-cue.pctl(CM,'out',tr[a]['cuef'],e),3),**clash(FT[a],FT[b],wa,wb)))
+            voc=int(r['V']),both=int(r['both']),L=int(r['L']),R=r['R'],dip=round(float(tr[a]['body']-lv.min()),1),lv=[round(float(x),1) for x in lv],cue=round(1-cue.pctl(CM,'out',tr[a]['cuef'],e),3),**clash(FT[a],FT[b],wa,wb),step=entry_step(BT[a],wa,e-1 if kind in('la','ab') else wa[0]-1),boff=beat_off_bars(PT[a],PT[b],DA[a],DA[b],wa,wb)))
       pairs[f'{a}>{b}']=row
   for b in tr:tr[b].pop('cuef')
   T=dict(key=key,built_s=round(time.time()-t0,1),tracks=tr,pairs=pairs);json.dump(T,open(path,'w'));return T
@@ -128,16 +158,22 @@ def _deck(inn,e,p,Xout):
 class Crate:
   def __init__(s,T):
     s.T=T;s.tr=T['tracks'];s.al={b:C.src_bars(b) for b in s.tr};s.loud={b:set(np.where(a>np.percentile(a,75)-6)[0].tolist()) for b,a in s.al.items()}
+    s.sil={}
+    for b in s.tr:
+      bt=PF.beats(b)[0];q=bt<np.median(bt)-SIL_DB;s.sil[b]={i//4 for i in range(1,len(q)) if q[i] and q[i-1]}  # source bars holding 2+ near-silent beats
     s.ref=float(np.median([np.median(a[:s.tr[b]['tail']]) for b,a in s.al.items()]))  # ~ the mix median level
   def close(s,b,m,lin,lout,at,end=1e9):
     """a finished deck starting at mix bar `at`, with the predicted mix levels of its incoming/outgoing blends:
     (coverage, longest run under the E4 line inside E4's window, seconds)"""
     cov=len(s.loud[b]&set(m))/max(1,len(s.loud[b]));al=s.al[b];run=best=0
+    solo=m[len(lin):len(m)-len(lout)];hole=any(x in s.sil[b] for x in solo[2:])  # (the first bars of an opener / tail of the closer are E2-exempt via MIN_S anyway)
+    if hole and MIN_S<=at+len(lin)<end-MIN_S:return cov,1e9,len(m)*C.BAR
     L=list(lin)+[al[x] if x<len(al) else -120 for x in m[len(lin):len(m)-len(lout)]]+list(lout)
-    for j,l in enumerate(L):run=run+1 if MIN_S<=at+j<end-MIN_S and l<s.ref-E4_DB else 0;best=max(best,run)
+    L=10*np.log10(np.maximum(np.convolve(10**(np.array(L,float)/10),np.ones(2)/2,'same'),1e-12))  # same 2-bar smoothing as e4_runs
+    for j,l in enumerate(L):run=run+1 if MIN_S<=at+j<end-MIN_S and l<s.ref+E4_REF_OFS-E4_DB else 0;best=max(best,run)
     return cov,best,len(m)*C.BAR
 def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=()):
-  T=table(base);K=Crate(T);tr={b:t for b,t in K.tr.items() if b not in exclude};B=json.load(open(base));first=B[0]['id'] if fix_open else None;done=[];t0=time.time()
+  T=table(base);K=Crate(T);PR=prefs();BADW=bad_windows();tr={b:t for b,t in K.tr.items() if b not in exclude};B=json.load(open(base));first=B[0]['id'] if fix_open else None;done=[];t0=time.time()
   LOB,HIB=lo*60/C.BAR,hi*60/C.BAR
   for bw in BW:
     starts=[first] if first else list(tr)
@@ -152,14 +188,14 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=()):
           if not row['key_ok']:continue
           for w in row['wins']:
             kind,e,p,ib,X=w['w']
-            if w['voc'] or w['both']<8 or w['R']<0.2 or w['mel']>MELMAX or not _valid(tr[a],w['w'],ia):continue
+            if w['voc'] or w['both']<8 or w['R']<0.2 or w['mel']>MELMAX or w['boff']>BOFFMAX or w['w'] in BADW.get(f'{a}>{b}',[]) or (w['step']>STEPMAX and PR.get(f'{a}>{b}',3)<4) or not _valid(tr[a],w['w'],ia):continue
             m=_deck(st['inn'],e,p,X if p is not None else 0)
             cov,lull,sec=K.close(a,m,st['lin'],w['lv'],st['bars']-st['inn'][2])
             if cov<0.5 or lull>E4_BARS or (tr[a]['anchor'] and sec<C.MIN_ANCHOR_S):continue
             bars=st['bars']+len(m)-st['inn'][2]
             if bars>HIB:continue
             bl=st['bl']+[dict(a=a,b=b,**w)];cv=st['cov']+[cov]
-            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)
+            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(PR.get(f'{a}>{b}',3)-3)
             ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost)
             k=(frozenset(ns['seq']),b,ns['inn'])
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns
@@ -192,7 +228,7 @@ def dry(plan,tag):
       if os.path.exists(x):os.remove(x)
 def report_missing(done,K):
   """what the crate lacks: tracks no window can bring in or take out, and how many pairs offer a 16+ bar beat-on-beat window"""
-  T=K.T;tr=K.tr;ok=lambda w:not(w['voc'] or w['both']<8 or w['R']<0.2 or w['mel']>MELMAX)
+  T=K.T;tr=K.tr;ok=lambda w:not(w['voc'] or w['both']<8 or w['R']<0.2 or w['mel']>MELMAX or w['boff']>BOFFMAX)
   inn={b:sum(any(ok(w) for w in T['pairs'][f'{a}>{b}']['wins']) for a in tr if a!=b) for b in tr}
   out={a:sum(any(ok(w) for w in T['pairs'][f'{a}>{b}']['wins']) for b in tr if a!=b) for a in tr}
   bob={b:sum(any(ok(w) and w['bob']>=16 for w in T['pairs'][f'{a}>{b}']['wins']) for a in tr if a!=b) for b in tr}
@@ -233,7 +269,8 @@ if __name__=='__main__':
     done.sort(key=lambda d:(len(d['fails']),d['pred']['bob16']<d['pred']['blends']/2+2,sum(w['pen'] for w in d['bl'])))  # all targets, then 2 blends of beat-on-beat margin, then the render scorer's own penalty
     print(f'search {st}s, {len(done)} complete plans, {sum(not d["fails"] for d in done)} meet every target on the table')
     best=None;tried=[];seen=set()  # dry-verify distinct orders (near-identical window variants share the same failure)
-    for d in [d for d in done if not d['fails']]:
+    req=[x for x in arg('--require','').split(',') if x]  # pairs that must appear, e.g. a 5/5-rated blend: 2s3M6oX2lfo>nT25guf4DRU
+    for d in [d for d in done if not d['fails'] and all(r in {f"{w['a']}>{w['b']}" for w in d['bl']} for r in req)]:
       if tuple(d['seq']) in seen:continue
       if len(seen)>=int(arg('--verify',25)):break
       seen.add(tuple(d['seq']));P=to_plan(d,base);v=dry(P,len(seen));tried.append((d['pred'],v.get('tests',v),v.get('E4')))

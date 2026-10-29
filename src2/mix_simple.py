@@ -48,8 +48,15 @@ def rxc(a,b,wa,wb):
     if na<1e-9 or nb_<1e-9:continue
     c=np.correlate(ea/na,eb/nb_,mode='full');m=len(c)//2;xs.append(float(c[m-ml:m+ml+1].max()))
   return float(np.median(xs)) if xs else 1.0
+_DR={}
+def drums_on(i):  # per source bar: drums within 8 dB of the record's drum body (Mix 02 trait: long drums-together blends)
+  if i not in _DR:d=np.array(json.load(open(f'st/{i}.json'))['bar']['drums']);_DR[i]=d>np.percentile(d,75)-8
+  return _DR[i]
+DRUMPEN=float(os.environ.get('DRUMPEN',0))  # 0 = baseline behaviour
 def score(a,b,wa,wb,refA):
   alA,loA,vA,rvA,bA=F(a);alB,loB,vB,rvB,bB=F(b);V=L=C=both=G=SG=0
+  dA,dB=drums_on(a),drums_on(b);DT=run=0
+  for xa,xb in zip(wa,wb):run=run+1 if xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] else 0;DT=max(DT,run)  # longest straight drums-together run
   for k,(xa,xb) in enumerate(zip(wa,wb)):
     x=(k+0.5)/X;ga,gb=np.cos(x*np.pi/2),np.sin(x*np.pi/2);da,dbb=20*np.log10(ga),20*np.log10(gb)
     LA,LB=alA[xa]+da,alB[xb]+dbb
@@ -62,7 +69,13 @@ def score(a,b,wa,wb,refA):
       elif (k<POS*X and not bA[xa]) or (k>=POS*X and not bB[xb]):
         G+=1;SG+=int(POS*X<=k<POS*X+4)  # incoming has no bass right after the handoff: audible energy drop
     elif loA[xa]-alA[xa]>HEAVY and loB[xb]-alB[xb]>HEAVY and min(loA[xa]+da,loB[xb]+dbb)>refA-12:L+=1
-  return dict(V=V,L=L,C=C,both=both,G=G,SG=SG,pen=float(os.environ.get('SGPEN',15))*SG+float(os.environ.get('VPEN',100))*V+4*L+float(os.environ.get('BOTHPEN',15))*max(0,10-both)+3*C+float(os.environ.get('GAPPEN',0.5))*G)
+  return dict(V=V,L=L,C=C,both=both,G=G,SG=SG,pen=float(os.environ.get('SGPEN',15))*SG+float(os.environ.get('VPEN',100))*V+4*L+float(os.environ.get('BOTHPEN',15))*max(0,10-both)+3*C+float(os.environ.get('GAPPEN',0.5))*G+DRUMPEN*max(0,16-DT),DT=DT)
+CUEW=float(os.environ.get('CUEW',0))  # pro cue-point term (cue.py, Raveform-trained); 0 = off until the listener hears the A/B
+if CUEW>0:
+  import cue;CM=cue.load();_CX={}
+  def cue_pen(a,ea):  # 0 when the outgoing record ends where the model's pros end it, 1 at its least pro-like spot (mix-in model lost to a plain 8%-position rule, so it isn't used)
+    if a not in _CX:g=track(a)['g']['bar'];_CX[a]=cue.track_feats(g['all'],g['low'],g['hat'])
+    return 1-cue.pctl(CM,'out',_CX[a],ea)
 XT={};inn={ids[0]:0};outs={};loops={};notes={};info_={}
 def pair_cands(i,ia0):
   """all scored windows for blend i given where track i starts (ia0); sorted best first"""
@@ -105,6 +118,7 @@ def pair_cands(i,ia0):
       hole=int(any(alb[k]<float(os.environ.get('HOLE_DB',-31)) for k in range(q+X,min(q+X+96,tail0(alb,bb)))))  # incoming would play a near-silent bar of its own (guardrail E2)
       r['pen']+=float(os.environ.get('HOLEPEN',0))*hole
       if step>float(os.environ.get('SEAMMAX',2)) or r['both']<int(os.environ.get('BOTHMIN',11)):r['pen']+=float(os.environ.get('HARDPEN',60))  # hard limits: guardrail N1 (3 dB step) and O1 (>=8 bars)
+      if CUEW>0:r['cue']=round(cue_pen(a,ea),3);r['pen']+=CUEW*r['cue']
       sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',6))*{'n':0,'la':1,'lb':1,'ab':2}[kind],-ea,str(ib))
       res.append((sc,kind,(e,p) if kind in('la','ab') else e,ib,r,X))
   X=XMAX;res.sort(key=lambda t:t[0]);return res

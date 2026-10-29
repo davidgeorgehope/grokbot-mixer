@@ -133,3 +133,9 @@
 - 2026-10-29 01:01 mixLenMk1: O1 OPuV>5gFut (5gFut anchor) + F1 7Itbo without nudges. Set 7Itbo src16-28 nudges to old-9 ms; using plan mK3 (FYpf anchor, 60.69). Rendering mixLenMk3.
 - 2026-10-29 01:13 mixLenMk3: guardrails 0, only anchor test (FYpf too short to anchor). Plan mL = mJ + 7Itbo out_win la160/144 in16 (no FYpf anchor), dry 60.32, 11/20. Rendering mixLenMl.
 - 2026-10-29 01:26 mixLenMl: guardrails 0 + 38/38 pytest PASS. Running ears.sh.
+- 2026-10-29 01:43 ears.sh mixLenMl: Beat This FAIL on 0 (2:57 EiZ>n1dO), 6 (19:52 U&I>Alone, known OPuV false positive), 17 (51:52), 18 (54:04, 4 both-drum bars). Direct checks disagree: per-bar deck-vs-master lag test (<=10ms) pass, F1 pass, kick/snare beat_off bars 1/2/4/0 (bad 34:05 calibrates at 21). Treated as suspect per EARS.md rule. Proceeding to delivery.
+- 2026-10-29 01:44 tracklist dj-mix-03-60-tracklist-new.md regenerated (real names, 60:20); refill mp3 + 128k encoded from mixLenMl.
+- 2026-10-29 01:45 Drive: new 1sNLOOb25Mdi8Dm6hbQ42dhPyGX4ZSuKa (128k, 60:20), old 1NpYbRM trashed.
+- 2026-10-29 01:47 iCloud: DJ Mix 03 - Liquid (60 min) mp3+tracklist synced; 59-min pair removed.
+- 2026-10-29 01:47 DOCKET + EARS.md updated.
+- 2026-10-29 01:47 cleanup: removed scratch mixLen* renders/WAVs/guard dirs, scratch plans; kept mixLenMl master/meta/guard, mixLen21b meta, plan_60mL/k21/zc/h.

@@ -1,12 +1,10 @@
 # DJ docket (keep current; update after every step)
 
 ## Now
-- DONE 2026-10-28: Mix 03 refill delivered (58:52, Drive + iCloud, real titles). Passes everything except beat-on-beat (9/19, needs 10).
-- IN PROGRESS: mixLenSd render (plan_60sd: Sweet Lies blend redone without loop per the listener, +Galaxy Bladerunner rmx, dry 60.7 min 11/20 beat16).
-- Mix 03 refill to ~60 min with 3-5 new liquid tracks, built on the mixT baseline (additive, nothing thrown away).
-  - Must pass: all current guardrails and pytest, E4 long-lull, loud-section coverage (avg >=0.80, each >=0.50), half the blends >=32 bars, no 8+ drums-only bars.
-  - New targets: >=1/2 of blends with 16+ straight bars of both decks drumming (beat-on-beat); <=1/3 of blends mostly beatless.
-  - Tracklist uses real Artist - Title. Deliver to Drive (latest only) and iCloud DJ Mixes, then clean up the disk.
+- DONE 2026-10-29 01:50: Mix 03 refill v2 delivered = mixLenMl (plan_60mL, nudgeLen.json). 60:20, guardrails 0 fails, pytest 38/38 (beat-on-beat 11/20, far-back loop test, ears test). Drive https://drive.google.com/file/d/1sNLOOb25Mdi8Dm6hbQ42dhPyGX4ZSuKa/view (128k), iCloud DJ Mixes (60-min only), tracklist dj-mix-03-60-tracklist-new.md.
+  - Far-back loops banned in mix_simple (only the phrase right before the out point may repeat) + hard test test_loops_only_repeat_the_phrase_just_played.
+  - Old 14:42 Sweet Lies->Supernova and 33:50 Bad To Me->Blame You no longer exist (Supernova opens; Blame You dropped). Parallel->Bad To Me unchanged (32 bars, repeats 144-160).
+  - ears.sh Beat This flagged 2:57, 19:52 (known OPuV false positive), 51:52, 54:04; direct checks (per-bar lag test, F1, kick/snare beat_off 1/2/4/0 bars) disagree -> suspect, see EARS.md.
 
 ## Next
 - "Ears": note-level clash check (chroma dissonance between the two decks) + beat-by-beat drum alignment check, calibrated on 34:05 (bad) vs 30:56 (good). Later: a learned blend-quality model trained on Raveform + the listener's ratings.

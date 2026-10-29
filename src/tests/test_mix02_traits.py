@@ -59,3 +59,11 @@ def test_half_the_blends_beat_on_beat_16_bars():
 def test_few_beatless_blends():
   """At most 1 in 3 blends may be mostly beatless (neither deck drumming in over half its bars)."""
   r=_drum_runs();assert sum(nn>n/2 for _,nn,n in r)<=len(r)/3,r
+def test_loops_only_repeat_the_phrase_just_played():
+  """the listener 2026-10-28: Parallel -> Bad To Me repeats bars 144-160 right before its cut (seamless, rated 5/5); Sweet Lies jumping
+  back to bars 16-32 under the blend sounded weird. Any backward jump in a deck's source bars must be exactly one 16-bar phrase."""
+  bad=[]
+  for d in C.decks():
+    s=[x for x,_ in d['full_map'] if x is not None]
+    bad+=[(d['id'],s[k-1],s[k]) for k in range(1,len(s)) if s[k]<=s[k-1] and s[k-1]+1-s[k]!=16]
+  assert not bad,bad

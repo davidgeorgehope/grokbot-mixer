@@ -92,14 +92,14 @@ def pair_cands(i,ia0):
     for e in range(e_max,emin-1,-16):
       for ib in range(0,min(81,nb-3*X),16):cands.append(('n',e,ib))
     eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
-    for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats its own clean 16-bar phrase p under the blend
-      for p in range(max(ia,16),e-15,16):
+    for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
+      for p in [e-16] if e-16>=max(ia,16) else []:
         for ib in range(0,min(81,nb-3*X),16):cands.append(('la',(e,p),ib))
     for e in range(e_max,emin-1,-16):
       for q in range(16,min(97,nb-4*X),16):cands.append(('lb',e,q))  # incoming plays phrase q first, continues q+16
     cpa=[p for p in clean_phrases(a) if p>=max(ia,16)];cpb=[q for q in clean_phrases(b) if 16<=q<min(97,nb-4*X)]
     for e in range(e_max,emin-1,-16):  # both decks loop a clean instrumental phrase (only when neither has vocal-free runway)
-      for p in [p for p in cpa if p<=e-16]:
+      for p in [p for p in cpa if p==e-16]:
         for q in cpb:cands.append(('ab',(e,p),q))
     if b in ANCH and b not in NOIN:  # incoming anchor: start early enough to keep >=160 bars of its own music
       bmx=min(tail0(alb,bb),nb)-160;cands=[c for c in cands if c[2]<=max(0,bmx)] or cands
@@ -123,11 +123,14 @@ def pair_cands(i,ia0):
       sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',6))*{'n':0,'la':1,'lb':1,'ab':2}[kind],-ea,str(ib))
       res.append((sc,kind,(e,p) if kind in('la','ab') else e,ib,r,X))
   X=XMAX;res.sort(key=lambda t:t[0]);return res
+def win_key(c):return [c[1],*(c[2] if isinstance(c[2],tuple) else (c[2],None)),c[3],c[5]]  # [kind, out bar, loop phrase, in bar, blend bars]
 def nxt_inn(c):return ("loopB",c[3]) if c[1] in("lb","ab") else c[3]
 LOOK=int(os.environ.get("LOOKAHEAD",8))
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];cs=pair_cands(i,inn[a])
-  if i+1<len(ids)-1 and LOOK>1:best=min(cs[:LOOK],key=lambda c:c[0][0]+pair_cands(i+1,nxt_inn(c))[0][0][0])  # 1-step lookahead: do not starve the next blend
+  W=plan[i].get('out_win')  # opt-in: the window plan_search.py chose for this blend (renders exactly what was planned)
+  if W:best=next(c for c in cs if win_key(c)==W)
+  elif i+1<len(ids)-1 and LOOK>1:best=min(cs[:LOOK],key=lambda c:c[0][0]+pair_cands(i+1,nxt_inn(c))[0][0][0])  # 1-step lookahead: do not starve the next blend
   else:best=cs[0]
   _,kind,e,ib,r,xt=best;XT[(a,b)]=xt;n=[]
   if kind=='ab':e,p=e;loops[a]=p;n.append(f'outgoing plays to bar {e}, then repeats its clean phrase {p}-{p+16}; incoming loops its clean phrase {ib}-{ib+16} through the blend, then continues from bar {ib+16}');ib=('loopB',ib)

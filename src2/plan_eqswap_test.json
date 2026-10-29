@@ -1,0 +1,34 @@
+[
+ {
+  "id": "EiZVTuiqo0w",
+  "tech": "first",
+  "kw": {
+   "pre": 32
+  },
+  "anchor": true
+ },
+ {
+  "id": "n1dOiesZS1g",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  }
+ },
+ {
+  "id": "cxS6yd0UAxw",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  }
+ },
+ {
+  "id": "nAV4i1YIwQI",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  }
+ }
+]

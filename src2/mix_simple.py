@@ -6,6 +6,9 @@ Blend length: XBARS (default 32) per blend, falling back to 16 (the minimum) onl
 Bass handoff (BASS_SWAP_BARS, default 2; 0 = off): the only EQ move, tied to the crossfader. When x passes SWAP_POS
 (default 0.35, Raveform median ~0.36) the outgoing deck's low band (<150 Hz) ramps 1->0 while the incoming one ramps
 0->1 (raised cosine, monotonic), so one bassline plays at a time.
+Phrase-snapped bass swap (SWAP_PHRASE=1, default off): on beat-on-beat blends (both decks drum >= half the blend) the
+handoff centre moves to the 4-bar phrase boundary (crossfader x 0.2-0.65) where the two basslines double and drop out least.
+Raveform (38 reliable DnB blends): pros swap lows in <=2 bars half the time, median ~21% into the blend.
 Window choice uses cached Demucs activity maps (bar.voc, bar.bass) for analysis only."""
 import numpy as np,soundfile as sf,json,sys,os
 from engine import track,render_deck,SR,BAR,BEAT,BS
@@ -54,7 +57,16 @@ def drums_on(i):  # per source bar: drums within 8 dB of the record's drum body 
   if i not in _DR:d=np.array(json.load(open(f'st/{i}.json'))['bar']['drums']);_DR[i]=d>np.percentile(d,75)-8
   return _DR[i]
 DRUMPEN=float(os.environ.get('DRUMPEN',0))  # 0 = baseline behaviour
+SNAP=int(os.environ.get('SWAP_PHRASE',0))
+def swap_at(a,b,wa,wb):
+  """bass handoff centre in bars into the blend: POS*X, or with SWAP_PHRASE the best 4-bar phrase boundary on beat-on-beat blends"""
+  if not(SNAP and SW>0):return POS*X
+  dA,dB=drums_on(a),drums_on(b);bA,bB=F(a)[4],F(b)[4]
+  if sum(xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] for xa,xb in zip(wa,wb))<X/2:return POS*X
+  def bad(c):return sum(2*(abs(k+0.5-c)<SW/2+0.5 and bA[xa] and bB[xb])+((k<c and not bA[xa]) or (k>=c and not bB[xb])) for k,(xa,xb) in enumerate(zip(wa,wb)))
+  return min((c for c in range(4,X,4) if 0.2<=c/X<=0.65),key=lambda c:(bad(c),abs(c-POS*X)))
 def score(a,b,wa,wb,refA):
+  c=swap_at(a,b,wa,wb)
   alA,loA,vA,rvA,bA=F(a);alB,loB,vB,rvB,bB=F(b);V=L=C=both=G=SG=0
   dA,dB=drums_on(a),drums_on(b);DT=run=0
   for xa,xb in zip(wa,wb):run=run+1 if xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] else 0;DT=max(DT,run)  # longest straight drums-together run
@@ -65,12 +77,12 @@ def score(a,b,wa,wb,refA):
     if k<X/2 and LA<refA-10:C+=1
     if vA[xa]>rvA-12 and ga>0.3 and vB[xb]>rvB-12 and gb>0.3:V+=1
     if SW>0:  # with the bass handoff only the swap bars can double up; elsewhere the bassline must not drop out
-      if abs(k+0.5-POS*X)<SW/2+0.5:
+      if abs(k+0.5-c)<SW/2+0.5:
         if bA[xa] and bB[xb]:L+=1
-      elif (k<POS*X and not bA[xa]) or (k>=POS*X and not bB[xb]):
-        G+=1;SG+=int(POS*X<=k<POS*X+4)  # incoming has no bass right after the handoff: audible energy drop
+      elif (k<c and not bA[xa]) or (k>=c and not bB[xb]):
+        G+=1;SG+=int(c<=k<c+4)  # incoming has no bass right after the handoff: audible energy drop
     elif loA[xa]-alA[xa]>HEAVY and loB[xb]-alB[xb]>HEAVY and min(loA[xa]+da,loB[xb]+dbb)>refA-12:L+=1
-  return dict(V=V,L=L,C=C,both=both,G=G,SG=SG,pen=float(os.environ.get('SGPEN',15))*SG+float(os.environ.get('VPEN',100))*V+4*L+float(os.environ.get('BOTHPEN',15))*max(0,10-both)+3*C+float(os.environ.get('GAPPEN',0.5))*G+DRUMPEN*max(0,16-DT),DT=DT)
+  return dict(c=c,V=V,L=L,C=C,both=both,G=G,SG=SG,pen=float(os.environ.get('SGPEN',15))*SG+float(os.environ.get('VPEN',100))*V+4*L+float(os.environ.get('BOTHPEN',15))*max(0,10-both)+3*C+float(os.environ.get('GAPPEN',0.5))*G+DRUMPEN*max(0,16-DT),DT=DT)
 CUEW=float(os.environ.get('CUEW',0))  # pro cue-point term (cue.py, Raveform-trained); 0 = off until the listener hears the A/B
 if CUEW>0:
   import cue;CM=cue.load();_CX={}
@@ -155,7 +167,7 @@ for i in range(len(ids)-1):
   A,B=decks[i],decks[i+1];X=XT[(A['id'],B['id'])];s=B['start_bar'];e=s+X
   xs=[[s+k/4,round(k/(4*X),5)] for k in range(4*X+1)]  # crossfader position per beat, linear 0->1
   n,cl=notes[(A['id'],B['id'])]
-  trans.append(dict(tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(POS*X)),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
+  trans.append(dict(tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
 def gA(x):return float(np.cos(x*np.pi/2))
 def gB(x):return float(np.sin(x*np.pi/2))
 for i,d in enumerate(decks):

@@ -35,7 +35,7 @@ def bad_windows():
 def ears_gate():return [r for g in sorted(glob.glob('*_ears_gate.json')) for r in json.load(open(g))]
 SUSPPEN=float(os.environ.get('SUSPPEN',60))  # ears-suspect pair the listener rated 3 or less (Supernova->Solitude 3/5 'a little weird'): real but mild -> cost, not a ban
 def suspects(PR):return {f"{r['a']}>{r['b']}" for r in ears_gate() if r['status']=='suspect' and PR.get(f"{r['a']}>{r['b']}",5)<=3}
-SCORER_ENV=('XBARS','SWAP_POS','HEAVY','BASS_SWAP_BARS','DRUMPEN','SGPEN','VPEN','BOTHPEN','GAPPEN','CUEW','LW','SEAMPEN','RPEN','HOLE_DB','HOLEPEN','SEAMMAX','BOTHMIN','HARDPEN','SHORTPEN','LOOPPEN')
+SCORER_ENV=('XBARS','SWAP_POS','SWAP_PHRASE','HEAVY','BASS_SWAP_BARS','DRUMPEN','SGPEN','VPEN','BOTHPEN','GAPPEN','CUEW','LW','SEAMPEN','RPEN','HOLE_DB','HOLEPEN','SEAMMAX','BOTHMIN','HARDPEN','SHORTPEN','LOOPPEN')
 E4_DB,E4_BARS=10,12  # E4 on predicted (pre-master) levels: calibrated on 12 renders by `validate` (the master compresses dips, so 6 dB/8 bars in LUFS ~ 10 dB/12 bars here)
 E4_REF_OFS=1.0  # whole-mix median sits ~0.7 dB above the median of the tracks' own medians (blends sum two decks); measured on a dry plan
 MIN_S=45/C.BAR      # E4 ignores the first/last 45 s

@@ -1,6 +1,6 @@
 """Plan everything before rendering (additive to mix_simple.py; this file never renders audio).
   python3 plan_search.py table  --base plan.json           pairwise blend table for every analysed crate track -> pair_table.json (cached)
-  python3 plan_search.py search --base plan.json --out p.json [--min 58 --max 62]   order + windows meeting every test target
+  python3 plan_search.py search --base plan.json --out p.json [--min 58 --max 62] [--exclude id,id]  (exclude = tracks a render proved unplaceable)   order + windows meeting every test target
   python3 plan_search.py predict <name>                    test metrics predicted from <name>_meta.json alone (no audio)
   python3 plan_search.py validate                          predicted vs rendered results for every mix with guard_<name>/guardrails.json
 The chosen windows are written into the plan as 'out_win' so mix_simple renders exactly what was planned.
@@ -136,8 +136,8 @@ class Crate:
     L=list(lin)+[al[x] if x<len(al) else -120 for x in m[len(lin):len(m)-len(lout)]]+list(lout)
     for j,l in enumerate(L):run=run+1 if MIN_S<=at+j<end-MIN_S and l<s.ref-E4_DB else 0;best=max(best,run)
     return cov,best,len(m)*C.BAR
-def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True):
-  T=table(base);K=Crate(T);tr=K.tr;B=json.load(open(base));first=B[0]['id'] if fix_open else None;done=[];t0=time.time()
+def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=()):
+  T=table(base);K=Crate(T);tr={b:t for b,t in K.tr.items() if b not in exclude};B=json.load(open(base));first=B[0]['id'] if fix_open else None;done=[];t0=time.time()
   LOB,HIB=lo*60/C.BAR,hi*60/C.BAR
   for bw in BW:
     starts=[first] if first else list(tr)
@@ -229,7 +229,7 @@ if __name__=='__main__':
   elif cmd=='validate':
     for r in validate():print(json.dumps(r))
   elif cmd=='search':
-    base=arg('--base');t0=time.time();done,K,st=search(base,float(arg('--min',58)),float(arg('--max',62)),int(arg('--beam',300)))
+    base=arg('--base');t0=time.time();done,K,st=search(base,float(arg('--min',58)),float(arg('--max',62)),int(arg('--beam',300)),exclude=tuple(x for x in arg('--exclude','').split(',') if x))
     done.sort(key=lambda d:(len(d['fails']),d['pred']['bob16']<d['pred']['blends']/2+2,sum(w['pen'] for w in d['bl'])))  # all targets, then 2 blends of beat-on-beat margin, then the render scorer's own penalty
     print(f'search {st}s, {len(done)} complete plans, {sum(not d["fails"] for d in done)} meet every target on the table')
     best=None;tried=[];seen=set()  # dry-verify distinct orders (near-identical window variants share the same failure)

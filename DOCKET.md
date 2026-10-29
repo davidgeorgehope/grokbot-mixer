@@ -9,7 +9,8 @@
   - Tracklist uses real Artist - Title. Deliver to Drive (latest only) and iCloud DJ Mixes, then clean up the disk.
 
 ## Next
-- IN PROGRESS: precomputed planner (src2/plan_search.py + new src2/pair_feats.py). 2026-10-28 22:10: pair table now carries melodic clash (bars where both decks' melody layer is loud + chord rub) and grid-phase drift per window; hard cap MELMAX=8 (34:05 Bad To Me->Blame You had 11, rated 1/5; 30:56 Parallel->Bad To Me had 0, rated 5/5). Far-back loops already banned in engine. Rebuilding table + search on plan_60v, renders use prefix mixPlan.
+- "Ears": note-level clash check (chroma dissonance between the two decks) + beat-by-beat drum alignment check, calibrated on 34:05 (bad) vs 30:56 (good). Later: a learned blend-quality model trained on Raveform + the listener's ratings.
+- IN PROGRESS: precomputed planner (src2/plan_search.py + new src2/pair_feats.py). 2026-10-28 22:10: pair table now carries melodic clash (bars where both decks' melody layer is loud + chord rub) and grid-phase drift per window; hard cap MELMAX=8 (34:05 Bad To Me->Blame You had 11, rated 1/5; 30:56 Parallel->Bad To Me had 0, rated 5/5). Far-back loops already banned in engine. Search on plan_60v: 10.6k of 18.9k complete orders pass on paper; dry-verified plan_60pl2 (21 tracks, 58 min, beat16 17/20, all meta tests). Render mixPlan2 still fails 5 audio guardrails (entry level steps N1 x3, L1, E2) the paper model doesn't predict yet. NEXT: model entry level step + bass overlap in the table, re-search, render, deliver only if all pass.
   - Was: Pre-score every track pair, search for the order that meets all targets at ~60 min, render only after the plan passes on paper.
 - Re-render Mix 03 visuals and the private YouTube video for the final version.
 - Update the build-dj-mix skill: crossfader-only approach, Mix 01/02 reference traits, beat-on-beat target, beatless cap, keep it simple.

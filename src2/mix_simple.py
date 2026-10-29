@@ -22,6 +22,7 @@ def clean_phrases(b):
 # per-track in/out plan: score every phrase-aligned candidate window by simulating the guardrails
 # (V1 vocal clash, L1 double bass, O1 both audible >=8 bars, C2 outgoing not too quiet) under the crossfader.
 ANCH={p['id'] for p in plan if p.get('anchor')};NOIN={p['id'] for p in plan if p.get('anchor_in') is False};HEAVY=float(os.environ.get('HEAVY',-6))
+OUTMAX={p['id']:p['out_max'] for p in plan if 'out_max' in p}  # opt-in plan cap on a track's out bar (its tail fades below musical level)
 SW=float(os.environ.get('BASS_SWAP_BARS',2))
 def F(b):
   g=track(b)['g']['bar'];al=np.array(g['all'],float);lo=np.array(g['low'],float);v=np.array(g.get('voc',[-100]*len(al)),float)
@@ -82,7 +83,7 @@ def pair_cands(i,ia0):
   global X
   a,b=ids[i],ids[i+1];ta,ala,ba,va,na=A_(a);tb,alb,bb,vb,nb=A_(b)
   ia=ia0[1]+16 if isinstance(ia0,tuple) else ia0;res=[]
-  e_max=min(tail0(ala,ba),na);e_max-=e_max%16
+  e_max=min(tail0(ala,ba),na,OUTMAX.get(a,na));e_max-=e_max%16
   minlen=160 if a in ANCH else 96-X  # anchors: >=160 bars (~220 s) of their own music, blend included
   emin=max(ia+minlen,ia+int((e_max-ia)*0.5));emin+=(-emin)%16;emin=min(emin,e_max)
   XMAX=X

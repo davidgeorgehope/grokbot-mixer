@@ -1,10 +1,11 @@
 """Core for the crossfader engine (mix_simple.py): track loading, warp nudges, and rendering one deck.
 A deck is a list of source bars (full_map) plus one 'gain' curve that comes only from the crossfader.
 The only EQ is an optional bass-handoff lane d['auto']['low'] (0..1 on the <XO Hz band, zero-phase split so
-low+rest == original exactly): one smooth monotonic swap per blend. No stems, ducking or other filters."""
+low+rest == original exactly): one smooth monotonic swap per blend; plus, with HIGH_SWAP, the same kind of lane
+d['auto']['high'] on the >HIGH_XO Hz band. No stems, ducking or other filters."""
 import numpy as np,soundfile as sf,json,os,pyloudnorm as pyln
 from scipy.signal import butter,sosfiltfilt
-XO=float(os.environ.get('BASS_XO',150))
+XO=float(os.environ.get('BASS_XO',150));HXO=float(os.environ.get('HIGH_XO',2000))
 SR=44100;T=174.0;BEAT=60/T;BAR=4*BEAT;BS=BAR*SR
 _cache={}
 class LazySt(dict):
@@ -41,14 +42,15 @@ def render_deck(d):
     if post:seg[-2*post:]*=np.linspace(1,0,2*post,dtype=np.float32)[:,None]
     o=SEAM+i0-pre;y[o:o+len(seg)]+=seg
   y=y[SEAM:SEAM+n]
-  lp=d['auto'].get('low') or []
-  if lp:
+  for lane,kind,fc in (('low','low',XO),('high','high',HXO)):
+    lp=d['auto'].get(lane) or []
+    if not lp:continue
     t=np.arange(n)/BS+d['start_bar'];gl=np.interp(t,[p[0] for p in lp],[p[1] for p in lp]).astype(np.float32)
     nz=np.where(gl<0.9999)[0]
     if len(nz):
       a0,a1=max(0,nz[0]-SR),min(n,nz[-1]+SR);seg=y[a0:a1]
-      low=sosfiltfilt(butter(4,XO,'low',fs=SR,output='sos'),seg,axis=0).astype(np.float32)
-      y[a0:a1]=seg-low*(1-gl[a0:a1,None])
+      band=sosfiltfilt(butter(4,fc,kind,fs=SR,output='sos'),seg,axis=0).astype(np.float32)
+      y[a0:a1]=seg-band*(1-gl[a0:a1,None])
   pts=d['auto'].get('gain') or []
   if pts:
     t=np.arange(n)/BS+d['start_bar'];g=np.interp(t,[p[0] for p in pts],[p[1] for p in pts]).astype(np.float32);y*=g[:,None]

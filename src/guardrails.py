@@ -59,19 +59,20 @@ def x1_check(M,fail,BAR,X1_db=3.0,floor_db=-24.0):
     for d in D:
       if d['id'] not in (t['a'],t['b']) or d['end_bar']<=s or d['start_bar']>=e:continue
       for k,v in d['auto'].items():
-        if k not in ('gain','low') and any(s<=p[0]<=e for p in v):fail('X1',s*BAR,e*BAR,f"{d['id']} has '{k}' automation inside the blend (crossfader + one bass swap only)");n+=1
-      lo=d['auto'].get('low')
-      if lo:  # exactly one smooth monotonic bass handoff: outgoing 1->0, incoming 0->1, over 1-2 bars inside the blend
-        up=d['id']==t['b'];lv=np.interp(bars,[p[0] for p in lo],[p[1] for p in lo]);dl=np.diff(lv)
-        mov=np.where(np.abs(dl)>1e-6)[0];why=None
-        if (up and (dl<-1e-6).any()) or (not up and (dl>1e-6).any()):why='non-monotonic'
-        elif abs(lv[0]-(0 if up else 1))>1e-3 or abs(lv[-1]-(1 if up else 0))>1e-3:why=f'does not go {"0->1" if up else "1->0"} across the blend'
-        elif len(mov) and not (1-1e-6<=(mov[-1]+1-mov[0])/16<=2+1e-6):why=f'swap lasts {(mov[-1]+1-mov[0])/16:.2f} bars (need 1-2)'
-        elif np.abs(dl).max()>0.25:why=f'bass step {np.abs(dl).max():.2f} per 1/16 bar (not smooth)'
-        elif len(mov):  # the swap is tied to the crossfader: its centre must sit at x in [0.2, 0.65]
-          xc=float(np.interp(bars[(mov[0]+mov[-1]+1)//2],[p[0] for p in xs],[p[1] for p in xs]))
-          if not 0.2<=xc<=0.65:why=f'centred at crossfader x={xc:.2f} (need 0.2-0.65)'
-        if why:fail('X1',s*BAR,e*BAR,f"{d['id']} bass swap {why}");n+=1
+        if k not in ('gain','low','high') and any(s<=p[0]<=e for p in v):fail('X1',s*BAR,e*BAR,f"{d['id']} has '{k}' automation inside the blend (crossfader + one bass swap + optional high swap only)");n+=1
+      for lane,name,xr in (('low','bass',(0.2,0.65)),('high','high',(0.1,0.9))):
+       lo=d['auto'].get(lane)
+       if lo:   # exactly one smooth monotonic band handoff: outgoing 1->0, incoming 0->1, over 1-2 bars inside the blend
+         up=d['id']==t['b'];lv=np.interp(bars,[p[0] for p in lo],[p[1] for p in lo]);dl=np.diff(lv)
+         mov=np.where(np.abs(dl)>1e-6)[0];why=None
+         if (up and (dl<-1e-6).any()) or (not up and (dl>1e-6).any()):why='non-monotonic'
+         elif abs(lv[0]-(0 if up else 1))>1e-3 or abs(lv[-1]-(1 if up else 0))>1e-3:why=f'does not go {"0->1" if up else "1->0"} across the blend'
+         elif len(mov) and not (1-1e-6<=(mov[-1]+1-mov[0])/16<=2+1e-6):why=f'swap lasts {(mov[-1]+1-mov[0])/16:.2f} bars (need 1-2)'
+         elif np.abs(dl).max()>0.25:why=f'band step {np.abs(dl).max():.2f} per 1/16 bar (not smooth)'
+         elif len(mov):  # the swap is tied to the crossfader: its centre must sit at x in [0.2, 0.65]
+           xc=float(np.interp(bars[(mov[0]+mov[-1]+1)//2],[p[0] for p in xs],[p[1] for p in xs]))
+           if not xr[0]<=xc<=xr[1]:why=f'centred at crossfader x={xc:.2f} (need {xr[0]}-{xr[1]})'
+         if why:fail('X1',s*BAR,e*BAR,f"{d['id']} {name} swap {why}");n+=1
       g=d['auto'].get('gain',[])
       if not g:continue
       gv=np.interp(bars,[p[0] for p in g],[p[1] for p in g]);db=np.maximum(20*np.log10(np.maximum(gv,1e-6)),floor_db)
@@ -79,12 +80,12 @@ def x1_check(M,fail,BAR,X1_db=3.0,floor_db=-24.0):
       if (up and (dg<-1e-6).any()) or (not up and (dg>1e-6).any()):fail('X1',s*BAR,e*BAR,f"{d['id']} gain non-monotonic in blend");n+=1
       step=np.abs(db[4:]-db[:-4]).max() if len(db)>4 else 0  # 4 x 1/16 bar = 1 beat
       if step>X1_db:fail('X1',s*BAR,e*BAR,f"{d['id']} gain moves {step:.1f} dB within 1 beat");n+=1
-  for d in D:  # outside its blends a deck's low band stays at unity
-    lo=d['auto'].get('low')
+  for d,lane in [(d,l) for d in D for l in ('low','high')]:  # outside its blends a deck's low/high band stays at unity
+    lo=d['auto'].get(lane)
     if not lo:continue
     W=[(t['start_bar'],t['end_bar']) for t in M['trans'] if d['id'] in (t['a'],t['b']) and t['end_bar']>d['start_bar'] and t['start_bar']<d['end_bar']]
     bb=np.arange(d['start_bar'],d['end_bar'],1/16);bb=bb[[not any(s<=x<=e for s,e in W) for x in bb]]
-    if len(bb) and np.abs(np.interp(bb,[p[0] for p in lo],[p[1] for p in lo])-1).max()>1e-3:fail('X1',bb[0]*BAR,bb[-1]*BAR,f"{d['id']} bass EQ moves outside a blend");n+=1
+    if len(bb) and np.abs(np.interp(bb,[p[0] for p in lo],[p[1] for p in lo])-1).max()>1e-3:fail('X1',bb[0]*BAR,bb[-1]*BAR,f"{d['id']} {lane} EQ moves outside a blend");n+=1
   return n
 x1_check(M,fail,BAR)
 # ---------- master loudness (ffmpeg ebur128: M=400 ms, S=3 s, every 100 ms) ----------

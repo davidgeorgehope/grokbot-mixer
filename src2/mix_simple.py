@@ -9,6 +9,10 @@ Bass handoff (BASS_SWAP_BARS, default 2; 0 = off): the only EQ move, tied to the
 Phrase-snapped bass swap (SWAP_PHRASE=1, default off): on beat-on-beat blends (both decks drum >= half the blend) the
 handoff centre moves to the 4-bar phrase boundary (crossfader x 0.2-0.65) where the two basslines double and drop out least.
 Raveform (38 reliable DnB blends): pros swap lows in <=2 bars half the time, median ~21% into the blend.
+Separate high swap (HIGH_SWAP=1, default off; the listener OK 2026-10-29): on beat-on-beat blends a second EQ lane on the
+>2 kHz band (engine HIGH_XO) hands the hats/air over in 2 bars on a 4-bar phrase boundary HIGH_OFS bars (default +4) from the
+bass swap: incoming highs held back until then, outgoing highs out after, so the two top ends never stack (Raveform: highs
+cross >=4 bars from the lows in 64% of pro blends). Pros' earlier bass point is SWAP_POS=0.21.
 Window choice uses cached Demucs activity maps (bar.voc, bar.bass) for analysis only."""
 import numpy as np,soundfile as sf,json,sys,os
 from engine import track,render_deck,SR,BAR,BEAT,BS
@@ -58,15 +62,23 @@ def drums_on(i):  # per source bar: drums within 8 dB of the record's drum body 
   return _DR[i]
 DRUMPEN=float(os.environ.get('DRUMPEN',0))  # 0 = baseline behaviour
 SNAP=int(os.environ.get('SWAP_PHRASE',0))
+def bob(a,b,wa,wb):  # beat-on-beat blend: both decks drum for at least half of it
+  dA,dB=drums_on(a),drums_on(b);return sum(xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] for xa,xb in zip(wa,wb))>=X/2
+HSW=int(os.environ.get('HIGH_SWAP',0));HOFS=int(os.environ.get('HIGH_OFS',4))
+def high_at(c,on):
+  """high-band swap centre (bars into the blend): the 4-bar boundary nearest c+HOFS (else c-HOFS) at least 4 bars from the bass swap, inside x 0.1-0.9"""
+  if not(HSW and on):return None
+  ok=[h for h in range(4,X,4) if abs(h-c)>=4 and 0.1<=h/X<=0.9]
+  return min(ok,key=lambda h:(abs(h-(c+HOFS)),abs(h-(c-HOFS)))) if ok else None
 def swap_at(a,b,wa,wb):
   """bass handoff centre in bars into the blend: POS*X, or with SWAP_PHRASE the best 4-bar phrase boundary on beat-on-beat blends"""
   if not(SNAP and SW>0):return POS*X
-  dA,dB=drums_on(a),drums_on(b);bA,bB=F(a)[4],F(b)[4]
-  if sum(xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] for xa,xb in zip(wa,wb))<X/2:return POS*X
+  bA,bB=F(a)[4],F(b)[4]
+  if not bob(a,b,wa,wb):return POS*X
   def bad(c):return sum(2*(abs(k+0.5-c)<SW/2+0.5 and bA[xa] and bB[xb])+((k<c and not bA[xa]) or (k>=c and not bB[xb])) for k,(xa,xb) in enumerate(zip(wa,wb)))
   return min((c for c in range(4,X,4) if 0.2<=c/X<=0.65),key=lambda c:(bad(c),abs(c-POS*X)))
 def score(a,b,wa,wb,refA):
-  c=swap_at(a,b,wa,wb)
+  c=swap_at(a,b,wa,wb);h=high_at(c,HSW and bob(a,b,wa,wb))
   alA,loA,vA,rvA,bA=F(a);alB,loB,vB,rvB,bB=F(b);V=L=C=both=G=SG=0
   dA,dB=drums_on(a),drums_on(b);DT=run=0
   for xa,xb in zip(wa,wb):run=run+1 if xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] else 0;DT=max(DT,run)  # longest straight drums-together run
@@ -82,7 +94,7 @@ def score(a,b,wa,wb,refA):
       elif (k<c and not bA[xa]) or (k>=c and not bB[xb]):
         G+=1;SG+=int(c<=k<c+4)  # incoming has no bass right after the handoff: audible energy drop
     elif loA[xa]-alA[xa]>HEAVY and loB[xb]-alB[xb]>HEAVY and min(loA[xa]+da,loB[xb]+dbb)>refA-12:L+=1
-  return dict(c=c,V=V,L=L,C=C,both=both,G=G,SG=SG,pen=float(os.environ.get('SGPEN',15))*SG+float(os.environ.get('VPEN',100))*V+4*L+float(os.environ.get('BOTHPEN',15))*max(0,10-both)+3*C+float(os.environ.get('GAPPEN',0.5))*G+DRUMPEN*max(0,16-DT),DT=DT)
+  return dict(c=c,h=h,V=V,L=L,C=C,both=both,G=G,SG=SG,pen=float(os.environ.get('SGPEN',15))*SG+float(os.environ.get('VPEN',100))*V+4*L+float(os.environ.get('BOTHPEN',15))*max(0,10-both)+3*C+float(os.environ.get('GAPPEN',0.5))*G+DRUMPEN*max(0,16-DT),DT=DT)
 CUEW=float(os.environ.get('CUEW',0))  # pro cue-point term (cue.py, Raveform-trained); 0 = off until the listener hears the A/B
 if CUEW>0:
   import cue;CM=cue.load();_CX={}
@@ -167,7 +179,7 @@ for i in range(len(ids)-1):
   A,B=decks[i],decks[i+1];X=XT[(A['id'],B['id'])];s=B['start_bar'];e=s+X
   xs=[[s+k/4,round(k/(4*X),5)] for k in range(4*X+1)]  # crossfader position per beat, linear 0->1
   n,cl=notes[(A['id'],B['id'])]
-  trans.append(dict(tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
+  trans.append(dict(tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
 def gA(x):return float(np.cos(x*np.pi/2))
 def gB(x):return float(np.sin(x*np.pi/2))
 for i,d in enumerate(decks):
@@ -177,11 +189,13 @@ for i,d in enumerate(decks):
   d['auto']={'gain':g}
   if SW>0:
     lo=[]
-    def ramp(c,up):
-      return [[c-SW/2+SW*j/16,round(float((1-np.cos(np.pi*j/16))/2 if up else (1+np.cos(np.pi*j/16))/2),5)] for j in range(17)]
+    def ramp(c,up,w=SW):
+      return [[c-w/2+w*j/16,round(float((1-np.cos(np.pi*j/16))/2 if up else (1+np.cos(np.pi*j/16))/2),5)] for j in range(17)]
     if i>0:lo+=ramp(trans[i-1]['swap_bar'],True)
     if i<len(decks)-1:lo+=ramp(trans[i]['swap_bar'],False)
     d['auto']['low']=lo
+    hi=([] if i==0 or trans[i-1]['high_bar'] is None else ramp(trans[i-1]['high_bar'],True,2))+([] if i==len(decks)-1 or trans[i]['high_bar'] is None else ramp(trans[i]['high_bar'],False,2))
+    if hi:d['auto']['high']=hi
   d['end_bar']=d['start_bar']+len(d['full_map']);d['echo']=False;d['label']='';d['map']=d['full_map'][:1]+d['full_map'][-1:];d['acap']=False;d['drop_bar']=None
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])

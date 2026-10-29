@@ -1,0 +1,36 @@
+[
+ {
+  "k": 1,
+  "t": 5.89,
+  "a": "rpIpJQ7ujzc",
+  "b": "OPuVVhbkicU",
+  "out_win": [
+   "la",
+   96,
+   80,
+   0,
+   32
+  ],
+  "ears": "FAIL: beat flam/offset",
+  "lag_ms": 0.0,
+  "beatoff_bars": 4,
+  "status": "suspect"
+ },
+ {
+  "k": 13,
+  "t": 41.2,
+  "a": "nAV4i1YIwQI",
+  "b": "EiZVTuiqo0w",
+  "out_win": [
+   "n",
+   144,
+   null,
+   0,
+   16
+  ],
+  "ears": "FAIL: downbeats disagree",
+  "lag_ms": null,
+  "beatoff_bars": 0,
+  "status": "suspect"
+ }
+]

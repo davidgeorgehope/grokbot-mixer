@@ -1,6 +1,6 @@
 """Plan everything before rendering (additive to mix_simple.py; this file never renders audio).
   python3 plan_search.py table  --base plan.json           pairwise blend table for every analysed crate track -> pair_table.json (cached)
-  python3 plan_search.py search --base plan.json --out p.json [--min 58 --max 62] [--exclude id,id] [--require a>b,...]  (exclude = tracks a render proved unplaceable)   order + windows meeting every test target
+  python3 plan_search.py search --base plan.json --out p.json [--min 58 --max 62] [--exclude id,id] [--require a>b,...] [--open-any] [--ban a>b,...] (pairs a dry test proved bad)  (PREV_PLANS=a.json,b.json: cost for reused tracks/pairs)  (exclude = tracks a render proved unplaceable)   order + windows meeting every test target
   python3 plan_search.py predict <name>                    test metrics predicted from <name>_meta.json alone (no audio)
   python3 plan_search.py validate                          predicted vs rendered results for every mix with guard_<name>/guardrails.json
 The chosen windows are written into the plan as 'out_win' so mix_simple renders exactly what was planned.
@@ -20,7 +20,7 @@ def prefs():return {k:v for k,v in json.load(open('pair_prefs.json')).items() if
 def bad_windows():
   """windows a render proved bad: every guardrail failure tied to a blend, from every guard_mixPlan*/ run, keyed a>b -> [window]"""
   out={}
-  for g in glob.glob('guard_mixPlan*/guardrails.json'):
+  for g in glob.glob('guard_mixPlan*/guardrails.json')+glob.glob('guard_mix05*/guardrails.json'):
     n=g.split('/')[0][6:];G=json.load(open(g))
     if not os.path.exists(f'{n}_meta.json'):continue
     P={p['id']:p for p in json.load(open(f'{n}_meta.json'))['plan']}
@@ -34,6 +34,13 @@ def bad_windows():
   return out
 def ears_gate():return [r for g in sorted(glob.glob('*_ears_gate.json')) for r in json.load(open(g))]
 SUSPPEN=float(os.environ.get('SUSPPEN',60))  # ears-suspect pair the listener rated 3 or less (Supernova->Solitude 3/5 'a little weird'): real but mild -> cost, not a ban
+PREV=[f for f in os.environ.get('PREV_PLANS','').split(',') if f]  # delivered plans to stay fresh against (Mix 05: plan_60mL.json,plan_60pl6d.json); empty = old behaviour
+FRESHPEN=float(os.environ.get('FRESHPEN',5));REUSEPEN=float(os.environ.get('REUSEPEN',30))  # cost per reused track / per repeated blend pair
+def prev_used():
+  T,P=set(),set()
+  for f in PREV:
+    q=[p['id'] for p in json.load(open(f))];T|=set(q);P|={f'{a}>{b}' for a,b in zip(q,q[1:])}
+  return T,P
 def suspects(PR):return {f"{r['a']}>{r['b']}" for r in ears_gate() if r['status']=='suspect' and PR.get(f"{r['a']}>{r['b']}",5)<=3}
 SCORER_ENV=('XBARS','SWAP_POS','SWAP_PHRASE','HEAVY','BASS_SWAP_BARS','DRUMPEN','SGPEN','VPEN','BOTHPEN','GAPPEN','CUEW','LW','SEAMPEN','RPEN','HOLE_DB','HOLEPEN','SEAMMAX','BOTHMIN','HARDPEN','SHORTPEN','LOOPPEN')
 E4_DB,E4_BARS=10,12  # E4 on predicted (pre-master) levels: calibrated on 12 renders by `validate` (the master compresses dips, so 6 dB/8 bars in LUFS ~ 10 dB/12 bars here)
@@ -177,12 +184,12 @@ class Crate:
     L=10*np.log10(np.maximum(np.convolve(10**(np.array(L,float)/10),np.ones(2)/2,'same'),1e-12))  # same 2-bar smoothing as e4_runs
     for j,l in enumerate(L):run=run+1 if MIN_S<=at+j<end-MIN_S and l<s.ref+E4_REF_OFS-E4_DB else 0;best=max(best,run)
     return cov,best,len(m)*C.BAR
-def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=()):
-  T=table(base);K=Crate(T);PR=prefs();BADW=bad_windows();SUS=suspects(PR);tr={b:t for b,t in K.tr.items() if b not in exclude};B=json.load(open(base));first=B[0]['id'] if fix_open else None;done=[];t0=time.time()
+def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=()):
+  T=table(base);K=Crate(T);PR=prefs();BADW=bad_windows();SUS=suspects(PR);PT,PP=prev_used();tr={b:t for b,t in K.tr.items() if b not in exclude};B=json.load(open(base));first=B[0]['id'] if fix_open else None;done=[];t0=time.time()
   LOB,HIB=lo*60/C.BAR,hi*60/C.BAR
   for bw in BW:
     starts=[first] if first else list(tr)
-    S=[dict(seq=[b],inn=('n',0,0),lin=[],bl=[],cov=[],bars=0,cost=0.0) for b in starts]
+    S=[dict(seq=[b],inn=('n',0,0),lin=[],bl=[],cov=[],bars=0,cost=FRESHPEN*(b in PT)) for b in starts]
     while S:
       nxt={}
       for st in S:
@@ -190,7 +197,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=()):
         for b in tr:
           if b in st['seq']:continue
           row=T['pairs'][f'{a}>{b}']
-          if not row['key_ok']:continue
+          if not row['key_ok'] or f'{a}>{b}' in ban:continue
           for w in row['wins']:
             kind,e,p,ib,X=w['w']
             if w['voc'] or w['both']<8 or w['R']<0.2 or w['mel']>MELMAX or w['boff']>BOFFMAX or w['w'] in BADW.get(f'{a}>{b}',[]) or (w['step']>STEPMAX and PR.get(f'{a}>{b}',3)<4) or not _valid(tr[a],w['w'],ia):continue
@@ -200,7 +207,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=()):
             bars=st['bars']+len(m)-st['inn'][2]
             if bars>HIB:continue
             bl=st['bl']+[dict(a=a,b=b,**w)];cv=st['cov']+[cov]
-            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(PR.get(f'{a}>{b}',3)-3)+SUSPPEN*(f'{a}>{b}' in SUS)
+            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(PR.get(f'{a}>{b}',3)-3)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT)+REUSEPEN*(f'{a}>{b}' in PP)
             ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost)
             k=(frozenset(ns['seq']),b,ns['inn'])
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns
@@ -270,7 +277,7 @@ if __name__=='__main__':
   elif cmd=='validate':
     for r in validate():print(json.dumps(r))
   elif cmd=='search':
-    base=arg('--base');t0=time.time();done,K,st=search(base,float(arg('--min',58)),float(arg('--max',62)),int(arg('--beam',300)),exclude=tuple(x for x in arg('--exclude','').split(',') if x))
+    base=arg('--base');t0=time.time();done,K,st=search(base,float(arg('--min',58)),float(arg('--max',62)),int(arg('--beam',300)),exclude=tuple(x for x in arg('--exclude','').split(',') if x),fix_open='--open-any' not in a,ban=tuple(x for x in arg('--ban','').split(',') if x))
     done.sort(key=lambda d:(len(d['fails']),d['pred']['bob16']<d['pred']['blends']/2+2,sum(w['pen'] for w in d['bl'])))  # all targets, then 2 blends of beat-on-beat margin, then the render scorer's own penalty
     print(f'search {st}s, {len(done)} complete plans, {sum(not d["fails"] for d in done)} meet every target on the table')
     best=None;tried=[];seen=set()  # dry-verify distinct orders (near-identical window variants share the same failure)

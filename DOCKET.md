@@ -35,3 +35,8 @@
 
 ## Running on their own
 - Friday fresh finds, Saturday weekly mix + offline sync, nightly disk cleanup (3 AM Central).
+- 2026-10-29 00:45 Mix 04 gate: ears on mixPlan5b FAIL blends 7-10 (U & I N-j7tIeGm1E, Breathe rpIpJQ7ujzc downbeat 1 beat late). Shifted both grids -1 beat (backup grid_backup_20261028/), barfeats+caches rebuilt, their nudges dropped. Re-render with same order: mixPlan6 V1 1 bar (N-j7->OPuV); window ['n',128,None,16,16] -> mixPlan6d (plan_60pl6d.json): guardrails 0, 38/38, 58.8 min. Next: ears on 6d. Other workers: do not edit these two st/*.json.
+- 2026-10-29 01:05 ears mixPlan6d: 20/21 PASS (16 n/a), blend 8 N-j7->OPuV FAIL 96 ms offset (phases 0). Trying window ['la',144,128,16,16] as mixPlan6e.
+- 2026-10-29 01:25 mixPlan6e (N-j7 la144/128, OPuV in16): O1 7 bars; ears blend 8 still 96 ms -> offset follows OPuV's intro, grids check out by onset. Re-searching with OPuVVhbkicU excluded.
+- 2026-10-29 01:35 cross-check: onset xcorr of the two decks in mixPlan6d blends 7-10 = 0/1.5/1.5/-1.5 ms lag, so blend 8 decks are aligned; ears FAIL looks like Beat This misreading OPuV's intro. Still rendering plan_60pl7 (OPuV excluded, bob16 10/20) as an all-pass fallback.
+- 2026-10-29 01:50 mixPlan7: 4 guardrails (N1 x2, F1 x2) + 3 tests, worse; dropped. STOPPED before delivery: best candidate mixPlan6d (src2/plan_60pl6d.json, master kept, /tmp/mixPlan6d.mp3) = guardrails 0, 38/38, 58.8 min, ears 19 PASS / 1 n/a / 1 FAIL (blend 8 U & I -> OPuV 24:16, 96 ms, decks measured 1.5 ms apart). Mix 04 not delivered; waiting on listener: accept 6d or keep digging.

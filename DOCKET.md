@@ -16,7 +16,7 @@
 - Update the build-dj-mix skill: crossfader-only approach, Mix 01/02 reference traits, beat-on-beat target, beatless cap, keep it simple.
 - TRAIN ON THE MIX CATALOG: DONE (57 reliable transitions, out-cue ranker 0.535 vs 0.478 rule, CUEW flag default off, pro_likeness report-only)
 
-- Ears step 2 (see EARS.md): per-deck Beat This grid compare (phase ms + downbeat agreement, gated on both decks drumming) as a test + planner cost; per-deck Basic Pitch cross-deck dissonance; re-check on 34:05 bad vs 30:56 good.
+- Ears step 2 BUILT 2026-10-28 (ears/ears.sh, see EARS.md): refill fails 33:50 (target) + 11:02, 34:56, 40:49, 43:02, 51:51 (unconfirmed by ear; likely downbeat-phase errors in track grids). Next: wire as planner cost + trait test after the planner/Mix 03 workers land; verify the 40:49/43:02/51:51 downbeat phases. Original spec: per-deck Beat This grid compare (phase ms + downbeat agreement, gated on both decks drumming) as a test + planner cost; per-deck Basic Pitch cross-deck dissonance; re-check on 34:05 bad vs 30:56 good.
 
 ## Later
 - Ears probe done 2026-10-28: Beat This flags 34:05 (beat CV 0.34 vs 0.03 good); Basic Pitch mixdown, CLAP and MERT distance don't separate. Embeddings only as features for the trained classifier.

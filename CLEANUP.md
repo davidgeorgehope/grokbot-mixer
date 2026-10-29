@@ -122,3 +122,4 @@
 - 2026-10-28 23:15 mixLenZid failed (V1 pUU->YNz30, N1 VdyX->KDRP, O1/K OYz->T3de). New order plan_60mc (drop VdyX/pUU; rpIp>KDRP>T3de>NaY3>YNz30; end OYz>Skyline>Always Be) dry 60.71 min, 0 clash, traits ok. Rendering mixLenMc.
 - 2026-10-28 23:28 mixLenMc: N1 KDRP>T3de entry, E4 Always Be 18-bar break, ears rpIp>KDRP 11 bars. New plans mi (61.43) / mk (61.43, NaY3 anchor) dry clean; rendering mixLenMi + mixLenMk.
 - 2026-10-28 23:35 local planner v3: + beat-off predictor (BOFFMAX 8), E4 paper model smoothed/offset, --require. plan_60pl5 (requires Parallel->Bad To Me) dry 59.89 min beat16 18/21. Rendering mixPlan5.
+- 2026-10-28 23:43 mixLenMi: N1 KDRP>T3de, ears rpIp (rpIp>YNz30 10 bars; rpIp is the off-beat culprit), 7Itbo drift + drop 49:57. Plan mo: drop rpIp, T3de+NaY3 anchors, dry 61.79. Rendering mixLenMo.

@@ -99,4 +99,4 @@ Always upload as private. The owner makes the video public. The token scope may 
 `bash /workspace/backup_mixer_to_git.sh` (private repo; see the script).
 
 - EQ default since Mix 05: SWAP_PHRASE=1 HIGH_SWAP=1 (phrase-snapped bass swap + separate >2 kHz swap). Set both to 0 to reproduce Mix 01-04 (meta 'eq_mode' records the mode).
-- Delay-tail exit: ECHO_OUT=1 (default off) adds a filtered 1-beat delay tail after the outgoing crossfader end on <=10% of blends (shortest runway first); tests in src/tests/test_echo_out.py.
+- Delay-tail exit: ECHO_OUT (default on since Mix 05; 0 rebuilds older mixes) adds a filtered 1-beat delay tail after the outgoing crossfader end on <=10% of blends (shortest runway first); tests in src/tests/test_echo_out.py.

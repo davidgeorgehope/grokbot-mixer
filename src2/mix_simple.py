@@ -13,7 +13,7 @@ Separate high swap (HIGH_SWAP, default on since Mix 05; 0 = older mixes): on bea
 >2 kHz band (engine HIGH_XO) hands the hats/air over in the 2 bars starting on a 4-bar phrase boundary HIGH_OFS bars (default +4) from the
 bass swap: incoming highs held back until then, outgoing highs out after, so the two top ends never stack (Raveform: highs
 cross >=4 bars from the lows in 64% of pro blends). Pros' earlier bass point is SWAP_POS=0.21.
-Delay-tail exit (ECHO_OUT=1, default off): on at most ECHO_SHARE (default 10%, Raveform: 5-15% of pro DnB exits) of blends, spaced
+Delay-tail exit (ECHO_OUT, default on since Mix 05; 0 = older mixes): on at most ECHO_SHARE (default 10%, Raveform: 5-15% of pro DnB exits) of blends, spaced
 >=4 blends apart, the outgoing deck's final bar feeds a 1-beat feedback delay (-6 dB per repeat, 300-6000 Hz) whose wet tail plays only
 after its crossfader end (engine.echo_tail): first where the outgoing track runs out of music soonest (no runway), else for variety.
 Window choice uses cached Demucs activity maps (bar.voc, bar.bass) for analysis only."""
@@ -190,7 +190,7 @@ for i in range(len(ids)-1):
   xs=[[s+k/4,round(k/(4*X),5)] for k in range(4*X+1)]  # crossfader position per beat, linear 0->1
   n,cl=notes[(A['id'],B['id'])]
   trans.append(dict(tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
-EO=int(os.environ.get('ECHO_OUT',0));ESH=float(os.environ.get('ECHO_SHARE',0.1))
+EO=int(os.environ.get('ECHO_OUT',1));ESH=float(os.environ.get('ECHO_SHARE',0.1))  # echo default on for Mix 05+ (the listener A/B 2026-10-29 'that's nice'); 0 reproduces older mixes
 EOUT=dict(bars=1,delay_beats=float(os.environ.get('ECHO_BEATS',1)),fb=0.5,wet_db=float(os.environ.get('ECHO_WET',-6)),lo=300.0,hi=6000.0,tail_bars=4)
 def echo_pick():
   """blends that get a delay-tail exit: outgoing ends on its own music (no loop), its last bar has body above the bass (else the

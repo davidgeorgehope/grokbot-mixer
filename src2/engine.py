@@ -2,7 +2,7 @@
 A deck is a list of source bars (full_map) plus one 'gain' curve that comes only from the crossfader.
 The only EQ is an optional bass-handoff lane d['auto']['low'] (0..1 on the <XO Hz band, zero-phase split so
 low+rest == original exactly): one smooth monotonic swap per blend; plus, with HIGH_SWAP, the same kind of lane
-d['auto']['high'] on the >HIGH_XO Hz band. No stems, ducking or other filters."""
+d['auto']['high'] on the >HIGH_XO Hz band; plus the optional delay-tail exit d['echo_out'] (echo_tail). No stems, ducking or other filters."""
 import numpy as np,soundfile as sf,json,os,pyloudnorm as pyln
 from scipy.signal import butter,sosfiltfilt
 XO=float(os.environ.get('BASS_XO',150));HXO=float(os.environ.get('HIGH_XO',2000))
@@ -51,7 +51,17 @@ def render_deck(d):
       a0,a1=max(0,nz[0]-SR),min(n,nz[-1]+SR);seg=y[a0:a1]
       band=sosfiltfilt(butter(4,fc,kind,fs=SR,output='sos'),seg,axis=0).astype(np.float32)
       y[a0:a1]=seg-band*(1-gl[a0:a1,None])
+  eo=d.get('echo_out');src=y[-int(round(eo['bars']*BS)):].copy() if eo else None  # pre-fader final bars feed the delay
   pts=d['auto'].get('gain') or []
   if pts:
     t=np.arange(n)/BS+d['start_bar'];g=np.interp(t,[p[0] for p in pts],[p[1] for p in pts]).astype(np.float32);y*=g[:,None]
-  return y
+  return np.concatenate([y,echo_tail(src,eo)]) if eo else y
+def echo_tail(src,eo):
+  """Delay-tail exit: tempo-synced feedback delay (every delay_beats, each repeat fb x the last, first at wet_db) of the deck's
+  pre-fader final bars, band-passed lo..hi Hz (low-cut keeps it off the incoming kick/bass); only the wet tail AFTER the deck's
+  last sample (crossfader end) is returned, tail_bars long, starting on the blend's phrase boundary with a 5 ms fade-in."""
+  x=sosfiltfilt(butter(4,[eo['lo'],eo['hi']],'band',fs=SR,output='sos'),src,axis=0).astype(np.float32);n=len(x);L=int(round(eo['tail_bars']*BS))
+  out=np.zeros((n+L,2),np.float32);D=eo['delay_beats']*BEAT*SR;g=10**(eo['wet_db']/20);k=1
+  while k*D<n+L and g>1e-4:
+    o=int(round(k*D));m=min(n,n+L-o);out[o:o+m]+=g*x[:m];g*=eo['fb'];k+=1
+  t=out[n:];f=int(0.005*SR);t[:f]*=np.linspace(0,1,f,dtype=np.float32)[:,None];return t

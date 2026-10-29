@@ -13,6 +13,9 @@ Separate high swap (HIGH_SWAP, default on since Mix 05; 0 = older mixes): on bea
 >2 kHz band (engine HIGH_XO) hands the hats/air over in the 2 bars starting on a 4-bar phrase boundary HIGH_OFS bars (default +4) from the
 bass swap: incoming highs held back until then, outgoing highs out after, so the two top ends never stack (Raveform: highs
 cross >=4 bars from the lows in 64% of pro blends). Pros' earlier bass point is SWAP_POS=0.21.
+Delay-tail exit (ECHO_OUT=1, default off): on at most ECHO_SHARE (default 10%, Raveform: 5-15% of pro DnB exits) of blends, spaced
+>=4 blends apart, the outgoing deck's final bar feeds a 1-beat feedback delay (-6 dB per repeat, 300-6000 Hz) whose wet tail plays only
+after its crossfader end (engine.echo_tail): first where the outgoing track runs out of music soonest (no runway), else for variety.
 Window choice uses cached Demucs activity maps (bar.voc, bar.bass) for analysis only."""
 import numpy as np,soundfile as sf,json,sys,os
 from engine import track,render_deck,SR,BAR,BEAT,BS
@@ -156,6 +159,7 @@ def pair_cands(i,ia0):
 def win_key(c):return [c[1],*(c[2] if isinstance(c[2],tuple) else (c[2],None)),c[3],c[5]]  # [kind, out bar, loop phrase, in bar, blend bars]
 def nxt_inn(c):return ("loopB",c[3]) if c[1] in("lb","ab") else c[3]
 LOOK=int(os.environ.get("LOOKAHEAD",8))
+KIND={}
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];cs=pair_cands(i,inn[a])
   W=plan[i].get('out_win')  # opt-in: the window plan_search.py chose for this blend (renders exactly what was planned)
@@ -167,7 +171,7 @@ for i in range(len(ids)-1):
   elif kind=='la':e,p=e;loops[a]=p;n.append(f'outgoing plays to bar {e}, then repeats its 16-bar phrase {p}-{p+16} under the blend (cleaner window than its real outro)')
   elif kind=='lb':n.append(f'incoming plays its 16-bar phrase {ib}-{ib+16} through the blend, then continues from bar {ib+16}');ib=('loopB',ib)
   else:n.append(f'mix points from full-track analysis: outgoing out at bar {e}, incoming in at bar {ib}')
-  outs[a]=e;inn[b]=ib;notes[(a,b)]=(n,r['V']);info_[(a,b)]=r
+  outs[a]=e;inn[b]=ib;KIND[(a,b)]=kind;notes[(a,b)]=(n,r['V']);info_[(a,b)]=r
   print('choose',a,b,kind,xt,r,file=sys.stderr)
 outs[ids[-1]]=tail0(*A_(ids[-1])[1:3])
 # build deck maps (src bar list) ; deck plays inn..out, outgoing loop appended for X bars
@@ -186,6 +190,26 @@ for i in range(len(ids)-1):
   xs=[[s+k/4,round(k/(4*X),5)] for k in range(4*X+1)]  # crossfader position per beat, linear 0->1
   n,cl=notes[(A['id'],B['id'])]
   trans.append(dict(tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
+EO=int(os.environ.get('ECHO_OUT',0));ESH=float(os.environ.get('ECHO_SHARE',0.1))
+EOUT=dict(bars=1,delay_beats=float(os.environ.get('ECHO_BEATS',1)),fb=0.5,wet_db=float(os.environ.get('ECHO_WET',-6)),lo=300.0,hi=6000.0,tail_bars=4)
+def echo_pick():
+  """blends that get a delay-tail exit: outgoing ends on its own music (no loop), its last bar has body above the bass (else the
+  echo is inaudible), incoming has no vocal in the 2 bars after the blend (the tail is -30 dB a bar in); plan 'echo_out' true/false forces/forbids.
+  Shortest runway (bars of loud music the outgoing still had) first, at most ESH of blends, >=4 blends apart."""
+  if not EO:return set()
+  c=[]
+  for i,t in enumerate(trans):
+    a,b=t['a'],t['b'];f=plan[i].get('echo_out')
+    if f is False or KIND[(a,b)]!='n':continue
+    _,al,body,_,_=A_(a);ha=F(a)[0];e=outs[a];X_=int(t['end_bar']-t['start_bar']);vb=track(b)['vact']
+    if not f and (ha[e-1]<np.percentile(ha,75)-6 or any(vb[s] for s,_ in decks[i+1]['full_map'][X_:X_+2] if s<len(vb))):continue
+    c.append((not f,tail0(al,body)-e,i))
+  got=set()
+  for _,_,i in sorted(c):
+    if len(got)<max(1,round(ESH*len(trans))) and all(abs(i-j)>=4 for j in got):got.add(i)
+  return got
+EOS=echo_pick()
+for i in EOS:trans[i]['echo_out']=True;trans[i]['tech']+=' + 1-bar delay-tail exit'
 def gA(x):return float(np.cos(x*np.pi/2))
 def gB(x):return float(np.sin(x*np.pi/2))
 for i,d in enumerate(decks):
@@ -203,11 +227,12 @@ for i,d in enumerate(decks):
     d['auto']['low']=lo
     hi=([] if i==0 or trans[i-1]['high_bar'] is None else ramp(trans[i-1]['high_bar']+1,True,2))+([] if i==len(decks)-1 or trans[i]['high_bar'] is None else ramp(trans[i]['high_bar']+1,False,2))
     if hi:d['auto']['high']=hi
+  if i in EOS:d['echo_out']=dict(EOUT)
   d['end_bar']=d['start_bar']+len(d['full_map']);d['echo']=False;d['label']='';d['map']=d['full_map'][:1]+d['full_map'][-1:];d['acap']=False;d['drop_bar']=None
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])
   print('len min',round((decks[-1]['end_bar'])*BAR/60,2))
-  json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=decks[-1]['end_bar']*BAR,dry=True),open(OUT+'_dry_meta.json','w'),default=float);sys.exit()
+  json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=decks[-1]['end_bar']*BAR,dry=True),open(OUT+'_dry_meta.json','w'),default=float);sys.exit()
 total=decks[-1]['end_bar'];N=int(total*BS)+SR;M=np.zeros((N,2),np.float32)
 import engine
 for j,d in enumerate(decks):
@@ -216,6 +241,6 @@ for j,d in enumerate(decks):
   for k in list(engine._cache):
     if k not in need:engine._cache[k]['st'].clear()
 sf.write(OUT+'_raw.wav',M,SR,subtype='FLOAT')
-json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=len(M)/SR),open(OUT+'_meta.json','w'),indent=1,default=float)
+json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=len(M)/SR),open(OUT+'_meta.json','w'),indent=1,default=float)
 print('len min',round(len(M)/SR/60,2))
 for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])

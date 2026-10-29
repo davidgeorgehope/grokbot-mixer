@@ -1,0 +1,70 @@
+{
+ "mix": "mixEoB",
+ "mp3": "/tmp/eo_old/mixEoB.mp3",
+ "thresholds": {
+  "E1_db": 6,
+  "E2_lufs": -35,
+  "N1_ms": 10,
+  "N1_db": 3,
+  "F1_ms": 15,
+  "G1_jit_ms": 8,
+  "G1_abs_ms": 15,
+  "K1_steps": 2,
+  "L1_db": 3,
+  "P1_tp": -1.0,
+  "P1_dc": 0.005,
+  "S1_db": 20,
+  "R1_xcorr": 0.2,
+  "T1_dnb_min": 0.45,
+  "T1_breaks_min": 0.5,
+  "J1_db": 6.5,
+  "E4_db": 6,
+  "E4_bars": 8
+ },
+ "info": {
+  "integrated_lufs": -9.7,
+  "true_peak_dbtp": -1.3,
+  "dc": 4.719361095339991e-05,
+  "grid": []
+ },
+ "n_fail": 1,
+ "by_check": {
+  "O1": 1
+ },
+ "failures": [
+  {
+   "check": "O1",
+   "t": "2:34",
+   "t_end": "2:56",
+   "sec": 154.48,
+   "msg": "only 7 bars with both decks audible at musical level (need >= 8)",
+   "trans": 0
+  }
+ ],
+ "transitions": [
+  {
+   "i": 0,
+   "t": "2:34",
+   "swap": "2:40",
+   "a": "N-j7tIeGm1E",
+   "b": "OPuVVhbkicU",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
+   "keys": "6A->7A",
+   "flam_max": 6.0,
+   "fails": [
+    "O1"
+   ]
+  },
+  {
+   "i": 1,
+   "t": "5:53",
+   "swap": "5:58",
+   "a": "OPuVVhbkicU",
+   "b": "5gFutO20uKA",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 2-bar bass handoff + 1-bar delay-tail exit",
+   "keys": "7A->8A",
+   "flam_max": 6.0,
+   "fails": []
+  }
+ ]
+}

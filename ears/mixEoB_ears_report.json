@@ -1,0 +1,55 @@
+{
+ "cut": "mixEoB_meta.json",
+ "device": "mps",
+ "time": {
+  "demucs": 5.818594217300415,
+  "beat": 0.343827486038208,
+  "pitch": 1.5027189254760742
+ },
+ "thresh": {
+  "beat_ms_med": 45.0,
+  "down_agree": 0.5,
+  "MIN_BARS": 4,
+  "GMIN": 0.2
+ },
+ "blends": [
+  {
+   "k": 0,
+   "t0": 154.48275862068965,
+   "a": "N-j7tIeGm1E",
+   "b": "OPuVVhbkicU",
+   "bars": 16,
+   "both_audible": 12,
+   "both_drum_bars": 12,
+   "phase_A": 0,
+   "phase_A_share": 0.9230769230769231,
+   "phase_B": 0,
+   "phase_B_share": 1.0,
+   "beat_ms_med": 96.20689655172481,
+   "beat_ms_p90": 172.41379310344828,
+   "down_agree": 0.5384615384615384,
+   "verdict": "FAIL: beat flam/offset",
+   "diss": 0.0704494625250707,
+   "diss_bars_p90": 0.16918118008100347
+  },
+  {
+   "k": 1,
+   "t0": 353.1034482758621,
+   "a": "OPuVVhbkicU",
+   "b": "5gFutO20uKA",
+   "bars": 16,
+   "both_audible": 12,
+   "both_drum_bars": 12,
+   "phase_A": 0,
+   "phase_A_share": 1.0,
+   "phase_B": 0,
+   "phase_B_share": 1.0,
+   "beat_ms_med": 19.999999999999574,
+   "beat_ms_p90": 20.00000000000073,
+   "down_agree": 1.0,
+   "verdict": "PASS",
+   "diss": 0.11170953764517247,
+   "diss_bars_p90": 0.21481898483978382
+  }
+ ]
+}

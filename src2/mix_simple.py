@@ -6,11 +6,11 @@ Blend length: XBARS (default 32) per blend, falling back to 16 (the minimum) onl
 Bass handoff (BASS_SWAP_BARS, default 2; 0 = off): the only EQ move, tied to the crossfader. When x passes SWAP_POS
 (default 0.35, Raveform median ~0.36) the outgoing deck's low band (<150 Hz) ramps 1->0 while the incoming one ramps
 0->1 (raised cosine, monotonic), so one bassline plays at a time.
-Phrase-snapped bass swap (SWAP_PHRASE=1, default off): on beat-on-beat blends (both decks drum >= half the blend) the
-handoff centre moves to the 4-bar phrase boundary (crossfader x 0.2-0.65) where the two basslines double and drop out least.
+Phrase-snapped bass swap (SWAP_PHRASE, default on since Mix 05; 0 = older mixes): on beat-on-beat blends (both decks drum >= half the blend) the
+handoff starts on the 4-bar phrase boundary (crossfader x 0.2-0.65) where the two basslines double and drop out least.
 Raveform (38 reliable DnB blends): pros swap lows in <=2 bars half the time, median ~21% into the blend.
-Separate high swap (HIGH_SWAP=1, default off; the listener OK 2026-10-29): on beat-on-beat blends a second EQ lane on the
->2 kHz band (engine HIGH_XO) hands the hats/air over in 2 bars on a 4-bar phrase boundary HIGH_OFS bars (default +4) from the
+Separate high swap (HIGH_SWAP, default on since Mix 05; 0 = older mixes): on beat-on-beat blends a second EQ lane on the
+>2 kHz band (engine HIGH_XO) hands the hats/air over in the 2 bars starting on a 4-bar phrase boundary HIGH_OFS bars (default +4) from the
 bass swap: incoming highs held back until then, outgoing highs out after, so the two top ends never stack (Raveform: highs
 cross >=4 bars from the lows in 64% of pro blends). Pros' earlier bass point is SWAP_POS=0.21.
 Window choice uses cached Demucs activity maps (bar.voc, bar.bass) for analysis only."""
@@ -61,24 +61,30 @@ def drums_on(i):  # per source bar: drums within 8 dB of the record's drum body 
   if i not in _DR:d=np.array(json.load(open(f'st/{i}.json'))['bar']['drums']);_DR[i]=d>np.percentile(d,75)-8
   return _DR[i]
 DRUMPEN=float(os.environ.get('DRUMPEN',0))  # 0 = baseline behaviour
-SNAP=int(os.environ.get('SWAP_PHRASE',0))
+SNAP=int(os.environ.get('SWAP_PHRASE',1))  # default on for Mix 05+ (the listener A/B 2026-10-29 'b was smoother'); 0 reproduces older mixes
 def bob(a,b,wa,wb):  # beat-on-beat blend: both decks drum for at least half of it
   dA,dB=drums_on(a),drums_on(b);return sum(xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] for xa,xb in zip(wa,wb))>=X/2
-HSW=int(os.environ.get('HIGH_SWAP',0));HOFS=int(os.environ.get('HIGH_OFS',4))
-def high_at(c,on):
-  """high-band swap centre (bars into the blend): the 4-bar boundary nearest c+HOFS (else c-HOFS) at least 4 bars from the bass swap, inside x 0.1-0.9"""
+HSW=int(os.environ.get('HIGH_SWAP',1));HOFS=int(os.environ.get('HIGH_OFS',4))
+def high_at(a,b,wa,wb,c,on):
+  """high-band swap centre (bars into the blend): a 4-bar boundary at least 4 bars from the bass swap, inside x 0.1-0.9, where
+  neither top end is thin (outgoing above-bass level in the 2 bars before, incoming in the 2 bars after, within 6 dB of its body;
+  a thin side made a -3.3 dB dip on paper), then nearest c+HOFS (else c-HOFS)"""
   if not(HSW and on):return None
+  hA,hB=F(a)[0],F(b)[0];bodA,bodB=np.percentile(hA,75),np.percentile(hB,75)
+  def thin(h):return sum(hA[wa[k]]<bodA-6 for k in range(max(0,h-2),h))+sum(hB[wb[k]]<bodB-6 for k in range(h,min(X,h+2)))
   ok=[h for h in range(4,X,4) if abs(h-c)>=4 and 0.1<=h/X<=0.9]
-  return min(ok,key=lambda h:(abs(h-(c+HOFS)),abs(h-(c-HOFS)))) if ok else None
+  return min(ok,key=lambda h:(thin(h),abs(h-(c+HOFS)),abs(h-(c-HOFS)))) if ok else None
 def swap_at(a,b,wa,wb):
   """bass handoff centre in bars into the blend: POS*X, or with SWAP_PHRASE the best 4-bar phrase boundary on beat-on-beat blends"""
   if not(SNAP and SW>0):return POS*X
   bA,bB=F(a)[4],F(b)[4]
   if not bob(a,b,wa,wb):return POS*X
-  def bad(c):return sum(2*(abs(k+0.5-c)<SW/2+0.5 and bA[xa] and bB[xb])+((k<c and not bA[xa]) or (k>=c and not bB[xb])) for k,(xa,xb) in enumerate(zip(wa,wb)))
-  return min((c for c in range(4,X,4) if 0.2<=c/X<=0.65),key=lambda c:(bad(c),abs(c-POS*X)))
+  lA,lB=F(a)[1],F(b)[1];bodA,bodB=np.percentile(lA,75),np.percentile(lB,75)
+  def thin(c):return sum(lA[wa[k]]<bodA-6 for k in range(max(0,c-2),c))+sum(lB[wb[k]]<bodB-6 for k in range(c,min(X,c+2)))  # low end not yet/no longer at body level next to the swap: dip (Mix 03 v2 36:47, -3.2 dB)
+  def bad(c):return 2*thin(c)+sum(2*(c<=k<c+SW and bA[xa] and bB[xb])+((k<c and not bA[xa]) or (k>=c and not bB[xb])) for k,(xa,xb) in enumerate(zip(wa,wb)))
+  return min((c for c in range(4,X,4) if 0.2<=(c+SW/2)/X<=0.65),key=lambda c:(bad(c),abs(c-POS*X)))
 def score(a,b,wa,wb,refA):
-  c=swap_at(a,b,wa,wb);h=high_at(c,HSW and bob(a,b,wa,wb))
+  c=swap_at(a,b,wa,wb);ce=c+(SW/2 if c!=POS*X else 0);h=high_at(a,b,wa,wb,c,HSW and bob(a,b,wa,wb))
   alA,loA,vA,rvA,bA=F(a);alB,loB,vB,rvB,bB=F(b);V=L=C=both=G=SG=0
   dA,dB=drums_on(a),drums_on(b);DT=run=0
   for xa,xb in zip(wa,wb):run=run+1 if xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] else 0;DT=max(DT,run)  # longest straight drums-together run
@@ -89,7 +95,7 @@ def score(a,b,wa,wb,refA):
     if k<X/2 and LA<refA-10:C+=1
     if vA[xa]>rvA-12 and ga>0.3 and vB[xb]>rvB-12 and gb>0.3:V+=1
     if SW>0:  # with the bass handoff only the swap bars can double up; elsewhere the bassline must not drop out
-      if abs(k+0.5-c)<SW/2+0.5:
+      if abs(k+0.5-ce)<SW/2+0.5:
         if bA[xa] and bB[xb]:L+=1
       elif (k<c and not bA[xa]) or (k>=c and not bB[xb]):
         G+=1;SG+=int(c<=k<c+4)  # incoming has no bass right after the handoff: audible energy drop
@@ -191,16 +197,17 @@ for i,d in enumerate(decks):
     lo=[]
     def ramp(c,up,w=SW):
       return [[c-w/2+w*j/16,round(float((1-np.cos(np.pi*j/16))/2 if up else (1+np.cos(np.pi*j/16))/2),5)] for j in range(17)]
-    if i>0:lo+=ramp(trans[i-1]['swap_bar'],True)
-    if i<len(decks)-1:lo+=ramp(trans[i]['swap_bar'],False)
+    def at(t):return t['swap_bar']+(SW/2 if t['swap_phrase'] else 0)  # phrase-snapped swaps start ON the boundary (incoming bass lands on the 1, not a bar early)
+    if i>0:lo+=ramp(at(trans[i-1]),True)
+    if i<len(decks)-1:lo+=ramp(at(trans[i]),False)
     d['auto']['low']=lo
-    hi=([] if i==0 or trans[i-1]['high_bar'] is None else ramp(trans[i-1]['high_bar'],True,2))+([] if i==len(decks)-1 or trans[i]['high_bar'] is None else ramp(trans[i]['high_bar'],False,2))
+    hi=([] if i==0 or trans[i-1]['high_bar'] is None else ramp(trans[i-1]['high_bar']+1,True,2))+([] if i==len(decks)-1 or trans[i]['high_bar'] is None else ramp(trans[i]['high_bar']+1,False,2))
     if hi:d['auto']['high']=hi
   d['end_bar']=d['start_bar']+len(d['full_map']);d['echo']=False;d['label']='';d['map']=d['full_map'][:1]+d['full_map'][-1:];d['acap']=False;d['drop_bar']=None
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])
   print('len min',round((decks[-1]['end_bar'])*BAR/60,2))
-  json.dump(dict(engine='simple_crossfader',decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=decks[-1]['end_bar']*BAR,dry=True),open(OUT+'_dry_meta.json','w'),default=float);sys.exit()
+  json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=decks[-1]['end_bar']*BAR,dry=True),open(OUT+'_dry_meta.json','w'),default=float);sys.exit()
 total=decks[-1]['end_bar'];N=int(total*BS)+SR;M=np.zeros((N,2),np.float32)
 import engine
 for j,d in enumerate(decks):
@@ -209,6 +216,6 @@ for j,d in enumerate(decks):
   for k in list(engine._cache):
     if k not in need:engine._cache[k]['st'].clear()
 sf.write(OUT+'_raw.wav',M,SR,subtype='FLOAT')
-json.dump(dict(engine='simple_crossfader',decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=len(M)/SR),open(OUT+'_meta.json','w'),indent=1,default=float)
+json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=len(M)/SR),open(OUT+'_meta.json','w'),indent=1,default=float)
 print('len min',round(len(M)/SR/60,2))
 for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])

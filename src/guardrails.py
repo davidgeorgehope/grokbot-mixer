@@ -62,7 +62,9 @@ def x1_check(M,fail,BAR,X1_db=3.0,floor_db=-24.0):
         if k not in ('gain','low','high') and any(s<=p[0]<=e for p in v):fail('X1',s*BAR,e*BAR,f"{d['id']} has '{k}' automation inside the blend (crossfader + one bass swap + optional high swap only)");n+=1
       for lane,name,xr in (('low','bass',(0.2,0.65)),('high','high',(0.1,0.9))):
        lo=d['auto'].get(lane)
-       if lo:   # exactly one smooth monotonic band handoff: outgoing 1->0, incoming 0->1, over 1-2 bars inside the blend
+       if lo and lane=='high' and t.get('high_bar') is None:  # deck's high lane belongs to its other blend: must stay at unity here
+         if np.abs(np.interp(bars,[p[0] for p in lo],[p[1] for p in lo])-1).max()>1e-3:fail('X1',s*BAR,e*BAR,f"{d['id']} high EQ moves in a blend without a high swap");n+=1
+       elif lo:   # exactly one smooth monotonic band handoff: outgoing 1->0, incoming 0->1, over 1-2 bars inside the blend
          up=d['id']==t['b'];lv=np.interp(bars,[p[0] for p in lo],[p[1] for p in lo]);dl=np.diff(lv)
          mov=np.where(np.abs(dl)>1e-6)[0];why=None
          if (up and (dl<-1e-6).any()) or (not up and (dl>1e-6).any()):why='non-monotonic'

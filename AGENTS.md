@@ -97,3 +97,5 @@ Always upload as private. The owner makes the video public. The token scope may 
 
 ### 11. Back up the code
 `bash /workspace/backup_mixer_to_git.sh` (private repo; see the script).
+
+- EQ default since Mix 05: SWAP_PHRASE=1 HIGH_SWAP=1 (phrase-snapped bass swap + separate >2 kHz swap). Set both to 0 to reproduce Mix 01-04 (meta 'eq_mode' records the mode).

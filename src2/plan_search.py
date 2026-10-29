@@ -29,7 +29,12 @@ def bad_windows():
       t=G['transitions'][f['trans']] if isinstance(G['transitions'],list) else None
       a,b=(t['a'],t['b']) if t else (None,None);w=P.get(a,{}).get('out_win')
       if a and w:out.setdefault(f'{a}>{b}',[]).append(w)
+  for r in ears_gate():  # ears + direct drum check both said off (src/tests/test_ears_gate.py)
+    if r['status']=='confirmed' and r['out_win']:out.setdefault(f"{r['a']}>{r['b']}",[]).append(r['out_win'])
   return out
+def ears_gate():return [r for g in sorted(glob.glob('*_ears_gate.json')) for r in json.load(open(g))]
+SUSPPEN=float(os.environ.get('SUSPPEN',60))  # ears-suspect pair the listener rated 3 or less (Supernova->Solitude 3/5 'a little weird'): real but mild -> cost, not a ban
+def suspects(PR):return {f"{r['a']}>{r['b']}" for r in ears_gate() if r['status']=='suspect' and PR.get(f"{r['a']}>{r['b']}",5)<=3}
 SCORER_ENV=('XBARS','SWAP_POS','HEAVY','BASS_SWAP_BARS','DRUMPEN','SGPEN','VPEN','BOTHPEN','GAPPEN','CUEW','LW','SEAMPEN','RPEN','HOLE_DB','HOLEPEN','SEAMMAX','BOTHMIN','HARDPEN','SHORTPEN','LOOPPEN')
 E4_DB,E4_BARS=10,12  # E4 on predicted (pre-master) levels: calibrated on 12 renders by `validate` (the master compresses dips, so 6 dB/8 bars in LUFS ~ 10 dB/12 bars here)
 E4_REF_OFS=1.0  # whole-mix median sits ~0.7 dB above the median of the tracks' own medians (blends sum two decks); measured on a dry plan
@@ -173,7 +178,7 @@ class Crate:
     for j,l in enumerate(L):run=run+1 if MIN_S<=at+j<end-MIN_S and l<s.ref+E4_REF_OFS-E4_DB else 0;best=max(best,run)
     return cov,best,len(m)*C.BAR
 def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=()):
-  T=table(base);K=Crate(T);PR=prefs();BADW=bad_windows();tr={b:t for b,t in K.tr.items() if b not in exclude};B=json.load(open(base));first=B[0]['id'] if fix_open else None;done=[];t0=time.time()
+  T=table(base);K=Crate(T);PR=prefs();BADW=bad_windows();SUS=suspects(PR);tr={b:t for b,t in K.tr.items() if b not in exclude};B=json.load(open(base));first=B[0]['id'] if fix_open else None;done=[];t0=time.time()
   LOB,HIB=lo*60/C.BAR,hi*60/C.BAR
   for bw in BW:
     starts=[first] if first else list(tr)
@@ -195,7 +200,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=()):
             bars=st['bars']+len(m)-st['inn'][2]
             if bars>HIB:continue
             bl=st['bl']+[dict(a=a,b=b,**w)];cv=st['cov']+[cov]
-            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(PR.get(f'{a}>{b}',3)-3)
+            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(PR.get(f'{a}>{b}',3)-3)+SUSPPEN*(f'{a}>{b}' in SUS)
             ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost)
             k=(frozenset(ns['seq']),b,ns['inn'])
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns

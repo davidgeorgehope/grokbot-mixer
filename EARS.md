@@ -42,3 +42,8 @@ Integration (not wired): planner: run ears_check per candidate pair window offli
 ## Mix 03 refill v2 (mixLenMl, 2026-10-29)
 - ears.sh: PASS 13, n/a 3, FAIL 4: k0 2:57 Supernova->Solitude (down_agree 0.41, 172 ms), k6 19:52 U & I->Alone (the known OPuVVhbkicU intro false positive, 96 ms), k17 51:52 When My Love->Half Life (downbeats only, 0 ms offset), k18 54:04 Half Life->Sweet Lies (only 4 both-drum bars).
 - Direct drum checks disagree on all four: test_mixdown_beats_aligned_every_overlap_bar (each deck vs master <=10 ms) passes, guardrail F1 passes, and the kick/snare per-bar beat_off (src/tests/ears.py; 34:05 bad blend = 21 bars) is 1/2/4/0 bars. Treated as suspect per the rule above, not real fails. Worth an ear check at 2:57 and 51:52.
+
+## Official gate (2026-10-29)
+- `src/tests/test_ears_gate.py`: ears FAIL + direct drum check (deck-vs-deck onset lag > 20 ms, or > 8 kick/snare beat-off bars) = confirmed -> test fails, planner bans the window. Ears FAIL alone = suspect (warning).
+- Calibration vs listener: 24:16 U & I->Alone 3.5 (lag 0, 2 bars), 2:57 Supernova->Solitude 3 (lag 0, 1 bar), 51:52 When My Love->Half Life 4 (lag 0, 4 bars) -> all suspects; bad 34:05 had 21-25 bars. Mild 'a little weird' cases are planner costs (SUSPPEN for suspects rated <=3), not fails.
+- Run with the render's NUDGE env so decks match the master. The GPU host comes from EARS_HOST or config.env.

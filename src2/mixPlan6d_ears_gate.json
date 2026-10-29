@@ -1,0 +1,19 @@
+[
+ {
+  "k": 8,
+  "t": 24.28,
+  "a": "N-j7tIeGm1E",
+  "b": "OPuVVhbkicU",
+  "out_win": [
+   "n",
+   128,
+   null,
+   16,
+   16
+  ],
+  "ears": "FAIL: beat flam/offset",
+  "lag_ms": 0.0,
+  "beatoff_bars": 2,
+  "status": "suspect"
+ }
+]

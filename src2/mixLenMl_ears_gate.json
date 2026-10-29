@@ -1,0 +1,52 @@
+[
+ {
+  "k": 0,
+  "t": 2.94,
+  "a": "EiZVTuiqo0w",
+  "b": "n1dOiesZS1g",
+  "out_win": null,
+  "ears": "FAIL: downbeats disagree, beat flam/offset",
+  "lag_ms": 0.0,
+  "beatoff_bars": 1,
+  "status": "suspect"
+ },
+ {
+  "k": 6,
+  "t": 19.86,
+  "a": "N-j7tIeGm1E",
+  "b": "OPuVVhbkicU",
+  "out_win": null,
+  "ears": "FAIL: downbeats disagree, beat flam/offset",
+  "lag_ms": 0.0,
+  "beatoff_bars": 2,
+  "status": "suspect"
+ },
+ {
+  "k": 17,
+  "t": 51.86,
+  "a": "7Itbo72XEz4",
+  "b": "FYpf8-UvCUk",
+  "out_win": [
+   "la",
+   160,
+   144,
+   16,
+   32
+  ],
+  "ears": "FAIL: downbeats disagree",
+  "lag_ms": 0.0,
+  "beatoff_bars": 4,
+  "status": "suspect"
+ },
+ {
+  "k": 18,
+  "t": 54.07,
+  "a": "FYpf8-UvCUk",
+  "b": "OYzCe1T_Gpg",
+  "out_win": null,
+  "ears": "FAIL: downbeats disagree, beat flam/offset",
+  "lag_ms": 0.0,
+  "beatoff_bars": 0,
+  "status": "suspect"
+ }
+]

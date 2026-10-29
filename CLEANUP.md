@@ -139,3 +139,5 @@
 - 2026-10-29 01:47 iCloud: DJ Mix 03 - Liquid (60 min) mp3+tracklist synced; 59-min pair removed.
 - 2026-10-29 01:47 DOCKET + EARS.md updated.
 - 2026-10-29 01:47 cleanup: removed scratch mixLen* renders/WAVs/guard dirs, scratch plans; kept mixLenMl master/meta/guard, mixLen21b meta, plan_60mL/k21/zc/h.
+- 2026-10-29 01:47 backup_mixer_to_git.sh OK (private ce13a81, public adab88f). Mix 03 v2 DONE.
+- 2026-10-29 03:17 local daily cleanup: removed guard_mixU (15M). Kept guard_mixPlan* (plan_search.py reads them as bad-window history), guard_mixT (baseline), mixLenMl master+guard. No other test WAVs, none in /tmp. Free 56G.

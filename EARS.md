@@ -33,3 +33,8 @@ FAIL: 11:02 (only 4 both-drum bars, beats half a beat apart), 33:50 (downbeats),
 The FAILs at 40:49 onward come before the listener's listening notes, so they are predictions: the likely cause is a downbeat that is off by a beat or a half bar in that track's grid in st/<id>.json. Check them by ear before trusting them. Demucs adds a little run-to-run jitter, so borderline values can move.
 
 Integration (not wired): planner: run ears_check per candidate pair window offline, cache per (a,b,out_bar,in_bar), and add a cost when the verdict is FAIL. A downbeat FAIL also suggests correcting that track's `downs` phase. Tests: test_mix02_traits could load `<prefix>_ears_report.json` and assert no FAIL on blends with 4 or more both-drum bars.
+
+## Suspected false positive: recalibrate (2026-10-29)
+- mixPlan6d (delivered as Mix 04), blend 8 at 24:16, Culture Shock – U & I -> Grafix ft. Ruth Royall – Alone (OPuVVhbkicU, incoming from bar 16): FAIL, 96 ms median beat offset, p90 172 ms, downbeats agree on 0.5, phase_A = phase_B = 0, 12 both-drum bars.
+- Direct check disagrees: cross-correlating the two cut decks' onset envelopes gives a 1.5 ms lag (blends 7/9/10: 0/1.5/-1.5 ms), and OPuVVhbkicU's own grid sits within ~15 ms of its kicks. The same 96 ms showed up with a different U & I window (mixPlan6e), so the fail follows OPuVVhbkicU's intro: Beat This most likely tracks its intro drums off the beat.
+- To do: before a FAIL, cross-check Beat This against direct onset xcorr of deck A vs deck B; FAIL only if both agree (e.g. xcorr lag > 20 ms), else report "suspect". Ears is not yet part of the official suite.

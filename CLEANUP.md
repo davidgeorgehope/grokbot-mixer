@@ -132,3 +132,4 @@
 - 2026-10-29 00:49 mixLenMh: drop 27:07 (T3de in 0 quiet) + 7Itbo lag -19 (stale +19 nudges on src 16-28, removed from nudgeLen; backup /tmp/nudgeLen.bak2). N-j7/rpIp st grids were updated 23:59 by planner worker (kept). Plan mK1: KDRP out_win la192/176 in32, 5gFut anchor; dry 61.43, 12/20. Rendering mixLenMk1.
 - 2026-10-29 01:01 mixLenMk1: O1 OPuV>5gFut (5gFut anchor) + F1 7Itbo without nudges. Set 7Itbo src16-28 nudges to old-9 ms; using plan mK3 (FYpf anchor, 60.69). Rendering mixLenMk3.
 - 2026-10-29 01:13 mixLenMk3: guardrails 0, only anchor test (FYpf too short to anchor). Plan mL = mJ + 7Itbo out_win la160/144 in16 (no FYpf anchor), dry 60.32, 11/20. Rendering mixLenMl.
+- 2026-10-29 01:26 mixLenMl: guardrails 0 + 38/38 pytest PASS. Running ears.sh.

@@ -51,3 +51,4 @@
 - 2026-10-29 18:32 Mix 05 still NOT delivered. 05j: L1 31:22 h1RN>6YDK + eq_swap dip -3.7dB 51:52 F1NC>j9Au. 05k (t10 [lb,176,-,16,32], t17 [n,112,-,64,16]) fixed both; guardrails 0, 49/50: beats_aligned bar 1385 6YDK 14ms. 05l (+autofix nudge05k) same 49/50. Masters 05j/k/l kept; see mix05_progress.md.
 - 2026-10-29 19:26 DELIVERED Mix 05 = mix05n (plan_mix05k + nudge05n: 6YDK src bars 25,26 -> -7). 59:14, 20 tracks, guardrails 0, pytest 50/50. Drive https://drive.google.com/file/d/1VHSjWXbammPuTbMLKyL7f8kphAk-y6Jb/view (128k), iCloud DJ Mixes, tracklist dj-mix-05-tracklist.md. Echo-out 53:20 F1NC>j9Au. Ears suspects 5:53, 41:12.
 - 2026-10-29 Ears v2: learned CNN (MPS) tried 2 variants; held-out 4/8 and 2/8 vs current gate 7/8 -> not swapped in; see ev2/RESULTS.md. Retry with deck-stem inputs at 20+ ratings.
+- 2026-10-30 07:58 ET: Mix 01 visuals video uploaded PRIVATE: https://youtu.be/_I9VcTlt5Bg (local mp4 deleted). Mix 03 v2 visuals still rendering.

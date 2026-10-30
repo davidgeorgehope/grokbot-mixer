@@ -6,3 +6,4 @@
 - step6 03:39 (routine check): neither done. mix01 28.5k/47k (~10fps, ~30 min left), mix03 24.9k/108.6k (~10fps, ~2.3h left). Renders apparently stalled/paused for a while earlier (avg fps reset). One-off recheck routine set ~04:45.
 - step7 06:40 (routine check): neither done. logs stale since 03:43 (render procs show etime from 05:52, likely box restore), mp4s still growing (~12-14MB/min: mix01 598MB, mix03 489MB). Recheck routine moved to ~07:45.
 - step8 07:58 (routine): mix01 done+uploaded https://youtu.be/_I9VcTlt5Bg, mp4 deleted, docket added. mix03 still rendering (~45k/108.6k). Recheck routine ~09:00.
+- step9 13:55 (routine): mix03 v2 done (108609 frames, 60:20) and uploaded private https://youtu.be/kFLCpMY0g-o, backup run, mp4 deleted, docket added. ALL DONE.

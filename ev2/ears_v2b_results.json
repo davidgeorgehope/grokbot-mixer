@@ -1,0 +1,67 @@
+{
+ "device": "mps",
+ "loso": {
+  "0": {
+   "acc": 0.4122222222222222,
+   "n": 900
+  },
+  "1": {
+   "acc": 0.6670212765957447,
+   "n": 940
+  },
+  "2": {
+   "acc": 0.5965447154471545,
+   "n": 984
+  }
+ },
+ "held": [
+  {
+   "t": "dj-mix-03-60-refill.mp3@15:00",
+   "rating": 2.0,
+   "current": "ears?",
+   "p_bad": 0.9978006482124329
+  },
+  {
+   "t": "dj-mix-03-60-refill.mp3@30:56",
+   "rating": 5.0,
+   "current": "ears?",
+   "p_bad": 0.9661856293678284
+  },
+  {
+   "t": "dj-mix-03-60-refill.mp3@34:05",
+   "rating": 1.0,
+   "current": "confirmed",
+   "p_bad": 0.9998445510864258
+  },
+  {
+   "t": "mix04.mp3@24:16",
+   "rating": 3.5,
+   "current": "suspect",
+   "p_bad": 0.7919427752494812
+  },
+  {
+   "t": "mix03v2.mp3@2:57",
+   "rating": 3.0,
+   "current": "suspect",
+   "p_bad": 0.9999548196792603
+  },
+  {
+   "t": "mix03v2.mp3@51:52",
+   "rating": 4.0,
+   "current": "suspect",
+   "p_bad": 0.9991440773010254
+  },
+  {
+   "t": "mix05n.mp3@5:53",
+   "rating": 3.0,
+   "current": "suspect",
+   "p_bad": 0.9996925592422485
+  },
+  {
+   "t": "mix05n.mp3@41:12",
+   "rating": 3.0,
+   "current": "suspect",
+   "p_bad": 0.9992961883544922
+  }
+ ]
+}

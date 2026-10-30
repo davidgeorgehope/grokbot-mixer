@@ -1,0 +1,7 @@
+- step1 22:18: auth OK (upload+readonly scopes only, no delete). mix03_v2_tracks.json built from mixLenMl meta. audio: dj-mix-03-60-refill.mp3 (=delivered 60:20), dj-mix-01.mp3
+- step2 22:18: rendering mix01 -> visuals/dj-mix-01-visuals-1080p30.mp4 (log r01.log); mix03 analysis+tex running (an03.log). deleted old mixS visuals mp4
+- step3 22:23: mix03 v2 render started -> visuals/dj-mix-03-v2-visuals-1080p30.mp4 (r03.log)
+- step4 22:24: yt_desc_01.txt, yt_desc_03_v2.txt ready in /workspace/mixes. Next: when renders done, upload with yt_upload.py (private), then backup/cleanup/docket
+- step5 22:50: both renders running (nohup). mix01 13.2k/47k @8.8fps (~65 min left), mix03 9k/108k @7.5fps (~3.7h left). Resume: when r01.log/r03.log say 'done', ffprobe, then cd /workspace/yt-dj-crate-git/grokbot-mixer/src && python3 yt_upload.py FILE --title 'DJ Grok Bot – Mix 0X | Liquid Drum & Bass' --description "$(cat /workspace/mixes/yt_desc_0X.txt)" --privacy private; then backup, rm mp4s, docket. Old v3 video can't be deleted: token scopes are youtube.upload + youtube.readonly only.
+- step6 03:39 (routine check): neither done. mix01 28.5k/47k (~10fps, ~30 min left), mix03 24.9k/108.6k (~10fps, ~2.3h left). Renders apparently stalled/paused for a while earlier (avg fps reset). One-off recheck routine set ~04:45.
+- step7 06:40 (routine check): neither done. logs stale since 03:43 (render procs show etime from 05:52, likely box restore), mp4s still growing (~12-14MB/min: mix01 598MB, mix03 489MB). Recheck routine moved to ~07:45.

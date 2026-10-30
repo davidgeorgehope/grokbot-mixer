@@ -141,3 +141,4 @@
 - 2026-10-29 01:47 cleanup: removed scratch mixLen* renders/WAVs/guard dirs, scratch plans; kept mixLenMl master/meta/guard, mixLen21b meta, plan_60mL/k21/zc/h.
 - 2026-10-29 01:47 backup_mixer_to_git.sh OK (private ce13a81, public adab88f). Mix 03 v2 DONE.
 - 2026-10-29 03:17 local daily cleanup: removed guard_mixU (15M). Kept guard_mixPlan* (plan_search.py reads them as bad-window history), guard_mixT (baseline), mixLenMl master+guard. No other test WAVs, none in /tmp. Free 56G.
+- 2026-10-30 03:16 local daily cleanup: removed mixLenMl_master.wav (1.2G, Mix 03 v2 mp3 delivered), A/B test guards guard_mixEoA/EoB/EqB/EqT/HiA/HiT, /tmp/s.wav. Kept guard_mix05* (latest delivered Mix 05 = 05n; plan_search bad-window history), guard_mixPlan*, guard_mixT, guard_mixLenMl. Free 46G.

@@ -53,3 +53,4 @@
 - 2026-10-29 Ears v2: learned CNN (MPS) tried 2 variants; held-out 4/8 and 2/8 vs current gate 7/8 -> not swapped in; see ev2/RESULTS.md. Retry with deck-stem inputs at 20+ ratings.
 - 2026-10-30 07:58 ET: Mix 01 visuals video uploaded PRIVATE: https://youtu.be/_I9VcTlt5Bg (local mp4 deleted). Mix 03 v2 visuals still rendering.
 - 2026-10-30 13:55 ET: Mix 03 v2 visuals video uploaded PRIVATE: https://youtu.be/kFLCpMY0g-o (60:20, 1080p30; local mp4 deleted). Both visuals videos done. Old v3 video https://youtu.be/hsMGVeo8tMQ still up; deleting it needs a YouTube re-auth with delete scope.
+- DONE 2026-10-30 18:17: Mix 04 visuals public https://youtu.be/NYRDIb33IKk

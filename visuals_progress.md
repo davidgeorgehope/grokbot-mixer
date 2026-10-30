@@ -7,3 +7,8 @@
 - step7 06:40 (routine check): neither done. logs stale since 03:43 (render procs show etime from 05:52, likely box restore), mp4s still growing (~12-14MB/min: mix01 598MB, mix03 489MB). Recheck routine moved to ~07:45.
 - step8 07:58 (routine): mix01 done+uploaded https://youtu.be/_I9VcTlt5Bg, mp4 deleted, docket added. mix03 still rendering (~45k/108.6k). Recheck routine ~09:00.
 - step9 13:55 (routine): mix03 v2 done (108609 frames, 60:20) and uploaded private https://youtu.be/kFLCpMY0g-o, backup run, mp4 deleted, docket added. ALL DONE.
+- 10-30 16:52 Mix 04/05 visuals: run 'nohup bash /workspace/mixes/visuals/run_45.sh &' (resumable; skips uploaded mixes via visuals/up0N.link). Audio from Drive: dj-mix-04-128k.mp3, dj-mix-05-128k.mp3
+- 10-30 16:53 [run_45] mix04 render start (22 tracks) -> visuals/dj-mix-04-visuals-1080p30.mp4, log r04.log
+- 10-30 17:20 run_45.sh PID 2760874 (render PID 2761011) mix04 at 18.6k/105.8k @22fps, ETA mix04 upload ~18:35 ET, mix05 ~20:00 ET. Script auto-uploads public, writes visuals/up04.link/up05.link, backup, cleanup, DOCKET. If dead: rerun nohup setsid bash visuals/run_45.sh (needs mixes/dj-mix-0N-128k.mp3; re-download from Drive if deleted & not yet uploaded).
+- 10-30 18:16 [run_45] mix04 render OK dur=3527.866667 streams=audio video ; uploading public
+- 10-30 18:17 [run_45] mix04 uploaded https://youtu.be/NYRDIb33IKk dur=3527.866667

@@ -1,5 +1,7 @@
 import numpy as np,json,librosa,glob,sys
-for f in sorted(glob.glob('st/*.json')):
+# only the ids given (add_track.sh passes the new track); never mixpoints files. Running over every track would undo hand-shifted grids (N-j7tIeGm1E, rpIpJQ7ujzc)
+IDS=sys.argv[1:]
+for f in ([f'st/{i}.json' for i in IDS] if IDS else sorted(g for g in glob.glob('st/*.json') if 'mixpoints' not in g)):
   b=f[3:-5];g=json.load(open(f));beats=np.array(g['beats'])
   y,sr=librosa.load(f'st/{b}.wav',sr=22050)
   S=np.abs(librosa.stft(y,hop_length=128));fr=librosa.fft_frequencies(sr=sr);t=np.arange(S.shape[1])*128/sr

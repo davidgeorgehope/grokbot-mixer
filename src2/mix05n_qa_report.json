@@ -4,9 +4,9 @@
   "b": "rpIpJQ7ujzc",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "3:40",
-  "grid_phase_dev_ms": 5.0,
+  "grid_phase_dev_ms": 6.0,
   "drift_ms": 0,
-  "drift_windows": 2,
+  "drift_windows": 1,
   "downbeat_A": {
    "lag_ms": 0,
    "corr": -1000000000.0
@@ -70,7 +70,7 @@
   "b": "YNz30crm5g0",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "12:08",
-  "grid_phase_dev_ms": 3.0,
+  "grid_phase_dev_ms": 2.0,
   "drift_ms": 2,
   "drift_windows": 3,
   "downbeat_A": {
@@ -92,7 +92,7 @@
   "b": "5196v8VY1LI",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "15:04",
-  "grid_phase_dev_ms": 4.0,
+  "grid_phase_dev_ms": 5.0,
   "drift_ms": 2,
   "drift_windows": 2,
   "downbeat_A": {
@@ -114,7 +114,7 @@
   "b": "MoYkYkoeb84",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "16:55",
-  "grid_phase_dev_ms": 4.0,
+  "grid_phase_dev_ms": 3.0,
   "drift_ms": 1,
   "drift_windows": 1,
   "downbeat_A": {
@@ -136,7 +136,7 @@
   "b": "7Itbo72XEz4",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "19:51",
-  "grid_phase_dev_ms": 14.0,
+  "grid_phase_dev_ms": 13.0,
   "drift_ms": 0,
   "drift_windows": 2,
   "downbeat_A": {
@@ -158,7 +158,7 @@
   "b": "2s3M6oX2lfo",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "22:26",
-  "grid_phase_dev_ms": 5.0,
+  "grid_phase_dev_ms": 4.0,
   "drift_ms": 1,
   "drift_windows": 2,
   "downbeat_A": {
@@ -180,8 +180,8 @@
   "b": "nT25guf4DRU",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "26:06",
-  "grid_phase_dev_ms": 6.0,
-  "drift_ms": 2,
+  "grid_phase_dev_ms": 4.0,
+  "drift_ms": 3,
   "drift_windows": 3,
   "downbeat_A": {
    "lag_ms": 0,
@@ -224,8 +224,8 @@
   "b": "6YDKymmWe9o",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "31:37",
-  "grid_phase_dev_ms": 6.0,
-  "drift_ms": 0,
+  "grid_phase_dev_ms": 5.0,
+  "drift_ms": 1,
   "drift_windows": 1,
   "downbeat_A": {
    "lag_ms": 0,
@@ -246,7 +246,7 @@
   "b": "kKu3fIOTiHk",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "35:40",
-  "grid_phase_dev_ms": 7.0,
+  "grid_phase_dev_ms": 6.0,
   "drift_ms": 3,
   "drift_windows": 2,
   "downbeat_A": {
@@ -268,8 +268,8 @@
   "b": "nAV4i1YIwQI",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "38:15",
-  "grid_phase_dev_ms": 2.0,
-  "drift_ms": 1,
+  "grid_phase_dev_ms": 4.0,
+  "drift_ms": 2,
   "drift_windows": 2,
   "downbeat_A": {
    "lag_ms": 0,
@@ -290,7 +290,7 @@
   "b": "EiZVTuiqo0w",
   "tech": "16-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "41:11",
-  "grid_phase_dev_ms": 7.0,
+  "grid_phase_dev_ms": 6.0,
   "drift_ms": 0,
   "drift_windows": 1,
   "downbeat_A": {
@@ -312,7 +312,7 @@
   "b": "AC3eEHeLd8A",
   "tech": "16-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "44:30",
-  "grid_phase_dev_ms": 2.0,
+  "grid_phase_dev_ms": 3.0,
   "drift_ms": 2,
   "drift_windows": 1,
   "downbeat_A": {
@@ -356,9 +356,9 @@
   "b": "F1NCnCxyhqc",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "51:51",
-  "grid_phase_dev_ms": 7.0,
+  "grid_phase_dev_ms": 8.0,
   "drift_ms": 3,
-  "drift_windows": 2,
+  "drift_windows": 3,
   "downbeat_A": {
    "lag_ms": 0,
    "corr": -1000000000.0
@@ -378,8 +378,8 @@
   "b": "j9AuFRpLk7U",
   "tech": "16-bar crossfader blend (equal-power, single control) + 2-bar bass handoff + 1-bar delay-tail exit",
   "t": "53:20",
-  "grid_phase_dev_ms": 6.0,
-  "drift_ms": 2,
+  "grid_phase_dev_ms": 5.0,
+  "drift_ms": 4,
   "drift_windows": 1,
   "downbeat_A": {
    "lag_ms": 0,
@@ -400,7 +400,7 @@
   "b": "cxS6yd0UAxw",
   "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
   "t": "55:10",
-  "grid_phase_dev_ms": 6.0,
+  "grid_phase_dev_ms": 8.0,
   "drift_ms": 0,
   "drift_windows": 2,
   "downbeat_A": {

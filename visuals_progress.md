@@ -17,3 +17,6 @@
 - 10-30 18:17 [run_45] mix05 render start (20 tracks) -> visuals/dj-mix-05-visuals-1080p30.mp4, log r05.log
 - 10-30 20:08 [run_45] mix05 render OK dur=3554.100000 streams=audio video ; uploading public
 - 10-30 20:10 [run_45] mix05 uploaded https://youtu.be/pNhgIfu1zKY dur=3554.100000
+- 10-30 20:10 [run_45] mix05 backup ok
+- 10-30 20:10 [run_45] mix05 cleaned mp4/tex/audio
+- 10-30 20:10 [run_45] ALL DONE (04+05)

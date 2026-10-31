@@ -127,6 +127,7 @@ def pair_cands(i,ia0):
     eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
     for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
       for p in [e-16] if e-16>=max(ia,16) else []:
+        if X>16 and not int(os.environ.get('LOOP32',0)):continue  # a 32-bar loop replays the outgoing's last phrase twice more (heard as an echo/ghost; the listener 2026-10-31)
         for ib in range(0,min(81,nb-3*X),16):cands.append(('la',(e,p),ib))
     for e in range(e_max,emin-1,-16):
       for q in range(16,min(97,nb-4*X),16):cands.append(('lb',e,q))  # incoming plays phrase q first, continues q+16
@@ -153,7 +154,7 @@ def pair_cands(i,ia0):
       r['pen']+=float(os.environ.get('HOLEPEN',0))*hole
       if step>float(os.environ.get('SEAMMAX',2)) or r['both']<int(os.environ.get('BOTHMIN',11)):r['pen']+=float(os.environ.get('HARDPEN',60))  # hard limits: guardrail N1 (3 dB step) and O1 (>=8 bars)
       if CUEW>0:r['cue']=round(cue_pen(a,ea),3);r['pen']+=CUEW*r['cue']
-      sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',6))*{'n':0,'la':1,'lb':1,'ab':2}[kind],-ea,str(ib))
+      sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',40))*{'n':0,'la':1,'lb':1,'ab':2}[kind],-ea,str(ib))
       res.append((sc,kind,(e,p) if kind in('la','ab') else e,ib,r,X))
   X=XMAX;res.sort(key=lambda t:t[0]);return res
 def win_key(c):return [c[1],*(c[2] if isinstance(c[2],tuple) else (c[2],None)),c[3],c[5]]  # [kind, out bar, loop phrase, in bar, blend bars]
@@ -163,7 +164,9 @@ KIND={}
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];cs=pair_cands(i,inn[a])
   W=plan[i].get('out_win')  # opt-in: the window plan_search.py chose for this blend (renders exactly what was planned)
-  if W:best=next(c for c in cs if win_key(c)==W)
+  if W:
+    best=next((c for c in cs if win_key(c)==W),None)
+    if best is None:sys.exit(f'plan window {W} for {a}>{b} is no longer allowed (32-bar outgoing loops are off; LOOP32=1 to override): re-run plan_search.py')
   elif i+1<len(ids)-1 and LOOK>1:best=min(cs[:LOOK],key=lambda c:c[0][0]+pair_cands(i+1,nxt_inn(c))[0][0][0])  # 1-step lookahead: do not starve the next blend
   else:best=cs[0]
   _,kind,e,ib,r,xt=best;XT[(a,b)]=xt;n=[]
@@ -206,7 +209,7 @@ def echo_pick():
     c.append((not f,tail0(al,body)-e,i))
   got=set()
   for _,_,i in sorted(c):
-    if len(got)<max(1,round(ESH*len(trans))) and all(abs(i-j)>=4 for j in got):got.add(i)
+    if len(got)<min(int(os.environ.get('ECHO_MAX',2)),max(1,round(ESH*len(trans)))) and all(abs(i-j)>=4 for j in got):got.add(i)
   return got
 EOS=echo_pick()
 for i in EOS:trans[i]['echo_out']=True;trans[i]['tech']+=' + 1-bar delay-tail exit'
@@ -232,7 +235,7 @@ for i,d in enumerate(decks):
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])
   print('len min',round((decks[-1]['end_bar'])*BAR/60,2))
-  json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=decks[-1]['end_bar']*BAR,dry=True),open(OUT+'_dry_meta.json','w'),default=float);sys.exit()
+  json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO,VARIETY=1,LOOP32=int(os.environ.get('LOOP32',0))),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=decks[-1]['end_bar']*BAR,dry=True),open(OUT+'_dry_meta.json','w'),default=float);sys.exit()
 total=decks[-1]['end_bar'];N=int(total*BS)+SR;M=np.zeros((N,2),np.float32)
 import engine
 for j,d in enumerate(decks):
@@ -241,6 +244,6 @@ for j,d in enumerate(decks):
   for k in list(engine._cache):
     if k not in need:engine._cache[k]['st'].clear()
 sf.write(OUT+'_raw.wav',M,SR,subtype='FLOAT')
-json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=len(M)/SR),open(OUT+'_meta.json','w'),indent=1,default=float)
+json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO,VARIETY=1,LOOP32=int(os.environ.get('LOOP32',0))),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=len(M)/SR),open(OUT+'_meta.json','w'),indent=1,default=float)
 print('len min',round(len(M)/SR/60,2))
 for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])

@@ -16,7 +16,7 @@ a=es.MonoLoader(filename=f'st/{sys.argv[1]}.wav',sampleRate=44100)()
 print('KEY',sys.argv[1],[CAM[es.KeyExtractor(profileType=p,sampleRate=44100)(a)[:2]] for p in ['edma','bgate','krumhansl','temperley']])
 PY
   T=$(mktemp -d); python3 -m demucs -n htdemucs -j 8 -o "$T" "st/$b.wav" >/dev/null 2>&1
-  python3 fixgrid.py >/dev/null 2>&1
+  python3 fixgrid.py "$b" 2>&1 | tail -1
   SEP="$T/htdemucs" BF="st/$b.json" python3 barfeats.py | cut -c1-120
   rm -rf "$T"
   python3 phasechk.py "$b" 2>&1 | tail -3

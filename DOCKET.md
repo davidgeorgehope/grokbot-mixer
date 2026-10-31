@@ -55,3 +55,8 @@
 - 2026-10-30 13:55 ET: Mix 03 v2 visuals video uploaded PRIVATE: https://youtu.be/kFLCpMY0g-o (60:20, 1080p30; local mp4 deleted). Both visuals videos done. Old v3 video https://youtu.be/hsMGVeo8tMQ still up; deleting it needs a YouTube re-auth with delete scope.
 - DONE 2026-10-30 18:17: Mix 04 visuals public https://youtu.be/NYRDIb33IKk
 - DONE 2026-10-30 20:10: Mix 05 visuals public https://youtu.be/pNhgIfu1zKY
+
+- 2026-10-31 Variety/ratings fix (before Mix 06 rebuild): pair_prefs now scored 5 good / 4 OK / <=3 bad (src2/techniques.py, was centred on 3 = neutral);
+  32-bar outgoing loops off (LOOP32=0; they replayed the outgoing's last phrase 3x in 10/19 Mix 05 blends = the "echoey" feel), LOOPPEN 6->40,
+  ECHO_MAX=2; technique menu + diversity rule in techniques.py (unsupported engine techniques flagged, not rendered yet); tests/test_variety.py.
+  plan_mix06a.json pins 7 32-bar 'la' windows -> mix_simple now refuses it: re-run plan_search.py for Mix 06.

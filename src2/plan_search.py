@@ -14,8 +14,9 @@ MELPEN=float(os.environ.get('MELPEN',4))    # search cost per such bar, scaled b
 DRIFTPEN=float(os.environ.get('DRIFTPEN',2))  # search cost per ms of median 16th-grid phase gap between the decks' source bars above 5 ms
 STEPMAX=float(os.environ.get('STEPMAX',9.5))  # predicted entry level step cap (guardrail N1): renders failed at +9.8/+10.2/+14.8; the one pass above it (+10.7) is Parallel->Bad To Me, which a render proved fine, so pairs the listener rated 4+ are exempt
 STEPPEN=float(os.environ.get('STEPPEN',0))   # optional cost per dB of predicted entry step above 6 dB
-PREFW=float(os.environ.get('PREFW',60))       # cost per rating point away from 3 for pairs the listener rated (pair_prefs.json): 5/5 -> -120, 1/5 -> +120
+PREFW=float(os.environ.get('PREFW',60))       # cost x techniques.pref_score (5 good=-60, 4 OK=0, <=3 bad=+60..+120); was centred on 3, which made 3/5 neutral (the listener 2026-10-31)
 SIL_DB=20                                     # a source beat this far under the track's median is near-silent (guardrail E2 when it plays solo)
+import techniques as TQ
 def prefs():return {k:v for k,v in json.load(open('pair_prefs.json')).items() if not k.startswith('_')}
 def bad_windows():
   """windows a render proved bad: every guardrail failure tied to a blend, from every guard_mixPlan*/ run, keyed a>b -> [window]"""
@@ -161,6 +162,7 @@ def _valid(t,w,ia):
   """can mix_simple pick window w for outgoing track t when t starts at bar ia (same limits as pair_cands)"""
   kind,e,p,ib,X=w;minlen=160 if t['anchor'] else 96-X;em=t['e_max']
   emin=max(ia+minlen,ia+int((em-ia)*0.5));emin+=(-emin)%16;emin=min(emin,em)
+  if kind in('la','ab') and X>16 and not int(os.environ.get('LOOP32',0)):return False  # 32-bar loop = outgoing phrase heard 3x (the 'echo' the listener hears)
   if kind in('la','ab'):return e>=(max(ia+16,emin-X) if t['anchor'] else emin) and p>=max(ia,16)
   return e>=emin
 def _deck(inn,e,p,Xout):
@@ -207,7 +209,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             bars=st['bars']+len(m)-st['inn'][2]
             if bars>HIB:continue
             bl=st['bl']+[dict(a=a,b=b,**w)];cv=st['cov']+[cov]
-            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(PR.get(f'{a}>{b}',3)-3)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT)+REUSEPEN*(f'{a}>{b}' in PP)
+            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT)+REUSEPEN*(f'{a}>{b}' in PP)
             ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost)
             k=(frozenset(ns['seq']),b,ns['inn'])
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns

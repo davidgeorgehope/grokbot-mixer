@@ -1,0 +1,87 @@
+[
+ {
+  "k": 4,
+  "t": 15.45,
+  "a": "5196v8VY1LI",
+  "b": "4WY9J_yXj8M",
+  "out_win": [
+   "lb",
+   160,
+   null,
+   16,
+   32
+  ],
+  "ears": "FAIL: beat flam/offset",
+  "lag_ms": -2.9,
+  "beatoff_bars": 5,
+  "status": "suspect"
+ },
+ {
+  "k": 8,
+  "t": 27.22,
+  "a": "sObzaBqaBRQ",
+  "b": "q_cZZY0BehE",
+  "out_win": [
+   "la",
+   176,
+   160,
+   48,
+   32
+  ],
+  "ears": "FAIL: downbeats disagree",
+  "lag_ms": 0.0,
+  "beatoff_bars": 2,
+  "status": "suspect"
+ },
+ {
+  "k": 10,
+  "t": 33.84,
+  "a": "3BOWFQBhzhU",
+  "b": "PVa_LRlOqBE",
+  "out_win": [
+   "n",
+   208,
+   null,
+   48,
+   16
+  ],
+  "ears": "FAIL: beat flam/offset",
+  "lag_ms": null,
+  "beatoff_bars": 0,
+  "status": "suspect"
+ },
+ {
+  "k": 12,
+  "t": 40.09,
+  "a": "2s3M6oX2lfo",
+  "b": "FYpf8-UvCUk",
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   16
+  ],
+  "ears": "FAIL: downbeats disagree",
+  "lag_ms": 0.0,
+  "beatoff_bars": 5,
+  "status": "suspect"
+ },
+ {
+  "k": 15,
+  "t": 46.71,
+  "a": "h1RNzaTfRyY",
+  "b": "OYzCe1T_Gpg",
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   32
+  ],
+  "ears": "FAIL: downbeats disagree, beat flam/offset",
+  "lag_ms": 0.0,
+  "beatoff_bars": 2,
+  "status": "suspect"
+ }
+]

@@ -1,0 +1,70 @@
+[
+ {
+  "k": 4,
+  "t": 13.24,
+  "a": "NaY3x3GRDF4",
+  "b": "4WY9J_yXj8M",
+  "out_win": [
+   "n",
+   176,
+   null,
+   16,
+   32
+  ],
+  "ears": "FAIL: downbeats disagree, beat flam/offset",
+  "lag_ms": 0.0,
+  "beatoff_bars": 2,
+  "status": "suspect"
+ },
+ {
+  "k": 10,
+  "t": 27.22,
+  "a": "-n50uo8so4U",
+  "b": "j9AuFRpLk7U",
+  "out_win": [
+   "lb",
+   144,
+   null,
+   16,
+   32
+  ],
+  "ears": "FAIL: beat flam/offset",
+  "lag_ms": null,
+  "beatoff_bars": 0,
+  "status": "suspect"
+ },
+ {
+  "k": 13,
+  "t": 35.68,
+  "a": "nAV4i1YIwQI",
+  "b": "kKu3fIOTiHk",
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   32
+  ],
+  "ears": "FAIL: beat flam/offset",
+  "lag_ms": null,
+  "beatoff_bars": 0,
+  "status": "suspect"
+ },
+ {
+  "k": 17,
+  "t": 47.08,
+  "a": "nT25guf4DRU",
+  "b": "3BOWFQBhzhU",
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   32
+  ],
+  "ears": "FAIL: downbeats disagree, beat flam/offset",
+  "lag_ms": null,
+  "beatoff_bars": 0,
+  "status": "suspect"
+ }
+]

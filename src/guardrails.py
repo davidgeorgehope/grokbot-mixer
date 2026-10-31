@@ -69,7 +69,7 @@ def x1_check(M,fail,BAR,X1_db=3.0,floor_db=-24.0):
          mov=np.where(np.abs(dl)>1e-6)[0];why=None
          if (up and (dl<-1e-6).any()) or (not up and (dl>1e-6).any()):why='non-monotonic'
          elif abs(lv[0]-(0 if up else 1))>1e-3 or abs(lv[-1]-(1 if up else 0))>1e-3:why=f'does not go {"0->1" if up else "1->0"} across the blend'
-         elif len(mov) and not (1-1e-6<=(mov[-1]+1-mov[0])/16<=2+1e-6):why=f'swap lasts {(mov[-1]+1-mov[0])/16:.2f} bars (need 1-2)'
+         elif len(mov) and not (1-1e-6<=(mov[-1]+1-mov[0])/16<=(4 if lane=='low' else 2)+1e-6):why=f'swap lasts {(mov[-1]+1-mov[0])/16:.2f} bars (need 1-{4 if lane=="low" else 2})'  # bass 1-4 since 2026-10-31: a 2-bar bass swap took 6.6-7.8 dB off the outgoing in one bar (the listener's abrupt-fade rule, BASS_SWAP_BARS=4)
          elif np.abs(dl).max()>0.25:why=f'band step {np.abs(dl).max():.2f} per 1/16 bar (not smooth)'
          elif len(mov):  # the swap is tied to the crossfader: its centre must sit at x in [0.2, 0.65]
            xc=float(np.interp(bars[(mov[0]+mov[-1]+1)//2],[p[0] for p in xs],[p[1] for p in xs]))

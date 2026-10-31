@@ -12,3 +12,8 @@
 - 10-30 17:20 run_45.sh PID 2760874 (render PID 2761011) mix04 at 18.6k/105.8k @22fps, ETA mix04 upload ~18:35 ET, mix05 ~20:00 ET. Script auto-uploads public, writes visuals/up04.link/up05.link, backup, cleanup, DOCKET. If dead: rerun nohup setsid bash visuals/run_45.sh (needs mixes/dj-mix-0N-128k.mp3; re-download from Drive if deleted & not yet uploaded).
 - 10-30 18:16 [run_45] mix04 render OK dur=3527.866667 streams=audio video ; uploading public
 - 10-30 18:17 [run_45] mix04 uploaded https://youtu.be/NYRDIb33IKk dur=3527.866667
+- 10-30 18:17 [run_45] mix04 backup ok
+- 10-30 18:17 [run_45] mix04 cleaned mp4/tex/audio
+- 10-30 18:17 [run_45] mix05 render start (20 tracks) -> visuals/dj-mix-05-visuals-1080p30.mp4, log r05.log
+- 10-30 20:08 [run_45] mix05 render OK dur=3554.100000 streams=audio video ; uploading public
+- 10-30 20:10 [run_45] mix05 uploaded https://youtu.be/pNhgIfu1zKY dur=3554.100000

@@ -17,6 +17,7 @@ STEPPEN=float(os.environ.get('STEPPEN',0))   # optional cost per dB of predicted
 PREFW=float(os.environ.get('PREFW',60))       # cost x techniques.pref_score (5 good=-60, 4 OK=0, <=3 bad=+60..+120); was centred on 3, which made 3/5 neutral (the listener 2026-10-31)
 SIL_DB=20                                     # a source beat this far under the track's median is near-silent (guardrail E2 when it plays solo)
 import techniques as TQ
+LOVE={k for k in (json.load(open('track_prefs.json')) if os.path.exists('track_prefs.json') else {}) if not k.startswith('_')};LOVEW=float(os.environ.get('LOVEW',40))  # tracks the listener loves (goddard. - Lilies)
 def prefs():return {k:v for k,v in json.load(open('pair_prefs.json')).items() if not k.startswith('_')}
 def bad_windows():
   """windows a render proved bad: every guardrail failure tied to a blend, from every guard_mixPlan*/ run, keyed a>b -> [window]"""
@@ -43,7 +44,7 @@ def prev_used():
     q=[p['id'] for p in json.load(open(f))];T|=set(q);P|={f'{a}>{b}' for a,b in zip(q,q[1:])}
   return T,P
 def suspects(PR):return {f"{r['a']}>{r['b']}" for r in ears_gate() if r['status']=='suspect' and PR.get(f"{r['a']}>{r['b']}",5)<=3}
-SCORER_ENV=('XBARS','SWAP_POS','SWAP_PHRASE','HEAVY','BASS_SWAP_BARS','DRUMPEN','SGPEN','VPEN','BOTHPEN','GAPPEN','CUEW','LW','SEAMPEN','RPEN','HOLE_DB','HOLEPEN','SEAMMAX','BOTHMIN','HARDPEN','SHORTPEN','LOOPPEN')
+SCORER_ENV=('XBARS','SWAP_POS','SWAP_PHRASE','HEAVY','BASS_SWAP_BARS','DRUMPEN','SGPEN','VPEN','BOTHPEN','GAPPEN','CUEW','LW','SEAMPEN','RPEN','HOLE_DB','HOLEPEN','SEAMMAX','BOTHMIN','HARDPEN','SHORTPEN','LOOPPEN','STRUCT','STRUCTW','LOOP32')
 E4_DB,E4_BARS=10,12  # E4 on predicted (pre-master) levels: calibrated on 12 renders by `validate` (the master compresses dips, so 6 dB/8 bars in LUFS ~ 10 dB/12 bars here)
 E4_REF_OFS=1.0  # whole-mix median sits ~0.7 dB above the median of the tracks' own medians (blends sum two decks); measured on a dry plan
 MIN_S=45/C.BAR      # E4 ignores the first/last 45 s
@@ -209,7 +210,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             bars=st['bars']+len(m)-st['inn'][2]
             if bars>HIB:continue
             bl=st['bl']+[dict(a=a,b=b,**w)];cv=st['cov']+[cov]
-            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT)+REUSEPEN*(f'{a}>{b}' in PP)
+            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+30*(X<32)+60*(w['beatless']>X/2)+50*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT and b not in LOVE)-LOVEW*(b in LOVE)+REUSEPEN*(f'{a}>{b}' in PP)
             ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost)
             k=(frozenset(ns['seq']),b,ns['inn'])
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns

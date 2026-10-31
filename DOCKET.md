@@ -60,3 +60,9 @@
   32-bar outgoing loops off (LOOP32=0; they replayed the outgoing's last phrase 3x in 10/19 Mix 05 blends = the "echoey" feel), LOOPPEN 6->40,
   ECHO_MAX=2; technique menu + diversity rule in techniques.py (unsupported engine techniques flagged, not rendered yet); tests/test_variety.py.
   plan_mix06a.json pins 7 32-bar 'la' windows -> mix_simple now refuses it: re-run plan_search.py for Mix 06.
+- 2026-10-31 Abrupt-fade fix (main fix): Mix 05 outgoing decks lost -6 dB at the bass swap and were at -20 dB ~10 bars later
+  (steepest -7..-11 dB/bar, 19/19 fader >3 dB/bar), and usually left before their outro. Now: sections.py (intro/drop/breakdown/outro/end
+  per track, st/<id>.sections.json); STRUCT=1 planner default (outro-over-intro, incoming drop lands as outgoing music ends; incoming may loop
+  its last intro phrase like the gold blend); FADE=tail crossfader shape (-30*u^1.5 dB); BASS_SWAP_BARS 2->4; blend length chosen per pair.
+  Gold reference: Mix05n 55:10 goddard. - Lilies -> Just Hold On 5/5 (planner reproduces it). Lilies in track_prefs.json (LOVEW).
+  Tests: tests/test_structure_tail.py. Dry re-plan of the Mix 05 crate: 16/19 outgoing reach outro, 12/19 drops land at blend end, 8x32 + 11x16 bars.

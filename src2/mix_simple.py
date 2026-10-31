@@ -33,7 +33,7 @@ def clean_phrases(b):
 # (V1 vocal clash, L1 double bass, O1 both audible >=8 bars, C2 outgoing not too quiet) under the crossfader.
 ANCH={p['id'] for p in plan if p.get('anchor')};NOIN={p['id'] for p in plan if p.get('anchor_in') is False};HEAVY=float(os.environ.get('HEAVY',-6))
 OUTMAX={p['id']:p['out_max'] for p in plan if 'out_max' in p}  # opt-in plan cap on a track's out bar (its tail fades below musical level)
-SW=float(os.environ.get('BASS_SWAP_BARS',2))
+SW=float(os.environ.get('BASS_SWAP_BARS',4))  # 4 since 2026-10-31: 2-bar swaps took 6.6-7.8 dB off the outgoing in one bar (abrupt-fade rule)
 def F(b):
   g=track(b)['g']['bar'];al=np.array(g['all'],float);lo=np.array(g['low'],float);v=np.array(g.get('voc',[-100]*len(al)),float)
   bs=np.array(g['bass'],float) if 'bass' in g else None
@@ -110,6 +110,7 @@ if CUEW>0:
   def cue_pen(a,ea):  # 0 when the outgoing record ends where the model's pros end it, 1 at its least pro-like spot (mix-in model lost to a plain 8%-position rule, so it isn't used)
     if a not in _CX:g=track(a)['g']['bar'];_CX[a]=cue.track_feats(g['all'],g['low'],g['hat'])
     return 1-cue.pctl(CM,'out',_CX[a],ea)
+import sections;STRUCT=int(os.environ.get('STRUCT',1));STRUCTW=float(os.environ.get('STRUCTW',300));STRK=set()
 XT={};inn={ids[0]:0};outs={};loops={};notes={};info_={}
 def pair_cands(i,ia0):
   """all scored windows for blend i given where track i starts (ia0); sorted best first"""
@@ -124,6 +125,10 @@ def pair_cands(i,ia0):
     cands=[]
     for e in range(e_max,emin-1,-16):
       for ib in range(0,min(81,nb-3*X),16):cands.append(('n',e,ib))
+    if STRUCT:  # outro-over-intro (default 2026-10-31): outgoing plays its whole outro to its music end; incoming starts so its drop lands there
+      SA,SB=sections.get(a),sections.get(b);es=min(e_max,(SA['music_end']//8)*8);ibs=SB['drop1']-X
+      if ibs>=0 and es-X>=ia+16 and ibs+X<nb:cands.append(('n',es,ibs));STRK.add(('n',a,b,es,ibs,X))
+      if SB['drop1']-16>=16 and es-X>=ia+16:cands.append(('lb',es,SB['drop1']-16));STRK.add(('lb',a,b,es,SB['drop1']-16,X))  # gold (the listener 5/5, Mix 05 55:10 -> Just Hold On): incoming loops its last intro phrase, drop lands as the outgoing's music ends
     eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
     for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
       for p in [e-16] if e-16>=max(ia,16) else []:
@@ -155,6 +160,7 @@ def pair_cands(i,ia0):
       if step>float(os.environ.get('SEAMMAX',2)) or r['both']<int(os.environ.get('BOTHMIN',11)):r['pen']+=float(os.environ.get('HARDPEN',60))  # hard limits: guardrail N1 (3 dB step) and O1 (>=8 bars)
       if CUEW>0:r['cue']=round(cue_pen(a,ea),3);r['pen']+=CUEW*r['cue']
       sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',40))*{'n':0,'la':1,'lb':1,'ab':2}[kind],-ea,str(ib))
+      if (kind,a,b,ea,ib,X) in STRK:sc=(sc[0]-STRUCTW-(float(os.environ.get('LOOPPEN',40)) if kind=='lb' else 0),)+sc[1:]  # blend length chosen per pair from structure + fit (the listener 2026-10-31)
       res.append((sc,kind,(e,p) if kind in('la','ab') else e,ib,r,X))
   X=XMAX;res.sort(key=lambda t:t[0]);return res
 def win_key(c):return [c[1],*(c[2] if isinstance(c[2],tuple) else (c[2],None)),c[3],c[5]]  # [kind, out bar, loop phrase, in bar, blend bars]
@@ -163,6 +169,7 @@ LOOK=int(os.environ.get("LOOKAHEAD",8))
 KIND={}
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];cs=pair_cands(i,inn[a])
+  if os.environ.get("DBG_PAIR")==f"{a}>{b}":[print("DBG",round(c[0][0],1),c[1],c[2],c[3],c[5],round(c[4]["pen"],1),file=sys.stderr) for c in cs[:8]]
   W=plan[i].get('out_win')  # opt-in: the window plan_search.py chose for this blend (renders exactly what was planned)
   if W:
     best=next((c for c in cs if win_key(c)==W),None)
@@ -190,7 +197,9 @@ import os;sys.path.insert(0,'../src/tests');os.environ.setdefault('MIX_SRC','.')
 trans=[]
 for i in range(len(ids)-1):
   A,B=decks[i],decks[i+1];X=XT[(A['id'],B['id'])];s=B['start_bar'];e=s+X
-  xs=[[s+k/4,round(k/(4*X),5)] for k in range(4*X+1)]  # crossfader position per beat, linear 0->1
+  FADE=os.environ.get('FADE','tail');FDB=float(os.environ.get('FADE_DB',30))  # 'tail' (default 2026-10-31): outgoing level falls -FDB*u^1.5 dB (gradual, ~1-1.5 dB/bar), 'lin' = old linear position (outgoing gone ~10 bars after the swap, -7..-11 dB/bar in Mix 05)
+  def _xpos(u):return u if FADE=='lin' or u>=1 else float(2/np.pi*np.arccos(10**(-FDB*u**1.5/20)))
+  xs=[[s+k/4,round(_xpos(k/(4*X)) if k<4*X else 1.0,5)] for k in range(4*X+1)]  # crossfader position per beat, 0->1 (single equal-power control)
   n,cl=notes[(A['id'],B['id'])]
   trans.append(dict(tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
 EO=int(os.environ.get('ECHO_OUT',1));ESH=float(os.environ.get('ECHO_SHARE',0.1))  # echo default on for Mix 05+ (the listener A/B 2026-10-29 'that's nice'); 0 reproduces older mixes
@@ -235,7 +244,7 @@ for i,d in enumerate(decks):
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])
   print('len min',round((decks[-1]['end_bar'])*BAR/60,2))
-  json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO,VARIETY=1,LOOP32=int(os.environ.get('LOOP32',0))),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=decks[-1]['end_bar']*BAR,dry=True),open(OUT+'_dry_meta.json','w'),default=float);sys.exit()
+  json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO,VARIETY=1,STRUCT=STRUCT,FADE=os.environ.get('FADE','tail'),LOOP32=int(os.environ.get('LOOP32',0))),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=decks[-1]['end_bar']*BAR,dry=True),open(OUT+'_dry_meta.json','w'),default=float);sys.exit()
 total=decks[-1]['end_bar'];N=int(total*BS)+SR;M=np.zeros((N,2),np.float32)
 import engine
 for j,d in enumerate(decks):
@@ -244,6 +253,6 @@ for j,d in enumerate(decks):
   for k in list(engine._cache):
     if k not in need:engine._cache[k]['st'].clear()
 sf.write(OUT+'_raw.wav',M,SR,subtype='FLOAT')
-json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO,VARIETY=1,LOOP32=int(os.environ.get('LOOP32',0))),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=len(M)/SR),open(OUT+'_meta.json','w'),indent=1,default=float)
+json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO,VARIETY=1,STRUCT=STRUCT,FADE=os.environ.get('FADE','tail'),LOOP32=int(os.environ.get('LOOP32',0))),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=len(M)/SR),open(OUT+'_meta.json','w'),indent=1,default=float)
 print('len min',round(len(M)/SR/60,2))
 for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])

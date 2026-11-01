@@ -32,7 +32,7 @@ def bandpow(y):
     n = 1 + max(0, (len(y) - NFFT) // HOP); step = 2048
     for f0 in range(0, n, step):
         f1 = min(n, f0 + step); fr_idx = np.arange(f0, f1)[:, None] * HOP + np.arange(NFFT)[None]
-        X = np.abs(np.fft.rfft(y[np.minimum(fr_idx, len(y) - 1)] * win, axis=1)) ** 2
+        X = np.abs(np.fft.rfft(y[np.clip(fr_idx, 0, len(y) - 1)] * win, axis=1)) ** 2
         out.append(X.astype(np.float32) @ W)
     return np.concatenate(out) + 1e-10
 
@@ -48,7 +48,7 @@ def stretch(F, r, n):
 def locate(Fm, Ft, chunk_s=8.0, hop_s=4.0):
     """chunk hits (track_t, mix_t, peak z) by FFT cross-correlation of z-scored log sub-band power."""
     Zm = _z(Fm); Zt = _z(Ft); L = int(chunk_s * FPS); n = len(Zm); N = 1 << int(np.ceil(np.log2(n + L)))
-    FM = np.fft.rfft(Zm, N, axis=0); hits = []
+    FM = np.fft.rfft(Zm, N, axis=0); hits = []; ccs = []
     # local energy of mix for normalised correlation
     csum = np.r_[0, np.cumsum((Zm ** 2).sum(1))]
     for c0 in range(0, len(Zt) - L, int(hop_s * FPS)):
@@ -57,34 +57,56 @@ def locate(Fm, Ft, chunk_s=8.0, hop_s=4.0):
         cc = np.fft.irfft(FM * np.conj(np.fft.rfft(q, N, axis=0)), N, axis=0).sum(1)[:n - L]
         en = np.sqrt(np.maximum(csum[L:n] - csum[:n - L], 1e-6) * (q ** 2).sum()); cc = cc / en
         k = int(np.argmax(cc)); zs = (cc[k] - np.median(cc)) / (cc.std() + 1e-9)
-        hits.append((c0 / FPS, k / FPS, float(cc[k]), float(zs)))
-    return np.array(hits)
+        hits.append((c0 / FPS, k / FPS, float(cc[k]), float(zs))); ccs.append(cc.astype(np.float32))
+    return np.array(hits), ccs
 
-def fit_line(h, rng=np.random.default_rng(0), tol=0.06):
-    """RANSAC mix_t = a + track_t*s (s = 1/r). Returns (a, s, inlier mask)."""
-    good = h[:, 3] > 6
-    H = h[good]; best = (0, None)
+def fit_line(loc, rng=None, tol=0.06, cc_min=0.25):
+    """RANSAC mix_t = a + track_t*s (s = 1/r) on global chunk peaks, then pass 2: each chunk's best peak within
+    +-0.3 s of the line (repeated choruses make the global peak land on another copy). Played span = chunks whose
+    on-line correlation >= cc_min. Off-line jumps: chunks whose on-line cc is weak but that have a strong peak
+    just outside the played span (a loop/rewind extends the mix span) -> 'jumps'."""
+    h, ccs = loc; rng = rng or np.random.default_rng(0)
+    if len(h) < 3: return None
+    H = h[h[:, 3] > 6]; best = (0, None)
     if len(H) < 3: return None
-    for _ in range(400):
+    for _ in range(600):
         i, j = rng.choice(len(H), 2, replace=False)
         if abs(H[j, 0] - H[i, 0]) < 8: continue
-        s = (H[j, 1] - H[i, 1]) / (H[j, 0] - H[i, 0])
-        if not 0.9 < s < 1.1: continue
-        a = H[i, 1] - s * H[i, 0]; inl = np.abs(H[:, 1] - (a + s * H[:, 0])) < tol
+        s_ = (H[j, 1] - H[i, 1]) / (H[j, 0] - H[i, 0])
+        if not 0.93 < s_ < 1.07: continue
+        a = H[i, 1] - s_ * H[i, 0]; inl = np.abs(H[:, 1] - (a + s_ * H[:, 0])) < tol
         if inl.sum() > best[0]: best = (inl.sum(), inl)
     if best[1] is None or best[0] < 3: return None
-    I = H[best[1]]; s, a = np.polyfit(I[:, 0], I[:, 1], 1)
-    inl = np.abs(h[:, 1] - (a + s * h[:, 0])) < tol
-    # secondary lines (loops / jumps): strong hits off the main line inside the played span, consistent among themselves
-    off = h[(~inl) & (h[:, 3] > 6)]; resid = off[:, 1] - (a + s * off[:, 0]) if len(off) else np.array([])
-    loops = []
-    if len(resid):
-        r = np.round(resid / 0.05) * 0.05
-        for v in np.unique(r):
-            m = np.abs(resid - v) < 0.08
-            if m.sum() >= 3: loops.append(dict(offset_sec=round(float(v), 2), n_chunks=int(m.sum())))
-    return dict(a=float(a), s=float(s), inl=inl, n_inl=int(inl.sum()), loops=loops,
-                t0=float(h[inl, 0].min()), t1=float(h[inl, 0].max() + 8))
+    I = H[best[1]]; s_, a = np.polyfit(I[:, 0], I[:, 1], 1)
+    on = []; W = int(0.3 * FPS)
+    for (tt, _, _, _), cc in zip(h, ccs):
+        k = int(round((a + s_ * tt) * FPS))
+        if k < 0 or k >= len(cc): on.append((tt, np.nan, -1)); continue
+        lo = max(0, k - W); j = lo + int(np.argmax(cc[lo:k + W + 1])); on.append((tt, j / FPS, float(cc[j])))
+    on = np.array(on); ok = on[:, 2] >= cc_min
+    if ok.sum() >= 4:  # refit on all on-line chunks
+        s_, a = np.polyfit(on[ok, 0], on[ok, 1], 1)
+    if ok.sum() < 3: return None
+    # played span = longest run of chunks with 3-median on-line cc >= 0.3 (gaps <= 3 chunks bridged)
+    from scipy.ndimage import median_filter
+    good = median_filter(np.where(on[:, 2] < -0.5, 0, on[:, 2]), 3, mode='nearest') >= 0.3
+    runs, st, gap = [], None, 0
+    for i, g in enumerate(good):
+        if g:
+            if st is None: st = i
+            last = i; gap = 0
+        elif st is not None:
+            gap += 1
+            if gap > 3: runs.append((st, last)); st = None
+    if st is not None: runs.append((st, last))
+    if not runs: return None
+    r0, r1 = max(runs, key=lambda r: r[1] - r[0])
+    t0, t1 = float(on[r0, 0]), float(on[r1, 0] + 8)
+    mS, mE = a + s_ * t0, a + s_ * t1
+    jumps = [dict(track_t=round(float(x[0]), 1), mix_t=round(float(x[1]), 1)) for x, o in zip(h, on)
+             if x[3] > 8 and o[2] < cc_min and (mS - 60 < x[1] < mS or mE < x[1] < mE + 60)]
+    return dict(a=float(a), s=float(s_), n_inl=int(ok.sum()), loops=jumps, t0=t0, t1=t1,
+                oncc=[round(float(c), 2) for c in on[:, 2]])
 
 def fit_window(Fm, A, B, bar, t0, t1, soloA, soloB):
     """A, B: stretched source features on the mix frame grid (zeros where not playing). Returns per-bar gains."""
@@ -130,13 +152,16 @@ def transition(Fm, mixdur, bar, TA, TB, FA, FB):
     # played spans in mix time (inlier chunk range)
     aS, aE = TA['a'] + TA['s'] * TA['t0'], TA['a'] + TA['s'] * TA['t1']
     bS, bE = TB['a'] + TB['s'] * TB['t0'], TB['a'] + TB['s'] * TB['t1']
-    if bS > aE + 30 or aS > bS: return None
-    # bar grid phase: incoming track's first inlier chunk, snapped back in whole bars
-    t0 = max(bS - 16 * bar, aS + 8 * bar); t1 = min(aE + 16 * bar, bE - 8 * bar, mixdur - 1)
+    if aS > bS: return None
+    # potential overlap = where both decks can sound under their stretch lines (B from its track start, A until its track end);
+    # the fit decides audibility, the strong-match spans give the solo calibration stretches.
+    P0 = max(TB['a'], aS, bS - 32 * bar); P1 = min(TA['a'] + TA['s'] * len(FA) / FPS, bE, aE + 32 * bar)
+    if P1 - P0 < 4 * bar or P0 > bE or P1 < aS: return None
+    t0 = max(P0 - 8 * bar, aS); t1 = min(P1 + 8 * bar, bE, mixdur - 1)
+    if t1 - t0 > 96 * bar: return None  # not a blend (long overlap = mashup / misalignment)
     k0 = np.ceil((t0 - bS) / bar); t0 = bS + k0 * bar
-    if t1 - t0 < 8 * bar: return None
-    soloA = (max(aS, t0 - 24 * bar), min(bS, t0 + 2 * bar) - 2)  # before B's span starts
-    soloB = (max(aE, t1 - 2 * bar) + 2, min(bE, t1 + 24 * bar))
+    soloA = (max(aS, min(aE, P0) - 24 * bar), min(aE, P0))
+    soloB = (max(bS, P1), min(bE, max(bS, P1) + 24 * bar))
     rows = fit_window(Fm, A, B, bar, t0, t1, soloA, soloB)
     if rows is None: return None
     for r in rows: r['bar_rel_in'] = int(round((r['t'] - bS) / bar))  # bars since the incoming deck's first audible chunk
@@ -172,7 +197,7 @@ def describe(rows, thr=-12):
             d[f'{b}_{nm}_reversals'] = int((np.diff(np.sign(big)) != 0).sum()) if len(big) > 1 else 0
             d[f'{b}_{nm}_max_step_db'] = round(float(np.abs(dx).max()), 1) if len(dx) else 0
             # non-monotonic excursion: outgoing rebound above its running min / incoming dip below its running max (audible part)
-            aud = x > -20
+            aud = x > -12  # rebound only where the deck is clearly audible (validation: below -12 dB it is fit noise)
             d[f'{b}_{nm}_rebound_db'] = round(float(max([x[k] - x[:k + 1][aud[:k + 1]].min() for k in range(n) if aud[k]] or [0])), 1) if nm == 'out' else \
                 round(float(max([x[:k + 1][aud[:k + 1]].max() - x[k] for k in range(n) if aud[k]] or [0])), 1)
     lo, li = L['low']
@@ -253,3 +278,57 @@ def validate(out=os.path.join(ROOT, 'eval/control_curves_validation.json'), ids=
                 bars=per)
             print(cname, variant, {k: v for k, v in res[f'{cname}_{variant}'].items() if k != 'bars'}, flush=True)
     os.chdir(cwd); json.dump(res, open(out, 'w'), indent=1); return res
+
+# ---------- real sets ----------
+SETS = {'wilkinson_boomtown2026': ('pro_sets/wilkinson_boomtown2026.m4a', 'pro_sets/src/wb'),
+        'hospital_podcast393': ('pro_sets/hospital_podcast393.m4a', 'pro_sets/src/hp')}
+def run(out=os.path.join(ROOT, 'eval/control_curves.jsonl')):
+    fo = open(out, 'w'); nall = 0
+    for name, (mixp, sd) in SETS.items():
+        meta = json.load(open(os.path.join(ROOT, 'eval/sets', name + '.json'))); bar = 240 / meta['bpm']
+        ym = load(os.path.join(ROOT, mixp)); Fm = bandpow(ym); dur = len(ym) / SR; del ym
+        tr = []
+        for f in sorted(os.listdir(os.path.join(ROOT, sd))):
+            if not f.endswith('.m4a'): continue
+            info = open(os.path.join(ROOT, sd, f[:-4] + '.info')).read().strip().split('\n')[0].split('|')
+            F = bandpow(load(os.path.join(ROOT, sd, f))); T = fit_line(locate(Fm, F))
+            if T is None or T['n_inl'] < 4: print(name, f, 'not found in mix', flush=True); continue
+            T.update(F=F, yt=info[0], title=info[1], ratio=1 / T['s'], mS=T['a'] + T['s'] * T['t0'], mE=T['a'] + T['s'] * T['t1'])
+            print(name, info[1][:40], 'mix %.0f-%.0f s  ratio %.4f  inl %d  loops %s' % (T['mS'], T['mE'], T['ratio'], T['n_inl'], T['loops']), flush=True)
+            tr.append(T)
+        tr.sort(key=lambda T: T['mS'])
+        for A, B in zip(tr, tr[1:]):
+            rows = transition(Fm, dur, bar, A, B, A['F'], B['F'])
+            if not rows: print('  skip', A['title'][:30], '->', B['title'][:30], flush=True); continue
+            rec = dict(set=name, out=dict(yt=A['yt'], title=A['title'], ratio=round(A['ratio'], 4), loops=A['loops']),
+                       inn=dict(yt=B['yt'], title=B['title'], ratio=round(B['ratio'], 4), loops=B['loops']),
+                       bar_sec=round(bar, 4), t0=rows[0]['t'], r2_median=round(float(np.median([r['r2'] for r in rows])), 3),
+                       desc=describe(rows), bars=rows)
+            fo.write(json.dumps(rec, default=float) + '\n'); fo.flush(); nall += 1
+            print('  ', A['title'][:30], '->', B['title'][:30], 'r2', rec['r2_median'], {k: v for k, v in rec['desc'].items() if k in ('bass_swap_bar', 'low_overlap_bars', 'mid_overlap_bars', 'high_overlap_bars', 'mid_out_rebound_db', 'out_fade_3to20_bars')}, flush=True)
+    print('transitions', nall); summarize()
+
+def summarize(src=os.path.join(ROOT, 'eval/control_curves.jsonl'), out=os.path.join(ROOT, 'eval/control_curves_summary.json'), r2min=0.5):
+    """Median curves (aligned on the outgoing deck's bass cut, else on the incoming deck's first audible bar) over
+    bars with fit r2 >= r2min, from transitions whose median r2 >= r2min, plus descriptor medians."""
+    R = [json.loads(l) for l in open(src)]
+    for r in R: r['desc'] = describe(r['bars'])  # recomputed so descriptor fixes apply without re-fitting
+    use = [r for r in R if r['r2_median'] >= r2min]
+    cur = {b: {d: {} for d in ('out', 'in')} for b in BN}; D = []
+    for r in use:
+        sw = r['desc'].get('bass_swap_bar'); ref = sw if sw is not None else next((i for i, x in enumerate(r['bars']) if x['bar_rel_in'] == 0), 0)
+        D.append(r['desc'])
+        for i, x in enumerate(r['bars']):
+            if x['r2'] < r2min: continue
+            for b in BN:
+                for di, d in enumerate(('out', 'in')): cur[b][d].setdefault(i - ref, []).append(x[b][di])
+    med = {b: {d: {k: [round(float(np.median(v)), 1), len(v)] for k, v in sorted(cur[b][d].items()) if len(v) >= max(2, len(use) // 3)} for d in cur[b]} for b in BN}
+    keys = sorted({k for d in D for k, v in d.items() if isinstance(v, (int, float)) and not isinstance(v, bool)})
+    stats = {k: dict(median=float(np.median([d[k] for d in D if d.get(k) is not None])), n=sum(d.get(k) is not None for d in D),
+                     values=[d.get(k) for d in D]) for k in keys if any(d.get(k) is not None for d in D)}
+    S = dict(n_transitions=len(R), n_reliable=len(use), r2min=r2min, reliable=[f"{r['set']}: {r['out']['title']} -> {r['inn']['title']} (r2 {r['r2_median']})" for r in use],
+             descriptor_stats=stats, median_curves_db_by_bar_rel_bass_swap=med)
+    json.dump(S, open(out, 'w'), indent=1); return S
+
+if __name__ == '__main__':
+    {'run': run, 'validate': validate, 'summarize': summarize}[sys.argv[1]]()

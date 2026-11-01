@@ -1,0 +1,41 @@
+{
+ "source": "https://huggingface.co/datasets/djmix/transitions (metadata columns only)",
+ "n_all": 64748,
+ "n_used": 37711,
+ "n_mixes": 4995,
+ "overlap_beats": {
+  "p10": 63.0,
+  "p25": 130.0,
+  "p50": 225.0,
+  "p75": 329.0,
+  "p90": 447.5
+ },
+ "overlap_bars": {
+  "p10": 15.8,
+  "p25": 32.5,
+  "p50": 56.2,
+  "p75": 82.2,
+  "p90": 111.9
+ },
+ "overlap_sec": {
+  "p10": -48.4,
+  "p25": -20.8,
+  "p50": -1.0,
+  "p75": 20.9,
+  "p90": 49.9
+ },
+ "frac_overlap_within_2beats_of_32k": 0.313,
+ "frac_cue_in_next_on_32beat": 0.106,
+ "frac_cue_out_prev_on_32beat": 0.045,
+ "frac_key_change_next": 0.494,
+ "extra_beats_prev": {
+  "p25": 43.0,
+  "p50": 104.0,
+  "p75": 194.5
+ },
+ "extra_beats_next": {
+  "p25": 46.0,
+  "p50": 94.0,
+  "p75": 156.5
+ }
+}

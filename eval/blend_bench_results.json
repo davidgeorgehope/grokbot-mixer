@@ -1,0 +1,3145 @@
+{
+ "date": "2026-11-01 09:38 EST",
+ "feats": [
+  "seesaw",
+  "lull",
+  "fade_step",
+  "flam",
+  "beat_off",
+  "dissonance",
+  "vocal",
+  "pro_shape",
+  "loop",
+  "struct"
+ ],
+ "w0": [
+  1.0,
+  0.3,
+  0.3,
+  0.3,
+  2.0,
+  5.0,
+  0.1,
+  0.5,
+  0.3,
+  3.0
+ ],
+ "w": [
+  1.2162,
+  0.7325,
+  0.158,
+  0.49,
+  2.0245,
+  5.0331,
+  0.1,
+  0.4697,
+  0.3044,
+  2.6972
+ ],
+ "lam": 1.0,
+ "n_train_pairs": 5,
+ "loo": [
+  {
+   "win": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "lose": "sObzaBqaBRQ>q_cZZY0BehE",
+   "ok": false
+  },
+  {
+   "win": "nAV4i1YIwQI>EiZVTuiqo0w",
+   "lose": "sObzaBqaBRQ>q_cZZY0BehE",
+   "ok": true
+  },
+  {
+   "win": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "lose": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "ok": true
+  },
+  {
+   "win": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "lose": "nAV4i1YIwQI>EiZVTuiqo0w",
+   "ok": true
+  },
+  {
+   "win": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "lose": "sObzaBqaBRQ>q_cZZY0BehE",
+   "ok": true
+  }
+ ],
+ "loo_acc": 0.8,
+ "prior_acc": 0.8,
+ "criteria": {
+  "gold_top": false,
+  "gold_rank": 4,
+  "remedy_loop_below_natural": true
+ },
+ "render_s": {
+  "mean": 6.52,
+  "median": 6.56,
+  "max": 8.1,
+  "n": 56,
+  "wall_s": 100.4,
+  "jobs": 4
+ },
+ "pairs": [
+  {
+   "pair": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "rating": 3,
+   "win": [
+    "la",
+    96,
+    80,
+    0,
+    32
+   ],
+   "meta": "mix05n_meta.json",
+   "t": "5:53",
+   "cands": [
+    {
+     "fam": "lx_beat",
+     "win": [
+      "lx",
+      96,
+      32,
+      16,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.36,
+     "mp3": "/tmp/blend_bench/p0c3.mp3",
+     "snip": {
+      "s0": 86,
+      "start": 104,
+      "end": 120,
+      "pre": 18
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 96, fades over 2 bars to its drums+bass stem, then loops that beat-only phrase 32-40 (8 bars before the blend, then under it): synthetic outro, real one too short or holds a fill"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.051,
+      "flam": 0.0,
+      "beat_off": 0.033,
+      "dissonance": 0.108,
+      "vocal": 0.0,
+      "pro_shape": 0.778,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": -0.0,
+      "wobble": 0,
+      "anti_r": 0.27,
+      "fade_db": 6.099999904632568,
+      "fade3to20": 8,
+      "lull_db": 2.6
+     },
+     "hard": [],
+     "cost": 3.985
+    },
+    {
+     "fam": "out_loop",
+     "win": [
+      "la",
+      112,
+      96,
+      16,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.77,
+     "mp3": "/tmp/blend_bench/p0c2.mp3",
+     "snip": {
+      "s0": 104,
+      "start": 112,
+      "end": 128,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 112, then repeats its 16-bar phrase 96-112 under the blend (cleaner window than its real outro)"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.066,
+      "dissonance": 0.117,
+      "vocal": 0.0,
+      "pro_shape": 1.0,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.7,
+      "wobble": 1,
+      "anti_r": 0.31,
+      "fade_db": 4.800000190734863,
+      "fade3to20": 9,
+      "lull_db": 1.5
+     },
+     "hard": [],
+     "cost": 4.194
+    },
+    {
+     "fam": "nat_short",
+     "win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.76,
+     "mp3": "/tmp/blend_bench/p0c1.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 32"
+     ],
+     "struct": 0.016,
+     "feats": {
+      "seesaw": 2.617,
+      "lull": 4.153,
+      "fade_step": 0.143,
+      "flam": 0.0,
+      "beat_off": 0.14,
+      "dissonance": 0.161,
+      "vocal": 0.0,
+      "pro_shape": 1.0,
+      "loop": 0.0,
+      "struct": 0.016
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 2.6,
+      "wobble": 3,
+      "anti_r": -0.01,
+      "fade_db": 6.099999904632568,
+      "fade3to20": 9,
+      "lull_db": 7.2
+     },
+     "hard": [],
+     "same_as": [
+      "in_loop"
+     ],
+     "cost": 7.854
+    },
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      112,
+      null,
+      80,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.68,
+     "mp3": "/tmp/blend_bench/p0c6.mp3",
+     "snip": {
+      "s0": 72,
+      "start": 80,
+      "end": 112,
+      "pre": 8
+     },
+     "vocal_clash_bars": 3.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 112, incoming in at bar 80"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 4.676,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.053,
+      "dissonance": 0.153,
+      "vocal": 3.0,
+      "pro_shape": 2.333,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.7,
+      "wobble": 4,
+      "anti_r": 0.09,
+      "fade_db": 4.800000190734863,
+      "fade3to20": 15,
+      "lull_db": 2.7
+     },
+     "hard": [],
+     "cost": 10.657
+    },
+    {
+     "fam": "rated",
+     "win": [
+      "la",
+      96,
+      80,
+      0,
+      32
+     ],
+     "env": {
+      "FADE": "lin",
+      "BASS_SWAP_BARS": "2"
+     },
+     "is_rated": true,
+     "render_s": 7.8,
+     "mp3": "/tmp/blend_bench/p0c10.mp3",
+     "snip": {
+      "s0": 88,
+      "start": 96,
+      "end": 128,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 96, then repeats its 16-bar phrase 80-96 under the blend (cleaner window than its real outro)"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 5.688,
+      "lull": 0.0,
+      "fade_step": 1.892,
+      "flam": 0.0,
+      "beat_off": 0.107,
+      "dissonance": 0.127,
+      "vocal": 0.0,
+      "pro_shape": 2.778,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.7,
+      "wobble": 5,
+      "anti_r": 0.24,
+      "fade_db": 7.900000095367432,
+      "fade3to20": 17,
+      "lull_db": 1.3
+     },
+     "hard": [],
+     "cost": 12.379
+    },
+    {
+     "fam": "cue_early",
+     "win": [
+      "n",
+      112,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.31,
+     "mp3": "/tmp/blend_bench/p0c5.mp3",
+     "snip": {
+      "s0": 72,
+      "start": 80,
+      "end": 112,
+      "pre": 8
+     },
+     "vocal_clash_bars": 3.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 112, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 5.676,
+      "lull": 0.825,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.067,
+      "dissonance": 0.134,
+      "vocal": 3.0,
+      "pro_shape": 2.333,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.7,
+      "wobble": 5,
+      "anti_r": 0.28,
+      "fade_db": 4.800000190734863,
+      "fade3to20": 15,
+      "lull_db": 3.8
+     },
+     "hard": [],
+     "cost": 12.41
+    },
+    {
+     "fam": "nat_long",
+     "win": [
+      "n",
+      112,
+      null,
+      64,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.63,
+     "mp3": "/tmp/blend_bench/p0c0.mp3",
+     "snip": {
+      "s0": 72,
+      "start": 80,
+      "end": 112,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 112, incoming in at bar 64"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 6.676,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 2.159,
+      "beat_off": 0.106,
+      "dissonance": 0.161,
+      "vocal": 0.0,
+      "pro_shape": 2.333,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.7,
+      "wobble": 6,
+      "anti_r": 0.13,
+      "fade_db": 4.800000190734863,
+      "fade3to20": 15,
+      "lull_db": 2.4
+     },
+     "hard": [],
+     "same_as": [
+      "swap_early",
+      "swap_late"
+     ],
+     "cost": 13.995
+    },
+    {
+     "fam": "sneak_in",
+     "win": [
+      "n",
+      112,
+      null,
+      64,
+      32
+     ],
+     "env": {},
+     "sneak": true,
+     "is_rated": false,
+     "render_s": 6.57,
+     "mp3": "/tmp/blend_bench/p0c9.mp3",
+     "snip": {
+      "s0": 72,
+      "start": 80,
+      "end": 112,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 112, incoming in at bar 64"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 8.758,
+      "lull": 0.0,
+      "fade_step": 0.718,
+      "flam": 9.415,
+      "beat_off": 0.169,
+      "dissonance": 0.185,
+      "vocal": 0.0,
+      "pro_shape": 3.0,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.8,
+      "wobble": 8,
+      "anti_r": 0.28,
+      "fade_db": 6.699999809265137,
+      "fade3to20": 18,
+      "lull_db": 2.2
+     },
+     "hard": [],
+     "cost": 20.757
+    }
+   ],
+   "margin": 0.209
+  },
+  {
+   "pair": "nAV4i1YIwQI>EiZVTuiqo0w",
+   "rating": 3,
+   "win": [
+    "n",
+    144,
+    null,
+    0,
+    16
+   ],
+   "meta": "mix05n_meta.json",
+   "t": "41:12",
+   "cands": [
+    {
+     "fam": "nat_short",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.12,
+     "mp3": "/tmp/blend_bench/p1c1.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 144,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.103,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.308,
+      "dissonance": 0.189,
+      "vocal": 0.0,
+      "pro_shape": 0.556,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 0.2,
+      "wobble": 0,
+      "anti_r": 0.63,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 7,
+      "lull_db": 3.1
+     },
+     "hard": [],
+     "cost": 4.609
+    },
+    {
+     "fam": "out_loop",
+     "win": [
+      "la",
+      112,
+      96,
+      0,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.19,
+     "mp3": "/tmp/blend_bench/p1c2.mp3",
+     "snip": {
+      "s0": 104,
+      "start": 112,
+      "end": 128,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 112, then repeats its 16-bar phrase 96-112 under the blend (cleaner window than its real outro)"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 1.132,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.152,
+      "dissonance": 0.192,
+      "vocal": 0.0,
+      "pro_shape": 1.889,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.7,
+      "wobble": 0,
+      "anti_r": 0.09,
+      "fade_db": 5.599999904632568,
+      "fade3to20": 13,
+      "lull_db": 4.1
+     },
+     "hard": [],
+     "cost": 5.992
+    },
+    {
+     "fam": "lx_beat",
+     "win": [
+      "lx",
+      128,
+      80,
+      0,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 7.53,
+     "mp3": "/tmp/blend_bench/p1c3.mp3",
+     "snip": {
+      "s0": 118,
+      "start": 136,
+      "end": 152,
+      "pre": 18
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 128, fades over 2 bars to its drums+bass stem, then loops that beat-only phrase 80-88 (8 bars before the blend, then under it): synthetic outro, real one too short or holds a fill"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 1.061,
+      "fade_step": 0.0,
+      "flam": 3.61,
+      "beat_off": 0.229,
+      "dissonance": 0.131,
+      "vocal": 0.0,
+      "pro_shape": 0.778,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 0.4,
+      "wobble": 0,
+      "anti_r": 0.72,
+      "fade_db": 3.9000000953674316,
+      "fade3to20": 8,
+      "lull_db": 4.1
+     },
+     "hard": [],
+     "cost": 7.036
+    },
+    {
+     "fam": "rated",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "env": {
+      "FADE": "lin",
+      "BASS_SWAP_BARS": "2"
+     },
+     "is_rated": true,
+     "render_s": 5.8,
+     "mp3": "/tmp/blend_bench/p1c9.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 144,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 2.562,
+      "flam": 9.415,
+      "beat_off": 0.323,
+      "dissonance": 0.194,
+      "vocal": 0.0,
+      "pro_shape": 0.333,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 0.3,
+      "wobble": 0,
+      "anti_r": 0.39,
+      "fade_db": 8.600000381469727,
+      "fade3to20": 3,
+      "lull_db": 2.9
+     },
+     "hard": [],
+     "cost": 9.502
+    },
+    {
+     "fam": "in_loop",
+     "win": [
+      "lb",
+      176,
+      null,
+      32,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.95,
+     "mp3": "/tmp/blend_bench/p1c4.mp3",
+     "snip": {
+      "s0": 152,
+      "start": 160,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 6.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "incoming plays its 16-bar phrase 32-48 through the blend, then continues from bar 48"
+     ],
+     "struct": 0.016,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 7.888,
+      "fade_step": 0.0,
+      "flam": 10.866,
+      "beat_off": 0.004,
+      "dissonance": 0.142,
+      "vocal": 6.0,
+      "pro_shape": 0.778,
+      "loop": 1.0,
+      "struct": 0.016
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": -0.1,
+      "wobble": 1,
+      "anti_r": 0.14,
+      "fade_db": 4.800000190734863,
+      "fade3to20": 8,
+      "lull_db": 10.9
+     },
+     "hard": [],
+     "cost": 13.138
+    },
+    {
+     "fam": "nat_long",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.71,
+     "mp3": "/tmp/blend_bench/p1c0.mp3",
+     "snip": {
+      "s0": 88,
+      "start": 96,
+      "end": 128,
+      "pre": 8
+     },
+     "vocal_clash_bars": 4.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 128, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 5.185,
+      "lull": 7.788,
+      "fade_step": 0.311,
+      "flam": 3.61,
+      "beat_off": 0.177,
+      "dissonance": 0.204,
+      "vocal": 4.0,
+      "pro_shape": 4.556,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "OUT_RISE"
+     ],
+     "raw": {
+      "out_rise": 6.2,
+      "wobble": 2,
+      "anti_r": 0.05,
+      "fade_db": 6.300000190734863,
+      "fade3to20": 25,
+      "lull_db": 10.8
+     },
+     "hard": [],
+     "cost": 20.451
+    },
+    {
+     "fam": "swap_early",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.21"
+     },
+     "is_rated": false,
+     "render_s": 6.23,
+     "mp3": "/tmp/blend_bench/p1c6.mp3",
+     "snip": {
+      "s0": 88,
+      "start": 96,
+      "end": 128,
+      "pre": 8
+     },
+     "vocal_clash_bars": 4.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 128, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 5.185,
+      "lull": 7.788,
+      "fade_step": 0.311,
+      "flam": 3.61,
+      "beat_off": 0.191,
+      "dissonance": 0.204,
+      "vocal": 4.0,
+      "pro_shape": 4.556,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "OUT_RISE"
+     ],
+     "raw": {
+      "out_rise": 6.2,
+      "wobble": 2,
+      "anti_r": 0.04,
+      "fade_db": 6.300000190734863,
+      "fade3to20": 25,
+      "lull_db": 10.8
+     },
+     "hard": [],
+     "cost": 20.479
+    },
+    {
+     "fam": "swap_late",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.6"
+     },
+     "is_rated": false,
+     "render_s": 6.98,
+     "mp3": "/tmp/blend_bench/p1c7.mp3",
+     "snip": {
+      "s0": 88,
+      "start": 96,
+      "end": 128,
+      "pre": 8
+     },
+     "vocal_clash_bars": 4.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 128, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 5.185,
+      "lull": 7.788,
+      "fade_step": 0.311,
+      "flam": 7.964,
+      "beat_off": 0.192,
+      "dissonance": 0.204,
+      "vocal": 4.0,
+      "pro_shape": 4.556,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "OUT_RISE"
+     ],
+     "raw": {
+      "out_rise": 6.2,
+      "wobble": 2,
+      "anti_r": 0.05,
+      "fade_db": 6.300000190734863,
+      "fade3to20": 25,
+      "lull_db": 10.8
+     },
+     "hard": [],
+     "cost": 22.614
+    },
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      128,
+      null,
+      80,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.18,
+     "mp3": "/tmp/blend_bench/p1c5.mp3",
+     "snip": {
+      "s0": 88,
+      "start": 96,
+      "end": 128,
+      "pre": 8
+     },
+     "vocal_clash_bars": 10.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 128, incoming in at bar 80"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 5.185,
+      "lull": 6.274,
+      "fade_step": 0.311,
+      "flam": 10.141,
+      "beat_off": 0.118,
+      "dissonance": 0.202,
+      "vocal": 10.0,
+      "pro_shape": 4.556,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "OUT_RISE"
+     ],
+     "raw": {
+      "out_rise": 6.2,
+      "wobble": 2,
+      "anti_r": -0.11,
+      "fade_db": 6.300000190734863,
+      "fade3to20": 25,
+      "lull_db": 9.3
+     },
+     "hard": [],
+     "cost": 23.012
+    },
+    {
+     "fam": "sneak_in",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "sneak": true,
+     "is_rated": false,
+     "render_s": 8.1,
+     "mp3": "/tmp/blend_bench/p1c8.mp3",
+     "snip": {
+      "s0": 88,
+      "start": 96,
+      "end": 128,
+      "pre": 8
+     },
+     "vocal_clash_bars": 4.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 128, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 9.47,
+      "lull": 7.805,
+      "fade_step": 2.735,
+      "flam": 12.317,
+      "beat_off": 0.174,
+      "dissonance": 0.196,
+      "vocal": 4.0,
+      "pro_shape": 5.667,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "OUT_RISE",
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 6.5,
+      "wobble": 6,
+      "anti_r": 0.31,
+      "fade_db": 8.699999809265137,
+      "fade3to20": 30,
+      "lull_db": 10.8
+     },
+     "hard": [],
+     "cost": 30.799
+    }
+   ],
+   "margin": 1.383
+  },
+  {
+   "pair": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "rating": 5,
+   "win": [
+    "lb",
+    176,
+    null,
+    48,
+    32
+   ],
+   "meta": "mix05n_meta.json",
+   "t": "55:10",
+   "cands": [
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      176,
+      null,
+      80,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.73,
+     "mp3": "/tmp/blend_bench/p2c6.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 80"
+     ],
+     "struct": 0.531,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.0,
+      "dissonance": 0.224,
+      "vocal": 0.0,
+      "pro_shape": 1.0,
+      "loop": 0.0,
+      "struct": 0.531
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.08,
+      "fade_db": 4.800000190734863,
+      "fade3to20": 9,
+      "lull_db": -1.1
+     },
+     "hard": [],
+     "cost": 3.029
+    },
+    {
+     "fam": "out_loop",
+     "win": [
+      "la",
+      160,
+      144,
+      80,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.76,
+     "mp3": "/tmp/blend_bench/p2c2.mp3",
+     "snip": {
+      "s0": 152,
+      "start": 160,
+      "end": 192,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 160, then repeats its 16-bar phrase 144-160 under the blend (cleaner window than its real outro)"
+     ],
+     "struct": 0.781,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.0,
+      "dissonance": 0.217,
+      "vocal": 0.0,
+      "pro_shape": 1.889,
+      "loop": 1.0,
+      "struct": 0.781
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.01,
+      "fade_db": 3.5,
+      "fade3to20": 13,
+      "lull_db": -1.2
+     },
+     "hard": [],
+     "cost": 4.39
+    },
+    {
+     "fam": "swap_late",
+     "win": [
+      "n",
+      176,
+      null,
+      32,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.6"
+     },
+     "is_rated": false,
+     "render_s": 7.46,
+     "mp3": "/tmp/blend_bench/p2c8.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 6.088,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.279,
+      "dissonance": 0.15,
+      "vocal": 0.0,
+      "pro_shape": 0.778,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.18,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 8,
+      "lull_db": 9.1
+     },
+     "hard": [],
+     "cost": 6.228
+    },
+    {
+     "fam": "rated",
+     "win": [
+      "lb",
+      176,
+      null,
+      48,
+      32
+     ],
+     "env": {
+      "FADE": "lin",
+      "BASS_SWAP_BARS": "2"
+     },
+     "is_rated": true,
+     "render_s": 5.94,
+     "mp3": "/tmp/blend_bench/p2c10.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
+     "notes": [
+      "incoming plays its 16-bar phrase 48-64 through the blend, then continues from bar 64"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 6.241,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.143,
+      "dissonance": 0.169,
+      "vocal": 0.0,
+      "pro_shape": 1.889,
+      "loop": 1.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.1,
+      "wobble": 1,
+      "anti_r": 0.1,
+      "fade_db": 3.5,
+      "fade3to20": 13,
+      "lull_db": 9.2
+     },
+     "hard": [],
+     "cost": 6.987
+    },
+    {
+     "fam": "nat_long",
+     "win": [
+      "n",
+      176,
+      null,
+      32,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 7.79,
+     "mp3": "/tmp/blend_bench/p2c0.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 6.917,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.273,
+      "dissonance": 0.149,
+      "vocal": 0.0,
+      "pro_shape": 1.667,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.21,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 12,
+      "lull_db": 9.9
+     },
+     "hard": [],
+     "cost": 7.236
+    },
+    {
+     "fam": "in_loop",
+     "win": [
+      "lb",
+      176,
+      null,
+      48,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 7.23,
+     "mp3": "/tmp/blend_bench/p2c4.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "incoming plays its 16-bar phrase 48-64 through the blend, then continues from bar 64"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 6.917,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.149,
+      "dissonance": 0.17,
+      "vocal": 0.0,
+      "pro_shape": 1.667,
+      "loop": 1.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.24,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 12,
+      "lull_db": 9.9
+     },
+     "hard": [],
+     "cost": 7.395
+    },
+    {
+     "fam": "swap_early",
+     "win": [
+      "n",
+      176,
+      null,
+      32,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.21"
+     },
+     "is_rated": false,
+     "render_s": 6.08,
+     "mp3": "/tmp/blend_bench/p2c7.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 6.917,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.27,
+      "dissonance": 0.149,
+      "vocal": 0.0,
+      "pro_shape": 2.333,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.23,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 15,
+      "lull_db": 9.9
+     },
+     "hard": [],
+     "cost": 7.543
+    },
+    {
+     "fam": "nat_short",
+     "win": [
+      "n",
+      176,
+      null,
+      48,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.39,
+     "mp3": "/tmp/blend_bench/p2c1.mp3",
+     "snip": {
+      "s0": 152,
+      "start": 160,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 48"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 6.507,
+      "fade_step": 2.617,
+      "flam": 2.884,
+      "beat_off": 0.083,
+      "dissonance": 0.158,
+      "vocal": 0.0,
+      "pro_shape": 0.833,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 0.2,
+      "wobble": 1,
+      "anti_r": 0.35,
+      "fade_db": 8.600000381469727,
+      "fade3to20": 6,
+      "lull_db": 9.5
+     },
+     "hard": [],
+     "cost": 8.031
+    },
+    {
+     "fam": "lx_beat",
+     "win": [
+      "lx",
+      160,
+      144,
+      16,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 7.94,
+     "mp3": "/tmp/blend_bench/p2c3.mp3",
+     "snip": {
+      "s0": 150,
+      "start": 168,
+      "end": 184,
+      "pre": 18
+     },
+     "vocal_clash_bars": 2.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 160, fades over 2 bars to its drums+bass stem, then loops that beat-only phrase 144-160 (8 bars before the blend, then under it): synthetic outro, real one too short or holds a fill"
+     ],
+     "struct": 0.781,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 4.55,
+      "fade_step": 0.0,
+      "flam": 2.884,
+      "beat_off": 0.215,
+      "dissonance": 0.207,
+      "vocal": 2.0,
+      "pro_shape": 0.556,
+      "loop": 1.0,
+      "struct": 0.781
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.48,
+      "fade_db": 4.599999904632568,
+      "fade3to20": 7,
+      "lull_db": 7.5
+     },
+     "hard": [],
+     "cost": 9.095
+    },
+    {
+     "fam": "sneak_in",
+     "win": [
+      "n",
+      176,
+      null,
+      32,
+      32
+     ],
+     "env": {},
+     "sneak": true,
+     "is_rated": false,
+     "render_s": 7.04,
+     "mp3": "/tmp/blend_bench/p2c9.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 7.032,
+      "fade_step": 3.534,
+      "flam": 6.512,
+      "beat_off": 0.136,
+      "dissonance": 0.19,
+      "vocal": 0.0,
+      "pro_shape": 1.056,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.3,
+      "wobble": 1,
+      "anti_r": 0.16,
+      "fade_db": 9.5,
+      "fade3to20": 7,
+      "lull_db": 10.0
+     },
+     "hard": [],
+     "cost": 10.711
+    },
+    {
+     "fam": "cue_early",
+     "win": [
+      "n",
+      176,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 7.14,
+     "mp3": "/tmp/blend_bench/p2c5.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 0"
+     ],
+     "struct": 0.531,
+     "feats": {
+      "seesaw": 4.0,
+      "lull": 3.332,
+      "fade_step": 0.0,
+      "flam": 16.671,
+      "beat_off": 0.336,
+      "dissonance": 0.118,
+      "vocal": 0.0,
+      "pro_shape": 1.667,
+      "loop": 0.0,
+      "struct": 0.531
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 5,
+      "anti_r": 0.22,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 12,
+      "lull_db": 6.3
+     },
+     "hard": [],
+     "cost": 18.963
+    }
+   ],
+   "margin": 1.361
+  },
+  {
+   "pair": "sObzaBqaBRQ>q_cZZY0BehE",
+   "rating": 2,
+   "win": [
+    "la",
+    176,
+    160,
+    48,
+    32
+   ],
+   "meta": "mix06i12_meta.json",
+   "t": "28:00",
+   "cands": [
+    {
+     "fam": "sneak_in",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "sneak": true,
+     "is_rated": false,
+     "render_s": 7.65,
+     "mp3": "/tmp/blend_bench/p3c8.mp3",
+     "snip": {
+      "s0": 104,
+      "start": 112,
+      "end": 144,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.337,
+      "lull": 0.0,
+      "fade_step": 0.906,
+      "flam": 0.0,
+      "beat_off": 0.217,
+      "dissonance": 0.185,
+      "vocal": 0.0,
+      "pro_shape": 0.111,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 2.3,
+      "wobble": 1,
+      "anti_r": 0.03,
+      "fade_db": 6.900000095367432,
+      "fade3to20": 5,
+      "lull_db": 2.1
+     },
+     "hard": [],
+     "cost": 4.673
+    },
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      144,
+      null,
+      80,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 7.33,
+     "mp3": "/tmp/blend_bench/p3c5.mp3",
+     "snip": {
+      "s0": 104,
+      "start": 112,
+      "end": 144,
+      "pre": 8
+     },
+     "vocal_clash_bars": 4.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 80"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.885,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.09,
+      "dissonance": 0.194,
+      "vocal": 4.0,
+      "pro_shape": 3.0,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.9,
+      "wobble": 1,
+      "anti_r": 0.45,
+      "fade_db": 2.700000047683716,
+      "fade3to20": 18,
+      "lull_db": 3.9
+     },
+     "hard": [],
+     "cost": 6.313
+    },
+    {
+     "fam": "nat_short",
+     "win": [
+      "n",
+      176,
+      null,
+      64,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.28,
+     "mp3": "/tmp/blend_bench/p3c1.mp3",
+     "snip": {
+      "s0": 152,
+      "start": 160,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 2.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 64"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 1.0,
+      "lull": 1.952,
+      "fade_step": 0.0,
+      "flam": 5.061,
+      "beat_off": 0.189,
+      "dissonance": 0.225,
+      "vocal": 2.0,
+      "pro_shape": 0.556,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": -0.1,
+      "wobble": 2,
+      "anti_r": 0.64,
+      "fade_db": 4.0,
+      "fade3to20": 7,
+      "lull_db": 5.0
+     },
+     "hard": [],
+     "cost": 7.186
+    },
+    {
+     "fam": "in_loop",
+     "win": [
+      "lb",
+      176,
+      null,
+      64,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.72,
+     "mp3": "/tmp/blend_bench/p3c4.mp3",
+     "snip": {
+      "s0": 152,
+      "start": 160,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 2.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "incoming plays its 16-bar phrase 64-80 through the blend, then continues from bar 80"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 1.0,
+      "lull": 1.952,
+      "fade_step": 0.0,
+      "flam": 5.061,
+      "beat_off": 0.189,
+      "dissonance": 0.225,
+      "vocal": 2.0,
+      "pro_shape": 0.556,
+      "loop": 1.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": -0.1,
+      "wobble": 2,
+      "anti_r": 0.64,
+      "fade_db": 4.0,
+      "fade3to20": 7,
+      "lull_db": 5.0
+     },
+     "hard": [],
+     "cost": 7.49
+    },
+    {
+     "fam": "lx_beat",
+     "win": [
+      "lx",
+      144,
+      128,
+      80,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.88,
+     "mp3": "/tmp/blend_bench/p3c3.mp3",
+     "snip": {
+      "s0": 134,
+      "start": 152,
+      "end": 168,
+      "pre": 18
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 144, fades over 2 bars to its drums+bass stem, then loops that beat-only phrase 128-136 (8 bars before the blend, then under it): synthetic outro, real one too short or holds a fill"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 2.0,
+      "lull": 1.61,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.0,
+      "dissonance": 0.292,
+      "vocal": 0.0,
+      "pro_shape": 0.333,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 0.1,
+      "wobble": 3,
+      "anti_r": 0.55,
+      "fade_db": 4.099999904632568,
+      "fade3to20": 6,
+      "lull_db": 4.6
+     },
+     "hard": [],
+     "cost": 8.239
+    },
+    {
+     "fam": "out_loop",
+     "win": [
+      "la",
+      112,
+      96,
+      80,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.26,
+     "mp3": "/tmp/blend_bench/p3c2.mp3",
+     "snip": {
+      "s0": 104,
+      "start": 112,
+      "end": 128,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 112, then repeats its 16-bar phrase 96-112 under the blend (cleaner window than its real outro)"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 1.806,
+      "lull": 2.562,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.179,
+      "dissonance": 0.273,
+      "vocal": 0.0,
+      "pro_shape": 1.5,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 2.8,
+      "wobble": 2,
+      "anti_r": 0.11,
+      "fade_db": 3.5,
+      "fade3to20": 9,
+      "lull_db": 5.6
+     },
+     "hard": [],
+     "cost": 9.516
+    },
+    {
+     "fam": "rated",
+     "win": [
+      "la",
+      176,
+      160,
+      48,
+      32
+     ],
+     "env": {},
+     "is_rated": true,
+     "render_s": 7.11,
+     "mp3": "/tmp/blend_bench/p3c9.mp3",
+     "snip": {
+      "s0": 168,
+      "start": 176,
+      "end": 208,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 176, then repeats its 16-bar phrase 160-176 under the blend (cleaner window than its real outro)"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 5.565,
+      "lull": 2.021,
+      "fade_step": 1.271,
+      "flam": 0.707,
+      "beat_off": 0.183,
+      "dissonance": 0.226,
+      "vocal": 0.0,
+      "pro_shape": 2.556,
+      "loop": 1.0,
+      "struct": 0.031
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 2.6,
+      "wobble": 6,
+      "anti_r": -0.16,
+      "fade_db": 7.300000190734863,
+      "fade3to20": 16,
+      "lull_db": 5.0
+     },
+     "hard": [],
+     "cost": 11.892
+    },
+    {
+     "fam": "swap_early",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.21"
+     },
+     "is_rated": false,
+     "render_s": 7.16,
+     "mp3": "/tmp/blend_bench/p3c6.mp3",
+     "snip": {
+      "s0": 104,
+      "start": 112,
+      "end": 144,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 1.0,
+      "lull": 1.114,
+      "fade_step": 0.0,
+      "flam": 16.671,
+      "beat_off": 0.143,
+      "dissonance": 0.223,
+      "vocal": 0.0,
+      "pro_shape": 2.556,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.9,
+      "wobble": 2,
+      "anti_r": 0.18,
+      "fade_db": 2.700000047683716,
+      "fade3to20": 16,
+      "lull_db": 4.1
+     },
+     "hard": [],
+     "cost": 15.51
+    },
+    {
+     "fam": "nat_long",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 7.21,
+     "mp3": "/tmp/blend_bench/p3c0.mp3",
+     "snip": {
+      "s0": 104,
+      "start": 112,
+      "end": 144,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 1.11,
+      "lull": 1.114,
+      "fade_step": 0.0,
+      "flam": 17.397,
+      "beat_off": 0.135,
+      "dissonance": 0.203,
+      "vocal": 0.0,
+      "pro_shape": 2.556,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 2.1,
+      "wobble": 2,
+      "anti_r": 0.15,
+      "fade_db": 2.700000047683716,
+      "fade3to20": 16,
+      "lull_db": 4.1
+     },
+     "hard": [],
+     "cost": 15.883
+    },
+    {
+     "fam": "swap_late",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.6"
+     },
+     "is_rated": false,
+     "render_s": 5.73,
+     "mp3": "/tmp/blend_bench/p3c7.mp3",
+     "snip": {
+      "s0": 104,
+      "start": 112,
+      "end": 144,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 0"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 1.11,
+      "lull": 1.114,
+      "fade_step": 0.0,
+      "flam": 24.653,
+      "beat_off": 0.121,
+      "dissonance": 0.201,
+      "vocal": 0.0,
+      "pro_shape": 1.889,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 2.1,
+      "wobble": 2,
+      "anti_r": 0.24,
+      "fade_db": 2.700000047683716,
+      "fade3to20": 13,
+      "lull_db": 4.1
+     },
+     "hard": [
+      "beat train-wreck"
+     ],
+     "cost": 1019.086
+    }
+   ],
+   "margin": 1.64
+  },
+  {
+   "pair": "rpIpJQ7ujzc>5196v8VY1LI",
+   "rating": null,
+   "win": [
+    "la",
+    160,
+    144,
+    0,
+    32
+   ],
+   "meta": "mix06i12_meta.json",
+   "t": null,
+   "cands": [
+    {
+     "fam": "nat_short",
+     "win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 4.75,
+     "mp3": "/tmp/blend_bench/p4c1.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 16"
+     ],
+     "struct": 0.016,
+     "feats": {
+      "seesaw": 1.617,
+      "lull": 1.438,
+      "fade_step": 0.143,
+      "flam": 0.0,
+      "beat_off": 0.276,
+      "dissonance": 0.256,
+      "vocal": 0.0,
+      "pro_shape": 1.222,
+      "loop": 0.0,
+      "struct": 0.016
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 2.6,
+      "wobble": 2,
+      "anti_r": 0.72,
+      "fade_db": 6.099999904632568,
+      "fade3to20": 10,
+      "lull_db": 4.4
+     },
+     "hard": [],
+     "same_as": [
+      "in_loop"
+     ],
+     "cost": 5.507
+    },
+    {
+     "fam": "lx_beat",
+     "win": [
+      "lx",
+      96,
+      32,
+      0,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.04,
+     "mp3": "/tmp/blend_bench/p4c3.mp3",
+     "snip": {
+      "s0": 86,
+      "start": 104,
+      "end": 120,
+      "pre": 18
+     },
+     "vocal_clash_bars": 2.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 96, fades over 2 bars to its drums+bass stem, then loops that beat-only phrase 32-40 (8 bars before the blend, then under it): synthetic outro, real one too short or holds a fill"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 2.0,
+      "lull": 2.618,
+      "fade_step": 0.0,
+      "flam": 3.61,
+      "beat_off": 0.227,
+      "dissonance": 0.183,
+      "vocal": 2.0,
+      "pro_shape": 0.778,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 0.4,
+      "wobble": 3,
+      "anti_r": 0.35,
+      "fade_db": 5.900000095367432,
+      "fade3to20": 8,
+      "lull_db": 5.6
+     },
+     "hard": [],
+     "cost": 11.066
+    },
+    {
+     "fam": "swap_early",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.21"
+     },
+     "is_rated": false,
+     "render_s": 6.15,
+     "mp3": "/tmp/blend_bench/p4c6.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 0"
+     ],
+     "struct": 0.016,
+     "feats": {
+      "seesaw": 3.771,
+      "lull": 2.064,
+      "fade_step": 0.0,
+      "flam": 3.61,
+      "beat_off": 0.195,
+      "dissonance": 0.229,
+      "vocal": 0.0,
+      "pro_shape": 3.667,
+      "loop": 0.0,
+      "struct": 0.016
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 3.8,
+      "wobble": 3,
+      "anti_r": 0.04,
+      "fade_db": 4.099999904632568,
+      "fade3to20": 21,
+      "lull_db": 5.1
+     },
+     "hard": [],
+     "cost": 11.18
+    },
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      160,
+      null,
+      64,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.58,
+     "mp3": "/tmp/blend_bench/p4c5.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 7.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 64"
+     ],
+     "struct": 0.516,
+     "feats": {
+      "seesaw": 5.771,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.005,
+      "dissonance": 0.232,
+      "vocal": 7.0,
+      "pro_shape": 2.556,
+      "loop": 0.0,
+      "struct": 0.516
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.8,
+      "wobble": 5,
+      "anti_r": 0.52,
+      "fade_db": 5.400000095367432,
+      "fade3to20": 16,
+      "lull_db": 1.1
+     },
+     "hard": [],
+     "cost": 11.489
+    },
+    {
+     "fam": "nat_long",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.29,
+     "mp3": "/tmp/blend_bench/p4c0.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 0"
+     ],
+     "struct": 0.016,
+     "feats": {
+      "seesaw": 5.771,
+      "lull": 2.064,
+      "fade_step": 0.0,
+      "flam": 2.159,
+      "beat_off": 0.197,
+      "dissonance": 0.23,
+      "vocal": 0.0,
+      "pro_shape": 2.556,
+      "loop": 0.0,
+      "struct": 0.016
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.8,
+      "wobble": 5,
+      "anti_r": 0.27,
+      "fade_db": 4.900000095367432,
+      "fade3to20": 16,
+      "lull_db": 5.1
+     },
+     "hard": [],
+     "cost": 12.388
+    },
+    {
+     "fam": "out_loop",
+     "win": [
+      "la",
+      160,
+      144,
+      0,
+      32
+     ],
+     "env": {},
+     "is_rated": true,
+     "render_s": 7.22,
+     "mp3": "/tmp/blend_bench/p4c2.mp3",
+     "snip": {
+      "s0": 152,
+      "start": 160,
+      "end": 192,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 160, then repeats its 16-bar phrase 144-160 under the blend (cleaner window than its real outro)"
+     ],
+     "struct": 0.016,
+     "feats": {
+      "seesaw": 6.388,
+      "lull": 2.607,
+      "fade_step": 0.0,
+      "flam": 2.159,
+      "beat_off": 0.224,
+      "dissonance": 0.234,
+      "vocal": 0.0,
+      "pro_shape": 3.0,
+      "loop": 1.0,
+      "struct": 0.016
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 4.4,
+      "wobble": 5,
+      "anti_r": 0.37,
+      "fade_db": 5.0,
+      "fade3to20": 18,
+      "lull_db": 5.6
+     },
+     "hard": [],
+     "cost": 14.124
+    },
+    {
+     "fam": "sneak_in",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "sneak": true,
+     "is_rated": false,
+     "render_s": 5.63,
+     "mp3": "/tmp/blend_bench/p4c8.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 0"
+     ],
+     "struct": 0.016,
+     "feats": {
+      "seesaw": 10.896,
+      "lull": 0.0,
+      "fade_step": 3.541,
+      "flam": 0.707,
+      "beat_off": 0.294,
+      "dissonance": 0.252,
+      "vocal": 0.0,
+      "pro_shape": 0.333,
+      "loop": 0.0,
+      "struct": 0.016
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.9,
+      "wobble": 10,
+      "anti_r": 0.59,
+      "fade_db": 9.5,
+      "fade3to20": 6,
+      "lull_db": 2.7
+     },
+     "hard": [],
+     "cost": 16.22
+    },
+    {
+     "fam": "swap_late",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.6"
+     },
+     "is_rated": false,
+     "render_s": 5.75,
+     "mp3": "/tmp/blend_bench/p4c7.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 0"
+     ],
+     "struct": 0.016,
+     "feats": {
+      "seesaw": 7.771,
+      "lull": 1.861,
+      "fade_step": 0.0,
+      "flam": 5.061,
+      "beat_off": 0.204,
+      "dissonance": 0.23,
+      "vocal": 0.0,
+      "pro_shape": 3.056,
+      "loop": 0.0,
+      "struct": 0.016
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.8,
+      "wobble": 7,
+      "anti_r": 0.43,
+      "fade_db": 5.400000095367432,
+      "fade3to20": 16,
+      "lull_db": 4.9
+     },
+     "hard": [],
+     "cost": 16.343
+    }
+   ],
+   "margin": 5.559
+  },
+  {
+   "pair": "4WY9J_yXj8M>zGBn-IJ1isg",
+   "rating": null,
+   "win": [
+    "la",
+    176,
+    160,
+    0,
+    32
+   ],
+   "meta": "mix06i12_meta.json",
+   "t": null,
+   "cands": [
+    {
+     "fam": "in_loop",
+     "win": [
+      "lb",
+      144,
+      null,
+      96,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.12,
+     "mp3": "/tmp/blend_bench/p5c4.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 144,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "incoming plays its 16-bar phrase 96-112 through the blend, then continues from bar 112"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 2.159,
+      "beat_off": 0.161,
+      "dissonance": 0.088,
+      "vocal": 0.0,
+      "pro_shape": 0.333,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 0.5,
+      "wobble": 0,
+      "anti_r": 0.71,
+      "fade_db": 2.799999952316284,
+      "fade3to20": 6,
+      "lull_db": 1.9
+     },
+     "hard": [],
+     "cost": 4.985
+    },
+    {
+     "fam": "nat_short",
+     "win": [
+      "n",
+      160,
+      null,
+      48,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.91,
+     "mp3": "/tmp/blend_bench/p5c1.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 48"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 1.34,
+      "lull": 0.833,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.004,
+      "dissonance": 0.334,
+      "vocal": 0.0,
+      "pro_shape": 0.778,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 3.3,
+      "wobble": 0,
+      "anti_r": 0.22,
+      "fade_db": 4.699999809265137,
+      "fade3to20": 8,
+      "lull_db": 3.8
+     },
+     "hard": [],
+     "cost": 6.992
+    },
+    {
+     "fam": "lx_beat",
+     "win": [
+      "lx",
+      112,
+      64,
+      0,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.6,
+     "mp3": "/tmp/blend_bench/p5c3.mp3",
+     "snip": {
+      "s0": 102,
+      "start": 120,
+      "end": 136,
+      "pre": 18
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 112, fades over 2 bars to its drums+bass stem, then loops that beat-only phrase 64-72 (8 bars before the blend, then under it): synthetic outro, real one too short or holds a fill"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 4.125,
+      "fade_step": 0.0,
+      "flam": 2.159,
+      "beat_off": 0.052,
+      "dissonance": 0.201,
+      "vocal": 0.0,
+      "pro_shape": 0.778,
+      "loop": 1.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 0.6,
+      "wobble": 1,
+      "anti_r": 0.63,
+      "fade_db": 4.199999809265137,
+      "fade3to20": 8,
+      "lull_db": 7.1
+     },
+     "hard": [],
+     "cost": 8.563
+    },
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      176,
+      null,
+      64,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.94,
+     "mp3": "/tmp/blend_bench/p5c5.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 2.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 64"
+     ],
+     "struct": 0.766,
+     "feats": {
+      "seesaw": 3.339,
+      "lull": 0.421,
+      "fade_step": 0.824,
+      "flam": 0.0,
+      "beat_off": 0.081,
+      "dissonance": 0.311,
+      "vocal": 2.0,
+      "pro_shape": 3.444,
+      "loop": 0.0,
+      "struct": 0.766
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 4.3,
+      "wobble": 2,
+      "anti_r": 0.12,
+      "fade_db": 6.800000190734863,
+      "fade3to20": 20,
+      "lull_db": 3.4
+     },
+     "hard": [],
+     "cost": 10.112
+    },
+    {
+     "fam": "swap_early",
+     "win": [
+      "n",
+      176,
+      null,
+      0,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.21"
+     },
+     "is_rated": false,
+     "render_s": 5.48,
+     "mp3": "/tmp/blend_bench/p5c6.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 0"
+     ],
+     "struct": 0.266,
+     "feats": {
+      "seesaw": 4.716,
+      "lull": 5.711,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.263,
+      "dissonance": 0.181,
+      "vocal": 0.0,
+      "pro_shape": 3.444,
+      "loop": 0.0,
+      "struct": 0.266
+     },
+     "w1": [
+      "OUT_RISE"
+     ],
+     "raw": {
+      "out_rise": 4.7,
+      "wobble": 3,
+      "anti_r": 0.26,
+      "fade_db": 5.300000190734863,
+      "fade3to20": 20,
+      "lull_db": 8.7
+     },
+     "hard": [],
+     "cost": 13.697
+    },
+    {
+     "fam": "out_loop",
+     "win": [
+      "la",
+      176,
+      160,
+      0,
+      32
+     ],
+     "env": {},
+     "is_rated": true,
+     "render_s": 6.73,
+     "mp3": "/tmp/blend_bench/p5c2.mp3",
+     "snip": {
+      "s0": 168,
+      "start": 176,
+      "end": 208,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "outgoing plays to bar 176, then repeats its 16-bar phrase 160-176 under the blend (cleaner window than its real outro)"
+     ],
+     "struct": 0.266,
+     "feats": {
+      "seesaw": 6.758,
+      "lull": 5.262,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.287,
+      "dissonance": 0.188,
+      "vocal": 0.0,
+      "pro_shape": 4.111,
+      "loop": 1.0,
+      "struct": 0.266
+     },
+     "w1": [
+      "OUT_RISE",
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 4.8,
+      "wobble": 5,
+      "anti_r": 0.25,
+      "fade_db": 5.300000190734863,
+      "fade3to20": 23,
+      "lull_db": 8.3
+     },
+     "hard": [],
+     "cost": 16.553
+    },
+    {
+     "fam": "nat_long",
+     "win": [
+      "n",
+      176,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.54,
+     "mp3": "/tmp/blend_bench/p5c0.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 0"
+     ],
+     "struct": 0.266,
+     "feats": {
+      "seesaw": 8.104,
+      "lull": 5.711,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.258,
+      "dissonance": 0.181,
+      "vocal": 0.0,
+      "pro_shape": 3.222,
+      "loop": 0.0,
+      "struct": 0.266
+     },
+     "w1": [
+      "OUT_RISE"
+     ],
+     "raw": {
+      "out_rise": 8.1,
+      "wobble": 3,
+      "anti_r": 0.25,
+      "fade_db": 5.300000190734863,
+      "fade3to20": 19,
+      "lull_db": 8.7
+     },
+     "hard": [],
+     "cost": 17.703
+    },
+    {
+     "fam": "swap_late",
+     "win": [
+      "n",
+      176,
+      null,
+      0,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.6"
+     },
+     "is_rated": false,
+     "render_s": 6.05,
+     "mp3": "/tmp/blend_bench/p5c7.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 0"
+     ],
+     "struct": 0.266,
+     "feats": {
+      "seesaw": 8.104,
+      "lull": 5.711,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.269,
+      "dissonance": 0.185,
+      "vocal": 0.0,
+      "pro_shape": 3.222,
+      "loop": 0.0,
+      "struct": 0.266
+     },
+     "w1": [
+      "OUT_RISE"
+     ],
+     "raw": {
+      "out_rise": 8.1,
+      "wobble": 3,
+      "anti_r": 0.24,
+      "fade_db": 5.300000190734863,
+      "fade3to20": 19,
+      "lull_db": 8.7
+     },
+     "hard": [],
+     "cost": 17.746
+    },
+    {
+     "fam": "sneak_in",
+     "win": [
+      "n",
+      176,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "sneak": true,
+     "is_rated": false,
+     "render_s": 6.76,
+     "mp3": "/tmp/blend_bench/p5c8.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 0"
+     ],
+     "struct": 0.266,
+     "feats": {
+      "seesaw": 9.339,
+      "lull": 4.08,
+      "fade_step": 2.211,
+      "flam": 0.0,
+      "beat_off": 0.179,
+      "dissonance": 0.217,
+      "vocal": 0.0,
+      "pro_shape": 4.111,
+      "loop": 0.0,
+      "struct": 0.266
+     },
+     "w1": [
+      "OUT_RISE",
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 8.3,
+      "wobble": 4,
+      "anti_r": 0.39,
+      "fade_db": 8.199999809265137,
+      "fade3to20": 23,
+      "lull_db": 7.1
+     },
+     "hard": [],
+     "cost": 18.799
+    }
+   ],
+   "margin": 2.007
+  }
+ ],
+ "ab": [
+  {
+   "n": 1,
+   "why": "model top vs your rated version",
+   "pair": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "rating": 5,
+   "margin": 3.958,
+   "A": {
+    "file": "/workspace/mixes/deliver/ab/ab1_j9AuFRpLk7U_to_cxS6yd0UAxw_A.mp3",
+    "fam": "cue_late",
+    "win": [
+     "n",
+     176,
+     null,
+     80,
+     32
+    ],
+    "cost": 3.029
+   },
+   "B": {
+    "file": "/workspace/mixes/deliver/ab/ab1_j9AuFRpLk7U_to_cxS6yd0UAxw_B.mp3",
+    "fam": "rated",
+    "win": [
+     "lb",
+     176,
+     null,
+     48,
+     32
+    ],
+    "cost": 6.987
+   }
+  },
+  {
+   "n": 2,
+   "why": "top two within margin",
+   "pair": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "rating": 3,
+   "margin": 0.209,
+   "A": {
+    "file": "/workspace/mixes/deliver/ab/ab2_rpIpJQ7ujzc_to_OPuVVhbkicU_A.mp3",
+    "fam": "lx_beat",
+    "win": [
+     "lx",
+     96,
+     32,
+     16,
+     16
+    ],
+    "cost": 3.985
+   },
+   "B": {
+    "file": "/workspace/mixes/deliver/ab/ab2_rpIpJQ7ujzc_to_OPuVVhbkicU_B.mp3",
+    "fam": "out_loop",
+    "win": [
+     "la",
+     112,
+     96,
+     16,
+     16
+    ],
+    "cost": 4.194
+   }
+  },
+  {
+   "n": 3,
+   "why": "top two within margin",
+   "pair": "nAV4i1YIwQI>EiZVTuiqo0w",
+   "rating": 3,
+   "margin": 1.383,
+   "A": {
+    "file": "/workspace/mixes/deliver/ab/ab3_nAV4i1YIwQI_to_EiZVTuiqo0w_A.mp3",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     144,
+     null,
+     0,
+     16
+    ],
+    "cost": 4.609
+   },
+   "B": {
+    "file": "/workspace/mixes/deliver/ab/ab3_nAV4i1YIwQI_to_EiZVTuiqo0w_B.mp3",
+    "fam": "out_loop",
+    "win": [
+     "la",
+     112,
+     96,
+     0,
+     16
+    ],
+    "cost": 5.992
+   }
+  },
+  {
+   "n": 4,
+   "why": "top two within margin",
+   "pair": "sObzaBqaBRQ>q_cZZY0BehE",
+   "rating": 2,
+   "margin": 1.64,
+   "A": {
+    "file": "/workspace/mixes/deliver/ab/ab4_sObzaBqaBRQ_to_q_cZZY0BehE_A.mp3",
+    "fam": "sneak_in",
+    "win": [
+     "n",
+     144,
+     null,
+     0,
+     32
+    ],
+    "cost": 4.673
+   },
+   "B": {
+    "file": "/workspace/mixes/deliver/ab/ab4_sObzaBqaBRQ_to_q_cZZY0BehE_B.mp3",
+    "fam": "cue_late",
+    "win": [
+     "n",
+     144,
+     null,
+     80,
+     32
+    ],
+    "cost": 6.313
+   }
+  }
+ ]
+}

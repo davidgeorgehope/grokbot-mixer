@@ -2,8 +2,14 @@
 Thresholds in src2/seesaw.py: outgoing deck bar-to-bar rise <= 4.5 dB, summed-level reversals (>=2.5 dB swings) < 4, deck deltas not anti-correlated (r>-0.5 with both >=2 dB rms)."""
 import json,sys;sys.path.insert(0,'/workspace/mixes/src2')
 import checks as C,seesaw as S
+def _current_meta():
+  """the build under test (MIX_NAME, set by the build loops / deliver). Unset = no build under test: skip instead of judging the stale 'mixS' default"""
+  import os,pytest
+  n=os.environ.get('MIX_NAME');p=f'/workspace/mixes/src2/{n}_meta.json'
+  if not n or not os.path.exists(p):pytest.skip('MIX_NAME not set: no build under test')
+  return json.load(open(p))
 def test_no_seesaw_between_decks():
-  bad=[r for r in S.check(C.meta()) if r['fails']]
+  bad=[r for r in S.check(_current_meta()) if r['fails']]
   assert not bad,'\n'.join(f"{int(r['t']//60)}:{int(r['t']%60):02d} {r['a']}>{r['b']} {r['fails']} rise {r['out_rise']} wob {r['wobble']} r {r['anti_r']}" for r in bad)
 def test_detector_regression():
   m6=json.load(open('/workspace/mixes/src2/mix06i12_meta.json'))

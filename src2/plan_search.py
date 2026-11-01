@@ -24,6 +24,13 @@ SIL_DB=20                                     # a source beat this far under the
 import techniques as TQ
 LOVE={k for k in (json.load(open('track_prefs.json')) if os.path.exists('track_prefs.json') else {}) if not k.startswith('_')};LOVEW=float(os.environ.get('LOVEW',40))  # tracks the listener loves (goddard. - Lilies)
 def prefs():return {k:v for k,v in json.load(open('pair_prefs.json')).items() if not k.startswith('_')}
+BADC={}  # a>b -> [(window, guardrail code)] filled by bad_windows()
+HARDCODES=set(os.environ.get('HARDCODES','F1,G1,A1,S1').split(','))  # true hard rules: beats aligned (F1/G1), abrupt outgoing fade / silent-tail re-entry
+def badw_cost(k,w):
+  """render-proved failures of this exact window: hard only for HARDCODES, else BADWPEN per failure (the render guardrail re-checks)"""
+  c=[code for ww,code in BADC.get(k,[]) if ww==w]
+  if any(x in HARDCODES for x in c):return None
+  return BADWPEN*len(c)
 def bad_windows():
   """windows a render proved bad: every guardrail failure tied to a blend, from every guard_mixPlan*/ run, keyed a>b -> [window]"""
   out={}
@@ -37,7 +44,7 @@ def bad_windows():
       if f.get('trans') is None:continue
       t=G['transitions'][f['trans']] if isinstance(G['transitions'],list) else None
       a,b=(t['a'],t['b']) if t else (None,None);w=P.get(a,{}).get('out_win')
-      if a and w:out.setdefault(f'{a}>{b}',[]).append(w)
+      if a and w:out.setdefault(f'{a}>{b}',[]).append(w);BADC.setdefault(f'{a}>{b}',[]).append((w,f.get('check')))
   SBF=os.environ.get('SEESAW_BANFILE')  # W1 see-saw windows the dry run predicted to fail (same ban as a render's W1 failure)
   if SBF and os.path.exists(SBF):
     for k,ws in json.load(open(SBF)).items():out.setdefault(k,[]).extend(ws)
@@ -222,7 +229,40 @@ def _rep_ok(bl):
 FAMBAN=int(os.environ.get('FAMBAN',0))  # ban n/la/lb siblings of a render-failed window (same exit, entry, length: same overlap audio)
 X16PEN=float(os.environ.get('X16PEN',30))
 import collections
+VOCPEN=float(os.environ.get('VOCPEN',25));BOTHSPEN=float(os.environ.get('BOTHSPEN',15));RSPEN=float(os.environ.get('RSPEN',400));MELSPEN=float(os.environ.get('MELSPEN',10));STEPSPEN=float(os.environ.get('STEPSPEN',20));BADWPEN=float(os.environ.get('BADWPEN',200));LXREPAIR=float(os.environ.get('LXREPAIR',60))
+SOFT=int(os.environ.get('SOFT',1))  # 2026-11-01 (listener: no hard 'never' rules): voc/both/R/mel/step/W1-type bans are search costs; the render guardrails C2/O1/R1/N1/W1 still verify
+PROW=float(os.environ.get('PROW',0.15))
+def _pro_template():
+  p='/workspace/mixes/eval/control_curves_summary.json'
+  if not os.path.exists(p):return None
+  d=json.load(open(p))['median_curves_db_by_bar_rel_bass_swap'];W=dict(low=0.4,mid=0.4,high=0.2);bars=sorted({int(k) for b in d for k in d[b]['out']}&{int(k) for b in d for k in d[b]['in']})
+  t={}
+  for k in bars:
+    tot=0
+    for b,wt in W.items():
+      o=d[b]['out'].get(str(k));i=d[b]['in'].get(str(k))
+      if o is None or i is None:break
+      tot+=wt*10*np.log10(10**(o[0]/10)+10**(i[0]/10))
+    else:t[k]=tot
+  return t
+PROT=_pro_template()
+_PSC={};_TOPW={};WIN_TOPK=int(os.environ.get('WIN_TOPK',60))
+def pro_shape(w):
+  k=id(w)
+  if k not in _PSC:_PSC[k]=_pro_shape(w)
+  return _PSC[k]
+def _pro_shape(w):
+  """0 (pro-like) .. 1: distance of the window's predicted summed level shape from the pros' median out+in curve, aligned on the blend middle (control_curves.md proposal; a tie-break, never a reject)"""
+  if not PROT:return 0.0
+  lv=w['lv'];X=len(lv);c=X//2;pairs=[(lv[j],PROT[j-c]) for j in range(X) if (j-c) in PROT]
+  if len(pairs)<4:return 0.5
+  a=np.array(pairs,float);a-=a.mean(0);return float(min(1.0,np.mean(np.abs(a[:,0]-a[:,1]))/6))
+def soft_cost(k,w,PR):
+  """search cost for what used to be a pre-reject"""
+  c=VOCPEN*w['voc']+BOTHSPEN*max(0,BOTHMIN-w['both'])+(RSPEN*max(0,0.2-w['R']) if k not in RELAXR else 0)+MELSPEN*max(0,w['mel']-MELMAX)+(STEPSPEN*max(0,w['step']-STEPMAX) if PR.get(k,3)<4 else 0)
+  return c
 DBG=collections.Counter() if os.environ.get('PSDBG') else None
+KILL=collections.Counter() if os.environ.get('PSKILL') else None
 def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=()):
   if len(crate())<2:raise SystemExit('crate empty: stems missing (cleaned?) - run python3 restore_audio.py first')
   T=table(base);K=Crate(T);PR=prefs();BADW=bad_windows();SUS=suspects(PR);PT,PP=prev_used();tr={b:t for b,t in K.tr.items() if b not in exclude};B=json.load(open(base));first=B[0]['id'] if fix_open else None;done=[];t0=time.time()
@@ -240,28 +280,42 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
           row=T['pairs'][f'{a}>{b}']
           if not row['key_ok'] or f'{a}>{b}' in ban:continue
           if DBG is not None:DBG[(a[:4],b[:4],'wins',len(row['wins']),row['key_ok'])]+=1
-          for w in row['wins']:
+          _ck=f'{a}>{b}'
+          if _ck not in _TOPW:  # ranked shortlist per pair (score order, nothing filtered by rule): soft costs + pro_shape + render pen
+            _TOPW[_ck]=sorted(row['wins'],key=lambda w:(soft_cost(_ck,w,PR) if SOFT else 0)+PROW*100*pro_shape(w)+w['pen']/100+X16PEN*(w['w'][4]<32))[:WIN_TOPK] if WIN_TOPK and _ck not in PINW else row['wins']
+          for w in _TOPW[_ck]:
             if f'{a}>{b}' in PINW and w['w']!=PINW[f'{a}>{b}']:continue  # pinned window (the 5/5 gold blend)
             kind,e,p,ib,X=w['w']
-            if w['voc'] or w['both']<BOTHMIN or (w['R']<0.2 and f'{a}>{b}' not in RELAXR) or w['mel']>MELMAX or w['boff']>BOFFMAX or (w['w'] in BADW.get(f'{a}>{b}',[]) or (FAMBAN and (e,ib,X) in {(q[1],q[3],q[4]) for q in BADW.get(f'{a}>{b}',[])})) or (w['step']>STEPMAX and PR.get(f'{a}>{b}',3)<4) or not _valid(tr[a],w['w'],ia):
-              if DBG is not None and not w['voc'] and w['both']>=BOTHMIN and not _valid(tr[a],w['w'],ia):DBG[(a,b,'valid')]+=1
+            _k=f'{a}>{b}';_bc=badw_cost(_k,w['w']) if SOFT else (None if w['w'] in BADW.get(_k,[]) else 0)
+            _why=('boff' if w['boff']>BOFFMAX else 'badw' if _bc is None else 'valid' if not _valid(tr[a],w['w'],ia) else None) if SOFT else ('voc' if w['voc'] else 'both' if w['both']<BOTHMIN else 'R' if (w['R']<0.2 and _k not in RELAXR) else 'mel' if w['mel']>MELMAX else 'boff' if w['boff']>BOFFMAX else 'badw' if _bc is None else 'step' if (w['step']>STEPMAX and PR.get(_k,3)<4) else 'valid' if not _valid(tr[a],w['w'],ia) else None)
+            if KILL is not None:KILL[(a[:4]+'>'+b[:4],'seen')]+=1
+            if _why:
+              if KILL is not None:KILL[(a[:4]+'>'+b[:4],_why)]+=1
               continue
             m=_deck(st['inn'],e,p,X if p is not None else 0,kind,a)
             cov,lull,sec=K.close(a,m,st['lin'],w['lv'],st['bars']-st['inn'][2])
             if cov<0.5 or lull>E4X.get(a,E4_BARS) or (tr[a]['anchor'] and sec<C.MIN_ANCHOR_S):
               if DBG is not None and w['w'][3]==80 and a.startswith('h1R'):DBG[(tuple(w['w']),st['inn'],round(cov,2),lull)]+=1
               if DBG is not None:DBG[(a,b,'cov' if cov<0.5 else ('lull',int(lull)) if lull>E4X.get(a,E4_BARS) else 'anchor')]+=1
+              if KILL is not None:KILL[(a[:4]+'>'+b[:4],'cov' if cov<0.5 else 'lull' if lull>E4X.get(a,E4_BARS) else 'anchor')]+=1
               continue
             bars=st['bars']+len(m)-st['inn'][2]
             if bars>HIB:
               if DBG is not None:DBG[(a,b,'len')]+=1
+              if KILL is not None:KILL[(a[:4]+'>'+b[:4],'len')]+=1
               continue
             bl=st['bl']+[dict(a=a,b=b,**w)];cv=st['cov']+[cov]
-            if not _rep_prefix_ok(bl):continue
+            if not _rep_prefix_ok(bl):
+              if KILL is not None:KILL[(a[:4]+'>'+b[:4],'variety')]+=1
+              continue
             if ORDER:  # bound: the remaining blends must still be able to reach every plan target
               NB=len(ORDER)-1;rem=NB-len(bl)
-              if sum(x['bob']>=16 for x in bl)+rem<NB/2 or sum(x['w'][4]>=32 for x in bl)+rem<NB/2 or sum(_outro_ok(x) for x in bl)+rem<0.7*NB or sum(_drop_ok(x) for x in bl)+rem<NB*float(os.environ.get('DROP_FRAC',1/3)):continue
-            cost=st['cost']+w['pen']/100+bw*(w['bob']<16)+X16PEN*(X<32)+60*(w['beatless']>X/2)+COVPEN*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT and b not in LOVE)-LOVEW*(b in LOVE)+REUSEPEN*(f'{a}>{b}' in PP)+DROPPEN*(not _drop_ok(dict(a=a,b=b,**w)))+OUTPEN*(not _outro_ok(dict(a=a,b=b,**w)))
+              if sum(x['bob']>=16 for x in bl)+rem<NB/2 or sum(x['w'][4]>=32 for x in bl)+rem<NB/2 or sum(_outro_ok(x) for x in bl)+rem<0.7*NB or sum(_drop_ok(x) for x in bl)+rem<NB*float(os.environ.get('DROP_FRAC',1/3)):
+                if KILL is not None:KILL[(a[:4]+'>'+b[:4],'target_bound')]+=1
+                continue
+            if KILL is not None:KILL[(a[:4]+'>'+b[:4],'survive')]+=1
+            _soft=(soft_cost(_k,w,PR)+_bc-(LXREPAIR if kind=='lx' and _k in BADC else 0)) if SOFT else 0
+            cost=st['cost']+_soft+PROW*100*pro_shape(w)+w['pen']/100+bw*(w['bob']<16)+X16PEN*(X<32)+60*(w['beatless']>X/2)+COVPEN*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT and b not in LOVE)-LOVEW*(b in LOVE)+REUSEPEN*(f'{a}>{b}' in PP)+DROPPEN*(not _drop_ok(dict(a=a,b=b,**w)))+OUTPEN*(not _outro_ok(dict(a=a,b=b,**w)))
             ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost)
             k=(frozenset(ns['seq']),b,ns['inn'])+((sum(x['bob']>=16 for x in bl),sum(x['w'][4]>=32 for x in bl),sum(_drop_ok(x) for x in bl),sum(_outro_ok(x) for x in bl)) if ORDER else ())  # fixed order: keep states that differ in plan-target counts
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns
@@ -269,6 +323,8 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             mb=_deck(ns['inn'],tr[b]['tail'],None,0);tot=bars+len(mb)-X;cb,lb_,_=K.close(b,mb,w['lv'],[],bars-X,tot)
             if (not ORDER or len(ns['seq'])==len(ORDER)) and LOB<=tot<=HIB and cb>=0.5 and lb_<=E4_BARS:done.append(dict(ns,cov=cv+[cb],bars=tot,bw=bw))
       S=sorted(nxt.values(),key=lambda s:s['cost'])[:beam]
+      print('depth',len(S[0]['seq']) if S else 0,'states',len(S),'done',len(done),round(time.time()-t0),'s',flush=True)
+      if KILL is not None:print('PSKILL bw',bw,'depth',len(S[0]['seq']) if S else 0,'states',len(S),json.dumps({f'{k[0]} {k[1]}':v for k,v in sorted(KILL.items())}),flush=True);KILL.clear()
       if os.environ.get('PSDBG'):print('PSDBG bw',bw,'depth',len(S[0]['seq']) if S else None,'states',len(S),'done',len(done),dict(DBG),flush=True);DBG.clear()
   for d in done:
     n=len(d['bl']);d['pred']=dict(blends=n,bob16=sum(w['bob']>=16 for w in d['bl']),beatless=sum(w['beatless']>w['w'][4]/2 for w in d['bl']),
@@ -277,6 +333,23 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
     d['fails']=[k for k,ok in dict(bob16=p['bob16']>=n/2,beatless=p['beatless']<=n/3,x32=p['x32']>=n/2,coverage=p['cov_mean']>=0.8,
       drop_end=p['drop_end']>=n*float(os.environ.get('DROP_FRAC',1/3)),repeat_share=_rep_ok(d['bl']),outro=p['outro']>=0.7*n).items() if not ok]  # the last two = test_structure_tail's plan targets
   return done,K,round(time.time()-t0,1)
+def nudge_kind(w0,w1):
+  """which ladder rung turns the pair's natural first choice w0 into the chosen w1"""
+  if w0==w1:return 'none'
+  k0,e0,p0,i0,X0=w0;k1,e1,p1,i1,X1=w1
+  if k1=='lx' and k0!='lx':return 'beat_outro_lx'
+  if k1 in('la','ab','lx') and k0 in('la','ab','lx') and (X1<X0 or p1!=p0):return 'shorter_cleaner_loop'
+  if e1>e0:return 'longer_outgoing_ride'
+  if X1!=X0:return 'blend_length'
+  return 'cue_phrase'
+def nudge_log(d,out):
+  """per pair: natural first choice (lowest render-scorer pen, ignoring every soft cost) vs chosen window -> mix05v2/nudges.jsonl (what fixed each stuck pair)"""
+  T=table(os.environ.get('NUDGE_BASE','plan_mix05v2_base.json'));L=os.environ.get('NUDGE_LOG','/workspace/mixes/mix05v2/nudges.jsonl')
+  with open(L,'a') as f:
+    for w in d['bl']:
+      k=f"{w['a']}>{w['b']}";W=T['pairs'][k]['wins'];w0=min(W,key=lambda x:x['pen'])
+      stuck=bool(w0['voc'] or w0['both']<BOTHMIN or w0['R']<0.2 or w0['mel']>MELMAX or w0['step']>STEPMAX or badw_cost(k,w0['w']))
+      f.write(json.dumps(dict(t=time.strftime('%H:%M'),plan=out,pair=k,first=w0['w'],chosen=w['w'],stuck=stuck,nudge=nudge_kind(w0['w'],w['w']),soft=round(soft_cost(k,w,{}),1),pro_shape=round(pro_shape(w),2)))+'\n')
 def to_plan(d,base):
   B={p['id']:p for p in json.load(open(base))};out=[]
   for i,b in enumerate(d['seq']):
@@ -335,9 +408,9 @@ if __name__=='__main__':
     for r in validate():print(json.dumps(r))
   elif cmd=='search':
     base=arg('--base');t0=time.time();done,K,st=search(base,float(arg('--min',58)),float(arg('--max',62)),int(arg('--beam',300)),BW=tuple(float(x) for x in os.environ.get('BW','0,60,200').split(',')),exclude=tuple(x for x in arg('--exclude','').split(',') if x),fix_open='--open-any' not in a,ban=tuple(x for x in arg('--ban','').split(',') if x))
-    done.sort(key=lambda d:(len(d['fails']),d['pred']['bob16']<d['pred']['blends']/2+2,sum(w['pen'] for w in d['bl'])))  # all targets, then 2 blends of beat-on-beat margin, then the render scorer's own penalty
+    done.sort(key=lambda d:(len(d['fails']),d['pred']['bob16']<d['pred']['blends']/2+2,sum(w['pen'] for w in d['bl'])+PROW*100*sum(pro_shape(w) for w in d['bl'])))  # all targets, then 2 blends of beat-on-beat margin, then the render scorer's own penalty
     print(f'search {st}s, {len(done)} complete plans, {sum(not d["fails"] for d in done)} meet every target on the table')
-    best=None;tried=[];seen=set()  # dry-verify distinct orders (near-identical window variants share the same failure)
+    best=None;w1best=None;tried=[];seen=set()  # dry-verify distinct orders (near-identical window variants share the same failure)
     req=[x for x in arg('--require','').split(',') if x]  # pairs that must appear, e.g. a 5/5-rated blend: 2s3M6oX2lfo>nT25guf4DRU
     for d in [d for d in done if not d['fails'] and all(r in {f"{w['a']}>{w['b']}" for w in d['bl']} for r in req)]:
       vk=tuple(tuple(w['w']) for w in d['bl']) if ORDER else tuple(d['seq'])  # fixed ORDER: every plan shares one seq, so dedupe on windows (else only 1 plan is ever dry-verified)
@@ -355,9 +428,15 @@ if __name__=='__main__':
           if k in W and W[k] not in SB.setdefault(k,[]):SB[k].append(W[k])
         json.dump(SB,open(SBF,'w'))
       if v.get('all_ok'):best=(P,d,v);break
+      if SOFT and isinstance(v.get('tests'),dict) and all(ok for t,ok in v['tests'].items() if t!='seesaw'):
+        if not w1best or len(v.get('seesaw_fail',[]))<len(w1best[2].get('seesaw_fail',[])):w1best=(P,d,v)  # W1 only: predicted penalty; render guardrail W1 verifies, its ban then costs BADWPEN and pulls 'lx' repairs
+    if not best and SOFT and not w1best and done:  # never end with 'no plan': best-scoring option, flagged
+      d=done[0];P=to_plan(d,base);v=dry(P,'fb');best=(P,d,v);print('FLAGGED fallback plan: fails',d['fails'],'dry',{k:o for k,o in (v.get('tests') or {}).items() if not o},flush=True)
+    if not best and SOFT and w1best:best=w1best;print('W1-only plan chosen (predicted see-saw on',w1best[2].get('seesaw_fail'),')',flush=True)
     out=dict(runtime_s=round(time.time()-t0,1),search_s=st,complete=len(done),feasible_on_table=sum(not d['fails'] for d in done),verified=tried)
     if best:
-      json.dump(best[0],open(arg('--out'),'w'),indent=1);out.update(plan=arg('--out'),pred=best[2],order=best[1]['seq'],blends=[dict(a=w['a'],b=w['b'],w=w['w'],bob=w['bob'],mel=w['mel'],rub=w['rub'],drift=w['drift']) for w in best[1]['bl']])
+      json.dump(best[0],open(arg('--out'),'w'),indent=1);nudge_log(best[1],arg('--out'))
+      out.update(plan=arg('--out'),pred=best[2],order=best[1]['seq'],blends=[dict(a=w['a'],b=w['b'],w=w['w'],bob=w['bob'],mel=w['mel'],rub=w['rub'],drift=w['drift']) for w in best[1]['bl']])
     else:
       fails={};[fails.__setitem__(f,fails.get(f,0)+1) for d in done[:200] for f in d['fails']]
       near=[d for d in done if len(d['fails'])==1];bob=max((d['pred']['bob16']/d['pred']['blends'] for d in done),default=0)

@@ -46,6 +46,12 @@ def run(name,rnd):
     kw=EVKW.get(top,'gain');commits=git_log(kw) if cls=='REGRESSION' else []
     out.append(dict(check=c,n=len(fs),cls=cls,event_kind=dict(kinds),new_event_kind=new_kind,in_refs=refcls.get(c,0),
       where=[f"{f['t'] if f.get('sec') else f.get('t_hint',f['t'])} trans {f['_t']} [{f['_ev']}]: {f['msg']}" for f in fs],false_pos_notes=fp,suspect_commits=commits,suspect_code=kw if cls=='REGRESSION' else None))
+  AF=f'{R}/mix05v2/anchor_mix05.json';AN=json.load(open(AF)) if os.path.exists(AF) else {}
+  if AN and os.path.exists(f'{R}/src2/{name}_meta.json'):
+    TT=json.load(open(f'{R}/src2/{name}_meta.json'))['trans']
+    for o in out:
+      hit=[w for w in o['where'] if f"{TT[int(w.split(' trans ')[1].split()[0])]['a']}>{TT[int(w.split(' trans ')[1].split()[0])]['b']}" in AN]
+      if hit and o['cls']!='FALSE_POS':o['cls']='REGRESSION';o['false_pos_notes'].append(f'{len(hit)} fail(s) on Mix 05 anchor blends (same window passed in mix05n): regression vs the original')
   reg=[o for o in out if o['cls']=='REGRESSION']
   md=[f'# diagnose round {rnd}: {name}',f"{g['n_fail']} fails {g['by_check']}; refs " + ', '.join(f"{r} {refs[r]['n_fail'] if refs[r] else '?'} fails" for r in REFS),
       f"**{'REGRESSION SUSPECTED - delivery blocked for this round' if reg else 'no engine regression'}**",'']
@@ -56,3 +62,52 @@ def run(name,rnd):
   res=dict(name=name,round=rnd,regression=bool(reg),classes=out);json.dump(res,open(f'{R}/mix05v2/diagnose_{rnd}.json','w'),indent=1);return res
 if __name__=='__main__':
   r=run(sys.argv[1],sys.argv[2]);print(open(f"{R}/mix05v2/diagnose_{sys.argv[2]}.md").read())
+# ---- closed loop (the listener 2026-11-01): per failing blend pick a DIFFERENT strategy, pin it for the next round, log to nudges.jsonl
+STRAT={'V1':'vocal-free window: drums+bass outro (lx) > instrumental-intro cue / different phrase (voc=0)',
+  'W1':'longer ride / different fade shape (longer X, voc=0)','O1':'longer blend (more both-audible bars)','R1':'tighter drum match (higher R)',
+  'C2':'different phrase (other e)','L1':'engine: bass lead (BASS_LEAD)','N1':'engine: gain staging (LX_TRIM)','G1':'engine: lx re-phase','F1':'engine: lx re-phase'}
+def strategies(name,rnd,table='pair_table_05v2.json',tried=None,anchor=None):
+  """returns {pair: window} pins for the next round (one new strategy per failing pair, never the window that just failed)"""
+  D=json.load(open(f'{R}/mix05v2/diagnose_{rnd}.json'));M=json.load(open(f'{R}/src2/{name}_meta.json'));T=json.load(open(f'{R}/src2/{table}'))['pairs']
+  OW={p['id']:p.get('out_win') for p in M['plan']};per=collections.defaultdict(set)
+  for o in D['classes']:
+    if o['cls']=='FALSE_POS':continue
+    for w in o['where']:
+      t=int(w.split(' trans ')[1].split()[0]);tr=M['trans'][t];per[(tr['a'],tr['b'])].add(o['check'])
+  hist=collections.defaultdict(list)
+  NJ=f'{R}/mix05v2/nudges.jsonl'
+  if os.path.exists(NJ):
+    for l in open(NJ):
+      try:x=json.loads(l);hist[x.get('pair')].append(x.get('win'))
+      except Exception:pass
+  pins={};log=[]
+  for (a,b),cs in per.items():
+    k=f'{a}>{b}';cur=OW.get(a);W=[w for w in T.get(k,{}).get('wins',[]) if w['w']!=cur and w['w'] not in hist[k] and w['boff']<=2]
+    if a=='j9AuFRpLk7U' and b=='cxS6yd0UAxw':continue  # gold pin stays
+    if anchor and k in anchor:log.append(dict(pair=k,round=rnd,fails=sorted(cs),strategy='anchor (passed in Mix 05): kept exactly, treated as engine regression, A/B vs original',win=anchor[k],result='anchor'));continue
+    eng=[c for c in cs if c in('N1','L1','G1','F1')];mus=[c for c in cs if c not in eng]
+    if not mus:log.append(dict(pair=k,round=rnd,fails=sorted(cs),strategy=[STRAT[c] for c in eng],win=None,note='engine fix only, window kept'));continue
+    cw=next((w for w in T.get(k,{}).get('wins',[]) if w['w']==cur),None) or dict(both=0,R=0,w=[None,0,None,0,16])
+    C=[w for w in W if not w['voc'] and w['both']>=8] or [w for w in W if not w['voc']] or W
+    if C:m=min(w['pen'] for w in C);C=[w for w in C if w['pen']<=m+60]  # stay near the best-scoring windows
+    if 'V1' in mus:C=sorted(C,key=lambda w:w['pen']-(20 if w['w'][0]=='lx' else 0))  # drums+bass outro preferred, not forced
+    elif 'O1' in mus:C=sorted([w for w in C if w['both']>max(cw['both'],8)] or C,key=lambda w:(-w['w'][4],w['pen']))
+    elif 'W1' in mus:C=sorted([w for w in C if w['w'][4]>=cw['w'][4]] or C,key=lambda w:(-w['w'][4],w['pen']))
+    elif 'R1' in mus:C=sorted([w for w in C if w['R']>=max(0.3,cw.get('R',0)+0.1)],key=lambda w:w['pen']-100*w['R'])
+    else:C=sorted([w for w in C if w['w'][1]!=cw['w'][1]] or C,key=lambda w:w['pen'])
+    if not C:log.append(dict(pair=k,round=rnd,fails=sorted(cs),strategy='no untried window left',win=None,note='-> A/B'));continue
+    w=C[0];pins[k]=w['w'];log.append(dict(pair=k,round=rnd,fails=sorted(cs),strategy=[STRAT[c] for c in sorted(cs)],from_win=cur,win=w['w'],voc=w['voc'],both=w['both'],R=round(w['R'],2),pen=w['pen'],result='pending'))
+  with open(NJ,'a') as f:
+    for x in log:f.write(json.dumps(dict(x,src='closed_loop',ts=__import__('time').strftime('%H:%M')+' ET'))+'\n')
+  return pins,log
+def results(prev_rnd,name,rnd):
+  """after the re-render: append the outcome of each pinned strategy (pass / still failing which checks)"""
+  NJ=f'{R}/mix05v2/nudges.jsonl';D=json.load(open(f'{R}/mix05v2/diagnose_{rnd}.json'));M=json.load(open(f'{R}/src2/{name}_meta.json'))
+  failing=collections.defaultdict(set)
+  for o in D['classes']:
+    for w in o['where']:t=int(w.split(' trans ')[1].split()[0]);tr=M['trans'][t];failing[f"{tr['a']}>{tr['b']}"].add(o['check'])
+  rows=[json.loads(l) for l in open(NJ)] if os.path.exists(NJ) else []
+  with open(NJ,'a') as f:
+    for x in rows:
+      if x.get('src')=='closed_loop' and x.get('round')==prev_rnd and x.get('result')=='pending':
+        f.write(json.dumps(dict(pair=x['pair'],round=rnd,src='closed_loop_result',win=x.get('win'),result='pass' if x['pair'] not in failing else 'still '+','.join(sorted(failing[x['pair']])),in_mix=any(f"{t['a']}>{t['b']}"==x['pair'] for t in M['trans'])))+'\n')

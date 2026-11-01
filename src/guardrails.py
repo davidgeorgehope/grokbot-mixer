@@ -308,6 +308,13 @@ for i,d in enumerate(D):
     if fm[j][1]!='mix' and fm[j-1][1]=='mix' and fm[j-1][0]>=tail0:
       b=d['start_bar']+j
       if not any(f['check']=='S1' and abs(f['sec']-b*BAR)<60 for f in fails):fail('S1',b*BAR-4*BAR,b*BAR,f"{d['id']} faded through its own silent tail, then loop-extension re-enters",deck=i)
+# W1 see-saw / pumping between decks (src2/seesaw.py; the listener Mix 06 28:00 Remedy>Ignite rated 2)
+import sys as _s;_s.path.insert(0,'/workspace/mixes/src2')
+try:
+  import seesaw as _SS
+  for r in _SS.check(M):
+    if r['fails']:fail('W1',r['t'],r['t']+(TR[r['i']]['end_bar']-TR[r['i']]['start_bar'])*BAR,f"{r['a']} vs {r['b']} see-saw {r['fails']}: outgoing rise {r['out_rise']} dB, wobble {r['wobble']}, anti r {r['anti_r']}",trans=r['i'],**{k:r[k] for k in ('out_rise','wobble','anti_r')})
+except Exception as ex:print('W1 skipped',ex)
 # ---------- report ----------
 fails.sort(key=lambda f:f['sec']);by={}
 for f in fails:by.setdefault(f['check'],0);by[f['check']]+=1

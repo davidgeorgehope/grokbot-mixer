@@ -13,7 +13,11 @@ for it in range(start,start+20):
   if False:sh(f'cp plan_mix06e.json {plan}');name0='mix06e'
   else:
     name0=None
-    rc=sh(f"{env} python3 plan_search.py search --base plan_mix05v2_base.json --out {plan} --min 56 --max 63 --verify 60 --beam 2500  > ../mix05v2/{name}_search.log 2>&1")
+    SBF='/workspace/mixes/mix05v2/seesaw_bans.json';nsb=lambda:sum(map(len,json.load(open(SBF)).values())) if os.path.exists(SBF) else 0
+    for rnd in range(8):  # W1 dry-run fails are learned into SBF; re-search while it keeps learning
+      n0=nsb();rc=sh(f"{env} python3 plan_search.py search --base plan_mix05v2_base.json --out {plan} --min 56 --max 63 --verify 300 --beam 2500  > ../mix05v2/{name}_search.log 2>&1")
+      if os.path.exists(plan) or nsb()==n0:break
+      log(f'iter {it}: search round {rnd}: no plan, W1 dry-run bans {n0}->{nsb()}, re-searching')
     if not os.path.exists(plan):log(f'iter {it}: search found no plan (bans {len(BAN)}), stopping');sys.exit(2)
   if name0:  # reuse render e's guardrails
     gname=name0

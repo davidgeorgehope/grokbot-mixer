@@ -2,7 +2,7 @@
 A deck is a list of source bars (full_map) plus one 'gain' curve that comes only from the crossfader.
 The only EQ is an optional bass-handoff lane d['auto']['low'] (0..1 on the <XO Hz band, zero-phase split so
 low+rest == original exactly): one smooth monotonic swap per blend; plus, with HIGH_SWAP, the same kind of lane
-d['auto']['high'] on the >HIGH_XO Hz band; plus the optional delay-tail exit d['echo_out'] (echo_tail). No stems, ducking or other filters."""
+d['auto']['high'] on the >HIGH_XO Hz band; plus the optional delay-tail exit d['echo_out'] (echo_tail). No ducking or other filters; the only stem use is the beat-only (drums+bass) source of a synthetic outro ('lx'), switched in before the blend."""
 import numpy as np,soundfile as sf,json,os,pyloudnorm as pyln
 from scipy.signal import butter,sosfiltfilt
 XO=float(os.environ.get('BASS_XO',150));HXO=float(os.environ.get('HIGH_XO',2000))
@@ -13,8 +13,10 @@ class LazySt(dict):
   def __init__(s,b):super().__init__();s.b=b
   def __getitem__(s,k):
     if not dict.__contains__(s,'mix'):
-      y,_=sf.read(f'st/{s.b}.wav',dtype='float32',always_2d=True)
-      dict.__setitem__(s,'mix',y*10**((-16-pyln.Meter(SR).integrated_loudness(y))/20))
+      y,_=sf.read(f'st/{s.b}.wav',dtype='float32',always_2d=True);g=10**((-16-pyln.Meter(SR).integrated_loudness(y))/20)
+      dict.__setitem__(s,'gain',g);dict.__setitem__(s,'mix',y*g)
+    if k=='beat' and not dict.__contains__(s,'beat'):  # drums+bass stem (beatstem.py), same per-track gain as 'mix' so the stems sum back to it
+      import beatstem;y,_=sf.read(beatstem.ensure(s.b),dtype='float32',always_2d=True);dict.__setitem__(s,'beat',y*s['gain'])
     return dict.__getitem__(s,k)
 def track(b):
   if b in _cache:return _cache[b]
@@ -27,21 +29,12 @@ SEAM=int(round(BEAT*SR))
 def render_deck(d):
   """Render deck d (meta dict) alone: source bars from full_map, 1-beat linear overlap-add at loop seams,
   times the crossfader gain curve d['auto']['gain'] ([[mix_bar, gain], ...])."""
-  tr=track(d['id']);m=[s for s,_ in d['full_map']];n=int(round(len(m)*BS));y=np.zeros((n+SEAM*2,2),np.float32)
-  x=tr['st']['mix']
-  for k,sb in enumerate(m):
-    i0=int(round(k*BS));L=int(round((k+1)*BS))-i0
-    j0=int(round((tr['d0']+sb*BAR-nudge(tr,sb)/1000)*SR))
-    cont_prev=k>0 and sb==m[k-1]+1 and nudge(tr,sb)==nudge(tr,m[k-1])
-    cont_next=k<len(m)-1 and m[k+1]==sb+1 and nudge(tr,m[k+1])==nudge(tr,sb)
-    pre=0 if cont_prev or k==0 else SEAM//2;post=0 if cont_next or k==len(m)-1 else SEAM//2
-    a0=j0-pre;seg=x[max(0,a0):j0+L+post]
-    if a0<0:seg=np.pad(seg,((-a0,0),(0,0)))
-    seg=np.pad(seg,((0,max(0,pre+L+post-len(seg))),(0,0)))[:pre+L+post].copy()
-    if pre:seg[:2*pre]*=np.linspace(0,1,2*pre,dtype=np.float32)[:,None]  # linear overlap-add seam (correlated material)
-    if post:seg[-2*post:]*=np.linspace(1,0,2*post,dtype=np.float32)[:,None]
-    o=SEAM+i0-pre;y[o:o+len(seg)]+=seg
-  y=y[SEAM:SEAM+n]
+  tr=track(d['id']);m=[s for s,_ in d['full_map']];n=int(round(len(m)*BS))
+  src=[c for _,c in d['full_map']];y=_bars(tr,m,tr['st']['mix'],n)
+  if 'beat' in src:  # synthetic beat-only outro ('lx'): the same bar map from the drums+bass stem, faded in over LX_XF bars that END
+    k0=src.index('beat');xf=int(d.get('lx_xf',2))  # where the beat-only bars start (before the blend; the stems are phase-identical to the mix)
+    yb=_bars(tr,m,tr['st']['beat'],n);w=np.clip((np.arange(n)/BS-(k0-xf))/max(xf,1e-9),0,1).astype(np.float32)
+    y=y*(1-w[:,None])+yb*w[:,None]
   for lane,kind,fc in (('low','low',XO),('high','high',HXO)):
     lp=d['auto'].get(lane) or []
     if not lp:continue
@@ -56,6 +49,21 @@ def render_deck(d):
   if pts:
     t=np.arange(n)/BS+d['start_bar'];g=np.interp(t,[p[0] for p in pts],[p[1] for p in pts]).astype(np.float32);y*=g[:,None]
   return np.concatenate([y,echo_tail(src,eo)]) if eo else y
+def _bars(tr,m,x,n):
+  y=np.zeros((n+SEAM*2,2),np.float32)
+  for k,sb in enumerate(m):
+    i0=int(round(k*BS));L=int(round((k+1)*BS))-i0
+    j0=int(round((tr['d0']+sb*BAR-nudge(tr,sb)/1000)*SR))
+    cont_prev=k>0 and sb==m[k-1]+1 and nudge(tr,sb)==nudge(tr,m[k-1])
+    cont_next=k<len(m)-1 and m[k+1]==sb+1 and nudge(tr,m[k+1])==nudge(tr,sb)
+    pre=0 if cont_prev or k==0 else SEAM//2;post=0 if cont_next or k==len(m)-1 else SEAM//2
+    a0=j0-pre;seg=x[max(0,a0):j0+L+post]
+    if a0<0:seg=np.pad(seg,((-a0,0),(0,0)))
+    seg=np.pad(seg,((0,max(0,pre+L+post-len(seg))),(0,0)))[:pre+L+post].copy()
+    if pre:seg[:2*pre]*=np.linspace(0,1,2*pre,dtype=np.float32)[:,None]  # linear overlap-add seam (correlated material)
+    if post:seg[-2*post:]*=np.linspace(1,0,2*post,dtype=np.float32)[:,None]
+    o=SEAM+i0-pre;y[o:o+len(seg)]+=seg
+  return y[SEAM:SEAM+n]
 def echo_tail(src,eo):
   """Delay-tail exit: tempo-synced feedback delay (every delay_beats, each repeat fb x the last, first at wet_db) of the deck's
   pre-fader final bars, band-passed lo..hi Hz (low-cut keeps it off the incoming kick/bass); only the wet tail AFTER the deck's

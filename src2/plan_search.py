@@ -38,6 +38,9 @@ def bad_windows():
       t=G['transitions'][f['trans']] if isinstance(G['transitions'],list) else None
       a,b=(t['a'],t['b']) if t else (None,None);w=P.get(a,{}).get('out_win')
       if a and w:out.setdefault(f'{a}>{b}',[]).append(w)
+  SBF=os.environ.get('SEESAW_BANFILE')  # W1 see-saw windows the dry run predicted to fail (same ban as a render's W1 failure)
+  if SBF and os.path.exists(SBF):
+    for k,ws in json.load(open(SBF)).items():out.setdefault(k,[]).extend(ws)
   for r in ears_gate():  # ears + direct drum check both said off (src/tests/test_ears_gate.py)
     if r['status']=='confirmed' and r['out_win']:out.setdefault(f"{r['a']}>{r['b']}",[]).append(r['out_win'])
   return out
@@ -103,7 +106,8 @@ def predict(name):
     len_min=round(max(d['end_bar'] for d in D)*C.BAR/60,2),drum_runs=[b for b,_,_ in r])
   p['tests']=dict(bob16=p['bob16']>=n/2,beatless=p['beatless']<=n/3,x32=p['x32']>=n/2,coverage=p['cov_mean']>=0.8 and p['cov_min']>=0.5,
     drums_only=p['drums_only_ok'],anchors=p['anchors_ok'],vocal=not p['vocal_clash'],keys=not keyclash,E4=not e4,
-    structure=ok(TS.test_plan_respects_outro_and_intro),fader_tail=ok(TS.test_outgoing_fader_tail_is_gradual),lengths_vary=ok(TS.test_blend_lengths_vary),variety=all(ok(getattr(TV,f)) for f in dir(TV) if f.startswith('test_') and f!='test_menu_lists_supported'))
+    structure=ok(TS.test_plan_respects_outro_and_intro),fader_tail=ok(TS.test_outgoing_fader_tail_is_gradual),lengths_vary=ok(TS.test_blend_lengths_vary),seesaw=not any(r['fails'] for r in __import__('seesaw').check(M)),variety=all(ok(getattr(TV,f)) for f in dir(TV) if f.startswith('test_') and f!='test_menu_lists_supported'))
+  p['seesaw_fail']=[f"{r['a']}>{r['b']}" for r in __import__('seesaw').check(M) if r['fails']]
   p['all_ok']=all(p['tests'].values());return p
 
 # ---------- pairwise blend table ----------
@@ -111,8 +115,10 @@ def scorer(base):
   """mix_simple's own window scorer (everything above its blend loop), loaded once: the table scores windows with the render's exact code"""
   src=open('mix_simple.py').read();sys.argv=['mix_simple.py','--plan',base,'--out','/dev/null']
   ns={'__name__':'mix_simple_scorer'};exec(compile(src[:src.index('LOOK=int(')],'mix_simple.py','exec'),ns);return ns
-def windows(kind,e,p,ib,X):
-  wa=[p+(k%16) for k in range(X)] if kind in('la','ab') else list(range(e-X,e))
+LX_PRE=int(os.environ.get('LX_PRE',8))  # = mix_simple: beat-only bars before an 'lx' blend
+import beatstem;LXL=lambda b,p:beatstem.lx_len(b,p,float(os.environ.get('LOOP_DIP_DB',4)))
+def windows(kind,e,p,ib,X,b_out=None):
+  wa=[p+((LX_PRE+k)%LXL(b_out,p)) for k in range(X)] if kind=='lx' else [p+(k%16) for k in range(X)] if kind in('la','ab') else list(range(e-X,e))
   wb=[ib+(k%16) for k in range(X)] if kind in('lb','ab') else list(range(ib,ib+X));return wa,wb
 def crate():
   K=C.keys();return sorted(b for b in (os.path.basename(f)[:-5] for f in glob.glob('st/*.json')) if b in K and glob.glob(f'st/{b}*.wav'))
@@ -161,11 +167,11 @@ def table(base,path=os.environ.get('PAIR_TABLE','pair_table.json'),K=int(os.envi
       if ok:
         ns['ids'][:]=[a,b];dA,dB=ns['drums_on'](a),ns['drums_on'](b);alA,alB=ns['A_'](a)[1],ns['A_'](b)[1]
         for sc,kind,e,ib,r,X in ns['pair_cands'](0,0)[:K]:
-          e,p=e if isinstance(e,tuple) else (e,None);wa,wb=windows(kind,e,p,ib,X)
+          e,p=e if isinstance(e,tuple) else (e,None);wa,wb=windows(kind,e,p,ib,X,a)
           none=sum(not(xa<len(dA) and dA[xa]) and not(xb<len(dB) and dB[xb]) for xa,xb in zip(wa,wb))
           x=(np.arange(X)+.5)/X;lv=10*np.log10(np.cos(x*np.pi/2)**2*10**(alA[wa]/10)+np.sin(x*np.pi/2)**2*10**(alB[np.minimum(wb,len(alB)-1)]/10))
           row['wins'].append(dict(w=[kind,int(e),None if p is None else int(p),int(ib),int(X)],pen=round(float(r['pen']),1),bob=int(r['DT']),beatless=int(none),
-            voc=int(r['V']),both=int(r['both']),L=int(r['L']),R=r['R'],dip=round(float(tr[a]['body']-lv.min()),1),lv=[round(float(x),1) for x in lv],cue=round(1-cue.pctl(CM,'out',tr[a]['cuef'],e),3),**clash(FT[a],FT[b],wa,wb),step=entry_step(BT[a],wa,e-1 if kind in('la','ab') else wa[0]-1),boff=beat_off_bars(PT[a],PT[b],DA[a],DA[b],wa,wb)))
+            voc=int(r['V']),both=int(r['both']),L=int(r['L']),R=r['R'],dip=round(float(tr[a]['body']-lv.min()),1),lv=[round(float(x),1) for x in lv],cue=round(1-cue.pctl(CM,'out',tr[a]['cuef'],e),3),**clash(FT[a],FT[b],wa,wb),step=entry_step(BT[a],wa,e-1 if kind in('la','ab','lx') else wa[0]-1),boff=beat_off_bars(PT[a],PT[b],DA[a],DA[b],wa,wb)))
       pairs[f'{a}>{b}']=row
   for b in tr:tr[b].pop('cuef')
   T=dict(key=key,built_s=round(time.time()-t0,1),tracks=tr,pairs=pairs);json.dump(T,open(path,'w'));return T
@@ -175,12 +181,13 @@ def _valid(t,w,ia):
   """can mix_simple pick window w for outgoing track t when t starts at bar ia (same limits as pair_cands)"""
   kind,e,p,ib,X=w;minlen=160 if t['anchor'] else 96-X;em=t['e_max']
   emin=max(ia+minlen,ia+int((em-ia)*0.5));emin+=(-emin)%16;emin=min(emin,em)
-  if kind in('la','ab') and X>16 and not int(os.environ.get('LOOP32',1)):return False  # 32-bar loop = outgoing phrase heard 3x (the 'echo' the listener hears)
-  if kind in('la','ab'):return e>=(max(ia+16,emin-X) if t['anchor'] else emin) and p>=max(ia,16)
+  if kind in('la','ab','lx') and X>16 and not int(os.environ.get('LOOP32',1)):return False  # 32-bar loop = outgoing phrase heard 3x (the 'echo' the listener hears)
+  if kind in('la','ab','lx'):return e>=(max(ia+16,emin-X) if t['anchor'] else emin) and p>=max(ia,16)
   return e>=emin
-def _deck(inn,e,p,Xout):
+def _deck(inn,e,p,Xout,kind_out=None,b_out=None):
   """source-bar map of a deck: incoming spec inn=(kind,ib,Xin), plays to e, then loops phrase p for Xout bars"""
   k,ib,Xin=inn;m=[ib+(j%16) for j in range(Xin)]+list(range(ib+16,e)) if k in('lb','ab') else list(range(ib,e))
+  if kind_out=='lx':return m+[p+(j%LXL(b_out,p)) for j in range(Xout+LX_PRE)]
   return m+([p+(j%16) for j in range(Xout)] if p is not None else [])
 class Crate:
   def __init__(s,T):
@@ -207,11 +214,11 @@ def _outro_ok(w):
   """outgoing leaves at or after its outro start"""
   return w['w'][1]>=SEC.get(w['a'])['outro_start']
 def _rep_prefix_ok(bl):
-  r=[w['w'][0] in('la','ab') and w['w'][4]>16 for w in bl];NB=len(ORDER)-1 if ORDER else int(os.environ.get('NB_EXPECT',20))
+  r=[w['w'][0] in('la','ab','lx') and w['w'][4]>16 for w in bl];NB=len(ORDER)-1 if ORDER else int(os.environ.get('NB_EXPECT',20))
   return sum(r)<=0.4*NB and not (len(r)>=3 and all(r[-3:]))
 def _rep_ok(bl):
   """variety rule for the 32-bar outgoing repeat: <=40% of blends, never 3 in a row (test_variety)"""
-  r=[w['w'][0] in('la','ab') and w['w'][4]>16 for w in bl];return sum(r)<=0.4*len(r) and not any(all(r[i:i+3]) for i in range(len(r)-2))
+  r=[w['w'][0] in('la','ab','lx') and w['w'][4]>16 for w in bl];return sum(r)<=0.4*len(r) and not any(all(r[i:i+3]) for i in range(len(r)-2))
 FAMBAN=int(os.environ.get('FAMBAN',0))  # ban n/la/lb siblings of a render-failed window (same exit, entry, length: same overlap audio)
 X16PEN=float(os.environ.get('X16PEN',30))
 import collections
@@ -239,7 +246,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if w['voc'] or w['both']<BOTHMIN or (w['R']<0.2 and f'{a}>{b}' not in RELAXR) or w['mel']>MELMAX or w['boff']>BOFFMAX or (w['w'] in BADW.get(f'{a}>{b}',[]) or (FAMBAN and (e,ib,X) in {(q[1],q[3],q[4]) for q in BADW.get(f'{a}>{b}',[])})) or (w['step']>STEPMAX and PR.get(f'{a}>{b}',3)<4) or not _valid(tr[a],w['w'],ia):
               if DBG is not None and not w['voc'] and w['both']>=BOTHMIN and not _valid(tr[a],w['w'],ia):DBG[(a,b,'valid')]+=1
               continue
-            m=_deck(st['inn'],e,p,X if p is not None else 0)
+            m=_deck(st['inn'],e,p,X if p is not None else 0,kind,a)
             cov,lull,sec=K.close(a,m,st['lin'],w['lv'],st['bars']-st['inn'][2])
             if cov<0.5 or lull>E4X.get(a,E4_BARS) or (tr[a]['anchor'] and sec<C.MIN_ANCHOR_S):
               if DBG is not None and w['w'][3]==80 and a.startswith('h1R'):DBG[(tuple(w['w']),st['inn'],round(cov,2),lull)]+=1
@@ -333,9 +340,20 @@ if __name__=='__main__':
     best=None;tried=[];seen=set()  # dry-verify distinct orders (near-identical window variants share the same failure)
     req=[x for x in arg('--require','').split(',') if x]  # pairs that must appear, e.g. a 5/5-rated blend: 2s3M6oX2lfo>nT25guf4DRU
     for d in [d for d in done if not d['fails'] and all(r in {f"{w['a']}>{w['b']}" for w in d['bl']} for r in req)]:
-      if tuple(d['seq']) in seen:continue
+      vk=tuple(tuple(w['w']) for w in d['bl']) if ORDER else tuple(d['seq'])  # fixed ORDER: every plan shares one seq, so dedupe on windows (else only 1 plan is ever dry-verified)
+      if vk in seen:continue
+      _sbf=os.environ.get('SEESAW_BANFILE')  # skip plans that reuse a window already dry-run-failed on W1 (same check, just not re-tested)
+      if _sbf and os.path.exists(_sbf):
+        _SB=json.load(open(_sbf))
+        if any(w['w'] in _SB.get(f"{w['a']}>{w['b']}",[]) for w in d['bl']):continue
       if len(seen)>=int(arg('--verify',25)):break
-      seen.add(tuple(d['seq']));P=to_plan(d,base);v=dry(P,len(seen));tried.append((d['pred'],v.get('tests',v),v.get('E4')))
+      seen.add(vk);P=to_plan(d,base);v=dry(P,len(seen));tried.append((d['pred'],v.get('tests',v),v.get('E4')))
+      SBF=os.environ.get('SEESAW_BANFILE')
+      if SBF and v.get('seesaw_fail'):
+        SB=json.load(open(SBF)) if os.path.exists(SBF) else {};W={f"{w['a']}>{w['b']}":w['w'] for w in d['bl']}
+        for k in v['seesaw_fail']:
+          if k in W and W[k] not in SB.setdefault(k,[]):SB[k].append(W[k])
+        json.dump(SB,open(SBF,'w'))
       if v.get('all_ok'):best=(P,d,v);break
     out=dict(runtime_s=round(time.time()-t0,1),search_s=st,complete=len(done),feasible_on_table=sum(not d['fails'] for d in done),verified=tried)
     if best:

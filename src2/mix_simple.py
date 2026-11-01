@@ -27,8 +27,26 @@ def A_(b):
   t=track(b);al=np.array(t['g']['bar']['all'],float);return t,al,np.percentile(al,75),np.array(t['vact'],bool),t['nb']
 def tail0(al,body):
   loud=np.where(al>body-20)[0];return int(loud[-1])+1 if len(loud) else len(al)
+LOOPDIP=float(os.environ.get('LOOP_DIP_DB',4))  # the listener 2026-11-01 (Mix 06 28:00 Remedy loop 160-175 had a fill ~7 dB down at 172-175)
+def loop_dip(b,p,key='all'):
+  """dB by which the quietest bar of 16-bar phrase p sits more than LOOP_DIP_DB under the phrase median (0 = clean, no fill/breakdown).
+  A soft preference since 2026-11-01 (listener: no hard 'never' rules): scored with DIPPEN per dB, never a refusal."""
+  al=np.array(track(b)['g']['bar'][key],float)[p:p+16]
+  return 99.0 if len(al)<16 else max(0.0,float(np.median(al))-LOOPDIP-float(np.min(al)))
+def loop_clean(b,p):return loop_dip(b,p)==0
+DIPPEN=float(os.environ.get('DIPPEN',12))
 def clean_phrases(b):
   t,al,body,v,nb=A_(b);return [p for p in range(0,nb-15,16) if v[p:p+16].sum()<=1 and al[p:p+16].mean()>body-6]
+# synthetic beat-only outro ('lx', the listener 2026-11-01 "loop just the beat arrangement"): the outgoing plays its full mix to bar e, fades
+# (LX_XF bars, ending at e) to its drums+bass stem, plays LX_PRE beat-only bars, then the blend runs over the same 16-bar beat phrase p.
+# Stem source only, switched before the blend starts: inside the blend each deck still has one monotonic crossfader, no ducking.
+LX=int(os.environ.get('LX',1));LX_PRE=int(os.environ.get('LX_PRE',8));LX_XF=int(os.environ.get('LX_XF',2));LXPEN=float(os.environ.get('LXPEN',50))
+import beatstem
+def beat_phrases(b,e,ia):
+  """phrase starts p (p<=e-16, up to 64 bars back) with a clean beat loop (beatstem.lx_len: 16 bars, else its clean first 8)"""
+  return [p for p in range(e-16,max(ia,16,e-64)-1,-16) if beatstem.lx_len(b,p,LOOPDIP)]
+def lx_wa(b,p,X):L=beatstem.lx_len(b,p,LOOPDIP);return [p+((LX_PRE+k)%L) for k in range(X)]
+NOVOC=set()  # tracks currently scored as beat-only: no vocal activity
 # per-track in/out plan: score every phrase-aligned candidate window by simulating the guardrails
 # (V1 vocal clash, L1 double bass, O1 both audible >=8 bars, C2 outgoing not too quiet) under the crossfader.
 ANCH={p['id'] for p in plan if p.get('anchor')};NOIN={p['id'] for p in plan if p.get('anchor_in') is False};HEAVY=float(os.environ.get('HEAVY',-6))
@@ -39,6 +57,7 @@ def F(b):
   bs=np.array(g['bass'],float) if 'bass' in g else None
   bact=(bs>np.percentile(bs,90)-10) if bs is not None else (lo-al>HEAVY)
   hi=10*np.log10(np.maximum(10**(al/10)-10**(lo/10),1e-10))  # level above the bass band (what stays audible through the handoff)
+  if b in NOVOC:v=np.full(len(al),-100.)
   return hi,lo,v,float(np.percentile(v,95)),bact
 _ON={}
 def onsets(b):  # per-bar onset envelope (cached), used only to predict guardrail R1 (drums fighting)
@@ -143,11 +162,15 @@ def pair_cands(i,ia0):
       if SB['drop1']-16>=16 and es-X>=ia+16:cands.append(('lb',es,SB['drop1']-16));STRK.add(('lb',a,b,es,SB['drop1']-16,X))  # gold (the listener 5/5, Mix 05 55:10 -> Just Hold On): incoming loops its last intro phrase, drop lands as the outgoing's music ends
     eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
     for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
-      for p in [e-16] if e-16>=max(ia,16) else []:
+      for p in [e-16] if e-16>=max(ia,16) else []:  # a fill/level drop inside the loop is penalised (DIPPEN), not refused
         if X>16 and not int(os.environ.get('LOOP32',1)):continue  # 32-bar outgoing repeat: allowed again 2026-10-31 12:30 (listener: loops are fine), capped by the variety rule
         for ib in range(0,min(81,nb-3*X),16):cands.append(('la',(e,p),ib))
     for e in range(e_max,emin-1,-16):
       for q in range(16,min(97,nb-4*X),16):cands.append(('lb',e,q))  # incoming plays phrase q first, continues q+16
+    if LX and not (X>16 and not int(os.environ.get('LOOP32',1))):
+      for e in range(e_max,eml-1,-16):
+        for p in beat_phrases(a,e,ia)[:1]:  # nearest clean beat phrase before the out point
+          for ib in range(0,min(81,nb-3*X),16):cands.append(('lx',(e,p),ib))
     cpa=[p for p in clean_phrases(a) if p>=max(ia,16)];cpb=[q for q in clean_phrases(b) if 16<=q<min(97,nb-4*X)]
     for e in range(e_max,emin-1,-16):  # both decks loop a clean instrumental phrase (only when neither has vocal-free runway)
       for p in [p for p in cpa if p==e-16]:
@@ -156,14 +179,18 @@ def pair_cands(i,ia0):
       bmx=min(tail0(alb,bb),nb)-160;cands=[c for c in cands if c[2]<=max(0,bmx)] or cands
     LW=float(os.environ.get('LW',0.4))
     for kind,e,ib in cands:
-      if kind in('la','ab'):e,p=e;wa=[p+(k%16) for k in range(X)];ea=e
+      if kind=='lx':e,p=e;wa=lx_wa(a,p,X);ea=e;NOVOC.add(a)
+      elif kind in('la','ab'):e,p=e;wa=[p+(k%16) for k in range(X)];ea=e
       else:wa=range(e-X,e);ea=e
       q=ib;wb=[q+(k%16) for k in range(X)] if kind in('lb','ab') else range(q,q+X)
-      ha=F(a)[0];ref=float(np.median(ha[max(ia,ea-X-8):ea-X])) if kind not in('la','ab') else float(np.median(ha[e-8:e]))
-      r=score(a,b,list(wa),list(wb),ref)
+      ha=F(a)[0];ref=float(np.median(ha[max(ia,ea-X-8):ea-X])) if kind not in('la','ab','lx') else float(np.median(ha[e-8:e]))
+      r=score(a,b,list(wa),list(wb),ref);NOVOC.discard(a)
       step=(max(abs(np.median(ala[e-4:e])-np.median(ala[p:p+4])),abs(np.mean(ala[e-2:e])-np.mean(ala[p:p+2]))) if kind in('la','ab') else 0)+(abs(alb[q]-alb[q+15]) if kind in('lb','ab') else 0)  # level jump at the loop seam
+      if kind=='lx':dra=np.array(track(a)['g']['bar']['drums'],float);step+=abs(np.mean(dra[e-2:e])-np.mean(dra[p:p+2]))  # beat seam e-1 -> p
       r['pen']+=float(os.environ.get('SEAMPEN',8))*max(0,step-2);r['R']=round(rxc(a,b,list(wa),list(wb)),3);r['pen']+=float(os.environ.get('RPEN',300))*max(0,0.25-r['R'])
       skipped=(e_max-ea)+ib  # bars of music not heard
+      if kind in('la','ab'):r['pen']+=DIPPEN*loop_dip(a,p)
+      if kind=='ab':r['pen']+=DIPPEN*loop_dip(b,q)
       seq=[(e-1 if kind in('la','ab') else wa[0]-1)]+list(wa)[:X//2+2];seq=[k for k in seq if 0<=k<len(ha)]
       jump=max([abs(ha[seq[k]]-ha[seq[k-1]]) for k in range(1,len(seq))]+[0])  # outgoing level jumps across entry / first half (guardrail N1, C1)
       r['pen']+=float(os.environ.get('SEAMPEN',8))*max(0,jump-3)
@@ -171,14 +198,14 @@ def pair_cands(i,ia0):
       r['pen']+=float(os.environ.get('HOLEPEN',0))*hole
       if step>float(os.environ.get('SEAMMAX',2)) or r['both']<int(os.environ.get('BOTHMIN',11)):r['pen']+=float(os.environ.get('HARDPEN',60))  # hard limits: guardrail N1 (3 dB step) and O1 (>=8 bars)
       if CUEW>0:r['cue']=round(cue_pen(a,ea),3);r['pen']+=CUEW*r['cue']
-      sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',40))*{'n':0,'la':1,'lb':1,'ab':2}[kind],-ea,str(ib))
+      sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',40))*{'n':0,'la':1,'lb':1,'ab':2,'lx':0}[kind]+(LXPEN if kind=='lx' else 0),-ea,str(ib))
       if (kind,a,b,ea,ib,X) in STRK:sc=(sc[0]-STRUCTW-(float(os.environ.get('LOOPPEN',40)) if kind=='lb' else 0),)+sc[1:]  # blend length chosen per pair from structure + fit (the listener 2026-10-31)
-      res.append((sc,kind,(e,p) if kind in('la','ab') else e,ib,r,X))
+      res.append((sc,kind,(e,p) if kind in('la','ab','lx') else e,ib,r,X))
   X=XMAX;res.sort(key=lambda t:t[0]);return res
 def win_key(c):return [c[1],*(c[2] if isinstance(c[2],tuple) else (c[2],None)),c[3],c[5]]  # [kind, out bar, loop phrase, in bar, blend bars]
 def nxt_inn(c):return ("loopB",c[3]) if c[1] in("lb","ab") else c[3]
 LOOK=int(os.environ.get("LOOKAHEAD",8))
-KIND={}
+KIND={};LXD=set()
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];cs=pair_cands(i,inn[a])
   if os.environ.get("DBG_PAIR")==f"{a}>{b}":[print("DBG",round(c[0][0],1),c[1],c[2],c[3],c[5],round(c[4]["pen"],1),file=sys.stderr) for c in cs[:8]]
@@ -190,6 +217,7 @@ for i in range(len(ids)-1):
   else:best=cs[0]
   _,kind,e,ib,r,xt=best;XT[(a,b)]=xt;n=[]
   if kind=='ab':e,p=e;loops[a]=p;n.append(f'outgoing plays to bar {e}, then repeats its clean phrase {p}-{p+16}; incoming loops its clean phrase {ib}-{ib+16} through the blend, then continues from bar {ib+16}');ib=('loopB',ib)
+  elif kind=='lx':e,p=e;loops[a]=p;LXD.add(a);n.append(f'outgoing plays to bar {e}, fades over {LX_XF} bars to its drums+bass stem, then loops that beat-only phrase {p}-{p+beatstem.lx_len(a,p,LOOPDIP)} ({LX_PRE} bars before the blend, then under it): synthetic outro, real one too short or holds a fill')
   elif kind=='la':e,p=e;loops[a]=p;n.append(f'outgoing plays to bar {e}, then repeats its 16-bar phrase {p}-{p+16} under the blend (cleaner window than its real outro)')
   elif kind=='lb':n.append(f'incoming plays its 16-bar phrase {ib}-{ib+16} through the blend, then continues from bar {ib+16}');ib=('loopB',ib)
   else:n.append(f'mix points from full-track analysis: outgoing out at bar {e}, incoming in at bar {ib}')
@@ -203,8 +231,12 @@ for i,b in enumerate(ids):
   xi=XT.get((ids[i-1],b),X) if i else X;xo=XT.get((b,ids[i+1]),X) if i<len(ids)-1 else 0
   if isinstance(ib,tuple):m=[ib[1]+(k%16) for k in range(xi)];first=ib[1]+16;m+=list(range(first,outs[b]))
   else:m=list(range(ib,outs[b]))
-  if b in loops and i<len(ids)-1:m=m+[loops[b]+(k%16) for k in range(xo)]
-  decks.append(dict(id=b,start_bar=start,full_map=[[s,'mix'] for s in m]));start=start+len(m)-xo
+  fm=[[s,'mix'] for s in m]
+  if b in loops and i<len(ids)-1:
+    if b in LXD:L=beatstem.lx_len(b,loops[b],LOOPDIP);fm+=[[loops[b]+(k%L),'beat'] for k in range(LX_PRE+xo)]
+    else:fm+=[[loops[b]+(k%16),'mix'] for k in range(xo)]
+  decks.append(dict(id=b,start_bar=start,full_map=fm));start=start+len(fm)-xo
+  if b in LXD:decks[-1]['lx_xf']=LX_XF
 import os;sys.path.insert(0,'../src/tests');os.environ.setdefault('MIX_SRC','.');import checks as _C;KEYS=_C.keys()
 trans=[]
 for i in range(len(ids)-1):

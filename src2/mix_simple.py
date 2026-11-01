@@ -266,6 +266,7 @@ def echo_pick():
 EOS=echo_pick()
 for i in EOS:trans[i]['echo_out']=True;trans[i]['tech']+=' + 1-bar delay-tail exit'
 _ctx(None)
+BLEAD=float(os.environ.get('BASS_LEAD',1))
 def gA(x):return float(np.cos(x*np.pi/2))
 def gB(x):return float(np.sin(x*np.pi/2))
 for i,d in enumerate(decks):
@@ -278,8 +279,11 @@ for i,d in enumerate(decks):
     def ramp(c,up,w=SW):
       return [[c-w/2+w*j/16,round(float((1-np.cos(np.pi*j/16))/2 if up else (1+np.cos(np.pi*j/16))/2),5)] for j in range(17)]
     def at(t):return t['swap_bar']+(t['swap_w']/2 if t['swap_phrase'] else 0)  # phrase-snapped swaps start ON the boundary (incoming bass lands on the 1, not a bar early)
-    if i>0:lo+=ramp(at(trans[i-1]),True,trans[i-1]['swap_w'])
-    if i<len(decks)-1:lo+=ramp(at(trans[i]),False,trans[i]['swap_w'])
+    # BASS_LEAD (2026-11-01, Mix 05 v2 i18 L1 x3): the two lows used to ramp on the SAME raised cosine, so mid-swap both sat at
+    # -6 dB ('both decks carry full bass'). Outgoing low now leads by LEAD bars (same 4-bar shape, still monotonic): they cross ~-10 dB.
+    def lead(t):return (0.0,0.0) if t['a'] in PIN else (BLEAD,0.0) if t['swap_phrase'] else (BLEAD/2,BLEAD/2)  # phrase-snapped: incoming still lands on the 1
+    if i>0:lo+=ramp(at(trans[i-1])+lead(trans[i-1])[1],True,trans[i-1]['swap_w'])
+    if i<len(decks)-1:lo+=ramp(at(trans[i])-lead(trans[i])[0],False,trans[i]['swap_w'])
     d['auto']['low']=lo
     hi=([] if i==0 or trans[i-1]['high_bar'] is None else ramp(trans[i-1]['high_bar']+1,True,2))+([] if i==len(decks)-1 or trans[i]['high_bar'] is None else ramp(trans[i]['high_bar']+1,False,2))
     if hi:d['auto']['high']=hi

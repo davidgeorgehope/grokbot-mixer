@@ -25,7 +25,7 @@ import techniques as TQ
 LOVE={k for k in (json.load(open('track_prefs.json')) if os.path.exists('track_prefs.json') else {}) if not k.startswith('_')};LOVEW=float(os.environ.get('LOVEW',40))  # tracks the listener loves (goddard. - Lilies)
 def prefs():return {k:v for k,v in json.load(open('pair_prefs.json')).items() if not k.startswith('_')}
 BADC={}  # a>b -> [(window, guardrail code)] filled by bad_windows()
-HARDCODES=set(os.environ.get('HARDCODES','F1,G1,A1,S1').split(','))  # true hard rules: beats aligned (F1/G1), abrupt outgoing fade / silent-tail re-entry
+HARDCODES=set(os.environ.get('HARDCODES','A1').split(','))  # true hard rules: beats aligned (F1/G1), abrupt outgoing fade / silent-tail re-entry
 def badw_cost(k,w):
   """render-proved failures of this exact window: hard only for HARDCODES, else BADWPEN per failure (the render guardrail re-checks)"""
   c=[code for ww,code in BADC.get(k,[]) if ww==w]
@@ -229,7 +229,7 @@ def _rep_ok(bl):
 FAMBAN=int(os.environ.get('FAMBAN',0))  # ban n/la/lb siblings of a render-failed window (same exit, entry, length: same overlap audio)
 X16PEN=float(os.environ.get('X16PEN',30))
 import collections
-VOCPEN=float(os.environ.get('VOCPEN',25));BOTHSPEN=float(os.environ.get('BOTHSPEN',15));RSPEN=float(os.environ.get('RSPEN',400));MELSPEN=float(os.environ.get('MELSPEN',10));STEPSPEN=float(os.environ.get('STEPSPEN',20));BADWPEN=float(os.environ.get('BADWPEN',200));LXREPAIR=float(os.environ.get('LXREPAIR',60))
+VOCPEN=float(os.environ.get('VOCPEN',25));BOTHSPEN=float(os.environ.get('BOTHSPEN',15));RSPEN=float(os.environ.get('RSPEN',400));MELSPEN=float(os.environ.get('MELSPEN',10));STEPSPEN=float(os.environ.get('STEPSPEN',20));BADWPEN=float(os.environ.get('BADWPEN',40));LXREPAIR=float(os.environ.get('LXREPAIR',60))
 SOFT=int(os.environ.get('SOFT',1))  # 2026-11-01 (listener: no hard 'never' rules): voc/both/R/mel/step/W1-type bans are search costs; the render guardrails C2/O1/R1/N1/W1 still verify
 PROW=float(os.environ.get('PROW',0.15))
 def _pro_template():

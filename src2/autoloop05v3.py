@@ -15,37 +15,44 @@ def render(name,plan):
   if sh(f"python3 restore_audio.py >/dev/null && python3 mix_simple.py --plan {plan} --out {name} > {LOG}/{name}_render.log 2>&1 && bash ../src/master.sh {name}_raw.wav {MP3} 9.3 {name}_master.wav >> {LOG}/{name}_render.log 2>&1"):return None
   sh(f"python3 ../src/guardrails.py --name {name} --mp3 {MP3} --nudge nudge05n.json --png >> {LOG}/{name}_render.log 2>&1")
   G=json.load(open(f'guard_{name}/guardrails.json'));log(f"{name} ({plan}): {G['n_fail']} guardrail fails {G['by_check']}");return G
-best=None;plan='plan_mix05v2i18.json'
-START=int(os.environ.get('START',0));PINS={}
-# ANCHOR (the listener 2026-11-01 'original Mix 05 was very good, don't wreck it'): every Mix 05 (mix05n, 0 fails) blend that also exists in the
-# v2 order keeps its exact window + cue; only new pairs and failing ones are re-planned. A failing anchor = engine regression (diagnose).
-_M5=json.load(open('mix05n_meta.json'))['plan'];_O=[x for x in env.split('ORDER=')[1].split()[0].split(',')]
-_ids=[p['id'] for p in _M5];ANCHOR={f'{a}>{b}':p['out_win'] for p,a,b in zip(_M5,_ids,_ids[1:]) if f'{a}>{b}' in {f'{x}>{y}' for x,y in zip(_O,_O[1:])} and p.get('out_win')}
-json.dump(ANCHOR,open(f'{LOG}/anchor_mix05.json','w'),indent=1)
+best=None;START=int(os.environ.get('START',0))
+# the listener 2026-11-01 final framing: no defaults/anchors. Every blend: candidates (engine families + Mix 05 window + current + diagnose strategy),
+# rendered + tested + scored by the learned A/B model (blend_loop.py), best wins; the full mix is planned with those picks, rendered, tested,
+# diagnosed; failing blends go round again (<=ROUNDS); close calls -> A/B.
+import blend_loop,diagnose
+_O=env.split('ORDER=')[1].split()[0].split(',');PAIRS=[f'{x}>{y}' for x,y in zip(_O,_O[1:])]
+_P0=json.load(open('plan_mix05v2i18.json'));CUR={f"{p['id']}>{q['id']}":p.get('out_win') for p,q in zip(_P0,_P0[1:])};CH={};LO=set();todo=list(PAIRS);extra={}
+env=env.replace("PINW='"+env.split("PINW='")[1].split("'")[0]+"'","") if "PINW='" in env else env  # gold is a candidate like any other
+NJ=f'{LOG}/nudges.jsonl'
 for r in range(ROUNDS):
   name=f'mix05v3r{r}'
   if r<START:continue
-  if r>0 and os.path.exists(f'plan_{name}.json'):os.remove(f'plan_{name}.json')
-  if True:
-    plan=f'plan_{name}.json'
-    gold=json.loads(env.split("PINW='")[1].split("'")[0]) if "PINW='" in env else {};pw=json.dumps({**PINS,**ANCHOR,**gold})
-    log(f'round {r}: closed loop, {len(PINS)} blends re-planned with a new strategy (mix05v2/nudges.jsonl)')
-    rc=sh(f"{env} PINW='{pw}' VOCPEN=80 HARDCODES=A1 BADWPEN=40 python3 plan_search.py search --base plan_mix05v2_base.json --out {plan} --min 56 --max 63 --verify 100 --beam 600 > {LOG}/{name}_search.log 2>&1",t=int(os.environ.get('SEARCH_T',4200)))  # search ~33 min + dry-verify <=20 min (NPAR 4)
-    if not os.path.exists(plan) and PINS:  # pins too tight: same round, strategies as preferences only (planner free), never stuck
-      log(f'round {r}: pinned strategies gave no plan, retrying with anchors only');rc=sh(f"{env} PINW='{json.dumps({**ANCHOR,**gold})}' VOCPEN=80 HARDCODES=A1 BADWPEN=40 python3 plan_search.py search --base plan_mix05v2_base.json --out {plan} --min 56 --max 63 --verify 100 --beam 600 >> {LOG}/{name}_search.log 2>&1",t=int(os.environ.get('SEARCH_T',4200)))
-    if not os.path.exists(plan):log(f'round {r}: search gave no plan in time (rc {rc}); keeping best so far');break
-  G=json.load(open(f'guard_{name}/guardrails.json')) if os.environ.get('REUSE')==name else render(name,plan)
+  t0=time.time();picks,rep=blend_loop.run(todo,CUR,extra,tag=f'r{r}_',regress=PAIRS[:3] if r==0 else ())
+  json.dump(rep,open(f'{LOG}/blend_loop_{r}.json','w'),indent=1,default=float)
+  with open(NJ,'a') as f:
+    for x in rep['pairs']:f.write(json.dumps(dict(src='blend_loop',round=r,pair=x['pair'],strategy=x['pick'],win=x['win'],lead_off=x['lead_off'],cost=x['cost'],from_win=CUR.get(x['pair']),mix05_rank=x['mix05_rank'],margin=x['margin'],ts=time.strftime('%H:%M')+' ET'),default=float)+'\n')
+  CH.update(picks);LO|={x['pair'] for x in rep['pairs'] if x['lead_off']};LO-={x['pair'] for x in rep['pairs'] if not x['lead_off']}
+  os.environ['BASS_LEAD_OFF']=','.join(sorted(LO))
+  log(f"round {r}: blend loop {len(todo)} blends in {time.time()-t0:.0f}s; picks "+', '.join(f"{x['pair'][:4]}>{x['pair'].split('>')[1][:4]} {x['pick']}" for x in rep['pairs'])+f"; {len(rep['near_ab'])} close calls, {len(rep['regress_ab'])} regression A/B")
+  plan=f'plan_{name}.json'
+  if os.path.exists(plan):os.remove(plan)
+  rc=sh(f"{env} PINW='{json.dumps(CH)}' VOCPEN=80 HARDCODES=A1 BADWPEN=40 python3 plan_search.py search --base plan_mix05v2_base.json --out {plan} --min 56 --max 63 --verify 100 --beam 600 > {LOG}/{name}_search.log 2>&1",t=int(os.environ.get('SEARCH_T',4200)))
+  if not os.path.exists(plan):
+    log(f'round {r}: picked blends do not chain into a 56-63 min plan, re-planning with picks as candidates only (unpinned)')
+    rc=sh(f"{env} VOCPEN=80 HARDCODES=A1 BADWPEN=40 python3 plan_search.py search --base plan_mix05v2_base.json --out {plan} --min 56 --max 63 --verify 100 --beam 600 >> {LOG}/{name}_search.log 2>&1",t=int(os.environ.get('SEARCH_T',4200)))
+  if not os.path.exists(plan):log(f'round {r}: no plan (rc {rc}); keeping best so far');break
+  G=render(name,plan)
   if G is None:log(f'round {r}: render failed');continue
-  import diagnose;D=diagnose.run(name,r);G['diag']=D  # investigate every failing render (the listener 2026-11-01)
+  D=diagnose.run(name,r);(diagnose.results(r-1,name,r) if r>0 else None)
   log(f"round {r} diagnose: "+', '.join(f"{o['check']}x{o['n']} {o['cls']}" for o in D['classes'])+(' -- REGRESSION, round blocked from delivery, see mix05v2/diagnose_%d.md'%r if D['regression'] else ''))
-  if r>0:diagnose.results(r-1,name,r)
-  PINS,_sl=diagnose.strategies(name,r,anchor=ANCHOR) if r<ROUNDS-1 and G['n_fail'] else ({},[])
-  if _sl:log(f'round {r}: next strategies '+'; '.join(f"{x['pair'][:4]}>{x['pair'].split('>')[1][:4]} {x['fails']} -> {x['win']}" for x in _sl))
-  if D['regression']:
-    continue
-  if best is None or G['n_fail']<best[1]['n_fail']:best=(name,G,plan)
-  elif r>0:log(f'round {r}: no improvement, stopping');break
-  if G['n_fail']==0:break
+  Pn=json.load(open(plan));CUR={f"{p['id']}>{q['id']}":p.get('out_win') for p,q in zip(Pn,Pn[1:])}
+  M_=json.load(open(f'{name}_meta.json'));bad=set()
+  for o in D['classes']:
+    if o['cls']=='FALSE_POS':continue
+    for w in o['where']:t=M_['trans'][int(w.split(' trans ')[1].split()[0])];bad.add(f"{t['a']}>{t['b']}")
+  todo=sorted(bad);_p,_sl=diagnose.strategies(name,r) if bad and r<ROUNDS-1 else ({},[]);extra={k:[w] for k,w in _p.items()}
+  if not D['regression'] and (best is None or G['n_fail']<best[1]['n_fail']):best=(name,G,plan)
+  if G['n_fail']==0 or not todo:break
 if best is None:
   log('every round shows an engine REGRESSION: delivery blocked; see mix05v2/diagnose_*.md');open(f'{LOG}/BLOCKED','w').write('regression');sys.exit(2)
 name,G,plan=best;M=json.load(open(f'{name}_meta.json'));T=M['trans'];BAR=M['bar_sec']
@@ -57,7 +64,7 @@ for f in G['failures']:
 flags=[dict(t=time.strftime('%M:%S',time.gmtime(T[i]['start_bar']*BAR)),pair=f"{T[i]['a']}>{T[i]['b']}",checks=sorted(set(c))) for i,c in sorted(fl.items())]
 # A/B: 2-3 alternatives per flagged blend (current window first), real engine snippets
 import blend_bench as BB,shutil;os.makedirs(BB.SCR,exist_ok=True);AB=f'{R}/deliver/ab';os.makedirs(AB,exist_ok=True)
-for f in glob.glob(f'{AB}/*'):os.remove(f)
+for f in glob.glob(f'{AB}/flag*'):os.remove(f)  # keep near_*/regress_* from blend_loop
 items=[];P_={p['id']:p for p in M['plan']}
 for k,fx in enumerate(flags,1):
   a,b=fx['pair'].split('>')

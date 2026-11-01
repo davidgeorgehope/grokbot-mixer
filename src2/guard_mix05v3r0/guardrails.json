@@ -27,13 +27,14 @@
   "dc": 0.0001433405268471688,
   "grid": []
  },
- "n_fail": 13,
+ "n_fail": 14,
  "by_check": {
   "V1": 4,
   "W1": 4,
   "C2": 1,
   "R1": 1,
   "O1": 2,
+  "G1": 1,
   "N1": 1
  },
  "failures": [
@@ -137,11 +138,18 @@
    "trans": 13
   },
   {
+   "check": "G1",
+   "t": "45:22",
+   "t_end": "45:25",
+   "sec": 2722.76,
+   "msg": "beat-phase jump +8 ms between adjacent 2-bar windows"
+  },
+  {
    "check": "N1",
    "t": "45:25",
    "t_end": "45:26",
    "sec": 2725.52,
-   "msg": "master level step +9.9 dB at entry",
+   "msg": "master level step +8.6 dB at entry",
    "trans": 15
   },
   {

@@ -230,6 +230,7 @@ FAMBAN=int(os.environ.get('FAMBAN',0))  # ban n/la/lb siblings of a render-faile
 X16PEN=float(os.environ.get('X16PEN',30))
 import collections
 VOCPEN=float(os.environ.get('VOCPEN',25));BOTHSPEN=float(os.environ.get('BOTHSPEN',15));RSPEN=float(os.environ.get('RSPEN',400));MELSPEN=float(os.environ.get('MELSPEN',10));STEPSPEN=float(os.environ.get('STEPSPEN',20));BADWPEN=float(os.environ.get('BADWPEN',40));LXREPAIR=float(os.environ.get('LXREPAIR',60))
+PREFWIN=json.loads(os.environ.get('PREFWIN','{}'));PREFPEN=float(os.environ.get('PREFPEN',60))  # the listener 2026-11-01: keep good Mix 05 choices as a strong soft preference
 SOFT=int(os.environ.get('SOFT',1))  # 2026-11-01 (listener: no hard 'never' rules): voc/both/R/mel/step/W1-type bans are search costs; the render guardrails C2/O1/R1/N1/W1 still verify
 PROW=float(os.environ.get('PROW',0.15))
 def _pro_template():
@@ -260,6 +261,7 @@ def _pro_shape(w):
 def soft_cost(k,w,PR):
   """search cost for what used to be a pre-reject"""
   c=VOCPEN*w['voc']+BOTHSPEN*max(0,BOTHMIN-w['both'])+(RSPEN*max(0,0.2-w['R']) if k not in RELAXR else 0)+MELSPEN*max(0,w['mel']-MELMAX)+(STEPSPEN*max(0,w['step']-STEPMAX) if PR.get(k,3)<4 else 0)
+  if k in PREFWIN and w['w']!=PREFWIN[k]:c+=PREFPEN  # soft preference (Mix 05 blends / closed-loop strategy): a cost to deviate, never a lock
   return c
 DBG=collections.Counter() if os.environ.get('PSDBG') else None
 KILL=collections.Counter() if os.environ.get('PSKILL') else None
@@ -289,12 +291,14 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             _k=f'{a}>{b}';_bc=badw_cost(_k,w['w']) if SOFT else (None if w['w'] in BADW.get(_k,[]) else 0)
             _why=('boff' if w['boff']>BOFFMAX else 'badw' if _bc is None else 'valid' if not _valid(tr[a],w['w'],ia) else None) if SOFT else ('voc' if w['voc'] else 'both' if w['both']<BOTHMIN else 'R' if (w['R']<0.2 and _k not in RELAXR) else 'mel' if w['mel']>MELMAX else 'boff' if w['boff']>BOFFMAX else 'badw' if _bc is None else 'step' if (w['step']>STEPMAX and PR.get(_k,3)<4) else 'valid' if not _valid(tr[a],w['w'],ia) else None)
             if KILL is not None:KILL[(a[:4]+'>'+b[:4],'seen')]+=1
+            _pin=f'{a}>{b}' in PINW or PREFWIN.get(f'{a}>{b}')==w['w']  # pinned = already proven by a render (Mix 05 anchor / gold / closed-loop strategy): table filters don't apply
+            if _pin:_why=None
             if _why:
               if KILL is not None:KILL[(a[:4]+'>'+b[:4],_why)]+=1
               continue
             m=_deck(st['inn'],e,p,X if p is not None else 0,kind,a)
             cov,lull,sec=K.close(a,m,st['lin'],w['lv'],st['bars']-st['inn'][2])
-            if cov<0.5 or lull>E4X.get(a,E4_BARS) or (tr[a]['anchor'] and sec<C.MIN_ANCHOR_S):
+            if not _pin and (cov<0.5 or lull>E4X.get(a,E4_BARS) or (tr[a]['anchor'] and sec<C.MIN_ANCHOR_S)):
               if DBG is not None and w['w'][3]==80 and a.startswith('h1R'):DBG[(tuple(w['w']),st['inn'],round(cov,2),lull)]+=1
               if DBG is not None:DBG[(a,b,'cov' if cov<0.5 else ('lull',int(lull)) if lull>E4X.get(a,E4_BARS) else 'anchor')]+=1
               if KILL is not None:KILL[(a[:4]+'>'+b[:4],'cov' if cov<0.5 else 'lull' if lull>E4X.get(a,E4_BARS) else 'anchor')]+=1

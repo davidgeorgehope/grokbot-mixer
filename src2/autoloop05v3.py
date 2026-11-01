@@ -16,22 +16,30 @@ def render(name,plan):
   sh(f"python3 ../src/guardrails.py --name {name} --mp3 {MP3} --nudge nudge05n.json --png >> {LOG}/{name}_render.log 2>&1")
   G=json.load(open(f'guard_{name}/guardrails.json'));log(f"{name} ({plan}): {G['n_fail']} guardrail fails {G['by_check']}");return G
 best=None;plan='plan_mix05v2i18.json'
+START=int(os.environ.get('START',0))
 for r in range(ROUNDS):
   name=f'mix05v3r{r}'
+  if r<START:continue
   if r>0:
     plan=f'plan_{name}.json'
-    rc=sh(f"{env} HARDCODES=A1 BADWPEN=40 python3 plan_search.py search --base plan_mix05v2_base.json --out {plan} --min 56 --max 63 --verify 100 --beam 600 > {LOG}/{name}_search.log 2>&1",t=2400)
+    rc=sh(f"{env} HARDCODES=A1 BADWPEN=40 python3 plan_search.py search --base plan_mix05v2_base.json --out {plan} --min 56 --max 63 --verify 100 --beam 600 > {LOG}/{name}_search.log 2>&1",t=int(os.environ.get('SEARCH_T',4200)))  # search ~33 min + dry-verify <=20 min (NPAR 4)
     if not os.path.exists(plan):log(f'round {r}: search gave no plan in time (rc {rc}); keeping best so far');break
   G=render(name,plan)
   if G is None:log(f'round {r}: render failed');continue
+  import diagnose;D=diagnose.run(name,r);G['diag']=D  # investigate every failing render (the listener 2026-11-01)
+  log(f"round {r} diagnose: "+', '.join(f"{o['check']}x{o['n']} {o['cls']}" for o in D['classes'])+(' -- REGRESSION, round blocked from delivery, see mix05v2/diagnose_%d.md'%r if D['regression'] else ''))
+  if D['regression']:
+    continue
   if best is None or G['n_fail']<best[1]['n_fail']:best=(name,G,plan)
   elif r>0:log(f'round {r}: no improvement, stopping');break
   if G['n_fail']==0:break
+if best is None:
+  log('every round shows an engine REGRESSION: delivery blocked; see mix05v2/diagnose_*.md');open(f'{LOG}/BLOCKED','w').write('regression');sys.exit(2)
 name,G,plan=best;M=json.load(open(f'{name}_meta.json'));T=M['trans'];BAR=M['bar_sec']
 fl={}
 for f in G['failures']:
-  i=f.get('trans',f.get('trans_guess'))
-  if i is None:i=min(range(len(T)),key=lambda k:abs(f['sec']/BAR-T[k]['start_bar']))
+  import diagnose;i=f.get('trans',f.get('trans_guess'))
+  if i is None:i=diagnose.trans_of(f,name)  # V1 rows carry sec=0 + t_hint; old mapping pinned them all to trans 0
   fl.setdefault(i,[]).append(f['check'])
 flags=[dict(t=time.strftime('%M:%S',time.gmtime(T[i]['start_bar']*BAR)),pair=f"{T[i]['a']}>{T[i]['b']}",checks=sorted(set(c))) for i,c in sorted(fl.items())]
 # A/B: 2-3 alternatives per flagged blend (current window first), real engine snippets

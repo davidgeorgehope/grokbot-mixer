@@ -39,6 +39,13 @@ def render_deck(d):
     if int(os.environ.get('LX_PHASE',1)) and k0>=2:
       sh=_lx_shift(y,yb,k0)
       if sh:yb=_bars(tr,m,tr['st']['beat'],n,extra={k:sh for k,c in enumerate(src) if c=='beat'})
+    # LX_TRIM (2026-11-01, Mix 05 v2 r0 N1 +9.9 dB at 45:25 AC3e>n1dO): the drums+bass stem sits ~6-7 dB under the full mix it replaces,
+    # so the beat-only bars left a dip and the blend entry read as a level step. One static source trim on the stem (channel gain, not a
+    # per-bar ride; the crossfader stays one monotonic curve per deck): match the stem to the mix bars before the switch, LX_TRIM_DB under, cap +9 dB.
+    if int(os.environ.get('LX_TRIM',1)) and k0>=4:
+      i=int(round(k0*BS));L=int(round(4*BS));r=lambda z:float(np.sqrt(np.mean(z**2))+1e-9)
+      if i+L<=len(yb):
+        g=r(y[i-L:i])/r(yb[i:i+L])*10**(-float(os.environ.get('LX_TRIM_DB',1.5))/20);yb=yb*float(np.clip(g,1.0,10**(9/20)))
     w=np.clip((np.arange(n)/BS-(k0-xf))/max(xf,1e-9),0,1).astype(np.float32)
     y=y*(1-w[:,None])+yb*w[:,None]
   for lane,kind,fc in (('low','low',XO),('high','high',HXO)):

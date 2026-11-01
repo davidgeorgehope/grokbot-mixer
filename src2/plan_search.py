@@ -412,24 +412,34 @@ if __name__=='__main__':
     print(f'search {st}s, {len(done)} complete plans, {sum(not d["fails"] for d in done)} meet every target on the table')
     best=None;w1best=None;tried=[];seen=set()  # dry-verify distinct orders (near-identical window variants share the same failure)
     req=[x for x in arg('--require','').split(',') if x]  # pairs that must appear, e.g. a 5/5-rated blend: 2s3M6oX2lfo>nT25guf4DRU
-    for d in [d for d in done if not d['fails'] and all(r in {f"{w['a']}>{w['b']}" for w in d['bl']} for r in req)]:
-      vk=tuple(tuple(w['w']) for w in d['bl']) if ORDER else tuple(d['seq'])  # fixed ORDER: every plan shares one seq, so dedupe on windows (else only 1 plan is ever dry-verified)
-      if vk in seen:continue
-      _sbf=os.environ.get('SEESAW_BANFILE')  # skip plans that reuse a window already dry-run-failed on W1 (same check, just not re-tested)
-      if _sbf and os.path.exists(_sbf):
-        _SB=json.load(open(_sbf))
-        if any(w['w'] in _SB.get(f"{w['a']}>{w['b']}",[]) for w in d['bl']):continue
-      if len(seen)>=int(arg('--verify',25)):break
-      seen.add(vk);P=to_plan(d,base);v=dry(P,len(seen));tried.append((d['pred'],v.get('tests',v),v.get('E4')))
-      SBF=os.environ.get('SEESAW_BANFILE')
-      if SBF and v.get('seesaw_fail'):
-        SB=json.load(open(SBF)) if os.path.exists(SBF) else {};W={f"{w['a']}>{w['b']}":w['w'] for w in d['bl']}
-        for k in v['seesaw_fail']:
-          if k in W and W[k] not in SB.setdefault(k,[]):SB[k].append(W[k])
-        json.dump(SB,open(SBF,'w'))
-      if v.get('all_ok'):best=(P,d,v);break
-      if SOFT and isinstance(v.get('tests'),dict) and all(ok for t,ok in v['tests'].items() if t!='seesaw'):
-        if not w1best or len(v.get('seesaw_fail',[]))<len(w1best[2].get('seesaw_fail',[])):w1best=(P,d,v)  # W1 only: predicted penalty; render guardrail W1 verifies, its ban then costs BADWPEN and pulls 'lx' repairs
+    # 2026-11-01 14:05: dry runs are ~37 s each and ran one at a time with no output, so --verify 100 took ~60 min, past autoloop's 40 min
+    # search timeout (looked hung). Now NPAR (4) dry runs in parallel, a progress line per run, and a DRY_BUDGET_S wall cap (default 1200 s).
+    from concurrent.futures import ThreadPoolExecutor
+    NPAR=int(os.environ.get('NPAR',4));BUD=float(os.environ.get('DRY_BUDGET_S',1200));tv=time.time()
+    pool=[d for d in done if not d['fails'] and all(r in {f"{w['a']}>{w['b']}" for w in d['bl']} for r in req)];pi=0
+    print(f'dry-verify: {len(pool)} candidate plans, up to {arg("--verify",25)} distinct, {NPAR} parallel, budget {BUD:.0f}s',flush=True)
+    while not best and pi<len(pool) and len(seen)<int(arg('--verify',25)) and time.time()-tv<BUD:
+      _sbf=os.environ.get('SEESAW_BANFILE');_SB=json.load(open(_sbf)) if _sbf and os.path.exists(_sbf) else {}
+      batch=[]
+      while pi<len(pool) and len(batch)<NPAR and len(seen)<int(arg('--verify',25)):
+        d=pool[pi];pi+=1
+        vk=tuple(tuple(w['w']) for w in d['bl']) if ORDER else tuple(d['seq'])  # fixed ORDER: dedupe on windows
+        if vk in seen or any(w['w'] in _SB.get(f"{w['a']}>{w['b']}",[]) for w in d['bl']):continue
+        seen.add(vk);batch.append((d,to_plan(d,base),len(seen)))
+      if not batch:break
+      with ThreadPoolExecutor(len(batch)) as ex:res=list(ex.map(lambda x:dry(x[1],x[2]),batch))
+      for (d,P,k),v in zip(batch,res):
+        tried.append((d['pred'],v.get('tests',v),v.get('E4')))
+        print(f"dry {k}: {'ALL OK' if v.get('all_ok') else 'fail '+str([t for t,o in (v.get('tests') or {}).items() if not o] or v.get('error'))} ({time.time()-tv:.0f}s)",flush=True)
+        SBF=os.environ.get('SEESAW_BANFILE')
+        if SBF and v.get('seesaw_fail'):
+          SB=json.load(open(SBF)) if os.path.exists(SBF) else {};W={f"{w['a']}>{w['b']}":w['w'] for w in d['bl']}
+          for kk in v['seesaw_fail']:
+            if kk in W and W[kk] not in SB.setdefault(kk,[]):SB[kk].append(W[kk])
+          json.dump(SB,open(SBF,'w'))
+        if v.get('all_ok') and not best:best=(P,d,v)
+        if SOFT and isinstance(v.get('tests'),dict) and all(ok for t,ok in v['tests'].items() if t!='seesaw'):
+          if not w1best or len(v.get('seesaw_fail',[]))<len(w1best[2].get('seesaw_fail',[])):w1best=(P,d,v)
     if not best and SOFT and not w1best and done:  # never end with 'no plan': best-scoring option, flagged
       d=done[0];P=to_plan(d,base);v=dry(P,'fb');best=(P,d,v);print('FLAGGED fallback plan: fails',d['fails'],'dry',{k:o for k,o in (v.get('tests') or {}).items() if not o},flush=True)
     if not best and SOFT and w1best:best=w1best;print('W1-only plan chosen (predicted see-saw on',w1best[2].get('seesaw_fail'),')',flush=True)

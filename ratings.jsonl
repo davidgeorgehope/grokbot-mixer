@@ -1,17 +1,22 @@
-{"mix":"mix01","t":"overall","rating":4}
-{"mix":"mix02","t":"overall","rating":4}
-{"mix":"mix03-refill","t":"overall","rating":4}
-{"mix":"mix03-refill","t":"15:00","rating":2,"note":"a bit weird around 15"}
-{"mix":"mix03-refill","t":"30:56","rating":5,"note":"banger, overtook mix 1"}
-{"mix":"mix03-refill","t":"34:05","rating":1,"note":"really bad"}
-{"date":"2026-10-29","mix":"04","time":"24:16","blend":"U & I -> Alone","rating":3.5,"note":"listener: pretty good, 3 or 4/5; ears suspect was false positive"}
-{"date":"2026-10-29","mix":"03v2","time":"2:57-3:10","blend":"Supernova -> Solitude","rating":3,"note":"listener: not bad, a little weird; ears suspect was a true positive"}
-{"date":"2026-10-29","mix":"03v2","time":"51:52","blend":"When My Love -> Half Life","rating":4,"note":"listener: really good; ears suspect was false positive"}
-{"date":"2026-10-29","mix":"03v2-AB","time":"8:05","blend":"Solitude -> next (n1dOiesZS1g -> cxS6yd0UAxw)","choice":"B","A":"bass swap only (old default)","B":"phrase-snapped bass swap + separate high swap","note":"listener: I think b was smoother -> B is engine default from Mix 05"}
-{"date":"2026-10-29","mix":"echo-AB","time":"1:00","blend":"Alone -> Green Light (OPuVVhbkicU -> 5gFutO20uKA)","choice":"B","A":"no echo-out","B":"1-bar delay-tail exit (ECHO_OUT=1)","note":"listener: Yeah that is nice -> ECHO_OUT default on from Mix 05"}
-{"mix":"mix05n","t":"5:53","pair":"rpIpJQ7ujzc>OPuVVhbkicU","rating":3,"note":"fine, unsure, maybe likes it more; ears suspect","date":"2026-10-29"}
-{"mix":"mix05n","t":"41:12","pair":"nAV4i1YIwQI>EiZVTuiqo0w","rating":3,"note":"fine, unsure; ears suspect","date":"2026-10-29"}
-{"date":"2026-10-31","mix":"mix05n","t":"55:10","pair":"j9AuFRpLk7U>cxS6yd0UAxw","blend":"goddard. - Lilies -> Just Hold On (Pola & Bryson remix)","rating":5,"note":"listener: fucking amazing. Gold reference: outgoing plays its full outro to its music end, incoming loops last intro phrase 48-64 and its drop (bar 64) lands at the blend end, 32 bars, bass swap at bar 11, no high swap, no echo on this blend"}
-{"date":"2026-10-31","track":"j9AuFRpLk7U","title":"goddard. - Lilies","love":true,"note":"listener: favourite track right now"}
-{"mix":"06","t":"27:35","pair":"sObzaBqaBRQ>q_cZZY0BehE","rating":3,"note":"listener: ~28:00 a bit weird; outgoing 16-bar phrase repeat 160-176","date":"2026-10-31"}
-{"mix":"06","t":"28:00","pair":"sObzaBqaBRQ>q_cZZY0BehE","rating":2,"note":"listener: tracks fight each other, fading randomly in and out (level pumping/see-saw between decks)","date":"2026-10-31"}
+{"mix": "mix01", "t": "overall", "rating": 4}
+{"mix": "mix02", "t": "overall", "rating": 4}
+{"mix": "mix03-refill", "t": "overall", "rating": 4}
+{"mix": "mix03-refill", "t": "15:00", "rating": 2, "note": "a bit weird around 15"}
+{"mix": "mix03-refill", "t": "30:56", "rating": 5, "note": "banger, overtook mix 1"}
+{"mix": "mix03-refill", "t": "34:05", "rating": 1, "note": "really bad"}
+{"date": "2026-10-29", "mix": "04", "time": "24:16", "blend": "U & I -> Alone", "rating": 3.5, "note": "listener: pretty good, 3 or 4/5; ears suspect was false positive"}
+{"date": "2026-10-29", "mix": "03v2", "time": "2:57-3:10", "blend": "Supernova -> Solitude", "rating": 3, "note": "listener: not bad, a little weird; ears suspect was a true positive"}
+{"date": "2026-10-29", "mix": "03v2", "time": "51:52", "blend": "When My Love -> Half Life", "rating": 4, "note": "listener: really good; ears suspect was false positive"}
+{"date": "2026-10-29", "mix": "03v2-AB", "time": "8:05", "blend": "Solitude -> next (n1dOiesZS1g -> cxS6yd0UAxw)", "choice": "B", "A": "bass swap only (old default)", "B": "phrase-snapped bass swap + separate high swap", "note": "listener: I think b was smoother -> B is engine default from Mix 05"}
+{"date": "2026-10-29", "mix": "echo-AB", "time": "1:00", "blend": "Alone -> Green Light (OPuVVhbkicU -> 5gFutO20uKA)", "choice": "B", "A": "no echo-out", "B": "1-bar delay-tail exit (ECHO_OUT=1)", "note": "listener: Yeah that is nice -> ECHO_OUT default on from Mix 05"}
+{"mix": "mix05n", "t": "5:53", "pair": "rpIpJQ7ujzc>OPuVVhbkicU", "rating": 3, "note": "fine, unsure, maybe likes it more; ears suspect", "date": "2026-10-29"}
+{"mix": "mix05n", "t": "41:12", "pair": "nAV4i1YIwQI>EiZVTuiqo0w", "rating": 3, "note": "fine, unsure; ears suspect", "date": "2026-10-29"}
+{"date": "2026-10-31", "mix": "mix05n", "t": "55:10", "pair": "j9AuFRpLk7U>cxS6yd0UAxw", "blend": "goddard. - Lilies -> Just Hold On (Pola & Bryson remix)", "rating": 5, "note": "listener: fucking amazing. Gold reference: outgoing plays its full outro to its music end, incoming loops last intro phrase 48-64 and its drop (bar 64) lands at the blend end, 32 bars, bass swap at bar 11, no high swap, no echo on this blend"}
+{"date": "2026-10-31", "track": "j9AuFRpLk7U", "title": "goddard. - Lilies", "love": true, "note": "listener: favourite track right now"}
+{"mix": "06", "t": "27:35", "pair": "sObzaBqaBRQ>q_cZZY0BehE", "rating": 3, "note": "listener: ~28:00 a bit weird; outgoing 16-bar phrase repeat 160-176", "date": "2026-10-31"}
+{"mix": "06", "t": "28:00", "pair": "sObzaBqaBRQ>q_cZZY0BehE", "rating": 2, "note": "listener: tracks fight each other, fading randomly in and out (level pumping/see-saw between decks)", "date": "2026-10-31"}
+{"ts": "2026-11-01T09:41-05:00", "type": "ab", "pair": "j9AuFRpLk7U>cxS6yd0UAxw", "file": "deliver/ab/ab1", "winner": "B", "winner_desc": "gold 5/5 version (outro-over-intro, dip before drop)", "loser_desc": "model pick cue_late natural outro", "winner_fam": "rated", "loser_fam": "cue_late", "weight": 3}
+{"ts": "2026-11-01T09:42-05:00", "type": "ab_note", "pair": "j9AuFRpLk7U>cxS6yd0UAxw", "file": "deliver/ab/ab1", "note": "A is ok, B liked a lot (strong preference for gold)"}
+{"ts": "2026-11-01T09:46-05:00", "type": "ab", "pair": "rpIpJQ7ujzc>OPuVVhbkicU", "file": "deliver/ab/ab2", "winner": "B", "winner_desc": "model runner-up (A was model pick: beat-only outro vs outgoing loop, margin 0.21)", "winner_fam": "out_loop", "loser_fam": "lx_beat", "weight": 2}
+{"ts": "2026-11-01T09:48-05:00", "type": "ab", "pair": "nAV4i1YIwQI>EiZVTuiqo0w", "file": "deliver/ab/ab3", "winner": "B", "strength": "weak", "note": "really close, toss-up, slight lean B", "winner_fam": "out_loop", "loser_fam": "nat_short", "weight": 1}
+{"ts": "2026-11-01T09:51-05:00", "type": "ab", "pair": "sObzaBqaBRQ>q_cZZY0BehE", "file": "deliver/ab/ab4", "winner": "A", "winner_desc": "model pick (quiet sneak-in vs late cue)", "winner_fam": "sneak_in", "loser_fam": "cue_late", "weight": 2}

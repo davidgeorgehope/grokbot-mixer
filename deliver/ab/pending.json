@@ -1,0 +1,70 @@
+{
+ "date": "2026-11-01 09:54 EST",
+ "note": "near-tied blend versions for the listener to A/B; engine already picked the best and flagged these, mix is not blocked",
+ "items": [
+  {
+   "n": 1,
+   "why": "model top vs your rated version",
+   "pair": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "rating": 5,
+   "margin": 0.01,
+   "A": {
+    "file": "/workspace/mixes/deliver/ab/ab1_j9AuFRpLk7U_to_cxS6yd0UAxw_A.mp3",
+    "fam": "in_loop",
+    "win": [
+     "lb",
+     176,
+     null,
+     48,
+     32
+    ],
+    "cost": 1.441
+   },
+   "B": {
+    "file": "/workspace/mixes/deliver/ab/ab1_j9AuFRpLk7U_to_cxS6yd0UAxw_B.mp3",
+    "fam": "rated",
+    "win": [
+     "lb",
+     176,
+     null,
+     48,
+     32
+    ],
+    "cost": 1.451
+   },
+   "status": "pending"
+  },
+  {
+   "n": 4,
+   "why": "top two within margin",
+   "pair": "sObzaBqaBRQ>q_cZZY0BehE",
+   "rating": 2,
+   "margin": 0.776,
+   "A": {
+    "file": "/workspace/mixes/deliver/ab/ab4_sObzaBqaBRQ_to_q_cZZY0BehE_A.mp3",
+    "fam": "sneak_in",
+    "win": [
+     "n",
+     144,
+     null,
+     0,
+     32
+    ],
+    "cost": 4.471
+   },
+   "B": {
+    "file": "/workspace/mixes/deliver/ab/ab4_sObzaBqaBRQ_to_q_cZZY0BehE_B.mp3",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     176,
+     null,
+     64,
+     16
+    ],
+    "cost": 5.247
+   },
+   "status": "pending"
+  }
+ ]
+}

@@ -4,18 +4,18 @@
   "why": "model top vs your rated version",
   "pair": "j9AuFRpLk7U>cxS6yd0UAxw",
   "rating": 5,
-  "margin": 3.958,
+  "margin": 0.01,
   "A": {
    "file": "/workspace/mixes/deliver/ab/ab1_j9AuFRpLk7U_to_cxS6yd0UAxw_A.mp3",
-   "fam": "cue_late",
+   "fam": "in_loop",
    "win": [
-    "n",
+    "lb",
     176,
     null,
-    80,
+    48,
     32
    ],
-   "cost": 3.029
+   "cost": 1.441
   },
   "B": {
    "file": "/workspace/mixes/deliver/ab/ab1_j9AuFRpLk7U_to_cxS6yd0UAxw_B.mp3",
@@ -27,48 +27,17 @@
     48,
     32
    ],
-   "cost": 6.987
+   "cost": 1.451
   }
  },
  {
   "n": 2,
   "why": "top two within margin",
-  "pair": "rpIpJQ7ujzc>OPuVVhbkicU",
-  "rating": 3,
-  "margin": 0.209,
-  "A": {
-   "file": "/workspace/mixes/deliver/ab/ab2_rpIpJQ7ujzc_to_OPuVVhbkicU_A.mp3",
-   "fam": "lx_beat",
-   "win": [
-    "lx",
-    96,
-    32,
-    16,
-    16
-   ],
-   "cost": 3.985
-  },
-  "B": {
-   "file": "/workspace/mixes/deliver/ab/ab2_rpIpJQ7ujzc_to_OPuVVhbkicU_B.mp3",
-   "fam": "out_loop",
-   "win": [
-    "la",
-    112,
-    96,
-    16,
-    16
-   ],
-   "cost": 4.194
-  }
- },
- {
-  "n": 3,
-  "why": "top two within margin",
   "pair": "nAV4i1YIwQI>EiZVTuiqo0w",
   "rating": 3,
-  "margin": 1.383,
+  "margin": 0.015,
   "A": {
-   "file": "/workspace/mixes/deliver/ab/ab3_nAV4i1YIwQI_to_EiZVTuiqo0w_A.mp3",
+   "file": "/workspace/mixes/deliver/ab/ab2_nAV4i1YIwQI_to_EiZVTuiqo0w_A.mp3",
    "fam": "nat_short",
    "win": [
     "n",
@@ -77,10 +46,10 @@
     0,
     16
    ],
-   "cost": 4.609
+   "cost": 4.348
   },
   "B": {
-   "file": "/workspace/mixes/deliver/ab/ab3_nAV4i1YIwQI_to_EiZVTuiqo0w_B.mp3",
+   "file": "/workspace/mixes/deliver/ab/ab2_nAV4i1YIwQI_to_EiZVTuiqo0w_B.mp3",
    "fam": "out_loop",
    "win": [
     "la",
@@ -89,7 +58,38 @@
     0,
     16
    ],
-   "cost": 5.992
+   "cost": 4.363
+  }
+ },
+ {
+  "n": 3,
+  "why": "top two within margin",
+  "pair": "rpIpJQ7ujzc>OPuVVhbkicU",
+  "rating": 3,
+  "margin": 0.138,
+  "A": {
+   "file": "/workspace/mixes/deliver/ab/ab3_rpIpJQ7ujzc_to_OPuVVhbkicU_A.mp3",
+   "fam": "lx_beat",
+   "win": [
+    "lx",
+    96,
+    32,
+    16,
+    16
+   ],
+   "cost": 3.404
+  },
+  "B": {
+   "file": "/workspace/mixes/deliver/ab/ab3_rpIpJQ7ujzc_to_OPuVVhbkicU_B.mp3",
+   "fam": "out_loop",
+   "win": [
+    "la",
+    112,
+    96,
+    16,
+    16
+   ],
+   "cost": 3.542
   }
  },
  {
@@ -97,7 +97,7 @@
   "why": "top two within margin",
   "pair": "sObzaBqaBRQ>q_cZZY0BehE",
   "rating": 2,
-  "margin": 1.64,
+  "margin": 0.776,
   "A": {
    "file": "/workspace/mixes/deliver/ab/ab4_sObzaBqaBRQ_to_q_cZZY0BehE_A.mp3",
    "fam": "sneak_in",
@@ -108,19 +108,19 @@
     0,
     32
    ],
-   "cost": 4.673
+   "cost": 4.471
   },
   "B": {
    "file": "/workspace/mixes/deliver/ab/ab4_sObzaBqaBRQ_to_q_cZZY0BehE_B.mp3",
-   "fam": "cue_late",
+   "fam": "nat_short",
    "win": [
     "n",
-    144,
+    176,
     null,
-    80,
-    32
+    64,
+    16
    ],
-   "cost": 6.313
+   "cost": 5.247
   }
  }
 ]

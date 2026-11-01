@@ -128,6 +128,8 @@ def measure(c,dk,M):
   w1=[k for k,v in dict(OUT_RISE=rise>SS.OUT_RISE_DB,WOBBLE=wob>=SS.WOB_N,ANTI=r<=SS.ANTI_R and da[ok].std()>=SS.ANTI_DB and db_[ok].std()>=SS.ANTI_DB).items() if v]
   seesaw=max(0,rise-2)+max(0,wob-1)+3*max(0,-r-0.3)
   lull=max(0.0,ref-float(np.min(sb))-3)
+  im=int(np.argmin(sb));post=s[b1:b1+4]
+  if lull>0 and im>=len(sb)//2 and len(post) and float(np.max(post))>=ref-1 and float(np.max(b[b1-1:b1+4]))-float(bb[im])>=6:lull=0.0  # the listener 5/5 gold Lilies>Just Hold On: a dip that resolves into the incoming drop at blend end is tension, not a hole
   aa=np.maximum(a[:b1],ref-40);drops=[aa[k]-aa[k+1] for k in range(max(0,b0-8),b1-1) if aa[k]>ref-25];fade=max(drops+[0])  # inside the blend only: the deck's end at the blend's last bar is the crossfader at 0, not a fade
   aref=float(np.median(a[max(0,b0-8):b0]));i3=next((k for k in range(b0,len(a)) if a[k]<aref-3),b1);i20=next((k for k in range(i3,len(a)) if a[k]<aref-20),len(a))
   lo=band_db(A,BS,nb,'low',150);hi=band_db(A,BS,nb,'high',2000);lref,href=np.median(lo[max(0,b0-8):b0]),np.median(hi[max(0,b0-8):b0])
@@ -163,7 +165,17 @@ def cost(c,w):return float(w@fv(c))+(1e3 if c['hard'] else 0)
 def train_pairs(R):
   """across rated blends: higher rating beats lower (the rated window's own render)"""
   rated=[(r['rating'],next(c for c in r['cands'] if c['is_rated']),r['pair']) for r in R if r['rating'] is not None and any(c['is_rated'] for c in r['cands'])]
-  return [(fv(x),fv(y),px,py) for (rx,x,px),(ry,y,py) in itertools.permutations(rated,2) if rx>ry]
+  out=[(fv(x),fv(y),px,py) for (rx,x,px),(ry,y,py) in itertools.permutations(rated,2) if rx>ry]
+  # blind A/B picks (ratings.jsonl type=ab, winner_fam/loser_fam): same-pair pairwise datapoints, weighted by strength (strong 3, normal 2, weak 1)
+  for l in open(f'{ROOT}/ratings.jsonl'):
+    q=json.loads(l)
+    if q.get('type')!='ab' or 'winner_fam' not in q:continue
+    r=next((r for r in R if r['pair']==q['pair']),None)
+    if not r:continue
+    pick=lambda f:next((c for c in r['cands'] if (c['is_rated'] if f=='rated' else c['fam']==f)),None)
+    x,y=pick(q['winner_fam']),pick(q['loser_fam'])
+    if x and y:out+=[(fv(x),fv(y),q['pair'],q['pair'])]*int(q.get('weight',2))
+  return out
 
 def main():
   jobs=int(sys.argv[sys.argv.index('--jobs')+1]) if '--jobs' in sys.argv else 4
@@ -203,6 +215,9 @@ def main():
     n_train_pairs=len(TP),loo=loo,loo_acc=round(np.mean([l['ok'] for l in loo]),3) if loo else None,prior_acc=round(np.mean(loo_prior),3) if loo_prior else None,
     criteria=dict(gold_top=gold_top,gold_rank=gold_rank,remedy_loop_below_natural=rem_ok),render_s=dict(mean=round(np.mean(rt),2),median=round(np.median(rt),2),max=round(max(rt),2),n=len(rt),wall_s=round(wall,1),jobs=jobs),pairs=R)
   ab=make_ab(R);out['ab']=ab
+  done={(q['pair'],frozenset((q['winner_fam'],q['loser_fam']))) for q in (json.loads(l) for l in open(f'{ROOT}/ratings.jsonl')) if q.get('type')=='ab' and 'winner_fam' in q}
+  pend=[dict(a,status='pending') for a in ab if (a['pair'],frozenset((a['A']['fam'],a['B']['fam']))) not in done if a['margin'] is not None and a['margin']<float(os.environ.get('AB_NEAR',1.0))]
+  json.dump(dict(date=out['date'],note='near-tied blend versions for the listener to A/B; engine already picked the best and flagged these, mix is not blocked',items=pend),open(f'{ABDIR}/pending.json','w'),indent=1,default=float)
   json.dump(out,open(OUTJ,'w'),indent=1,default=float)
   print(json.dumps({k:out[k] for k in ('w','n_train_pairs','loo_acc','prior_acc','criteria','render_s')},default=float));print('AB',json.dumps(ab,indent=1))
   for r in R:print(r['pair'],r['rating'],'margin',r['margin'],[(c['fam'],c['cost'],c['w1'],c['hard']) for c in r['cands']])

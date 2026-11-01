@@ -1,5 +1,5 @@
 {
- "date": "2026-11-01 09:38 EST",
+ "date": "2026-11-01 09:54 EST",
  "feats": [
   "seesaw",
   "lull",
@@ -25,19 +25,19 @@
   3.0
  ],
  "w": [
-  1.2162,
-  0.7325,
-  0.158,
-  0.49,
-  2.0245,
-  5.0331,
-  0.1,
-  0.4697,
-  0.3044,
-  2.6972
+  1.1652,
+  0.1439,
+  0.0,
+  0.2109,
+  1.9854,
+  5.0593,
+  0.5345,
+  0.1209,
+  0.0,
+  2.6984
  ],
  "lam": 1.0,
- "n_train_pairs": 5,
+ "n_train_pairs": 13,
  "loo": [
   {
    "win": "rpIpJQ7ujzc>OPuVVhbkicU",
@@ -47,7 +47,7 @@
   {
    "win": "nAV4i1YIwQI>EiZVTuiqo0w",
    "lose": "sObzaBqaBRQ>q_cZZY0BehE",
-   "ok": true
+   "ok": false
   },
   {
    "win": "j9AuFRpLk7U>cxS6yd0UAxw",
@@ -63,21 +63,61 @@
    "win": "j9AuFRpLk7U>cxS6yd0UAxw",
    "lose": "sObzaBqaBRQ>q_cZZY0BehE",
    "ok": true
+  },
+  {
+   "win": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "lose": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "ok": true
+  },
+  {
+   "win": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "lose": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "ok": true
+  },
+  {
+   "win": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "lose": "j9AuFRpLk7U>cxS6yd0UAxw",
+   "ok": true
+  },
+  {
+   "win": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "lose": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "ok": false
+  },
+  {
+   "win": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "lose": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "ok": false
+  },
+  {
+   "win": "nAV4i1YIwQI>EiZVTuiqo0w",
+   "lose": "nAV4i1YIwQI>EiZVTuiqo0w",
+   "ok": false
+  },
+  {
+   "win": "sObzaBqaBRQ>q_cZZY0BehE",
+   "lose": "sObzaBqaBRQ>q_cZZY0BehE",
+   "ok": true
+  },
+  {
+   "win": "sObzaBqaBRQ>q_cZZY0BehE",
+   "lose": "sObzaBqaBRQ>q_cZZY0BehE",
+   "ok": true
   }
  ],
- "loo_acc": 0.8,
- "prior_acc": 0.8,
+ "loo_acc": 0.615,
+ "prior_acc": 0.692,
  "criteria": {
   "gold_top": false,
-  "gold_rank": 4,
+  "gold_rank": 2,
   "remedy_loop_below_natural": true
  },
  "render_s": {
-  "mean": 6.52,
-  "median": 6.56,
-  "max": 8.1,
+  "mean": 6.22,
+  "median": 6.29,
+  "max": 7.55,
   "n": 56,
-  "wall_s": 100.4,
+  "wall_s": 190.3,
   "jobs": 4
  },
  "pairs": [
@@ -105,7 +145,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.36,
+     "render_s": 5.84,
      "mp3": "/tmp/blend_bench/p0c3.mp3",
      "snip": {
       "s0": 86,
@@ -141,7 +181,7 @@
       "lull_db": 2.6
      },
      "hard": [],
-     "cost": 3.985
+     "cost": 3.404
     },
     {
      "fam": "out_loop",
@@ -154,7 +194,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 5.77,
+     "render_s": 5.11,
      "mp3": "/tmp/blend_bench/p0c2.mp3",
      "snip": {
       "s0": 104,
@@ -190,7 +230,7 @@
       "lull_db": 1.5
      },
      "hard": [],
-     "cost": 4.194
+     "cost": 3.542
     },
     {
      "fam": "nat_short",
@@ -203,7 +243,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 5.76,
+     "render_s": 5.15,
      "mp3": "/tmp/blend_bench/p0c1.mp3",
      "snip": {
       "s0": 136,
@@ -219,7 +259,7 @@
      "struct": 0.016,
      "feats": {
       "seesaw": 2.617,
-      "lull": 4.153,
+      "lull": 0.0,
       "fade_step": 0.143,
       "flam": 0.0,
       "beat_off": 0.14,
@@ -242,58 +282,7 @@
      "same_as": [
       "in_loop"
      ],
-     "cost": 7.854
-    },
-    {
-     "fam": "cue_late",
-     "win": [
-      "n",
-      112,
-      null,
-      80,
-      32
-     ],
-     "env": {},
-     "is_rated": false,
-     "render_s": 5.68,
-     "mp3": "/tmp/blend_bench/p0c6.mp3",
-     "snip": {
-      "s0": 72,
-      "start": 80,
-      "end": 112,
-      "pre": 8
-     },
-     "vocal_clash_bars": 3.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 112, incoming in at bar 80"
-     ],
-     "struct": 1.0,
-     "feats": {
-      "seesaw": 4.676,
-      "lull": 0.0,
-      "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.053,
-      "dissonance": 0.153,
-      "vocal": 3.0,
-      "pro_shape": 2.333,
-      "loop": 0.0,
-      "struct": 1.0
-     },
-     "w1": [
-      "WOBBLE"
-     ],
-     "raw": {
-      "out_rise": 3.7,
-      "wobble": 4,
-      "anti_r": 0.09,
-      "fade_db": 4.800000190734863,
-      "fade3to20": 15,
-      "lull_db": 2.7
-     },
-     "hard": [],
-     "cost": 10.657
+     "cost": 4.306
     },
     {
      "fam": "rated",
@@ -309,7 +298,7 @@
       "BASS_SWAP_BARS": "2"
      },
      "is_rated": true,
-     "render_s": 7.8,
+     "render_s": 6.07,
      "mp3": "/tmp/blend_bench/p0c10.mp3",
      "snip": {
       "s0": 88,
@@ -347,7 +336,58 @@
       "lull_db": 1.3
      },
      "hard": [],
-     "cost": 12.379
+     "cost": 10.517
+    },
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      112,
+      null,
+      80,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.73,
+     "mp3": "/tmp/blend_bench/p0c6.mp3",
+     "snip": {
+      "s0": 72,
+      "start": 80,
+      "end": 112,
+      "pre": 8
+     },
+     "vocal_clash_bars": 3.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 112, incoming in at bar 80"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 4.676,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.053,
+      "dissonance": 0.153,
+      "vocal": 3.0,
+      "pro_shape": 2.333,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.7,
+      "wobble": 4,
+      "anti_r": 0.09,
+      "fade_db": 4.800000190734863,
+      "fade3to20": 15,
+      "lull_db": 2.7
+     },
+     "hard": [],
+     "cost": 10.912
     },
     {
      "fam": "cue_early",
@@ -360,7 +400,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.31,
+     "render_s": 5.67,
      "mp3": "/tmp/blend_bench/p0c5.mp3",
      "snip": {
       "s0": 72,
@@ -398,7 +438,7 @@
       "lull_db": 3.8
      },
      "hard": [],
-     "cost": 12.41
+     "cost": 12.127
     },
     {
      "fam": "nat_long",
@@ -411,7 +451,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.63,
+     "render_s": 5.72,
      "mp3": "/tmp/blend_bench/p0c0.mp3",
      "snip": {
       "s0": 72,
@@ -453,7 +493,7 @@
       "swap_early",
       "swap_late"
      ],
-     "cost": 13.995
+     "cost": 12.24
     },
     {
      "fam": "sneak_in",
@@ -467,7 +507,7 @@
      "env": {},
      "sneak": true,
      "is_rated": false,
-     "render_s": 6.57,
+     "render_s": 6.26,
      "mp3": "/tmp/blend_bench/p0c9.mp3",
      "snip": {
       "s0": 72,
@@ -505,10 +545,10 @@
       "lull_db": 2.2
      },
      "hard": [],
-     "cost": 20.757
+     "cost": 16.523
     }
    ],
-   "margin": 0.209
+   "margin": 0.138
   },
   {
    "pair": "nAV4i1YIwQI>EiZVTuiqo0w",
@@ -534,7 +574,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.12,
+     "render_s": 5.38,
      "mp3": "/tmp/blend_bench/p1c1.mp3",
      "snip": {
       "s0": 120,
@@ -570,7 +610,7 @@
       "lull_db": 3.1
      },
      "hard": [],
-     "cost": 4.609
+     "cost": 4.348
     },
     {
      "fam": "out_loop",
@@ -583,7 +623,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.19,
+     "render_s": 6.02,
      "mp3": "/tmp/blend_bench/p1c2.mp3",
      "snip": {
       "s0": 104,
@@ -619,7 +659,7 @@
       "lull_db": 4.1
      },
      "hard": [],
-     "cost": 5.992
+     "cost": 4.363
     },
     {
      "fam": "lx_beat",
@@ -632,7 +672,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 7.53,
+     "render_s": 6.33,
      "mp3": "/tmp/blend_bench/p1c3.mp3",
      "snip": {
       "s0": 118,
@@ -668,7 +708,7 @@
       "lull_db": 4.1
      },
      "hard": [],
-     "cost": 7.036
+     "cost": 4.824
     },
     {
      "fam": "rated",
@@ -684,7 +724,7 @@
       "BASS_SWAP_BARS": "2"
      },
      "is_rated": true,
-     "render_s": 5.8,
+     "render_s": 5.17,
      "mp3": "/tmp/blend_bench/p1c9.mp3",
      "snip": {
       "s0": 120,
@@ -720,7 +760,7 @@
       "lull_db": 2.9
      },
      "hard": [],
-     "cost": 9.502
+     "cost": 6.347
     },
     {
      "fam": "in_loop",
@@ -733,7 +773,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.95,
+     "render_s": 5.24,
      "mp3": "/tmp/blend_bench/p1c4.mp3",
      "snip": {
       "s0": 152,
@@ -749,7 +789,7 @@
      "struct": 0.016,
      "feats": {
       "seesaw": 0.0,
-      "lull": 7.888,
+      "lull": 0.0,
       "fade_step": 0.0,
       "flam": 10.866,
       "beat_off": 0.004,
@@ -769,7 +809,7 @@
       "lull_db": 10.9
      },
      "hard": [],
-     "cost": 13.138
+     "cost": 6.362
     },
     {
      "fam": "nat_long",
@@ -782,7 +822,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.71,
+     "render_s": 6.17,
      "mp3": "/tmp/blend_bench/p1c0.mp3",
      "snip": {
       "s0": 88,
@@ -820,7 +860,7 @@
       "lull_db": 10.8
      },
      "hard": [],
-     "cost": 20.451
+     "cost": 14.695
     },
     {
      "fam": "swap_early",
@@ -835,7 +875,7 @@
       "SWAP_POS": "0.21"
      },
      "is_rated": false,
-     "render_s": 6.23,
+     "render_s": 6.3,
      "mp3": "/tmp/blend_bench/p1c6.mp3",
      "snip": {
       "s0": 88,
@@ -873,7 +913,7 @@
       "lull_db": 10.8
      },
      "hard": [],
-     "cost": 20.479
+     "cost": 14.722
     },
     {
      "fam": "swap_late",
@@ -888,7 +928,7 @@
       "SWAP_POS": "0.6"
      },
      "is_rated": false,
-     "render_s": 6.98,
+     "render_s": 6.75,
      "mp3": "/tmp/blend_bench/p1c7.mp3",
      "snip": {
       "s0": 88,
@@ -926,7 +966,7 @@
       "lull_db": 10.8
      },
      "hard": [],
-     "cost": 22.614
+     "cost": 15.643
     },
     {
      "fam": "cue_late",
@@ -939,7 +979,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.18,
+     "render_s": 6.22,
      "mp3": "/tmp/blend_bench/p1c5.mp3",
      "snip": {
       "s0": 88,
@@ -977,7 +1017,7 @@
       "lull_db": 9.3
      },
      "hard": [],
-     "cost": 23.012
+     "cost": 18.934
     },
     {
      "fam": "sneak_in",
@@ -991,7 +1031,7 @@
      "env": {},
      "sneak": true,
      "is_rated": false,
-     "render_s": 8.1,
+     "render_s": 6.63,
      "mp3": "/tmp/blend_bench/p1c8.mp3",
      "snip": {
       "s0": 88,
@@ -1030,10 +1070,10 @@
       "lull_db": 10.8
      },
      "hard": [],
-     "cost": 30.799
+     "cost": 21.614
     }
    ],
-   "margin": 1.383
+   "margin": 0.015
   },
   {
    "pair": "j9AuFRpLk7U>cxS6yd0UAxw",
@@ -1049,6 +1089,307 @@
    "t": "55:10",
    "cands": [
     {
+     "fam": "in_loop",
+     "win": [
+      "lb",
+      176,
+      null,
+      48,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.62,
+     "mp3": "/tmp/blend_bench/p2c4.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "incoming plays its 16-bar phrase 48-64 through the blend, then continues from bar 64"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.149,
+      "dissonance": 0.17,
+      "vocal": 0.0,
+      "pro_shape": 1.667,
+      "loop": 1.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.24,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 12,
+      "lull_db": 9.9
+     },
+     "hard": [],
+     "cost": 1.441
+    },
+    {
+     "fam": "rated",
+     "win": [
+      "lb",
+      176,
+      null,
+      48,
+      32
+     ],
+     "env": {
+      "FADE": "lin",
+      "BASS_SWAP_BARS": "2"
+     },
+     "is_rated": true,
+     "render_s": 6.06,
+     "mp3": "/tmp/blend_bench/p2c10.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
+     "notes": [
+      "incoming plays its 16-bar phrase 48-64 through the blend, then continues from bar 64"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.143,
+      "dissonance": 0.169,
+      "vocal": 0.0,
+      "pro_shape": 1.889,
+      "loop": 1.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.1,
+      "wobble": 1,
+      "anti_r": 0.1,
+      "fade_db": 3.5,
+      "fade3to20": 13,
+      "lull_db": 9.2
+     },
+     "hard": [],
+     "cost": 1.451
+    },
+    {
+     "fam": "swap_late",
+     "win": [
+      "n",
+      176,
+      null,
+      32,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.6"
+     },
+     "is_rated": false,
+     "render_s": 6.28,
+     "mp3": "/tmp/blend_bench/p2c8.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.279,
+      "dissonance": 0.15,
+      "vocal": 0.0,
+      "pro_shape": 0.778,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.18,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 8,
+      "lull_db": 9.1
+     },
+     "hard": [],
+     "cost": 1.491
+    },
+    {
+     "fam": "nat_long",
+     "win": [
+      "n",
+      176,
+      null,
+      32,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 7.55,
+     "mp3": "/tmp/blend_bench/p2c0.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.273,
+      "dissonance": 0.149,
+      "vocal": 0.0,
+      "pro_shape": 1.667,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.21,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 12,
+      "lull_db": 9.9
+     },
+     "hard": [],
+     "cost": 1.581
+    },
+    {
+     "fam": "swap_early",
+     "win": [
+      "n",
+      176,
+      null,
+      32,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.21"
+     },
+     "is_rated": false,
+     "render_s": 6.9,
+     "mp3": "/tmp/blend_bench/p2c7.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.27,
+      "dissonance": 0.149,
+      "vocal": 0.0,
+      "pro_shape": 2.333,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.0,
+      "wobble": 1,
+      "anti_r": 0.23,
+      "fade_db": 3.5999999046325684,
+      "fade3to20": 15,
+      "lull_db": 9.9
+     },
+     "hard": [],
+     "cost": 1.656
+    },
+    {
+     "fam": "nat_short",
+     "win": [
+      "n",
+      176,
+      null,
+      48,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.97,
+     "mp3": "/tmp/blend_bench/p2c1.mp3",
+     "snip": {
+      "s0": 152,
+      "start": 160,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 48"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 2.617,
+      "flam": 2.884,
+      "beat_off": 0.083,
+      "dissonance": 0.158,
+      "vocal": 0.0,
+      "pro_shape": 0.833,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 0.2,
+      "wobble": 1,
+      "anti_r": 0.35,
+      "fade_db": 8.600000381469727,
+      "fade3to20": 6,
+      "lull_db": 9.5
+     },
+     "hard": [],
+     "cost": 1.757
+    },
+    {
      "fam": "cue_late",
      "win": [
       "n",
@@ -1059,7 +1400,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.73,
+     "render_s": 6.6,
      "mp3": "/tmp/blend_bench/p2c6.mp3",
      "snip": {
       "s0": 136,
@@ -1095,7 +1436,57 @@
       "lull_db": -1.1
      },
      "hard": [],
-     "cost": 3.029
+     "cost": 2.687
+    },
+    {
+     "fam": "sneak_in",
+     "win": [
+      "n",
+      176,
+      null,
+      32,
+      32
+     ],
+     "env": {},
+     "sneak": true,
+     "is_rated": false,
+     "render_s": 6.82,
+     "mp3": "/tmp/blend_bench/p2c9.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
+     ],
+     "struct": 0.031,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.0,
+      "fade_step": 3.534,
+      "flam": 6.512,
+      "beat_off": 0.136,
+      "dissonance": 0.19,
+      "vocal": 0.0,
+      "pro_shape": 1.056,
+      "loop": 0.0,
+      "struct": 0.031
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.3,
+      "wobble": 1,
+      "anti_r": 0.16,
+      "fade_db": 9.5,
+      "fade3to20": 7,
+      "lull_db": 10.0
+     },
+     "hard": [],
+     "cost": 2.816
     },
     {
      "fam": "out_loop",
@@ -1108,7 +1499,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.76,
+     "render_s": 7.54,
      "mp3": "/tmp/blend_bench/p2c2.mp3",
      "snip": {
       "s0": 152,
@@ -1144,308 +1535,7 @@
       "lull_db": -1.2
      },
      "hard": [],
-     "cost": 4.39
-    },
-    {
-     "fam": "swap_late",
-     "win": [
-      "n",
-      176,
-      null,
-      32,
-      32
-     ],
-     "env": {
-      "SWAP_POS": "0.6"
-     },
-     "is_rated": false,
-     "render_s": 7.46,
-     "mp3": "/tmp/blend_bench/p2c8.mp3",
-     "snip": {
-      "s0": 136,
-      "start": 144,
-      "end": 176,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
-     ],
-     "struct": 0.031,
-     "feats": {
-      "seesaw": 0.0,
-      "lull": 6.088,
-      "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.279,
-      "dissonance": 0.15,
-      "vocal": 0.0,
-      "pro_shape": 0.778,
-      "loop": 0.0,
-      "struct": 0.031
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 1.0,
-      "wobble": 1,
-      "anti_r": 0.18,
-      "fade_db": 3.5999999046325684,
-      "fade3to20": 8,
-      "lull_db": 9.1
-     },
-     "hard": [],
-     "cost": 6.228
-    },
-    {
-     "fam": "rated",
-     "win": [
-      "lb",
-      176,
-      null,
-      48,
-      32
-     ],
-     "env": {
-      "FADE": "lin",
-      "BASS_SWAP_BARS": "2"
-     },
-     "is_rated": true,
-     "render_s": 5.94,
-     "mp3": "/tmp/blend_bench/p2c10.mp3",
-     "snip": {
-      "s0": 136,
-      "start": 144,
-      "end": 176,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
-     "notes": [
-      "incoming plays its 16-bar phrase 48-64 through the blend, then continues from bar 64"
-     ],
-     "struct": 0.031,
-     "feats": {
-      "seesaw": 0.0,
-      "lull": 6.241,
-      "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.143,
-      "dissonance": 0.169,
-      "vocal": 0.0,
-      "pro_shape": 1.889,
-      "loop": 1.0,
-      "struct": 0.031
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 1.1,
-      "wobble": 1,
-      "anti_r": 0.1,
-      "fade_db": 3.5,
-      "fade3to20": 13,
-      "lull_db": 9.2
-     },
-     "hard": [],
-     "cost": 6.987
-    },
-    {
-     "fam": "nat_long",
-     "win": [
-      "n",
-      176,
-      null,
-      32,
-      32
-     ],
-     "env": {},
-     "is_rated": false,
-     "render_s": 7.79,
-     "mp3": "/tmp/blend_bench/p2c0.mp3",
-     "snip": {
-      "s0": 136,
-      "start": 144,
-      "end": 176,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
-     ],
-     "struct": 0.031,
-     "feats": {
-      "seesaw": 0.0,
-      "lull": 6.917,
-      "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.273,
-      "dissonance": 0.149,
-      "vocal": 0.0,
-      "pro_shape": 1.667,
-      "loop": 0.0,
-      "struct": 0.031
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 1.0,
-      "wobble": 1,
-      "anti_r": 0.21,
-      "fade_db": 3.5999999046325684,
-      "fade3to20": 12,
-      "lull_db": 9.9
-     },
-     "hard": [],
-     "cost": 7.236
-    },
-    {
-     "fam": "in_loop",
-     "win": [
-      "lb",
-      176,
-      null,
-      48,
-      32
-     ],
-     "env": {},
-     "is_rated": false,
-     "render_s": 7.23,
-     "mp3": "/tmp/blend_bench/p2c4.mp3",
-     "snip": {
-      "s0": 136,
-      "start": 144,
-      "end": 176,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "incoming plays its 16-bar phrase 48-64 through the blend, then continues from bar 64"
-     ],
-     "struct": 0.031,
-     "feats": {
-      "seesaw": 0.0,
-      "lull": 6.917,
-      "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.149,
-      "dissonance": 0.17,
-      "vocal": 0.0,
-      "pro_shape": 1.667,
-      "loop": 1.0,
-      "struct": 0.031
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 1.0,
-      "wobble": 1,
-      "anti_r": 0.24,
-      "fade_db": 3.5999999046325684,
-      "fade3to20": 12,
-      "lull_db": 9.9
-     },
-     "hard": [],
-     "cost": 7.395
-    },
-    {
-     "fam": "swap_early",
-     "win": [
-      "n",
-      176,
-      null,
-      32,
-      32
-     ],
-     "env": {
-      "SWAP_POS": "0.21"
-     },
-     "is_rated": false,
-     "render_s": 6.08,
-     "mp3": "/tmp/blend_bench/p2c7.mp3",
-     "snip": {
-      "s0": 136,
-      "start": 144,
-      "end": 176,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
-     ],
-     "struct": 0.031,
-     "feats": {
-      "seesaw": 0.0,
-      "lull": 6.917,
-      "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.27,
-      "dissonance": 0.149,
-      "vocal": 0.0,
-      "pro_shape": 2.333,
-      "loop": 0.0,
-      "struct": 0.031
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 1.0,
-      "wobble": 1,
-      "anti_r": 0.23,
-      "fade_db": 3.5999999046325684,
-      "fade3to20": 15,
-      "lull_db": 9.9
-     },
-     "hard": [],
-     "cost": 7.543
-    },
-    {
-     "fam": "nat_short",
-     "win": [
-      "n",
-      176,
-      null,
-      48,
-      16
-     ],
-     "env": {},
-     "is_rated": false,
-     "render_s": 5.39,
-     "mp3": "/tmp/blend_bench/p2c1.mp3",
-     "snip": {
-      "s0": 152,
-      "start": 160,
-      "end": 176,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 48"
-     ],
-     "struct": 0.031,
-     "feats": {
-      "seesaw": 0.0,
-      "lull": 6.507,
-      "fade_step": 2.617,
-      "flam": 2.884,
-      "beat_off": 0.083,
-      "dissonance": 0.158,
-      "vocal": 0.0,
-      "pro_shape": 0.833,
-      "loop": 0.0,
-      "struct": 0.031
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 0.2,
-      "wobble": 1,
-      "anti_r": 0.35,
-      "fade_db": 8.600000381469727,
-      "fade3to20": 6,
-      "lull_db": 9.5
-     },
-     "hard": [],
-     "cost": 8.031
+     "cost": 3.434
     },
     {
      "fam": "lx_beat",
@@ -1458,7 +1548,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 7.94,
+     "render_s": 7.12,
      "mp3": "/tmp/blend_bench/p2c3.mp3",
      "snip": {
       "s0": 150,
@@ -1494,57 +1584,7 @@
       "lull_db": 7.5
      },
      "hard": [],
-     "cost": 9.095
-    },
-    {
-     "fam": "sneak_in",
-     "win": [
-      "n",
-      176,
-      null,
-      32,
-      32
-     ],
-     "env": {},
-     "sneak": true,
-     "is_rated": false,
-     "render_s": 7.04,
-     "mp3": "/tmp/blend_bench/p2c9.mp3",
-     "snip": {
-      "s0": 136,
-      "start": 144,
-      "end": 176,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 32"
-     ],
-     "struct": 0.031,
-     "feats": {
-      "seesaw": 0.0,
-      "lull": 7.032,
-      "fade_step": 3.534,
-      "flam": 6.512,
-      "beat_off": 0.136,
-      "dissonance": 0.19,
-      "vocal": 0.0,
-      "pro_shape": 1.056,
-      "loop": 0.0,
-      "struct": 0.031
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 1.3,
-      "wobble": 1,
-      "anti_r": 0.16,
-      "fade_db": 9.5,
-      "fade3to20": 7,
-      "lull_db": 10.0
-     },
-     "hard": [],
-     "cost": 10.711
+     "cost": 5.981
     },
     {
      "fam": "cue_early",
@@ -1557,7 +1597,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 7.14,
+     "render_s": 6.98,
      "mp3": "/tmp/blend_bench/p2c5.mp3",
      "snip": {
       "s0": 136,
@@ -1595,10 +1635,10 @@
       "lull_db": 6.3
      },
      "hard": [],
-     "cost": 18.963
+     "cost": 11.555
     }
    ],
-   "margin": 1.361
+   "margin": 0.01
   },
   {
    "pair": "sObzaBqaBRQ>q_cZZY0BehE",
@@ -1625,7 +1665,7 @@
      "env": {},
      "sneak": true,
      "is_rated": false,
-     "render_s": 7.65,
+     "render_s": 6.36,
      "mp3": "/tmp/blend_bench/p3c8.mp3",
      "snip": {
       "s0": 104,
@@ -1661,56 +1701,7 @@
       "lull_db": 2.1
      },
      "hard": [],
-     "cost": 4.673
-    },
-    {
-     "fam": "cue_late",
-     "win": [
-      "n",
-      144,
-      null,
-      80,
-      32
-     ],
-     "env": {},
-     "is_rated": false,
-     "render_s": 7.33,
-     "mp3": "/tmp/blend_bench/p3c5.mp3",
-     "snip": {
-      "s0": 104,
-      "start": 112,
-      "end": 144,
-      "pre": 8
-     },
-     "vocal_clash_bars": 4.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 80"
-     ],
-     "struct": 1.0,
-     "feats": {
-      "seesaw": 0.0,
-      "lull": 0.885,
-      "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.09,
-      "dissonance": 0.194,
-      "vocal": 4.0,
-      "pro_shape": 3.0,
-      "loop": 0.0,
-      "struct": 1.0
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 1.9,
-      "wobble": 1,
-      "anti_r": 0.45,
-      "fade_db": 2.700000047683716,
-      "fade3to20": 18,
-      "lull_db": 3.9
-     },
-     "hard": [],
-     "cost": 6.313
+     "cost": 4.471
     },
     {
      "fam": "nat_short",
@@ -1723,7 +1714,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.28,
+     "render_s": 5.92,
      "mp3": "/tmp/blend_bench/p3c1.mp3",
      "snip": {
       "s0": 152,
@@ -1759,7 +1750,7 @@
       "lull_db": 5.0
      },
      "hard": [],
-     "cost": 7.186
+     "cost": 5.247
     },
     {
      "fam": "in_loop",
@@ -1772,7 +1763,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.72,
+     "render_s": 6.42,
      "mp3": "/tmp/blend_bench/p3c4.mp3",
      "snip": {
       "s0": 152,
@@ -1808,7 +1799,56 @@
       "lull_db": 5.0
      },
      "hard": [],
-     "cost": 7.49
+     "cost": 5.247
+    },
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      144,
+      null,
+      80,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 7.12,
+     "mp3": "/tmp/blend_bench/p3c5.mp3",
+     "snip": {
+      "s0": 104,
+      "start": 112,
+      "end": 144,
+      "pre": 8
+     },
+     "vocal_clash_bars": 4.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 144, incoming in at bar 80"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 0.0,
+      "lull": 0.885,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.09,
+      "dissonance": 0.194,
+      "vocal": 4.0,
+      "pro_shape": 3.0,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 1.9,
+      "wobble": 1,
+      "anti_r": 0.45,
+      "fade_db": 2.700000047683716,
+      "fade3to20": 18,
+      "lull_db": 3.9
+     },
+     "hard": [],
+     "cost": 6.487
     },
     {
      "fam": "lx_beat",
@@ -1821,7 +1861,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.88,
+     "render_s": 6.4,
      "mp3": "/tmp/blend_bench/p3c3.mp3",
      "snip": {
       "s0": 134,
@@ -1857,7 +1897,7 @@
       "lull_db": 4.6
      },
      "hard": [],
-     "cost": 8.239
+     "cost": 6.778
     },
     {
      "fam": "out_loop",
@@ -1870,7 +1910,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.26,
+     "render_s": 5.07,
      "mp3": "/tmp/blend_bench/p3c2.mp3",
      "snip": {
       "s0": 104,
@@ -1906,7 +1946,7 @@
       "lull_db": 5.6
      },
      "hard": [],
-     "cost": 9.516
+     "cost": 7.09
     },
     {
      "fam": "rated",
@@ -1919,7 +1959,7 @@
      ],
      "env": {},
      "is_rated": true,
-     "render_s": 7.11,
+     "render_s": 7.38,
      "mp3": "/tmp/blend_bench/p3c9.mp3",
      "snip": {
       "s0": 168,
@@ -1935,7 +1975,7 @@
      "struct": 0.031,
      "feats": {
       "seesaw": 5.565,
-      "lull": 2.021,
+      "lull": 0.0,
       "fade_step": 1.271,
       "flam": 0.707,
       "beat_off": 0.183,
@@ -1957,7 +1997,7 @@
       "lull_db": 5.0
      },
      "hard": [],
-     "cost": 11.892
+     "cost": 8.533
     },
     {
      "fam": "swap_early",
@@ -1972,7 +2012,7 @@
       "SWAP_POS": "0.21"
      },
      "is_rated": false,
-     "render_s": 7.16,
+     "render_s": 6.59,
      "mp3": "/tmp/blend_bench/p3c6.mp3",
      "snip": {
       "s0": 104,
@@ -1988,7 +2028,7 @@
      "struct": 1.0,
      "feats": {
       "seesaw": 1.0,
-      "lull": 1.114,
+      "lull": 0.0,
       "fade_step": 0.0,
       "flam": 16.671,
       "beat_off": 0.143,
@@ -2008,7 +2048,7 @@
       "lull_db": 4.1
      },
      "hard": [],
-     "cost": 15.51
+     "cost": 9.101
     },
     {
      "fam": "nat_long",
@@ -2021,7 +2061,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 7.21,
+     "render_s": 7.01,
      "mp3": "/tmp/blend_bench/p3c0.mp3",
      "snip": {
       "s0": 104,
@@ -2037,7 +2077,7 @@
      "struct": 1.0,
      "feats": {
       "seesaw": 1.11,
-      "lull": 1.114,
+      "lull": 0.0,
       "fade_step": 0.0,
       "flam": 17.397,
       "beat_off": 0.135,
@@ -2057,7 +2097,7 @@
       "lull_db": 4.1
      },
      "hard": [],
-     "cost": 15.883
+     "cost": 9.265
     },
     {
      "fam": "swap_late",
@@ -2072,7 +2112,7 @@
       "SWAP_POS": "0.6"
      },
      "is_rated": false,
-     "render_s": 5.73,
+     "render_s": 6.53,
      "mp3": "/tmp/blend_bench/p3c7.mp3",
      "snip": {
       "s0": 104,
@@ -2088,7 +2128,7 @@
      "struct": 1.0,
      "feats": {
       "seesaw": 1.11,
-      "lull": 1.114,
+      "lull": 0.0,
       "fade_step": 0.0,
       "flam": 24.653,
       "beat_off": 0.121,
@@ -2110,10 +2150,10 @@
      "hard": [
       "beat train-wreck"
      ],
-     "cost": 1019.086
+     "cost": 1010.677
     }
    ],
-   "margin": 1.64
+   "margin": 0.776
   },
   {
    "pair": "rpIpJQ7ujzc>5196v8VY1LI",
@@ -2139,7 +2179,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 4.75,
+     "render_s": 4.69,
      "mp3": "/tmp/blend_bench/p4c1.mp3",
      "snip": {
       "s0": 136,
@@ -2178,56 +2218,7 @@
      "same_as": [
       "in_loop"
      ],
-     "cost": 5.507
-    },
-    {
-     "fam": "lx_beat",
-     "win": [
-      "lx",
-      96,
-      32,
-      0,
-      16
-     ],
-     "env": {},
-     "is_rated": false,
-     "render_s": 6.04,
-     "mp3": "/tmp/blend_bench/p4c3.mp3",
-     "snip": {
-      "s0": 86,
-      "start": 104,
-      "end": 120,
-      "pre": 18
-     },
-     "vocal_clash_bars": 2.0,
-     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "outgoing plays to bar 96, fades over 2 bars to its drums+bass stem, then loops that beat-only phrase 32-40 (8 bars before the blend, then under it): synthetic outro, real one too short or holds a fill"
-     ],
-     "struct": 1.0,
-     "feats": {
-      "seesaw": 2.0,
-      "lull": 2.618,
-      "fade_step": 0.0,
-      "flam": 3.61,
-      "beat_off": 0.227,
-      "dissonance": 0.183,
-      "vocal": 2.0,
-      "pro_shape": 0.778,
-      "loop": 1.0,
-      "struct": 1.0
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 0.4,
-      "wobble": 3,
-      "anti_r": 0.35,
-      "fade_db": 5.900000095367432,
-      "fade3to20": 8,
-      "lull_db": 5.6
-     },
-     "hard": [],
-     "cost": 11.066
+     "cost": 4.125
     },
     {
      "fam": "swap_early",
@@ -2242,7 +2233,7 @@
       "SWAP_POS": "0.21"
      },
      "is_rated": false,
-     "render_s": 6.15,
+     "render_s": 7.0,
      "mp3": "/tmp/blend_bench/p4c6.mp3",
      "snip": {
       "s0": 120,
@@ -2278,58 +2269,56 @@
       "lull_db": 5.1
      },
      "hard": [],
-     "cost": 11.18
+     "cost": 7.485
     },
     {
-     "fam": "cue_late",
+     "fam": "lx_beat",
      "win": [
-      "n",
-      160,
-      null,
-      64,
-      32
+      "lx",
+      96,
+      32,
+      0,
+      16
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.58,
-     "mp3": "/tmp/blend_bench/p4c5.mp3",
+     "render_s": 6.17,
+     "mp3": "/tmp/blend_bench/p4c3.mp3",
      "snip": {
-      "s0": 120,
-      "start": 128,
-      "end": 160,
-      "pre": 8
+      "s0": 86,
+      "start": 104,
+      "end": 120,
+      "pre": 18
      },
-     "vocal_clash_bars": 7.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+     "vocal_clash_bars": 2.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
      "notes": [
-      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 64"
+      "outgoing plays to bar 96, fades over 2 bars to its drums+bass stem, then loops that beat-only phrase 32-40 (8 bars before the blend, then under it): synthetic outro, real one too short or holds a fill"
      ],
-     "struct": 0.516,
+     "struct": 1.0,
      "feats": {
-      "seesaw": 5.771,
-      "lull": 0.0,
+      "seesaw": 2.0,
+      "lull": 2.618,
       "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.005,
-      "dissonance": 0.232,
-      "vocal": 7.0,
-      "pro_shape": 2.556,
-      "loop": 0.0,
-      "struct": 0.516
+      "flam": 3.61,
+      "beat_off": 0.227,
+      "dissonance": 0.183,
+      "vocal": 2.0,
+      "pro_shape": 0.778,
+      "loop": 1.0,
+      "struct": 1.0
      },
-     "w1": [
-      "WOBBLE"
-     ],
+     "w1": [],
      "raw": {
-      "out_rise": 3.8,
-      "wobble": 5,
-      "anti_r": 0.52,
-      "fade_db": 5.400000095367432,
-      "fade3to20": 16,
-      "lull_db": 1.1
+      "out_rise": 0.4,
+      "wobble": 3,
+      "anti_r": 0.35,
+      "fade_db": 5.900000095367432,
+      "fade3to20": 8,
+      "lull_db": 5.6
      },
      "hard": [],
-     "cost": 11.489
+     "cost": 8.707
     },
     {
      "fam": "nat_long",
@@ -2342,7 +2331,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.29,
+     "render_s": 6.67,
      "mp3": "/tmp/blend_bench/p4c0.mp3",
      "snip": {
       "s0": 120,
@@ -2380,7 +2369,7 @@
       "lull_db": 5.1
      },
      "hard": [],
-     "cost": 12.388
+     "cost": 9.384
     },
     {
      "fam": "out_loop",
@@ -2393,7 +2382,7 @@
      ],
      "env": {},
      "is_rated": true,
-     "render_s": 7.22,
+     "render_s": 6.74,
      "mp3": "/tmp/blend_bench/p4c2.mp3",
      "snip": {
       "s0": 152,
@@ -2431,59 +2420,7 @@
       "lull_db": 5.6
      },
      "hard": [],
-     "cost": 14.124
-    },
-    {
-     "fam": "sneak_in",
-     "win": [
-      "n",
-      160,
-      null,
-      0,
-      32
-     ],
-     "env": {},
-     "sneak": true,
-     "is_rated": false,
-     "render_s": 5.63,
-     "mp3": "/tmp/blend_bench/p4c8.mp3",
-     "snip": {
-      "s0": 120,
-      "start": 128,
-      "end": 160,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 0"
-     ],
-     "struct": 0.016,
-     "feats": {
-      "seesaw": 10.896,
-      "lull": 0.0,
-      "fade_step": 3.541,
-      "flam": 0.707,
-      "beat_off": 0.294,
-      "dissonance": 0.252,
-      "vocal": 0.0,
-      "pro_shape": 0.333,
-      "loop": 0.0,
-      "struct": 0.016
-     },
-     "w1": [
-      "WOBBLE"
-     ],
-     "raw": {
-      "out_rise": 3.9,
-      "wobble": 10,
-      "anti_r": 0.59,
-      "fade_db": 9.5,
-      "fade3to20": 6,
-      "lull_db": 2.7
-     },
-     "hard": [],
-     "cost": 16.22
+     "cost": 10.308
     },
     {
      "fam": "swap_late",
@@ -2498,7 +2435,7 @@
       "SWAP_POS": "0.6"
      },
      "is_rated": false,
-     "render_s": 5.75,
+     "render_s": 5.86,
      "mp3": "/tmp/blend_bench/p4c7.mp3",
      "snip": {
       "s0": 120,
@@ -2536,10 +2473,113 @@
       "lull_db": 4.9
      },
      "hard": [],
-     "cost": 16.343
+     "cost": 12.371
+    },
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      160,
+      null,
+      64,
+      32
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 6.99,
+     "mp3": "/tmp/blend_bench/p4c5.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 7.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 64"
+     ],
+     "struct": 0.516,
+     "feats": {
+      "seesaw": 5.771,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.005,
+      "dissonance": 0.232,
+      "vocal": 7.0,
+      "pro_shape": 2.556,
+      "loop": 0.0,
+      "struct": 0.516
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.8,
+      "wobble": 5,
+      "anti_r": 0.52,
+      "fade_db": 5.400000095367432,
+      "fade3to20": 16,
+      "lull_db": 1.1
+     },
+     "hard": [],
+     "cost": 13.351
+    },
+    {
+     "fam": "sneak_in",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ],
+     "env": {},
+     "sneak": true,
+     "is_rated": false,
+     "render_s": 6.49,
+     "mp3": "/tmp/blend_bench/p4c8.mp3",
+     "snip": {
+      "s0": 120,
+      "start": 128,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 0"
+     ],
+     "struct": 0.016,
+     "feats": {
+      "seesaw": 10.896,
+      "lull": 0.0,
+      "fade_step": 3.541,
+      "flam": 0.707,
+      "beat_off": 0.294,
+      "dissonance": 0.252,
+      "vocal": 0.0,
+      "pro_shape": 0.333,
+      "loop": 0.0,
+      "struct": 0.016
+     },
+     "w1": [
+      "WOBBLE"
+     ],
+     "raw": {
+      "out_rise": 3.9,
+      "wobble": 10,
+      "anti_r": 0.59,
+      "fade_db": 9.5,
+      "fade3to20": 6,
+      "lull_db": 2.7
+     },
+     "hard": [],
+     "cost": 14.787
     }
    ],
-   "margin": 5.559
+   "margin": 3.36
   },
   {
    "pair": "4WY9J_yXj8M>zGBn-IJ1isg",
@@ -2565,7 +2605,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 5.12,
+     "render_s": 4.49,
      "mp3": "/tmp/blend_bench/p5c4.mp3",
      "snip": {
       "s0": 120,
@@ -2601,56 +2641,7 @@
       "lull_db": 1.9
      },
      "hard": [],
-     "cost": 4.985
-    },
-    {
-     "fam": "nat_short",
-     "win": [
-      "n",
-      160,
-      null,
-      48,
-      16
-     ],
-     "env": {},
-     "is_rated": false,
-     "render_s": 5.91,
-     "mp3": "/tmp/blend_bench/p5c1.mp3",
-     "snip": {
-      "s0": 136,
-      "start": 144,
-      "end": 160,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 48"
-     ],
-     "struct": 1.0,
-     "feats": {
-      "seesaw": 1.34,
-      "lull": 0.833,
-      "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.004,
-      "dissonance": 0.334,
-      "vocal": 0.0,
-      "pro_shape": 0.778,
-      "loop": 0.0,
-      "struct": 1.0
-     },
-     "w1": [],
-     "raw": {
-      "out_rise": 3.3,
-      "wobble": 0,
-      "anti_r": 0.22,
-      "fade_db": 4.699999809265137,
-      "fade3to20": 8,
-      "lull_db": 3.8
-     },
-     "hard": [],
-     "cost": 6.992
+     "cost": 3.959
     },
     {
      "fam": "lx_beat",
@@ -2663,7 +2654,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.6,
+     "render_s": 6.99,
      "mp3": "/tmp/blend_bench/p5c3.mp3",
      "snip": {
       "s0": 102,
@@ -2699,7 +2690,109 @@
       "lull_db": 7.1
      },
      "hard": [],
-     "cost": 8.563
+     "cost": 4.962
+    },
+    {
+     "fam": "nat_short",
+     "win": [
+      "n",
+      160,
+      null,
+      48,
+      16
+     ],
+     "env": {},
+     "is_rated": false,
+     "render_s": 5.3,
+     "mp3": "/tmp/blend_bench/p5c1.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 160,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 160, incoming in at bar 48"
+     ],
+     "struct": 1.0,
+     "feats": {
+      "seesaw": 1.34,
+      "lull": 0.833,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.004,
+      "dissonance": 0.334,
+      "vocal": 0.0,
+      "pro_shape": 0.778,
+      "loop": 0.0,
+      "struct": 1.0
+     },
+     "w1": [],
+     "raw": {
+      "out_rise": 3.3,
+      "wobble": 0,
+      "anti_r": 0.22,
+      "fade_db": 4.699999809265137,
+      "fade3to20": 8,
+      "lull_db": 3.8
+     },
+     "hard": [],
+     "cost": 6.172
+    },
+    {
+     "fam": "swap_early",
+     "win": [
+      "n",
+      176,
+      null,
+      0,
+      32
+     ],
+     "env": {
+      "SWAP_POS": "0.21"
+     },
+     "is_rated": false,
+     "render_s": 5.23,
+     "mp3": "/tmp/blend_bench/p5c6.mp3",
+     "snip": {
+      "s0": 136,
+      "start": 144,
+      "end": 176,
+      "pre": 8
+     },
+     "vocal_clash_bars": 0.0,
+     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+     "notes": [
+      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 0"
+     ],
+     "struct": 0.266,
+     "feats": {
+      "seesaw": 4.716,
+      "lull": 0.0,
+      "fade_step": 0.0,
+      "flam": 0.0,
+      "beat_off": 0.263,
+      "dissonance": 0.181,
+      "vocal": 0.0,
+      "pro_shape": 3.444,
+      "loop": 0.0,
+      "struct": 0.266
+     },
+     "w1": [
+      "OUT_RISE"
+     ],
+     "raw": {
+      "out_rise": 4.7,
+      "wobble": 3,
+      "anti_r": 0.26,
+      "fade_db": 5.300000190734863,
+      "fade3to20": 20,
+      "lull_db": 8.7
+     },
+     "hard": [],
+     "cost": 8.067
     },
     {
      "fam": "cue_late",
@@ -2712,7 +2805,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 5.94,
+     "render_s": 6.1,
      "mp3": "/tmp/blend_bench/p5c5.mp3",
      "snip": {
       "s0": 136,
@@ -2748,60 +2841,7 @@
       "lull_db": 3.4
      },
      "hard": [],
-     "cost": 10.112
-    },
-    {
-     "fam": "swap_early",
-     "win": [
-      "n",
-      176,
-      null,
-      0,
-      32
-     ],
-     "env": {
-      "SWAP_POS": "0.21"
-     },
-     "is_rated": false,
-     "render_s": 5.48,
-     "mp3": "/tmp/blend_bench/p5c6.mp3",
-     "snip": {
-      "s0": 136,
-      "start": 144,
-      "end": 176,
-      "pre": 8
-     },
-     "vocal_clash_bars": 0.0,
-     "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
-     "notes": [
-      "mix points from full-track analysis: outgoing out at bar 176, incoming in at bar 0"
-     ],
-     "struct": 0.266,
-     "feats": {
-      "seesaw": 4.716,
-      "lull": 5.711,
-      "fade_step": 0.0,
-      "flam": 0.0,
-      "beat_off": 0.263,
-      "dissonance": 0.181,
-      "vocal": 0.0,
-      "pro_shape": 3.444,
-      "loop": 0.0,
-      "struct": 0.266
-     },
-     "w1": [
-      "OUT_RISE"
-     ],
-     "raw": {
-      "out_rise": 4.7,
-      "wobble": 3,
-      "anti_r": 0.26,
-      "fade_db": 5.300000190734863,
-      "fade3to20": 20,
-      "lull_db": 8.7
-     },
-     "hard": [],
-     "cost": 13.697
+     "cost": 9.238
     },
     {
      "fam": "out_loop",
@@ -2814,7 +2854,7 @@
      ],
      "env": {},
      "is_rated": true,
-     "render_s": 6.73,
+     "render_s": 6.53,
      "mp3": "/tmp/blend_bench/p5c2.mp3",
      "snip": {
       "s0": 168,
@@ -2830,7 +2870,7 @@
      "struct": 0.266,
      "feats": {
       "seesaw": 6.758,
-      "lull": 5.262,
+      "lull": 0.0,
       "fade_step": 0.0,
       "flam": 0.0,
       "beat_off": 0.287,
@@ -2853,7 +2893,7 @@
       "lull_db": 8.3
      },
      "hard": [],
-     "cost": 16.553
+     "cost": 10.61
     },
     {
      "fam": "nat_long",
@@ -2866,7 +2906,7 @@
      ],
      "env": {},
      "is_rated": false,
-     "render_s": 6.54,
+     "render_s": 6.98,
      "mp3": "/tmp/blend_bench/p5c0.mp3",
      "snip": {
       "s0": 136,
@@ -2882,7 +2922,7 @@
      "struct": 0.266,
      "feats": {
       "seesaw": 8.104,
-      "lull": 5.711,
+      "lull": 0.0,
       "fade_step": 0.0,
       "flam": 0.0,
       "beat_off": 0.258,
@@ -2904,7 +2944,7 @@
       "lull_db": 8.7
      },
      "hard": [],
-     "cost": 17.703
+     "cost": 11.978
     },
     {
      "fam": "swap_late",
@@ -2919,7 +2959,7 @@
       "SWAP_POS": "0.6"
      },
      "is_rated": false,
-     "render_s": 6.05,
+     "render_s": 6.39,
      "mp3": "/tmp/blend_bench/p5c7.mp3",
      "snip": {
       "s0": 136,
@@ -2935,7 +2975,7 @@
      "struct": 0.266,
      "feats": {
       "seesaw": 8.104,
-      "lull": 5.711,
+      "lull": 0.0,
       "fade_step": 0.0,
       "flam": 0.0,
       "beat_off": 0.269,
@@ -2957,7 +2997,7 @@
       "lull_db": 8.7
      },
      "hard": [],
-     "cost": 17.746
+     "cost": 12.02
     },
     {
      "fam": "sneak_in",
@@ -2971,7 +3011,7 @@
      "env": {},
      "sneak": true,
      "is_rated": false,
-     "render_s": 6.76,
+     "render_s": 5.72,
      "mp3": "/tmp/blend_bench/p5c8.mp3",
      "snip": {
       "s0": 136,
@@ -3010,10 +3050,10 @@
       "lull_db": 7.1
      },
      "hard": [],
-     "cost": 18.799
+     "cost": 14.137
     }
    ],
-   "margin": 2.007
+   "margin": 1.003
   }
  ],
  "ab": [
@@ -3022,18 +3062,18 @@
    "why": "model top vs your rated version",
    "pair": "j9AuFRpLk7U>cxS6yd0UAxw",
    "rating": 5,
-   "margin": 3.958,
+   "margin": 0.01,
    "A": {
     "file": "/workspace/mixes/deliver/ab/ab1_j9AuFRpLk7U_to_cxS6yd0UAxw_A.mp3",
-    "fam": "cue_late",
+    "fam": "in_loop",
     "win": [
-     "n",
+     "lb",
      176,
      null,
-     80,
+     48,
      32
     ],
-    "cost": 3.029
+    "cost": 1.441
    },
    "B": {
     "file": "/workspace/mixes/deliver/ab/ab1_j9AuFRpLk7U_to_cxS6yd0UAxw_B.mp3",
@@ -3045,48 +3085,17 @@
      48,
      32
     ],
-    "cost": 6.987
+    "cost": 1.451
    }
   },
   {
    "n": 2,
    "why": "top two within margin",
-   "pair": "rpIpJQ7ujzc>OPuVVhbkicU",
-   "rating": 3,
-   "margin": 0.209,
-   "A": {
-    "file": "/workspace/mixes/deliver/ab/ab2_rpIpJQ7ujzc_to_OPuVVhbkicU_A.mp3",
-    "fam": "lx_beat",
-    "win": [
-     "lx",
-     96,
-     32,
-     16,
-     16
-    ],
-    "cost": 3.985
-   },
-   "B": {
-    "file": "/workspace/mixes/deliver/ab/ab2_rpIpJQ7ujzc_to_OPuVVhbkicU_B.mp3",
-    "fam": "out_loop",
-    "win": [
-     "la",
-     112,
-     96,
-     16,
-     16
-    ],
-    "cost": 4.194
-   }
-  },
-  {
-   "n": 3,
-   "why": "top two within margin",
    "pair": "nAV4i1YIwQI>EiZVTuiqo0w",
    "rating": 3,
-   "margin": 1.383,
+   "margin": 0.015,
    "A": {
-    "file": "/workspace/mixes/deliver/ab/ab3_nAV4i1YIwQI_to_EiZVTuiqo0w_A.mp3",
+    "file": "/workspace/mixes/deliver/ab/ab2_nAV4i1YIwQI_to_EiZVTuiqo0w_A.mp3",
     "fam": "nat_short",
     "win": [
      "n",
@@ -3095,10 +3104,10 @@
      0,
      16
     ],
-    "cost": 4.609
+    "cost": 4.348
    },
    "B": {
-    "file": "/workspace/mixes/deliver/ab/ab3_nAV4i1YIwQI_to_EiZVTuiqo0w_B.mp3",
+    "file": "/workspace/mixes/deliver/ab/ab2_nAV4i1YIwQI_to_EiZVTuiqo0w_B.mp3",
     "fam": "out_loop",
     "win": [
      "la",
@@ -3107,7 +3116,38 @@
      0,
      16
     ],
-    "cost": 5.992
+    "cost": 4.363
+   }
+  },
+  {
+   "n": 3,
+   "why": "top two within margin",
+   "pair": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "rating": 3,
+   "margin": 0.138,
+   "A": {
+    "file": "/workspace/mixes/deliver/ab/ab3_rpIpJQ7ujzc_to_OPuVVhbkicU_A.mp3",
+    "fam": "lx_beat",
+    "win": [
+     "lx",
+     96,
+     32,
+     16,
+     16
+    ],
+    "cost": 3.404
+   },
+   "B": {
+    "file": "/workspace/mixes/deliver/ab/ab3_rpIpJQ7ujzc_to_OPuVVhbkicU_B.mp3",
+    "fam": "out_loop",
+    "win": [
+     "la",
+     112,
+     96,
+     16,
+     16
+    ],
+    "cost": 3.542
    }
   },
   {
@@ -3115,7 +3155,7 @@
    "why": "top two within margin",
    "pair": "sObzaBqaBRQ>q_cZZY0BehE",
    "rating": 2,
-   "margin": 1.64,
+   "margin": 0.776,
    "A": {
     "file": "/workspace/mixes/deliver/ab/ab4_sObzaBqaBRQ_to_q_cZZY0BehE_A.mp3",
     "fam": "sneak_in",
@@ -3126,19 +3166,19 @@
      0,
      32
     ],
-    "cost": 4.673
+    "cost": 4.471
    },
    "B": {
     "file": "/workspace/mixes/deliver/ab/ab4_sObzaBqaBRQ_to_q_cZZY0BehE_B.mp3",
-    "fam": "cue_late",
+    "fam": "nat_short",
     "win": [
      "n",
-     144,
+     176,
      null,
-     80,
-     32
+     64,
+     16
     ],
-    "cost": 6.313
+    "cost": 5.247
    }
   }
  ]

@@ -312,7 +312,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if not _rep_prefix_ok(bl):
               if KILL is not None:KILL[(a[:4]+'>'+b[:4],'variety')]+=1
               continue
-            if ORDER:  # bound: the remaining blends must still be able to reach every plan target
+            if ORDER and not (PINW and len(PINW)>=len(ORDER)-1):  # bound: the remaining blends must still be able to reach every plan target
               NB=len(ORDER)-1;rem=NB-len(bl)
               if sum(x['bob']>=16 for x in bl)+rem<NB/2 or sum(x['w'][4]>=32 for x in bl)+rem<NB/2 or sum(_outro_ok(x) for x in bl)+rem<0.7*NB or sum(_drop_ok(x) for x in bl)+rem<NB*float(os.environ.get('DROP_FRAC',1/3)):
                 if KILL is not None:KILL[(a[:4]+'>'+b[:4],'target_bound')]+=1
@@ -325,7 +325,9 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns
             # close here: b is the last track and plays to its tail
             mb=_deck(ns['inn'],tr[b]['tail'],None,0);tot=bars+len(mb)-X;cb,lb_,_=K.close(b,mb,w['lv'],[],bars-X,tot)
-            if (not ORDER or len(ns['seq'])==len(ORDER)) and LOB<=tot<=HIB and cb>=0.5 and lb_<=E4_BARS:done.append(dict(ns,cov=cv+[cb],bars=tot,bw=bw))
+            _fp=bool(ORDER and PINW and len(PINW)>=len(ORDER)-1)
+            if _fp and len(ns['seq'])==len(ORDER):print(f'pinned chain complete: {tot} bars (target {LOB}-{HIB}), last cov {cb:.2f}, lull {lb_}',flush=True)
+            if (not ORDER or len(ns['seq'])==len(ORDER)) and ((LOB<=tot<=HIB and cb>=0.5 and lb_<=E4_BARS) or (_fp and len(ns['seq'])==len(ORDER))):done.append(dict(ns,cov=cv+[cb],bars=tot,bw=bw))
       S=sorted(nxt.values(),key=lambda s:s['cost'])[:beam]
       print('depth',len(S[0]['seq']) if S else 0,'states',len(S),'done',len(done),round(time.time()-t0),'s',flush=True)
       if KILL is not None:print('PSKILL bw',bw,'depth',len(S[0]['seq']) if S else 0,'states',len(S),json.dumps({f'{k[0]} {k[1]}':v for k,v in sorted(KILL.items())}),flush=True);KILL.clear()
@@ -370,7 +372,7 @@ def dry(plan,tag):
     if r.returncode:return dict(error=r.stderr.strip().splitlines()[-1] if r.stderr.strip() else 'mix_simple failed')
     return predict(f'_ps_{tag}_dry')
   finally:
-    for x in(f,f'_ps_{tag}_dry_meta.json'):
+    for x in(() if os.environ.get('PS_KEEP') else (f,))+(f'_ps_{tag}_dry_meta.json',):
       if os.path.exists(x):os.remove(x)
 def report_missing(done,K):
   """what the crate lacks: tracks no window can bring in or take out, and how many pairs offer a 16+ bar beat-on-beat window"""
@@ -420,7 +422,8 @@ if __name__=='__main__':
     # search timeout (looked hung). Now NPAR (4) dry runs in parallel, a progress line per run, and a DRY_BUDGET_S wall cap (default 1200 s).
     from concurrent.futures import ThreadPoolExecutor
     NPAR=int(os.environ.get('NPAR',4));BUD=float(os.environ.get('DRY_BUDGET_S',1200));tv=time.time()
-    pool=[d for d in done if not d['fails'] and all(r in {f"{w['a']}>{w['b']}" for w in d['bl']} for r in req)];pi=0
+    _FP=bool(ORDER and PINW and len(PINW)>=len(ORDER)-1)
+    pool=[d for d in done if (_FP or not d['fails']) and all(r in {f"{w['a']}>{w['b']}" for w in d['bl']} for r in req)];pi=0
     print(f'dry-verify: {len(pool)} candidate plans, up to {arg("--verify",25)} distinct, {NPAR} parallel, budget {BUD:.0f}s',flush=True)
     while not best and pi<len(pool) and len(seen)<int(arg('--verify',25)) and time.time()-tv<BUD:
       _sbf=os.environ.get('SEESAW_BANFILE');_SB=json.load(open(_sbf)) if _sbf and os.path.exists(_sbf) else {}

@@ -1,10 +1,26 @@
 {
  "name": "mix05v3r0",
- "round": "0",
- "regression": true,
+ "round": 0,
+ "regression": false,
  "classes": [
   {
-   "check": "C2",
+   "check": "F1",
+   "n": 1,
+   "cls": "TRADEOFF",
+   "event_kind": {
+    "blend": 1
+   },
+   "new_event_kind": false,
+   "in_refs": 0,
+   "where": [
+    "47:58 trans 16 [blend]: n1dOiesZS1g vs F1NCnCxyhqc beats 16.0 ms apart"
+   ],
+   "false_pos_notes": [],
+   "suspect_commits": [],
+   "suspect_code": null
+  },
+  {
+   "check": "L1",
    "n": 1,
    "cls": "TRADEOFF",
    "event_kind": {
@@ -13,44 +29,25 @@
    "new_event_kind": false,
    "in_refs": 0,
    "where": [
-    "11:00 trans 3 [loop]: outgoing KDRPfuZfNYw -10.0 dB under its body in the first half of the overlap"
+    "14:38 trans 4 [loop]: both decks carry full bass at once"
    ],
    "false_pos_notes": [],
    "suspect_commits": [],
    "suspect_code": null
   },
   {
-   "check": "N1",
-   "n": 1,
-   "cls": "REGRESSION",
-   "event_kind": {
-    "lx": 1
-   },
-   "new_event_kind": true,
-   "in_refs": 0,
-   "where": [
-    "45:25 trans 15 [lx]: master level step +9.9 dB at entry"
-   ],
-   "false_pos_notes": [],
-   "suspect_commits": [
-    "c4d8843 12:29 grokbot-mixer: snapshot 2026-11-01 12:29 EST",
-    "2b0df8b 09:38 grokbot-mixer: snapshot 2026-11-01 09:38 EST",
-    "d05b716 07:38 grokbot-mixer: snapshot 2026-11-01 07:38 EST"
-   ],
-   "suspect_code": "_lx|LX_|beat-only"
-  },
-  {
    "check": "O1",
-   "n": 2,
+   "n": 3,
    "cls": "TRADEOFF",
    "event_kind": {
-    "blend": 2
+    "blend": 3
    },
    "new_event_kind": false,
    "in_refs": 0,
    "where": [
-    "35:07 trans 12 [blend]: only 7 bars with both decks audible at musical level (need >= 8)",
-    "38:04 trans 13 [blend]: only 5 bars with both decks audible at musical level (need >= 8)"
+    "5:53 trans 1 [blend]: only 5 bars with both decks audible at musical level (need >= 8)",
+    "36:02 trans 12 [blend]: only 7 bars with both decks audible at musical level (need >= 8)",
+    "37:53 trans 13 [blend]: only 5 bars with both decks audible at musical level (need >= 8)"
    ],
    "false_pos_notes": [],
    "suspect_commits": [],
@@ -61,58 +58,33 @@
    "n": 1,
    "cls": "TRADEOFF",
    "event_kind": {
-    "blend": 1
+    "loop": 1
    },
    "new_event_kind": false,
    "in_refs": 0,
    "where": [
-    "23:54 trans 8 [blend]: 2s3M6oX2lfo vs nT25guf4DRU median onset xcorr 0.09 < 0.2 over 7 overlap bars (drums fighting \u2014 wrong tempo or feel)"
+    "41:11 trans 14 [loop]: EiZVTuiqo0w vs AC3eEHeLd8A median onset xcorr 0.16 < 0.2 over 15 overlap bars (drums fighting \u2014 wrong tempo or feel)"
    ],
    "false_pos_notes": [],
    "suspect_commits": [],
    "suspect_code": null
   },
   {
-   "check": "V1",
-   "n": 4,
-   "cls": "TRADEOFF",
-   "event_kind": {
-    "blend": 3,
-    "loop": 1
-   },
-   "new_event_kind": false,
-   "in_refs": 0,
-   "where": [
-    "3:47 trans 0 [blend]: NaY3x3GRDF4 & rpIpJQ7ujzc both singing 1 bars from 3:47",
-    "5:57 trans 1 [blend]: rpIpJQ7ujzc & OPuVVhbkicU both singing 1 bars from 5:57",
-    "13:14 trans 4 [loop]: YNz30crm5g0 & 5196v8VY1LI both singing 2 bars from 13:14",
-    "51:04 trans 17 [blend]: F1NCnCxyhqc & j9AuFRpLk7U both singing 1 bars from 51:04"
-   ],
-   "false_pos_notes": [
-    "V1 rows carry sec=0 (time only in t_hint): flags were pinned to 0:00/trans 0; diagnose re-maps by t_hint. Fix in guardrails V1 output"
-   ],
-   "suspect_commits": [],
-   "suspect_code": null
-  },
-  {
    "check": "W1",
-   "n": 4,
+   "n": 3,
    "cls": "TRADEOFF",
    "event_kind": {
-    "blend": 2,
-    "lx": 2
+    "blend": 1,
+    "loop": 2
    },
    "new_event_kind": false,
    "in_refs": 0,
    "where": [
-    "3:18 trans 0 [blend]: NaY3x3GRDF4 vs rpIpJQ7ujzc see-saw ['WOBBLE']: outgoing rise 0.7 dB, wobble 4, anti r 0.29",
-    "5:53 trans 1 [blend]: rpIpJQ7ujzc vs OPuVVhbkicU see-saw ['WOBBLE']: outgoing rise 3.7 dB, wobble 4, anti r 0.3",
-    "30:31 trans 10 [lx]: 6YDKymmWe9o vs h1RNzaTfRyY see-saw ['OUT_RISE']: outgoing rise 5.0 dB, wobble 0, anti r 0.27",
-    "45:25 trans 15 [lx]: AC3eEHeLd8A vs n1dOiesZS1g see-saw ['OUT_RISE', 'WOBBLE']: outgoing rise 4.7 dB, wobble 5, anti r -0.15"
+    "5:53 trans 1 [blend]: rpIpJQ7ujzc vs OPuVVhbkicU see-saw ['WOBBLE']: outgoing rise 3.7 dB, wobble 5, anti r 0.06",
+    "24:16 trans 8 [loop]: 2s3M6oX2lfo vs nT25guf4DRU see-saw ['OUT_RISE']: outgoing rise 9.6 dB, wobble 1, anti r 0.52",
+    "43:24 trans 15 [loop]: AC3eEHeLd8A vs n1dOiesZS1g see-saw ['OUT_RISE']: outgoing rise 5.2 dB, wobble 2, anti r -0.0"
    ],
-   "false_pos_notes": [
-    "3:18 W1 wobble-only with outgoing rise 0.7 dB <1 dB: likely FALSE_POS"
-   ],
+   "false_pos_notes": [],
    "suspect_commits": [],
    "suspect_code": null
   }

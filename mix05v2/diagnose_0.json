@@ -13,7 +13,7 @@
    "new_event_kind": false,
    "in_refs": 0,
    "where": [
-    "47:58 trans 16 [blend]: n1dOiesZS1g vs F1NCnCxyhqc beats 16.0 ms apart"
+    "48:20 trans 16 [blend]: n1dOiesZS1g vs F1NCnCxyhqc beats 16.0 ms apart"
    ],
    "false_pos_notes": [],
    "suspect_commits": [],
@@ -37,17 +37,16 @@
   },
   {
    "check": "O1",
-   "n": 3,
+   "n": 2,
    "cls": "TRADEOFF",
    "event_kind": {
-    "blend": 3
+    "blend": 2
    },
    "new_event_kind": false,
    "in_refs": 0,
    "where": [
     "5:53 trans 1 [blend]: only 5 bars with both decks audible at musical level (need >= 8)",
-    "36:02 trans 12 [blend]: only 7 bars with both decks audible at musical level (need >= 8)",
-    "37:53 trans 13 [blend]: only 5 bars with both decks audible at musical level (need >= 8)"
+    "36:02 trans 12 [blend]: only 7 bars with both decks audible at musical level (need >= 8)"
    ],
    "false_pos_notes": [],
    "suspect_commits": [],
@@ -63,7 +62,7 @@
    "new_event_kind": false,
    "in_refs": 0,
    "where": [
-    "41:11 trans 14 [loop]: EiZVTuiqo0w vs AC3eEHeLd8A median onset xcorr 0.16 < 0.2 over 15 overlap bars (drums fighting \u2014 wrong tempo or feel)"
+    "41:33 trans 14 [loop]: EiZVTuiqo0w vs AC3eEHeLd8A median onset xcorr 0.16 < 0.2 over 15 overlap bars (drums fighting \u2014 wrong tempo or feel)"
    ],
    "false_pos_notes": [],
    "suspect_commits": [],
@@ -82,7 +81,7 @@
    "where": [
     "5:53 trans 1 [blend]: rpIpJQ7ujzc vs OPuVVhbkicU see-saw ['WOBBLE']: outgoing rise 3.7 dB, wobble 5, anti r 0.06",
     "24:16 trans 8 [loop]: 2s3M6oX2lfo vs nT25guf4DRU see-saw ['OUT_RISE']: outgoing rise 9.6 dB, wobble 1, anti r 0.52",
-    "43:24 trans 15 [loop]: AC3eEHeLd8A vs n1dOiesZS1g see-saw ['OUT_RISE']: outgoing rise 5.2 dB, wobble 2, anti r -0.0"
+    "43:46 trans 15 [loop]: AC3eEHeLd8A vs n1dOiesZS1g see-saw ['OUT_RISE']: outgoing rise 5.2 dB, wobble 2, anti r -0.0"
    ],
    "false_pos_notes": [],
    "suspect_commits": [],

@@ -1,0 +1,90 @@
+{
+ "date": "2026-11-01 18:25 ET",
+ "status": "NEEDS_DAVID",
+ "mix": "mix05v3r2 (+ mix05v3fx fix attempt)",
+ "note": "not delivered; 3 blends fail every round. Other fails (O1 14:20/36:02, R1 23:54/41:33, 32-bar/16-bar trait counts, 11 ms beat offset at 7Itb bars 808-809, 6 dB energy drop 24:02) in ESCALATE_loop_all11.json",
+ "items": [
+  {
+   "n": 1,
+   "mix_time": "48:11",
+   "pair": "n1dOiesZS1g>F1NCnCxyhqc",
+   "failed": [
+    "abrupt tail (absolute rule): outgoing drops 6.5 dB in one bar at 48:20 (bar 220->221), made by fader+bass cut",
+    "4 dB level dip at the bass swap",
+    "beats 16 ms apart for 1 bar (F1)"
+   ],
+   "tried": [
+    "removed the delay-tail echo exit and re-rendered (mix05v3fx): same 3 fails, so echo is not the cause",
+    "3 loop rounds of alternative windows"
+   ],
+   "root_cause": "16-bar fade is steep at its end and the 4-bar bass cut lands where this track gets bass-heavier; the 1-bar bass lead (added today to stop doubled bass) leaves a short bass hole at the swap",
+   "options": [
+    {
+     "opt": "A",
+     "action": "keep current 16-bar blend (fails abrupt-tail, so cannot ship as is)",
+     "file": "deliver/ab/esc_1_A.mp3"
+    },
+    {
+     "opt": "B",
+     "action": "32-bar natural blend from an earlier cue (bar 144), gentler fade",
+     "file": "deliver/ab/esc_1_B.mp3"
+    },
+    {
+     "opt": "C",
+     "action": "drop F1NC: n1dO straight into Lilies (rendered: deliver/ab/escalate/esc9_n1dOiesZS1g_to_j9AuFRpLk7U_D_drop_F1NCnCxyhqc.mp3)",
+     "file": "deliver/ab/escalate/esc9_n1dOiesZS1g_to_j9AuFRpLk7U_D_drop_F1NCnCxyhqc.mp3"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "mix_time": "5:53",
+   "pair": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "failed": [
+    "see-saw: outgoing gets 3.7 dB louder again mid-blend, wobbles 5x",
+    "only 5 bars where both tracks are audible (need 8)"
+   ],
+   "tried": [
+    "3 loop rounds incl. late-cue loop windows; failed every round"
+   ],
+   "root_cause": "outgoing source gets louder in its own arrangement during the fade, and the incoming enters too quietly to overlap",
+   "options": [
+    {
+     "opt": "A",
+     "action": "current 16-bar blend",
+     "file": "deliver/ab/esc_2_A.mp3"
+    },
+    {
+     "opt": "B",
+     "action": "32-bar natural blend from bar 112",
+     "file": "deliver/ab/esc_2_B.mp3"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "mix_time": "43:46",
+   "pair": "AC3eEHeLd8A>n1dOiesZS1g",
+   "failed": [
+    "see-saw: outgoing rises 5.2 dB during the blend",
+    "drums fighting check (ears gate)"
+   ],
+   "tried": [
+    "drums+bass outro loop (fixed level), 3 loop rounds"
+   ],
+   "root_cause": "outgoing loop region is louder than where the fade starts",
+   "options": [
+    {
+     "opt": "A",
+     "action": "current 32-bar outro-loop blend",
+     "file": "deliver/ab/esc_3_A.mp3"
+    },
+    {
+     "opt": "B",
+     "action": "32-bar natural blend from bar 144, no loop",
+     "file": "deliver/ab/esc_3_B.mp3"
+    }
+   ]
+  }
+ ]
+}

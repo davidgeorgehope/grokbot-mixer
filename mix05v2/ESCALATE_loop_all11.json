@@ -1,0 +1,666 @@
+{
+ "date": "2026-11-01 18:08 ET",
+ "status": "NEEDS_DAVID",
+ "mix": "mix05v3r0",
+ "len_min": 56.84,
+ "guardrail_fails": 8,
+ "pytest": "7 failed, 64 passed, 2 warnings in 492.15s (0:08:12)",
+ "note": "not delivered; the listener picks an option per blend, then the loop re-renders with his picks",
+ "items": [
+  {
+   "n": 1,
+   "mix_time": "05:53",
+   "pair": "rpIpJQ7ujzc>OPuVVhbkicU",
+   "failed": [
+    {
+     "test": "guardrail O1",
+     "why": "only 5 bars with both decks audible at musical level (need >= 8)"
+    },
+    {
+     "test": "guardrail W1",
+     "why": "rpIpJQ7ujzc vs OPuVVhbkicU see-saw ['WOBBLE']: outgoing rise 3.7 dB, wobble 5, anti r 0.06"
+    },
+    {
+     "test": "pytest test_guardrails_zero_failures",
+     "why": "AssertionError: [('O1', '5:53', 'only 5 bars with both decks audible at musical level (need >= 8)'), ('W1', '5:53', \"rpIpJQ7ujzc vs OP...uiqo0w vs AC3eEHeLd8A median onset xcorr 0.16 < 0.2 over 15 overlap bars (drums fighting \u2014 wrong tempo or feel)'), ...]"
+    },
+    {
+     "test": "pytest test_no_seesaw_between_decks",
+     "why": "AssertionError: 5:53 rpIpJQ7ujzc>OPuVVhbkicU ['WOBBLE'] rise 3.7 wob 5 r 0.06"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc1_rpIpJQ7ujzc_to_OPuVVhbkicU_A.mp3",
+     "win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_long",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc1_rpIpJQ7ujzc_to_OPuVVhbkicU_B.mp3",
+     "win": [
+      "n",
+      112,
+      null,
+      64,
+      32
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy out_loop",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc1_rpIpJQ7ujzc_to_OPuVVhbkicU_C.mp3",
+     "win": [
+      "la",
+      112,
+      96,
+      16,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop OPuVVhbkicU: rpIpJQ7ujzc straight into KDRPfuZfNYw (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc1_rpIpJQ7ujzc_to_KDRPfuZfNYw_D_drop_OPuVVhbkicU.mp3",
+     "win": [
+      "n",
+      160,
+      null,
+      80,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "mix_time": "08:27",
+   "pair": "OPuVVhbkicU>KDRPfuZfNYw",
+   "failed": [
+    {
+     "test": "pytest test_no_seesaw_between_decks",
+     "why": "AssertionError: 5:53 rpIpJQ7ujzc>OPuVVhbkicU ['WOBBLE'] rise 3.7 wob 5 r 0.06"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc2_OPuVVhbkicU_to_KDRPfuZfNYw_A.mp3",
+     "win": [
+      "n",
+      176,
+      null,
+      80,
+      32
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_short",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc2_OPuVVhbkicU_to_KDRPfuZfNYw_B.mp3",
+     "win": [
+      "n",
+      128,
+      null,
+      64,
+      16
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy out_loop",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc2_OPuVVhbkicU_to_KDRPfuZfNYw_C.mp3",
+     "win": [
+      "la",
+      112,
+      96,
+      48,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop KDRPfuZfNYw: OPuVVhbkicU straight into YNz30crm5g0 (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc2_OPuVVhbkicU_to_YNz30crm5g0_D_drop_KDRPfuZfNYw.mp3",
+     "win": [
+      "n",
+      128,
+      null,
+      32,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "mix_time": "14:20",
+   "pair": "YNz30crm5g0>5196v8VY1LI",
+   "failed": [
+    {
+     "test": "guardrail L1",
+     "why": "both decks carry full bass at once"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc3_YNz30crm5g0_to_5196v8VY1LI_A.mp3",
+     "win": [
+      "la",
+      176,
+      160,
+      48,
+      32
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_long",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc3_YNz30crm5g0_to_5196v8VY1LI_B.mp3",
+     "win": [
+      "n",
+      176,
+      null,
+      0,
+      32
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy nat_short",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc3_YNz30crm5g0_to_5196v8VY1LI_C.mp3",
+     "win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop 5196v8VY1LI: YNz30crm5g0 straight into MoYkYkoeb84 (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc3_YNz30crm5g0_to_MoYkYkoeb84_D_drop_5196v8VY1LI.mp3",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "mix_time": "20:57",
+   "pair": "7Itbo72XEz4>2s3M6oX2lfo",
+   "failed": [
+    {
+     "test": "pytest test_mixdown_beats_aligned_every_overlap_bar",
+     "why": "AssertionError: 2/306 overlap bars off by >10ms: [{'bar': 808, 'deck': '7Itbo72XEz4', 'lag': -11, 'corr': 0.8}, {'bar': 809, 'deck': '7Itbo72XEz4', 'lag': -11, 'corr': 0.78}]"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc4_7Itbo72XEz4_to_2s3M6oX2lfo_A.mp3",
+     "win": [
+      "la",
+      160,
+      144,
+      16,
+      16
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_long",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc4_7Itbo72XEz4_to_2s3M6oX2lfo_B.mp3",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy nat_short",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc4_7Itbo72XEz4_to_2s3M6oX2lfo_C.mp3",
+     "win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop 2s3M6oX2lfo: 7Itbo72XEz4 straight into nT25guf4DRU (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc4_7Itbo72XEz4_to_nT25guf4DRU_D_drop_2s3M6oX2lfo.mp3",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "mix_time": "24:16",
+   "pair": "2s3M6oX2lfo>nT25guf4DRU",
+   "failed": [
+    {
+     "test": "guardrail W1",
+     "why": "2s3M6oX2lfo vs nT25guf4DRU see-saw ['OUT_RISE']: outgoing rise 9.6 dB, wobble 1, anti r 0.52"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc5_2s3M6oX2lfo_to_nT25guf4DRU_A.mp3",
+     "win": [
+      "la",
+      160,
+      144,
+      16,
+      32
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_long",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc5_2s3M6oX2lfo_to_nT25guf4DRU_B.mp3",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy nat_short",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc5_2s3M6oX2lfo_to_nT25guf4DRU_C.mp3",
+     "win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop nT25guf4DRU: 2s3M6oX2lfo straight into 6YDKymmWe9o (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc5_2s3M6oX2lfo_to_6YDKymmWe9o_D_drop_nT25guf4DRU.mp3",
+     "win": [
+      "n",
+      160,
+      null,
+      40,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "mix_time": "36:02",
+   "pair": "kKu3fIOTiHk>nAV4i1YIwQI",
+   "failed": [
+    {
+     "test": "guardrail O1",
+     "why": "only 7 bars with both decks audible at musical level (need >= 8)"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc6_kKu3fIOTiHk_to_nAV4i1YIwQI_A.mp3",
+     "win": [
+      "lb",
+      192,
+      null,
+      16,
+      16
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_long",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc6_kKu3fIOTiHk_to_nAV4i1YIwQI_B.mp3",
+     "win": [
+      "n",
+      208,
+      null,
+      48,
+      32
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy nat_short",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc6_kKu3fIOTiHk_to_nAV4i1YIwQI_C.mp3",
+     "win": [
+      "n",
+      208,
+      null,
+      0,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop nAV4i1YIwQI: kKu3fIOTiHk straight into EiZVTuiqo0w (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc6_kKu3fIOTiHk_to_EiZVTuiqo0w_D_drop_nAV4i1YIwQI.mp3",
+     "win": [
+      "n",
+      208,
+      null,
+      16,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "mix_time": "41:33",
+   "pair": "EiZVTuiqo0w>AC3eEHeLd8A",
+   "failed": [
+    {
+     "test": "guardrail R1",
+     "why": "EiZVTuiqo0w vs AC3eEHeLd8A median onset xcorr 0.16 < 0.2 over 15 overlap bars (drums fighting \u2014 wrong tempo or feel)"
+    },
+    {
+     "test": "pytest test_ears_and_direct_drums_agree_no_blend_is_off",
+     "why": "AssertionError: [{'k': 14, 't': 41.56, 'a': 'EiZVTuiqo0w', 'b': 'AC3eEHeLd8A', ...}]"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc7_EiZVTuiqo0w_to_AC3eEHeLd8A_A.mp3",
+     "win": [
+      "la",
+      144,
+      128,
+      16,
+      32
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_long",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc7_EiZVTuiqo0w_to_AC3eEHeLd8A_B.mp3",
+     "win": [
+      "n",
+      208,
+      null,
+      16,
+      32
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy nat_short",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc7_EiZVTuiqo0w_to_AC3eEHeLd8A_C.mp3",
+     "win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop AC3eEHeLd8A: EiZVTuiqo0w straight into n1dOiesZS1g (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc7_EiZVTuiqo0w_to_n1dOiesZS1g_D_drop_AC3eEHeLd8A.mp3",
+     "win": [
+      "n",
+      208,
+      null,
+      16,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "mix_time": "43:46",
+   "pair": "AC3eEHeLd8A>n1dOiesZS1g",
+   "failed": [
+    {
+     "test": "guardrail W1",
+     "why": "AC3eEHeLd8A vs n1dOiesZS1g see-saw ['OUT_RISE']: outgoing rise 5.2 dB, wobble 2, anti r -0.0"
+    },
+    {
+     "test": "pytest test_ears_and_direct_drums_agree_no_blend_is_off",
+     "why": "AssertionError: [{'k': 14, 't': 41.56, 'a': 'EiZVTuiqo0w', 'b': 'AC3eEHeLd8A', ...}]"
+    },
+    {
+     "test": "pytest test_guardrails_zero_failures",
+     "why": "AssertionError: [('O1', '5:53', 'only 5 bars with both decks audible at musical level (need >= 8)'), ('W1', '5:53', \"rpIpJQ7ujzc vs OP...uiqo0w vs AC3eEHeLd8A median onset xcorr 0.16 < 0.2 over 15 overlap bars (drums fighting \u2014 wrong tempo or feel)'), ...]"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc8_AC3eEHeLd8A_to_n1dOiesZS1g_A.mp3",
+     "win": [
+      "la",
+      112,
+      96,
+      16,
+      32
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_long",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc8_AC3eEHeLd8A_to_n1dOiesZS1g_B.mp3",
+     "win": [
+      "n",
+      144,
+      null,
+      16,
+      32
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy nat_short",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc8_AC3eEHeLd8A_to_n1dOiesZS1g_C.mp3",
+     "win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop n1dOiesZS1g: AC3eEHeLd8A straight into F1NCnCxyhqc (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc8_AC3eEHeLd8A_to_F1NCnCxyhqc_D_drop_n1dOiesZS1g.mp3",
+     "win": [
+      "n",
+      112,
+      null,
+      48,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 9,
+   "mix_time": "48:11",
+   "pair": "n1dOiesZS1g>F1NCnCxyhqc",
+   "failed": [
+    {
+     "test": "guardrail F1",
+     "why": "n1dOiesZS1g vs F1NCnCxyhqc beats 16.0 ms apart"
+    },
+    {
+     "test": "pytest test_no_level_dip_at_swap",
+     "why": "AssertionError: [(48.18, 'n1dOiesZS1g', 'F1NCnCxyhqc', 6, np.float32(-4.0))]"
+    },
+    {
+     "test": "pytest test_outgoing_audio_tail_never_drops_abruptly",
+     "why": "AssertionError: [('n1dOiesZS1g', 2096, [-6.0])]"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc9_n1dOiesZS1g_to_F1NCnCxyhqc_A.mp3",
+     "win": [
+      "n",
+      224,
+      null,
+      24,
+      16
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_long",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc9_n1dOiesZS1g_to_F1NCnCxyhqc_B.mp3",
+     "win": [
+      "n",
+      144,
+      null,
+      32,
+      32
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy out_loop",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc9_n1dOiesZS1g_to_F1NCnCxyhqc_C.mp3",
+     "win": [
+      "la",
+      224,
+      208,
+      32,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop F1NCnCxyhqc: n1dOiesZS1g straight into j9AuFRpLk7U (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc9_n1dOiesZS1g_to_j9AuFRpLk7U_D_drop_F1NCnCxyhqc.mp3",
+     "win": [
+      "n",
+      224,
+      null,
+      64,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 10,
+   "mix_time": "50:56",
+   "pair": "F1NCnCxyhqc>j9AuFRpLk7U",
+   "failed": [
+    {
+     "test": "pytest test_no_level_dip_at_swap",
+     "why": "AssertionError: [(48.18, 'n1dOiesZS1g', 'F1NCnCxyhqc', 6, np.float32(-4.0))]"
+    }
+   ],
+   "options": [
+    {
+     "opt": "A",
+     "action": "accept flagged version (what the mix has now)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc10_F1NCnCxyhqc_to_j9AuFRpLk7U_A.mp3",
+     "win": [
+      "la",
+      144,
+      128,
+      64,
+      16
+     ]
+    },
+    {
+     "opt": "B",
+     "action": "try strategy nat_long",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc10_F1NCnCxyhqc_to_j9AuFRpLk7U_B.mp3",
+     "win": [
+      "n",
+      144,
+      null,
+      64,
+      32
+     ]
+    },
+    {
+     "opt": "C",
+     "action": "try strategy nat_short",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc10_F1NCnCxyhqc_to_j9AuFRpLk7U_C.mp3",
+     "win": [
+      "n",
+      112,
+      null,
+      64,
+      16
+     ]
+    },
+    {
+     "opt": "D",
+     "action": "drop j9AuFRpLk7U: F1NCnCxyhqc straight into cxS6yd0UAxw (nat_long)",
+     "file": "/workspace/mixes/deliver/ab/escalate/esc10_F1NCnCxyhqc_to_cxS6yd0UAxw_D_drop_j9AuFRpLk7U.mp3",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      32
+     ]
+    }
+   ]
+  },
+  {
+   "n": 11,
+   "mix_time": null,
+   "pair": null,
+   "failed": [
+    {
+     "test": "pytest test_half_the_blends_beat_on_beat_16_bars",
+     "why": "AssertionError: [(16, 0, 16), (7, 0, 16), (17, 0, 32), (14, 0, 16), (19, 0, 32), (16, 0, 32), ...]"
+    }
+   ],
+   "options": [],
+   "note": "mix-wide test, not tied to one blend"
+  }
+ ]
+}

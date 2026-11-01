@@ -127,3 +127,76 @@ src/eval/control_curves.py (validate/run/summarize) + eval/control_curves.md. Va
 - 15:39 ET: [05v3] mix05v3r0 (plan_mix05v3r0.json): 9 guardrail fails {'O1': 3, 'W1': 3, 'L1': 1, 'R1': 1, 'F1': 1}
 - 15:39 ET: [05v3] round 0 diagnose: F1x1 TRADEOFF, L1x1 TRADEOFF, O1x3 TRADEOFF, R1x1 TRADEOFF, W1x3 TRADEOFF
 - 15:43 ET: [05v3] no-plan root cause: picks chain to 2312 bars (~53 min) < 56 min floor and fail table targets (half >=32-bar blends); plus 2 bench picks invalid in full-chain context. Fix: fully-pinned chains skip table targets/length floor (render tests still gate), in-context repair via mix_simple --dry. r0: 9 fails, N1 gone (LX_TRIM verified). Mix 06 i12 engine added as candidate (mix06/mix06_orig/mix06cfg_current).
+- 15:45 ET: [05v3] round 0: blend loop 19 blends in 1s; picks NaY3>rpIp opt_natural_16_late_cue, rpIp>OPuV opt_loop_lb_16_late_cue, OPuV>KDRP nat_long, KDRP>YNz3 opt_loop_la_16_late_cue, YNz3>5196 mix05_nolead, 5196>MoYk cue_late, MoYk>7Itb out_loop, 7Itb>2s3M opt_loop_la_16_intro_cue, 2s3M>nT25 mix05_nolead FLAGGED, nT25>6YDK nat_long, 6YDK>h1RN opt_loop_lb_32_late_cue, h1RN>kKu3 in_loop, kKu3>nAV4 opt_natural_16_late_cue, nAV4>EiZV human_ab, EiZV>AC3e opt_loop_la_32_intro_cue, AC3e>n1dO out_loop FLAGGED, n1dO>F1NC nat_short, F1NC>j9Au opt_loop_la_16_late_cue, j9Au>cxS6 human_ab; 18 close calls, 3 regression A/B
+- 15:45 ET: [05v3] repair rpIp>OPuV: ['lb', 80, None, 64, 16] invalid in chain -> ['n', 160, None, 32, 16] (next bench candidate)
+- 15:45 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 64, 16]
+- 15:45 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 16, 16]
+- 15:45 ET: [05v3] chain length 56.8 min
+- 15:50 ET: [05v3] mix05v3r0 (plan_mix05v3r0.json): 8 guardrail fails {'O1': 2, 'W1': 3, 'L1': 1, 'R1': 1, 'F1': 1}
+- 15:50 ET: [05v3] round 0 diagnose: F1x1 TRADEOFF, L1x1 TRADEOFF, O1x2 TRADEOFF, R1x1 TRADEOFF, W1x3 TRADEOFF
+- 16:03 ET: [05v3] round 1: blend loop 7 blends in 798s; picks 2s3M>nT25 strategy FLAGGED, AC3e>n1dO out_loop FLAGGED, EiZV>AC3e current_nolead, YNz3>5196 opt_loop_la_16_late_cue, kKu3>nAV4 opt_natural_16_late_cue, n1dO>F1NC current_nolead, rpIp>OPuV opt_loop_lb_16_late_cue; 7 close calls, 0 regression A/B
+- 16:03 ET: [05v3] repair rpIp>OPuV: ['lb', 80, None, 64, 16] invalid in chain -> ['n', 160, None, 32, 16] (next bench candidate)
+- 16:04 ET: [05v3] repair nAV4>EiZV: ['la', 112, 96, 0, 16] invalid in chain -> engine choice (engine best (flagged))
+- 16:04 ET: [05v3] chain length 56.1 min
+- 16:14 ET: [05v3] mix05v3r1 (plan_mix05v3r1.json): 8 guardrail fails {'O1': 3, 'W1': 2, 'R1': 2, 'F1': 1}
+- 16:14 ET: [05v3] round 1 diagnose: F1x1 TRADEOFF, O1x3 TRADEOFF, R1x2 TRADEOFF, W1x2 TRADEOFF
+- 16:25 ET: [05v3] round 0: blend loop 19 blends in 1s; picks NaY3>rpIp opt_natural_16_late_cue, rpIp>OPuV opt_loop_lb_16_late_cue, OPuV>KDRP nat_long, KDRP>YNz3 opt_loop_la_16_late_cue, YNz3>5196 mix05_nolead, 5196>MoYk cue_late, MoYk>7Itb out_loop, 7Itb>2s3M opt_loop_la_16_intro_cue, 2s3M>nT25 mix05_nolead FLAGGED, nT25>6YDK nat_long, 6YDK>h1RN opt_loop_lb_32_late_cue, h1RN>kKu3 in_loop, kKu3>nAV4 opt_natural_16_late_cue, nAV4>EiZV human_ab, EiZV>AC3e opt_loop_la_32_intro_cue, AC3e>n1dO out_loop FLAGGED, n1dO>F1NC nat_short, F1NC>j9Au opt_loop_la_16_late_cue, j9Au>cxS6 human_ab; 18 close calls, 3 regression A/B
+- 16:25 ET: [05v3] repair rpIp>OPuV: ['lb', 80, None, 64, 16] invalid in chain -> ['n', 160, None, 32, 16] (next bench candidate)
+- 16:25 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 64, 16]
+- 16:25 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 16, 16]
+- 16:25 ET: [05v3] chain length 56.8 min
+- 16:30 ET: [05v3] mix05v3r0 (plan_mix05v3r0.json): 8 guardrail fails {'O1': 2, 'W1': 3, 'L1': 1, 'R1': 1, 'F1': 1}
+- 16:30 ET: [05v3] round 0 diagnose: F1x1 TRADEOFF, L1x1 TRADEOFF, O1x2 TRADEOFF, R1x1 TRADEOFF, W1x3 TRADEOFF
+- 16:30 ET: [05v3] round 1: blend loop 7 blends in 0s; picks 2s3M>nT25 strategy FLAGGED, AC3e>n1dO out_loop FLAGGED, EiZV>AC3e current_nolead, YNz3>5196 opt_loop_la_16_late_cue, kKu3>nAV4 opt_natural_16_late_cue, n1dO>F1NC current_nolead, rpIp>OPuV opt_loop_lb_16_late_cue; 7 close calls, 0 regression A/B
+- 16:30 ET: [05v3] repair rpIp>OPuV: ['lb', 80, None, 64, 16] invalid in chain -> ['n', 160, None, 32, 16] (next bench candidate)
+- 16:30 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 64, 16]
+- 16:30 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 16, 16]
+- 16:30 ET: [05v3] chain length 56.8 min
+- 16:38 ET: [05v3] mix05v3r1 (plan_mix05v3r1.json): 8 guardrail fails {'O1': 3, 'W1': 2, 'R1': 2, 'F1': 1}
+- 16:38 ET: [05v3] round 1 diagnose: F1x1 TRADEOFF, O1x3 TRADEOFF, R1x2 TRADEOFF, W1x2 TRADEOFF
+- 16:44 ET: [05v3] round 2: blend loop 7 blends in 360s; picks 2s3M>nT25 current_nolead FLAGGED, AC3e>n1dO out_loop FLAGGED, EiZV>AC3e opt_loop_la_32_intro_cue, YNz3>5196 current_nolead, kKu3>nAV4 opt_natural_16_late_cue, n1dO>F1NC nat_short, rpIp>OPuV opt_loop_lb_16_late_cue; 7 close calls, 0 regression A/B
+- 16:44 ET: [05v3] repair rpIp>OPuV: ['lb', 80, None, 64, 16] invalid in chain -> ['n', 160, None, 32, 16] (next bench candidate)
+- 16:44 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 64, 16]
+- 16:44 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 16, 16]
+- 16:44 ET: [05v3] chain length 56.8 min
+- 16:49 ET: [05v3] mix05v3r2 (plan_mix05v3r2.json): 8 guardrail fails {'O1': 3, 'W1': 2, 'R1': 2, 'F1': 1}
+- 16:49 ET: [05v3] round 2 diagnose: F1x1 TRADEOFF, O1x3 TRADEOFF, R1x2 TRADEOFF, W1x2 TRADEOFF
+- 16:50 ET: [05v3] best mix05v3r0: 8 fails; flagged blends 05:53 rpIp>OPuV ['O1', 'W1'], 14:20 YNz3>5196 ['L1'], 24:16 2s3M>nT25 ['W1'], 36:02 kKu3>nAV4 ['O1'], 41:33 EiZV>AC3e ['R1'], 43:46 AC3e>n1dO ['W1'], 48:11 n1dO>F1NC ['F1']; 7 A/B sets in deliver/ab/pending.json
+- 16:58 ET: [05v3] pytest rc 1: 6 failed, 65 passed, 2 warnings in 485.36s (0:08:05); delivering best mix anyway (the listener 2026-11-01), flags listed above
+- 16:59 ET: [deliver 05-v2] 128k + tracklist in /workspace/mixes/deliver/05-v2
+- 17:00 ET: [deliver 05-v2] iCloud DJ Mixes synced
+- 17:00 ET: [deliver 05-v2] visuals render start
+- 17:02 ET: [deliver 05-v2] 128k + tracklist in /workspace/mixes/deliver/05-v2
+- 17:03 ET: [deliver 05-v2] iCloud DJ Mixes synced
+- 17:03 ET: [deliver 05-v2] visuals render start
+- 17:14 ET: [05v3] round 0: blend loop 19 blends in 1s; picks NaY3>rpIp opt_natural_16_late_cue, rpIp>OPuV opt_loop_lb_16_late_cue, OPuV>KDRP nat_long, KDRP>YNz3 opt_loop_la_16_late_cue, YNz3>5196 mix05_nolead, 5196>MoYk cue_late, MoYk>7Itb out_loop, 7Itb>2s3M opt_loop_la_16_intro_cue, 2s3M>nT25 mix05_nolead FLAGGED, nT25>6YDK nat_long, 6YDK>h1RN opt_loop_lb_32_late_cue, h1RN>kKu3 in_loop, kKu3>nAV4 opt_natural_16_late_cue, nAV4>EiZV human_ab, EiZV>AC3e opt_loop_la_32_intro_cue, AC3e>n1dO out_loop FLAGGED, n1dO>F1NC nat_short, F1NC>j9Au opt_loop_la_16_late_cue, j9Au>cxS6 human_ab; 18 close calls, 3 regression A/B
+- 17:19 ET: [05v3] round 0: picked blends do not chain into a 56-63 min plan, re-planning with picks as candidates only (unpinned)
+- 17:19 ET: [05v3] round 0: no plan (rc 0); keeping best so far
+- 17:19 ET: [05v3] no strict plan could be built: escalated, not delivered
+- 17:19 ET: [05v3] round 0: blend loop 19 blends in 1s; picks NaY3>rpIp opt_natural_16_late_cue, rpIp>OPuV opt_loop_lb_16_late_cue, OPuV>KDRP nat_long, KDRP>YNz3 opt_loop_la_16_late_cue, YNz3>5196 mix05_nolead, 5196>MoYk cue_late, MoYk>7Itb out_loop, 7Itb>2s3M opt_loop_la_16_intro_cue, 2s3M>nT25 mix05_nolead FLAGGED, nT25>6YDK nat_long, 6YDK>h1RN opt_loop_lb_32_late_cue, h1RN>kKu3 in_loop, kKu3>nAV4 opt_natural_16_late_cue, nAV4>EiZV human_ab, EiZV>AC3e opt_loop_la_32_intro_cue, AC3e>n1dO out_loop FLAGGED, n1dO>F1NC nat_short, F1NC>j9Au opt_loop_la_16_late_cue, j9Au>cxS6 human_ab; 18 close calls, 3 regression A/B
+- 17:19 ET: [05v3] round 0: picked blends do not chain into a 56-63 min plan, re-planning with picks as candidates only (unpinned)
+- 17:19 ET: [05v3] round 0: blend loop 19 blends in 1s; picks NaY3>rpIp opt_natural_16_late_cue, rpIp>OPuV opt_loop_lb_16_late_cue, OPuV>KDRP nat_long, KDRP>YNz3 opt_loop_la_16_late_cue, YNz3>5196 mix05_nolead, 5196>MoYk cue_late, MoYk>7Itb out_loop, 7Itb>2s3M opt_loop_la_16_intro_cue, 2s3M>nT25 mix05_nolead FLAGGED, nT25>6YDK nat_long, 6YDK>h1RN opt_loop_lb_32_late_cue, h1RN>kKu3 in_loop, kKu3>nAV4 opt_natural_16_late_cue, nAV4>EiZV human_ab, EiZV>AC3e opt_loop_la_32_intro_cue, AC3e>n1dO out_loop FLAGGED, n1dO>F1NC nat_short, F1NC>j9Au opt_loop_la_16_late_cue, j9Au>cxS6 human_ab; 18 close calls, 3 regression A/B
+- 17:24 ET: [05v3] repair rpIp>OPuV: ['lb', 80, None, 64, 16] invalid in chain -> ['n', 160, None, 32, 16] (next bench candidate)
+- 17:24 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 64, 16]
+- 17:24 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 16, 16]
+- 17:24 ET: [05v3] chain length 56.8 min
+- 17:29 ET: [05v3] mix05v3r0 (plan_mix05v3r0.json): 8 guardrail fails {'O1': 2, 'W1': 3, 'L1': 1, 'R1': 1, 'F1': 1}
+- 17:29 ET: [05v3] round 0 diagnose: F1x1 TRADEOFF, L1x1 TRADEOFF, O1x2 TRADEOFF, R1x1 TRADEOFF, W1x3 TRADEOFF
+- 17:37 ET: [05v3] round 0 pytest rc 1: 7 failed, 64 passed, 2 warnings in 492.15s (0:08:12)
+- 17:37 ET: [05v3] round 1: blend loop 7 blends in 0s; picks 2s3M>nT25 strategy FLAGGED, AC3e>n1dO out_loop FLAGGED, EiZV>AC3e current_nolead, YNz3>5196 opt_loop_la_16_late_cue, kKu3>nAV4 opt_natural_16_late_cue, n1dO>F1NC current_nolead, rpIp>OPuV opt_loop_lb_16_late_cue; 7 close calls, 0 regression A/B
+- 17:37 ET: [05v3] repair rpIp>OPuV: ['lb', 80, None, 64, 16] invalid in chain -> ['n', 160, None, 32, 16] (next bench candidate)
+- 17:37 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 64, 16]
+- 17:37 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 16, 16]
+- 17:37 ET: [05v3] chain length 56.8 min
+- 17:42 ET: [05v3] mix05v3r1 (plan_mix05v3r1.json): 8 guardrail fails {'O1': 3, 'W1': 2, 'R1': 2, 'F1': 1}
+- 17:42 ET: [05v3] round 1 diagnose: F1x1 TRADEOFF, O1x3 TRADEOFF, R1x2 TRADEOFF, W1x2 TRADEOFF
+- 17:51 ET: [05v3] round 1 pytest rc 1: 7 failed, 64 passed, 2 warnings in 555.80s (0:09:15)
+- 17:51 ET: [05v3] round 2: blend loop 7 blends in 0s; picks 2s3M>nT25 current_nolead FLAGGED, AC3e>n1dO out_loop FLAGGED, EiZV>AC3e opt_loop_la_32_intro_cue, YNz3>5196 current_nolead, kKu3>nAV4 opt_natural_16_late_cue, n1dO>F1NC nat_short, rpIp>OPuV opt_loop_lb_16_late_cue; 7 close calls, 0 regression A/B
+- 17:52 ET: [05v3] repair rpIp>OPuV: ['lb', 80, None, 64, 16] invalid in chain -> ['n', 160, None, 32, 16] (next bench candidate)
+- 17:52 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 64, 16]
+- 17:52 ET: [05v3] repair around the listener's pick nAV4>EiZV: neighbour kKu3>nAV4 -> ['lb', 192, None, 16, 16]
+- 17:52 ET: [05v3] chain length 56.8 min
+- 17:57 ET: [05v3] mix05v3r2 (plan_mix05v3r2.json): 8 guardrail fails {'O1': 3, 'W1': 2, 'R1': 2, 'F1': 1}
+- 17:57 ET: [05v3] round 2 diagnose: F1x1 TRADEOFF, O1x3 TRADEOFF, R1x2 TRADEOFF, W1x2 TRADEOFF
+- 18:05 ET: [05v3] round 2 pytest rc 1: 8 failed, 63 passed, 2 warnings in 511.32s (0:08:31)
+- 18:08 ET: [05v3] ESCALATE: mix05v3r0 fails tests (8 guardrail, pytest rc 1); 11 items in mix05v2/ESCALATE.json; NOT delivered

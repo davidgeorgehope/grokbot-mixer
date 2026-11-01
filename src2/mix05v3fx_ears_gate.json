@@ -1,0 +1,36 @@
+[
+ {
+  "k": 1,
+  "t": 5.89,
+  "a": "rpIpJQ7ujzc",
+  "b": "OPuVVhbkicU",
+  "out_win": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ],
+  "ears": "FAIL: downbeats disagree",
+  "lag_ms": 0.0,
+  "beatoff_bars": 2,
+  "status": "suspect"
+ },
+ {
+  "k": 8,
+  "t": 23.91,
+  "a": "2s3M6oX2lfo",
+  "b": "nT25guf4DRU",
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   16
+  ],
+  "ears": "FAIL: downbeats disagree",
+  "lag_ms": null,
+  "beatoff_bars": 0,
+  "status": "suspect"
+ }
+]

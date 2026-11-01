@@ -231,7 +231,7 @@ X16PEN=float(os.environ.get('X16PEN',30))
 import collections
 VOCPEN=float(os.environ.get('VOCPEN',25));BOTHSPEN=float(os.environ.get('BOTHSPEN',15));RSPEN=float(os.environ.get('RSPEN',400));MELSPEN=float(os.environ.get('MELSPEN',10));STEPSPEN=float(os.environ.get('STEPSPEN',20));BADWPEN=float(os.environ.get('BADWPEN',40));LXREPAIR=float(os.environ.get('LXREPAIR',60))
 PREFWIN=json.loads(os.environ.get('PREFWIN','{}'));PREFPEN=float(os.environ.get('PREFPEN',60))  # the listener 2026-11-01: keep good Mix 05 choices as a strong soft preference
-SOFT=int(os.environ.get('SOFT',1))  # 2026-11-01 (listener: no hard 'never' rules): voc/both/R/mel/step/W1-type bans are search costs; the render guardrails C2/O1/R1/N1/W1 still verify
+SOFT=int(os.environ.get('SOFT',0))  # 2026-11-01 17:15 ET listener: strict by default; options, not softness  # 2026-11-01 (listener: no hard 'never' rules): voc/both/R/mel/step/W1-type bans are search costs; the render guardrails C2/O1/R1/N1/W1 still verify
 PROW=float(os.environ.get('PROW',0.15))
 def _pro_template():
   p='/workspace/mixes/eval/control_curves_summary.json'
@@ -325,9 +325,10 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns
             # close here: b is the last track and plays to its tail
             mb=_deck(ns['inn'],tr[b]['tail'],None,0);tot=bars+len(mb)-X;cb,lb_,_=K.close(b,mb,w['lv'],[],bars-X,tot)
+            # all-pinned chain may be short: only a seed for autoloop's length fill (PS_KEEP), which enforces the 56-min floor with longer passing candidates
             _fp=bool(ORDER and PINW and len(PINW)>=len(ORDER)-1)
             if _fp and len(ns['seq'])==len(ORDER):print(f'pinned chain complete: {tot} bars (target {LOB}-{HIB}), last cov {cb:.2f}, lull {lb_}',flush=True)
-            if (not ORDER or len(ns['seq'])==len(ORDER)) and ((LOB<=tot<=HIB and cb>=0.5 and lb_<=E4_BARS) or (_fp and len(ns['seq'])==len(ORDER))):done.append(dict(ns,cov=cv+[cb],bars=tot,bw=bw))
+            if (not ORDER or len(ns['seq'])==len(ORDER)) and ((LOB<=tot<=HIB and cb>=0.5 and lb_<=E4_BARS) or (_fp and os.environ.get('PS_KEEP') and len(ns['seq'])==len(ORDER))):done.append(dict(ns,cov=cv+[cb],bars=tot,bw=bw))
       S=sorted(nxt.values(),key=lambda s:s['cost'])[:beam]
       print('depth',len(S[0]['seq']) if S else 0,'states',len(S),'done',len(done),round(time.time()-t0),'s',flush=True)
       if KILL is not None:print('PSKILL bw',bw,'depth',len(S[0]['seq']) if S else 0,'states',len(S),json.dumps({f'{k[0]} {k[1]}':v for k,v in sorted(KILL.items())}),flush=True);KILL.clear()
@@ -447,9 +448,7 @@ if __name__=='__main__':
         if v.get('all_ok') and not best:best=(P,d,v)
         if SOFT and isinstance(v.get('tests'),dict) and all(ok for t,ok in v['tests'].items() if t!='seesaw'):
           if not w1best or len(v.get('seesaw_fail',[]))<len(w1best[2].get('seesaw_fail',[])):w1best=(P,d,v)
-    if not best and SOFT and not w1best and done:  # never end with 'no plan': best-scoring option, flagged
-      d=done[0];P=to_plan(d,base);v=dry(P,'fb');best=(P,d,v);print('FLAGGED fallback plan: fails',d['fails'],'dry',{k:o for k,o in (v.get('tests') or {}).items() if not o},flush=True)
-    if not best and SOFT and w1best:best=w1best;print('W1-only plan chosen (predicted see-saw on',w1best[2].get('seesaw_fail'),')',flush=True)
+    # 2026-11-01 17:15 ET listener: no silent fallback plan; 'no plan' -> caller escalates (ESCALATE.json + A/B)
     out=dict(runtime_s=round(time.time()-t0,1),search_s=st,complete=len(done),feasible_on_table=sum(not d['fails'] for d in done),verified=tried)
     if best:
       json.dump(best[0],open(arg('--out'),'w'),indent=1);nudge_log(best[1],arg('--out'))

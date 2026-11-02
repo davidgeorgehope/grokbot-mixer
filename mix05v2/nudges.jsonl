@@ -371,3 +371,8 @@
 {"pair": "kKu3fIOTiHk>nAV4i1YIwQI", "round": 2, "src": "closed_loop_result", "win": ["la", 112, 96, 0, 32], "result": "still O1", "in_mix": true}
 {"pair": "EiZVTuiqo0w>AC3eEHeLd8A", "round": 2, "src": "closed_loop_result", "win": ["la", 144, 128, 32, 16], "result": "still R1", "in_mix": true}
 {"pair": "AC3eEHeLd8A>n1dOiesZS1g", "round": 2, "src": "closed_loop_result", "win": ["n", 112, null, 32, 32], "result": "still W1", "in_mix": true}
+{"ts":"2026-11-01T20:05","mix":"mix05v5a","pair":"2s3M6oX2lfo>nT25guf4DRU","code":"DIP","fix":"longer_blend","win":["n",176,null,0,32]}
+{"ts":"2026-11-01T20:05","mix":"mix05v5b","pair":"2s3M6oX2lfo>nT25guf4DRU","code":"DIP","fix":"other_cue_phrase","win":["n",176,null,0,16]}
+{"ts":"2026-11-01T20:05","mix":"mix05v5a","pair":"MoYkYkoeb84>7Itbo72XEz4","code":"G1","fix":"other_cue_phrase","win":["n",112,null,16,16]}
+{"ts":"2026-11-01T20:05","mix":"mix05v5b","pair":"MoYkYkoeb84>7Itbo72XEz4","code":"G1","fix":"other_in_phrase","win":["n",128,null,16,32]}
+{"ts":"2026-11-01T20:05","mix":"mix05v5*","pair":"6YDKymmWe9o","code":"E2","fix":"declare_breakdown","note":"record's own ~2s pre-drop pause, src bars 65-68"}

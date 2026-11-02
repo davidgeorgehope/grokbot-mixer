@@ -7,6 +7,7 @@ Fails a blend when
 import json,os,numpy as np
 import plan_search as P
 OUT_RISE_DB=float(os.environ.get('SEESAW_OUT_RISE',4.5));WOB_DB=float(os.environ.get('SEESAW_WOB_DB',2.5));WOB_N=int(os.environ.get('SEESAW_WOB_N',4))
+TRADE_DB=float(os.environ.get('SEESAW_TRADE_DB',3.0));TRADE_N=int(os.environ.get('SEESAW_TRADE_N',2))
 ANTI_R=float(os.environ.get('SEESAW_ANTI_R',-0.5));ANTI_DB=float(os.environ.get('SEESAW_ANTI_DB',2.0))
 _B={}
 def _beats(i):
@@ -47,8 +48,22 @@ def blend(M,i):
   da,db=np.diff(a),np.diff(b);ok=(a[1:]>-60)&(b[1:]>-60)
   r=float(np.corrcoef(da[ok],db[ok])[0,1]) if ok.sum()>4 and da[ok].std()>0 and db[ok].std()>0 else 0.0
   anti=r<=ANTI_R and da[ok].std()>=ANTI_DB and db[ok].std()>=ANTI_DB
-  fails=[k for k,v in dict(OUT_RISE=rise>OUT_RISE_DB,WOBBLE=wob>=WOB_N,ANTI=anti).items() if v]
-  return dict(i=i,a=t['a'],b=t['b'],t=t['start_bar']*M['bar_sec'],out_rise=round(rise,1),wobble=wob,anti_r=round(r,2),fails=fails)
+  fl=flips(a,b,TRADE_DB)
+  # 2026-11-01 19:20 ET the listener calibration (eval/calibration_notes.md): the see-saw that blocks is decks TRADING the lead
+  # (louder deck flips back and forth, Remedy>Ignite 28:00 rated 2: 3 flips) or anti-correlated swings. An outgoing rise in its own
+  # arrangement (OUT_RISE) or summed wobble alone is a warning: he rated 2B/3B good with those.
+  fails=[k for k,v in dict(TRADE=fl>=TRADE_N,ANTI=anti).items() if v]
+  warns=[k for k,v in dict(OUT_RISE=rise>OUT_RISE_DB,WOBBLE=wob>=WOB_N).items() if v]
+  return dict(i=i,a=t['a'],b=t['b'],t=t['start_bar']*M['bar_sec'],out_rise=round(rise,1),wobble=wob,anti_r=round(r,2),lead_flips=fl,fails=fails,warns=warns)
+def flips(a,b,h):
+  """times the louder deck changes (by >= h dB, hysteresis) while either is audible; a clean blend flips once (out -> in)"""
+  st=n=0
+  for x,y in zip(a,b):
+    if x<-50 and y<-50:continue
+    d=x-y;s=1 if d>=h else -1 if d<=-h else 0
+    if s and st and s!=st:n+=1
+    if s:st=s
+  return n
 def check(M):return [blend(M,i) for i in range(len(M['trans']))]
 if __name__=='__main__':
   import sys

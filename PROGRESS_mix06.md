@@ -200,3 +200,37 @@ src/eval/control_curves.py (validate/run/summarize) + eval/control_curves.md. Va
 - 17:57 ET: [05v3] round 2 diagnose: F1x1 TRADEOFF, O1x3 TRADEOFF, R1x2 TRADEOFF, W1x2 TRADEOFF
 - 18:05 ET: [05v3] round 2 pytest rc 1: 8 failed, 63 passed, 2 warnings in 511.32s (0:08:31)
 - 18:08 ET: [05v3] ESCALATE: mix05v3r0 fails tests (8 guardrail, pytest rc 1); 11 items in mix05v2/ESCALATE.json; NOT delivered
+- 20:20 ET: [05v4 resume] state: calibration (guardrails WARN_ONLY O1/R1/F1, seesaw TRADE, tail deliberate-cut), eval/fix_playbook.json (10 codes), 3 picks in ratings.jsonl all DONE. mix05v4 (56.3 min) fails: E2 29:30, pytest beats_aligned (7Itb bars 805/808 -12ms), energy drop 24:46 bar1078. v5a/b aborted (plan window 2s3M n176 not allowed, no render). E2 root cause: 6YDK source itself has 2 pre-drop pauses at src 91.8-94.0 s (-40..-50 dB), deck solo at full gain -> track's own pause, not an engine gap.
+- 20:45 ET: [05v6] root causes: (1) beats_aligned 7Itb 805/808 -12 ms: nudge05n.json carried stale +13 ms warp nudges on MoYk src bars 120-127 (from an older Mix 05 pairing) and 7Itb's intro src bars 15-28 sit 15-19 ms early on its own grid -> autofix.py TRANS=6 into new nudge05v6.json (MoYk 120-127 -> ~-2, 7Itb 15-28 -> +13..19). (2) energy drop 24:46 bar 1078: non beat-on-beat blends put the 4-bar bass swap at POS*X blindly; nT25's intro has no bass (-29 vs -17 dB) -> 6 dB hole. mix_simple.swap_at SWAP_THIN: if POS*X leaves >=3 bassless bars, hand over where incoming has low end, else as late as possible; gold pair untouched. Changes swaps on YNz3>5196, MoYk>7Itb, 2s3M>nT25, nAV4>EiZV only. (3) E2 29:30: 6YDK's own pre-drop pauses (src 91.8-94.0 s, -40..-50 dB in the source file), deck solo at full gain. Rendering mix05v6 = plan_mix05v4 + these fixes.
+- 20:52 ET: E2 own-pause check added to guardrails (warning only when verified in the source file; mix-made silence still fails); v4 re-check: 0 guardrail fails, E2 29:30 -> warning (6YDK src bar 67, source -23 dB). fix_playbook.json completed for every guardrail + pytest code.
+- 21:20 ET: [05v6] first render: SWAP_THIN put swaps at x 0.77-0.93 -> X1 fails; restricted to X1's x 0.2-0.65 window, re-rendering.
+- 21:55 ET: [05v6] render 2: guardrails 0 fails; pytest 2 fails: phrase-swap test (SWAP_THIN picks at bar 7 got flagged swap_phrase) + new 6.5 dB drop 40:40 nAV4>EiZV (that phrase flag shifted the swap +2 bars). Fix: swap_phrase only when c%4==0; off-phrase SWAP_THIN picks behave like POS swaps. Beat alignment + 24:46 drop FIXED in render 2. Rendering 3.
+- 20:55 ET: [05v6 r3 worker] attached to run_v6.sh pid 4070717, waiting on guardrails/pytest
+- 21:08 ET: [05v6 r3] + echo GUARD rc 0
+GUARD rc 0; pytest running
+- 21:24 ET: [05v6 r3] guardrails 0 fails; pytest 1 fail: energy drops 24:48 bar1079 (7.5 dB, 2s3M>nT25, regressed) + 40:38 bar1768 (6.0 dB nAV4>EiZV). phrase-swap test now PASSES. Root-causing.
+- 21:24 ET: [05v6 r3] ROOT CAUSE: drops sit exactly on swap_bar (1079, 1768). swap_at/score treat a non-POS pick c as swap START (centre c+SW/2) but render at() only added SW/2 when swap_phrase; r3 un-flagged off-phrase picks -> swap centred 2 bars early, bass leaves before incoming has low end. Fix: trans.swap_ofs (SW/2 for any non-POS pick), at() uses it. Re-rendering (render 4).
+- 21:47 ET: [05v6 r4] pytest 4 fails: X1 swap centred x=0.68 at 13:14/24:38/40:27 (3, also guardrail X1), ears_gate rc255, energy drop 40:40 bar1769 6.4 dB nAV4>EiZV. Root-causing swap_ofs.
+- 21:48 ET: [05v6 r4] ROOT CAUSE X1 x=0.68 (5196, nT25, EiZV incoming): swap_ofs fix is right, but SWAP_THIN window checked centre c+SW/2 while render offsets off-phrase lows by lead BLEAD/2 each side -> incoming centre +0.5 bar past 0.65. Fix: SWAP_THIN window requires c+SW/2±BLEAD/2 both in 0.2-0.65. ears_gate rc255 + 40:40 drop (nAV4>EiZV, same swap) likely downstream; render 5.
+- 21:48 ET: [05v6 r4] ears_gate rc255 = ssh to GPU host failed (host reachable again at re-check) -> transient, not engine. Render 5 running.
+- 21:52 ET: [05v6 r5] guardrails 0 fails (X1 fixed); pytest running
+- 22:00 ET: [05v6 r5] pytest 1 fail: energy drops 24:49 bar1080 6.4 dB (2s3M>nT25) + 40:40 bar1769 6.4 dB (nAV4>EiZV). ears gate passes now (transient confirmed). X1 OK.
+- 22:00 ET: [05v6 r5] ROOT CAUSE 24:49/40:40: not the swap. Incoming intros are quiet for the WHOLE 16-bar blend (nT25 src 0-15 -22..-29 dB, EiZV src 0-15 -27..-35 vs outgoing -16/-18) so mix sinks 6 dB as outgoing fades whatever the swap bar. Present in r3 too (7.5/6.0). Needs a cue/blend-length change.
+- 22:01 ET: [05v7] fix (playbook other_in_phrase): incoming cue 0->16 for 2s3M>nT25 and nAV4>EiZV so blends run over louder intro bars, nT25 drop lands on blend end. Costs ~44 s (56.3 -> ~55.6 min, check length). plan_mix05v7.json, run_v7.sh.
+- 22:02 ET: [05v7] cue shift invalidated next windows (nT25>6YDK, EiZV>AC3e); unpinned those two out_win so engine re-picks. Rendering.
+- 22:07 ET: [05v7] cue16 attempt: 55.0 min + nAV4>EiZV vocal clash V=9 -> rejected. Try 2: longer_blend 2s3M>nT25 n160/in0/32 bars; nAV4>EiZV out 160->176 (outgoing rides 16 bars more, +length). Rendering.
+- 22:10 ET: [05v7] render OK, 56.66 min; guardrails+pytest running
+- 22:20 ET: [05v7] result: BOTH energy drops FIXED (24:49, 40:40). New: 2s3M>nT25 32-bar blend -> V1 vocal clash 2 bars 24:27 + N1 +3.1 dB step 24:16. [05v8] 2s3M>nT25 -> 16-bar blend from nT25 src16 (V=0 in scorer), nT25 next window re-picked; nAV4>EiZV keeps out 176. Rendering.
+- 22:32 ET: [05v8 r1] energy/vocal fixed, but 55.74 min + W1 see-saw 27:57 nT25>6YDK from the re-picked nT25 window. Re-pinning nT25>6YDK to v6 window ['n',176,0,32]. Rendering.
+- 22:36 ET: [05v8 r2] render done 22:34; prior worker interrupted during guardrails. Re-running guardrails+pytest.
+- 22:49 ET: [05v8 r2] 56.66 min OK; guardrails 0 fails; pytest 1 fail: mixdown_beats_aligned bars 808/809/812 deck 7Itb lag -14/-15/-11 ms (MoYk>7Itb blend 18:01). Root-causing.
+- 22:52 ET: [05v8 r2] 7Itb lag identical in v6 render (808 -14, 809 -15, 812 -11): pre-existing since v6, not caused by v7/v8 changes (decks+nudges identical through bar 960). v4 pre-nudge was -12 at 805/808 -> v6 +13..19 ms nudge on 7Itb src 15-28 didn't help; checking nudge sign/application.
+- 22:55 ET: [05v8 r2] ROOT CAUSE: my re-run script omitted 'export NUDGE=nudge05v8.json' (run_v8.sh exports it), so checks.py measured with zero warp nudges -> lag = -nudge (-14/-15/-11 vs nudges 19/19/13). With NUDGE set: 808 +5, 809 +4, 812 0 ms -> pass. Harness error, no engine change. Re-running full pytest with NUDGE exported.
+- 23:05 ET: [05v8 r2] PASS: guardrails 0 fails, pytest 71 passed (NUDGE exported), 56.66 min. Delivering.
+- 23:05 ET: [05v8] moved stale 17:02 failing-build delivery artifacts to deliver/05-v2/stale; running deliver.py 05-v2 on mix05v8
+- 23:06 ET: [deliver 05-v2] 128k + tracklist in /workspace/mixes/deliver/05-v2
+- 23:06 ET: [deliver 05-v2] Drive: uploaded 128k 'DJ Mix 05 v2 - Liquid' id 1nk0reFrKOiGH8jCBnb_xmYVVHhtt80gV; trashed 1KwWLsjmyWpSz_HhooaGk0GUk9rQDRlfI (failing v2) + 1VHSjWXbammPuTbMLKyL7f8kphAk-y6Jb (old DJ Mix 05 - Liquid)
+- 23:06 ET: [deliver 05-v2] iCloud DJ Mixes synced
+- 23:06 ET: [deliver 05-v2] visuals render start
+- 23:18 ET: [deliver 05-v2] iCloud latest-only: moved old 'DJ Mix 05 – Liquid' mp3+tracklist to Mac Trash; DJ Mixes now has only 'DJ Grok Bot – Mix 05 v2' for Mix 05
+- 05:53 ET: [deliver 05-v2] YouTube public https://youtu.be/LANW_puOmD4

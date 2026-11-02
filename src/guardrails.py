@@ -44,8 +44,10 @@ SR=44100;T=174.0;BEAT=60/T;BAR=4*BEAT;FR=22050/64;S16=BEAT/4  # phases folded on
 TH=dict(E1_db=6,E2_lufs=-35,N1_ms=10,N1_db=3,F1_ms=15,G1_jit_ms=8,G1_abs_ms=15,K1_steps=2,L1_db=3,P1_tp=-1.0,P1_dc=0.005,S1_db=20,R1_xcorr=0.20,T1_dnb_min=0.45,T1_breaks_min=0.50,J1_db=6.5,E4_db=6,E4_bars=8)
 M=json.load(open(f'{a.src}/{a.name}_meta.json'));D=M['decks'];TR=M['trans'];FX=M.get('fx',[])
 ts=lambda s:f"{int(s//60)}:{int(s%60):02d}"
-fails=[];info={}
-def fail(chk,t0,t1,msg,**kw):fails.append(dict(check=chk,t=ts(t0),t_end=ts(t1),sec=round(t0,2),msg=msg,**kw))
+fails=[];warns=[];info={}
+# 2026-11-01 19:20 ET the listener calibration (eval/calibration_notes.md): O1/R1/F1 warn, don't block (no rating shows them sounding bad)
+WARN_ONLY={'O1','R1','F1'}
+def fail(chk,t0,t1,msg,**kw):(warns if chk in WARN_ONLY else fails).append(dict(check=chk,t=ts(t0),t_end=ts(t1),sec=round(t0,2),msg=msg,**kw))
 # ---------- X1 crossfader (the listener 2026-10-28): within every transition each deck's gain is monotonic,
 # moves <=3 dB per beat (floored at -24 dB), comes only from a logged monotonic x(t), and no other automation exists.
 def x1_check(M,fail,BAR,X1_db=3.0,floor_db=-24.0):
@@ -117,6 +119,22 @@ def intentional(bar):
     if k<tail0 and k<len(al) and al[k]>body-16 and C.gain_at(d,'gain',bar+.5)>0.5 and max(C.gain_at(d,'mid',bar+.5),C.gain_at(d,'high',bar+.5))>0.5:
       return f"{d['id']} own breakdown (src bar {k})"
   return None
+# E2 own pause (2026-11-01, Mix 05 v2 v4 29:30): a <=1-bar near-silence that is the record's OWN pre-drop pause (one audible deck at
+# full fader, its source file is >=20 dB under the 4 bars before at that exact spot) is the producer's arrangement, not a mix gap -> warning.
+# Anything the mix creates (fader/loop/seam/two quiet decks) still fails.
+def e2_own_pause(t0,t1):
+  if t1-t0>BAR:return None
+  b=(t0+t1)/2/BAR;A=[d for d in active(b) if not d.get('acap') and C.gain_at(d,'gain',b)>0.05]
+  if len(A)!=1 or C.gain_at(A[0],'gain',b)<0.9:return None
+  d=A[0];k,stem=src_at(d,int(b))
+  if stem!='mix':return None
+  import soundfile as sf
+  g=json.load(open(f'{a.src}/st/{d["id"]}.json'));s0=g['downs'][0]+(k+(b-int(b)))*BAR
+  y,sr=sf.read(f'{a.src}/st/{d["id"]}.wav',start=max(0,int((s0-4*BAR)*SR)),stop=int((s0+0.5)*SR),always_2d=True);y=y.mean(1)
+  pre=y[:int(4*BAR*SR)];here=y[-int(1.0*SR):]
+  r=lambda z:20*np.log10(np.sqrt(np.mean(z**2))+1e-9)
+  mn=min(r(here[i:i+4410]) for i in range(0,len(here)-4410,2205))
+  return f"{d['id']} own pre-drop pause (src bar {k}: source {mn-r(pre):.0f} dB under its previous 4 bars)" if mn-r(pre)<=-20 else None
 # E1 / E2
 med30=np.array([np.median(St[max(0,i-150):i+150]) for i in range(len(St))])
 bad=(St<med30-TH['E1_db'])&(tL>8)&(tL<dur-8)
@@ -134,6 +152,8 @@ for i,j in runs(bad):
   k=i+int(np.argmin(St[i:j]));fail('E1',tL[i],tL[j-1],f'3s loudness {St[k]:.1f} LUFS is {med30[k]-St[k]:.1f} dB under the 30s median {med30[k]:.1f}',unexcused_bars=[f'{ts(b*BAR)}' for b,w in zip(bars,why) if not w][:8])
 for i,j in runs((Mo<TH['E2_lufs'])&(tL>5)&(tL<dur-5)):
   if all(str(intentional(b)).find('declared')>=0 for b in range(int(tL[i]/BAR),int(tL[j-1]/BAR)+1)):continue  # the record's own plan-declared (<=4 bar) breakdown
+  own=e2_own_pause(tL[i],tL[j-1])
+  if own:warns.append(dict(check='E2',t=ts(tL[i]),t_end=ts(tL[j-1]),sec=round(tL[i],2),msg=f'momentary loudness down to {Mo[i:j].min():.1f} LUFS: {own} (warning)'));continue
   fail('E2',tL[i],tL[j-1],f'momentary loudness down to {Mo[i:j].min():.1f} LUFS (near silence)')
 medall=float(np.median(St[(tL>45)&(tL<dur-45)]))
 for i,j in runs((St<medall-TH['E4_db'])&(tL>45)&(tL<dur-45)):
@@ -318,7 +338,7 @@ except Exception as ex:print('W1 skipped',ex)
 # ---------- report ----------
 fails.sort(key=lambda f:f['sec']);by={}
 for f in fails:by.setdefault(f['check'],0);by[f['check']]+=1
-rep=dict(mix=a.name,mp3=a.mp3,thresholds=TH,info=info,n_fail=len(fails),by_check=by,failures=fails,
+rep=dict(mix=a.name,mp3=a.mp3,thresholds=TH,info=info,n_fail=len(fails),by_check=by,failures=fails,warnings=warns,n_warn=len(warns),
   transitions=[{k:v for k,v in t.items() if k!='rows'}|dict(flam_max=max([r.get('flam_ms',0) for r in t['rows']]),fails=[f['check'] for f in fails if f.get('trans')==t['i']]) for t in TRS])
 json.dump(rep,open(f'{OUT}/guardrails.json','w'),indent=1,default=float)
 json.dump(TRS,open(f'{OUT}/transitions_rows.json','w'),default=float)

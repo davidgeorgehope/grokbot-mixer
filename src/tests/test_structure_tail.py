@@ -63,6 +63,18 @@ def test_outgoing_audio_tail_never_drops_abruptly():
       db=lambda z,k:10*np.log10(np.mean(z[int((k-d0)*BS):int((k-d0+1)*BS)]**2)+1e-12)
       ks=range(int(t['start_bar']),int(t['end_bar']));G=[db(y,k)-db(dry,k) for k in ks];ref=db(y,t['start_bar']-1);L=[db(y,k)-ref for k in ks]
       st=[round(float(G[k]-G[k-1]),1) for k in range(1,len(G)) if L[k-1]>-20 and G[k]-G[k-1]<-6 and L[k]-L[k-1]<-6]  # both: what we take off AND what is heard (a bass-less fill bar makes the ratio alone jump)
+      # 2026-11-01 19:25 ET the listener calibration: a short outgoing CUT can land musically. Exempt a >6 dB one-bar drop only when
+      # (a) it lands on a phrase boundary (outgoing source bar % 8 == 0, or blend bar % 8 == 0) AND (b) the incoming deck is
+      # already at full level there (within 3 dB of its level 4 bars after the blend). Otherwise blocked (absolute by default).
+      if st:
+        B=M['decks'][i+1];yb=E.render_deck(B);b0=B['start_bar'];dbb=lambda k:10*np.log10(np.mean(yb[int((k-b0)*BS):int((k-b0+1)*BS)]**2)+1e-12)
+        full=dbb(t['end_bar']+4);keep=[]
+        for k in range(1,len(G)):
+          if not(L[k-1]>-20 and G[k]-G[k-1]<-6 and L[k]-L[k-1]<-6):continue
+          mb=int(t['start_bar'])+k;j=int(mb-d0);sb=A['full_map'][j][0] if 0<=j<len(A['full_map']) else -1
+          if (sb%8==0 or (mb-int(t['start_bar']))%8==0) and dbb(mb)>=full-3:continue  # deliberate musical cut
+          keep.append(round(float(G[k]-G[k-1]),1))
+        st=keep
       if st:bad.append((t['a'],t['start_bar'],st))
   finally:os.chdir(cwd)
   assert not bad,bad

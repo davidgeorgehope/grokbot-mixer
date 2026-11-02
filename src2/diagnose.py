@@ -74,11 +74,11 @@ def strategies(name,rnd,table='pair_table_05v2.json',tried=None,anchor=None):
     if o['cls']=='FALSE_POS':continue
     for w in o['where']:
       t=int(w.split(' trans ')[1].split()[0]);tr=M['trans'][t];per[(tr['a'],tr['b'])].add(o['check'])
-  hist=collections.defaultdict(list)
+  hist=collections.defaultdict(list);FXH=collections.defaultdict(list)
   NJ=f'{R}/mix05v2/nudges.jsonl'
   if os.path.exists(NJ):
     for l in open(NJ):
-      try:x=json.loads(l);hist[x.get('pair')].append(x.get('win'))
+      try:x=json.loads(l);hist[x.get('pair')].append(x.get('win'));FXH[x.get('pair')].append(x)
       except Exception:pass
   pins={};log=[]
   for (a,b),cs in per.items():
@@ -90,13 +90,25 @@ def strategies(name,rnd,table='pair_table_05v2.json',tried=None,anchor=None):
     cw=next((w for w in T.get(k,{}).get('wins',[]) if w['w']==cur),None) or dict(both=0,R=0,w=[None,0,None,0,16])
     C=[w for w in W if not w['voc'] and w['both']>=8] or [w for w in W if not w['voc']] or W
     if C:m=min(w['pen'] for w in C);C=[w for w in C if w['pen']<=m+60]  # stay near the best-scoring windows
-    if 'V1' in mus:C=sorted(C,key=lambda w:w['pen']-(20 if w['w'][0]=='lx' else 0))  # drums+bass outro preferred, not forced
-    elif 'O1' in mus:C=sorted([w for w in C if w['both']>max(cw['both'],8)] or C,key=lambda w:(-w['w'][4],w['pen']))
-    elif 'W1' in mus:C=sorted([w for w in C if w['w'][4]>=cw['w'][4]] or C,key=lambda w:(-w['w'][4],w['pen']))
-    elif 'R1' in mus:C=sorted([w for w in C if w['R']>=max(0.3,cw.get('R',0)+0.1)],key=lambda w:w['pen']-100*w['R'])
-    else:C=sorted([w for w in C if w['w'][1]!=cw['w'][1]] or C,key=lambda w:w['pen'])
-    if not C:log.append(dict(pair=k,round=rnd,fails=sorted(cs),strategy='no untried window left',win=None,note='-> A/B'));continue
-    w=C[0];pins[k]=w['w'];log.append(dict(pair=k,round=rnd,fails=sorted(cs),strategy=[STRAT[c] for c in sorted(cs)],from_win=cur,win=w['w'],voc=w['voc'],both=w['both'],R=round(w['R'],2),pen=w['pen'],result='pending'))
+    # fix playbook (eval/fix_playbook.json): next untried fix per failing check; 'exhausted' -> escalate
+    PB=json.load(open(f'{R}/eval/fix_playbook.json'));done_fx={x.get('fix') for x in FXH.get(k,[])}
+    def _flt(f,C):
+      if f in('longer_ride','longer_blend'):return sorted([w for w in C if w['w'][4]>cw['w'][4] or w['both']>cw['both']],key=lambda w:(-w['w'][4],w['pen']))
+      if f=='beat_outro_lx':return [w for w in C if w['w'][0]=='lx']
+      if f=='other_cue_phrase':return sorted([w for w in C if w['w'][1]!=cw['w'][1]],key=lambda w:w['pen'])
+      if f=='other_in_phrase':return sorted([w for w in C if w['w'][3]!=cw['w'][3]],key=lambda w:w['pen'])
+      if f in('natural_no_loop','fade_shape_lin'):return sorted([w for w in C if w['w'][0]=='n'],key=lambda w:w['pen'])
+      return []
+    fx=None
+    for c in sorted(mus):
+      for f in PB.get(c,PB['_default'])['fixes']:
+        if f in done_fx or f.startswith('engine:'):continue
+        C2=_flt(f,C)
+        if C2:fx=f;C=C2;break
+      if fx:break
+    if not fx:C=[]
+    if not C:log.append(dict(pair=k,round=rnd,fails=sorted(cs),fix='exhausted',strategy='playbook used up',win=None,note='-> A/B'));continue
+    w=C[0];pins[k]=w['w'];log.append(dict(pair=k,round=rnd,fails=sorted(cs),fix=fx,strategy=[STRAT.get(c,c) for c in sorted(cs)],from_win=cur,win=w['w'],voc=w['voc'],both=w['both'],R=round(w['R'],2),pen=w['pen'],result='pending'))
   with open(NJ,'a') as f:
     for x in log:f.write(json.dumps(dict(x,src='closed_loop',ts=__import__('time').strftime('%H:%M')+' ET'))+'\n')
   return pins,log

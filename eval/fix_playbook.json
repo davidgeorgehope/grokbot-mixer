@@ -1,0 +1,233 @@
+{
+ "_doc": "the listener 2026-11-01 19:15 ET: every test code -> ordered fixes the engine tries automatically (one per round per failing blend) before escalating. Read by src2/diagnose.py strategies(); each attempt logged in mix05v2/nudges.jsonl (field 'fix'); escalate only when the list for that failure is used up. block=true blocks delivery; false = warning. 2026-11-01 20:50 ET: every guardrail code (C1 C2 E1-E4 F1 G1 J1 K1 L1 N1 O1 P1 R1 S1 T1 V1 W1 X1) and the pytest gates (TAIL, EDROP, BEATALIGN) now have a list; 'engine:*' fixes are code-side (autofix.py nudges, swap_at SWAP_THIN, LX_PHASE/LX_TRIM) and are skipped by the window chooser.",
+ "W1": {
+  "block": true,
+  "what": "see-saw: decks trade the lead / anti-correlated swings",
+  "fixes": [
+   "longer_ride",
+   "fade_shape_lin",
+   "beat_outro_lx",
+   "other_cue_phrase",
+   "other_in_phrase"
+  ]
+ },
+ "W1_warn": {
+  "block": false,
+  "what": "outgoing rises in its own arrangement / wobble",
+  "fixes": [
+   "longer_ride",
+   "beat_outro_lx",
+   "other_cue_phrase"
+  ]
+ },
+ "TAIL": {
+  "block": true,
+  "what": "outgoing drops >6 dB in one bar (abrupt tail; musical cut on phrase+incoming full is allowed)",
+  "fixes": [
+   "longer_blend",
+   "fade_shape_lin",
+   "other_cue_phrase",
+   "natural_no_loop"
+  ]
+ },
+ "O1": {
+  "block": false,
+  "what": "low overlap (both decks audible < 8 bars)",
+  "fixes": [
+   "longer_blend",
+   "other_in_phrase"
+  ]
+ },
+ "R1": {
+  "block": false,
+  "what": "drum clash (onset xcorr < 0.2)",
+  "fixes": [
+   "other_cue_phrase",
+   "other_in_phrase",
+   "beat_outro_lx"
+  ]
+ },
+ "F1": {
+  "block": false,
+  "what": "beat flam > 15 ms",
+  "fixes": [
+   "other_cue_phrase",
+   "other_in_phrase"
+  ]
+ },
+ "L1": {
+  "block": true,
+  "what": "both basslines full",
+  "fixes": [
+   "engine:bass_lead",
+   "other_cue_phrase"
+  ]
+ },
+ "V1": {
+  "block": true,
+  "what": "vocal clash",
+  "fixes": [
+   "beat_outro_lx",
+   "other_cue_phrase",
+   "other_in_phrase"
+  ]
+ },
+ "DIP": {
+  "block": true,
+  "what": "level dip at bass swap",
+  "fixes": [
+   "natural_no_loop",
+   "longer_blend",
+   "other_cue_phrase"
+  ]
+ },
+ "_default": {
+  "block": true,
+  "fixes": [
+   "other_cue_phrase",
+   "longer_blend",
+   "other_in_phrase"
+  ]
+ },
+ "E1": {
+  "block": true,
+  "what": "energy hole (3 s loudness >6 dB under local median, not the record's own breakdown)",
+  "fixes": [
+   "engine:swap_thin",
+   "longer_blend",
+   "other_in_phrase",
+   "other_cue_phrase"
+  ]
+ },
+ "E2": {
+  "block": true,
+  "what": "near silence < -35 LUFS made by the mix (a <=1-bar pause that is the record's own pre-drop pause, verified in the source file, is a warning)",
+  "fixes": [
+   "engine:swap_thin",
+   "other_cue_phrase",
+   "other_in_phrase",
+   "longer_blend"
+  ]
+ },
+ "E3": {
+  "block": true,
+  "what": "blend sag: melody lost mid-blend",
+  "fixes": [
+   "other_in_phrase",
+   "longer_blend",
+   "other_cue_phrase"
+  ]
+ },
+ "E4": {
+  "block": true,
+  "what": "long lull >8 bars 6 dB under mix median",
+  "fixes": [
+   "other_cue_phrase",
+   "other_in_phrase",
+   "natural_no_loop"
+  ]
+ },
+ "EDROP": {
+  "block": true,
+  "what": "pytest test_no_unintentional_energy_drops: one-bar >6 dB drop not on the record's own phrase",
+  "fixes": [
+   "engine:swap_thin",
+   "longer_blend",
+   "other_in_phrase",
+   "other_cue_phrase"
+  ]
+ },
+ "BEATALIGN": {
+  "block": true,
+  "what": "pytest test_mixdown_beats_aligned_every_overlap_bar: a deck >10 ms off in an overlap bar",
+  "fixes": [
+   "engine:autofix_nudge",
+   "other_in_phrase",
+   "other_cue_phrase"
+  ]
+ },
+ "G1": {
+  "block": true,
+  "what": "master beat grid jitter",
+  "fixes": [
+   "engine:autofix_nudge",
+   "engine:lx_phase",
+   "natural_no_loop"
+  ]
+ },
+ "N1": {
+  "block": true,
+  "what": "entry shock: incoming off grid or level step",
+  "fixes": [
+   "engine:autofix_nudge",
+   "engine:lx_trim",
+   "longer_blend",
+   "other_in_phrase"
+  ]
+ },
+ "J1": {
+  "block": true,
+  "what": "level jump at a loop seam",
+  "fixes": [
+   "natural_no_loop",
+   "other_cue_phrase"
+  ]
+ },
+ "K1": {
+  "block": true,
+  "what": "key clash in a harmonic overlap",
+  "fixes": [
+   "other_in_phrase",
+   "other_cue_phrase",
+   "beat_outro_lx"
+  ]
+ },
+ "C1": {
+  "block": true,
+  "what": "groove gap across a transition",
+  "fixes": [
+   "longer_blend",
+   "other_in_phrase",
+   "other_cue_phrase"
+  ]
+ },
+ "C2": {
+  "block": true,
+  "what": "outgoing gone too early in the overlap",
+  "fixes": [
+   "longer_ride",
+   "fade_shape_lin",
+   "other_cue_phrase"
+  ]
+ },
+ "S1": {
+  "block": true,
+  "what": "deck plays its own silent tail",
+  "fixes": [
+   "other_cue_phrase",
+   "natural_no_loop",
+   "longer_blend"
+  ]
+ },
+ "P1": {
+  "block": true,
+  "what": "true peak / DC",
+  "fixes": [
+   "engine:master_limiter_check"
+  ]
+ },
+ "T1": {
+  "block": true,
+  "what": "source not DnB tempo",
+  "fixes": [
+   "engine:swap_track"
+  ]
+ },
+ "X1": {
+  "block": true,
+  "what": "crossfader not one monotonic curve / extra automation",
+  "fixes": [
+   "engine:fader_curve"
+  ]
+ }
+}

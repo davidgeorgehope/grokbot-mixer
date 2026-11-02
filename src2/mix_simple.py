@@ -100,9 +100,18 @@ def swap_at(a,b,wa,wb):
   """bass handoff centre in bars into the blend: POS*X, or with SWAP_PHRASE the best 4-bar phrase boundary on beat-on-beat blends"""
   if not(SNAP and SW>0):return POS*X
   bA,bB=F(a)[4],F(b)[4]
-  if not bob(a,b,wa,wb):return POS*X
   lA,lB=F(a)[1],F(b)[1];bodA,bodB=np.percentile(lA,75),np.percentile(lB,75)
   def thin(c):return sum(lA[wa[k]]<bodA-6 for k in range(max(0,c-2),c))+sum(lB[wb[k]]<bodB-6 for k in range(c,min(X,c+2)))  # low end not yet/no longer at body level next to the swap: dip (Mix 03 v2 36:47, -3.2 dB)
+  if not bob(a,b,wa,wb):
+    # SWAP_THIN (2026-11-01, Mix 05 v2 v4 24:46 2s3M>nT25 -6.2 dB energy drop): non beat-on-beat blends used POS*X blindly, so the
+    # outgoing bass went at bar ~6 while nT25's intro had no bass yet (-29 vs -17 dB) = a hole. Hand the bass over where the incoming
+    # actually has low end; if it never does inside the blend, keep it on the outgoing as late as possible (it fades with the fader).
+    if not int(os.environ.get('SWAP_THIN',1)):return POS*X
+    _hl=float(os.environ.get('BASS_LEAD',1))/2;cs=[c for c in range(2,int(X-SW)+1) if 0.2<=_xpos((c+SW/2-_hl)/X) and _xpos((c+SW/2+_hl)/X)<=0.65]  # v6r4: off-phrase picks render with lead (BLEAD/2 each side), so BOTH decks' swap centres must sit in X1's window (r4 incoming at x=0.68)  # X1 window; off-phrase picks are treated like POS swaps (not phrase-snapped)  # X1: swap centred at crossfader x 0.2-0.65
+    def hole(c):return sum(lB[wb[k]]<bodB-6 and lA[wa[k]]>=bodA-6 for k in range(int(c+SW/2),X))  # bars with no bass after the handoff that the outgoing still had
+    if not cs or hole(POS*X)<int(os.environ.get('SWAP_HOLE_BARS',3)) or (a=='j9AuFRpLk7U' and b=='cxS6yd0UAxw'):return POS*X  # only real holes; gold blend untouched
+    best=min(cs,key=lambda c:(hole(c),thin(c),abs(c-POS*X)))
+    return best if hole(best)<hole(POS*X) else POS*X
   def bad(c):return 2*thin(c)+sum(2*(c<=k<c+SW and bA[xa] and bB[xb])+((k<c and not bA[xa]) or (k>=c and not bB[xb])) for k,(xa,xb) in enumerate(zip(wa,wb)))
   return min((c for c in range(4,X,4) if 0.2<=_xpos((c+SW/2)/X)<=0.65),key=lambda c:(bad(c),abs(c-POS*X)))
 FADE=os.environ.get('FADE','tail');FADE0=FADE;FDB=float(os.environ.get('FADE_DB',22))  # 'tail' (default 2026-10-31): blend of the linear position and a -FDB*u^1.5 dB outgoing tail, weighted by u; 'lin' = old linear position (outgoing gone ~10 bars after the swap, -7..-11 dB/bar in Mix 05)
@@ -244,7 +253,7 @@ for i in range(len(ids)-1):
   A,B=decks[i],decks[i+1];X=XT[(A['id'],B['id'])];s=B['start_bar'];e=s+X;_ctx(A['id'])
   xs=[[s+k/4,round(_xpos(k/(4*X)) if k<4*X else 1.0,5)] for k in range(4*X+1)]  # crossfader position per beat, 0->1 (single equal-power control)
   n,cl=notes[(A['id'],B['id'])]
-  trans.append(dict(swap_w=SW,fade=FADE,tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
+  trans.append(dict(swap_w=SW,fade=FADE,tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_ofs=float(SW/2 if (SNAP and SW>0 and info_[(A['id'],B['id'])]['c']!=POS*X) else 0),swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X and info_[(A['id'],B['id'])]['c']%4==0),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
 EO=int(os.environ.get('ECHO_OUT',1));ESH=float(os.environ.get('ECHO_SHARE',0.1))  # echo default on for Mix 05+ (the listener A/B 2026-10-29 'that's nice'); 0 reproduces older mixes
 EOUT=dict(bars=1,delay_beats=float(os.environ.get('ECHO_BEATS',1)),fb=0.5,wet_db=float(os.environ.get('ECHO_WET',-6)),lo=300.0,hi=6000.0,tail_bars=4)
 def echo_pick():
@@ -278,7 +287,7 @@ for i,d in enumerate(decks):
     lo=[]
     def ramp(c,up,w=SW):
       return [[c-w/2+w*j/16,round(float((1-np.cos(np.pi*j/16))/2 if up else (1+np.cos(np.pi*j/16))/2),5)] for j in range(17)]
-    def at(t):return t['swap_bar']+(t['swap_w']/2 if t['swap_phrase'] else 0)  # phrase-snapped swaps start ON the boundary (incoming bass lands on the 1, not a bar early)
+    def at(t):return t['swap_bar']+t.get('swap_ofs',t['swap_w']/2 if t['swap_phrase'] else 0)  # 2026-11-01 v6r3: any non-POS pick (phrase OR SWAP_THIN) is a swap START, as score()/hole() assume (ce=c+SW/2); off-phrase picks were centred 2 bars early -> 24:48/40:38 holes  # phrase-snapped swaps start ON the boundary (incoming bass lands on the 1, not a bar early)
     # BASS_LEAD (2026-11-01, Mix 05 v2 i18 L1 x3): the two lows used to ramp on the SAME raised cosine, so mid-swap both sat at
     # -6 dB ('both decks carry full bass'). Outgoing low now leads by LEAD bars (same 4-bar shape, still monotonic): they cross ~-10 dB.
     def lead(t):return (0.0,0.0) if t['a'] in PIN or f"{t['a']}>{t['b']}" in LEADOFF else (BLEAD,0.0) if t['swap_phrase'] else (BLEAD/2,BLEAD/2)  # phrase-snapped: incoming still lands on the 1

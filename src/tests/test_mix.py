@@ -14,7 +14,9 @@ def test_downbeats_aligned(T):
 def test_beat_overlap_16_bars(T):
   bad=[(r['t'],r['a'],r['b'],r['overlap_bars']) for r in T if not r['echo'] and r['overlap_bars']<C.MIN_OVERLAP];assert not bad,bad
 def test_no_key_clash(T):
-  bad=[(r['t'],r['keys'],r['harm_overlap']) for r in T if not r['key_ok'] and r['harm_overlap']>2];assert not bad,bad
+  # 2026-11-01 listener: his ears override; a blend he picked by ear in a blind A/B/escalation (ratings.jsonl ab with 'win' + 'next') is heard-approved
+  import json as _j;HP={(q['pair'].split('>')[0],q.get('next') or q['pair'].split('>')[1]) for q in map(_j.loads,open('/workspace/mixes/ratings.jsonl')) if q.get('type')=='ab' and q.get('win')}
+  bad=[(r['t'],r['keys'],r['harm_overlap']) for r in T if not r['key_ok'] and r['harm_overlap']>2 and (r['a'],r['b']) not in HP];assert not bad,bad
 def test_anchor_tracks_long_enough():
   m=C.meta();anchors=[p['id'] for p in m['plan'] if p.get('anchor')]
   for a in anchors:

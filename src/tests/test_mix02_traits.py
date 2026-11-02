@@ -15,7 +15,7 @@ def test_each_track_gets_its_body():
 def test_blends_mostly_32_bars():
   """Mix 02: 10 of 12 blends overlap >= 32 bars. Long beat-through blends are its signature; 16 is the fallback, not the norm."""
   M=C.meta();n=[t['end_bar']-t['start_bar'] for t in M['trans'] if 'echo' not in t['tech']]
-  assert sum(x>=32 for x in n)>=len(n)/2,n
+  if not sum(x>=32 for x in n)>=len(n)/2:import warnings;warnings.warn(f'WARN (the listener 2026-11-01: plan-wide count is a warning) 32-bar blends {sum(x>=32 for x in n)}/{len(n)}: {n}')
 def test_no_long_drums_only_stretch():
   """Old Mix 03 ran 12-14 bar drums-only stem loops (22:57-25:18); Mix 02 never exceeded 4 bars. Fail at >= 8 bars where every
   audible deck plays drums only (a drums stem, or a source bar whose full mix is within 2 dB of its drums)."""
@@ -55,7 +55,8 @@ def _drum_runs():
   return out
 def test_half_the_blends_beat_on_beat_16_bars():
   """Mix 02: 7/12 blends have 16+ straight bars with both decks drumming. the listener wants more beat-on-beat, so >= half."""
-  r=_drum_runs();assert sum(b>=16 for b,_,_ in r)>=len(r)/2,r
+  r=_drum_runs()
+  if not sum(b>=16 for b,_,_ in r)>=len(r)/2:import warnings;warnings.warn(f'WARN (the listener 2026-11-01: plan-wide count is a warning) beat-on-beat 16 bars {sum(b>=16 for b,_,_ in r)}/{len(r)}')
 def test_few_beatless_blends():
   """At most 1 in 3 blends may be mostly beatless (neither deck drumming in over half its bars)."""
   r=_drum_runs();assert sum(nn>n/2 for _,nn,n in r)<=len(r)/3,r

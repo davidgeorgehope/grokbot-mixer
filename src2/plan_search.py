@@ -313,8 +313,8 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
               if KILL is not None:KILL[(a[:4]+'>'+b[:4],'variety')]+=1
               continue
             if ORDER and not (PINW and len(PINW)>=len(ORDER)-1):  # bound: the remaining blends must still be able to reach every plan target
-              NB=len(ORDER)-1;rem=NB-len(bl)
-              if sum(x['bob']>=16 for x in bl)+rem<NB/2 or sum(x['w'][4]>=32 for x in bl)+rem<NB/2 or sum(_outro_ok(x) for x in bl)+rem<0.7*NB or sum(_drop_ok(x) for x in bl)+rem<NB*float(os.environ.get('DROP_FRAC',1/3)):
+              NB=len(ORDER)-1;rem=NB-len(bl)  # 2026-11-01 19:30 ET: 32-bar/beat-on-beat counts are warnings (eval/calibration_notes.md), still costs (X16PEN/bw)
+              if (os.environ.get('COUNTS_HARD')=='1' and (sum(x['bob']>=16 for x in bl)+rem<NB/2 or sum(x['w'][4]>=32 for x in bl)+rem<NB/2)) or sum(_outro_ok(x) for x in bl)+rem<0.7*NB or sum(_drop_ok(x) for x in bl)+rem<NB*float(os.environ.get('DROP_FRAC',1/3)):
                 if KILL is not None:KILL[(a[:4]+'>'+b[:4],'target_bound')]+=1
                 continue
             if KILL is not None:KILL[(a[:4]+'>'+b[:4],'survive')]+=1

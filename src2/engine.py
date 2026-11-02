@@ -48,6 +48,12 @@ def render_deck(d):
         g=r(y[i-L:i])/r(yb[i:i+L])*10**(-float(os.environ.get('LX_TRIM_DB',1.5))/20);yb=yb*float(np.clip(g,1.0,10**(9/20)))
     w=np.clip((np.arange(n)/BS-(k0-xf))/max(xf,1e-9),0,1).astype(np.float32)
     y=y*(1-w[:,None])+yb*w[:,None]
+  ib=d.get('ib')
+  if ib:y=y+_ib_layer(tr,d,m,n,y)  # incoming beat loop under its beatless intro (beatmelody.py), before the bass lane so the swap gates it
+  ds=d.get('dswap')
+  if ds and 'beat' not in src:  # drum swap: outgoing drums+bass stem out over ds['xf'] bars from mix bar ds['bar']; melody keeps the crossfader tail
+    yb=_bars(tr,m,tr['st']['beat'],n);w=np.clip((np.arange(n)/BS+d['start_bar']-ds['bar'])/max(ds['xf'],1e-9),0,1).astype(np.float32)
+    y=y-yb*w[:,None]
   for lane,kind,fc in (('low','low',XO),('high','high',HXO)):
     lp=d['auto'].get(lane) or []
     if not lp:continue
@@ -62,6 +68,23 @@ def render_deck(d):
   if pts:
     t=np.arange(n)/BS+d['start_bar'];g=np.interp(t,[p[0] for p in pts],[p[1] for p in pts]).astype(np.float32);y*=g[:,None]
   return np.concatenate([y,echo_tail(src,eo)]) if eo else y
+def _ib_layer(tr,d,m,n,y):
+  """'ib' (2026-11-02, listener: beats into a melody-only intro go mushy, 'it's ok to loop into beats'): the incoming's drums+bass stem
+  from its later clean phrase p..p+L, looped on its own grid over deck bars k0..k1 (beatless intro), handing over at k1 (real drums).
+  Static trim (IB_TRIM, like LX_TRIM): loop matched to the real beat-stem bars k1..k1+4, IB_TRIM_DB under, clip +-9 dB.
+  Re-phase (IB_PHASE, like _lx_shift): loop's 16th-grid phase matched to the real beat bars after k1."""
+  ib=d['ib'];k0,k1,p,L=ib['k0'],ib['k1'],ib['p'],ib['L'];m2=[p+((k-k0)%L) if k0<=k<k1+1 else s for k,s in enumerate(m)]
+  ex={k:0 for k in range(len(m))};yl=_bars(tr,m2,tr['st']['beat'],n);yr=_bars(tr,m,tr['st']['beat'],n);i=int(round(k1*BS));L2=int(round(2*BS))
+  if int(os.environ.get('IB_PHASE',1)) and i-L2>=0 and i+L2<=n:
+    a,b=_phase(yr[i:i+L2]),_phase(yl[i-L2:i])
+    sh=0 if a is None or b is None else round(b-a,1)
+    if sh:yl=_bars(tr,m2,tr['st']['beat'],n,extra={k:sh for k in range(k0,k1+1)})
+  r=lambda z:float(np.sqrt(np.mean(z**2))+1e-9)
+  if int(os.environ.get('IB_TRIM',1)) and i+int(4*BS)<=n:
+    g=r(yr[i:i+int(4*BS)])/r(yl[int(k0*BS):i])*10**(-float(os.environ.get('IB_TRIM_DB',1.5))/20);yl=yl*float(np.clip(g,10**(-9/20),10**(9/20)))
+  xf=float(ib.get('xf',0.25));t=np.arange(n)/BS
+  w=(np.clip((t-k0)/xf,0,1)*np.clip((k1+xf-t)/xf,0,1)).astype(np.float32)  # in at k0, out over xf bars right after the real drums land at k1
+  return yl*w[:,None]
 def _phase(seg):
   import sys;sys.path.insert(0,os.path.join(os.path.dirname(os.path.abspath(__file__)),'../src/tests'));import deckpair as P
   return P.beat_phase(P.snare_env(seg.mean(1)),per=BEAT/4,nb=2)

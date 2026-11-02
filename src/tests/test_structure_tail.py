@@ -73,6 +73,8 @@ def test_outgoing_audio_tail_never_drops_abruptly():
           if not(L[k-1]>-20 and G[k]-G[k-1]<-6 and L[k]-L[k-1]<-6):continue
           mb=int(t['start_bar'])+k;j=int(mb-d0);sb=A['full_map'][j][0] if 0<=j<len(A['full_map']) else -1
           if (sb%8==0 or (mb-int(t['start_bar']))%8==0) and dbb(mb)>=full-3:continue  # deliberate musical cut
+          import beatmelody as BMX
+          if BMX.tail_exempt(E,M,i,mb,y,C.SRC):continue  # 2026-11-02 dswap: drums-only cut on a phrase line (full-mix abrupt fade still blocks)
           keep.append(round(float(G[k]-G[k-1]),1))
         st=keep
       if st:bad.append((t['a'],t['start_bar'],st))

@@ -229,5 +229,15 @@
   "fixes": [
    "engine:fader_curve"
   ]
+ },
+ "BM1": {
+  "block": false,
+  "what": "beats into melody, groove gap: outgoing drums over the incoming's beatless melody-only section >= 4 bars (warning only; melody-over-melody in key can sound good, the listener 2026-11-02)",
+  "fixes": [
+   "dswap",
+   "ib",
+   "later_cue",
+   "shorter_blend"
+  ]
  }
 }

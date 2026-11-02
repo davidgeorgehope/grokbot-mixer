@@ -59,6 +59,25 @@ def run(pairs,cur_wins,extra=None,tag='bl',jobs=4,regress=()):
     if cur_wins.get(k):add('mix06cfg_current',cur_wins[k],M06)
     if cur_wins.get(k):add('current',cur_wins[k]);add('current_nolead',cur_wins[k],{'BASS_LEAD':'0'})
     for w in (extra or {}).get(k,[]):add('strategy',w)
+    # the listener 2026-11-02 14:02 ET: three explicit transition families per blend, the loop/A-B choose between them:
+    #  A 'fam_A_drop'   cross both beats naturally, then drop into the incoming melody: outgoing beat cut on the phrase line at the melody entry (BM_FIX=dswap)
+    #  B 'fam_B_melody' two melodies crossing gently, in key, no beat fix (BM1 is a warning only, never a reject)
+    #  C 'fam_C_loop'   loop beats by runway: incoming intro beat loop (BM_FIX=ib) when the incoming has the beatless runway, else the outgoing outro beat loop (lx window)
+    for w in [cur_wins.get(k)]+[c['win'] for c in cs if c['fam'] in('nat_long','nat_short')][:1]:
+      if not w:continue
+      add('fam_A_drop',w,{'BM_FIX':'dswap'})
+      add('fam_B_melody',w)
+      add('fam_C_loop',w,{'BM_FIX':'ib'})
+      if int(os.environ.get('BM_WIDE',1)):  # variants: cut timing, loop length/source, hybrids (candidates, never rules)
+        for v in ('dswap@-1','dswap@+1','dswap@next','dswap_beat'):add('fam_A_drop_'+v.replace('@','_'),w,{'BM_FIX':v})
+        for v in ('ib:8','ib@2'):add('fam_C_loop_'+v.replace(':','L').replace('@','src'),w,{'BM_FIX':v})
+        for v in ('ib+dswap','ib+dswap@next'):add('fam_AC_hybrid_'+v.replace('+','_').replace('@','_'),w,{'BM_FIX':v})
+    # blend lengths 8/16/32 bars on the strict table: the shortest and longest strict window of the pair, as melody crosses (B) and drops (A)
+    for X in (8,16,32):
+      wx=[x['w'] for x in strict if x['w'][4]==X][:1]
+      for w in wx:add(f'fam_B_melody_{X}',w);add(f'fam_A_drop_{X}',w,{'BM_FIX':'dswap'})
+    lxw=[c['win'] for c in cs if c['win'][0]=='lx'] or [x['w'] for x in T if x['w'][0]=='lx']
+    if lxw:add('fam_C_loop_lx',lxw[0])
     C[k]=cs;todo+=[(c,a,b,f'{tag}{i}c{j}') for j,c in enumerate(cs)]
   from concurrent.futures import ProcessPoolExecutor
   with ProcessPoolExecutor(jobs) as ex:res=list(ex.map(_job,todo))
@@ -66,10 +85,15 @@ def run(pairs,cur_wins,extra=None,tag='bl',jobs=4,regress=()):
   for k in pairs:
     cs=[next(it) for _ in C[k]]
     for c in cs:c['cost']=round(BB.cost(c,BT)+2.0*len(c.get('w1',[])),3)  # learned A/B model + snippet see-saw test
+    BMP=json.load(open(f'{R}/eval/bm_family_priors.json'))['prior'] if os.path.exists(f'{R}/eval/bm_family_priors.json') else {}
+    def _grp(f):return 'continuous' if f.startswith(('fam_C','fam_AC')) else 'drop' if f.startswith('fam_A') else 'melody' if f.startswith('fam_B') else None
+    for c in cs:  # pro-set prior per BM family (soft weight, BM_PRIOR_W; never a gate)
+      g=_grp(c['fam'])
+      if g:c['cost']=round(c['cost']+float(os.environ.get('BM_PRIOR_W',0.3))*BMP.get(g,0),3)
     cs.sort(key=lambda c:c['cost']);C[k]=cs
     import hashlib
     for c in cs:c['h']=hashlib.md5(open(c['mp3'],'rb').read()).hexdigest() if 'mp3' in c else c['fam']
-    ok=[c for c in cs if set(c['env'])<={'BASS_LEAD'} and not c.get('sneak')]  # realisable in the full render: plain windows, BASS_LEAD per pair (BASS_LEAD_OFF)
+    ok=[c for c in cs if set(c['env'])<={'BASS_LEAD','BM_FIX'} and not c.get('sneak')]  # realisable in the full render: plain windows, BASS_LEAD per pair (BASS_LEAD_OFF)
     rowW={tuple(w['w']):w for w in TABLE.get(k,{}).get('wins',[])}
     for c in cs:c['passes']=bool(not c.get('hard') and not c.get('w1') and not c.get('feats',{}).get('vocal') and tuple(c['win']) in rowW and strict_ok(k,rowW[tuple(c['win'])]))
     P=[c for c in ok if c['passes']]
@@ -77,9 +101,9 @@ def run(pairs,cur_wins,extra=None,tag='bl',jobs=4,regress=()):
     hc=[c for c in P if c['fam']=='human_ab' or 'human_ab' in c.get('also',[])] if k in HP else []
     if hc:best=hc[0]  # the listener's ear overrides the model (only strict tests can veto)
     if best:best['flagged']=not P  # never-die fallback only when no option passes
-    if best:picks[k]=best['win'];best['lead_off']=best['env'].get('BASS_LEAD')=='0'
+    if best:picks[k]=best['win'];best['lead_off']=best['env'].get('BASS_LEAD')=='0';best['bm_fix']=best['env'].get('BM_FIX')  # -> plan step 'bm_fix'
     sec=[c for c in ok[1:] if c['h']!=best['h']][:1] if best else []
-    rep.append(dict(pair=k,pick=best and best['fam'],flagged=bool(best and best['flagged']),n_pass=len(P),lead_off=bool(best and best['lead_off']),win=best and best['win'],cost=best and best['cost'],also=best and best.get('also'),
+    rep.append(dict(pair=k,pick=best and best['fam'],bm_fix=best and best.get('bm_fix'),flagged=bool(best and best['flagged']),n_pass=len(P),lead_off=bool(best and best['lead_off']),win=best and best['win'],cost=best and best['cost'],also=best and best.get('also'),
       runner_up=sec and dict(fam=sec[0]['fam'],win=sec[0]['win'],cost=sec[0]['cost']),margin=round(sec[0]['cost']-best['cost'],3) if sec else None,
       mix05_rank=next((n for n,c in enumerate(ok,1) if c['fam']=='mix05' or 'mix05' in c.get('also',[])),None),
       cands=[(c['fam'],c['win'],c['cost'],c.get('w1'),c.get('hard')) for c in cs],_A=best,_B=sec[0] if sec else None))

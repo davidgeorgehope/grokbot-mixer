@@ -46,7 +46,7 @@ M=json.load(open(f'{a.src}/{a.name}_meta.json'));D=M['decks'];TR=M['trans'];FX=M
 ts=lambda s:f"{int(s//60)}:{int(s%60):02d}"
 fails=[];warns=[];info={}
 # 2026-11-01 19:20 ET the listener calibration (eval/calibration_notes.md): O1/R1/F1 warn, don't block (no rating shows them sounding bad)
-WARN_ONLY={'O1','R1','F1'}
+WARN_ONLY={'O1','R1','F1','BM1'}  # BM1 2026-11-02: beats into melody is a warning only (listener: melody over melody in key can sound good, Mix 01)
 def fail(chk,t0,t1,msg,**kw):(warns if chk in WARN_ONLY else fails).append(dict(check=chk,t=ts(t0),t_end=ts(t1),sec=round(t0,2),msg=msg,**kw))
 # ---------- X1 crossfader (the listener 2026-10-28): within every transition each deck's gain is monotonic,
 # moves <=3 dB per beat (floored at -24 dB), comes only from a logged monotonic x(t), and no other automation exists.
@@ -337,6 +337,11 @@ try:
 except Exception as ex:print('W1 skipped',ex)
 # ---------- report ----------
 fails.sort(key=lambda f:f['sec']);by={}
+# BM1 (2026-11-02, beatmelody.py): outgoing drums over the incoming's beatless melody-only section >= 4 bars = groove gap. WARNING only.
+try:
+  sys.path.insert(0,a.src);import beatmelody as _BM
+  for r in _BM.bm1(M,a.src):fail('BM1',r['bar0']*BAR,r['bar1']*BAR,f"beats into melody, groove gap: {r['a']} drums over {r['b']}'s beatless section for {r['bars']} bars (fixes: dswap, ib, later cue, shorter blend)",trans=r['trans'])
+except Exception as ex:print('BM1 check skipped',ex)
 for f in fails:by.setdefault(f['check'],0);by[f['check']]+=1
 rep=dict(mix=a.name,mp3=a.mp3,thresholds=TH,info=info,n_fail=len(fails),by_check=by,failures=fails,warnings=warns,n_warn=len(warns),
   transitions=[{k:v for k,v in t.items() if k!='rows'}|dict(flam_max=max([r.get('flam_ms',0) for r in t['rows']]),fails=[f['check'] for f in fails if f.get('trans')==t['i']]) for t in TRS])

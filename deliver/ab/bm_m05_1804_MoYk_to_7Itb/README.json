@@ -1,0 +1,73 @@
+{
+ "meta": "mix05v8_meta.json",
+ "trans": 6,
+ "a": "MoYkYkoeb84",
+ "b": "7Itbo72XEz4",
+ "items": [
+  {
+   "file": "/workspace/mixes/deliver/ab/bm_m05_1804_MoYk_to_7Itb/B_current.mp3",
+   "variant": "B_current",
+   "what": "as delivered: outgoing beat fades gently over the incoming's beatless melody (family B, melody cross)",
+   "notes": [],
+   "mix_start": "17:50",
+   "blend": [
+    784,
+    816
+   ],
+   "bm1_left": [
+    [
+     "18:04",
+     12
+    ]
+   ]
+  },
+  {
+   "file": "/workspace/mixes/deliver/ab/bm_m05_1804_MoYk_to_7Itb/A_cut_on_melody_entry.mp3",
+   "variant": "A_cut_on_melody_entry",
+   "what": "outgoing drums+bass cut over 1 bar on the phrase line nearest the incoming melody entry (family A)",
+   "notes": [
+    "drum swap: outgoing MoYkYkoeb84 drums+bass out over 1 bar on the phrase line at mix bar 792 (incoming melody entry bar 794); melody keeps its gradual tail"
+   ],
+   "mix_start": "17:50",
+   "blend": [
+    784,
+    816
+   ],
+   "bm1_left": [
+    [
+     "18:04",
+     6
+    ]
+   ]
+  },
+  {
+   "file": "/workspace/mixes/deliver/ab/bm_m05_1804_MoYk_to_7Itb/C_ib_loop.mp3",
+   "variant": "C_ib_loop",
+   "what": "incoming's own drums+bass looped under its beatless intro, hands over to its real drums (family C)",
+   "notes": [
+    "incoming beat loop: 7Itbo72XEz4 drums+bass phrase 32-48 looped under its beatless bars 0-30, handing over to its real drums at mix bar 815"
+   ],
+   "mix_start": "17:50",
+   "blend": [
+    784,
+    816
+   ],
+   "bm1_left": []
+  },
+  {
+   "file": "/workspace/mixes/deliver/ab/bm_m05_1804_MoYk_to_7Itb/AC_ib_plus_cut.mp3",
+   "variant": "AC_ib_plus_cut",
+   "what": "hybrid: incoming beat loop + outgoing beat cut once the incoming is up",
+   "notes": [
+    "incoming beat loop: 7Itbo72XEz4 drums+bass phrase 32-48 looped under its beatless bars 0-30, handing over to its real drums at mix bar 815",
+    "drum swap: outgoing MoYkYkoeb84 drums+bass out over 1 bar on the phrase line at mix bar 792 (incoming melody entry bar 794); melody keeps its gradual tail"
+   ],
+   "mix_start": "17:50",
+   "blend": [
+    784,
+    816
+   ],
+   "bm1_left": []
+  }
+ ]
+}

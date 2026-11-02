@@ -1,0 +1,72 @@
+{
+ "meta": "m06v2_meta.json",
+ "trans": 8,
+ "a": "sObzaBqaBRQ",
+ "b": "q_cZZY0BehE",
+ "items": [
+  {
+   "file": "/workspace/mixes/deliver/ab/bm_m06_2616_Remedy_to_qcZ/B_current.mp3",
+   "variant": "B_current",
+   "what": "as delivered: outgoing beat fades gently over the incoming's beatless melody (family B, melody cross)",
+   "notes": [],
+   "mix_start": "25:55",
+   "blend": [
+    1136,
+    1168
+   ],
+   "bm1_left": [
+    [
+     "26:16",
+     8
+    ],
+    [
+     "26:30",
+     13
+    ]
+   ]
+  },
+  {
+   "file": "/workspace/mixes/deliver/ab/bm_m06_2616_Remedy_to_qcZ/A_cut_on_melody_entry.mp3",
+   "variant": "A_cut_on_melody_entry",
+   "what": "outgoing drums+bass cut over 1 bar on the phrase line nearest the incoming melody entry (family A)",
+   "notes": [
+    "drum swap: outgoing sObzaBqaBRQ drums+bass out over 1 bar on the phrase line at mix bar 1144 (incoming melody entry bar 1146); melody keeps its gradual tail"
+   ],
+   "mix_start": "25:55",
+   "blend": [
+    1136,
+    1168
+   ],
+   "bm1_left": []
+  },
+  {
+   "file": "/workspace/mixes/deliver/ab/bm_m06_2616_Remedy_to_qcZ/C_ib_loop.mp3",
+   "variant": "C_ib_loop",
+   "what": "incoming's own drums+bass looped under its beatless intro, hands over to its real drums (family C)",
+   "notes": [
+    "incoming beat loop: q_cZZY0BehE drums+bass phrase 64-80 looped under its beatless bars 0-55, handing over to its real drums at mix bar 1192"
+   ],
+   "mix_start": "25:55",
+   "blend": [
+    1136,
+    1168
+   ],
+   "bm1_left": []
+  },
+  {
+   "file": "/workspace/mixes/deliver/ab/bm_m06_2616_Remedy_to_qcZ/AC_ib_plus_cut.mp3",
+   "variant": "AC_ib_plus_cut",
+   "what": "hybrid: incoming beat loop + outgoing beat cut once the incoming is up",
+   "notes": [
+    "incoming beat loop: q_cZZY0BehE drums+bass phrase 64-80 looped under its beatless bars 0-55, handing over to its real drums at mix bar 1192",
+    "drum swap: outgoing sObzaBqaBRQ drums+bass out over 1 bar on the phrase line at mix bar 1144 (incoming melody entry bar 1146); melody keeps its gradual tail"
+   ],
+   "mix_start": "25:55",
+   "blend": [
+    1136,
+    1168
+   ],
+   "bm1_left": []
+  }
+ ]
+}

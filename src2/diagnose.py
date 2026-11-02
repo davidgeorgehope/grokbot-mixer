@@ -98,6 +98,9 @@ def strategies(name,rnd,table='pair_table_05v2.json',tried=None,anchor=None):
       if f=='other_cue_phrase':return sorted([w for w in C if w['w'][1]!=cw['w'][1]],key=lambda w:w['pen'])
       if f=='other_in_phrase':return sorted([w for w in C if w['w'][3]!=cw['w'][3]],key=lambda w:w['pen'])
       if f in('natural_no_loop','fade_shape_lin'):return sorted([w for w in C if w['w'][0]=='n'],key=lambda w:w['pen'])
+      if f in('dswap','ib'):return [cw] if cw['w'][0] else []  # BM1 engine options on the same window (plan step 'bm_fix', beatmelody.py)
+      if f=='later_cue':return sorted([w for w in C if w['w'][3]>cw['w'][3]],key=lambda w:w['pen'])
+      if f=='shorter_blend':return sorted([w for w in C if w['w'][4]<cw['w'][4]],key=lambda w:w['pen'])
       return []
     fx=None
     for c in sorted(mus):
@@ -108,7 +111,7 @@ def strategies(name,rnd,table='pair_table_05v2.json',tried=None,anchor=None):
       if fx:break
     if not fx:C=[]
     if not C:log.append(dict(pair=k,round=rnd,fails=sorted(cs),fix='exhausted',strategy='playbook used up',win=None,note='-> A/B'));continue
-    w=C[0];pins[k]=w['w'];log.append(dict(pair=k,round=rnd,fails=sorted(cs),fix=fx,strategy=[STRAT.get(c,c) for c in sorted(cs)],from_win=cur,win=w['w'],voc=w['voc'],both=w['both'],R=round(w['R'],2),pen=w['pen'],result='pending'))
+    w=C[0];pins[k]=w['w'];log.append(dict(pair=k,round=rnd,bm_fix=fx if fx in('dswap','ib') else None,fails=sorted(cs),fix=fx,strategy=[STRAT.get(c,c) for c in sorted(cs)],from_win=cur,win=w['w'],voc=w['voc'],both=w['both'],R=round(w['R'],2),pen=w['pen'],result='pending'))
   with open(NJ,'a') as f:
     for x in log:f.write(json.dumps(dict(x,src='closed_loop',ts=__import__('time').strftime('%H:%M')+' ET'))+'\n')
   return pins,log

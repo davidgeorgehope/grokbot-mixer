@@ -269,7 +269,7 @@
   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
   "t": "40:05",
   "grid_phase_dev_ms": 5.0,
-  "drift_ms": 1,
+  "drift_ms": 13,
   "drift_windows": 1,
   "downbeat_A": {
    "lag_ms": 0,

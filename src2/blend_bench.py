@@ -91,7 +91,9 @@ def render(c,a,b,tag):
     j0=max(0,s0-d['start_bar']);j1=min(len(d['full_map']),s1-d['start_bar']);dd=copy.deepcopy(d)
     if d is A and lx:  # keep the lx switch index right: render from the beat switch's fade start
       pass
-    dd['full_map']=d['full_map'][j0:j1];dd['start_bar']=d['start_bar']+j0;y=engine.render_deck(dd)
+    dd['full_map']=d['full_map'][j0:j1];dd['start_bar']=d['start_bar']+j0;
+    if dd.get('ib'):dd['ib']=dict(dd['ib'],k0=dd['ib']['k0']-j0,k1=dd['ib']['k1']-j0)  # beatmelody ib: deck-relative indices follow the crop
+    y=engine.render_deck(dd)
     o=int(round((dd['start_bar']-s0)*BS));Y=np.zeros((n+int(8*BS),2),np.float32);m=min(len(y),len(Y)-o);Y[o:o+m]=y[:m];dk.append(Y[:n])
   mix=dk[0]+dk[1];raw=f'{SCR}/{tag}_raw.wav';sf.write(raw,mix,SR,subtype='FLOAT')
   sh(f'bash ../src/master.sh {raw} {SCR}/{tag}.mp3 {GAIN} {SCR}/{tag}_master.wav')

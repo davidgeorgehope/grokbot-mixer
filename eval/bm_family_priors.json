@@ -1,0 +1,22 @@
+{
+ "_doc": "Pro liquid sets (eval/pro_beatmelody.json, 77 transitions, 4 sets): share of drum behaviour across transitions -> soft prior cost per BM candidate group in blend_loop (cost += BM_PRIOR_W * prior; prior = -ln(share/max share), share floored at 0.05). Weights only, never a gate. Groups: continuous = beat carried (fam_C*, fam_AC*), drop = beat cut into melody (fam_A*), melody = melody cross (fam_B*), fade = slow beat fade (no fix, BM1 case).",
+ "share": {
+  "continuous": 0.6883116883116883,
+  "drop": 0.19480519480519481,
+  "fade": 0.11688311688311688,
+  "melody": 0.0
+ },
+ "prior": {
+  "continuous": -0.0,
+  "drop": 1.262,
+  "fade": 1.773,
+  "melody": 2.622
+ },
+ "cut_mod4": {
+  "1": 2,
+  "0": 10,
+  "2": 7,
+  "3": 5
+ },
+ "cut_rel_swap_median": 3.55
+}

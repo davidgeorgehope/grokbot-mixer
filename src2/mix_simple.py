@@ -298,6 +298,15 @@ for i,d in enumerate(decks):
     if hi:d['auto']['high']=hi
   if i in EOS:d['echo_out']=dict(EOUT)
   d['end_bar']=d['start_bar']+len(d['full_map']);d['echo']=False;d['label']='';d['map']=d['full_map'][:1]+d['full_map'][-1:];d['acap']=False;d['drop_bar']=None
+# beats -> melody-only fixes (beatmelody.py, 2026-11-02): plan step 'bm_fix' ('dswap' | 'dswap_beat' | 'ib' | 'ib+dswap'), or env BM_FIX on every BM1 blend
+import beatmelody as _BMX
+_BMM=dict(decks=decks,trans=trans,bar_sec=BAR);_bmenv=os.environ.get('BM_FIX','')
+_bmcases={r['trans'] for r in _BMX.bm1(_BMM)} if _bmenv else set()
+for i in range(len(trans)):
+  f=plan[i].get('bm_fix') or (_bmenv if i in _bmcases else '')
+  if f:
+    try:_BMX.apply(_BMM,i,f)
+    except ValueError as ex:print('bm_fix skipped',trans[i]['a'],'>',trans[i]['b'],ex,file=sys.stderr)
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])
   print('len min',round((decks[-1]['end_bar'])*BAR/60,2))

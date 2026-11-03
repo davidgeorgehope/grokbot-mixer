@@ -29,6 +29,7 @@ for tag,mode,what in V:
   if META_ONLY:print(tag,'timing only',flush=True);continue
   raw=f'/tmp/bmx/{name}_{tag}_raw.wav';sf.write(raw,mix,E.SR,subtype='FLOAT')
   subprocess.run(['bash','../src/master.sh',raw,f'{OUT}/{tag}.mp3',GAIN,f'/tmp/bmx/{name}_{tag}_m.wav'],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+  import blend_card as BC;BC.render_card(f'{OUT}/{tag}.mp3',tim,f'{OUT}/{tag}.card.png')  # per-stem blend card next to the clip
   st=s0*M['bar_sec'];BMr=[r for r in BM.bm1(M) if r['trans']==i]
   info.append(dict(file=f'{OUT}/{tag}.mp3',variant=tag,what=what,notes=notes,mix_start=f"{int(st//60)}:{int(st%60):02d}",blend=[t['start_bar'],t['end_bar']],bm1_left=[(r['t'],r['bars']) for r in BMr]))
   print(info[-1],flush=True)

@@ -1,6 +1,7 @@
 """Mix 05 v2 loop, the listener 2026-11-01 'never stuck, my ears override': render best plan -> guardrails; at most ROUNDS rounds
 (stop when no improvement); no window bans (planner costs are soft, only A1 abrupt fade is hard); failing blends get 2-3
 alternative snippets written to deliver/ab/pending.json; delivered ONLY if guardrails + pytest pass; otherwise ESCALATE.json + A/B options, ask the listener (17:15 ET)."""
+import blend_card as BC
 import os,sys,json,subprocess,time,glob,re
 os.environ['NUDGE']='nudge05n.json'  # root cause G1/F1: renders used no warp nudges (nudge.json absent) while guardrails measured with nudge05n
 os.chdir('/workspace/mixes/src2');R='/workspace/mixes';P=f'{R}/PROGRESS_mix06.md';LOG=f'{R}/mix05v2'
@@ -145,10 +146,10 @@ for k,(i,fails) in enumerate(sorted(fl.items(),key=lambda x:(x[0] is None,x[0] o
     C=BB.families(BB.cands_for(a,b,f'esc{k}'),P_.get(a,{}).get('out_win'))
     cur=[c for c in C if c['is_rated']][:1];alt=[c for c in C if not c['is_rated'] and c['win']!=(cur[0]['win'] if cur else None)][:2]
     for L,c,kind in zip('ABC',cur+alt,['accept flagged version (what the mix has now)']+[f"try strategy {c['fam']}" for c in alt]):
-      BB.render(c,a,b,f'esc{k}{L}');dst=f'{AB}/esc{k}_{a}_to_{b}_{L}.mp3';shutil.copy(c['mp3'],dst);opts.append(dict(opt=L,action=kind,file=dst,win=c['win']))
+      BB.render(c,a,b,f'esc{k}{L}');dst=f'{AB}/esc{k}_{a}_to_{b}_{L}.mp3';BC.publish(c['mp3'],dst,c.get('timing'));opts.append(dict(opt=L,action=kind,file=dst,win=c['win']))
     if i+2<len(ids):  # drop the incoming track: outgoing straight into the one after it
       c2=ids[i+2];D2=BB.families(BB.cands_for(a,c2,f'esc{k}D'),None)
-      if D2:BB.render(D2[0],a,c2,f'esc{k}D');dst=f'{AB}/esc{k}_{a}_to_{c2}_D_drop_{b}.mp3';shutil.copy(D2[0]['mp3'],dst);opts.append(dict(opt='D',action=f'drop {b}: {a} straight into {c2} ({D2[0]["fam"]})',file=dst,win=D2[0]['win']))
+      if D2:BB.render(D2[0],a,c2,f'esc{k}D');dst=f'{AB}/esc{k}_{a}_to_{c2}_D_drop_{b}.mp3';BC.publish(D2[0]['mp3'],dst,D2[0].get('timing'));opts.append(dict(opt='D',action=f'drop {b}: {a} straight into {c2} ({D2[0]["fam"]})',file=dst,win=D2[0]['win']))
   except Exception as ex:opts.append(dict(error=str(ex)[:300]))
   items.append(dict(n=k,mix_time=time.strftime('%M:%S',time.gmtime(t['start_bar']*BAR)),pair=f'{a}>{b}',failed=fails,options=opts))
 shutil.rmtree(BB.SCR,ignore_errors=True)

@@ -4,9 +4,10 @@ Mix 05 engine settings ('mix05_orig': FADE lin, 2-bar swap, no BASS_LEAD/LX_TRIM
 diagnose strategy window ('strategy'). Each is rendered with the real engine (+ master.sh unchanged), measured (W1 see-saw, hard rejects) and
 scored with the learned Bradley-Terry weights (eval/blend_bench_results.json). Pick = lowest cost; no special cost for leaving or keeping Mix 05.
 Close calls (margin < AB_NEAR) -> A/B list. Also writes regression A/B snippets (Mix 05 render vs new engine) for early Mix 05 blends."""
-import json,os,sys,time,shutil,collections
+import json,os,sys,time,shutil,collections,subprocess
 import numpy as np
 import blend_bench as BB
+import blend_card as BC
 R='/workspace/mixes';M06={'FADE':'tail','FADE_DB':'30','BASS_SWAP_BARS':'4','BASS_LEAD':'0','LX_TRIM':'0','LX_PHASE':'0'}  # Mix 06 i12 engine (built 10-31 15:59 ET, code between backups a6f4ae2 and bbe78e2; meta eq_mode)
 OLD={'FADE':'lin','BASS_SWAP_BARS':'2','BASS_LEAD':'0','LX_TRIM':'0','LX_PHASE':'0'}
 def _job(x):
@@ -19,6 +20,23 @@ def _job(x):
       if v is None:os.environ.pop(k,None)
       else:os.environ[k]=v
 TABLE=json.load(open('pair_table_05v2.json'))['pairs'] if os.path.exists('pair_table_05v2.json') else {}
+PREF_W=float(os.environ.get('PREF_W','0'));PREF_EPS=float(os.environ.get('PREF_EPS','0.02'))
+def pref_score(mp3s):
+  """advisory CLAP score per clip (src2/pref_model.py in /workspace/venv_clap); any failure -> 0"""
+  try:
+    r=subprocess.run(['/workspace/venv_clap/bin/python',os.path.join(os.path.dirname(os.path.abspath(__file__)),'pref_model.py'),'score',*mp3s],capture_output=True,text=True,timeout=900)
+    return json.loads(r.stdout)
+  except Exception:return {m:0.0 for m in mp3s}
+def pref_tiebreak(P,w=None,eps=None,scorer=None):
+  """strict passers only, already cost-sorted. Candidates within eps of the best cost get cost - w*z(pref); others untouched, never promoted past a clearly cheaper one"""
+  w=PREF_W if w is None else w;eps=PREF_EPS if eps is None else eps
+  if w<=0 or len(P)<2:return P
+  tie=[c for c in P if c['cost']<=P[0]['cost']+eps and 'mp3' in c]
+  if len(tie)<2:return P
+  sc=(scorer or pref_score)([c['mp3'] for c in tie]);v=np.array([sc.get(c['mp3'],0.0) for c in tie]);z=(v-v.mean())/(v.std()+1e-9)
+  for c,zz in zip(tie,z):c['pref']=float(zz)
+  tie.sort(key=lambda c:c['cost']-w*eps*c['pref']);rest=[c for c in P if c not in tie]
+  return tie+rest
 def strict_ok(k,w):
   import plan_search as PS
   return not(w['voc'] or w['both']<PS.BOTHMIN or w['R']<0.2 or w['mel']>PS.MELMAX or w['boff']>PS.BOFFMAX or w['step']>PS.STEPMAX)
@@ -97,6 +115,7 @@ def run(pairs,cur_wins,extra=None,tag='bl',jobs=4,regress=()):
     rowW={tuple(w['w']):w for w in TABLE.get(k,{}).get('wins',[])}
     for c in cs:c['passes']=bool(not c.get('hard') and not c.get('w1') and not c.get('feats',{}).get('vocal') and tuple(c['win']) in rowW and strict_ok(k,rowW[tuple(c['win'])]))
     P=[c for c in ok if c['passes']]
+    P=pref_tiebreak(P)  # CLAP preference score: reorders only near-tied strict passers; PREF_W=0 (default) = no-op
     best=(P or ok)[0] if ok else None
     hc=[c for c in P if c['fam']=='human_ab' or 'human_ab' in c.get('also',[])] if k in HP else []
     if hc:best=hc[0]  # the listener's ear overrides the model (only strict tests can veto)
@@ -111,13 +130,13 @@ def run(pairs,cur_wins,extra=None,tag='bl',jobs=4,regress=()):
   for r in rep:
     if r['margin'] is not None and r['margin']<float(os.environ.get('AB_NEAR',1.0)):
       n=r['pair'].replace('>','_to_')
-      for s,c in (('A',r['_A']),('B',r['_B'])):shutil.copy(c['mp3'],f'{AB}/near_{n}_{s}.mp3')
+      for s,c in (('A',r['_A']),('B',r['_B'])):BC.publish(c['mp3'],f'{AB}/near_{n}_{s}.mp3',c.get('timing'))  # + .timing.json + .card.png
       items.append(dict(pair=r['pair'],why='top two within margin',margin=r['margin'],A=dict(fam=r['_A']['fam'],win=r['_A']['win'],file=f'{AB}/near_{n}_A.mp3'),B=dict(fam=r['_B']['fam'],win=r['_B']['win'],file=f'{AB}/near_{n}_B.mp3')))
   reg=[]
   for k in regress:  # regression check: Mix 05 render settings vs new engine, same window
     cs=C.get(k,[]);o=next((c for c in cs if c['fam']=='mix05_orig'),None);nw=next((c for c in cs if c['fam']=='mix05' or 'mix05' in c.get('also',[])),None)
     if o and nw and 'mp3' in o and 'mp3' in nw:
-      n=k.replace('>','_to_');shutil.copy(o['mp3'],f'{AB}/regress_{n}_A.mp3');shutil.copy(nw['mp3'],f'{AB}/regress_{n}_B.mp3')
+      n=k.replace('>','_to_');BC.publish(o['mp3'],f'{AB}/regress_{n}_A.mp3',o.get('timing'));BC.publish(nw['mp3'],f'{AB}/regress_{n}_B.mp3',nw.get('timing'))
       reg.append(dict(pair=k,A='Mix 05 engine (original render settings)',B='new engine (BASS_LEAD 4-bar swap, tail fade)',win=nw['win'],cost_A=o['cost'],cost_B=nw['cost'],
         feats_A=o['feats'],feats_B=nw['feats'],files=[f'{AB}/regress_{n}_A.mp3',f'{AB}/regress_{n}_B.mp3']))
   for r in rep:r.pop('_A');r.pop('_B')

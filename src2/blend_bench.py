@@ -97,6 +97,13 @@ def render(c,a,b,tag):
     o=int(round((dd['start_bar']-s0)*BS));Y=np.zeros((n+int(8*BS),2),np.float32);m=min(len(y),len(Y)-o);Y[o:o+m]=y[:m];dk.append(Y[:n])
   mix=dk[0]+dk[1];raw=f'{SCR}/{tag}_raw.wav';sf.write(raw,mix,SR,subtype='FLOAT')
   sh(f'bash ../src/master.sh {raw} {SCR}/{tag}.mp3 {GAIN} {SCR}/{tag}_master.wav')
+  tdk=[]
+  for d in M['decks']:
+    j0=max(0,s0-d['start_bar']);j1=min(len(d['full_map']),s1-d['start_bar']);dd=copy.deepcopy(d);dd['full_map']=d['full_map'][j0:j1];dd['start_bar']=d['start_bar']+j0
+    if dd.get('ib'):dd['ib']=dict(dd['ib'],k0=dd['ib']['k0']-j0,k1=dd['ib']['k1']-j0)
+    tdk.append(dd)
+  c['timing']=dict(sr=SR,bs=BS,bar_sec=M['bar_sec'],clip_start_bar=s0,clip_end_bar=s1,nudge=os.environ.get('NUDGE','nudge.json'),env=dict(c.get('env') or {}),trans=t,decks=tdk,  # -> blend_card.publish sidecars
+    events=[dict(kind=k,deck=d['id'],mix_bar=d['start_bar']+d[k]['k0'] if k=='ib' else d[k]['bar'],end_bar=d['start_bar']+d[k]['k1'] if k=='ib' else d[k]['bar']+d[k]['xf'],params=d[k]) for d in tdk for k in ('ib','dswap') if d.get(k)])
   dt=time.time()-t0;c.update(render_s=round(dt,2),mp3=f'{SCR}/{tag}.mp3',snip=dict(s0=s0,start=int(t['start_bar']),end=int(t['end_bar']),pre=pre),
     vocal_clash_bars=float(t.get('vocal_clash_bars') or 0),tech=t['tech'],notes=t.get('notes'))
   import sections;SA,SB=sections.get(a),sections.get(b);Bd=M['decks'][1];j=int(t['end_bar']-Bd['start_bar'])

@@ -255,3 +255,7 @@ GUARD rc 0; pytest running
 - 14:58 ET: [BM1] tests src/tests/test_beatmelody.py 3/3 pass (detector; ib keeps beat continuous within 6 dB of real beat, no handover jump; dswap TAIL-exempt while a full-mix 1-bar fade at the same bar still blocks, even with a dswap flag). Full pytest (mix05v8, NUDGE nudge05v8): 64 passed, 6 failed + 4 errors, all from missing mix05v8_master.wav (cleaned after delivery) + true_peak on the 128k mp3; TAIL/structure tests pass. No delivered mix re-rendered.
 - 14:58 ET: [BM1] demo snippets deliver/ab/bm_m05_1804_MoYk_to_7Itb, bm_m05_4051_nAV4_to_EiZV, bm_m06_2616_Remedy_to_qcZ (B_current / A_cut_on_melody_entry / C_ib_loop / AC_ib_plus_cut), index deliver/ab/bm_README.md. New dnb stems cached: 7Itb MoYk EiZV nAV4 q_cZ.
 - 18:04 ET: [deliver 06-v2] YouTube public https://youtu.be/2AByKKlwInc
+- 18:04 ET: [deliver 06-v2] backup ok
+- 18:04 ET: [deliver 06-v2] ready for Drive upload (agent)
+- 20:12 ET: [deliver 06-v3] 128k + tracklist in /workspace/mixes/deliver/06-v3
+- 20:14 ET: [deliver 06-v3] iCloud DJ Mixes synced

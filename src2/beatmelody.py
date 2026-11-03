@@ -65,6 +65,11 @@ def first_beat(d,src='.',k_from=0):
     s0,s1=fm[k][0],fm[k+1][0]
     if fm[k][1]=='mix' and s0<len(on) and s1<len(on) and on[s0] and on[s1]:return k
   return None
+def _steady_bass(b,p,L,tol=6.0):
+  import beatstem,engine as E,soundfile as sf,bassgap as G
+  y,_=sf.read(beatstem.ensure(b),dtype='float32',always_2d=True);tr=E.track(b)
+  nb=int((len(y)/E.SR-tr['d0'])/E.BAR);al=G.bar_db(y,E.SR,E.BAR*E.SR,0,nb,ofs=tr['d0']*E.SR);ref=np.nanpercentile(al,75)
+  db=al[p:p+L];return bool(len(db)==L and np.all(np.isfinite(db)) and db.min()>=ref-tol)  # every bar within tol of the track's groove bass
 def loop_src(b,after,src='.',nth=1):
   """a later clean beat phrase of track b (phrase-aligned, beatstem.lx_len >= 8) at/after source bar `after`"""
   import beatstem
@@ -73,6 +78,9 @@ def loop_src(b,after,src='.',nth=1):
     nb=len(drums(b,'.')[0])
     for p in list(range((after+7)//8*8,nb-8,8)):
       L=beatstem.lx_len(b,p)
+      # BASSGAP (2026-11-02 19:33 ET): the loop phrase must carry steady bass (q_cZ phrase 64-80 had a 12-bar bass break, so the
+      # loop left a <150 Hz hole under the AC cut). Shrink to the longest steady 16/8/4 from p, else skip the phrase.
+      while L and not _steady_bass(b,p,L):L=L//2 if L>4 else 0
       if L:
         nth-=1
         if nth<=0:return p,L
@@ -111,6 +119,13 @@ def apply(M,i,mode,src='.'):
     if mb is None or not s<mb<e:raise ValueError('dswap: no phrase line inside the blend')
     A['dswap']=dict(bar=mb,xf=float(os.environ.get('DSWAP_XF',1)),at='beat' if 'dswap_beat' in modes else 'melody',entry=ent)
     notes.append(f"drum swap: outgoing {A['id']} drums+bass out over {A['dswap']['xf']:g} bar on the phrase line at mix bar {mb} (incoming {'beat' if 'dswap_beat' in modes else 'melody entry'} bar {ent if 'dswap_beat' not in modes else mb}); melody keeps its gradual tail")
+  if B.get('ib') and A.get('dswap'):
+    # BASSGAP (the listener 2026-11-02 19:33 ET, AC card: <150 Hz hole 0:23-0:28 between the outgoing cut and the ib bass arriving via the
+    # low swap): the incoming bass lane must be fully open by the cut, so the ib loop's bass takes over at/before the outgoing drop.
+    import math;c=A['dswap']['bar'];r=lambda a,b,up:[[a+q/4,round((0.5-0.5*math.cos(math.pi*q/(4*(b-a))))if up else(0.5+0.5*math.cos(math.pi*q/(4*(b-a)))),5)] for q in range(int(4*(b-a))+1)]
+    B['auto']['low']=r(c-2,c,True)+[p for p in (B['auto'].get('low') or []) if p[0]>=e]  # keep the next blend's lane
+    A['auto']['low']=[p for p in (A['auto'].get('low') or []) if p[0]<c-2]+[[c-2,1.0]]+r(c,c+2,False)
+    notes.append(f"bass lanes: incoming {B['id']} (ib loop) bass fully in by the cut at mix bar {c}; outgoing low lane out {c}-{c+2} (its drums+bass stem is already cut over {c}-{c+1})")
   t.setdefault('notes',[]);t['notes']=list(t['notes'])+notes;t['bm_fix']=mode
   return notes
 def tail_exempt(E,M,i,mb,y_with,src='.'):

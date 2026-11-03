@@ -10,7 +10,7 @@
   "continuous": -0.0,
   "drop": 1.262,
   "fade": 1.773,
-  "melody": 2.622
+  "melody": 1.262
  },
  "cut_mod4": {
   "1": 2,
@@ -18,5 +18,8 @@
   "2": 7,
   "3": 5
  },
- "cut_rel_swap_median": 3.55
+ "cut_rel_swap_median": 3.55,
+ "prior_uncapped_melody": 2.622,
+ "melody_cap": 1.262,
+ "_cap_note": "2026-11-02 19:20 ET: melody (fam_B) prior capped at the drop prior (was 2.622 from the 0.05 floor: 0 pro transitions measured as melody-cross is a detector artefact, not evidence). the listener's 06v2 26:16 pick was AC_ib_plus_cut (ratings.jsonl), so continuous stays cheapest; B stays a live option."
 }

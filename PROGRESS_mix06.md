@@ -271,3 +271,4 @@ GUARD rc 0; pytest running
 - 21:40 ET: [pref] CLAP LOO (9 the listener pairs/7 groups, 77 pro clips): pro_only 6/9, david_only 3/9, david+pro 5/9, zero-shot text 6/9 -> no better than chance (6/9 p~0.25). Tiebreak stays OFF (PREF_W=0, no eval/pref_model.npz). MERT LOO stopped (CPU contention with 06v3, ~15/95 embedded; resume: venv_clap/bin/python src2/pref_model.py loo). Re-run when the listener has ~30+ picks.
 - 21:52 ET: [06v3] viz supervisor viz06v3/super.sh (setsid): retries OOM-failed segs (04,05), then after.sh upload. Check viz06v3/after.log / SUPER_DONE.
 - 06:49 ET: [deliver 06-v3] YouTube public https://youtu.be/HI_zjU4IpK0 (staff_viz v1plus 720p)
+- 19:46 ET: [yt cleanup] deleted older dupes aKG5Jxs1Prk 1TK3ChBL8CI pNhgIfu1zKY VramFhqHKwI 2AByKKlwInc; latest kFLCpMY0g-o LANW_puOmD4 HI_zjU4IpK0 public

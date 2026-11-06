@@ -148,3 +148,4 @@
 - 2026-11-02 03:25 local daily cleanup: removed raw/master WAVs of mix05v2i18, mix05v3r0/r1/r2, mix05v4, mix05v6, mix05v7 (~16.8G, superseded renders). Kept mix05v8 WAVs (latest render, mix05v2/mix05v8.mp3), all guard_mix* (plan_search bad-window history). No /tmp WAVs.
 - 2026-11-03 03:18 local daily cleanup: removed /tmp/n_dec.wav + /tmp/o_dec.wav (2.4G scratch). No mix*_raw/master WAVs in src2 (m06v3_master.wav kept, latest Mix 06 v3, not in pattern). Kept all guard_mix* (plan_search bad-window history). Free 26G.
 - 2026-11-04 03:24 local daily cleanup: nothing removed. No mix*_raw/master WAVs in src2, no /tmp WAVs. Kept all guard_mix* (plan_search bad-window history). Free 27G.
+- 2026-11-05 03:19 local daily cleanup: nothing removed. No mix*_raw/master WAVs in src2, no /tmp WAVs. Kept all guard_mix* (plan_search bad-window history). Free 26G.

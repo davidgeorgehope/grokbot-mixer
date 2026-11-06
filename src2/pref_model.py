@@ -39,24 +39,50 @@ def embed(path, t0=None, t1=None, kind='clap'):
 
 # ---------- data ----------
 def david_pairs():
-    """[(group, winner_path, loser_path, weight)] from ratings.jsonl 'ab' rows whose clips exist on the box."""
+    """[(group, winner_path, loser_path, weight)] from ratings.jsonl 'ab' rows and daily 1-5 A/B pairs whose clips exist on the box."""
     ab = {e['pair']: e for e in json.load(open(f'{R}/deliver/ab/ab.json'))}; out = []
+    daily = {}  # date -> {version: rating, files via log}
     for ln in open(f'{R}/ratings.jsonl'):
         r = json.loads(ln)
+        if r.get('source') == 'daily':
+            daily.setdefault(r['date'], {})[r['version']] = r['rating']
+            continue
         if r.get('type') != 'ab': continue
         f, w, pair = r.get('file', ''), str(r.get('winner', '')), r.get('pair', '')
         wt = W_DAVID * (0.5 if r.get('strength') == 'weak' else 1.0)
         if re.fullmatch(r'deliver/ab/ab\d', f) and pair in ab and w in 'AB':
             e = ab[pair]; out.append((pair, e[w]['file'], e['B' if w == 'A' else 'A']['file'], wt)); continue
-        p = f if f.startswith('/') else f'{R}/{f}'
-        if not os.path.exists(p): continue
-        m = re.match(r'(.*_)([A-Z])\.mp3$', p)
+        pth = f if f.startswith('/') else f'{R}/{f}'
+        if not os.path.exists(pth): continue
+        m = re.match(r'(.*_)([A-Z])\.mp3$', pth)
         if m and m.group(2) == w:  # esc_N_B.mp3 style: siblings are the losers
             for q in glob.glob(m.group(1) + '[A-Z].mp3'):
-                if q != p: out.append((pair + '|' + os.path.basename(m.group(1)), p, q, wt))
-        elif os.path.basename(p).startswith(w):  # bm folder: winner variant vs the other variants
-            for q in glob.glob(os.path.join(os.path.dirname(p), '*.mp3')):
-                if q != p: out.append((pair + '|bm', p, q, wt))
+                if q != pth: out.append((pair + '|' + os.path.basename(m.group(1)), pth, q, wt))
+        elif os.path.basename(pth).startswith(w):  # bm folder: winner variant vs the other variants
+            for q in glob.glob(os.path.join(os.path.dirname(pth), '*.mp3')):
+                if q != pth: out.append((pair + '|bm', pth, q, wt))
+    # daily 1-5: within each day, higher rating beats lower (ties skipped)
+    logs = {}
+    if os.path.exists(f'{R}/daily/log.jsonl'):
+        for ln in open(f'{R}/daily/log.jsonl'):
+            e = json.loads(ln); logs[e.get('date')] = e
+    for date, scores in daily.items():
+        e = logs.get(date) or {}
+        vers = {v['label'].lower().replace(' ', ''): v for v in e.get('versions', [])}
+        # also key by version1/version2 from file basename
+        by_file = {}
+        for v in e.get('versions', []):
+            bn = os.path.basename(v.get('file', ''))
+            if bn.startswith('version'): by_file[bn.split('.')[0]] = v
+        keys = [k for k in scores if k in by_file and os.path.exists(by_file[k]['file'])]
+        for i, a in enumerate(keys):
+            for b in keys[i + 1:]:
+                ra, rb = scores[a], scores[b]
+                if ra == rb: continue
+                win, lose = (a, b) if ra > rb else (b, a)
+                # weight scales with rating gap (1..4) so a 5-vs-1 counts more than a 3-vs-2
+                wt = W_DAVID * (0.5 + 0.5 * min(abs(ra - rb), 4) / 4)
+                out.append((f'daily|{date}|{e.get("pair", "")}', by_file[win]['file'], by_file[lose]['file'], wt))
     return out
 def pro_clips():
     out = []

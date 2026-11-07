@@ -1,0 +1,135 @@
+{
+  "current_rules": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp.",
+    "FADE": "lin",
+    "BASS_SWAP_BARS": 1,
+    "SWAP_POS": 0.21,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 4,
+    "STRUCT": 0,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 32,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0
+  },
+  "baseline": {
+    "n": 37,
+    "n_fail": 0,
+    "train_n": 27,
+    "test_n": 10,
+    "train_mean": 24.07,
+    "test_mean": 19.43,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 15,
+        "mean": 20.82,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 11,
+        "mean": 28.49,
+        "split": "train"
+      },
+      "London Elektricity": {
+        "n": 1,
+        "mean": 24.35,
+        "split": "train"
+      },
+      "Netsky": {
+        "n": 8,
+        "mean": 20.94,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 2,
+        "mean": 13.39,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "after": {
+    "n": 26,
+    "n_fail": 11,
+    "train_n": 20,
+    "test_n": 6,
+    "train_mean": 21.49,
+    "test_mean": 23.53,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 8,
+        "mean": 18.54,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 11,
+        "mean": 23.9,
+        "split": "train"
+      },
+      "London Elektricity": {
+        "n": 1,
+        "mean": 18.64,
+        "split": "train"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 23.77,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 22.31,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "kept": [
+    "fade_lin",
+    "swap_1bar",
+    "swap_pos_021",
+    "struct_off",
+    "length_pref_32"
+  ],
+  "rejected": [
+    "swap_4bar",
+    "swap_pos_050",
+    "high_swap_off",
+    "high_ofs_0",
+    "high_ofs_8",
+    "loop32_on",
+    "hint_off",
+    "hint_stronger",
+    "near_hint_16",
+    "near_hint_64",
+    "loop_pen_0",
+    "loop_pen_2",
+    "length_pref_16",
+    "prefer_nat"
+  ],
+  "examples": {
+    "best": {
+      "id": "netsky_hospital_classics__15",
+      "dj": "Netsky",
+      "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+      "score": 32.56,
+      "fam": "nat_long",
+      "pro": "/workspace/mixes/deliver/protrans/best_test_netsky_hospital_classics__15_pro.mp3",
+      "ours": "/workspace/mixes/deliver/protrans/best_test_netsky_hospital_classics__15_ours.mp3"
+    },
+    "worst": {
+      "id": "netsky_hospital_classics__02",
+      "dj": "Netsky",
+      "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+      "score": 11.26,
+      "fam": "nat_long",
+      "pro": "/workspace/mixes/deliver/protrans/worst_test_netsky_hospital_classics__02_pro.mp3",
+      "ours": "/workspace/mixes/deliver/protrans/worst_test_netsky_hospital_classics__02_ours.mp3"
+    }
+  },
+  "stem_kind": "bands",
+  "phase": "done"
+}

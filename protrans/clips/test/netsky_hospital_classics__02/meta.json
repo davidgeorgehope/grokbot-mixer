@@ -1,0 +1,26 @@
+{
+  "id": "netsky_hospital_classics__02",
+  "mix_id": "netsky_hospital_classics",
+  "dj": "Netsky",
+  "split": "test",
+  "a": {
+    "title": "Netsky - I See The Future In Your Eyes",
+    "yt": "0fjPvcfMJWk",
+    "t": 802.0
+  },
+  "b": {
+    "title": "Camo & Krooked - In The Future",
+    "yt": "XUX0ebuFh7Y",
+    "t": 950.0
+  },
+  "window": {
+    "mix_t_a": 802.0,
+    "mix_t_b": 950.0,
+    "mix_t_next": 1040.0,
+    "hint_a_played_sec": 148.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__02/pro.wav",
+  "pro_clip_start": 926.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__02"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "joe_syntax_hospital__08",
+  "mix_id": "joe_syntax_hospital",
+  "dj": "Joe Syntax",
+  "split": "train",
+  "a": {
+    "title": "Nu:Tone - Shine In (ft. Natalie Williams)",
+    "yt": "NjwN3B617tg",
+    "t": 1258.0
+  },
+  "b": {
+    "title": "Camo & Krooked - Dusk To Dawn",
+    "yt": "Dy3qi_gCP9k",
+    "t": 1366.0
+  },
+  "window": {
+    "mix_t_a": 1258.0,
+    "mix_t_b": 1366.0,
+    "mix_t_next": 1456.0,
+    "hint_a_played_sec": 108.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__08/pro.wav",
+  "pro_clip_start": 1342.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__08"
+}

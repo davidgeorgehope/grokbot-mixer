@@ -1,0 +1,26 @@
+{
+  "id": "wilkinson_boomtown2026__33",
+  "mix_id": "wilkinson_boomtown2026",
+  "dj": "Wilkinson",
+  "split": "test",
+  "a": {
+    "title": "Wilkinson - Ultraviolet feat. Katy Alex",
+    "yt": "uP0KAzefX8Y",
+    "t": 3864.0
+  },
+  "b": {
+    "title": "Wilkinson - Afterglow",
+    "yt": "I9QGpHScGug",
+    "t": 3970.0
+  },
+  "window": {
+    "mix_t_a": 3864.0,
+    "mix_t_b": 3970.0,
+    "mix_t_next": 4186.0,
+    "hint_a_played_sec": 106.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__33/pro.wav",
+  "pro_clip_start": 3946.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__33"
+}

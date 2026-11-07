@@ -1,0 +1,26 @@
+{
+  "id": "joe_syntax_hospital__14",
+  "mix_id": "joe_syntax_hospital",
+  "dj": "Joe Syntax",
+  "split": "train",
+  "a": {
+    "title": "London Elektricity - Meteorites (Danny Byrd Remix)",
+    "yt": "SqzxwPEa-DI",
+    "t": 2207.0
+  },
+  "b": {
+    "title": "Logistics - Closer",
+    "yt": "q3WVxTT01dY",
+    "t": 2405.0
+  },
+  "window": {
+    "mix_t_a": 2207.0,
+    "mix_t_b": 2405.0,
+    "mix_t_next": 2495.0,
+    "hint_a_played_sec": 198.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__14/pro.wav",
+  "pro_clip_start": 2381.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__14"
+}

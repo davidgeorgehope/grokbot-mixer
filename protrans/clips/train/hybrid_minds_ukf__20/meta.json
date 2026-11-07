@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__20",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "Hybrid Minds - Demons (ft. Charlotte Haining)",
+    "yt": "5YG-HKjtiHM",
+    "t": 2084.0
+  },
+  "b": {
+    "title": "Changing Faces - Emptiness",
+    "yt": "tDIlCWhrBPU",
+    "t": 2205.0
+  },
+  "window": {
+    "mix_t_a": 2084.0,
+    "mix_t_b": 2205.0,
+    "mix_t_next": 2295.0,
+    "hint_a_played_sec": 121.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__20/pro.wav",
+  "pro_clip_start": 2181.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__20"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__45",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "Alix Perez - Contradictions",
+    "yt": "xv0Qw1QZT8I",
+    "t": 4564.0
+  },
+  "b": {
+    "title": "BCee - Lost & Found (Hybrid Minds Remix)",
+    "yt": "0oxJBc__U0c",
+    "t": 4674.0
+  },
+  "window": {
+    "mix_t_a": 4564.0,
+    "mix_t_b": 4674.0,
+    "mix_t_next": 4764.0,
+    "hint_a_played_sec": 110.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__45/pro.wav",
+  "pro_clip_start": 4650.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__45"
+}

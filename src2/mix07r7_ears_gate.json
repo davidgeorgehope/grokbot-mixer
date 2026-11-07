@@ -1,0 +1,53 @@
+[
+ {
+  "k": 9,
+  "t": 25.75,
+  "a": "MoYkYkoeb84",
+  "b": "2s3M6oX2lfo",
+  "out_win": [
+   "la",
+   128,
+   112,
+   0,
+   16
+  ],
+  "ears": "FAIL: downbeats disagree",
+  "lag_ms": 8.7,
+  "beatoff_bars": 0,
+  "status": "suspect"
+ },
+ {
+  "k": 13,
+  "t": 36.78,
+  "a": "kKu3fIOTiHk",
+  "b": "FYpf8-UvCUk",
+  "out_win": [
+   "la",
+   160,
+   144,
+   32,
+   16
+  ],
+  "ears": "FAIL: downbeats disagree",
+  "lag_ms": 0.0,
+  "beatoff_bars": 11,
+  "status": "confirmed"
+ },
+ {
+  "k": 14,
+  "t": 38.25,
+  "a": "FYpf8-UvCUk",
+  "b": "h1RNzaTfRyY",
+  "out_win": [
+   "n",
+   112,
+   null,
+   48,
+   16
+  ],
+  "ears": "FAIL: downbeats disagree",
+  "lag_ms": 0.0,
+  "beatoff_bars": 4,
+  "status": "suspect"
+ }
+]

@@ -1,0 +1,4428 @@
+{
+ "summary": {
+  "n": 37,
+  "elapsed_s": 386.7,
+  "DROP_DB": 12.2,
+  "TOL_DRIFT_MS": 10,
+  "CORR_MIN": 0.65,
+  "method": "planned_decks_real_sources",
+  "align_pass": 8,
+  "align_pct": 21.6,
+  "align_fails": [
+   "wilkinson_boomtown2026__10",
+   "wilkinson_boomtown2026__33",
+   "hospital_podcast393__04",
+   "joe_syntax_hospital__00",
+   "joe_syntax_hospital__01",
+   "joe_syntax_hospital__08",
+   "joe_syntax_hospital__14",
+   "joe_syntax_hospital__17",
+   "joe_syntax_hospital__18",
+   "hybrid_minds_ukf__08",
+   "hybrid_minds_ukf__13",
+   "hybrid_minds_ukf__19",
+   "hybrid_minds_ukf__20",
+   "hybrid_minds_ukf__23",
+   "hybrid_minds_ukf__33",
+   "hybrid_minds_ukf__45",
+   "netsky_hospital_classics__02",
+   "netsky_hospital_classics__06",
+   "netsky_hospital_classics__10",
+   "netsky_hospital_classics__15",
+   "netsky_hospital_classics__16",
+   "netsky_hospital_classics__17",
+   "netsky_hospital_classics__23",
+   "joe_syntax_hospital__12",
+   "joe_syntax_hospital__13",
+   "hybrid_minds_ukf__09",
+   "hybrid_minds_ukf__10",
+   "hybrid_minds_ukf__28",
+   "hybrid_minds_ukf__40"
+  ],
+  "n_empty": []
+ },
+ "rows": [
+  {
+   "id": "wilkinson_boomtown2026__10",
+   "dj": "Wilkinson",
+   "split": "test",
+   "pair": "Yosemite (Wilkinson Remix) -> Wilkinson - Used To This (feat. Issey Cross)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     21,
+     46
+    ]
+   ],
+   "overlap": [
+    21,
+    46
+   ],
+   "n_align": 75,
+   "n_fail": 6,
+   "align_pass": false,
+   "n_mix": 50,
+   "n_mix_fail": 6,
+   "align_fail": [
+    {
+     "bar": 37,
+     "deck": "kKWX3C_odcc",
+     "lag": 40,
+     "corr": 0.66,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 21,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 38,
+     "deck": "kKWX3C_odcc",
+     "lag": 40,
+     "corr": 0.66,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 21,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 43,
+     "deck": "kKWX3C_odcc",
+     "lag": 40,
+     "corr": 0.56,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.56,
+     "kind": "mix",
+     "overlap_start": 21,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    },
+    {
+     "bar": 44,
+     "deck": "kKWX3C_odcc",
+     "lag": 39,
+     "corr": 0.61,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.61,
+     "kind": "mix",
+     "overlap_start": 21,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    },
+    {
+     "bar": 45,
+     "deck": "PjGZX6K5XnE",
+     "lag": 39,
+     "corr": 0.61,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.61,
+     "kind": "mix",
+     "overlap_start": 21,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 1
+    },
+    {
+     "bar": 45,
+     "deck": "kKWX3C_odcc",
+     "lag": 39,
+     "corr": 0.65,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 21,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 1
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 7.338,
+     "cc": 0.4882,
+     "mix_t": 2.043,
+     "track_t": 149.769
+    },
+    "b": {
+     "z": 10.239,
+     "cc": 0.7061,
+     "mix_t": 55.751,
+     "track_t": 26.958
+    }
+   },
+   "d0": {
+    "a": 1.118,
+    "b": 0.472
+   }
+  },
+  {
+   "id": "wilkinson_boomtown2026__33",
+   "dj": "Wilkinson",
+   "split": "test",
+   "pair": "Wilkinson - Ultraviolet feat. Katy Alex -> Wilkinson - Afterglow",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 3,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 3,
+   "align_fail": [
+    {
+     "bar": 28,
+     "deck": "I9QGpHScGug",
+     "lag": -34,
+     "corr": 0.67,
+     "beat_off": -0.1,
+     "lag_0": -34,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 31,
+     "deck": "I9QGpHScGug",
+     "lag": 39,
+     "corr": 0.76,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.76,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 32,
+     "deck": "I9QGpHScGug",
+     "lag": 39,
+     "corr": 0.71,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 8.295,
+     "cc": 0.5264,
+     "mix_t": 4.505,
+     "track_t": 98.847
+    },
+    "b": {
+     "z": 10.503,
+     "cc": 0.6048,
+     "mix_t": 51.548,
+     "track_t": 113.824
+    }
+   },
+   "d0": {
+    "a": 1.164,
+    "b": 1.356
+   }
+  },
+  {
+   "id": "hospital_podcast393__04",
+   "dj": "London Elektricity",
+   "split": "train",
+   "pair": "Inja x Whiney - She Just Wanna Dance (Kyrist Remix) -> Fred V - Cosmic Flowchart",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     16
+    ],
+    [
+     13,
+     46
+    ]
+   ],
+   "overlap": [
+    13,
+    16
+   ],
+   "n_align": 9,
+   "n_fail": 1,
+   "align_pass": false,
+   "n_mix": 6,
+   "n_mix_fail": 1,
+   "align_fail": [
+    {
+     "bar": 15,
+     "deck": "f2MzUhnpvgk",
+     "lag": 19,
+     "corr": 0.58,
+     "beat_off": 0.06,
+     "lag_0": 19,
+     "corr_0": 0.58,
+     "kind": "mix",
+     "overlap_start": 13,
+     "overlap_end": 16,
+     "tail": true,
+     "window_bars": 1
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 11.541,
+     "cc": 0.7193,
+     "mix_t": 1.881,
+     "track_t": 254.607
+    },
+    "b": {
+     "z": 6.42,
+     "cc": 0.4979,
+     "mix_t": 50.271,
+     "track_t": 32.949
+    }
+   },
+   "d0": {
+    "a": 0.59,
+    "b": 1.266
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__00",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     21
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    21
+   ],
+   "n_align": 63,
+   "n_fail": 20,
+   "align_pass": false,
+   "n_mix": 42,
+   "n_mix_fail": 20,
+   "align_fail": [
+    {
+     "bar": 1,
+     "deck": "R06kP42RFRo",
+     "lag": 32,
+     "corr": 0.7,
+     "beat_off": 0.09,
+     "lag_0": 32,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 2,
+     "deck": "R06kP42RFRo",
+     "lag": 31,
+     "corr": 0.71,
+     "beat_off": 0.09,
+     "lag_0": 31,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 3,
+     "deck": "R06kP42RFRo",
+     "lag": 30,
+     "corr": 0.71,
+     "beat_off": 0.09,
+     "lag_0": 30,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 4,
+     "deck": "R06kP42RFRo",
+     "lag": -670,
+     "corr": 0.71,
+     "beat_off": -1.94,
+     "lag_0": 30,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 4,
+     "deck": "dOJp7bsjuyU",
+     "lag": 670,
+     "corr": 0.79,
+     "beat_off": 1.94,
+     "lag_0": -15,
+     "corr_0": 0.72,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 5,
+     "deck": "R06kP42RFRo",
+     "lag": 32,
+     "corr": 0.72,
+     "beat_off": 0.09,
+     "lag_0": 32,
+     "corr_0": 0.72,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 5,
+     "deck": "dOJp7bsjuyU",
+     "lag": -706,
+     "corr": 0.78,
+     "beat_off": -2.05,
+     "lag_0": -21,
+     "corr_0": 0.72,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 6,
+     "deck": "R06kP42RFRo",
+     "lag": 31,
+     "corr": 0.7,
+     "beat_off": 0.09,
+     "lag_0": 31,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 6,
+     "deck": "dOJp7bsjuyU",
+     "lag": -1399,
+     "corr": 0.73,
+     "beat_off": -4.06,
+     "lag_0": -31,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 7,
+     "deck": "R06kP42RFRo",
+     "lag": 31,
+     "corr": 0.67,
+     "beat_off": 0.09,
+     "lag_0": 31,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 7,
+     "deck": "dOJp7bsjuyU",
+     "lag": -40,
+     "corr": 0.68,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 8,
+     "deck": "R06kP42RFRo",
+     "lag": 30,
+     "corr": 0.7,
+     "beat_off": 0.09,
+     "lag_0": 30,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 21,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 7.183,
+     "cc": 0.4337,
+     "mix_t": 15.07,
+     "track_t": 140.783
+    },
+    "b": {
+     "z": 8.274,
+     "cc": 0.571,
+     "mix_t": 20.666,
+     "track_t": 62.903
+    }
+   },
+   "d0": {
+    "a": 0.846,
+    "b": 0.27
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__01",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 17,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 17,
+   "align_fail": [
+    {
+     "bar": 12,
+     "deck": "dOJp7bsjuyU",
+     "lag": -355,
+     "corr": 0.94,
+     "beat_off": -1.03,
+     "lag_0": -12,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 13,
+     "deck": "dOJp7bsjuyU",
+     "lag": -364,
+     "corr": 0.95,
+     "beat_off": -1.06,
+     "lag_0": -21,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 13,
+     "deck": "zM6au9qc2XQ",
+     "lag": -38,
+     "corr": 0.72,
+     "beat_off": -0.11,
+     "lag_0": -38,
+     "corr_0": 0.72,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 14,
+     "deck": "zM6au9qc2XQ",
+     "lag": -30,
+     "corr": 0.7,
+     "beat_off": -0.09,
+     "lag_0": -30,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 15,
+     "deck": "zM6au9qc2XQ",
+     "lag": -365,
+     "corr": 0.7,
+     "beat_off": -1.06,
+     "lag_0": -19,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 17,
+     "deck": "zM6au9qc2XQ",
+     "lag": -357,
+     "corr": 0.97,
+     "beat_off": -1.04,
+     "lag_0": -11,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 20,
+     "deck": "zM6au9qc2XQ",
+     "lag": 1052,
+     "corr": 0.95,
+     "beat_off": 3.05,
+     "lag_0": 13,
+     "corr_0": 0.73,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 21,
+     "deck": "zM6au9qc2XQ",
+     "lag": -327,
+     "corr": 0.93,
+     "beat_off": -0.95,
+     "lag_0": 21,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 22,
+     "deck": "zM6au9qc2XQ",
+     "lag": -325,
+     "corr": 0.88,
+     "beat_off": -0.94,
+     "lag_0": 26,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 23,
+     "deck": "zM6au9qc2XQ",
+     "lag": 34,
+     "corr": 0.68,
+     "beat_off": 0.1,
+     "lag_0": 34,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 24,
+     "deck": "zM6au9qc2XQ",
+     "lag": 40,
+     "corr": 0.67,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 36,
+     "deck": "zM6au9qc2XQ",
+     "lag": -35,
+     "corr": 0.66,
+     "beat_off": -0.1,
+     "lag_0": -35,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 7.392,
+     "cc": 0.7991,
+     "mix_t": 1.045,
+     "track_t": 152.764
+    },
+    "b": {
+     "z": 6.344,
+     "cc": 0.7663,
+     "mix_t": 21.92,
+     "track_t": 86.866
+    }
+   },
+   "d0": {
+    "a": 0.27,
+    "b": 0.482
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__08",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 13,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 13,
+   "align_fail": [
+    {
+     "bar": 5,
+     "deck": "Dy3qi_gCP9k",
+     "lag": 40,
+     "corr": 0.67,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 6,
+     "deck": "Dy3qi_gCP9k",
+     "lag": 34,
+     "corr": 0.65,
+     "beat_off": 0.1,
+     "lag_0": 34,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 7,
+     "deck": "Dy3qi_gCP9k",
+     "lag": 24,
+     "corr": 0.69,
+     "beat_off": 0.07,
+     "lag_0": 24,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 8,
+     "deck": "Dy3qi_gCP9k",
+     "lag": 15,
+     "corr": 0.7,
+     "beat_off": 0.04,
+     "lag_0": 15,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 9,
+     "deck": "NjwN3B617tg",
+     "lag": 40,
+     "corr": 0.76,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.76,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 10,
+     "deck": "NjwN3B617tg",
+     "lag": 1395,
+     "corr": 0.8,
+     "beat_off": 4.05,
+     "lag_0": 31,
+     "corr_0": 0.73,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 11,
+     "deck": "NjwN3B617tg",
+     "lag": 16,
+     "corr": 0.8,
+     "beat_off": 0.05,
+     "lag_0": 16,
+     "corr_0": 0.8,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 12,
+     "deck": "Dy3qi_gCP9k",
+     "lag": -13,
+     "corr": 0.69,
+     "beat_off": -0.04,
+     "lag_0": -13,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 13,
+     "deck": "NjwN3B617tg",
+     "lag": -700,
+     "corr": 0.83,
+     "beat_off": -2.03,
+     "lag_0": -18,
+     "corr_0": 0.79,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 13,
+     "deck": "Dy3qi_gCP9k",
+     "lag": -1393,
+     "corr": 0.71,
+     "beat_off": -4.04,
+     "lag_0": -20,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 14,
+     "deck": "NjwN3B617tg",
+     "lag": -709,
+     "corr": 0.8,
+     "beat_off": -2.06,
+     "lag_0": -30,
+     "corr_0": 0.75,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 14,
+     "deck": "Dy3qi_gCP9k",
+     "lag": -1399,
+     "corr": 0.69,
+     "beat_off": -4.06,
+     "lag_0": -26,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 6.527,
+     "cc": 0.6942,
+     "mix_t": 1.115,
+     "track_t": 149.769
+    },
+    "b": {
+     "z": 10.104,
+     "cc": 0.8052,
+     "mix_t": 57.377,
+     "track_t": 74.884
+    }
+   },
+   "d0": {
+    "a": 0.224,
+    "b": 1.218
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__09",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     25
+    ],
+    [
+     22,
+     46
+    ]
+   ],
+   "overlap": [
+    22,
+    25
+   ],
+   "n_align": 9,
+   "n_fail": 0,
+   "align_pass": true,
+   "n_mix": 6,
+   "n_mix_fail": 0,
+   "align_fail": [],
+   "locate": {
+    "a": {
+     "z": 8.875,
+     "cc": 0.6546,
+     "mix_t": 17.786,
+     "track_t": 257.602
+    },
+    "b": {
+     "z": 10.751,
+     "cc": 0.6047,
+     "mix_t": 53.452,
+     "track_t": 23.963
+    }
+   },
+   "d0": {
+    "a": 1.218,
+    "b": 0.396
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__10",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky) -> Logistics - We Are One (Nu:Logic Remix)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     37
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    37
+   ],
+   "n_align": 111,
+   "n_fail": 0,
+   "align_pass": true,
+   "n_mix": 74,
+   "n_mix_fail": 0,
+   "align_fail": [],
+   "locate": {
+    "a": {
+     "z": 8.308,
+     "cc": 0.3928,
+     "mix_t": 3.274,
+     "track_t": 104.838
+    },
+    "b": {
+     "z": 12.069,
+     "cc": 0.8169,
+     "mix_t": 56.889,
+     "track_t": 77.88
+    }
+   },
+   "d0": {
+    "a": 0.396,
+    "b": 1.17
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__14",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 7,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 7,
+   "align_fail": [
+    {
+     "bar": 4,
+     "deck": "SqzxwPEa-DI",
+     "lag": -39,
+     "corr": 0.65,
+     "beat_off": -0.11,
+     "lag_0": -39,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 12,
+     "deck": "SqzxwPEa-DI",
+     "lag": 365,
+     "corr": 0.91,
+     "beat_off": 1.06,
+     "lag_0": 23,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 27,
+     "deck": "SqzxwPEa-DI",
+     "lag": 1029,
+     "corr": 0.76,
+     "beat_off": 2.98,
+     "lag_0": -13,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 43,
+     "deck": "SqzxwPEa-DI",
+     "lag": -40,
+     "corr": 0.7,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    },
+    {
+     "bar": 44,
+     "deck": "SqzxwPEa-DI",
+     "lag": -38,
+     "corr": 0.75,
+     "beat_off": -0.11,
+     "lag_0": -38,
+     "corr_0": 0.75,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    },
+    {
+     "bar": 45,
+     "deck": "SqzxwPEa-DI",
+     "lag": -35,
+     "corr": 0.8,
+     "beat_off": -0.1,
+     "lag_0": -35,
+     "corr_0": 0.8,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 1
+    },
+    {
+     "bar": 45,
+     "deck": "q3WVxTT01dY",
+     "lag": -1387,
+     "corr": 0.85,
+     "beat_off": -4.02,
+     "lag_0": -34,
+     "corr_0": 0.84,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 1
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 10.241,
+     "cc": 0.7144,
+     "mix_t": 4.923,
+     "track_t": 224.653
+    },
+    "b": {
+     "z": 7.012,
+     "cc": 0.7505,
+     "mix_t": 22.314,
+     "track_t": 47.926
+    }
+   },
+   "d0": {
+    "a": 0.108,
+    "b": 0.21
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__17",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 5,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 5,
+   "align_fail": [
+    {
+     "bar": 19,
+     "deck": "RTXo4b0RdyQ",
+     "lag": 12,
+     "corr": 0.98,
+     "beat_off": 0.03,
+     "lag_0": 12,
+     "corr_0": 0.98,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 20,
+     "deck": "RTXo4b0RdyQ",
+     "lag": 11,
+     "corr": 0.99,
+     "beat_off": 0.03,
+     "lag_0": 11,
+     "corr_0": 0.99,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 21,
+     "deck": "RTXo4b0RdyQ",
+     "lag": 11,
+     "corr": 0.99,
+     "beat_off": 0.03,
+     "lag_0": 11,
+     "corr_0": 0.99,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 24,
+     "deck": "RTXo4b0RdyQ",
+     "lag": 12,
+     "corr": 0.99,
+     "beat_off": 0.03,
+     "lag_0": 12,
+     "corr_0": 0.99,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 25,
+     "deck": "RTXo4b0RdyQ",
+     "lag": 11,
+     "corr": 0.99,
+     "beat_off": 0.03,
+     "lag_0": 11,
+     "corr_0": 0.99,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 8.098,
+     "cc": 0.3925,
+     "mix_t": 5.991,
+     "track_t": 128.801
+    },
+    "b": {
+     "z": 7.767,
+     "cc": 0.8209,
+     "mix_t": 55.983,
+     "track_t": 164.746
+    }
+   },
+   "d0": {
+    "a": 0.652,
+    "b": 1.176
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__18",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Netsky - Lotus Symphony -> Unquote & Molecular Structures - Lubov Moya",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 3,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 3,
+   "align_fail": [
+    {
+     "bar": 25,
+     "deck": "RTXo4b0RdyQ",
+     "lag": -1053,
+     "corr": 0.68,
+     "beat_off": -3.05,
+     "lag_0": -20,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 43,
+     "deck": "RTXo4b0RdyQ",
+     "lag": 39,
+     "corr": 0.56,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.56,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    },
+    {
+     "bar": 45,
+     "deck": "RTXo4b0RdyQ",
+     "lag": -1359,
+     "corr": 0.64,
+     "beat_off": -3.94,
+     "lag_0": 20,
+     "corr_0": 0.55,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 1
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 11.621,
+     "cc": 0.8025,
+     "mix_t": 2.276,
+     "track_t": 197.695
+    },
+    "b": {
+     "z": 8.769,
+     "cc": 0.8829,
+     "mix_t": 55.635,
+     "track_t": 119.815
+    }
+   },
+   "d0": {
+    "a": 1.176,
+    "b": 1.308
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__08",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 7,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 7,
+   "align_fail": [
+    {
+     "bar": 6,
+     "deck": "suPgRyRLVC4",
+     "lag": -40,
+     "corr": 0.7,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 7,
+     "deck": "suPgRyRLVC4",
+     "lag": -40,
+     "corr": 0.78,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.78,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 8,
+     "deck": "suPgRyRLVC4",
+     "lag": -40,
+     "corr": 0.73,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.73,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 9,
+     "deck": "suPgRyRLVC4",
+     "lag": -365,
+     "corr": 0.82,
+     "beat_off": -1.06,
+     "lag_0": -32,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 11,
+     "deck": "suPgRyRLVC4",
+     "lag": -358,
+     "corr": 0.92,
+     "beat_off": -1.04,
+     "lag_0": -15,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 17,
+     "deck": "suPgRyRLVC4",
+     "lag": 38,
+     "corr": 0.68,
+     "beat_off": 0.11,
+     "lag_0": 38,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 44,
+     "deck": "J3oTRY7AdE4",
+     "lag": 34,
+     "corr": 0.58,
+     "beat_off": 0.1,
+     "lag_0": 34,
+     "corr_0": 0.58,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 8.075,
+     "cc": 0.5292,
+     "mix_t": 12.934,
+     "track_t": 188.709
+    },
+    "b": {
+     "z": 8.203,
+     "cc": 0.5123,
+     "mix_t": 49.342,
+     "track_t": 92.857
+    }
+   },
+   "d0": {
+    "a": 0.954,
+    "b": 0.18
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__11",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 0,
+   "align_pass": true,
+   "n_mix": 92,
+   "n_mix_fail": 0,
+   "align_fail": [],
+   "locate": {
+    "a": {
+     "z": 12.429,
+     "cc": 0.7395,
+     "mix_t": 15.673,
+     "track_t": 173.732
+    },
+    "b": {
+     "z": 7.809,
+     "cc": 0.4263,
+     "mix_t": 45.14,
+     "track_t": 200.69
+    }
+   },
+   "d0": {
+    "a": 0.5,
+    "b": 0.784
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__12",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     1,
+     46
+    ]
+   ],
+   "overlap": [
+    1,
+    46
+   ],
+   "n_align": 135,
+   "n_fail": 0,
+   "align_pass": true,
+   "n_mix": 90,
+   "n_mix_fail": 0,
+   "align_fail": [],
+   "locate": {
+    "a": {
+     "z": 6.741,
+     "cc": 0.6202,
+     "mix_t": 7.314,
+     "track_t": 230.644
+    },
+    "b": {
+     "z": 7.644,
+     "cc": 0.6858,
+     "mix_t": 39.358,
+     "track_t": 38.94
+    }
+   },
+   "d0": {
+    "a": 0.784,
+    "b": 0.494
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__13",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 22,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 22,
+   "align_fail": [
+    {
+     "bar": 0,
+     "deck": "zEvLsOVhg0I",
+     "lag": 40,
+     "corr": 0.66,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 18,
+     "deck": "zEvLsOVhg0I",
+     "lag": 28,
+     "corr": 0.69,
+     "beat_off": 0.08,
+     "lag_0": 28,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 18,
+     "deck": "W77cCOreg_0",
+     "lag": 37,
+     "corr": 0.67,
+     "beat_off": 0.11,
+     "lag_0": 37,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 19,
+     "deck": "zEvLsOVhg0I",
+     "lag": 36,
+     "corr": 0.7,
+     "beat_off": 0.1,
+     "lag_0": 36,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 30,
+     "deck": "W77cCOreg_0",
+     "lag": -37,
+     "corr": 0.69,
+     "beat_off": -0.11,
+     "lag_0": -37,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 31,
+     "deck": "zEvLsOVhg0I",
+     "lag": -38,
+     "corr": 0.74,
+     "beat_off": -0.11,
+     "lag_0": -38,
+     "corr_0": 0.74,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 31,
+     "deck": "W77cCOreg_0",
+     "lag": 325,
+     "corr": 0.72,
+     "beat_off": 0.94,
+     "lag_0": -32,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 32,
+     "deck": "zEvLsOVhg0I",
+     "lag": -33,
+     "corr": 0.74,
+     "beat_off": -0.1,
+     "lag_0": -33,
+     "corr_0": 0.74,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 32,
+     "deck": "W77cCOreg_0",
+     "lag": 1015,
+     "corr": 0.9,
+     "beat_off": 2.94,
+     "lag_0": -24,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 33,
+     "deck": "zEvLsOVhg0I",
+     "lag": 1014,
+     "corr": 0.91,
+     "beat_off": 2.94,
+     "lag_0": -22,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 34,
+     "deck": "zEvLsOVhg0I",
+     "lag": -359,
+     "corr": 0.92,
+     "beat_off": -1.04,
+     "lag_0": -14,
+     "corr_0": 0.75,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 36,
+     "deck": "W77cCOreg_0",
+     "lag": -1025,
+     "corr": 0.95,
+     "beat_off": -2.97,
+     "lag_0": 11,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 6.946,
+     "cc": 0.5549,
+     "mix_t": 23.197,
+     "track_t": 197.695
+    },
+    "b": {
+     "z": 6.698,
+     "cc": 0.6439,
+     "mix_t": 46.579,
+     "track_t": 110.829
+    }
+   },
+   "d0": {
+    "a": 0.494,
+    "b": 0.454
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__19",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Urbandawn - Prime Expansion -> Hybrid Minds - Demons (ft. Charlotte Haining)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 2,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 2,
+   "align_fail": [
+    {
+     "bar": 41,
+     "deck": "HP7Q0vDU9vI",
+     "lag": 28,
+     "corr": 0.55,
+     "beat_off": 0.08,
+     "lag_0": 28,
+     "corr_0": 0.55,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    },
+    {
+     "bar": 41,
+     "deck": "5YG-HKjtiHM",
+     "lag": 40,
+     "corr": 0.65,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 10.881,
+     "cc": 0.6082,
+     "mix_t": 15.952,
+     "track_t": 146.773
+    },
+    "b": {
+     "z": 11.126,
+     "cc": 0.7587,
+     "mix_t": 54.567,
+     "track_t": 206.681
+    }
+   },
+   "d0": {
+    "a": 0.726,
+    "b": 0.518
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__20",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Hybrid Minds - Demons (ft. Charlotte Haining) -> Changing Faces - Emptiness",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 11,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 11,
+   "align_fail": [
+    {
+     "bar": 1,
+     "deck": "tDIlCWhrBPU",
+     "lag": 709,
+     "corr": 0.77,
+     "beat_off": 2.06,
+     "lag_0": 24,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 2,
+     "deck": "tDIlCWhrBPU",
+     "lag": 29,
+     "corr": 0.77,
+     "beat_off": 0.08,
+     "lag_0": 29,
+     "corr_0": 0.77,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 3,
+     "deck": "tDIlCWhrBPU",
+     "lag": 37,
+     "corr": 0.76,
+     "beat_off": 0.11,
+     "lag_0": 37,
+     "corr_0": 0.76,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 14,
+     "deck": "tDIlCWhrBPU",
+     "lag": -40,
+     "corr": 0.74,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.74,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 15,
+     "deck": "tDIlCWhrBPU",
+     "lag": -34,
+     "corr": 0.66,
+     "beat_off": -0.1,
+     "lag_0": -34,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 17,
+     "deck": "tDIlCWhrBPU",
+     "lag": -706,
+     "corr": 0.73,
+     "beat_off": -2.05,
+     "lag_0": -18,
+     "corr_0": 0.72,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 37,
+     "deck": "tDIlCWhrBPU",
+     "lag": -36,
+     "corr": 0.68,
+     "beat_off": -0.1,
+     "lag_0": -36,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 38,
+     "deck": "tDIlCWhrBPU",
+     "lag": -28,
+     "corr": 0.65,
+     "beat_off": -0.08,
+     "lag_0": -28,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 44,
+     "deck": "5YG-HKjtiHM",
+     "lag": 38,
+     "corr": 0.56,
+     "beat_off": 0.11,
+     "lag_0": 38,
+     "corr_0": 0.56,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    },
+    {
+     "bar": 44,
+     "deck": "tDIlCWhrBPU",
+     "lag": -328,
+     "corr": 0.64,
+     "beat_off": -0.95,
+     "lag_0": 14,
+     "corr_0": 0.6,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    },
+    {
+     "bar": 45,
+     "deck": "5YG-HKjtiHM",
+     "lag": 38,
+     "corr": 0.67,
+     "beat_off": 0.11,
+     "lag_0": 38,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 1
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 7.354,
+     "cc": 0.3793,
+     "mix_t": 5.666,
+     "track_t": 146.773
+    },
+    "b": {
+     "z": 8.673,
+     "cc": 0.3294,
+     "mix_t": 57.098,
+     "track_t": 137.787
+    }
+   },
+   "d0": {
+    "a": 0.518,
+    "b": 0.508
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 7,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 7,
+   "align_fail": [
+    {
+     "bar": 17,
+     "deck": "HpfQ0bus688",
+     "lag": 36,
+     "corr": 0.75,
+     "beat_off": 0.1,
+     "lag_0": 36,
+     "corr_0": 0.75,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 18,
+     "deck": "HpfQ0bus688",
+     "lag": 40,
+     "corr": 0.77,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.77,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 29,
+     "deck": "HpfQ0bus688",
+     "lag": -40,
+     "corr": 0.66,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 30,
+     "deck": "HpfQ0bus688",
+     "lag": -34,
+     "corr": 0.67,
+     "beat_off": -0.1,
+     "lag_0": -34,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 31,
+     "deck": "HpfQ0bus688",
+     "lag": -29,
+     "corr": 0.66,
+     "beat_off": -0.08,
+     "lag_0": -29,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 32,
+     "deck": "HpfQ0bus688",
+     "lag": -1054,
+     "corr": 0.7,
+     "beat_off": -3.06,
+     "lag_0": -24,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 36,
+     "deck": "HpfQ0bus688",
+     "lag": 702,
+     "corr": 0.7,
+     "beat_off": 2.04,
+     "lag_0": 12,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 8.957,
+     "cc": 0.5654,
+     "mix_t": 11.238,
+     "track_t": 209.676
+    },
+    "b": {
+     "z": 6.286,
+     "cc": 0.663,
+     "mix_t": 23.847,
+     "track_t": 131.796
+    }
+   },
+   "d0": {
+    "a": 0.424,
+    "b": 0.66
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__25",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 0,
+   "align_pass": true,
+   "n_mix": 92,
+   "n_mix_fail": 0,
+   "align_fail": [],
+   "locate": {
+    "a": {
+     "z": 8.705,
+     "cc": 0.6023,
+     "mix_t": 11.424,
+     "track_t": 167.741
+    },
+    "b": {
+     "z": 6.959,
+     "cc": 0.6331,
+     "mix_t": 22.825,
+     "track_t": 263.593
+    }
+   },
+   "d0": {
+    "a": 0.108,
+    "b": 1.188
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__33",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "1991 - Nine Clouds -> Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 4,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 4,
+   "align_fail": [
+    {
+     "bar": 31,
+     "deck": "AT8lBlfTT2w",
+     "lag": -357,
+     "corr": 0.93,
+     "beat_off": -1.04,
+     "lag_0": -14,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 32,
+     "deck": "AT8lBlfTT2w",
+     "lag": 1015,
+     "corr": 0.93,
+     "beat_off": 2.94,
+     "lag_0": -13,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 44,
+     "deck": "AT8lBlfTT2w",
+     "lag": -353,
+     "corr": 0.97,
+     "beat_off": -1.02,
+     "lag_0": -11,
+     "corr_0": 0.56,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 2
+    },
+    {
+     "bar": 45,
+     "deck": "AT8lBlfTT2w",
+     "lag": 1016,
+     "corr": 0.97,
+     "beat_off": 2.95,
+     "lag_0": -12,
+     "corr_0": 0.61,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 1
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 9.894,
+     "cc": 0.7243,
+     "mix_t": 16.881,
+     "track_t": 191.704
+    },
+    "b": {
+     "z": 7.066,
+     "cc": 0.7324,
+     "mix_t": 23.127,
+     "track_t": 86.866
+    }
+   },
+   "d0": {
+    "a": 1.296,
+    "b": 0.646
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__45",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     36
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    36
+   ],
+   "n_align": 108,
+   "n_fail": 3,
+   "align_pass": false,
+   "n_mix": 72,
+   "n_mix_fail": 3,
+   "align_fail": [
+    {
+     "bar": 9,
+     "deck": "xv0Qw1QZT8I",
+     "lag": 1384,
+     "corr": 0.68,
+     "beat_off": 4.01,
+     "lag_0": -12,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 36,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 11,
+     "deck": "xv0Qw1QZT8I",
+     "lag": -1360,
+     "corr": 0.67,
+     "beat_off": -3.94,
+     "lag_0": 36,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 36,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 17,
+     "deck": "xv0Qw1QZT8I",
+     "lag": -14,
+     "corr": 0.69,
+     "beat_off": -0.04,
+     "lag_0": -14,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 36,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 6.217,
+     "cc": 0.6898,
+     "mix_t": 1.765,
+     "track_t": 134.792
+    },
+    "b": {
+     "z": 8.173,
+     "cc": 0.6228,
+     "mix_t": 33.553,
+     "track_t": 53.917
+    }
+   },
+   "d0": {
+    "a": 0.782,
+    "b": 1.264
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__02",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 1,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 1,
+   "align_fail": [
+    {
+     "bar": 40,
+     "deck": "0fjPvcfMJWk",
+     "lag": 36,
+     "corr": 0.66,
+     "beat_off": 0.1,
+     "lag_0": 36,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 7.986,
+     "cc": 0.4144,
+     "mix_t": 0.372,
+     "track_t": 125.806
+    },
+    "b": {
+     "z": 10.728,
+     "cc": 0.6875,
+     "mix_t": 27.446,
+     "track_t": 41.935
+    }
+   },
+   "d0": {
+    "a": 1.18,
+    "b": 1.17
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__06",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "High Contrast - Twilight's Last Gleaming -> Netsky - Escape (ft. Darrison)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     2,
+     46
+    ]
+   ],
+   "overlap": [
+    2,
+    46
+   ],
+   "n_align": 132,
+   "n_fail": 3,
+   "align_pass": false,
+   "n_mix": 88,
+   "n_mix_fail": 3,
+   "align_fail": [
+    {
+     "bar": 27,
+     "deck": "na79dfVHpp0",
+     "lag": -35,
+     "corr": 0.73,
+     "beat_off": -0.1,
+     "lag_0": -35,
+     "corr_0": 0.73,
+     "kind": "mix",
+     "overlap_start": 2,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 28,
+     "deck": "na79dfVHpp0",
+     "lag": 673,
+     "corr": 0.82,
+     "beat_off": 1.95,
+     "lag_0": -18,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 2,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 31,
+     "deck": "na79dfVHpp0",
+     "lag": 27,
+     "corr": 0.68,
+     "beat_off": 0.08,
+     "lag_0": 27,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 2,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 8.055,
+     "cc": 0.5507,
+     "mix_t": 9.381,
+     "track_t": 155.759
+    },
+    "b": {
+     "z": 7.687,
+     "cc": 0.6542,
+     "mix_t": 26.053,
+     "track_t": 23.963
+    }
+   },
+   "d0": {
+    "a": 0.732,
+    "b": 0.132
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__10",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Nu:Tone - Missing Link -> Netsky - Drawing Straws",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 2,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 2,
+   "align_fail": [
+    {
+     "bar": 25,
+     "deck": "RMM3y-WGgdA",
+     "lag": 672,
+     "corr": 0.69,
+     "beat_off": 1.95,
+     "lag_0": -19,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 27,
+     "deck": "RMM3y-WGgdA",
+     "lag": 700,
+     "corr": 0.75,
+     "beat_off": 2.03,
+     "lag_0": 12,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 6.446,
+     "cc": 0.71,
+     "mix_t": 5.782,
+     "track_t": 137.787
+    },
+    "b": {
+     "z": 9.89,
+     "cc": 0.8521,
+     "mix_t": 50.527,
+     "track_t": 161.75
+    }
+   },
+   "d0": {
+    "a": 0.608,
+    "b": 0.074
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__15",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     6,
+     46
+    ]
+   ],
+   "overlap": [
+    6,
+    46
+   ],
+   "n_align": 120,
+   "n_fail": 2,
+   "align_pass": false,
+   "n_mix": 80,
+   "n_mix_fail": 2,
+   "align_fail": [
+    {
+     "bar": 16,
+     "deck": "cG7cRDcPY3k",
+     "lag": -31,
+     "corr": 0.69,
+     "beat_off": -0.09,
+     "lag_0": -31,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 6,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 45,
+     "deck": "cG7cRDcPY3k",
+     "lag": 1399,
+     "corr": 0.82,
+     "beat_off": 4.06,
+     "lag_0": 29,
+     "corr_0": 0.77,
+     "kind": "mix",
+     "overlap_start": 6,
+     "overlap_end": 46,
+     "tail": true,
+     "window_bars": 1
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 8.658,
+     "cc": 0.4364,
+     "mix_t": 0.789,
+     "track_t": 212.672
+    },
+    "b": {
+     "z": 9.625,
+     "cc": 0.5903,
+     "mix_t": 46.974,
+     "track_t": 38.94
+    }
+   },
+   "d0": {
+    "a": 0.974,
+    "b": 0.602
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__16",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Netsky - The Whistle Song -> Logistics - Together",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     39
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    39
+   ],
+   "n_align": 117,
+   "n_fail": 7,
+   "align_pass": false,
+   "n_mix": 78,
+   "n_mix_fail": 7,
+   "align_fail": [
+    {
+     "bar": 2,
+     "deck": "k-7z5X0ATEc",
+     "lag": -13,
+     "corr": 0.93,
+     "beat_off": -0.04,
+     "lag_0": -13,
+     "corr_0": 0.93,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 39,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 3,
+     "deck": "k-7z5X0ATEc",
+     "lag": -25,
+     "corr": 0.93,
+     "beat_off": -0.07,
+     "lag_0": -25,
+     "corr_0": 0.93,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 39,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 4,
+     "deck": "k-7z5X0ATEc",
+     "lag": -32,
+     "corr": 0.94,
+     "beat_off": -0.09,
+     "lag_0": -32,
+     "corr_0": 0.94,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 39,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 5,
+     "deck": "k-7z5X0ATEc",
+     "lag": -38,
+     "corr": 0.92,
+     "beat_off": -0.11,
+     "lag_0": -38,
+     "corr_0": 0.92,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 39,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 6,
+     "deck": "k-7z5X0ATEc",
+     "lag": -40,
+     "corr": 0.88,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.88,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 39,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 6,
+     "deck": "3f-XOhfDhxk",
+     "lag": 40,
+     "corr": 0.7,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 39,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 16,
+     "deck": "3f-XOhfDhxk",
+     "lag": -39,
+     "corr": 0.71,
+     "beat_off": -0.11,
+     "lag_0": -39,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 39,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 6.828,
+     "cc": 0.3456,
+     "mix_t": 7.105,
+     "track_t": 236.635
+    },
+    "b": {
+     "z": 6.886,
+     "cc": 0.4094,
+     "mix_t": 49.296,
+     "track_t": 68.894
+    }
+   },
+   "d0": {
+    "a": 0.602,
+    "b": 1.188
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__17",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 11,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 11,
+   "align_fail": [
+    {
+     "bar": 7,
+     "deck": "3f-XOhfDhxk",
+     "lag": 40,
+     "corr": 0.75,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.75,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 8,
+     "deck": "3f-XOhfDhxk",
+     "lag": 37,
+     "corr": 0.85,
+     "beat_off": 0.11,
+     "lag_0": 37,
+     "corr_0": 0.85,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 9,
+     "deck": "3f-XOhfDhxk",
+     "lag": 28,
+     "corr": 0.84,
+     "beat_off": 0.08,
+     "lag_0": 28,
+     "corr_0": 0.84,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 10,
+     "deck": "3f-XOhfDhxk",
+     "lag": 710,
+     "corr": 0.9,
+     "beat_off": 2.06,
+     "lag_0": 25,
+     "corr_0": 0.85,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 11,
+     "deck": "3f-XOhfDhxk",
+     "lag": -673,
+     "corr": 0.92,
+     "beat_off": -1.95,
+     "lag_0": 15,
+     "corr_0": 0.83,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 15,
+     "deck": "3f-XOhfDhxk",
+     "lag": -707,
+     "corr": 0.91,
+     "beat_off": -2.05,
+     "lag_0": -16,
+     "corr_0": 0.83,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 16,
+     "deck": "3f-XOhfDhxk",
+     "lag": -710,
+     "corr": 0.89,
+     "beat_off": -2.06,
+     "lag_0": -26,
+     "corr_0": 0.84,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 17,
+     "deck": "3f-XOhfDhxk",
+     "lag": -29,
+     "corr": 0.77,
+     "beat_off": -0.08,
+     "lag_0": -29,
+     "corr_0": 0.77,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 18,
+     "deck": "3f-XOhfDhxk",
+     "lag": -36,
+     "corr": 0.74,
+     "beat_off": -0.1,
+     "lag_0": -36,
+     "corr_0": 0.74,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 19,
+     "deck": "3f-XOhfDhxk",
+     "lag": -39,
+     "corr": 0.82,
+     "beat_off": -0.11,
+     "lag_0": -39,
+     "corr_0": 0.82,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 20,
+     "deck": "3f-XOhfDhxk",
+     "lag": -40,
+     "corr": 0.66,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 8.529,
+     "cc": 0.7583,
+     "mix_t": 1.556,
+     "track_t": 131.796
+    },
+    "b": {
+     "z": 10.719,
+     "cc": 0.6451,
+     "mix_t": 45.72,
+     "track_t": 65.898
+    }
+   },
+   "d0": {
+    "a": 1.188,
+    "b": 0.79
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__23",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 5,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 5,
+   "align_fail": [
+    {
+     "bar": 11,
+     "deck": "gCkKc2LuCuM",
+     "lag": 39,
+     "corr": 0.84,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.84,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 12,
+     "deck": "gCkKc2LuCuM",
+     "lag": 15,
+     "corr": 0.89,
+     "beat_off": 0.04,
+     "lag_0": 15,
+     "corr_0": 0.89,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 14,
+     "deck": "gCkKc2LuCuM",
+     "lag": -12,
+     "corr": 0.8,
+     "beat_off": -0.03,
+     "lag_0": -12,
+     "corr_0": 0.8,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 15,
+     "deck": "gCkKc2LuCuM",
+     "lag": -22,
+     "corr": 0.73,
+     "beat_off": -0.06,
+     "lag_0": -22,
+     "corr_0": 0.73,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 16,
+     "deck": "gCkKc2LuCuM",
+     "lag": -40,
+     "corr": 0.65,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 8.058,
+     "cc": 0.5276,
+     "mix_t": 18.622,
+     "track_t": 155.759
+    },
+    "b": {
+     "z": 8.199,
+     "cc": 0.608,
+     "mix_t": 49.017,
+     "track_t": 59.907
+    }
+   },
+   "d0": {
+    "a": 0.598,
+    "b": 0.384
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__24",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Nu:Logic - Morning Light -> Sigma - Nobody To Love",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 0,
+   "align_pass": true,
+   "n_mix": 92,
+   "n_mix_fail": 0,
+   "align_fail": [],
+   "locate": {
+    "a": {
+     "z": 8.784,
+     "cc": 0.7382,
+     "mix_t": 7.268,
+     "track_t": 119.815
+    },
+    "b": {
+     "z": 7.529,
+     "cc": 0.4122,
+     "mix_t": 35.689,
+     "track_t": 56.912
+    }
+   },
+   "d0": {
+    "a": 0.384,
+    "b": 1.238
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     38
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    38
+   ],
+   "n_align": 114,
+   "n_fail": 0,
+   "align_pass": true,
+   "n_mix": 76,
+   "n_mix_fail": 0,
+   "align_fail": [],
+   "locate": {
+    "a": {
+     "z": 9.852,
+     "cc": 0.5666,
+     "mix_t": 11.471,
+     "track_t": 296.542
+    },
+    "b": {
+     "z": 10.155,
+     "cc": 0.958,
+     "mix_t": 33.622,
+     "track_t": 53.917
+    }
+   },
+   "d0": {
+    "a": 1.17,
+    "b": 0.71
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__12",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 30,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 30,
+   "align_fail": [
+    {
+     "bar": 0,
+     "deck": "tCyYwek-o28",
+     "lag": -677,
+     "corr": 0.96,
+     "beat_off": -1.96,
+     "lag_0": 14,
+     "corr_0": 0.86,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 1,
+     "deck": "tCyYwek-o28",
+     "lag": -674,
+     "corr": 0.98,
+     "beat_off": -1.95,
+     "lag_0": 13,
+     "corr_0": 0.89,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 2,
+     "deck": "tCyYwek-o28",
+     "lag": -675,
+     "corr": 0.98,
+     "beat_off": -1.96,
+     "lag_0": 13,
+     "corr_0": 0.9,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 3,
+     "deck": "tCyYwek-o28",
+     "lag": -679,
+     "corr": 0.98,
+     "beat_off": -1.97,
+     "lag_0": 12,
+     "corr_0": 0.88,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 4,
+     "deck": "tCyYwek-o28",
+     "lag": -679,
+     "corr": 0.98,
+     "beat_off": -1.97,
+     "lag_0": 12,
+     "corr_0": 0.85,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 5,
+     "deck": "tCyYwek-o28",
+     "lag": -677,
+     "corr": 0.98,
+     "beat_off": -1.96,
+     "lag_0": 14,
+     "corr_0": 0.88,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 6,
+     "deck": "tCyYwek-o28",
+     "lag": -678,
+     "corr": 0.98,
+     "beat_off": -1.97,
+     "lag_0": 13,
+     "corr_0": 0.9,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 7,
+     "deck": "tCyYwek-o28",
+     "lag": -678,
+     "corr": 0.98,
+     "beat_off": -1.97,
+     "lag_0": 13,
+     "corr_0": 0.88,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 8,
+     "deck": "tCyYwek-o28",
+     "lag": -679,
+     "corr": 0.98,
+     "beat_off": -1.97,
+     "lag_0": 12,
+     "corr_0": 0.87,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 9,
+     "deck": "tCyYwek-o28",
+     "lag": -679,
+     "corr": 0.98,
+     "beat_off": -1.97,
+     "lag_0": 11,
+     "corr_0": 0.9,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 10,
+     "deck": "tCyYwek-o28",
+     "lag": -677,
+     "corr": 0.98,
+     "beat_off": -1.96,
+     "lag_0": 14,
+     "corr_0": 0.9,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 11,
+     "deck": "tCyYwek-o28",
+     "lag": -678,
+     "corr": 0.98,
+     "beat_off": -1.97,
+     "lag_0": 13,
+     "corr_0": 0.9,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 6.459,
+     "cc": 0.8554,
+     "mix_t": 10.194,
+     "track_t": 251.611
+    },
+    "b": {
+     "z": 6.72,
+     "cc": 0.58,
+     "mix_t": 41.935,
+     "track_t": 215.667
+    }
+   },
+   "d0": {
+    "a": 0.71,
+    "b": 0.86
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__13",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 16,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 16,
+   "align_fail": [
+    {
+     "bar": 7,
+     "deck": "SqzxwPEa-DI",
+     "lag": -360,
+     "corr": 0.77,
+     "beat_off": -1.04,
+     "lag_0": -17,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 12,
+     "deck": "SqzxwPEa-DI",
+     "lag": -1016,
+     "corr": 0.77,
+     "beat_off": -2.95,
+     "lag_0": 26,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 13,
+     "deck": "SqzxwPEa-DI",
+     "lag": 31,
+     "corr": 0.69,
+     "beat_off": 0.09,
+     "lag_0": 31,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 14,
+     "deck": "u6cggHmZEAs",
+     "lag": 33,
+     "corr": 0.69,
+     "beat_off": 0.1,
+     "lag_0": 33,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 14,
+     "deck": "SqzxwPEa-DI",
+     "lag": 39,
+     "corr": 0.71,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.71,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 15,
+     "deck": "u6cggHmZEAs",
+     "lag": 363,
+     "corr": 0.86,
+     "beat_off": 1.05,
+     "lag_0": 24,
+     "corr_0": 0.74,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 15,
+     "deck": "SqzxwPEa-DI",
+     "lag": 39,
+     "corr": 0.67,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 16,
+     "deck": "u6cggHmZEAs",
+     "lag": 360,
+     "corr": 0.67,
+     "beat_off": 1.04,
+     "lag_0": 14,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 16,
+     "deck": "SqzxwPEa-DI",
+     "lag": -32,
+     "corr": 0.75,
+     "beat_off": -0.09,
+     "lag_0": -32,
+     "corr_0": 0.75,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 17,
+     "deck": "SqzxwPEa-DI",
+     "lag": -24,
+     "corr": 0.69,
+     "beat_off": -0.07,
+     "lag_0": -24,
+     "corr_0": 0.69,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 33,
+     "deck": "SqzxwPEa-DI",
+     "lag": -37,
+     "corr": 0.86,
+     "beat_off": -0.11,
+     "lag_0": -37,
+     "corr_0": 0.86,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 34,
+     "deck": "SqzxwPEa-DI",
+     "lag": -23,
+     "corr": 0.89,
+     "beat_off": -0.07,
+     "lag_0": -23,
+     "corr_0": 0.89,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 7.216,
+     "cc": 0.648,
+     "mix_t": 10.124,
+     "track_t": 161.75
+    },
+    "b": {
+     "z": 9.852,
+     "cc": 0.7549,
+     "mix_t": 48.089,
+     "track_t": 68.894
+    }
+   },
+   "d0": {
+    "a": 0.86,
+    "b": 0.108
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__00",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 0,
+   "align_pass": true,
+   "n_mix": 92,
+   "n_mix_fail": 0,
+   "align_fail": [],
+   "locate": {
+    "a": {
+     "z": 6.323,
+     "cc": 0.723,
+     "mix_t": 24.033,
+     "track_t": 131.796
+    },
+    "b": {
+     "z": 6.502,
+     "cc": 0.5631,
+     "mix_t": 46.951,
+     "track_t": 53.917
+    }
+   },
+   "d0": {
+    "a": 1.252,
+    "b": 1.078
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 3,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 3,
+   "align_fail": [
+    {
+     "bar": 33,
+     "deck": "J3oTRY7AdE4",
+     "lag": -40,
+     "corr": 0.68,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 34,
+     "deck": "J3oTRY7AdE4",
+     "lag": -12,
+     "corr": 0.65,
+     "beat_off": -0.03,
+     "lag_0": -12,
+     "corr_0": 0.65,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 36,
+     "deck": "J3oTRY7AdE4",
+     "lag": 39,
+     "corr": 0.7,
+     "beat_off": 0.11,
+     "lag_0": 39,
+     "corr_0": 0.7,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 10.649,
+     "cc": 0.6763,
+     "mix_t": 6.664,
+     "track_t": 182.718
+    },
+    "b": {
+     "z": 6.758,
+     "cc": 0.6335,
+     "mix_t": 29.164,
+     "track_t": 92.857
+    }
+   },
+   "d0": {
+    "a": 0.18,
+    "b": 1.194
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__10",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 12,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 12,
+   "align_fail": [
+    {
+     "bar": 12,
+     "deck": "Vwb-3pAvOVk",
+     "lag": -40,
+     "corr": 0.73,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.73,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 13,
+     "deck": "Vwb-3pAvOVk",
+     "lag": -40,
+     "corr": 0.92,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.92,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 14,
+     "deck": "Vwb-3pAvOVk",
+     "lag": -33,
+     "corr": 0.95,
+     "beat_off": -0.1,
+     "lag_0": -33,
+     "corr_0": 0.95,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 15,
+     "deck": "Vwb-3pAvOVk",
+     "lag": -27,
+     "corr": 0.95,
+     "beat_off": -0.08,
+     "lag_0": -27,
+     "corr_0": 0.95,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 16,
+     "deck": "Vwb-3pAvOVk",
+     "lag": -24,
+     "corr": 0.94,
+     "beat_off": -0.07,
+     "lag_0": -24,
+     "corr_0": 0.94,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 17,
+     "deck": "Vwb-3pAvOVk",
+     "lag": -14,
+     "corr": 0.83,
+     "beat_off": -0.04,
+     "lag_0": -14,
+     "corr_0": 0.83,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 20,
+     "deck": "Vwb-3pAvOVk",
+     "lag": 13,
+     "corr": 0.88,
+     "beat_off": 0.04,
+     "lag_0": 13,
+     "corr_0": 0.88,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 21,
+     "deck": "Vwb-3pAvOVk",
+     "lag": 18,
+     "corr": 0.82,
+     "beat_off": 0.05,
+     "lag_0": 18,
+     "corr_0": 0.82,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 22,
+     "deck": "Vwb-3pAvOVk",
+     "lag": 26,
+     "corr": 0.86,
+     "beat_off": 0.08,
+     "lag_0": 26,
+     "corr_0": 0.86,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 23,
+     "deck": "Vwb-3pAvOVk",
+     "lag": 37,
+     "corr": 0.93,
+     "beat_off": 0.11,
+     "lag_0": 37,
+     "corr_0": 0.93,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 24,
+     "deck": "Vwb-3pAvOVk",
+     "lag": 40,
+     "corr": 0.92,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.92,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 25,
+     "deck": "Vwb-3pAvOVk",
+     "lag": 40,
+     "corr": 0.82,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.82,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 7.953,
+     "cc": 0.6152,
+     "mix_t": 2.554,
+     "track_t": 176.727
+    },
+    "b": {
+     "z": 10.445,
+     "cc": 0.6719,
+     "mix_t": 49.412,
+     "track_t": 74.884
+    }
+   },
+   "d0": {
+    "a": 1.194,
+    "b": 0.5
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 10,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 10,
+   "align_fail": [
+    {
+     "bar": 19,
+     "deck": "bnRTUL2jnk0",
+     "lag": -40,
+     "corr": 0.66,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 20,
+     "deck": "bnRTUL2jnk0",
+     "lag": -40,
+     "corr": 0.85,
+     "beat_off": -0.12,
+     "lag_0": -40,
+     "corr_0": 0.85,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 21,
+     "deck": "bnRTUL2jnk0",
+     "lag": -35,
+     "corr": 0.85,
+     "beat_off": -0.1,
+     "lag_0": -35,
+     "corr_0": 0.85,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 22,
+     "deck": "bnRTUL2jnk0",
+     "lag": -27,
+     "corr": 0.86,
+     "beat_off": -0.08,
+     "lag_0": -27,
+     "corr_0": 0.86,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 23,
+     "deck": "bnRTUL2jnk0",
+     "lag": -19,
+     "corr": 0.84,
+     "beat_off": -0.06,
+     "lag_0": -19,
+     "corr_0": 0.84,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 27,
+     "deck": "bnRTUL2jnk0",
+     "lag": 1392,
+     "corr": 0.87,
+     "beat_off": 4.04,
+     "lag_0": 14,
+     "corr_0": 0.84,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 28,
+     "deck": "bnRTUL2jnk0",
+     "lag": 22,
+     "corr": 0.86,
+     "beat_off": 0.06,
+     "lag_0": 22,
+     "corr_0": 0.86,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 29,
+     "deck": "bnRTUL2jnk0",
+     "lag": 30,
+     "corr": 0.84,
+     "beat_off": 0.09,
+     "lag_0": 30,
+     "corr_0": 0.84,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 30,
+     "deck": "bnRTUL2jnk0",
+     "lag": 38,
+     "corr": 0.89,
+     "beat_off": 0.11,
+     "lag_0": 38,
+     "corr_0": 0.89,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 31,
+     "deck": "bnRTUL2jnk0",
+     "lag": 40,
+     "corr": 0.87,
+     "beat_off": 0.12,
+     "lag_0": 40,
+     "corr_0": 0.87,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 6.386,
+     "cc": 0.6658,
+     "mix_t": 20.48,
+     "track_t": 194.699
+    },
+    "b": {
+     "z": 8.014,
+     "cc": 0.4833,
+     "mix_t": 45.232,
+     "track_t": 65.898
+    }
+   },
+   "d0": {
+    "a": 0.5,
+    "b": 0.37
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__40",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+   "n_bars": 46,
+   "deck_span": [
+    [
+     0,
+     46
+    ],
+    [
+     0,
+     46
+    ]
+   ],
+   "overlap": [
+    0,
+    46
+   ],
+   "n_align": 138,
+   "n_fail": 5,
+   "align_pass": false,
+   "n_mix": 92,
+   "n_mix_fail": 5,
+   "align_fail": [
+    {
+     "bar": 5,
+     "deck": "oySqE3z99AE",
+     "lag": 1041,
+     "corr": 0.82,
+     "beat_off": 3.02,
+     "lag_0": 16,
+     "corr_0": 0.67,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 6,
+     "deck": "oySqE3z99AE",
+     "lag": -330,
+     "corr": 0.81,
+     "beat_off": -0.96,
+     "lag_0": 15,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 7,
+     "deck": "oySqE3z99AE",
+     "lag": -1018,
+     "corr": 0.81,
+     "beat_off": -2.95,
+     "lag_0": 15,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 8,
+     "deck": "oySqE3z99AE",
+     "lag": -332,
+     "corr": 0.78,
+     "beat_off": -0.96,
+     "lag_0": 14,
+     "corr_0": 0.66,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    },
+    {
+     "bar": 9,
+     "deck": "oySqE3z99AE",
+     "lag": -1017,
+     "corr": 0.74,
+     "beat_off": -2.95,
+     "lag_0": 16,
+     "corr_0": 0.68,
+     "kind": "mix",
+     "overlap_start": 0,
+     "overlap_end": 46,
+     "tail": false,
+     "window_bars": 2
+    }
+   ],
+   "locate": {
+    "a": {
+     "z": 7.804,
+     "cc": 0.7846,
+     "mix_t": 5.317,
+     "track_t": 200.69
+    },
+    "b": {
+     "z": 8.879,
+     "cc": 0.5289,
+     "mix_t": 25.24,
+     "track_t": 44.931
+    }
+   },
+   "d0": {
+    "a": 0.352,
+    "b": 0.37
+   }
+  }
+ ]
+}

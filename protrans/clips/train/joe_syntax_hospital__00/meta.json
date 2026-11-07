@@ -1,0 +1,26 @@
+{
+  "id": "joe_syntax_hospital__00",
+  "mix_id": "joe_syntax_hospital",
+  "dj": "Joe Syntax",
+  "split": "train",
+  "a": {
+    "title": "Fred V & Grafix - Find My Way",
+    "yt": "R06kP42RFRo",
+    "t": 0.0
+  },
+  "b": {
+    "title": "Nu:Tone - The Feeling (ft. Ben Westbeech)",
+    "yt": "dOJp7bsjuyU",
+    "t": 199.0
+  },
+  "window": {
+    "mix_t_a": 0.0,
+    "mix_t_b": 199.0,
+    "mix_t_next": 289.0,
+    "hint_a_played_sec": 199.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__00/pro.wav",
+  "pro_clip_start": 175.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__00"
+}

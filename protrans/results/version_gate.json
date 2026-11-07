@@ -1,0 +1,64 @@
+{
+  "thresh": {
+    "z": 6.0,
+    "cc": 0.28,
+    "bpm": [
+      169,
+      179
+    ]
+  },
+  "checked": [
+    {
+      "id": "hospital_podcast393__05",
+      "passed": false,
+      "why": "Don't You Leave Me (Dead Man's Chest Remix) official upload is not detected as 174 DnB (slice reject-no-dnb / earlier full-file ~161.5). Cosmic Flowchart does locate (z=6.79, 174 BPM). Big stretch \u2014 not Goldilocks."
+    },
+    {
+      "id": "hospital_podcast393__06",
+      "passed": false,
+      "why": "Same Dead Man's Chest remix as outgoing; Radiance locates and is 174. Excluded for stretch."
+    },
+    {
+      "id": "wilkinson_boomtown2026__10",
+      "passed": true,
+      "a": {
+        "z": 7.338,
+        "cc": 0.4882,
+        "mix_t": 2.043,
+        "bpm": 174.009
+      },
+      "b": {
+        "z": 10.239,
+        "cc": 0.7061,
+        "mix_t": 55.751,
+        "bpm": 173.991
+      }
+    },
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "passed": true,
+      "a": {
+        "z": 8.295,
+        "cc": 0.5264,
+        "mix_t": 4.505,
+        "bpm": 174.004
+      },
+      "b": {
+        "z": 10.503,
+        "cc": 0.6048,
+        "mix_t": 51.548,
+        "bpm": 174.0
+      }
+    }
+  ],
+  "controls": [
+    {
+      "name": "HP393__05 Cosmic + wrong incoming (Radiance)",
+      "passed": false,
+      "why": "Radiance locate z=4.693 cc=0.287"
+    }
+  ],
+  "n_checked": 4,
+  "n_passed": 2,
+  "n_failed": 2
+}

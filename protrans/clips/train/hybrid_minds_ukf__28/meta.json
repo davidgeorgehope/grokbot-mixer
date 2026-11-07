@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__28",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "Nu:Tone - Balaclava",
+    "yt": "bnRTUL2jnk0",
+    "t": 2808.0
+  },
+  "b": {
+    "title": "SpectraSoul & Alix Perez - The Need",
+    "yt": "Op886B0sd4Q",
+    "t": 2940.0
+  },
+  "window": {
+    "mix_t_a": 2808.0,
+    "mix_t_b": 2940.0,
+    "mix_t_next": 3030.0,
+    "hint_a_played_sec": 132.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__28/pro.wav",
+  "pro_clip_start": 2916.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__28"
+}

@@ -1,0 +1,16 @@
+{
+ "mix": 7,
+ "status": "escalate",
+ "updated_et": "2026-11-07 11:27 ET",
+ "note": "Detector+energy calibration done; Day-Par retimed in r17; guard 0; pytest not clean (20 leftover phase bars on other pairs). No delivery.",
+ "before_clip": "/workspace/mixes/deliver/ab/mix07r12_grid_Parallel_25m23.mp3",
+ "after_clip": "/workspace/mixes/deliver/ab/mix07r17_grid_Parallel_24m49.mp3",
+ "r17": {
+  "min": 60.9,
+  "guard": 0,
+  "lufs": -9.4,
+  "daypar": "n 128/32/16 swap_pos=0.25",
+  "pytest": "2 failed / 82 passed initially"
+ },
+ "best": "mix07r17 (guard 0, Day-Par fixed, pytest not zero) \u2014 r12 kept as prior reference"
+}

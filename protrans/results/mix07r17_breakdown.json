@@ -1,0 +1,371 @@
+{
+  "bar_sec": 1.3793103448275863,
+  "n": 22,
+  "n_gt_0_5": 11,
+  "n_gt_1": 8,
+  "rows": [
+    {
+      "i": 0,
+      "a": "5196v8VY1LI",
+      "b": "rpIpJQ7ujzc",
+      "start_bar": 128,
+      "end_bar": 160,
+      "t": "2:056.6",
+      "tend": "3:040.7",
+      "src_play": [
+        128,
+        160
+      ],
+      "overflow": 12.0,
+      "seg": [
+        148,
+        171
+      ]
+    },
+    {
+      "i": 1,
+      "a": "rpIpJQ7ujzc",
+      "b": "KDRPfuZfNYw",
+      "start_bar": 240,
+      "end_bar": 272,
+      "t": "5:031.0",
+      "tend": "6:015.2",
+      "src_play": [
+        128,
+        160
+      ],
+      "overflow": 10.0,
+      "seg": [
+        139,
+        144
+      ]
+    },
+    {
+      "i": 2,
+      "a": "KDRPfuZfNYw",
+      "b": "OPuVVhbkicU",
+      "start_bar": 352,
+      "end_bar": 368,
+      "t": "8:05.5",
+      "tend": "8:027.6",
+      "src_play": [
+        176,
+        192
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 3,
+      "a": "OPuVVhbkicU",
+      "b": "NaY3x3GRDF4",
+      "start_bar": 464,
+      "end_bar": 480,
+      "t": "10:040.0",
+      "tend": "11:02.1",
+      "src_play": [
+        160,
+        176
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 4,
+      "a": "NaY3x3GRDF4",
+      "b": "YNz30crm5g0",
+      "start_bar": 560,
+      "end_bar": 592,
+      "t": "12:052.4",
+      "tend": "13:036.6",
+      "src_play": [
+        144,
+        176
+      ],
+      "overflow": 5.0,
+      "seg": [
+        171,
+        197
+      ]
+    },
+    {
+      "i": 5,
+      "a": "YNz30crm5g0",
+      "b": "zGBn-IJ1isg",
+      "start_bar": 656,
+      "end_bar": 672,
+      "t": "15:04.8",
+      "tend": "15:026.9",
+      "src_play": [
+        160,
+        176
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 6,
+      "a": "zGBn-IJ1isg",
+      "b": "sObzaBqaBRQ",
+      "start_bar": 768,
+      "end_bar": 784,
+      "t": "17:039.3",
+      "tend": "18:01.4",
+      "src_play": [
+        128,
+        144
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 7,
+      "a": "sObzaBqaBRQ",
+      "b": "PVa_LRlOqBE",
+      "start_bar": 848,
+      "end_bar": 880,
+      "t": "19:029.7",
+      "tend": "20:013.8",
+      "src_play": [
+        128,
+        160
+      ],
+      "overflow": 8.0,
+      "seg": [
+        140,
+        144
+      ]
+    },
+    {
+      "i": 8,
+      "a": "PVa_LRlOqBE",
+      "b": "MoYkYkoeb84",
+      "start_bar": 1008,
+      "end_bar": 1024,
+      "t": "23:010.3",
+      "tend": "23:032.4",
+      "src_play": [
+        160,
+        176
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 9,
+      "a": "MoYkYkoeb84",
+      "b": "2s3M6oX2lfo",
+      "start_bar": 1088,
+      "end_bar": 1104,
+      "t": "25:00.7",
+      "tend": "25:022.8",
+      "src_play": [
+        112,
+        128
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 10,
+      "a": "2s3M6oX2lfo",
+      "b": "3BOWFQBhzhU",
+      "start_bar": 1200,
+      "end_bar": 1216,
+      "t": "27:035.2",
+      "tend": "27:057.2",
+      "src_play": [
+        144,
+        160
+      ],
+      "overflow": 1.0,
+      "seg": [
+        159,
+        174
+      ]
+    },
+    {
+      "i": 11,
+      "a": "3BOWFQBhzhU",
+      "b": "6YDKymmWe9o",
+      "start_bar": 1360,
+      "end_bar": 1376,
+      "t": "31:015.9",
+      "tend": "31:037.9",
+      "src_play": [
+        192,
+        208
+      ],
+      "overflow": 4.0,
+      "seg": [
+        204,
+        225
+      ]
+    },
+    {
+      "i": 12,
+      "a": "6YDKymmWe9o",
+      "b": "kKu3fIOTiHk",
+      "start_bar": 1488,
+      "end_bar": 1504,
+      "t": "34:012.4",
+      "tend": "34:034.5",
+      "src_play": [
+        192,
+        208
+      ],
+      "overflow": 1.0,
+      "seg": [
+        207,
+        232
+      ]
+    },
+    {
+      "i": 13,
+      "a": "kKu3fIOTiHk",
+      "b": "h1RNzaTfRyY",
+      "start_bar": 1600,
+      "end_bar": 1616,
+      "t": "36:046.9",
+      "tend": "37:09.0",
+      "src_play": [
+        176,
+        192
+      ],
+      "overflow": 2.0,
+      "seg": [
+        190,
+        211
+      ]
+    },
+    {
+      "i": 14,
+      "a": "h1RNzaTfRyY",
+      "b": "7Itbo72XEz4",
+      "start_bar": 1712,
+      "end_bar": 1744,
+      "t": "39:021.4",
+      "tend": "40:05.5",
+      "src_play": [
+        128,
+        160
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 15,
+      "a": "7Itbo72XEz4",
+      "b": "OYzCe1T_Gpg",
+      "start_bar": 1856,
+      "end_bar": 1872,
+      "t": "42:040.0",
+      "tend": "43:02.1",
+      "src_play": [
+        144,
+        160
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 16,
+      "a": "OYzCe1T_Gpg",
+      "b": "cxS6yd0UAxw",
+      "start_bar": 1920,
+      "end_bar": 1952,
+      "t": "44:08.3",
+      "tend": "44:052.4",
+      "src_play": [
+        80,
+        112
+      ],
+      "overflow": 30.0,
+      "seg": [
+        82,
+        112
+      ]
+    },
+    {
+      "i": 17,
+      "a": "cxS6yd0UAxw",
+      "b": "n1dOiesZS1g",
+      "start_bar": 2016,
+      "end_bar": 2032,
+      "t": "46:020.7",
+      "tend": "46:042.8",
+      "src_play": [
+        176,
+        192
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 18,
+      "a": "n1dOiesZS1g",
+      "b": "-n50uo8so4U",
+      "start_bar": 2208,
+      "end_bar": 2224,
+      "t": "50:045.5",
+      "tend": "51:07.6",
+      "src_play": [
+        208,
+        224
+      ],
+      "overflow": 1.0,
+      "seg": [
+        223,
+        243
+      ]
+    },
+    {
+      "i": 19,
+      "a": "-n50uo8so4U",
+      "b": "PYxgKt-Sr9A",
+      "start_bar": 2288,
+      "end_bar": 2304,
+      "t": "52:035.9",
+      "tend": "52:057.9",
+      "src_play": [
+        112,
+        128
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 20,
+      "a": "PYxgKt-Sr9A",
+      "b": "cb2sbJ-ii-I",
+      "start_bar": 2384,
+      "end_bar": 2400,
+      "t": "54:048.3",
+      "tend": "55:010.3",
+      "src_play": [
+        144,
+        160
+      ],
+      "overflow": 0.0,
+      "seg": null
+    },
+    {
+      "i": 21,
+      "a": "cb2sbJ-ii-I",
+      "b": "luB7w7JBT14",
+      "start_bar": 2480,
+      "end_bar": 2496,
+      "t": "57:00.7",
+      "tend": "57:022.8",
+      "src_play": [
+        144,
+        160
+      ],
+      "overflow": 16.0,
+      "seg": [
+        128,
+        160
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "joe_syntax_hospital__10",
+  "mix_id": "joe_syntax_hospital",
+  "dj": "Joe Syntax",
+  "split": "train",
+  "a": {
+    "title": "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+    "yt": "fApyZbwuAjM",
+    "t": 1479.0
+  },
+  "b": {
+    "title": "Logistics - We Are One (Nu:Logic Remix)",
+    "yt": "wUVt_GsvMzw",
+    "t": 1634.0
+  },
+  "window": {
+    "mix_t_a": 1479.0,
+    "mix_t_b": 1634.0,
+    "mix_t_next": 1724.0,
+    "hint_a_played_sec": 155.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__10/pro.wav",
+  "pro_clip_start": 1610.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__10"
+}

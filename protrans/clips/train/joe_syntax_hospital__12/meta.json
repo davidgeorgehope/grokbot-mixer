@@ -1,0 +1,26 @@
+{
+  "id": "joe_syntax_hospital__12",
+  "mix_id": "joe_syntax_hospital",
+  "dj": "Joe Syntax",
+  "split": "train",
+  "a": {
+    "title": "Cyantific - Ghetto Blaster",
+    "yt": "tCyYwek-o28",
+    "t": 1876.0
+  },
+  "b": {
+    "title": "S.P.Y - Seconds To Midnight",
+    "yt": "u6cggHmZEAs",
+    "t": 2097.0
+  },
+  "window": {
+    "mix_t_a": 1876.0,
+    "mix_t_b": 2097.0,
+    "mix_t_next": 2187.0,
+    "hint_a_played_sec": 221.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__12/pro.wav",
+  "pro_clip_start": 2073.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__12"
+}

@@ -149,3 +149,5 @@
 - 2026-11-03 03:18 local daily cleanup: removed /tmp/n_dec.wav + /tmp/o_dec.wav (2.4G scratch). No mix*_raw/master WAVs in src2 (m06v3_master.wav kept, latest Mix 06 v3, not in pattern). Kept all guard_mix* (plan_search bad-window history). Free 26G.
 - 2026-11-04 03:24 local daily cleanup: nothing removed. No mix*_raw/master WAVs in src2, no /tmp WAVs. Kept all guard_mix* (plan_search bad-window history). Free 27G.
 - 2026-11-05 03:19 local daily cleanup: nothing removed. No mix*_raw/master WAVs in src2, no /tmp WAVs. Kept all guard_mix* (plan_search bad-window history). Free 26G.
+- 2026-11-06 03:21 ET daily cleanup: nothing removed. No mix*_raw/master WAVs in src2, no /tmp WAVs. Kept all guard_mix* (plan_search bad-window history). Free 26G.
+- 2026-11-07 03:22 ET daily cleanup: nothing removed. Kept mix07r0_raw/master.wav + guard_mix07r0 (mtime ~00:28-00:34, age ~2.8h <3h keep window; weekly Mix 07 render still warm). No other mix*_raw/master WAVs in src2, no /tmp WAVs. Kept all guard_mix* (plan_search bad-window history). Free 22G.

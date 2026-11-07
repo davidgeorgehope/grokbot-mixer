@@ -4,7 +4,21 @@ from scipy.signal import butter,sosfiltfilt
 SRC=os.environ.get('MIX_SRC','/workspace/mixes/src2');NAME=os.environ.get('MIX_NAME','mixS')
 WAV=os.environ.get('MIX_WAV',f'{SRC}/{NAME}_master.wav');MP3=os.environ.get('MIX_MP3','/workspace/mixes/dj-mix-03-60.mp3')
 T=174.0;BEAT=60/T;BAR=4*BEAT;SR=44100
-TOL_DRIFT_MS=10;MIN_ANCHOR_S=210;MIN_OVERLAP=16;DROP_DB=6;CUT_DB=15;TP_MAX=-1.0
+TOL_DRIFT_MS=10;MIN_ANCHOR_S=210;MIN_OVERLAP=16;CUT_DB=15;TP_MAX=-1.0
+# 2026-11-07 pro calibration (37 admitted clips in protrans/results/admitted.json):
+# non-phrase energy_events at 6.0 dB passed only 27/37 (73%). the listener confirmed the
+# Mix 07 r12 Just Hold On→Solitude 6.2 dB dip is fine, so 6 dB was over-strict.
+# Per-transition max non-phrase drop: p50=0.0 p90=9.58 p95=12.2 p100=14.98 dB
+# (10 fails: 6.04, 6.26, 7.44, 7.75, 8.01, 9.52, 9.66, 11.93, 13.27, 14.98).
+# DROP_DB=12.2 lets 35/37 (~95%) of pro transitions pass. Beat-align 10 ms TOL
+# is unchanged: the under-report on Daydreaming→Parallel was search width / low-corr
+# skipping / missing inter-deck phase, not the 10 ms gate (pros were not used to loosen it).
+DROP_DB=12.2
+CORR_MIN=0.65          # body mix-vs-source: below this at 0 is no-info, not a fail
+INTERDECK_CORR=0.35    # inter-deck peak recorded if corr reaches this (not a hard fail)
+PHASE_BEATS=(-4,-3,-2,-1,1,2,3,4)  # extra downbeat/bar-phase centers to search
+TAIL_BARS=5            # last N overlap bars: end-of-overlap drift / phase-slip
+TAIL_CORR_MIN=0.55     # tail audible floor (r12 Parallel tail locks at 0.62 / -24 ms)
 @functools.lru_cache()
 def meta(): return json.load(open(f'{SRC}/{NAME}_meta.json'))
 @functools.lru_cache()
@@ -15,6 +29,7 @@ def keys():
   out.update(json.load(open(os.path.join(os.path.dirname(__file__),'keys_extra.json'))))  # curated tracklist keys win
   return out
 def camelot_ok(a,b):
+  if not a or not b: return False
   na,la=int(a[:-1]),a[-1];nb,lb=int(b[:-1]),b[-1]
   if a==b:return True
   if la==lb and (na-nb)%12 in (1,11):return True
@@ -93,7 +108,8 @@ def transitions():
         if a['corr']>=0.8: lags.append(abs(a['lag_ms']))  # only windows where this deck is clearly audible/dominant
     r['drift_ms']=max(lags) if lags else 0;r['drift_windows']=len(lags)
     # whole-mix grid continuity is enforced by guardrails G1 (16th-fold, jitter<8 ms, abs<15 ms per the listener's spec); grid_phase_dev_ms kept as info only
-    r['downbeat_A']=deck_alignment(A,t['swap_bar']-12);r['downbeat_B']=deck_alignment(B,t['swap_bar']+12)
+    # Fine ±40 ms only: a default ±3-beat search locks onto a wrong-period peak (e.g. +328 ms / 1 beat at corr 0.52) and hides as a 'downbeat error'.
+    r['downbeat_A']=deck_alignment(A,t['swap_bar']-12,span_ms=40);r['downbeat_B']=deck_alignment(B,t['swap_bar']+12,span_ms=40)
     r['overlap_bars']=0 if echo else overlap_bars(A,B);r['echo']=echo
     ka,kb=keys().get(t['a']),keys().get(t['b']);r['keys']=f'{ka}->{kb}';r['key_ok']=camelot_ok(ka,kb);r['harm_overlap']=harmonic_overlap(A,B)
     out.append(r)
@@ -126,15 +142,17 @@ def src_onset(b):
 def _nudges():
   f=os.path.join(SRC,os.environ.get('NUDGE','nudge.json'));return json.load(open(f)) if os.path.exists(f) else {}
 def nudge_ms(b,k):return _nudges().get(b,{}).get(str(k),0)
-def deck_alignment(d,bar,nb=8,span_ms=None):
+def deck_alignment(d,bar,nb=8,span_ms=None,center_ms=0):
   """Cross-correlate the mix against the deck's own source at the bar it should be playing.
-  Returns lag (beats, ms) of best match; 0 beats & |ms|<=10 means the downbeat/bar is where the plan says."""
+  Returns lag (ms) of best match; 0 beats & |ms|<=10 means the downbeat/bar is where the plan says.
+  center_ms shifts the search window (used to probe whole-beat / half-bar / bar phase errors)."""
   bar=int(min(max(bar,d['start_bar']),d['end_bar']-nb))
   k,stem=src_of(d,bar)
   o,fr=onset();so,d0=src_onset(d['id'])
   m=o[int(bar*BAR*fr):int((bar+nb)*BAR*fr)];best=(-1e9,0)
   R=span_ms or 3*int(BEAT*1000)
-  for lag_ms in range(-R,R+1,1 if span_ms else 2):
+  step=1 if span_ms else 2
+  for lag_ms in range(int(center_ms)-R,int(center_ms)+R+1,step):
     # compare where the engine actually reads: bar by bar, each with its own source bar and warp nudge
     parts=[];ok=True;nbf=int(round(BAR*fr))
     for j in range(nb):
@@ -143,11 +161,66 @@ def deck_alignment(d,bar,nb=8,span_ms=None):
       if i0<0 or i0+nbf>len(so):ok=False;break
       parts.append(so[i0:i0+nbf])
     if not ok:continue
-    s=np.concatenate(parts)[:len(m)]
-    if len(s)<len(m):continue
-    c=float(np.corrcoef(m,s)[0,1]) if s.std()>0 else -1
+    s=np.concatenate(parts)
+    n=min(len(m),len(s))
+    if n<int(0.9*nb*nbf):continue
+    mm,ss=m[:n],s[:n]
+    if mm.std()==0 or ss.std()==0:continue
+    c=float(np.corrcoef(mm,ss)[0,1])
+    if np.isnan(c):continue
     if c>best[0]:best=(c,lag_ms)
   return dict(lag_ms=best[1],corr=round(best[0],2))
+
+def deck_phase_alignment(d,bar,nb=2):
+  """Mix-vs-source with a fine ±40 ms peak plus extra centers at ±1..4 beats.
+  A 1-beat (345 ms) error used to hide as ~0 ms because bar_alignment_report
+  only searched ±40 ms (and F1 folds phase into a 16th). Even multiples of a
+  beat (2 = half-bar/snare period, 4 = bar) are periodic aliases in DnB and are
+  recorded but not preferred over a good lock at 0."""
+  fine=deck_alignment(d,bar,nb,span_ms=40,center_ms=0)
+  best=dict(fine); best['lag_0']=fine['lag_ms']; best['corr_0']=fine['corr']
+  for bt in PHASE_BEATS:
+    alt=deck_alignment(d,bar,nb,span_ms=20,center_ms=int(round(bt*BEAT*1000)))
+    if alt['corr']>best['corr']:
+      best.update(alt)
+  best['beat_off']=round(best['lag_ms']/(BEAT*1000),2)
+  return best
+
+def _src_onset_at(d,bar,nb,lag_ms,fr,so,d0):
+  k,stem=src_of(d,bar)
+  parts=[];nbf=int(round(BAR*fr))
+  for j in range(nb):
+    jj=int(bar-d['start_bar'])+j
+    kj=d['full_map'][jj][0] if 0<=jj<len(d['full_map']) else k+j
+    i0=int((d0+kj*BAR-nudge_ms(d['id'],kj)/1000+lag_ms/1000)*fr)
+    if i0<0 or i0+nbf>len(so):return None
+    parts.append(so[i0:i0+nbf])
+  return np.concatenate(parts)
+
+def interdeck_phase(A,B,bar,nb=2):
+  """Planned-source vs planned-source downbeat phase (does not depend on which
+  deck currently dominates the mixdown). Search ±40 ms around 0 and ±1..4 beats."""
+  fr=22050/64
+  soA,d0A=src_onset(A['id']);soB,d0B=src_onset(B['id'])
+  best=(-1e9,0)
+  centers=[0]+[int(round(bt*BEAT*1000)) for bt in PHASE_BEATS]
+  for c0 in centers:
+    span=40 if c0==0 else 20
+    for lag in range(c0-span,c0+span+1,2):
+      a=_src_onset_at(A,bar,nb,0,fr,soA,d0A)
+      b=_src_onset_at(B,bar,nb,lag,fr,soB,d0B)
+      if a is None or b is None:continue
+      n=min(len(a),len(b));a,b=a[:n],b[:n]
+      if a.std()==0 or b.std()==0:continue
+      c=float(np.corrcoef(a,b)[0,1])
+      if c>best[0]:best=(c,lag)
+  c0=None
+  a0=_src_onset_at(A,bar,nb,0,fr,soA,d0A); b0=_src_onset_at(B,bar,nb,0,fr,soB,d0B)
+  if a0 is not None and b0 is not None:
+    n=min(len(a0),len(b0)); a0,b0=a0[:n],b0[:n]
+    if a0.std()>0 and b0.std()>0: c0=round(float(np.corrcoef(a0,b0)[0,1]),2)
+  return dict(lag_ms=best[1],corr=round(best[0],2),beat_off=round(best[1]/(BEAT*1000),2),
+              lag_0=0,corr_0=-1.0 if c0 is None else c0)
 
 # ---------- vocal clash (demucs vocal stems) ----------
 @functools.lru_cache(None)
@@ -180,21 +253,100 @@ def vocal_clashes():
       res.append(dict(a=a['id'],b=b['id'],bars=len(both),t=f"{int(min(both)*BAR//60)}:{int(min(both)*BAR%60):02d}",acapella=ac is not None,whitelisted=ok))
   return res
 # ---------- per-bar beat alignment on the final mixdown ----------
-def bar_alignment_report():
-  """For every bar where 2+ decks overlap: cross-correlate the mixdown onset envelope with each audible deck's source (2-bar window, ±40 ms)."""
+def bar_alignment_report(deck_pair=None):
+  """Overlap beat / downbeat phase, scored per bar (2-bar rolling window;
+  1-bar at the last overlap bar). Does not average over the whole overlap.
+
+  For each overlap bar: (1) mix-vs-source with a wide phase search (±40 ms around
+  0 and around ±1..4 beats) for every deck that is not >6 dB under the other;
+  (2) inter-deck planned-source phase when both decks are present (diagnostic).
+
+  Fail/no-info policy lives in alignment_failures: body low-corr is no-info;
+  the last TAIL_BARS use a slightly lower audible floor so end-of-overlap
+  drift (tempo ramp, loop splice, swap_pos, grid ending) cannot hide.
+
+  deck_pair=(A,B) optional: only that overlap (used by the trainwreck regression)."""
   out=[];seen=set()
-  for d in decks():
-    if d['acap']:continue
-    for e in decks():
-      if e is d or e['acap'] or (e['id'],d['id']) in seen:continue
-      s=int(max(d['start_bar'],e['start_bar']));t=int(min(d['end_bar'],e['end_bar']))
-      if t-s<2:continue
-      seen.add((d['id'],e['id']))
-      for b in range(s,t-1):
-        for D in (d,e):
-          O=e if D is d else d
-          if gain_at(D,'gain',b+1)<0.5*gain_at(O,'gain',b+1):continue  # deck >6 dB under the other: the mixdown onsets are the other deck's, xcorr against this source is meaningless (F1 covers audible flams)
-          if src_of(D,b)[1]!='mix':continue  # stems (drum loops) don't share the full-mix source's onset shape -> xcorr is biased; F1/G1 guardrails cover them
-          a=deck_alignment(D,b,2,span_ms=40)
-          if a['corr']>=0.65: out.append(dict(bar=b,deck=D['id'],lag=a['lag_ms'],corr=a['corr']))
+  pairs=[]
+  if deck_pair:
+    pairs=[tuple(deck_pair)]
+  else:
+    for d in decks():
+      if d.get('acap'):continue
+      for e in decks():
+        if e is d or e.get('acap') or (e['id'],d['id']) in seen:continue
+        seen.add((d['id'],e['id']));pairs.append((d,e))
+  for d,e in pairs:
+    s0=int(max(d['start_bar'],e['start_bar']));t0=int(min(d['end_bar'],e['end_bar']))
+    if t0-s0<2:continue
+    for b in range(s0,t0):
+      nb=2 if b+2<=t0 else 1
+      for D,O in ((d,e),(e,d)):
+        if src_of(D,b)[1]!='mix':continue
+        if gain_at(D,'gain',b+1)<0.5*gain_at(O,'gain',b+1):continue
+        a=deck_phase_alignment(D,b,nb)
+        out.append(dict(bar=b,deck=D['id'],lag=a['lag_ms'],corr=a['corr'],
+                        beat_off=a.get('beat_off'),lag_0=a.get('lag_0',a['lag_ms']),
+                        corr_0=a.get('corr_0',a['corr']),kind='mix',
+                        overlap_start=s0,overlap_end=t0,tail=b>=t0-TAIL_BARS,
+                        window_bars=nb))
+      gD,gE=gain_at(d,'gain',b+1),gain_at(e,'gain',b+1)
+      if gD>=0.15 and gE>=0.15 and src_of(d,b)[1]=='mix' and src_of(e,b)[1]=='mix':
+        p=interdeck_phase(d,e,b,nb)
+        out.append(dict(bar=b,deck=f"{d['id']}>{e['id']}",lag=p['lag_ms'],corr=p['corr'],
+                        beat_off=p.get('beat_off'),lag_0=p.get('lag_0',0),corr_0=p.get('corr_0',-1),
+                        kind='interdeck',overlap_start=s0,overlap_end=t0,
+                        tail=b>=t0-TAIL_BARS,window_bars=nb))
   return out
+
+def _odd_beat_off(lag_ms):
+  """True when |lag| is a downbeat/phase error, not a DnB periodic alias.
+
+  Onset xcorr on DnB often prefers the 2-beat snare period or the 4-beat bar
+  even when the tracks are actually locked (wrong-period peak). Those even
+  aliases are not fails by themselves. Odd-beat (1, 3) and half-beat (0.5,
+  1.5, 2.5) offsets are — they are the heard trainwreck / wrong-downbeat case.
+  """
+  b=abs(lag_ms)/(BEAT*1000.0)
+  nearest_even=round(b/2.0)*2.0
+  return abs(b-nearest_even)>0.15
+
+def alignment_failures(rows=None):
+  """Rows that fail the calibrated beat/phase gate. 10 ms TOL unchanged.
+
+  Each bar is judged on its own rolling window; the last TAIL_BARS of an overlap
+  use a slightly lower audible floor. There is no overlap-wide average, so
+  end-of-overlap drift / phase slip cannot hide behind a good early lock.
+
+  Mix-vs-source:
+    - corr_0 below the audible floor → no-info (skip). Body floor CORR_MIN;
+      tail floor TAIL_CORR_MIN so a late fade that still locks (e.g. 0.62) with
+      |lag_0| > 10 ms is a fail (r12 Daydreaming→Parallel last ~5 bars).
+    - corr_0 at/above the floor and |lag_0| > 10 ms → fail (drift / phase slip).
+    - a stronger odd-beat (1, 3, 0.5, 1.5) peak while |lag_0| <= 10 ms is a
+      DnB alias, not a fail (r17 Parallel→Inside bar 1211). Even-beat 2/4
+      aliases are likewise periodicity, not fails.
+
+  Inter-deck source-vs-source is recorded but not a hard fail (two different
+  tracks' drums often xcorr better at ±1/±3 even when each is locked to the mix).
+  """
+  rows=bar_alignment_report() if rows is None else rows
+  bad=[]
+  for r in rows:
+    c0=r.get('corr_0'); c0=-1.0 if c0 is None else c0
+    l0=r.get('lag_0', 0)
+    if r.get('kind')=='interdeck':
+      # Reported for diagnosis. Do not fail the mix on inter-deck alone.
+      continue
+    t0=r.get('overlap_end')
+    tail=bool(r.get('tail')) if 'tail' in r else (t0 is not None and r['bar']>=t0-TAIL_BARS)
+    floor=TAIL_CORR_MIN if tail else CORR_MIN
+    if c0<floor:
+      continue  # no-info (search miss / other deck dominating / dissimilar patterns)
+    if abs(l0)>TOL_DRIFT_MS:
+      bad.append(r)
+      continue
+    # A stronger odd-beat xcorr peak while |lag_0| <= 10 ms is a DnB alias
+    # (heard-OK r17 Parallel→Inside bar 1211: l0=-2 ms / c0=0.62 vs 3-beat 0.79).
+    # A real 1-beat wreck cannot lock at 0 within 10 ms with corr_0 above the floor.
+  return bad

@@ -1,0 +1,374 @@
+"""Similarity of a pro transition vs our recreation (0-100) with a breakdown.
+
+The scorer may see the pro audio; the engine (recreate.py) must not.
+
+Before any comparison we time-align `ours` to the pro clip (kick-envelope
+cross-correlation) and crop both to the same overlap. Beat and event terms
+are measured on that equal-length window so they are not comparing
+different parts of two files.
+
+Per-stem curves use Demucs (drums/bass/vocals/other=melody) when the
+separator imports and runs; otherwise band-split proxies. Per-deck curves
+are recovered when both clean sources are given.
+
+Sanity: score(x, x) ~ 100; a different transition should score clearly low.
+Score weights are FIXED (not tuned) so the tuner cannot cheat the metric.
+"""
+from __future__ import annotations
+import json, os, subprocess, hashlib
+import numpy as np
+
+SR = 22050
+HOP = 512
+NFFT = 2048
+ALIGN_HOP = 256
+ALIGN_MAX_S = 24.0
+# fixed weights (do not put these in rules.json)
+W = dict(stem_curves=0.28, deck_curves=0.22, beat_align=0.15,
+         bass_swap=0.13, outgoing_cut=0.12, blend_length=0.10)
+
+def _load(path, sr=SR, t0=None, t1=None):
+    cmd = ['ffmpeg', '-v', 'error']
+    if t0 is not None: cmd += ['-ss', f'{t0:.3f}']
+    cmd += ['-i', path]
+    if t1 is not None and t0 is not None: cmd += ['-t', f'{t1-t0:.3f}']
+    cmd += ['-ac', '1', '-ar', str(sr), '-f', 'f32le', '-']
+    raw = subprocess.run(cmd, capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.float32).copy()
+
+def _rms(y, hop=HOP):
+    if len(y) < hop: return np.array([np.sqrt(np.mean(y**2)+1e-12)])
+    n = 1 + (len(y) - hop) // hop
+    frames = y[:n*hop].reshape(n, hop)
+    return np.sqrt(np.mean(frames**2, 1) + 1e-12)
+
+def _db(e):
+    return 20 * np.log10(np.maximum(e, 1e-8))
+
+def _butter(y, kind, fc, sr=SR):
+    from scipy.signal import butter, sosfiltfilt
+    fc = np.asarray(fc, float)
+    wn = np.clip(fc / (sr/2), 1e-4, 0.99)
+    wn = float(wn) if wn.ndim == 0 or wn.size == 1 else wn
+    sos = butter(4, wn, kind, output='sos')
+    return sosfiltfilt(sos, y)
+
+def band_stems(y):
+    """Fast stem proxies when Demucs is off."""
+    bass = _butter(y, 'low', 150)
+    drums = _butter(y, 'band', [80, 400])
+    vocals = _butter(y, 'band', [300, 3400])
+    melody = y - bass - 0.35 * vocals
+    return dict(drums=drums, bass=bass, vocals=vocals, melody=melody)
+
+def demucs_available():
+    try:
+        import demucs  # noqa: F401
+        return True
+    except Exception:
+        return False
+
+def demucs_stems(path, cache_dir):
+    """Return dict of stem waveforms or None if Demucs is unavailable."""
+    key = hashlib.md5(f'{os.path.abspath(path)}|{os.path.getmtime(path)}'.encode()).hexdigest()[:16]
+    outd = os.path.join(cache_dir, 'stems', key)
+    names = ('drums', 'bass', 'vocals', 'other')
+    mapped = {'drums':'drums','bass':'bass','vocals':'vocals','other':'melody'}
+    ready = all(os.path.exists(os.path.join(outd, 'htdemucs', 'clip', n+'.wav')) for n in names)
+    if not ready:
+        os.makedirs(outd, exist_ok=True)
+        clip = os.path.join(outd, 'clip.wav')
+        if not os.path.exists(clip):
+            subprocess.run(['ffmpeg','-v','error','-y','-i',path,'-ac','2','-ar',str(SR),clip], check=True)
+        r = subprocess.run(['python3','-m','demucs','-n','htdemucs','-j','2','-o',outd,clip],
+                           capture_output=True, text=True)
+        if r.returncode:
+            return None
+    stems = {}
+    base = os.path.join(outd, 'htdemucs', 'clip')
+    for n in names:
+        wav = os.path.join(base, n+'.wav')
+        if not os.path.exists(wav): return None
+        stems[mapped[n]] = _load(wav)
+    return stems
+
+def _resample(a, n):
+    if len(a) == n: return a
+    if len(a) < 2 or n < 1: return np.zeros(n)
+    x = np.linspace(0, 1, len(a))
+    return np.interp(np.linspace(0, 1, n), x, a)
+
+def curve_sim(a, b):
+    """Map two energy curves to 0-100. Uncorrelated curves score low (not ~50)."""
+    n = min(len(a), len(b))
+    if n < 4: return 0.0
+    a, b = np.asarray(a[:n], float), np.asarray(b[:n], float)
+    sa, sb = a.std(), b.std()
+    if sa < 1e-8 and sb < 1e-8: return 100.0
+    if sa < 1e-8 or sb < 1e-8: return 0.0
+    r = float(np.corrcoef(a, b)[0, 1])
+    if not np.isfinite(r): r = 0.0
+    an = (a-a.mean())/(sa+1e-9); bn = (b-b.mean())/(sb+1e-9)
+    nrmse = float(np.sqrt(np.mean((an-bn)**2)))
+    # Positive correlation only: r=0 / nrmse~sqrt(2) -> ~0-10, not ~50.
+    corr_part = 100.0 * max(0.0, r)
+    shape_part = 100.0 * max(0.0, 1.0 - nrmse/2.0)
+    return float(np.clip(0.65*corr_part + 0.35*shape_part, 0, 100))
+
+def time_sim(t_ours, t_pro, scale):
+    """How close two event times are. scale is the 'ok' distance (same units). None vs None = 100."""
+    if t_ours is None and t_pro is None: return 100.0
+    if t_ours is None or t_pro is None: return 20.0
+    return float(np.clip(100 * np.exp(-abs(t_ours-t_pro) / max(scale, 1e-6)), 0, 100))
+
+def events_from_pair(out_db, in_db):
+    """bass_swap (first bar incoming>outgoing), outgoing_cut (first -6 dB from pre), blend_len."""
+    n = min(len(out_db), len(in_db))
+    o, i = out_db[:n], in_db[:n]
+    pre = 4 if n > 8 else max(1, n//6)
+    pref = float(np.median(o[:pre]))
+    swap = next((k for k in range(n) if i[k] > o[k] and i[k] > -28), None)
+    cut = next((k for k in range(pre, n) if o[k] < pref - 6), None)
+    inn = next((k for k in range(n) if i[k] > -25), 0)
+    oute = next((k for k in range(n-1, -1, -1) if o[k] > -25), n-1)
+    blend = max(1, oute - inn + 1)
+    return dict(bass_swap=swap, outgoing_cut=cut, blend_length=blend)
+
+def _kick_env(y, hop=ALIGN_HOP, sr=SR):
+    z = _butter(y, 'low', 150, sr=sr)
+    e = _rms(z, hop)
+    # onset-ish: positive first difference emphasises downbeats
+    d = np.diff(e, prepend=e[:1])
+    return np.maximum(d, 0.0) + 0.25 * e
+
+def align_ours_to_pro(y_pro, y_ours, sr=SR, max_shift_s=ALIGN_MAX_S):
+    """Shift ours so its kick envelope best matches pro. Return equal-length slices.
+
+    lag_samples > 0 means ours is delayed (ours[0] lines up with pro[lag]).
+    """
+    hop = ALIGN_HOP
+    ep, eo = _kick_env(y_pro, hop, sr), _kick_env(y_ours, hop, sr)
+    ep = ep - ep.mean(); eo = eo - eo.mean()
+    max_lag = min(int(max_shift_s * sr / hop), max(len(ep), len(eo)) - 2)
+    if max_lag < 4 or len(ep) < 8 or len(eo) < 8:
+        n = min(len(y_pro), len(y_ours))
+        return y_pro[:n], y_ours[:n], 0, 1.0
+    nfft = 1 << int(np.ceil(np.log2(len(ep) + len(eo))))
+    cc = np.fft.irfft(np.fft.rfft(ep, nfft) * np.conj(np.fft.rfft(eo, nfft)), nfft)
+    # cc[k] for k>=0: eo delayed by k frames; cc[-k]: eo advanced by k
+    vals = np.concatenate([cc[-max_lag:], cc[:max_lag+1]])
+    lags = np.arange(-max_lag, max_lag+1)
+    i = int(np.argmax(vals))
+    lag_f = int(lags[i])
+    denom = (np.linalg.norm(ep) * np.linalg.norm(eo)) + 1e-12
+    peak = float(vals[i] / denom)
+    lag = lag_f * hop
+    if lag >= 0:
+        yp, yo = y_pro[lag:], y_ours
+    else:
+        yp, yo = y_pro, y_ours[-lag:]
+    n = min(len(yp), len(yo))
+    if n < int(4 * sr):
+        # overlap too short; fall back to a centre crop of equal length
+        n = min(len(y_pro), len(y_ours))
+        return y_pro[:n], y_ours[:n], 0, peak
+    return yp[:n], yo[:n], lag, peak
+
+def beat_off_ms(a, b, sr=SR):
+    hop = 64
+    z_a = _butter(a, 'low', 120, sr=sr)
+    z_b = _butter(b, 'low', 120, sr=sr)
+    def env(z):
+        n = 1 + max(0, (len(z)-hop)//hop)
+        fr = z[:n*hop].reshape(n, hop)
+        e = np.sqrt((fr**2).mean(1)+1e-12)
+        return e - e.mean()
+    ea, eb = env(z_a), env(z_b)
+    n = min(len(ea), len(eb)); ea, eb = ea[:n], eb[:n]
+    if n < 8: return 0.0
+    L = int(0.04 * sr / hop)
+    xc = [np.dot(ea[max(0,k):n+min(0,k)], eb[max(0,-k):n-max(0,k)]) for k in range(-L, L+1)]
+    return abs(int(np.argmax(xc)) - L) * hop / (sr/1000)
+
+def beat_score(yp, yo, sr=SR):
+    """Residual flam plus kick-pattern agreement on the already-aligned window."""
+    flam = beat_off_ms(yp, yo, sr=sr)
+    flam_s = float(np.clip(100 * np.exp(-flam / 8.0), 0, 100))
+    env_s = curve_sim(_kick_env(yp), _kick_env(yo))
+    return 0.4 * flam_s + 0.6 * env_s, flam
+
+def _stem_bundle_from_wave(y, path, use_demucs, cache):
+    stems = None
+    if use_demucs:
+        try: stems = demucs_stems(path, cache)
+        except Exception: stems = None
+    if stems is None:
+        stems = band_stems(y)
+        kind = 'bands'
+    else:
+        kind = 'demucs'
+        # resample each stem onto the (possibly already trimmed) wave length
+        for k, v in list(stems.items()):
+            if len(v) != len(y):
+                # better: linear resample in time
+                if len(v) > 1:
+                    t = np.linspace(0, 1, len(v))
+                    stems[k] = np.interp(np.linspace(0, 1, len(y)), t, v).astype(np.float32)
+                else:
+                    stems[k] = np.zeros(len(y), np.float32)
+    curves = {k: _db(_rms(v)) for k, v in stems.items()}
+    return y, stems, curves, kind
+
+def locate_offset(mix, src):
+    """Best lag (src starts this many seconds into mix). Uses band-power xcorr."""
+    try:
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src', 'eval'))
+        import control_curves as CC
+        Fm, Ft = CC.bandpow(mix), CC.bandpow(src)
+        hits, _ = CC.locate(Fm, Ft, chunk_s=6.0, hop_s=3.0)
+        if len(hits) == 0: return None
+        hits = hits[np.argsort(-hits[:, 3])]
+        mix_t = float(hits[0, 1]); src_t = float(hits[0, 0])
+        return mix_t - src_t
+    except Exception:
+        em, es = _rms(mix), _rms(src[:min(len(src), len(mix))])
+        n = len(em); L = len(es)
+        if L >= n: es = es[: max(4, n//2)]; L = len(es)
+        if L < 4 or n < L + 2: return None
+        N = 1 << int(np.ceil(np.log2(n+L)))
+        cc = np.fft.irfft(np.fft.rfft(em, N) * np.conj(np.fft.rfft(es, N)))[:n-L+1]
+        k = int(np.argmax(cc))
+        return k * HOP / SR
+
+def deck_curves_from_sources(mix_stems, path_a, path_b):
+    """Per-stem per-deck energy via aligned source stems vs mix stems (least squares)."""
+    ya, yb = _load(path_a), _load(path_b)
+    mix_y = sum(mix_stems.values())
+    oa = locate_offset(mix_y, ya)
+    ob = locate_offset(mix_y, yb)
+    if oa is None or ob is None:
+        return None
+    out = {}
+    for name, my in mix_stems.items():
+        proxy = band_stems(ya)
+        sa = proxy[name] if name in proxy else ya
+        sb = band_stems(yb)[name] if name in band_stems(yb) else yb
+        def place(src, off):
+            i0 = int(round(-off * SR))
+            if i0 < 0:
+                s = np.concatenate([np.zeros(-i0, np.float32), src])
+            else:
+                s = src[i0:]
+            if len(s) < len(my):
+                s = np.pad(s, (0, len(my)-len(s)))
+            return s[:len(my)]
+        A = place(sa, oa); B = place(sb, ob)
+        em, ea, eb = _rms(my)**2, _rms(A)**2, _rms(B)**2
+        n = min(len(em), len(ea), len(eb))
+        ga = np.zeros(n); gb = np.zeros(n)
+        for k in range(n):
+            M = np.array([[ea[k], eb[k]]])
+            try:
+                g, _, _, _ = np.linalg.lstsq(M, np.array([em[k]]), rcond=None)
+            except Exception:
+                g = np.array([0.5, 0.5])
+            ga[k], gb[k] = max(g[0], 0), max(g[1], 0)
+        out[name] = (_db(np.sqrt(ga*ea[:n]+1e-12)), _db(np.sqrt(gb*eb[:n]+1e-12)))
+    return out, oa, ob
+
+def _slice_stems(stems, y_full, y_win):
+    """Crop stem waves to the same region as an already-sliced mono mix window."""
+    # We cannot recover the exact sample offset if y_win was taken from the
+    # middle; callers pass the slice bounds instead via align + index.
+    return stems
+
+def score(pro_path, ours_path, src_a=None, src_b=None, use_demucs=None, cache=None):
+    cache = cache or os.path.join(os.path.dirname(__file__), 'cache')
+    if use_demucs is None:
+        use_demucs = demucs_available()
+    y_p_full = _load(pro_path)
+    y_o_full = _load(ours_path)
+    y_p, y_o, lag, peak = align_ours_to_pro(y_p_full, y_o_full)
+    # Crop original files to the overlap before Demucs so stems share the window.
+    # Write short temp wavs only when we actually run Demucs.
+    import tempfile, shutil
+    tmpdir = None
+    pro_for_stems, ours_for_stems = pro_path, ours_path
+    if use_demucs and (lag != 0 or len(y_p) != len(y_p_full) or len(y_o) != len(y_o_full)):
+        tmpdir = tempfile.mkdtemp(prefix='ptscore_')
+        pro_for_stems = os.path.join(tmpdir, 'pro.wav')
+        ours_for_stems = os.path.join(tmpdir, 'ours.wav')
+        def _w(p, y):
+            subprocess.run(['ffmpeg','-v','error','-y','-f','f32le','-ar',str(SR),'-ac','1',
+                            '-i','-','-ac','2',p], input=y.astype(np.float32).tobytes(), check=True)
+        _w(pro_for_stems, y_p); _w(ours_for_stems, y_o)
+
+    y_p, st_p, cu_p, kind_p = _stem_bundle_from_wave(y_p, pro_for_stems, use_demucs, cache)
+    y_o, st_o, cu_o, kind_o = _stem_bundle_from_wave(y_o, ours_for_stems, use_demucs, cache)
+    if tmpdir:
+        shutil.rmtree(tmpdir, ignore_errors=True)
+
+    # If we Demucs'd the original untrimmed files (identity / no shift), crop stems to the window.
+    if kind_p == 'demucs' and len(next(iter(st_p.values()))) != len(y_p):
+        pass  # already resampled in _stem_bundle_from_wave
+    stem_scores = {k: curve_sim(cu_p[k], cu_o[k]) for k in cu_p if k in cu_o}
+    stem_mean = float(np.mean(list(stem_scores.values()))) if stem_scores else 0.0
+
+    deck = None; deck_mean = None
+    ev_p = ev_o = None
+    if src_a and src_b and os.path.exists(src_a) and os.path.exists(src_b):
+        try:
+            got_p = deck_curves_from_sources(st_p, src_a, src_b)
+            got_o = deck_curves_from_sources(st_o, src_a, src_b)
+            if got_p and got_o:
+                deck_p, _, _ = got_p
+                deck_o, _, _ = got_o
+                parts = []
+                for k in deck_p:
+                    if k not in deck_o: continue
+                    parts.append(curve_sim(deck_p[k][0], deck_o[k][0]))
+                    parts.append(curve_sim(deck_p[k][1], deck_o[k][1]))
+                deck_mean = float(np.mean(parts)) if parts else stem_mean
+                deck = dict(per_stem_deck=round(deck_mean, 2))
+                bo_p, bi_p = deck_p.get('bass', next(iter(deck_p.values())))
+                bo_o, bi_o = deck_o.get('bass', next(iter(deck_o.values())))
+                ev_p = events_from_pair(bo_p, bi_p)
+                ev_o = events_from_pair(bo_o, bi_o)
+        except Exception as e:
+            deck = dict(error=str(e)[-200:])
+
+    if ev_p is None:
+        ev_p = events_from_pair(cu_p['bass'], cu_p['melody'])
+        ev_o = events_from_pair(cu_o['bass'], cu_o['melody'])
+    if deck_mean is None:
+        deck_mean = stem_mean
+
+    beat_s, beat = beat_score(y_p, y_o)
+    swap_s = time_sim(ev_o.get('bass_swap'), ev_p.get('bass_swap'), 4)
+    cut_s = time_sim(ev_o.get('outgoing_cut'), ev_p.get('outgoing_cut'), 4)
+    len_s = time_sim(ev_o.get('blend_length'), ev_p.get('blend_length'), 8)
+    # Same-structure clips (all cut 24s before incoming) share event times.
+    # Do not let that inflate a mismatch when the audio itself disagrees.
+    gate = 0.35 + 0.65 * (stem_mean / 100.0)
+    swap_s, cut_s, len_s = swap_s * gate, cut_s * gate, len_s * gate
+
+    total = (W['stem_curves']*stem_mean + W['deck_curves']*deck_mean + W['beat_align']*beat_s
+             + W['bass_swap']*swap_s + W['outgoing_cut']*cut_s + W['blend_length']*len_s)
+    return dict(
+        score=round(float(total), 2),
+        breakdown=dict(stem_curves=round(stem_mean,2), deck_curves=round(deck_mean,2),
+                       beat_align=round(float(beat_s),2), bass_swap=round(swap_s,2),
+                       outgoing_cut=round(cut_s,2), blend_length=round(len_s,2),
+                       stems= {k: round(v,2) for k,v in stem_scores.items()},
+                       beat_off_ms=round(float(beat),2), events_pro=ev_p, events_ours=ev_o,
+                       stem_kind=(kind_p, kind_o), deck=deck,
+                       align=dict(lag_samples=int(lag), lag_ms=round(lag * 1000.0 / SR, 2),
+                                  peak=round(float(peak), 4), win_sec=round(len(y_p)/SR, 3))),
+        weights=W,
+        pro=pro_path, ours=ours_path,
+    )
+
+if __name__ == '__main__':
+    import sys
+    print(json.dumps(score(*sys.argv[1:]), indent=2))

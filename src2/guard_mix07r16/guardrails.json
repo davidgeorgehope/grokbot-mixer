@@ -1,0 +1,397 @@
+{
+ "mix": "mix07r16",
+ "mp3": "/workspace/mixes/mix07/dj-mix-07.mp3",
+ "thresholds": {
+  "E1_db": 6,
+  "E2_lufs": -35,
+  "N1_ms": 10,
+  "N1_db": 3,
+  "F1_ms": 15,
+  "G1_jit_ms": 8,
+  "G1_abs_ms": 15,
+  "K1_steps": 2,
+  "L1_db": 3,
+  "P1_tp": -1.0,
+  "P1_dc": 0.005,
+  "S1_db": 20,
+  "R1_xcorr": 0.2,
+  "T1_dnb_min": 0.45,
+  "T1_breaks_min": 0.5,
+  "J1_db": 6.5,
+  "E4_db": 6,
+  "E4_bars": 8
+ },
+ "info": {
+  "integrated_lufs": -9.4,
+  "true_peak_dbtp": -1.4,
+  "dc": 0.00014828349230811,
+  "grid": []
+ },
+ "n_fail": 1,
+ "by_check": {
+  "L1": 1
+ },
+ "failures": [
+  {
+   "check": "L1",
+   "t": "25:07",
+   "t_end": "25:08",
+   "sec": 1507.59,
+   "msg": "sub sum -28.2 dB is 3.1 dB over the louder deck",
+   "trans": 9
+  }
+ ],
+ "warnings": [
+  {
+   "check": "O1",
+   "t": "17:39",
+   "t_end": "18:01",
+   "sec": 1059.31,
+   "msg": "only 7 bars with both decks audible at musical level (need >= 8)",
+   "trans": 6
+  },
+  {
+   "check": "F1",
+   "t": "39:42",
+   "t_end": "39:43",
+   "sec": 2382.07,
+   "msg": "h1RNzaTfRyY vs 7Itbo72XEz4 beats 20.0 ms apart",
+   "trans": 14
+  },
+  {
+   "check": "O1",
+   "t": "46:20",
+   "t_end": "46:42",
+   "sec": 2780.69,
+   "msg": "only 3 bars with both decks audible at musical level (need >= 8)",
+   "trans": 17
+  },
+  {
+   "check": "O1",
+   "t": "54:48",
+   "t_end": "55:10",
+   "sec": 3288.28,
+   "msg": "only 7 bars with both decks audible at musical level (need >= 8)",
+   "trans": 20
+  },
+  {
+   "check": "BM1",
+   "t": "13:18",
+   "t_end": "13:29",
+   "sec": 798.62,
+   "msg": "beats into melody, groove gap: NaY3x3GRDF4 drums over YNz30crm5g0's beatless section for 8 bars (fixes: dswap, ib, later cue, shorter blend)",
+   "trans": 4
+  },
+  {
+   "check": "BM1",
+   "t": "15:06",
+   "t_end": "15:25",
+   "sec": 906.21,
+   "msg": "beats into melody, groove gap: YNz30crm5g0 drums over zGBn-IJ1isg's beatless section for 14 bars (fixes: dswap, ib, later cue, shorter blend)",
+   "trans": 5
+  },
+  {
+   "check": "BM1",
+   "t": "19:32",
+   "t_end": "20:11",
+   "sec": 1172.41,
+   "msg": "beats into melody, groove gap: sObzaBqaBRQ drums over PVa_LRlOqBE's beatless section for 28 bars (fixes: dswap, ib, later cue, shorter blend)",
+   "trans": 7
+  },
+  {
+   "check": "BM1",
+   "t": "27:36",
+   "t_end": "27:55",
+   "sec": 1656.55,
+   "msg": "beats into melody, groove gap: 2s3M6oX2lfo drums over 3BOWFQBhzhU's beatless section for 14 bars (fixes: dswap, ib, later cue, shorter blend)",
+   "trans": 10
+  },
+  {
+   "check": "BM1",
+   "t": "31:17",
+   "t_end": "31:24",
+   "sec": 1877.24,
+   "msg": "beats into melody, groove gap: 3BOWFQBhzhU drums over 6YDKymmWe9o's beatless section for 5 bars (fixes: dswap, ib, later cue, shorter blend)",
+   "trans": 11
+  },
+  {
+   "check": "BM1",
+   "t": "36:48",
+   "t_end": "36:57",
+   "sec": 2208.28,
+   "msg": "beats into melody, groove gap: kKu3fIOTiHk drums over h1RNzaTfRyY's beatless section for 7 bars (fixes: dswap, ib, later cue, shorter blend)",
+   "trans": 13
+  },
+  {
+   "check": "BM1",
+   "t": "39:24",
+   "t_end": "39:40",
+   "sec": 2364.14,
+   "msg": "beats into melody, groove gap: h1RNzaTfRyY drums over 7Itbo72XEz4's beatless section for 12 bars (fixes: dswap, ib, later cue, shorter blend)",
+   "trans": 14
+  },
+  {
+   "check": "BM1",
+   "t": "42:45",
+   "t_end": "43:00",
+   "sec": 2565.52,
+   "msg": "beats into melody, groove gap: 7Itbo72XEz4 drums over OYzCe1T_Gpg's beatless section for 11 bars (fixes: dswap, ib, later cue, shorter blend)",
+   "trans": 15
+  },
+  {
+   "check": "BM1",
+   "t": "57:02",
+   "t_end": "57:17",
+   "sec": 3422.07,
+   "msg": "beats into melody, groove gap: cb2sbJ-ii-I drums over luB7w7JBT14's beatless section for 11 bars (fixes: dswap, ib, later cue, shorter blend)",
+   "trans": 21
+  }
+ ],
+ "n_warn": 13,
+ "transitions": [
+  {
+   "i": 0,
+   "t": "2:56",
+   "swap": "3:18",
+   "a": "5196v8VY1LI",
+   "b": "rpIpJQ7ujzc",
+   "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "6A->7A",
+   "flam_max": 6.0,
+   "fails": []
+  },
+  {
+   "i": 1,
+   "t": "5:31",
+   "swap": "5:47",
+   "a": "rpIpJQ7ujzc",
+   "b": "KDRPfuZfNYw",
+   "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "7A->8A",
+   "flam_max": 6.0,
+   "fails": []
+  },
+  {
+   "i": 2,
+   "t": "8:05",
+   "swap": "8:11",
+   "a": "KDRPfuZfNYw",
+   "b": "OPuVVhbkicU",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "8A->7A",
+   "flam_max": 2.0,
+   "fails": []
+  },
+  {
+   "i": 3,
+   "t": "10:40",
+   "swap": "10:48",
+   "a": "OPuVVhbkicU",
+   "b": "NaY3x3GRDF4",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+   "keys": "7A->7B",
+   "flam_max": 8.0,
+   "fails": []
+  },
+  {
+   "i": 4,
+   "t": "12:52",
+   "swap": "13:14",
+   "a": "NaY3x3GRDF4",
+   "b": "YNz30crm5g0",
+   "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "7B->7A",
+   "flam_max": 12.0,
+   "fails": []
+  },
+  {
+   "i": 5,
+   "t": "15:04",
+   "swap": "15:13",
+   "a": "YNz30crm5g0",
+   "b": "zGBn-IJ1isg",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "7A->7B",
+   "flam_max": 8.0,
+   "fails": []
+  },
+  {
+   "i": 6,
+   "t": "17:39",
+   "swap": "17:44",
+   "a": "zGBn-IJ1isg",
+   "b": "sObzaBqaBRQ",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "7B->6B",
+   "flam_max": 4.0,
+   "fails": []
+  },
+  {
+   "i": 7,
+   "t": "19:29",
+   "swap": "19:50",
+   "a": "sObzaBqaBRQ",
+   "b": "PVa_LRlOqBE",
+   "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "6B->5B",
+   "flam_max": 0,
+   "fails": []
+  },
+  {
+   "i": 8,
+   "t": "23:10",
+   "swap": "23:15",
+   "a": "PVa_LRlOqBE",
+   "b": "MoYkYkoeb84",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "5B->5A",
+   "flam_max": 6.0,
+   "fails": []
+  },
+  {
+   "i": 9,
+   "t": "25:00",
+   "swap": "25:06",
+   "a": "MoYkYkoeb84",
+   "b": "2s3M6oX2lfo",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "5A->5A",
+   "flam_max": 12.0,
+   "fails": [
+    "L1"
+   ]
+  },
+  {
+   "i": 10,
+   "t": "27:35",
+   "swap": "27:43",
+   "a": "2s3M6oX2lfo",
+   "b": "3BOWFQBhzhU",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "5A->5B",
+   "flam_max": 0,
+   "fails": []
+  },
+  {
+   "i": 11,
+   "t": "31:15",
+   "swap": "31:24",
+   "a": "3BOWFQBhzhU",
+   "b": "6YDKymmWe9o",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "5B->5A",
+   "flam_max": 2.0,
+   "fails": []
+  },
+  {
+   "i": 12,
+   "t": "34:12",
+   "swap": "34:17",
+   "a": "6YDKymmWe9o",
+   "b": "kKu3fIOTiHk",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "5A->4A",
+   "flam_max": 6.0,
+   "fails": []
+  },
+  {
+   "i": 13,
+   "t": "36:46",
+   "swap": "36:55",
+   "a": "kKu3fIOTiHk",
+   "b": "h1RNzaTfRyY",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "4A->4A",
+   "flam_max": 8.0,
+   "fails": []
+  },
+  {
+   "i": 14,
+   "t": "39:21",
+   "swap": "39:42",
+   "a": "h1RNzaTfRyY",
+   "b": "7Itbo72XEz4",
+   "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "4A->4A",
+   "flam_max": 20.0,
+   "fails": []
+  },
+  {
+   "i": 15,
+   "t": "42:40",
+   "swap": "42:48",
+   "a": "7Itbo72XEz4",
+   "b": "OYzCe1T_Gpg",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "4A->3A",
+   "flam_max": 0,
+   "fails": []
+  },
+  {
+   "i": 16,
+   "t": "44:08",
+   "swap": "44:23",
+   "a": "OYzCe1T_Gpg",
+   "b": "cxS6yd0UAxw",
+   "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "3A->2A",
+   "flam_max": 0,
+   "fails": []
+  },
+  {
+   "i": 17,
+   "t": "46:20",
+   "swap": "46:26",
+   "a": "cxS6yd0UAxw",
+   "b": "n1dOiesZS1g",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "2A->2B",
+   "flam_max": 0,
+   "fails": []
+  },
+  {
+   "i": 18,
+   "t": "50:45",
+   "swap": "50:51",
+   "a": "n1dOiesZS1g",
+   "b": "-n50uo8so4U",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "2B->2A",
+   "flam_max": 14.0,
+   "fails": []
+  },
+  {
+   "i": 19,
+   "t": "52:35",
+   "swap": "52:44",
+   "a": "-n50uo8so4U",
+   "b": "PYxgKt-Sr9A",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "2A->1A",
+   "flam_max": 12.0,
+   "fails": []
+  },
+  {
+   "i": 20,
+   "t": "54:48",
+   "swap": "54:53",
+   "a": "PYxgKt-Sr9A",
+   "b": "cb2sbJ-ii-I",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+   "keys": "1A->12A",
+   "flam_max": 2.0,
+   "fails": []
+  },
+  {
+   "i": 21,
+   "t": "57:00",
+   "swap": "57:08",
+   "a": "cb2sbJ-ii-I",
+   "b": "luB7w7JBT14",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+   "keys": "12A->1A",
+   "flam_max": 0,
+   "fails": []
+  }
+ ]
+}

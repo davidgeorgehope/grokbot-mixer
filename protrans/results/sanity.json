@@ -1,0 +1,88 @@
+{
+  "identity": {
+    "score": 100.0,
+    "breakdown": {
+      "stem_curves": 100.0,
+      "deck_curves": 100.0,
+      "beat_align": 100.0,
+      "bass_swap": 100.0,
+      "outgoing_cut": 100.0,
+      "blend_length": 100.0,
+      "stems": {
+        "drums": 100.0,
+        "bass": 100.0,
+        "vocals": 100.0,
+        "melody": 100.0
+      },
+      "beat_off_ms": 0.0,
+      "events_pro": {
+        "bass_swap": 0,
+        "outgoing_cut": 39,
+        "blend_length": 2587
+      },
+      "events_ours": {
+        "bass_swap": 0,
+        "outgoing_cut": 39,
+        "blend_length": 2587
+      },
+      "stem_kind": [
+        "bands",
+        "bands"
+      ],
+      "deck": null
+    },
+    "weights": {
+      "stem_curves": 0.28,
+      "deck_curves": 0.22,
+      "beat_align": 0.15,
+      "bass_swap": 0.13,
+      "outgoing_cut": 0.12,
+      "blend_length": 0.1
+    },
+    "pro": "/workspace/mixes/protrans/clips/train/hospital_podcast393__02/pro.wav",
+    "ours": "/workspace/mixes/protrans/clips/train/hospital_podcast393__02/pro.wav"
+  },
+  "random": {
+    "score": 49.11,
+    "breakdown": {
+      "stem_curves": 50.06,
+      "deck_curves": 50.06,
+      "beat_align": 69.57,
+      "bass_swap": 100.0,
+      "outgoing_cut": 0.03,
+      "blend_length": 6.39,
+      "stems": {
+        "drums": 46.69,
+        "bass": 42.69,
+        "vocals": 55.84,
+        "melody": 55.03
+      },
+      "beat_off_ms": 2.9,
+      "events_pro": {
+        "bass_swap": 0,
+        "outgoing_cut": 39,
+        "blend_length": 2587
+      },
+      "events_ours": {
+        "bass_swap": 0,
+        "outgoing_cut": 7,
+        "blend_length": 2565
+      },
+      "stem_kind": [
+        "bands",
+        "bands"
+      ],
+      "deck": null
+    },
+    "weights": {
+      "stem_curves": 0.28,
+      "deck_curves": 0.22,
+      "beat_align": 0.15,
+      "bass_swap": 0.13,
+      "outgoing_cut": 0.12,
+      "blend_length": 0.1
+    },
+    "pro": "/workspace/mixes/protrans/clips/train/hospital_podcast393__02/pro.wav",
+    "ours": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__13/pro.wav"
+  }
+}

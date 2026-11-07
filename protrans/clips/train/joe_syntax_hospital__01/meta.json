@@ -1,0 +1,26 @@
+{
+  "id": "joe_syntax_hospital__01",
+  "mix_id": "joe_syntax_hospital",
+  "dj": "Joe Syntax",
+  "split": "train",
+  "a": {
+    "title": "Nu:Tone - The Feeling (ft. Ben Westbeech)",
+    "yt": "dOJp7bsjuyU",
+    "t": 199.0
+  },
+  "b": {
+    "title": "High Contrast - Fearful Symmetry",
+    "yt": "zM6au9qc2XQ",
+    "t": 309.0
+  },
+  "window": {
+    "mix_t_a": 199.0,
+    "mix_t_b": 309.0,
+    "mix_t_next": 399.0,
+    "hint_a_played_sec": 110.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__01/pro.wav",
+  "pro_clip_start": 285.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__01"
+}

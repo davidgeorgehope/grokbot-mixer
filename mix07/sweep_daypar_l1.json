@@ -1,0 +1,328 @@
+{
+ "passing": [
+  {
+   "fam": "sw0.25",
+   "win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.25"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 0,
+   "l1_worst": 1.01,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": true,
+   "ok": true
+  },
+  {
+   "fam": "la_sw25",
+   "win": [
+    "la",
+    128,
+    112,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.25"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 0,
+   "l1_worst": 1.01,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": true,
+   "ok": true
+  }
+ ],
+ "all": [
+  {
+   "fam": "n128_32_16",
+   "win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "env": {},
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.11,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  },
+  {
+   "fam": "sw0.15",
+   "win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.15"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.11,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  },
+  {
+   "fam": "sw0.25",
+   "win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.25"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 0,
+   "l1_worst": 1.01,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": true,
+   "ok": true
+  },
+  {
+   "fam": "sw0.35",
+   "win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.35"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.11,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  },
+  {
+   "fam": "sw0.45",
+   "win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.45"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.11,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  },
+  {
+   "fam": "sw0.55",
+   "win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.55"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.11,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  },
+  {
+   "fam": "sw0.65",
+   "win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.65"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.11,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  },
+  {
+   "fam": "sw0.75",
+   "win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.75"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.11,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  },
+  {
+   "fam": "n128_48_16",
+   "win": [
+    "n",
+    128,
+    null,
+    48,
+    16
+   ],
+   "env": {},
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.1,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  },
+  {
+   "fam": "n128_64_16",
+   "win": [
+    "n",
+    128,
+    null,
+    64,
+    16
+   ],
+   "env": {},
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.15,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  },
+  {
+   "fam": "n128_16_16",
+   "win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "env": {},
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 1,
+   "n_l1": 0,
+   "l1_worst": 0.77,
+   "pass_phase": false,
+   "pass_bg": true,
+   "pass_l1": true,
+   "ok": false
+  },
+  {
+   "fam": "la_sw25",
+   "win": [
+    "la",
+    128,
+    112,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.25"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 0,
+   "l1_worst": 1.01,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": true,
+   "ok": true
+  },
+  {
+   "fam": "la_sw65",
+   "win": [
+    "la",
+    128,
+    112,
+    32,
+    16
+   ],
+   "env": {
+    "SWAP_POS": "0.65"
+   },
+   "bassgap": [],
+   "n_phase": 32,
+   "n_fail": 0,
+   "n_l1": 1,
+   "l1_worst": 3.11,
+   "pass_phase": true,
+   "pass_bg": true,
+   "pass_l1": false,
+   "ok": false
+  }
+ ]
+}

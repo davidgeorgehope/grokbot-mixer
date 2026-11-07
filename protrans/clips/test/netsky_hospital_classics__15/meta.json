@@ -1,0 +1,26 @@
+{
+  "id": "netsky_hospital_classics__15",
+  "mix_id": "netsky_hospital_classics",
+  "dj": "Netsky",
+  "split": "test",
+  "a": {
+    "title": "Netsky - Memory Lane",
+    "yt": "cG7cRDcPY3k",
+    "t": 2254.0
+  },
+  "b": {
+    "title": "Netsky - The Whistle Song",
+    "yt": "k-7z5X0ATEc",
+    "t": 2355.0
+  },
+  "window": {
+    "mix_t_a": 2254.0,
+    "mix_t_b": 2355.0,
+    "mix_t_next": 2445.0,
+    "hint_a_played_sec": 101.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__15/pro.wav",
+  "pro_clip_start": 2331.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__15"
+}

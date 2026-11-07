@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__00",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "SpectraSoul - Away With Me (Calibre Remix)",
+    "yt": "pzFgQ7iIfXQ",
+    "t": 0.0
+  },
+  "b": {
+    "title": "EastColors - Keys",
+    "yt": "qeXTBEtGUtk",
+    "t": 131.0
+  },
+  "window": {
+    "mix_t_a": 0.0,
+    "mix_t_b": 131.0,
+    "mix_t_next": 221.0,
+    "hint_a_played_sec": 131.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__00/pro.wav",
+  "pro_clip_start": 107.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__00"
+}

@@ -1,0 +1,1853 @@
+{
+ "summary": {
+  "n": 37,
+  "elapsed_s": 279.4,
+  "thresholds": {
+   "DROP_DB": 6.0,
+   "TOL_MS": 10,
+   "CORR_FLOOR": 0.65
+  },
+  "energy": {
+   "n_pass": 27,
+   "pct_pass": 73.0,
+   "max_nonphrase_db": {
+    "p50": 0.0,
+    "p90": 9.58,
+    "p95": 12.2,
+    "p100": 14.98,
+    "values": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     6.04,
+     6.26,
+     7.44,
+     7.75,
+     8.01,
+     9.52,
+     9.66,
+     11.93,
+     13.27,
+     14.98
+    ]
+   },
+   "drop_db_for_95pct_pass": 12.2
+  },
+  "align": {
+   "n_pass": 37,
+   "pct_pass": 100.0,
+   "max_abs_lag_hi": {
+    "p50": null,
+    "p90": null,
+    "p95": null,
+    "p100": null,
+    "values": []
+   },
+   "tol_for_95pct_pass": null,
+   "corr_floor_sweep": [
+    {
+     "corr_floor": 0.65,
+     "n_fail": 0,
+     "n_pass": 37,
+     "pct_pass": 100.0
+    },
+    {
+     "corr_floor": 0.7,
+     "n_fail": 0,
+     "n_pass": 37,
+     "pct_pass": 100.0
+    },
+    {
+     "corr_floor": 0.75,
+     "n_fail": 0,
+     "n_pass": 37,
+     "pct_pass": 100.0
+    },
+    {
+     "corr_floor": 0.8,
+     "n_fail": 0,
+     "n_pass": 37,
+     "pct_pass": 100.0
+    },
+    {
+     "corr_floor": 0.85,
+     "n_fail": 0,
+     "n_pass": 37,
+     "pct_pass": 100.0
+    },
+    {
+     "corr_floor": 0.9,
+     "n_fail": 0,
+     "n_pass": 37,
+     "pct_pass": 100.0
+    }
+   ]
+  },
+  "fails_energy": [
+   {
+    "id": "hospital_podcast393__04",
+    "dj": "London Elektricity",
+    "max_db": 9.66,
+    "ev": [
+     {
+      "bar": 21,
+      "t": 28.97,
+      "drop_db": 9.66,
+      "phrase": false
+     }
+    ]
+   },
+   {
+    "id": "joe_syntax_hospital__00",
+    "dj": "Joe Syntax",
+    "max_db": 11.93,
+    "ev": [
+     {
+      "bar": 28,
+      "t": 38.62,
+      "drop_db": 11.93,
+      "phrase": false
+     }
+    ]
+   },
+   {
+    "id": "joe_syntax_hospital__08",
+    "dj": "Joe Syntax",
+    "max_db": 6.04,
+    "ev": [
+     {
+      "bar": 18,
+      "t": 24.83,
+      "drop_db": 6.04,
+      "phrase": false
+     }
+    ]
+   },
+   {
+    "id": "hybrid_minds_ukf__11",
+    "dj": "Hybrid Minds",
+    "max_db": 14.98,
+    "ev": [
+     {
+      "bar": 32,
+      "t": 44.14,
+      "drop_db": 14.98,
+      "phrase": false
+     }
+    ]
+   },
+   {
+    "id": "hybrid_minds_ukf__19",
+    "dj": "Hybrid Minds",
+    "max_db": 6.26,
+    "ev": [
+     {
+      "bar": 17,
+      "t": 23.45,
+      "drop_db": 6.26,
+      "phrase": false
+     }
+    ]
+   },
+   {
+    "id": "hybrid_minds_ukf__20",
+    "dj": "Hybrid Minds",
+    "max_db": 8.01,
+    "ev": [
+     {
+      "bar": 15,
+      "t": 20.69,
+      "drop_db": 8.01,
+      "phrase": false
+     }
+    ]
+   },
+   {
+    "id": "netsky_hospital_classics__17",
+    "dj": "Netsky",
+    "max_db": 7.44,
+    "ev": [
+     {
+      "bar": 20,
+      "t": 27.59,
+      "drop_db": 7.44,
+      "phrase": false
+     }
+    ]
+   },
+   {
+    "id": "netsky_hospital_classics__24",
+    "dj": "Netsky",
+    "max_db": 9.52,
+    "ev": [
+     {
+      "bar": 17,
+      "t": 23.45,
+      "drop_db": 9.52,
+      "phrase": false
+     }
+    ]
+   },
+   {
+    "id": "joe_syntax_hospital__11",
+    "dj": "Joe Syntax",
+    "max_db": 7.75,
+    "ev": [
+     {
+      "bar": 18,
+      "t": 24.83,
+      "drop_db": 7.75,
+      "phrase": false
+     }
+    ]
+   },
+   {
+    "id": "joe_syntax_hospital__13",
+    "dj": "Joe Syntax",
+    "max_db": 13.27,
+    "ev": [
+     {
+      "bar": 18,
+      "t": 24.83,
+      "drop_db": 13.27,
+      "phrase": false
+     }
+    ]
+   }
+  ],
+  "fails_align": []
+ },
+ "rows": [
+  {
+   "id": "wilkinson_boomtown2026__10",
+   "dj": "Wilkinson",
+   "split": "test",
+   "pair": "Yosemite (Wilkinson Remix) -> Wilkinson - Used To This (feat. Issey Cross)",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 7.338,
+     "cc": 0.4882,
+     "mix_t": 2.043,
+     "track_t": 149.769
+    },
+    "b": {
+     "z": 10.239,
+     "cc": 0.7061,
+     "mix_t": 55.751,
+     "track_t": 26.958
+    }
+   },
+   "d0": {
+    "a": 1.118,
+    "b": 0.472
+   }
+  },
+  {
+   "id": "wilkinson_boomtown2026__33",
+   "dj": "Wilkinson",
+   "split": "test",
+   "pair": "Wilkinson - Ultraviolet feat. Katy Alex -> Wilkinson - Afterglow",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 22,
+     "t": 30.34,
+     "drop_db": 6.67,
+     "phrase": true
+    }
+   ],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 6.67,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.295,
+     "cc": 0.5264,
+     "mix_t": 4.505,
+     "track_t": 98.847
+    },
+    "b": {
+     "z": 10.503,
+     "cc": 0.6048,
+     "mix_t": 51.548,
+     "track_t": 113.824
+    }
+   },
+   "d0": {
+    "a": 1.164,
+    "b": 1.356
+   }
+  },
+  {
+   "id": "hospital_podcast393__04",
+   "dj": "London Elektricity",
+   "split": "train",
+   "pair": "Inja x Whiney - She Just Wanna Dance (Kyrist Remix) -> Fred V - Cosmic Flowchart",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 8,
+     "t": 11.03,
+     "drop_db": 9.43,
+     "phrase": true
+    },
+    {
+     "bar": 10,
+     "t": 13.79,
+     "drop_db": 8.17,
+     "phrase": true
+    },
+    {
+     "bar": 21,
+     "t": 28.97,
+     "drop_db": 9.66,
+     "phrase": false
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 21,
+     "t": 28.97,
+     "drop_db": 9.66,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 9.66,
+   "max_any_drop_db": 9.66,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 11.541,
+     "cc": 0.7193,
+     "mix_t": 1.881,
+     "track_t": 254.607
+    },
+    "b": {
+     "z": 6.42,
+     "cc": 0.4979,
+     "mix_t": 50.271,
+     "track_t": 32.949
+    }
+   },
+   "d0": {
+    "a": 0.59,
+    "b": 1.266
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__00",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 17,
+     "t": 23.45,
+     "drop_db": 6.35,
+     "phrase": true
+    },
+    {
+     "bar": 20,
+     "t": 27.59,
+     "drop_db": 15.01,
+     "phrase": true
+    },
+    {
+     "bar": 28,
+     "t": 38.62,
+     "drop_db": 11.93,
+     "phrase": false
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 28,
+     "t": 38.62,
+     "drop_db": 11.93,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 11.93,
+   "max_any_drop_db": 15.01,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 7.183,
+     "cc": 0.4337,
+     "mix_t": 15.07,
+     "track_t": 140.783
+    },
+    "b": {
+     "z": 8.274,
+     "cc": 0.571,
+     "mix_t": 20.666,
+     "track_t": 62.903
+    }
+   },
+   "d0": {
+    "a": 0.846,
+    "b": 0.27
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__01",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 7.392,
+     "cc": 0.7991,
+     "mix_t": 1.045,
+     "track_t": 152.764
+    },
+    "b": {
+     "z": 6.344,
+     "cc": 0.7663,
+     "mix_t": 21.92,
+     "track_t": 86.866
+    }
+   },
+   "d0": {
+    "a": 0.27,
+    "b": 0.482
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__08",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 18,
+     "t": 24.83,
+     "drop_db": 6.04,
+     "phrase": false
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 18,
+     "t": 24.83,
+     "drop_db": 6.04,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 6.04,
+   "max_any_drop_db": 6.04,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 6.527,
+     "cc": 0.6942,
+     "mix_t": 1.115,
+     "track_t": 149.769
+    },
+    "b": {
+     "z": 10.104,
+     "cc": 0.8052,
+     "mix_t": 57.377,
+     "track_t": 74.884
+    }
+   },
+   "d0": {
+    "a": 0.224,
+    "b": 1.218
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__09",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.875,
+     "cc": 0.6546,
+     "mix_t": 17.786,
+     "track_t": 257.602
+    },
+    "b": {
+     "z": 10.751,
+     "cc": 0.6047,
+     "mix_t": 53.452,
+     "track_t": 23.963
+    }
+   },
+   "d0": {
+    "a": 1.218,
+    "b": 0.396
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__10",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky) -> Logistics - We Are One (Nu:Logic Remix)",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.308,
+     "cc": 0.3928,
+     "mix_t": 3.274,
+     "track_t": 104.838
+    },
+    "b": {
+     "z": 12.069,
+     "cc": 0.8169,
+     "mix_t": 56.889,
+     "track_t": 77.88
+    }
+   },
+   "d0": {
+    "a": 0.396,
+    "b": 1.17
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__14",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 10.241,
+     "cc": 0.7144,
+     "mix_t": 4.923,
+     "track_t": 224.653
+    },
+    "b": {
+     "z": 7.012,
+     "cc": 0.7505,
+     "mix_t": 22.314,
+     "track_t": 47.926
+    }
+   },
+   "d0": {
+    "a": 0.108,
+    "b": 0.21
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__17",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.098,
+     "cc": 0.3925,
+     "mix_t": 5.991,
+     "track_t": 128.801
+    },
+    "b": {
+     "z": 7.767,
+     "cc": 0.8209,
+     "mix_t": 55.983,
+     "track_t": 164.746
+    }
+   },
+   "d0": {
+    "a": 0.652,
+    "b": 1.176
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__18",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Netsky - Lotus Symphony -> Unquote & Molecular Structures - Lubov Moya",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 15,
+     "t": 20.69,
+     "drop_db": 7.33,
+     "phrase": true
+    }
+   ],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 7.33,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 11.621,
+     "cc": 0.8025,
+     "mix_t": 2.276,
+     "track_t": 197.695
+    },
+    "b": {
+     "z": 8.769,
+     "cc": 0.8829,
+     "mix_t": 55.635,
+     "track_t": 119.815
+    }
+   },
+   "d0": {
+    "a": 1.176,
+    "b": 1.308
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__08",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 2,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.075,
+     "cc": 0.5292,
+     "mix_t": 12.934,
+     "track_t": 188.709
+    },
+    "b": {
+     "z": 8.203,
+     "cc": 0.5123,
+     "mix_t": 49.342,
+     "track_t": 92.857
+    }
+   },
+   "d0": {
+    "a": 0.954,
+    "b": 0.18
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__11",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 32,
+     "t": 44.14,
+     "drop_db": 14.98,
+     "phrase": false
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 32,
+     "t": 44.14,
+     "drop_db": 14.98,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 14.98,
+   "max_any_drop_db": 14.98,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 12.429,
+     "cc": 0.7395,
+     "mix_t": 15.673,
+     "track_t": 173.732
+    },
+    "b": {
+     "z": 7.809,
+     "cc": 0.4263,
+     "mix_t": 45.14,
+     "track_t": 200.69
+    }
+   },
+   "d0": {
+    "a": 0.5,
+    "b": 0.784
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__12",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 6.741,
+     "cc": 0.6202,
+     "mix_t": 7.314,
+     "track_t": 230.644
+    },
+    "b": {
+     "z": 7.644,
+     "cc": 0.6858,
+     "mix_t": 39.358,
+     "track_t": 38.94
+    }
+   },
+   "d0": {
+    "a": 0.784,
+    "b": 0.494
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__13",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 6.946,
+     "cc": 0.5549,
+     "mix_t": 23.197,
+     "track_t": 197.695
+    },
+    "b": {
+     "z": 6.698,
+     "cc": 0.6439,
+     "mix_t": 46.579,
+     "track_t": 110.829
+    }
+   },
+   "d0": {
+    "a": 0.494,
+    "b": 0.454
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__19",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Urbandawn - Prime Expansion -> Hybrid Minds - Demons (ft. Charlotte Haining)",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 17,
+     "t": 23.45,
+     "drop_db": 6.26,
+     "phrase": false
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 17,
+     "t": 23.45,
+     "drop_db": 6.26,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 6.26,
+   "max_any_drop_db": 6.26,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 10.881,
+     "cc": 0.6082,
+     "mix_t": 15.952,
+     "track_t": 146.773
+    },
+    "b": {
+     "z": 11.126,
+     "cc": 0.7587,
+     "mix_t": 54.567,
+     "track_t": 206.681
+    }
+   },
+   "d0": {
+    "a": 0.726,
+    "b": 0.518
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__20",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Hybrid Minds - Demons (ft. Charlotte Haining) -> Changing Faces - Emptiness",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 10,
+     "t": 13.79,
+     "drop_db": 12.39,
+     "phrase": true
+    },
+    {
+     "bar": 15,
+     "t": 20.69,
+     "drop_db": 8.01,
+     "phrase": false
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 15,
+     "t": 20.69,
+     "drop_db": 8.01,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 8.01,
+   "max_any_drop_db": 12.39,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 7.354,
+     "cc": 0.3793,
+     "mix_t": 5.666,
+     "track_t": 146.773
+    },
+    "b": {
+     "z": 8.673,
+     "cc": 0.3294,
+     "mix_t": 57.098,
+     "track_t": 137.787
+    }
+   },
+   "d0": {
+    "a": 0.518,
+    "b": 0.508
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.957,
+     "cc": 0.5654,
+     "mix_t": 11.238,
+     "track_t": 209.676
+    },
+    "b": {
+     "z": 6.286,
+     "cc": 0.663,
+     "mix_t": 23.847,
+     "track_t": 131.796
+    }
+   },
+   "d0": {
+    "a": 0.424,
+    "b": 0.66
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__25",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.705,
+     "cc": 0.6023,
+     "mix_t": 11.424,
+     "track_t": 167.741
+    },
+    "b": {
+     "z": 6.959,
+     "cc": 0.6331,
+     "mix_t": 22.825,
+     "track_t": 263.593
+    }
+   },
+   "d0": {
+    "a": 0.108,
+    "b": 1.188
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__33",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "1991 - Nine Clouds -> Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 9.894,
+     "cc": 0.7243,
+     "mix_t": 16.881,
+     "track_t": 191.704
+    },
+    "b": {
+     "z": 7.066,
+     "cc": 0.7324,
+     "mix_t": 23.127,
+     "track_t": 86.866
+    }
+   },
+   "d0": {
+    "a": 1.296,
+    "b": 0.646
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__45",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 18,
+     "t": 24.83,
+     "drop_db": 15.52,
+     "phrase": true
+    }
+   ],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 15.52,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 6.217,
+     "cc": 0.6898,
+     "mix_t": 1.765,
+     "track_t": 134.792
+    },
+    "b": {
+     "z": 8.173,
+     "cc": 0.6228,
+     "mix_t": 33.553,
+     "track_t": 53.917
+    }
+   },
+   "d0": {
+    "a": 0.782,
+    "b": 1.264
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__02",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 4,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 7.986,
+     "cc": 0.4144,
+     "mix_t": 0.372,
+     "track_t": 125.806
+    },
+    "b": {
+     "z": 10.728,
+     "cc": 0.6875,
+     "mix_t": 27.446,
+     "track_t": 41.935
+    }
+   },
+   "d0": {
+    "a": 1.18,
+    "b": 1.17
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__06",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "High Contrast - Twilight's Last Gleaming -> Netsky - Escape (ft. Darrison)",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.055,
+     "cc": 0.5507,
+     "mix_t": 9.381,
+     "track_t": 155.759
+    },
+    "b": {
+     "z": 7.687,
+     "cc": 0.6542,
+     "mix_t": 26.053,
+     "track_t": 23.963
+    }
+   },
+   "d0": {
+    "a": 0.732,
+    "b": 0.132
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__10",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Nu:Tone - Missing Link -> Netsky - Drawing Straws",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 6.446,
+     "cc": 0.71,
+     "mix_t": 5.782,
+     "track_t": 137.787
+    },
+    "b": {
+     "z": 9.89,
+     "cc": 0.8521,
+     "mix_t": 50.527,
+     "track_t": 161.75
+    }
+   },
+   "d0": {
+    "a": 0.608,
+    "b": 0.074
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__15",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.658,
+     "cc": 0.4364,
+     "mix_t": 0.789,
+     "track_t": 212.672
+    },
+    "b": {
+     "z": 9.625,
+     "cc": 0.5903,
+     "mix_t": 46.974,
+     "track_t": 38.94
+    }
+   },
+   "d0": {
+    "a": 0.974,
+    "b": 0.602
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__16",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Netsky - The Whistle Song -> Logistics - Together",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 34,
+     "t": 46.9,
+     "drop_db": 12.75,
+     "phrase": true
+    }
+   ],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 12.75,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 6.828,
+     "cc": 0.3456,
+     "mix_t": 7.105,
+     "track_t": 236.635
+    },
+    "b": {
+     "z": 6.886,
+     "cc": 0.4094,
+     "mix_t": 49.296,
+     "track_t": 68.894
+    }
+   },
+   "d0": {
+    "a": 0.602,
+    "b": 1.188
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__17",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 20,
+     "t": 27.59,
+     "drop_db": 7.44,
+     "phrase": false
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 20,
+     "t": 27.59,
+     "drop_db": 7.44,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 7.44,
+   "max_any_drop_db": 7.44,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.529,
+     "cc": 0.7583,
+     "mix_t": 1.556,
+     "track_t": 131.796
+    },
+    "b": {
+     "z": 10.719,
+     "cc": 0.6451,
+     "mix_t": 45.72,
+     "track_t": 65.898
+    }
+   },
+   "d0": {
+    "a": 1.188,
+    "b": 0.79
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__23",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.058,
+     "cc": 0.5276,
+     "mix_t": 18.622,
+     "track_t": 155.759
+    },
+    "b": {
+     "z": 8.199,
+     "cc": 0.608,
+     "mix_t": 49.017,
+     "track_t": 59.907
+    }
+   },
+   "d0": {
+    "a": 0.598,
+    "b": 0.384
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__24",
+   "dj": "Netsky",
+   "split": "test",
+   "pair": "Nu:Logic - Morning Light -> Sigma - Nobody To Love",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 17,
+     "t": 23.45,
+     "drop_db": 9.52,
+     "phrase": false
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 17,
+     "t": 23.45,
+     "drop_db": 9.52,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 9.52,
+   "max_any_drop_db": 9.52,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 8.784,
+     "cc": 0.7382,
+     "mix_t": 7.268,
+     "track_t": 119.815
+    },
+    "b": {
+     "z": 7.529,
+     "cc": 0.4122,
+     "mix_t": 35.689,
+     "track_t": 56.912
+    }
+   },
+   "d0": {
+    "a": 0.384,
+    "b": 1.238
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 18,
+     "t": 24.83,
+     "drop_db": 7.75,
+     "phrase": false
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 18,
+     "t": 24.83,
+     "drop_db": 7.75,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 7.75,
+   "max_any_drop_db": 7.75,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 9.852,
+     "cc": 0.5666,
+     "mix_t": 11.471,
+     "track_t": 296.542
+    },
+    "b": {
+     "z": 10.155,
+     "cc": 0.958,
+     "mix_t": 33.622,
+     "track_t": 53.917
+    }
+   },
+   "d0": {
+    "a": 1.17,
+    "b": 0.71
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__12",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 17,
+     "t": 23.45,
+     "drop_db": 6.63,
+     "phrase": true
+    },
+    {
+     "bar": 20,
+     "t": 27.59,
+     "drop_db": 6.16,
+     "phrase": true
+    }
+   ],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 6.63,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 6.459,
+     "cc": 0.8554,
+     "mix_t": 10.194,
+     "track_t": 251.611
+    },
+    "b": {
+     "z": 6.72,
+     "cc": 0.58,
+     "mix_t": 41.935,
+     "track_t": 215.667
+    }
+   },
+   "d0": {
+    "a": 0.71,
+    "b": 0.86
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__13",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 18,
+     "t": 24.83,
+     "drop_db": 13.27,
+     "phrase": false
+    },
+    {
+     "bar": 22,
+     "t": 30.34,
+     "drop_db": 6.01,
+     "phrase": true
+    }
+   ],
+   "energy_fail": [
+    {
+     "bar": 18,
+     "t": 24.83,
+     "drop_db": 13.27,
+     "phrase": false
+    }
+   ],
+   "energy_pass": false,
+   "max_nonphrase_db": 13.27,
+   "max_any_drop_db": 13.27,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 7.216,
+     "cc": 0.648,
+     "mix_t": 10.124,
+     "track_t": 161.75
+    },
+    "b": {
+     "z": 9.852,
+     "cc": 0.7549,
+     "mix_t": 48.089,
+     "track_t": 68.894
+    }
+   },
+   "d0": {
+    "a": 0.86,
+    "b": 0.108
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__00",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 17,
+     "t": 23.45,
+     "drop_db": 11.49,
+     "phrase": true
+    }
+   ],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 11.49,
+   "n_align": 1,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 6.323,
+     "cc": 0.723,
+     "mix_t": 24.033,
+     "track_t": 131.796
+    },
+    "b": {
+     "z": 6.502,
+     "cc": 0.5631,
+     "mix_t": 46.951,
+     "track_t": 53.917
+    }
+   },
+   "d0": {
+    "a": 1.252,
+    "b": 1.078
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 10.649,
+     "cc": 0.6763,
+     "mix_t": 6.664,
+     "track_t": 182.718
+    },
+    "b": {
+     "z": 6.758,
+     "cc": 0.6335,
+     "mix_t": 29.164,
+     "track_t": 92.857
+    }
+   },
+   "d0": {
+    "a": 0.18,
+    "b": 1.194
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__10",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 18,
+     "t": 24.83,
+     "drop_db": 6.4,
+     "phrase": true
+    }
+   ],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 6.4,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 7.953,
+     "cc": 0.6152,
+     "mix_t": 2.554,
+     "track_t": 176.727
+    },
+    "b": {
+     "z": 10.445,
+     "cc": 0.6719,
+     "mix_t": 49.412,
+     "track_t": 74.884
+    }
+   },
+   "d0": {
+    "a": 1.194,
+    "b": 0.5
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+   "n_bars": 46,
+   "energy_events": [],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 0.0,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 6.386,
+     "cc": 0.6658,
+     "mix_t": 20.48,
+     "track_t": 194.699
+    },
+    "b": {
+     "z": 8.014,
+     "cc": 0.4833,
+     "mix_t": 45.232,
+     "track_t": 65.898
+    }
+   },
+   "d0": {
+    "a": 0.5,
+    "b": 0.37
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__40",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+   "n_bars": 46,
+   "energy_events": [
+    {
+     "bar": 23,
+     "t": 31.72,
+     "drop_db": 6.09,
+     "phrase": true
+    }
+   ],
+   "energy_fail": [],
+   "energy_pass": true,
+   "max_nonphrase_db": 0.0,
+   "max_any_drop_db": 6.09,
+   "n_align": 0,
+   "n_align_hi": 0,
+   "align_fail": [],
+   "align_pass": true,
+   "max_abs_lag_hi": null,
+   "p95_abs_lag_hi": null,
+   "median_abs_lag_hi": null,
+   "locate": {
+    "a": {
+     "z": 7.804,
+     "cc": 0.7846,
+     "mix_t": 5.317,
+     "track_t": 200.69
+    },
+    "b": {
+     "z": 8.879,
+     "cc": 0.5289,
+     "mix_t": 25.24,
+     "track_t": 44.931
+    }
+   },
+   "d0": {
+    "a": 0.352,
+    "b": 0.37
+   }
+  }
+ ]
+}

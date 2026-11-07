@@ -1,0 +1,366 @@
+[
+  {
+    "id": "hospital_podcast393__00",
+    "mix_id": "hospital_podcast393",
+    "dj": "London Elektricity",
+    "split": "train",
+    "a": {
+      "title": "Etherwood - Driving Out",
+      "yt": "Xzv35tElTi8",
+      "t": 0.0
+    },
+    "b": {
+      "title": "Bop x Subwave - Take It Off",
+      "yt": "0QRPW2e1fkM",
+      "t": 330.0
+    },
+    "window": {
+      "mix_t_a": 0.0,
+      "mix_t_b": 330.0,
+      "mix_t_next": 628.0,
+      "hint_a_played_sec": 330.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__00/pro.wav",
+    "pro_clip_start": 306.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/train/hospital_podcast393__00"
+  },
+  {
+    "id": "hospital_podcast393__01",
+    "mix_id": "hospital_podcast393",
+    "dj": "London Elektricity",
+    "split": "train",
+    "a": {
+      "title": "Bop x Subwave - Take It Off",
+      "yt": "0QRPW2e1fkM",
+      "t": 330.0
+    },
+    "b": {
+      "title": "Camo & Krooked - Loa",
+      "yt": "kYfua2wRajY",
+      "t": 628.0
+    },
+    "window": {
+      "mix_t_a": 330.0,
+      "mix_t_b": 628.0,
+      "mix_t_next": 883.0,
+      "hint_a_played_sec": 298.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__01/pro.wav",
+    "pro_clip_start": 604.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/train/hospital_podcast393__01"
+  },
+  {
+    "id": "hospital_podcast393__02",
+    "mix_id": "hospital_podcast393",
+    "dj": "London Elektricity",
+    "split": "train",
+    "a": {
+      "title": "Camo & Krooked - Loa",
+      "yt": "kYfua2wRajY",
+      "t": 628.0
+    },
+    "b": {
+      "title": "Hugh Hardie & Unglued - Resistance",
+      "yt": "tSL2vi1_DR4",
+      "t": 883.0
+    },
+    "window": {
+      "mix_t_a": 628.0,
+      "mix_t_b": 883.0,
+      "mix_t_next": 1191.0,
+      "hint_a_played_sec": 255.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__02/pro.wav",
+    "pro_clip_start": 859.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/train/hospital_podcast393__02"
+  },
+  {
+    "id": "hospital_podcast393__03",
+    "mix_id": "hospital_podcast393",
+    "dj": "London Elektricity",
+    "split": "train",
+    "a": {
+      "title": "Hugh Hardie & Unglued - Resistance",
+      "yt": "tSL2vi1_DR4",
+      "t": 883.0
+    },
+    "b": {
+      "title": "Inja x Whiney - She Just Wanna Dance (Kyrist Remix)",
+      "yt": "_Ij78U7OAX4",
+      "t": 1191.0
+    },
+    "window": {
+      "mix_t_a": 883.0,
+      "mix_t_b": 1191.0,
+      "mix_t_next": 1468.0,
+      "hint_a_played_sec": 308.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__03/pro.wav",
+    "pro_clip_start": 1167.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/train/hospital_podcast393__03"
+  },
+  {
+    "id": "hospital_podcast393__04",
+    "mix_id": "hospital_podcast393",
+    "dj": "London Elektricity",
+    "split": "train",
+    "a": {
+      "title": "Inja x Whiney - She Just Wanna Dance (Kyrist Remix)",
+      "yt": "_Ij78U7OAX4",
+      "t": 1191.0
+    },
+    "b": {
+      "title": "Fred V - Cosmic Flowchart",
+      "yt": "f2MzUhnpvgk",
+      "t": 1468.0
+    },
+    "window": {
+      "mix_t_a": 1191.0,
+      "mix_t_b": 1468.0,
+      "mix_t_next": 1738.0,
+      "hint_a_played_sec": 277.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__04/pro.wav",
+    "pro_clip_start": 1444.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/train/hospital_podcast393__04"
+  },
+  {
+    "id": "hospital_podcast393__05",
+    "mix_id": "hospital_podcast393",
+    "dj": "London Elektricity",
+    "split": "train",
+    "a": {
+      "title": "Fred V - Cosmic Flowchart",
+      "yt": "f2MzUhnpvgk",
+      "t": 1468.0
+    },
+    "b": {
+      "title": "S.P.Y - Don't You Leave Me (Dead Man's Chest Remix)",
+      "yt": "xN_8rvrsUvY",
+      "t": 1738.0
+    },
+    "window": {
+      "mix_t_a": 1468.0,
+      "mix_t_b": 1738.0,
+      "mix_t_next": 2041.0,
+      "hint_a_played_sec": 270.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__05/pro.wav",
+    "pro_clip_start": 1714.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/train/hospital_podcast393__05"
+  },
+  {
+    "id": "hospital_podcast393__06",
+    "mix_id": "hospital_podcast393",
+    "dj": "London Elektricity",
+    "split": "train",
+    "a": {
+      "title": "S.P.Y - Don't You Leave Me (Dead Man's Chest Remix)",
+      "yt": "xN_8rvrsUvY",
+      "t": 1738.0
+    },
+    "b": {
+      "title": "Grafix - Radiance",
+      "yt": "_Up8yNILt_o",
+      "t": 2041.0
+    },
+    "window": {
+      "mix_t_a": 1738.0,
+      "mix_t_b": 2041.0,
+      "mix_t_next": 2291.0,
+      "hint_a_played_sec": 303.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__06/pro.wav",
+    "pro_clip_start": 2017.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/train/hospital_podcast393__06"
+  },
+  {
+    "id": "hospital_podcast393__09",
+    "mix_id": "hospital_podcast393",
+    "dj": "London Elektricity",
+    "split": "train",
+    "a": {
+      "title": "Chris Inperspective - Call The Future",
+      "yt": "bOQo8Y9ydwE",
+      "t": 2860.29
+    },
+    "b": {
+      "title": "Lakeway - Shimmering",
+      "yt": "BUkt5BJ4MCI",
+      "t": 3021.7
+    },
+    "window": {
+      "mix_t_a": 2860.29,
+      "mix_t_b": 3021.7,
+      "mix_t_next": 3154.98,
+      "hint_a_played_sec": 161.40999999999985
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__09/pro.wav",
+    "pro_clip_start": 2997.7,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/train/hospital_podcast393__09"
+  },
+  {
+    "id": "hospital_podcast393__10",
+    "mix_id": "hospital_podcast393",
+    "dj": "London Elektricity",
+    "split": "train",
+    "a": {
+      "title": "Lakeway - Shimmering",
+      "yt": "BUkt5BJ4MCI",
+      "t": 3021.7
+    },
+    "b": {
+      "title": "Neve - Skirts",
+      "yt": "0O5WQfdQxy0",
+      "t": 3154.98
+    },
+    "window": {
+      "mix_t_a": 3021.7,
+      "mix_t_b": 3154.98,
+      "mix_t_next": 3244.98,
+      "hint_a_played_sec": 133.2800000000002
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__10/pro.wav",
+    "pro_clip_start": 3130.98,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/train/hospital_podcast393__10"
+  },
+  {
+    "id": "wilkinson_boomtown2026__10",
+    "mix_id": "wilkinson_boomtown2026",
+    "dj": "Wilkinson",
+    "split": "test",
+    "a": {
+      "title": "Yosemite (Wilkinson Remix)",
+      "yt": "PjGZX6K5XnE",
+      "t": 1164.0
+    },
+    "b": {
+      "title": "Wilkinson - Used To This (feat. Issey Cross)",
+      "yt": "kKWX3C_odcc",
+      "t": 1320.0
+    },
+    "window": {
+      "mix_t_a": 1164.0,
+      "mix_t_b": 1320.0,
+      "mix_t_next": 1536.0,
+      "hint_a_played_sec": 156.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__10/pro.wav",
+    "pro_clip_start": 1296.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__10"
+  },
+  {
+    "id": "wilkinson_boomtown2026__27",
+    "mix_id": "wilkinson_boomtown2026",
+    "dj": "Wilkinson",
+    "split": "test",
+    "a": {
+      "title": "Wilkinson, Camo & Krooked & Mefjus - Lose Control (ft. ILIRA)",
+      "yt": "silrFjLFzko",
+      "t": 3144.0
+    },
+    "b": {
+      "title": "Wilkinson - Half Light ft. Tom Cane",
+      "yt": "zrX5zrPoZoM",
+      "t": 3276.0
+    },
+    "window": {
+      "mix_t_a": 3144.0,
+      "mix_t_b": 3276.0,
+      "mix_t_next": 3480.0,
+      "hint_a_played_sec": 132.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__27/pro.wav",
+    "pro_clip_start": 3252.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__27"
+  },
+  {
+    "id": "wilkinson_boomtown2026__32",
+    "mix_id": "wilkinson_boomtown2026",
+    "dj": "Wilkinson",
+    "split": "test",
+    "a": {
+      "title": "Wilkinson & Becky Hill - Here For You",
+      "yt": "Fg_muDHhxD4",
+      "t": 3720.0
+    },
+    "b": {
+      "title": "Wilkinson - Ultraviolet feat. Katy Alex",
+      "yt": "uP0KAzefX8Y",
+      "t": 3864.0
+    },
+    "window": {
+      "mix_t_a": 3720.0,
+      "mix_t_b": 3864.0,
+      "mix_t_next": 3970.0,
+      "hint_a_played_sec": 144.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__32/pro.wav",
+    "pro_clip_start": 3840.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__32"
+  },
+  {
+    "id": "wilkinson_boomtown2026__33",
+    "mix_id": "wilkinson_boomtown2026",
+    "dj": "Wilkinson",
+    "split": "test",
+    "a": {
+      "title": "Wilkinson - Ultraviolet feat. Katy Alex",
+      "yt": "uP0KAzefX8Y",
+      "t": 3864.0
+    },
+    "b": {
+      "title": "Wilkinson - Afterglow",
+      "yt": "I9QGpHScGug",
+      "t": 3970.0
+    },
+    "window": {
+      "mix_t_a": 3864.0,
+      "mix_t_b": 3970.0,
+      "mix_t_next": 4186.0,
+      "hint_a_played_sec": 106.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__33/pro.wav",
+    "pro_clip_start": 3946.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__33"
+  },
+  {
+    "id": "wilkinson_boomtown2026__34",
+    "mix_id": "wilkinson_boomtown2026",
+    "dj": "Wilkinson",
+    "split": "test",
+    "a": {
+      "title": "Wilkinson - Afterglow",
+      "yt": "I9QGpHScGug",
+      "t": 3970.0
+    },
+    "b": {
+      "title": "Wilkinson & NORTH - Balance",
+      "yt": "X9RylLX0lvs",
+      "t": 4186.0
+    },
+    "window": {
+      "mix_t_a": 3970.0,
+      "mix_t_b": 4186.0,
+      "mix_t_next": 4276.0,
+      "hint_a_played_sec": 216.0
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__34/pro.wav",
+    "pro_clip_start": 4162.0,
+    "pro_clip_dur": 64.0,
+    "dir": "/workspace/mixes/protrans/clips/test/wilkinson_boomtown2026__34"
+  }
+]

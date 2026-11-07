@@ -1,0 +1,26 @@
+{
+  "id": "joe_syntax_hospital__18",
+  "mix_id": "joe_syntax_hospital",
+  "dj": "Joe Syntax",
+  "split": "train",
+  "a": {
+    "title": "Netsky - Lotus Symphony",
+    "yt": "RTXo4b0RdyQ",
+    "t": 2803.0
+  },
+  "b": {
+    "title": "Unquote & Molecular Structures - Lubov Moya",
+    "yt": "2y8JriTNwyM",
+    "t": 3000.0
+  },
+  "window": {
+    "mix_t_a": 2803.0,
+    "mix_t_b": 3000.0,
+    "mix_t_next": 3090.0,
+    "hint_a_played_sec": 197.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__18/pro.wav",
+  "pro_clip_start": 2976.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__18"
+}

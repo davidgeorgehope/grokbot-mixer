@@ -1,0 +1,7327 @@
+{
+  "stats": {
+    "all": {
+      "n": 37,
+      "mixin_pairs": {
+        "drop+drop": {
+          "n": 12,
+          "p": 0.324
+        },
+        "drop+build": {
+          "n": 7,
+          "p": 0.189
+        },
+        "breakdown+build": {
+          "n": 4,
+          "p": 0.108
+        },
+        "build+build": {
+          "n": 3,
+          "p": 0.081
+        },
+        "drop+breakdown": {
+          "n": 2,
+          "p": 0.054
+        },
+        "build+drop": {
+          "n": 2,
+          "p": 0.054
+        },
+        "outro+drop": {
+          "n": 2,
+          "p": 0.054
+        },
+        "drop+intro": {
+          "n": 1,
+          "p": 0.027
+        },
+        "build+breakdown": {
+          "n": 1,
+          "p": 0.027
+        },
+        "intro+drop": {
+          "n": 1,
+          "p": 0.027
+        },
+        "build+intro": {
+          "n": 1,
+          "p": 0.027
+        },
+        "intro+build": {
+          "n": 1,
+          "p": 0.027
+        }
+      },
+      "in_drop_pairs": {
+        "drop+drop": {
+          "n": 30,
+          "p": 0.811
+        },
+        "outro+drop": {
+          "n": 3,
+          "p": 0.081
+        },
+        "build+drop": {
+          "n": 2,
+          "p": 0.054
+        },
+        "breakdown+drop": {
+          "n": 2,
+          "p": 0.054
+        }
+      },
+      "out_cut_pairs": {
+        "drop+drop": {
+          "n": 15,
+          "p": 0.405
+        },
+        "outro+drop": {
+          "n": 6,
+          "p": 0.162
+        },
+        "drop+build": {
+          "n": 5,
+          "p": 0.135
+        },
+        "drop+breakdown": {
+          "n": 3,
+          "p": 0.081
+        },
+        "outro+build": {
+          "n": 2,
+          "p": 0.054
+        },
+        "build+drop": {
+          "n": 1,
+          "p": 0.027
+        },
+        "intro+build": {
+          "n": 1,
+          "p": 0.027
+        },
+        "outro+breakdown": {
+          "n": 1,
+          "p": 0.027
+        },
+        "breakdown+breakdown": {
+          "n": 1,
+          "p": 0.027
+        },
+        "breakdown+build": {
+          "n": 1,
+          "p": 0.027
+        },
+        "breakdown+drop": {
+          "n": 1,
+          "p": 0.027
+        }
+      },
+      "in_drop_at_out_breakdown": {
+        "n": 2,
+        "p": 0.054
+      },
+      "offset_within_4_bars": {
+        "n": 4,
+        "p": 0.108
+      },
+      "offset_within_8_bars": {
+        "n": 10,
+        "p": 0.27
+      },
+      "offset_bars": {
+        "n": 37,
+        "mean": -2.27,
+        "median": 9.44,
+        "p25": -4.53,
+        "p75": 20.89
+      },
+      "tail_after_in_drop_bars": {
+        "n": 37,
+        "mean": 14.28,
+        "median": 11.16,
+        "p25": 6.02,
+        "p75": 20.72
+      },
+      "overflow_bars": {
+        "n": 37,
+        "mean": 12.83,
+        "median": 6.46,
+        "p25": 0.0,
+        "p75": 28.0
+      }
+    },
+    "train": {
+      "n": 27,
+      "mixin_pairs": {
+        "drop+drop": {
+          "n": 10,
+          "p": 0.37
+        },
+        "drop+build": {
+          "n": 5,
+          "p": 0.185
+        },
+        "build+build": {
+          "n": 2,
+          "p": 0.074
+        },
+        "build+drop": {
+          "n": 2,
+          "p": 0.074
+        },
+        "drop+intro": {
+          "n": 1,
+          "p": 0.037
+        },
+        "drop+breakdown": {
+          "n": 1,
+          "p": 0.037
+        },
+        "build+breakdown": {
+          "n": 1,
+          "p": 0.037
+        },
+        "intro+drop": {
+          "n": 1,
+          "p": 0.037
+        },
+        "breakdown+build": {
+          "n": 1,
+          "p": 0.037
+        },
+        "build+intro": {
+          "n": 1,
+          "p": 0.037
+        },
+        "outro+drop": {
+          "n": 1,
+          "p": 0.037
+        },
+        "intro+build": {
+          "n": 1,
+          "p": 0.037
+        }
+      },
+      "in_drop_pairs": {
+        "drop+drop": {
+          "n": 22,
+          "p": 0.815
+        },
+        "outro+drop": {
+          "n": 2,
+          "p": 0.074
+        },
+        "breakdown+drop": {
+          "n": 2,
+          "p": 0.074
+        },
+        "build+drop": {
+          "n": 1,
+          "p": 0.037
+        }
+      },
+      "out_cut_pairs": {
+        "drop+drop": {
+          "n": 13,
+          "p": 0.481
+        },
+        "outro+drop": {
+          "n": 5,
+          "p": 0.185
+        },
+        "outro+build": {
+          "n": 2,
+          "p": 0.074
+        },
+        "drop+build": {
+          "n": 2,
+          "p": 0.074
+        },
+        "drop+breakdown": {
+          "n": 2,
+          "p": 0.074
+        },
+        "intro+build": {
+          "n": 1,
+          "p": 0.037
+        },
+        "breakdown+build": {
+          "n": 1,
+          "p": 0.037
+        },
+        "breakdown+drop": {
+          "n": 1,
+          "p": 0.037
+        }
+      },
+      "in_drop_at_out_breakdown": {
+        "n": 2,
+        "p": 0.074
+      },
+      "offset_within_4_bars": {
+        "n": 4,
+        "p": 0.148
+      },
+      "offset_within_8_bars": {
+        "n": 9,
+        "p": 0.333
+      },
+      "offset_bars": {
+        "n": 27,
+        "mean": -1.6,
+        "median": 7.27,
+        "p25": -4.17,
+        "p75": 23.87
+      },
+      "tail_after_in_drop_bars": {
+        "n": 27,
+        "mean": 13.26,
+        "median": 10.26,
+        "p25": 6.02,
+        "p75": 20.56
+      },
+      "overflow_bars": {
+        "n": 27,
+        "mean": 12.15,
+        "median": 0.43,
+        "p25": 0.0,
+        "p75": 28.0
+      }
+    },
+    "test": {
+      "n": 10,
+      "mixin_pairs": {
+        "breakdown+build": {
+          "n": 3,
+          "p": 0.3
+        },
+        "drop+build": {
+          "n": 2,
+          "p": 0.2
+        },
+        "drop+drop": {
+          "n": 2,
+          "p": 0.2
+        },
+        "drop+breakdown": {
+          "n": 1,
+          "p": 0.1
+        },
+        "outro+drop": {
+          "n": 1,
+          "p": 0.1
+        },
+        "build+build": {
+          "n": 1,
+          "p": 0.1
+        }
+      },
+      "in_drop_pairs": {
+        "drop+drop": {
+          "n": 8,
+          "p": 0.8
+        },
+        "build+drop": {
+          "n": 1,
+          "p": 0.1
+        },
+        "outro+drop": {
+          "n": 1,
+          "p": 0.1
+        }
+      },
+      "out_cut_pairs": {
+        "drop+build": {
+          "n": 3,
+          "p": 0.3
+        },
+        "drop+drop": {
+          "n": 2,
+          "p": 0.2
+        },
+        "build+drop": {
+          "n": 1,
+          "p": 0.1
+        },
+        "outro+drop": {
+          "n": 1,
+          "p": 0.1
+        },
+        "drop+breakdown": {
+          "n": 1,
+          "p": 0.1
+        },
+        "outro+breakdown": {
+          "n": 1,
+          "p": 0.1
+        },
+        "breakdown+breakdown": {
+          "n": 1,
+          "p": 0.1
+        }
+      },
+      "in_drop_at_out_breakdown": {
+        "n": 0,
+        "p": 0.0
+      },
+      "offset_within_4_bars": {
+        "n": 0,
+        "p": 0.0
+      },
+      "offset_within_8_bars": {
+        "n": 1,
+        "p": 0.1
+      },
+      "offset_bars": {
+        "n": 10,
+        "mean": -4.09,
+        "median": 11.07,
+        "p25": -5.94,
+        "p75": 17.84
+      },
+      "tail_after_in_drop_bars": {
+        "n": 10,
+        "mean": 17.04,
+        "median": 16.27,
+        "p25": 7.3,
+        "p75": 23.13
+      },
+      "overflow_bars": {
+        "n": 10,
+        "mean": 14.68,
+        "median": 15.0,
+        "p25": 7.13,
+        "p75": 20.65
+      }
+    },
+    "n_error": 0
+  },
+  "rows": [
+    {
+      "id": "wilkinson_boomtown2026__10",
+      "dj": "Wilkinson",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "Yosemite (Wilkinson Remix) -> Wilkinson - Used To This (feat. Issey Cross)",
+      "spans_a": [
+        [
+          "build",
+          0,
+          17
+        ],
+        [
+          "breakdown",
+          17,
+          48
+        ],
+        [
+          "drop",
+          48,
+          97
+        ],
+        [
+          "breakdown",
+          97,
+          128
+        ],
+        [
+          "drop",
+          128,
+          158
+        ],
+        [
+          "outro",
+          158,
+          178
+        ]
+      ],
+      "spans_b": [
+        [
+          "build",
+          0,
+          32
+        ],
+        [
+          "drop",
+          32,
+          63
+        ],
+        [
+          "build",
+          63,
+          65
+        ],
+        [
+          "breakdown",
+          65,
+          80
+        ],
+        [
+          "drop",
+          80,
+          111
+        ],
+        [
+          "outro",
+          111,
+          118
+        ]
+      ],
+      "brks_a": [
+        [
+          17,
+          48
+        ],
+        [
+          97,
+          128
+        ],
+        [
+          161,
+          178
+        ]
+      ],
+      "brks_b": [
+        [
+          65,
+          80
+        ],
+        [
+          113,
+          118
+        ]
+      ],
+      "loc_a": {
+        "z": 7.336,
+        "cc": 0.4881,
+        "mix_t": 2.043,
+        "track_t": 149.769,
+        "n": 80
+      },
+      "loc_b": {
+        "z": 10.27,
+        "cc": 0.7075,
+        "mix_t": 55.751,
+        "track_t": 26.958,
+        "n": 52
+      },
+      "loc_mixin_a": {
+        "z": 4.776,
+        "cc": 0.3692,
+        "mix_t": 1.533,
+        "track_t": 61.904,
+        "n": 121
+      },
+      "loc_mixin_b": {
+        "z": 3.971,
+        "cc": 0.381,
+        "mix_t": 2.74,
+        "track_t": 7.988,
+        "n": 79
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.858,
+      "drop_b_bar": 32,
+      "drop_clip_s": 32.787,
+      "loc_drop_b": {
+        "z": 6.568,
+        "cc": 0.3732,
+        "mix_t": 32.787,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "out_brk": [
+        17,
+        48
+      ],
+      "brk_clip_s": 3.088,
+      "loc_brk_a": {
+        "z": 3.846,
+        "cc": 0.2653,
+        "mix_t": 3.088,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 44.49,
+        "mixin_in": 4.53,
+        "drop_out": 96.34,
+        "drop_in": 32.0,
+        "cut_out": 149.5,
+        "cut_in": 21.53
+      },
+      "phases": {
+        "mixin": [
+          "breakdown",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "build"
+        ]
+      },
+      "align": {
+        "offset_bars": 21.53,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": 27.49,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 18.63,
+      "cut_before_in_drop": false,
+      "overflow_bars": 34.51,
+      "overflow_seg": [
+        17,
+        48
+      ]
+    },
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "dj": "Wilkinson",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "Wilkinson - Ultraviolet feat. Katy Alex -> Wilkinson - Afterglow",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          8
+        ],
+        [
+          "build",
+          8,
+          40
+        ],
+        [
+          "drop",
+          40,
+          89
+        ],
+        [
+          "breakdown",
+          89,
+          104
+        ],
+        [
+          "build",
+          104,
+          120
+        ],
+        [
+          "drop",
+          120,
+          150
+        ],
+        [
+          "outro",
+          150,
+          158
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          8
+        ],
+        [
+          "build",
+          8,
+          23
+        ],
+        [
+          "drop",
+          23,
+          57
+        ],
+        [
+          "breakdown",
+          57,
+          79
+        ],
+        [
+          "drop",
+          79,
+          113
+        ],
+        [
+          "outro",
+          113,
+          124
+        ]
+      ],
+      "brks_a": [
+        [
+          89,
+          104
+        ],
+        [
+          153,
+          158
+        ]
+      ],
+      "brks_b": [
+        [
+          57,
+          79
+        ],
+        [
+          116,
+          124
+        ]
+      ],
+      "loc_a": {
+        "z": 8.313,
+        "cc": 0.5263,
+        "mix_t": 4.505,
+        "track_t": 98.847,
+        "n": 71
+      },
+      "loc_b": {
+        "z": 10.507,
+        "cc": 0.6062,
+        "mix_t": 51.548,
+        "track_t": 113.824,
+        "n": 56
+      },
+      "loc_mixin_a": {
+        "z": 4.755,
+        "cc": 0.4991,
+        "mix_t": 0.163,
+        "track_t": 117.818,
+        "n": 108
+      },
+      "loc_mixin_b": {
+        "z": 4.198,
+        "cc": 0.646,
+        "mix_t": 3.065,
+        "track_t": 87.864,
+        "n": 84
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.887,
+      "drop_b_bar": 79,
+      "drop_clip_s": 52.686,
+      "loc_drop_b": {
+        "z": 9.627,
+        "cc": 0.6982,
+        "mix_t": 52.686,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "out_brk": [
+        89,
+        104
+      ],
+      "brk_clip_s": 45.209,
+      "loc_brk_a": {
+        "z": 3.683,
+        "cc": 0.1359,
+        "mix_t": 45.209,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 86.02,
+        "mixin_in": 62.2,
+        "drop_out": 115.23,
+        "drop_in": 79.0,
+        "cut_out": 110.8,
+        "cut_in": 87.55
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "breakdown"
+        ],
+        "in_drop": [
+          "build",
+          "drop"
+        ],
+        "out_cut": [
+          "build",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 5.42,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -2.98,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 4.2,
+      "cut_before_in_drop": false,
+      "overflow_bars": 15.0,
+      "overflow_seg": [
+        89,
+        104
+      ]
+    },
+    {
+      "id": "hospital_podcast393__04",
+      "dj": "London Elektricity",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Inja x Whiney - She Just Wanna Dance (Kyrist Remix) -> Fred V - Cosmic Flowchart",
+      "spans_a": [
+        [
+          "drop",
+          0,
+          119
+        ],
+        [
+          "breakdown",
+          119,
+          128
+        ],
+        [
+          "drop",
+          128,
+          192
+        ],
+        [
+          "outro",
+          192,
+          201
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "build",
+          16,
+          47
+        ],
+        [
+          "drop",
+          47,
+          97
+        ],
+        [
+          "build",
+          97,
+          111
+        ],
+        [
+          "drop",
+          111,
+          128
+        ],
+        [
+          "breakdown",
+          128,
+          140
+        ],
+        [
+          "build",
+          140,
+          160
+        ],
+        [
+          "drop",
+          160,
+          192
+        ],
+        [
+          "outro",
+          192,
+          208
+        ]
+      ],
+      "brks_a": [
+        [
+          119,
+          128
+        ],
+        [
+          192,
+          201
+        ]
+      ],
+      "brks_b": [
+        [
+          128,
+          140
+        ],
+        [
+          192,
+          208
+        ]
+      ],
+      "loc_a": {
+        "z": 10.802,
+        "cc": 0.6975,
+        "mix_t": 3.39,
+        "track_t": 257.602,
+        "n": 91
+      },
+      "loc_b": {
+        "z": 6.417,
+        "cc": 0.4978,
+        "mix_t": 50.271,
+        "track_t": 32.949,
+        "n": 94
+      },
+      "loc_mixin_a": {
+        "z": 3.725,
+        "cc": 0.148,
+        "mix_t": 0.673,
+        "track_t": 75.883,
+        "n": 137
+      },
+      "loc_mixin_b": {
+        "z": 3.761,
+        "cc": 0.2641,
+        "mix_t": 3.274,
+        "track_t": 13.978,
+        "n": 142
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.205,
+      "drop_b_bar": 47,
+      "drop_clip_s": 38.243,
+      "loc_drop_b": {
+        "z": 3.893,
+        "cc": 0.2978,
+        "mix_t": 38.243,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "out_brk": [
+        119,
+        128
+      ],
+      "brk_clip_s": 19.435,
+      "loc_brk_a": {
+        "z": 3.62,
+        "cc": 0.2176,
+        "mix_t": 19.435,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 55.25,
+        "mixin_in": 8.49,
+        "drop_out": 134.63,
+        "drop_in": 47.0,
+        "cut_out": 226.7,
+        "cut_in": 29.84
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "intro"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "outro",
+          "build"
+        ]
+      },
+      "align": {
+        "offset_bars": 13.64,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -63.75,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 14.67,
+      "cut_before_in_drop": false,
+      "overflow_bars": 18.0,
+      "overflow_seg": [
+        119,
+        128
+      ]
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          13
+        ],
+        [
+          "build",
+          13,
+          43
+        ],
+        [
+          "drop",
+          43,
+          108
+        ],
+        [
+          "outro",
+          108,
+          112
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          11
+        ],
+        [
+          "build",
+          11,
+          16
+        ],
+        [
+          "drop",
+          16,
+          48
+        ],
+        [
+          "build",
+          48,
+          64
+        ],
+        [
+          "drop",
+          64,
+          144
+        ],
+        [
+          "outro",
+          144,
+          177
+        ]
+      ],
+      "brks_a": [
+        [
+          108,
+          112
+        ]
+      ],
+      "brks_b": [
+        [
+          144,
+          177
+        ]
+      ],
+      "loc_a": {
+        "z": 7.181,
+        "cc": 0.4337,
+        "mix_t": 15.07,
+        "track_t": 140.783,
+        "n": 50
+      },
+      "loc_b": {
+        "z": 8.262,
+        "cc": 0.805,
+        "mix_t": 41.262,
+        "track_t": 83.87,
+        "n": 80
+      },
+      "loc_mixin_a": {
+        "z": 3.286,
+        "cc": 0.0526,
+        "mix_t": 0.046,
+        "track_t": 139.784,
+        "n": 76
+      },
+      "loc_mixin_b": {
+        "z": 4.093,
+        "cc": 0.7377,
+        "mix_t": 0.302,
+        "track_t": 65.898,
+        "n": 120
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.775,
+      "drop_b_bar": 64,
+      "drop_clip_s": 51.664,
+      "loc_drop_b": {
+        "z": 13.851,
+        "cc": 0.7351,
+        "mix_t": 51.664,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "out_brk": [
+        108,
+        112
+      ],
+      "brk_clip_s": 23.253,
+      "loc_brk_a": {
+        "z": 0,
+        "cc": 0,
+        "mix_t": null,
+        "track_t": null,
+        "fallback_linear": true
+      },
+      "bars": {
+        "mixin_out": 102.04,
+        "mixin_in": 48.28,
+        "drop_out": 46.7,
+        "drop_in": 64.0,
+        "cut_out": 133.54,
+        "cut_in": 73.29
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "outro",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 20.6,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -5.96,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 4.94,
+      "cut_before_in_drop": false,
+      "overflow_bars": 4.0,
+      "overflow_seg": [
+        108,
+        112
+      ]
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          11
+        ],
+        [
+          "build",
+          11,
+          16
+        ],
+        [
+          "drop",
+          16,
+          48
+        ],
+        [
+          "build",
+          48,
+          64
+        ],
+        [
+          "drop",
+          64,
+          144
+        ],
+        [
+          "outro",
+          144,
+          177
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          34
+        ],
+        [
+          "build",
+          34,
+          48
+        ],
+        [
+          "drop",
+          48,
+          144
+        ],
+        [
+          "breakdown",
+          144,
+          160
+        ],
+        [
+          "drop",
+          160,
+          240
+        ],
+        [
+          "outro",
+          240,
+          261
+        ]
+      ],
+      "brks_a": [
+        [
+          144,
+          177
+        ]
+      ],
+      "brks_b": [
+        [
+          144,
+          160
+        ],
+        [
+          256,
+          261
+        ]
+      ],
+      "loc_a": {
+        "z": 8.3,
+        "cc": 0.7711,
+        "mix_t": 0.163,
+        "track_t": 152.764,
+        "n": 80
+      },
+      "loc_b": {
+        "z": 6.609,
+        "cc": 0.8216,
+        "mix_t": 22.43,
+        "track_t": 86.866,
+        "n": 116
+      },
+      "loc_mixin_a": {
+        "z": 3.881,
+        "cc": 0.3734,
+        "mix_t": 2.601,
+        "track_t": 183.716,
+        "n": 120
+      },
+      "loc_mixin_b": {
+        "z": 4.623,
+        "cc": 0.5518,
+        "mix_t": 1.509,
+        "track_t": 287.556,
+        "n": 167
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.929,
+      "drop_b_bar": 160,
+      "drop_clip_s": 32.113,
+      "loc_drop_b": {
+        "z": 4.065,
+        "cc": 0.283,
+        "mix_t": 32.113,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "out_brk": [
+        144,
+        177
+      ],
+      "brk_clip_s": 22.407,
+      "loc_brk_a": {
+        "z": 4.468,
+        "cc": 0.2217,
+        "mix_t": 22.407,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 132.03,
+        "mixin_in": 208.11,
+        "drop_out": 106.92,
+        "drop_in": 160.0,
+        "cut_out": 153.04,
+        "cut_in": 89.12
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "outro",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 7.04,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -11.97,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 19.12,
+      "cut_before_in_drop": false,
+      "overflow_bars": 9.04,
+      "overflow_seg": [
+        144,
+        177
+      ]
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          35
+        ],
+        [
+          "build",
+          35,
+          64
+        ],
+        [
+          "drop",
+          64,
+          130
+        ],
+        [
+          "build",
+          130,
+          131
+        ],
+        [
+          "breakdown",
+          131,
+          136
+        ],
+        [
+          "drop",
+          136,
+          233
+        ],
+        [
+          "outro",
+          233,
+          250
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          32
+        ],
+        [
+          "build",
+          32,
+          64
+        ],
+        [
+          "drop",
+          64,
+          113
+        ],
+        [
+          "build",
+          113,
+          129
+        ],
+        [
+          "drop",
+          129,
+          195
+        ],
+        [
+          "outro",
+          195,
+          199
+        ]
+      ],
+      "brks_a": [
+        [
+          131,
+          136
+        ],
+        [
+          246,
+          250
+        ]
+      ],
+      "brks_b": [
+        [
+          195,
+          199
+        ]
+      ],
+      "loc_a": {
+        "z": 6.812,
+        "cc": 0.7505,
+        "mix_t": 2.345,
+        "track_t": 152.764,
+        "n": 113
+      },
+      "loc_b": {
+        "z": 10.119,
+        "cc": 0.8027,
+        "mix_t": 56.912,
+        "track_t": 74.884,
+        "n": 90
+      },
+      "loc_mixin_a": {
+        "z": 3.914,
+        "cc": 0.2089,
+        "mix_t": 0.139,
+        "track_t": 63.901,
+        "n": 171
+      },
+      "loc_mixin_b": {
+        "z": 5.109,
+        "cc": 0.7328,
+        "mix_t": 3.901,
+        "track_t": 55.914,
+        "n": 136
+      },
+      "cut_clip_s": 47.448,
+      "cut_z0": 3.555,
+      "drop_b_bar": 64,
+      "drop_clip_s": 4.04,
+      "loc_drop_b": {
+        "z": 3.655,
+        "cc": 0.2491,
+        "mix_t": 4.04,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        131,
+        136
+      ],
+      "brk_clip_s": 3.855,
+      "loc_brk_a": {
+        "z": 4.868,
+        "cc": 0.474,
+        "mix_t": 3.855,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 46.95,
+        "mixin_in": 38.43,
+        "drop_out": 119.98,
+        "drop_in": 64.0,
+        "cut_out": 26.95,
+        "cut_in": 47.42
+      },
+      "phases": {
+        "mixin": [
+          "build",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "intro",
+          "build"
+        ]
+      },
+      "align": {
+        "offset_bars": 0.13,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -84.05,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 31.47,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "joe_syntax_hospital__09",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          32
+        ],
+        [
+          "build",
+          32,
+          64
+        ],
+        [
+          "drop",
+          64,
+          113
+        ],
+        [
+          "build",
+          113,
+          129
+        ],
+        [
+          "drop",
+          129,
+          195
+        ],
+        [
+          "outro",
+          195,
+          199
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          12
+        ],
+        [
+          "build",
+          12,
+          28
+        ],
+        [
+          "drop",
+          28,
+          67
+        ],
+        [
+          "build",
+          67,
+          75
+        ],
+        [
+          "drop",
+          75,
+          84
+        ],
+        [
+          "build",
+          84,
+          100
+        ],
+        [
+          "drop",
+          100,
+          111
+        ],
+        [
+          "outro",
+          111,
+          114
+        ]
+      ],
+      "brks_a": [
+        [
+          195,
+          199
+        ]
+      ],
+      "brks_b": [],
+      "loc_a": {
+        "z": 8.513,
+        "cc": 0.8006,
+        "mix_t": 12.817,
+        "track_t": 143.778,
+        "n": 90
+      },
+      "loc_b": {
+        "z": 12.077,
+        "cc": 0.8378,
+        "mix_t": 52.849,
+        "track_t": 23.963,
+        "n": 51
+      },
+      "loc_mixin_a": {
+        "z": 4.237,
+        "cc": 0.1025,
+        "mix_t": 3.901,
+        "track_t": 81.874,
+        "n": 136
+      },
+      "loc_mixin_b": {
+        "z": 6.024,
+        "cc": 0.3319,
+        "mix_t": 3.437,
+        "track_t": 85.867,
+        "n": 77
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.582,
+      "drop_b_bar": 28,
+      "drop_clip_s": 47.601,
+      "loc_drop_b": {
+        "z": 4.007,
+        "cc": 0.199,
+        "mix_t": 47.601,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        195,
+        199
+      ],
+      "brk_clip_s": 138.005,
+      "loc_brk_a": {
+        "z": 0,
+        "cc": 0,
+        "mix_t": null,
+        "track_t": null,
+        "fallback_linear": true
+      },
+      "bars": {
+        "mixin_out": 57.26,
+        "mixin_in": 60.49,
+        "drop_out": 129.46,
+        "drop_in": 28.0,
+        "cut_out": 137.35,
+        "cut_in": 21.46
+      },
+      "phases": {
+        "mixin": [
+          "build",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "build"
+        ]
+      },
+      "align": {
+        "offset_bars": -65.54,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -137.74,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 7.89,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "joe_syntax_hospital__10",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky) -> Logistics - We Are One (Nu:Logic Remix)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          12
+        ],
+        [
+          "build",
+          12,
+          28
+        ],
+        [
+          "drop",
+          28,
+          67
+        ],
+        [
+          "build",
+          67,
+          75
+        ],
+        [
+          "drop",
+          75,
+          84
+        ],
+        [
+          "build",
+          84,
+          100
+        ],
+        [
+          "drop",
+          100,
+          111
+        ],
+        [
+          "outro",
+          111,
+          114
+        ]
+      ],
+      "spans_b": [
+        [
+          "build",
+          0,
+          33
+        ],
+        [
+          "breakdown",
+          33,
+          48
+        ],
+        [
+          "build",
+          48,
+          63
+        ],
+        [
+          "drop",
+          63,
+          127
+        ],
+        [
+          "build",
+          127,
+          128
+        ],
+        [
+          "breakdown",
+          128,
+          159
+        ],
+        [
+          "drop",
+          159,
+          237
+        ],
+        [
+          "outro",
+          237,
+          244
+        ]
+      ],
+      "brks_a": [],
+      "brks_b": [
+        [
+          33,
+          48
+        ],
+        [
+          128,
+          159
+        ],
+        [
+          238,
+          244
+        ]
+      ],
+      "loc_a": {
+        "z": 10.599,
+        "cc": 0.5216,
+        "mix_t": 3.785,
+        "track_t": 107.833,
+        "n": 51
+      },
+      "loc_b": {
+        "z": 12.072,
+        "cc": 0.8169,
+        "mix_t": 56.889,
+        "track_t": 77.88,
+        "n": 111
+      },
+      "loc_mixin_a": {
+        "z": 3.48,
+        "cc": 0.1638,
+        "mix_t": 3.808,
+        "track_t": 147.772,
+        "n": 77
+      },
+      "loc_mixin_b": {
+        "z": 7.308,
+        "cc": 0.6828,
+        "mix_t": 3.901,
+        "track_t": 47.926,
+        "n": 167
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.154,
+      "drop_b_bar": 63,
+      "drop_clip_s": 43.816,
+      "loc_drop_b": {
+        "z": 6.601,
+        "cc": 0.2277,
+        "mix_t": 43.816,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "brk_from_outro": true,
+      "out_brk": [
+        111,
+        114
+      ],
+      "brk_clip_s": 49.055,
+      "loc_brk_a": {
+        "z": 0,
+        "cc": 0,
+        "mix_t": null,
+        "track_t": null,
+        "fallback_linear": true
+      },
+      "bars": {
+        "mixin_out": 105.1,
+        "mixin_in": 32.64,
+        "drop_out": 63.08,
+        "drop_in": 63.0,
+        "cut_out": 117.83,
+        "cut_in": 57.62
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "breakdown"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "outro",
+          "build"
+        ]
+      },
+      "align": {
+        "offset_bars": -3.8,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -5.9,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 10.63,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          8
+        ],
+        [
+          "build",
+          8,
+          34
+        ],
+        [
+          "breakdown",
+          34,
+          47
+        ],
+        [
+          "build",
+          47,
+          61
+        ],
+        [
+          "drop",
+          61,
+          128
+        ],
+        [
+          "build",
+          128,
+          156
+        ],
+        [
+          "drop",
+          156,
+          224
+        ],
+        [
+          "outro",
+          224,
+          229
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          8
+        ],
+        [
+          "build",
+          8,
+          36
+        ],
+        [
+          "drop",
+          36,
+          100
+        ],
+        [
+          "outro",
+          100,
+          111
+        ]
+      ],
+      "brks_a": [
+        [
+          34,
+          47
+        ],
+        [
+          224,
+          229
+        ]
+      ],
+      "brks_b": [
+        [
+          100,
+          111
+        ]
+      ],
+      "loc_a": {
+        "z": 11.012,
+        "cc": 0.7208,
+        "mix_t": 0.232,
+        "track_t": 218.662,
+        "n": 104
+      },
+      "loc_b": {
+        "z": 7.219,
+        "cc": 0.8592,
+        "mix_t": 30.395,
+        "track_t": 56.912,
+        "n": 50
+      },
+      "loc_mixin_a": {
+        "z": 4.198,
+        "cc": 0.1667,
+        "mix_t": 2.647,
+        "track_t": 173.732,
+        "n": 156
+      },
+      "loc_mixin_b": {
+        "z": 5.011,
+        "cc": 0.5728,
+        "mix_t": 1.277,
+        "track_t": 25.96,
+        "n": 76
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.046,
+      "drop_b_bar": 36,
+      "drop_clip_s": 23.15,
+      "loc_drop_b": {
+        "z": 7.712,
+        "cc": 0.783,
+        "mix_t": 23.15,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "out_brk": [
+        224,
+        229
+      ],
+      "brk_clip_s": 90.536,
+      "loc_brk_a": {
+        "z": 0,
+        "cc": 0,
+        "mix_t": null,
+        "track_t": null,
+        "fallback_linear": true
+      },
+      "bars": {
+        "mixin_out": 124.76,
+        "mixin_in": 18.62,
+        "drop_out": 114.16,
+        "drop_in": 36.0,
+        "cut_out": 200.76,
+        "cut_in": 61.62
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": -48.85,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -99.24,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 25.62,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "joe_syntax_hospital__17",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          2
+        ],
+        [
+          "build",
+          2,
+          10
+        ],
+        [
+          "drop",
+          10,
+          90
+        ],
+        [
+          "build",
+          90,
+          94
+        ],
+        [
+          "breakdown",
+          94,
+          122
+        ],
+        [
+          "drop",
+          122,
+          137
+        ],
+        [
+          "outro",
+          137,
+          145
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          13
+        ],
+        [
+          "build",
+          13,
+          47
+        ],
+        [
+          "drop",
+          47,
+          96
+        ],
+        [
+          "breakdown",
+          96,
+          127
+        ],
+        [
+          "drop",
+          127,
+          191
+        ],
+        [
+          "outro",
+          191,
+          205
+        ]
+      ],
+      "brks_a": [
+        [
+          94,
+          122
+        ],
+        [
+          137,
+          145
+        ]
+      ],
+      "brks_b": [
+        [
+          96,
+          127
+        ],
+        [
+          192,
+          205
+        ]
+      ],
+      "loc_a": {
+        "z": 8.114,
+        "cc": 0.3931,
+        "mix_t": 5.991,
+        "track_t": 128.801,
+        "n": 65
+      },
+      "loc_b": {
+        "z": 7.771,
+        "cc": 0.8213,
+        "mix_t": 55.983,
+        "track_t": 164.746,
+        "n": 93
+      },
+      "loc_mixin_a": {
+        "z": 3.442,
+        "cc": -0.0027,
+        "mix_t": 0.0,
+        "track_t": 11.981,
+        "n": 98
+      },
+      "loc_mixin_b": {
+        "z": 4.987,
+        "cc": 0.6515,
+        "mix_t": 3.901,
+        "track_t": 157.756,
+        "n": 140
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.049,
+      "drop_b_bar": 127,
+      "drop_clip_s": 48.344,
+      "loc_drop_b": {
+        "z": 3.954,
+        "cc": 0.1732,
+        "mix_t": 48.344,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "out_brk": [
+        94,
+        122
+      ],
+      "brk_clip_s": 6.85,
+      "loc_brk_a": {
+        "z": 8.353,
+        "cc": 0.3826,
+        "mix_t": 6.85,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 9.41,
+        "mixin_in": 112.27,
+        "drop_out": 139.71,
+        "drop_in": 127.0,
+        "cut_out": 131.44,
+        "cut_in": 121.25
+      },
+      "phases": {
+        "mixin": [
+          "build",
+          "breakdown"
+        ],
+        "in_drop": [
+          "outro",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "breakdown"
+        ]
+      },
+      "align": {
+        "offset_bars": 30.08,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": true,
+        "mixin_vs_brk_bars": -84.59,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 7.35,
+      "cut_before_in_drop": false,
+      "overflow_bars": 28.0,
+      "overflow_seg": [
+        94,
+        122
+      ]
+    },
+    {
+      "id": "joe_syntax_hospital__18",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Netsky - Lotus Symphony -> Unquote & Molecular Structures - Lubov Moya",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          13
+        ],
+        [
+          "build",
+          13,
+          47
+        ],
+        [
+          "drop",
+          47,
+          96
+        ],
+        [
+          "breakdown",
+          96,
+          127
+        ],
+        [
+          "drop",
+          127,
+          191
+        ],
+        [
+          "outro",
+          191,
+          205
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          24
+        ],
+        [
+          "breakdown",
+          24,
+          31
+        ],
+        [
+          "intro",
+          31,
+          32
+        ],
+        [
+          "drop",
+          32,
+          56
+        ],
+        [
+          "breakdown",
+          56,
+          64
+        ],
+        [
+          "drop",
+          64,
+          128
+        ],
+        [
+          "breakdown",
+          128,
+          144
+        ],
+        [
+          "drop",
+          144,
+          156
+        ],
+        [
+          "build",
+          156,
+          160
+        ],
+        [
+          "drop",
+          160,
+          222
+        ],
+        [
+          "outro",
+          222,
+          230
+        ]
+      ],
+      "brks_a": [
+        [
+          96,
+          127
+        ],
+        [
+          192,
+          205
+        ]
+      ],
+      "brks_b": [
+        [
+          24,
+          31
+        ],
+        [
+          56,
+          64
+        ],
+        [
+          128,
+          144
+        ],
+        [
+          224,
+          230
+        ]
+      ],
+      "loc_a": {
+        "z": 11.623,
+        "cc": 0.8027,
+        "mix_t": 2.276,
+        "track_t": 197.695,
+        "n": 93
+      },
+      "loc_b": {
+        "z": 8.331,
+        "cc": 0.8441,
+        "mix_t": 23.754,
+        "track_t": 86.866,
+        "n": 104
+      },
+      "loc_mixin_a": {
+        "z": 3.864,
+        "cc": 0.1316,
+        "mix_t": 3.692,
+        "track_t": 7.988,
+        "n": 140
+      },
+      "loc_mixin_b": {
+        "z": 5.286,
+        "cc": 0.6939,
+        "mix_t": 2.601,
+        "track_t": 121.812,
+        "n": 157
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.674,
+      "drop_b_bar": 64,
+      "drop_clip_s": 25.147,
+      "loc_drop_b": {
+        "z": 7.705,
+        "cc": 0.7663,
+        "mix_t": 25.147,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "out_brk": [
+        96,
+        127
+      ],
+      "brk_clip_s": 31.742,
+      "loc_brk_a": {
+        "z": 3.229,
+        "cc": 0.1894,
+        "mix_t": 31.742,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 3.84,
+        "mixin_in": 87.15,
+        "drop_out": 147.39,
+        "drop_in": 64.0,
+        "cut_out": 184.08,
+        "cut_in": 88.16
+      },
+      "phases": {
+        "mixin": [
+          "intro",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": -4.78,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -92.16,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 24.17,
+      "cut_before_in_drop": false,
+      "overflow_bars": 31.0,
+      "overflow_seg": [
+        96,
+        127
+      ]
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "build",
+          16,
+          48
+        ],
+        [
+          "drop",
+          48,
+          112
+        ],
+        [
+          "breakdown",
+          112,
+          144
+        ],
+        [
+          "drop",
+          144,
+          208
+        ],
+        [
+          "outro",
+          208,
+          228
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          19
+        ],
+        [
+          "build",
+          19,
+          48
+        ],
+        [
+          "drop",
+          48,
+          116
+        ],
+        [
+          "build",
+          116,
+          137
+        ],
+        [
+          "breakdown",
+          137,
+          144
+        ],
+        [
+          "drop",
+          144,
+          208
+        ],
+        [
+          "outro",
+          208,
+          228
+        ]
+      ],
+      "brks_a": [
+        [
+          112,
+          144
+        ],
+        [
+          224,
+          228
+        ]
+      ],
+      "brks_b": [
+        [
+          137,
+          144
+        ],
+        [
+          208,
+          228
+        ]
+      ],
+      "loc_a": {
+        "z": 8.08,
+        "cc": 0.5303,
+        "mix_t": 12.934,
+        "track_t": 188.709,
+        "n": 104
+      },
+      "loc_b": {
+        "z": 7.777,
+        "cc": 0.7566,
+        "mix_t": 56.401,
+        "track_t": 98.847,
+        "n": 104
+      },
+      "loc_mixin_a": {
+        "z": 3.694,
+        "cc": 0.5104,
+        "mix_t": 2.694,
+        "track_t": 263.593,
+        "n": 156
+      },
+      "loc_mixin_b": {
+        "z": 5.278,
+        "cc": 0.8449,
+        "mix_t": 2.624,
+        "track_t": 67.895,
+        "n": 156
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.785,
+      "drop_b_bar": 48,
+      "drop_clip_s": 29.907,
+      "loc_drop_b": {
+        "z": 7.504,
+        "cc": 0.7176,
+        "mix_t": 29.907,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "out_brk": [
+        224,
+        228
+      ],
+      "brk_clip_s": 133.191,
+      "loc_brk_a": {
+        "z": 0,
+        "cc": 0,
+        "mix_t": null,
+        "track_t": null,
+        "fallback_linear": true
+      },
+      "bars": {
+        "mixin_out": 189.88,
+        "mixin_in": 48.05,
+        "drop_out": 181.19,
+        "drop_in": 48.0,
+        "cut_out": 169.84,
+        "cut_in": 73.17
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": -74.88,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -34.12,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 20.72,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          19
+        ],
+        [
+          "build",
+          19,
+          37
+        ],
+        [
+          "breakdown",
+          37,
+          52
+        ],
+        [
+          "drop",
+          52,
+          114
+        ],
+        [
+          "build",
+          114,
+          115
+        ],
+        [
+          "breakdown",
+          115,
+          148
+        ],
+        [
+          "drop",
+          148,
+          210
+        ],
+        [
+          "outro",
+          210,
+          229
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          80
+        ],
+        [
+          "drop",
+          80,
+          300
+        ],
+        [
+          "outro",
+          300,
+          307
+        ]
+      ],
+      "brks_a": [
+        [
+          37,
+          52
+        ],
+        [
+          115,
+          148
+        ],
+        [
+          211,
+          229
+        ]
+      ],
+      "brks_b": [],
+      "loc_a": {
+        "z": 12.444,
+        "cc": 0.74,
+        "mix_t": 15.673,
+        "track_t": 173.732,
+        "n": 104
+      },
+      "loc_b": {
+        "z": 7.767,
+        "cc": 0.4006,
+        "mix_t": 49.18,
+        "track_t": 113.824,
+        "n": 140
+      },
+      "loc_mixin_a": {
+        "z": 3.638,
+        "cc": 0.1484,
+        "mix_t": 0.209,
+        "track_t": 37.941,
+        "n": 155
+      },
+      "loc_mixin_b": {
+        "z": 4.821,
+        "cc": 0.2177,
+        "mix_t": 0.163,
+        "track_t": 131.796,
+        "n": 210
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.409,
+      "drop_b_bar": 80,
+      "drop_clip_s": 45.72,
+      "loc_drop_b": {
+        "z": 8.704,
+        "cc": 0.6637,
+        "mix_t": 45.72,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "out_brk": [
+        37,
+        52
+      ],
+      "brk_clip_s": 43.77,
+      "loc_brk_a": {
+        "z": 3.352,
+        "cc": 0.3369,
+        "mix_t": 43.77,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 28.08,
+        "mixin_in": 96.16,
+        "drop_out": 51.87,
+        "drop_in": 80.0,
+        "cut_out": 156.99,
+        "cut_in": 89.27
+      },
+      "phases": {
+        "mixin": [
+          "build",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 1.41,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -8.92,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 9.25,
+      "cut_before_in_drop": false,
+      "overflow_bars": 48.0,
+      "overflow_seg": [
+        37,
+        52
+      ]
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          80
+        ],
+        [
+          "drop",
+          80,
+          300
+        ],
+        [
+          "outro",
+          300,
+          307
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          6
+        ],
+        [
+          "build",
+          6,
+          48
+        ],
+        [
+          "drop",
+          48,
+          112
+        ],
+        [
+          "breakdown",
+          112,
+          144
+        ],
+        [
+          "drop",
+          144,
+          192
+        ],
+        [
+          "outro",
+          192,
+          204
+        ]
+      ],
+      "brks_a": [],
+      "brks_b": [
+        [
+          112,
+          144
+        ],
+        [
+          192,
+          204
+        ]
+      ],
+      "loc_a": {
+        "z": 7.301,
+        "cc": 0.7971,
+        "mix_t": 7.361,
+        "track_t": 227.648,
+        "n": 140
+      },
+      "loc_b": {
+        "z": 7.644,
+        "cc": 0.6857,
+        "mix_t": 39.358,
+        "track_t": 38.94,
+        "n": 92
+      },
+      "loc_mixin_a": {
+        "z": 5.134,
+        "cc": 0.5547,
+        "mix_t": 1.184,
+        "track_t": 255.605,
+        "n": 210
+      },
+      "loc_mixin_b": {
+        "z": 3.201,
+        "cc": 0.2858,
+        "mix_t": 1.811,
+        "track_t": 109.83,
+        "n": 139
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.7,
+      "drop_b_bar": 48,
+      "drop_clip_s": 12.98,
+      "loc_drop_b": {
+        "z": 3.621,
+        "cc": 0.3421,
+        "mix_t": 12.98,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "brk_from_outro": true,
+      "out_brk": [
+        300,
+        307
+      ],
+      "brk_clip_s": 193.506,
+      "loc_brk_a": {
+        "z": 0,
+        "cc": 0,
+        "mix_t": null,
+        "track_t": null,
+        "fallback_linear": true
+      },
+      "bars": {
+        "mixin_out": 185.18,
+        "mixin_in": 79.04,
+        "drop_out": 101.14,
+        "drop_in": 48.0,
+        "cut_out": 202.11,
+        "cut_in": 42.1
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "build"
+        ]
+      },
+      "align": {
+        "offset_bars": -130.88,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -114.82,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 32.99,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          6
+        ],
+        [
+          "build",
+          6,
+          48
+        ],
+        [
+          "drop",
+          48,
+          112
+        ],
+        [
+          "breakdown",
+          112,
+          144
+        ],
+        [
+          "drop",
+          144,
+          192
+        ],
+        [
+          "outro",
+          192,
+          204
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          11
+        ],
+        [
+          "build",
+          11,
+          48
+        ],
+        [
+          "drop",
+          48,
+          96
+        ],
+        [
+          "outro",
+          96,
+          121
+        ]
+      ],
+      "brks_a": [
+        [
+          112,
+          144
+        ],
+        [
+          192,
+          204
+        ]
+      ],
+      "brks_b": [
+        [
+          97,
+          121
+        ]
+      ],
+      "loc_a": {
+        "z": 6.947,
+        "cc": 0.5549,
+        "mix_t": 23.197,
+        "track_t": 197.695,
+        "n": 92
+      },
+      "loc_b": {
+        "z": 6.7,
+        "cc": 0.6438,
+        "mix_t": 46.579,
+        "track_t": 110.829,
+        "n": 54
+      },
+      "loc_mixin_a": {
+        "z": 4.57,
+        "cc": 0.5769,
+        "mix_t": 0.0,
+        "track_t": 241.627,
+        "n": 139
+      },
+      "loc_mixin_b": {
+        "z": 4.364,
+        "cc": 0.6091,
+        "mix_t": 3.576,
+        "track_t": 123.809,
+        "n": 82
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.659,
+      "drop_b_bar": 48,
+      "drop_clip_s": 52.059,
+      "loc_drop_b": {
+        "z": 5.762,
+        "cc": 0.7029,
+        "mix_t": 52.059,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "out_brk": [
+        192,
+        204
+      ],
+      "brk_clip_s": 7.755,
+      "loc_brk_a": {
+        "z": 3.218,
+        "cc": 0.254,
+        "mix_t": 7.755,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 175.9,
+        "mixin_in": 87.89,
+        "drop_out": 140.37,
+        "drop_in": 48.0,
+        "cut_out": 168.91,
+        "cut_in": 88.98
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "breakdown",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 32.12,
+        "in_drop_at_out_breakdown": true,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -16.1,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 4.66,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "hybrid_minds_ukf__19",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Urbandawn - Prime Expansion -> Hybrid Minds - Demons (ft. Charlotte Haining)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          28
+        ],
+        [
+          "build",
+          28,
+          32
+        ],
+        [
+          "drop",
+          32,
+          111
+        ],
+        [
+          "build",
+          111,
+          112
+        ],
+        [
+          "breakdown",
+          112,
+          132
+        ],
+        [
+          "build",
+          132,
+          136
+        ],
+        [
+          "drop",
+          136,
+          183
+        ],
+        [
+          "outro",
+          183,
+          191
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          10
+        ],
+        [
+          "build",
+          10,
+          48
+        ],
+        [
+          "drop",
+          48,
+          111
+        ],
+        [
+          "build",
+          111,
+          112
+        ],
+        [
+          "breakdown",
+          112,
+          140
+        ],
+        [
+          "build",
+          140,
+          144
+        ],
+        [
+          "drop",
+          144,
+          207
+        ],
+        [
+          "outro",
+          207,
+          219
+        ]
+      ],
+      "brks_a": [
+        [
+          112,
+          132
+        ],
+        [
+          184,
+          191
+        ]
+      ],
+      "brks_b": [
+        [
+          112,
+          140
+        ],
+        [
+          207,
+          219
+        ]
+      ],
+      "loc_a": {
+        "z": 11.342,
+        "cc": 0.6939,
+        "mix_t": 16.811,
+        "track_t": 146.773,
+        "n": 86
+      },
+      "loc_b": {
+        "z": 11.128,
+        "cc": 0.7586,
+        "mix_t": 54.567,
+        "track_t": 206.681,
+        "n": 99
+      },
+      "loc_mixin_a": {
+        "z": 3.433,
+        "cc": 0.1442,
+        "mix_t": 3.576,
+        "track_t": 175.729,
+        "n": 130
+      },
+      "loc_mixin_b": {
+        "z": 4.79,
+        "cc": 0.7558,
+        "mix_t": 1.416,
+        "track_t": 43.932,
+        "n": 149
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.211,
+      "drop_b_bar": 48,
+      "drop_clip_s": 48.553,
+      "loc_drop_b": {
+        "z": 9.572,
+        "cc": 0.6596,
+        "mix_t": 48.553,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        112,
+        132
+      ],
+      "brk_clip_s": 20.503,
+      "loc_brk_a": {
+        "z": 3.089,
+        "cc": 0.2089,
+        "mix_t": 20.503,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 125.54,
+        "mixin_in": 31.55,
+        "drop_out": 169.68,
+        "drop_in": 48.0,
+        "cut_out": 136.62,
+        "cut_in": 152.68
+      },
+      "phases": {
+        "mixin": [
+          "breakdown",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 20.34,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": 13.54,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 7.2,
+      "cut_before_in_drop": false,
+      "overflow_bars": 6.46,
+      "overflow_seg": [
+        112,
+        132
+      ]
+    },
+    {
+      "id": "hybrid_minds_ukf__20",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Hybrid Minds - Demons (ft. Charlotte Haining) -> Changing Faces - Emptiness",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          10
+        ],
+        [
+          "build",
+          10,
+          48
+        ],
+        [
+          "drop",
+          48,
+          111
+        ],
+        [
+          "build",
+          111,
+          112
+        ],
+        [
+          "breakdown",
+          112,
+          140
+        ],
+        [
+          "build",
+          140,
+          144
+        ],
+        [
+          "drop",
+          144,
+          207
+        ],
+        [
+          "outro",
+          207,
+          219
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          28
+        ],
+        [
+          "build",
+          28,
+          32
+        ],
+        [
+          "drop",
+          32,
+          80
+        ],
+        [
+          "breakdown",
+          80,
+          92
+        ],
+        [
+          "build",
+          92,
+          96
+        ],
+        [
+          "drop",
+          96,
+          144
+        ],
+        [
+          "outro",
+          144,
+          152
+        ]
+      ],
+      "brks_a": [
+        [
+          112,
+          140
+        ],
+        [
+          207,
+          219
+        ]
+      ],
+      "brks_b": [
+        [
+          80,
+          92
+        ],
+        [
+          144,
+          152
+        ]
+      ],
+      "loc_a": {
+        "z": 7.368,
+        "cc": 0.3794,
+        "mix_t": 5.666,
+        "track_t": 146.773,
+        "n": 99
+      },
+      "loc_b": {
+        "z": 8.753,
+        "cc": 0.3305,
+        "mix_t": 57.098,
+        "track_t": 137.787,
+        "n": 68
+      },
+      "loc_mixin_a": {
+        "z": 3.382,
+        "cc": 0.1624,
+        "mix_t": 3.901,
+        "track_t": 31.951,
+        "n": 149
+      },
+      "loc_mixin_b": {
+        "z": 3.842,
+        "cc": 0.5203,
+        "mix_t": 0.279,
+        "track_t": 9.985,
+        "n": 103
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.303,
+      "drop_b_bar": 32,
+      "drop_clip_s": 59.234,
+      "loc_drop_b": {
+        "z": 9.846,
+        "cc": 0.4574,
+        "mix_t": 59.234,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        112,
+        140
+      ],
+      "brk_clip_s": 19.296,
+      "loc_brk_a": {
+        "z": 4.476,
+        "cc": 0.2109,
+        "mix_t": 19.296,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 21.06,
+        "mixin_in": 7.76,
+        "drop_out": 145.25,
+        "drop_in": 32.0,
+        "cut_out": 144.7,
+        "cut_in": 100.9
+      },
+      "phases": {
+        "mixin": [
+          "build",
+          "intro"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 28.96,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -90.94,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 0.0,
+      "cut_before_in_drop": true,
+      "tail_raw_bars": -0.54,
+      "overflow_bars": 28.0,
+      "overflow_seg": [
+        112,
+        140
+      ]
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "build",
+          16,
+          31
+        ],
+        [
+          "drop",
+          31,
+          41
+        ],
+        [
+          "build",
+          41,
+          48
+        ],
+        [
+          "drop",
+          48,
+          128
+        ],
+        [
+          "build",
+          128,
+          129
+        ],
+        [
+          "breakdown",
+          129,
+          160
+        ],
+        [
+          "drop",
+          160,
+          224
+        ],
+        [
+          "outro",
+          224,
+          235
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          32
+        ],
+        [
+          "drop",
+          32,
+          41
+        ],
+        [
+          "build",
+          41,
+          50
+        ],
+        [
+          "drop",
+          50,
+          65
+        ],
+        [
+          "build",
+          65,
+          74
+        ],
+        [
+          "drop",
+          74,
+          88
+        ],
+        [
+          "breakdown",
+          88,
+          96
+        ],
+        [
+          "build",
+          96,
+          106
+        ],
+        [
+          "drop",
+          106,
+          125
+        ],
+        [
+          "build",
+          125,
+          134
+        ],
+        [
+          "drop",
+          134,
+          149
+        ],
+        [
+          "outro",
+          149,
+          197
+        ]
+      ],
+      "brks_a": [
+        [
+          129,
+          160
+        ],
+        [
+          224,
+          235
+        ]
+      ],
+      "brks_b": [
+        [
+          88,
+          96
+        ],
+        [
+          192,
+          197
+        ]
+      ],
+      "loc_a": {
+        "z": 9.498,
+        "cc": 0.6082,
+        "mix_t": 10.681,
+        "track_t": 206.681,
+        "n": 107
+      },
+      "loc_b": {
+        "z": 6.28,
+        "cc": 0.6407,
+        "mix_t": 23.057,
+        "track_t": 86.866,
+        "n": 89
+      },
+      "loc_mixin_a": {
+        "z": 4.794,
+        "cc": 0.5478,
+        "mix_t": 3.413,
+        "track_t": 255.605,
+        "n": 161
+      },
+      "loc_mixin_b": {
+        "z": 4.884,
+        "cc": 0.866,
+        "mix_t": 3.251,
+        "track_t": 45.929,
+        "n": 134
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.164,
+      "drop_b_bar": 32,
+      "drop_clip_s": 26.448,
+      "loc_drop_b": {
+        "z": 5.875,
+        "cc": 0.7457,
+        "mix_t": 26.448,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        224,
+        235
+      ],
+      "brk_clip_s": 112.966,
+      "loc_brk_a": {
+        "z": 2.566,
+        "cc": 0.2785,
+        "mix_t": 11.192,
+        "track_t": 3.994,
+        "n": 4,
+        "fallback_linear": true
+      },
+      "bars": {
+        "mixin_out": 183.56,
+        "mixin_in": 31.67,
+        "drop_out": 67.34,
+        "drop_in": 32.0,
+        "cut_out": 184.5,
+        "cut_in": 88.66
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "breakdown"
+        ]
+      },
+      "align": {
+        "offset_bars": -62.73,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -40.44,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 23.23,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "hybrid_minds_ukf__25",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          12
+        ],
+        [
+          "build",
+          12,
+          48
+        ],
+        [
+          "drop",
+          48,
+          111
+        ],
+        [
+          "build",
+          111,
+          115
+        ],
+        [
+          "breakdown",
+          115,
+          128
+        ],
+        [
+          "drop",
+          128,
+          190
+        ],
+        [
+          "outro",
+          190,
+          215
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "drop",
+          16,
+          48
+        ],
+        [
+          "build",
+          48,
+          49
+        ],
+        [
+          "breakdown",
+          49,
+          64
+        ],
+        [
+          "drop",
+          64,
+          143
+        ],
+        [
+          "breakdown",
+          143,
+          159
+        ],
+        [
+          "drop",
+          159,
+          240
+        ],
+        [
+          "outro",
+          240,
+          262
+        ]
+      ],
+      "brks_a": [
+        [
+          115,
+          128
+        ],
+        [
+          191,
+          215
+        ]
+      ],
+      "brks_b": [
+        [
+          49,
+          64
+        ],
+        [
+          143,
+          159
+        ],
+        [
+          240,
+          262
+        ]
+      ],
+      "loc_a": {
+        "z": 10.821,
+        "cc": 0.6646,
+        "mix_t": 0.418,
+        "track_t": 152.764,
+        "n": 97
+      },
+      "loc_b": {
+        "z": 6.965,
+        "cc": 0.6332,
+        "mix_t": 22.825,
+        "track_t": 263.593,
+        "n": 119
+      },
+      "loc_mixin_a": {
+        "z": 4.747,
+        "cc": 0.5134,
+        "mix_t": 2.252,
+        "track_t": 177.726,
+        "n": 146
+      },
+      "loc_mixin_b": {
+        "z": 4.977,
+        "cc": 0.659,
+        "mix_t": 3.901,
+        "track_t": 245.621,
+        "n": 180
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.232,
+      "drop_b_bar": 159,
+      "drop_clip_s": 59.559,
+      "loc_drop_b": {
+        "z": 6.414,
+        "cc": 0.6539,
+        "mix_t": 59.559,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "out_brk": [
+        115,
+        128
+      ],
+      "brk_clip_s": 10.217,
+      "loc_brk_a": {
+        "z": 12.476,
+        "cc": 0.65,
+        "mix_t": 10.217,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 127.94,
+        "mixin_in": 175.97,
+        "drop_out": 153.63,
+        "drop_in": 159.0,
+        "cut_out": 152.85,
+        "cut_in": 216.96
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 35.77,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": 12.94,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 0.0,
+      "cut_before_in_drop": true,
+      "tail_raw_bars": -0.78,
+      "overflow_bars": 0.06,
+      "overflow_seg": [
+        115,
+        128
+      ]
+    },
+    {
+      "id": "hybrid_minds_ukf__33",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "1991 - Nine Clouds -> Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          1
+        ],
+        [
+          "build",
+          1,
+          33
+        ],
+        [
+          "breakdown",
+          33,
+          52
+        ],
+        [
+          "build",
+          52,
+          65
+        ],
+        [
+          "drop",
+          65,
+          111
+        ],
+        [
+          "breakdown",
+          111,
+          145
+        ],
+        [
+          "drop",
+          145,
+          176
+        ],
+        [
+          "outro",
+          176,
+          200
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          33
+        ],
+        [
+          "build",
+          33,
+          64
+        ],
+        [
+          "drop",
+          64,
+          155
+        ],
+        [
+          "build",
+          155,
+          160
+        ],
+        [
+          "breakdown",
+          160,
+          176
+        ],
+        [
+          "drop",
+          176,
+          270
+        ],
+        [
+          "outro",
+          270,
+          281
+        ]
+      ],
+      "brks_a": [
+        [
+          33,
+          52
+        ],
+        [
+          111,
+          145
+        ],
+        [
+          193,
+          200
+        ]
+      ],
+      "brks_b": [
+        [
+          160,
+          176
+        ],
+        [
+          272,
+          281
+        ]
+      ],
+      "loc_a": {
+        "z": 8.805,
+        "cc": 0.6479,
+        "mix_t": 18.739,
+        "track_t": 194.699,
+        "n": 84
+      },
+      "loc_b": {
+        "z": 6.953,
+        "cc": 0.6844,
+        "mix_t": 22.593,
+        "track_t": 86.866,
+        "n": 127
+      },
+      "loc_mixin_a": {
+        "z": 5.102,
+        "cc": 0.4842,
+        "mix_t": 2.694,
+        "track_t": 201.689,
+        "n": 124
+      },
+      "loc_mixin_b": {
+        "z": 4.768,
+        "cc": 0.5861,
+        "mix_t": 2.717,
+        "track_t": 277.571,
+        "n": 192
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.723,
+      "drop_b_bar": 176,
+      "drop_clip_s": 58.909,
+      "loc_drop_b": {
+        "z": 6.35,
+        "cc": 0.5458,
+        "mix_t": 58.909,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        111,
+        145
+      ],
+      "brk_clip_s": 11.819,
+      "loc_brk_a": {
+        "z": 3.385,
+        "cc": 0.2141,
+        "mix_t": 11.819,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 145.0,
+        "mixin_in": 199.99,
+        "drop_out": 170.28,
+        "drop_in": 176.0,
+        "cut_out": 169.97,
+        "cut_in": 89.0
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 34.14,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": 34.0,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 0.0,
+      "cut_before_in_drop": true,
+      "tail_raw_bars": -0.31,
+      "overflow_bars": 0.0,
+      "overflow_seg": [
+        111,
+        145
+      ]
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+      "spans_a": [
+        [
+          "outro",
+          0,
+          131
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          12
+        ],
+        [
+          "build",
+          12,
+          33
+        ],
+        [
+          "breakdown",
+          33,
+          48
+        ],
+        [
+          "drop",
+          48,
+          126
+        ],
+        [
+          "build",
+          126,
+          127
+        ],
+        [
+          "breakdown",
+          127,
+          176
+        ],
+        [
+          "drop",
+          176,
+          240
+        ],
+        [
+          "outro",
+          240,
+          248
+        ]
+      ],
+      "brks_a": [
+        [
+          112,
+          131
+        ]
+      ],
+      "brks_b": [
+        [
+          33,
+          48
+        ],
+        [
+          127,
+          176
+        ],
+        [
+          240,
+          248
+        ]
+      ],
+      "loc_a": {
+        "z": 7.928,
+        "cc": 0.8928,
+        "mix_t": 0.348,
+        "track_t": 131.796,
+        "n": 59
+      },
+      "loc_b": {
+        "z": 8.177,
+        "cc": 0.6229,
+        "mix_t": 33.553,
+        "track_t": 53.917,
+        "n": 113
+      },
+      "loc_mixin_a": {
+        "z": 3.459,
+        "cc": 0.1204,
+        "mix_t": 0.325,
+        "track_t": 103.84,
+        "n": 89
+      },
+      "loc_mixin_b": {
+        "z": 4.179,
+        "cc": 0.1921,
+        "mix_t": 0.186,
+        "track_t": 247.618,
+        "n": 170
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.337,
+      "drop_b_bar": 176,
+      "drop_clip_s": 45.767,
+      "loc_drop_b": {
+        "z": 5.983,
+        "cc": 0.7244,
+        "mix_t": 45.767,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "out_brk": [
+        112,
+        131
+      ],
+      "brk_clip_s": 35.736,
+      "loc_brk_a": {
+        "z": 3.985,
+        "cc": 0.3931,
+        "mix_t": 35.736,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 75.77,
+        "mixin_in": 180.11,
+        "drop_out": 71.67,
+        "drop_in": 176.0,
+        "cut_out": 137.7,
+        "cut_in": 57.16
+      },
+      "phases": {
+        "mixin": [
+          "outro",
+          "drop"
+        ],
+        "in_drop": [
+          "outro",
+          "drop"
+        ],
+        "out_cut": [
+          "outro",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 7.27,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": true,
+        "mixin_vs_brk_bars": -36.23,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 9.22,
+      "cut_before_in_drop": false,
+      "overflow_bars": 19.0,
+      "overflow_seg": [
+        112,
+        131
+      ]
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "dj": "Netsky",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          31
+        ],
+        [
+          "drop",
+          31,
+          41
+        ],
+        [
+          "build",
+          41,
+          64
+        ],
+        [
+          "drop",
+          64,
+          96
+        ],
+        [
+          "build",
+          96,
+          126
+        ],
+        [
+          "drop",
+          126,
+          158
+        ],
+        [
+          "outro",
+          158,
+          184
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          2
+        ],
+        [
+          "build",
+          2,
+          20
+        ],
+        [
+          "drop",
+          20,
+          29
+        ],
+        [
+          "build",
+          29,
+          48
+        ],
+        [
+          "drop",
+          48,
+          112
+        ],
+        [
+          "build",
+          112,
+          144
+        ],
+        [
+          "drop",
+          144,
+          208
+        ],
+        [
+          "outro",
+          208,
+          228
+        ]
+      ],
+      "brks_a": [
+        [
+          178,
+          184
+        ]
+      ],
+      "brks_b": [
+        [
+          218,
+          228
+        ]
+      ],
+      "loc_a": {
+        "z": 8.229,
+        "cc": 0.7883,
+        "mix_t": 2.694,
+        "track_t": 215.667,
+        "n": 83
+      },
+      "loc_b": {
+        "z": 10.729,
+        "cc": 0.6874,
+        "mix_t": 27.446,
+        "track_t": 41.935,
+        "n": 103
+      },
+      "loc_mixin_a": {
+        "z": 3.311,
+        "cc": 0.1609,
+        "mix_t": 1.556,
+        "track_t": 237.633,
+        "n": 126
+      },
+      "loc_mixin_b": {
+        "z": 4.705,
+        "cc": 0.6015,
+        "mix_t": 2.461,
+        "track_t": 39.938,
+        "n": 156
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.196,
+      "drop_b_bar": 20,
+      "drop_clip_s": 19.133,
+      "loc_drop_b": {
+        "z": 6.002,
+        "cc": 0.4494,
+        "mix_t": 19.133,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "out_brk": [
+        178,
+        184
+      ],
+      "brk_clip_s": 32.544,
+      "loc_brk_a": {
+        "z": 0,
+        "cc": 0,
+        "mix_t": null,
+        "track_t": null,
+        "fallback_linear": true
+      },
+      "bars": {
+        "mixin_out": 171.88,
+        "mixin_in": 27.9,
+        "drop_out": 164.32,
+        "drop_in": 20.0,
+        "cut_out": 196.81,
+        "cut_in": 52.9
+      },
+      "phases": {
+        "mixin": [
+          "outro",
+          "drop"
+        ],
+        "in_drop": [
+          "outro",
+          "drop"
+        ],
+        "out_cut": [
+          "outro",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": -9.72,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": true,
+        "mixin_vs_brk_bars": -6.12,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 28.53,
+      "cut_before_in_drop": false,
+      "overflow_bars": 6.0,
+      "overflow_seg": [
+        178,
+        184
+      ]
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "dj": "Netsky",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "High Contrast - Twilight's Last Gleaming -> Netsky - Escape (ft. Darrison)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          11
+        ],
+        [
+          "build",
+          11,
+          91
+        ],
+        [
+          "drop",
+          91,
+          187
+        ],
+        [
+          "breakdown",
+          187,
+          251
+        ],
+        [
+          "drop",
+          251,
+          315
+        ],
+        [
+          "outro",
+          315,
+          330
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "build",
+          16,
+          64
+        ],
+        [
+          "drop",
+          64,
+          159
+        ],
+        [
+          "build",
+          159,
+          192
+        ],
+        [
+          "drop",
+          192,
+          255
+        ],
+        [
+          "outro",
+          255,
+          259
+        ]
+      ],
+      "brks_a": [
+        [
+          187,
+          251
+        ],
+        [
+          315,
+          330
+        ]
+      ],
+      "brks_b": [
+        [
+          255,
+          259
+        ]
+      ],
+      "loc_a": {
+        "z": 8.533,
+        "cc": 0.5619,
+        "mix_t": 5.294,
+        "track_t": 161.75,
+        "n": 150
+      },
+      "loc_b": {
+        "z": 7.687,
+        "cc": 0.6543,
+        "mix_t": 26.053,
+        "track_t": 23.963,
+        "n": 118
+      },
+      "loc_mixin_a": {
+        "z": 4.047,
+        "cc": 0.3567,
+        "mix_t": 2.09,
+        "track_t": 65.898,
+        "n": 226
+      },
+      "loc_mixin_b": {
+        "z": 4.831,
+        "cc": 0.4603,
+        "mix_t": 1.254,
+        "track_t": 35.944,
+        "n": 177
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.172,
+      "drop_b_bar": 64,
+      "drop_clip_s": 0.998,
+      "loc_drop_b": {
+        "z": 4.272,
+        "cc": 0.237,
+        "mix_t": 0.998,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "out_brk": [
+        187,
+        251
+      ],
+      "brk_clip_s": 48.46,
+      "loc_brk_a": {
+        "z": 4.215,
+        "cc": 0.2752,
+        "mix_t": 48.46,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 46.99,
+        "mixin_in": 25.88,
+        "drop_out": 266.14,
+        "drop_in": 64.0,
+        "cut_out": 155.83,
+        "cut_in": 40.88
+      },
+      "phases": {
+        "mixin": [
+          "build",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "build"
+        ]
+      },
+      "align": {
+        "offset_bars": -34.41,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -140.01,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 41.68,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "netsky_hospital_classics__10",
+      "dj": "Netsky",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "Nu:Tone - Missing Link -> Netsky - Drawing Straws",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          56
+        ],
+        [
+          "build",
+          56,
+          62
+        ],
+        [
+          "drop",
+          62,
+          143
+        ],
+        [
+          "build",
+          143,
+          160
+        ],
+        [
+          "drop",
+          160,
+          210
+        ],
+        [
+          "outro",
+          210,
+          246
+        ]
+      ],
+      "spans_b": [
+        [
+          "build",
+          0,
+          32
+        ],
+        [
+          "drop",
+          32,
+          80
+        ],
+        [
+          "breakdown",
+          80,
+          96
+        ],
+        [
+          "build",
+          96,
+          112
+        ],
+        [
+          "drop",
+          112,
+          175
+        ],
+        [
+          "outro",
+          175,
+          185
+        ]
+      ],
+      "brks_a": [
+        [
+          240,
+          246
+        ]
+      ],
+      "brks_b": [
+        [
+          80,
+          96
+        ],
+        [
+          176,
+          185
+        ]
+      ],
+      "loc_a": {
+        "z": 6.44,
+        "cc": 0.7122,
+        "mix_t": 5.782,
+        "track_t": 137.787,
+        "n": 112
+      },
+      "loc_b": {
+        "z": 9.756,
+        "cc": 0.8208,
+        "mix_t": 42.051,
+        "track_t": 41.935,
+        "n": 83
+      },
+      "loc_mixin_a": {
+        "z": 4.494,
+        "cc": 0.5246,
+        "mix_t": 0.0,
+        "track_t": 171.735,
+        "n": 168
+      },
+      "loc_mixin_b": {
+        "z": 4.881,
+        "cc": 0.6269,
+        "mix_t": 1.277,
+        "track_t": 23.963,
+        "n": 126
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.428,
+      "drop_b_bar": 32,
+      "drop_clip_s": 50.178,
+      "loc_drop_b": {
+        "z": 8.293,
+        "cc": 0.7535,
+        "mix_t": 50.178,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "out_brk": [
+        240,
+        246
+      ],
+      "brk_clip_s": 199.029,
+      "loc_brk_a": {
+        "z": 0,
+        "cc": 0,
+        "mix_t": null,
+        "track_t": null,
+        "fallback_linear": true
+      },
+      "bars": {
+        "mixin_out": 125.23,
+        "mixin_in": 17.17,
+        "drop_out": 163.43,
+        "drop_in": 32.0,
+        "cut_out": 138.1,
+        "cut_in": 42.32
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": -107.92,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -114.77,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 6.02,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "dj": "Netsky",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          32
+        ],
+        [
+          "build",
+          32,
+          48
+        ],
+        [
+          "drop",
+          48,
+          128
+        ],
+        [
+          "breakdown",
+          128,
+          160
+        ],
+        [
+          "drop",
+          160,
+          236
+        ],
+        [
+          "outro",
+          236,
+          243
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          3
+        ],
+        [
+          "build",
+          3,
+          16
+        ],
+        [
+          "drop",
+          16,
+          32
+        ],
+        [
+          "build",
+          32,
+          33
+        ],
+        [
+          "breakdown",
+          33,
+          64
+        ],
+        [
+          "drop",
+          64,
+          109
+        ],
+        [
+          "build",
+          109,
+          113
+        ],
+        [
+          "breakdown",
+          113,
+          120
+        ],
+        [
+          "build",
+          120,
+          136
+        ],
+        [
+          "drop",
+          136,
+          198
+        ],
+        [
+          "outro",
+          198,
+          206
+        ]
+      ],
+      "brks_a": [
+        [
+          128,
+          160
+        ]
+      ],
+      "brks_b": [
+        [
+          33,
+          64
+        ],
+        [
+          113,
+          120
+        ],
+        [
+          198,
+          206
+        ]
+      ],
+      "loc_a": {
+        "z": 7.904,
+        "cc": 0.4148,
+        "mix_t": 11.285,
+        "track_t": 185.713,
+        "n": 110
+      },
+      "loc_b": {
+        "z": 9.64,
+        "cc": 0.5913,
+        "mix_t": 46.974,
+        "track_t": 38.94,
+        "n": 93
+      },
+      "loc_mixin_a": {
+        "z": 4.394,
+        "cc": 0.3634,
+        "mix_t": 0.906,
+        "track_t": 181.719,
+        "n": 166
+      },
+      "loc_mixin_b": {
+        "z": 4.45,
+        "cc": 0.7282,
+        "mix_t": 0.859,
+        "track_t": 15.975,
+        "n": 140
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.678,
+      "drop_b_bar": 16,
+      "drop_clip_s": 43.096,
+      "loc_drop_b": {
+        "z": 8.972,
+        "cc": 0.551,
+        "mix_t": 43.096,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        128,
+        160
+      ],
+      "brk_clip_s": 17.183,
+      "loc_brk_a": {
+        "z": 7.839,
+        "cc": 0.4238,
+        "mix_t": 17.183,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 131.81,
+        "mixin_in": 11.68,
+        "drop_out": 118.31,
+        "drop_in": 16.0,
+        "cut_out": 168.86,
+        "cut_in": 36.58
+      },
+      "phases": {
+        "mixin": [
+          "breakdown",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "breakdown"
+        ]
+      },
+      "align": {
+        "offset_bars": 18.79,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": 3.81,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 11.16,
+      "cut_before_in_drop": false,
+      "overflow_bars": 28.19,
+      "overflow_seg": [
+        128,
+        160
+      ]
+    },
+    {
+      "id": "netsky_hospital_classics__16",
+      "dj": "Netsky",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "Netsky - The Whistle Song -> Logistics - Together",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          3
+        ],
+        [
+          "build",
+          3,
+          16
+        ],
+        [
+          "drop",
+          16,
+          32
+        ],
+        [
+          "build",
+          32,
+          33
+        ],
+        [
+          "breakdown",
+          33,
+          64
+        ],
+        [
+          "drop",
+          64,
+          109
+        ],
+        [
+          "build",
+          109,
+          113
+        ],
+        [
+          "breakdown",
+          113,
+          120
+        ],
+        [
+          "build",
+          120,
+          136
+        ],
+        [
+          "drop",
+          136,
+          198
+        ],
+        [
+          "outro",
+          198,
+          206
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "drop",
+          16,
+          48
+        ],
+        [
+          "build",
+          48,
+          49
+        ],
+        [
+          "breakdown",
+          49,
+          64
+        ],
+        [
+          "drop",
+          64,
+          143
+        ],
+        [
+          "breakdown",
+          143,
+          159
+        ],
+        [
+          "drop",
+          159,
+          240
+        ],
+        [
+          "outro",
+          240,
+          262
+        ]
+      ],
+      "brks_a": [
+        [
+          33,
+          64
+        ],
+        [
+          113,
+          120
+        ],
+        [
+          198,
+          206
+        ]
+      ],
+      "brks_b": [
+        [
+          49,
+          64
+        ],
+        [
+          143,
+          159
+        ],
+        [
+          240,
+          262
+        ]
+      ],
+      "loc_a": {
+        "z": 6.836,
+        "cc": 0.3467,
+        "mix_t": 7.105,
+        "track_t": 236.635,
+        "n": 93
+      },
+      "loc_b": {
+        "z": 6.887,
+        "cc": 0.409,
+        "mix_t": 49.296,
+        "track_t": 68.894,
+        "n": 119
+      },
+      "loc_mixin_a": {
+        "z": 4.675,
+        "cc": 0.3303,
+        "mix_t": 2.67,
+        "track_t": 97.849,
+        "n": 140
+      },
+      "loc_mixin_b": {
+        "z": 5.041,
+        "cc": 0.5488,
+        "mix_t": 2.601,
+        "track_t": 329.491,
+        "n": 180
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.645,
+      "drop_b_bar": 159,
+      "drop_clip_s": 31.788,
+      "loc_drop_b": {
+        "z": 6.166,
+        "cc": 0.4232,
+        "mix_t": 31.788,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "out_brk": [
+        113,
+        120
+      ],
+      "brk_clip_s": 18.762,
+      "loc_brk_a": {
+        "z": 3.44,
+        "cc": 0.2161,
+        "mix_t": 18.762,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 69.73,
+        "mixin_in": 237.72,
+        "drop_out": 94.34,
+        "drop_in": 159.0,
+        "cut_out": 208.81,
+        "cut_in": 56.61
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "outro",
+          "breakdown"
+        ]
+      },
+      "align": {
+        "offset_bars": 9.44,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -43.27,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 19.35,
+      "cut_before_in_drop": false,
+      "overflow_bars": 15.0,
+      "overflow_seg": [
+        113,
+        120
+      ]
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "dj": "Netsky",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "drop",
+          16,
+          48
+        ],
+        [
+          "build",
+          48,
+          49
+        ],
+        [
+          "breakdown",
+          49,
+          64
+        ],
+        [
+          "drop",
+          64,
+          143
+        ],
+        [
+          "breakdown",
+          143,
+          159
+        ],
+        [
+          "drop",
+          159,
+          240
+        ],
+        [
+          "outro",
+          240,
+          262
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          32
+        ],
+        [
+          "build",
+          32,
+          48
+        ],
+        [
+          "drop",
+          48,
+          57
+        ],
+        [
+          "build",
+          57,
+          63
+        ],
+        [
+          "drop",
+          63,
+          108
+        ],
+        [
+          "build",
+          108,
+          112
+        ],
+        [
+          "drop",
+          112,
+          155
+        ],
+        [
+          "build",
+          155,
+          160
+        ],
+        [
+          "drop",
+          160,
+          170
+        ],
+        [
+          "build",
+          170,
+          176
+        ],
+        [
+          "drop",
+          176,
+          187
+        ],
+        [
+          "build",
+          187,
+          191
+        ],
+        [
+          "drop",
+          191,
+          239
+        ],
+        [
+          "outro",
+          239,
+          273
+        ]
+      ],
+      "brks_a": [
+        [
+          49,
+          64
+        ],
+        [
+          143,
+          159
+        ],
+        [
+          240,
+          262
+        ]
+      ],
+      "brks_b": [
+        [
+          244,
+          273
+        ]
+      ],
+      "loc_a": {
+        "z": 8.538,
+        "cc": 0.7582,
+        "mix_t": 1.556,
+        "track_t": 131.796,
+        "n": 119
+      },
+      "loc_b": {
+        "z": 11.108,
+        "cc": 0.6772,
+        "mix_t": 46.115,
+        "track_t": 65.898,
+        "n": 124
+      },
+      "loc_mixin_a": {
+        "z": 4.055,
+        "cc": 0.1773,
+        "mix_t": 1.161,
+        "track_t": 43.932,
+        "n": 180
+      },
+      "loc_mixin_b": {
+        "z": 4.734,
+        "cc": 0.2012,
+        "mix_t": 0.929,
+        "track_t": 275.574,
+        "n": 187
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.462,
+      "drop_b_bar": 191,
+      "drop_clip_s": 24.845,
+      "loc_drop_b": {
+        "z": 5.319,
+        "cc": 0.3967,
+        "mix_t": 24.845,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        49,
+        64
+      ],
+      "brk_clip_s": 7.314,
+      "loc_brk_a": {
+        "z": 3.436,
+        "cc": 0.1613,
+        "mix_t": 7.314,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 31.73,
+        "mixin_in": 199.84,
+        "drop_out": 24.34,
+        "drop_in": 191.0,
+        "cut_out": 136.82,
+        "cut_in": 56.74
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "build"
+        ]
+      },
+      "align": {
+        "offset_bars": 12.71,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -17.27,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 24.39,
+      "cut_before_in_drop": false,
+      "overflow_bars": 15.0,
+      "overflow_seg": [
+        49,
+        64
+      ]
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "dj": "Netsky",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "build",
+          16,
+          32
+        ],
+        [
+          "drop",
+          32,
+          96
+        ],
+        [
+          "breakdown",
+          96,
+          128
+        ],
+        [
+          "drop",
+          128,
+          192
+        ],
+        [
+          "outro",
+          192,
+          199
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          4
+        ],
+        [
+          "build",
+          4,
+          35
+        ],
+        [
+          "drop",
+          35,
+          107
+        ],
+        [
+          "build",
+          107,
+          109
+        ],
+        [
+          "breakdown",
+          109,
+          147
+        ],
+        [
+          "drop",
+          147,
+          156
+        ],
+        [
+          "outro",
+          156,
+          160
+        ]
+      ],
+      "brks_a": [
+        [
+          96,
+          128
+        ],
+        [
+          192,
+          199
+        ]
+      ],
+      "brks_b": [
+        [
+          109,
+          147
+        ]
+      ],
+      "loc_a": {
+        "z": 7.055,
+        "cc": 0.584,
+        "mix_t": 17.717,
+        "track_t": 155.759,
+        "n": 90
+      },
+      "loc_b": {
+        "z": 8.198,
+        "cc": 0.6085,
+        "mix_t": 49.017,
+        "track_t": 59.907,
+        "n": 72
+      },
+      "loc_mixin_a": {
+        "z": 3.997,
+        "cc": 0.4172,
+        "mix_t": 2.74,
+        "track_t": 163.747,
+        "n": 136
+      },
+      "loc_mixin_b": {
+        "z": 3.432,
+        "cc": 0.2312,
+        "mix_t": 3.901,
+        "track_t": 37.941,
+        "n": 109
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.463,
+      "drop_b_bar": 35,
+      "drop_clip_s": 39.311,
+      "loc_drop_b": {
+        "z": 7.98,
+        "cc": 0.6145,
+        "mix_t": 39.311,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        96,
+        128
+      ],
+      "brk_clip_s": 0.255,
+      "loc_brk_a": {
+        "z": 5.651,
+        "cc": 0.2817,
+        "mix_t": 0.255,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 117.46,
+        "mixin_in": 25.4,
+        "drop_out": 49.49,
+        "drop_in": 35.0,
+        "cut_out": 142.48,
+        "cut_in": 50.3
+      },
+      "phases": {
+        "mixin": [
+          "breakdown",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 28.32,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": 21.46,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 13.9,
+      "cut_before_in_drop": false,
+      "overflow_bars": 10.54,
+      "overflow_seg": [
+        96,
+        128
+      ]
+    },
+    {
+      "id": "netsky_hospital_classics__24",
+      "dj": "Netsky",
+      "split": "test",
+      "mixin_clip_s": 24.0,
+      "pair": "Nu:Logic - Morning Light -> Sigma - Nobody To Love",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          4
+        ],
+        [
+          "build",
+          4,
+          35
+        ],
+        [
+          "drop",
+          35,
+          107
+        ],
+        [
+          "build",
+          107,
+          109
+        ],
+        [
+          "breakdown",
+          109,
+          147
+        ],
+        [
+          "drop",
+          147,
+          156
+        ],
+        [
+          "outro",
+          156,
+          160
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          18
+        ],
+        [
+          "build",
+          18,
+          50
+        ],
+        [
+          "drop",
+          50,
+          98
+        ],
+        [
+          "build",
+          98,
+          99
+        ],
+        [
+          "breakdown",
+          99,
+          138
+        ],
+        [
+          "drop",
+          138,
+          186
+        ],
+        [
+          "outro",
+          186,
+          198
+        ]
+      ],
+      "brks_a": [
+        [
+          109,
+          147
+        ]
+      ],
+      "brks_b": [
+        [
+          99,
+          138
+        ],
+        [
+          186,
+          198
+        ]
+      ],
+      "loc_a": {
+        "z": 8.789,
+        "cc": 0.7377,
+        "mix_t": 7.268,
+        "track_t": 119.815,
+        "n": 72
+      },
+      "loc_b": {
+        "z": 6.894,
+        "cc": 0.4349,
+        "mix_t": 33.785,
+        "track_t": 176.727,
+        "n": 89
+      },
+      "loc_mixin_a": {
+        "z": 2.951,
+        "cc": 0.1561,
+        "mix_t": 0.302,
+        "track_t": 97.849,
+        "n": 109
+      },
+      "loc_mixin_b": {
+        "z": 4.3,
+        "cc": 0.3055,
+        "mix_t": 3.274,
+        "track_t": 69.892,
+        "n": 133
+      },
+      "cut_clip_s": 30.897,
+      "cut_z0": 3.042,
+      "drop_b_bar": 50,
+      "drop_clip_s": 27.353,
+      "loc_drop_b": {
+        "z": 6.277,
+        "cc": 0.3203,
+        "mix_t": 27.353,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        109,
+        147
+      ],
+      "brk_clip_s": 6.687,
+      "loc_brk_a": {
+        "z": 6.728,
+        "cc": 0.4002,
+        "mix_t": 6.687,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 71.45,
+        "mixin_in": 49.02,
+        "drop_out": 99.58,
+        "drop_in": 50.0,
+        "cut_out": 131.53,
+        "cut_in": 126.02
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "breakdown",
+          "breakdown"
+        ]
+      },
+      "align": {
+        "offset_bars": 14.98,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -37.55,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 2.57,
+      "cut_before_in_drop": false,
+      "overflow_bars": 22.53,
+      "overflow_seg": [
+        109,
+        147
+      ]
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+      "spans_a": [
+        [
+          "build",
+          0,
+          33
+        ],
+        [
+          "breakdown",
+          33,
+          48
+        ],
+        [
+          "build",
+          48,
+          63
+        ],
+        [
+          "drop",
+          63,
+          127
+        ],
+        [
+          "build",
+          127,
+          128
+        ],
+        [
+          "breakdown",
+          128,
+          159
+        ],
+        [
+          "drop",
+          159,
+          237
+        ],
+        [
+          "outro",
+          237,
+          244
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          1
+        ],
+        [
+          "build",
+          1,
+          41
+        ],
+        [
+          "drop",
+          41,
+          103
+        ],
+        [
+          "build",
+          103,
+          104
+        ],
+        [
+          "breakdown",
+          104,
+          110
+        ],
+        [
+          "drop",
+          110,
+          128
+        ],
+        [
+          "build",
+          128,
+          129
+        ],
+        [
+          "breakdown",
+          129,
+          140
+        ],
+        [
+          "build",
+          140,
+          144
+        ],
+        [
+          "drop",
+          144,
+          192
+        ],
+        [
+          "outro",
+          192,
+          236
+        ]
+      ],
+      "brks_a": [
+        [
+          33,
+          48
+        ],
+        [
+          128,
+          159
+        ],
+        [
+          238,
+          244
+        ]
+      ],
+      "brks_b": [
+        [
+          104,
+          110
+        ],
+        [
+          129,
+          140
+        ],
+        [
+          202,
+          236
+        ]
+      ],
+      "loc_a": {
+        "z": 9.853,
+        "cc": 0.5666,
+        "mix_t": 11.471,
+        "track_t": 296.542,
+        "n": 111
+      },
+      "loc_b": {
+        "z": 10.155,
+        "cc": 0.958,
+        "mix_t": 33.622,
+        "track_t": 53.917,
+        "n": 107
+      },
+      "loc_mixin_a": {
+        "z": 3.684,
+        "cc": 0.1683,
+        "mix_t": 0.697,
+        "track_t": 115.821,
+        "n": 167
+      },
+      "loc_mixin_b": {
+        "z": 5.205,
+        "cc": 0.8621,
+        "mix_t": 2.647,
+        "track_t": 45.929,
+        "n": 161
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.945,
+      "drop_b_bar": 41,
+      "drop_clip_s": 40.24,
+      "loc_drop_b": {
+        "z": 7.621,
+        "cc": 0.8963,
+        "mix_t": 40.24,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "out_brk": [
+        128,
+        159
+      ],
+      "brk_clip_s": 21.943,
+      "loc_brk_a": {
+        "z": 3.968,
+        "cc": 0.2099,
+        "mix_t": 21.943,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 84.19,
+        "mixin_in": 32.1,
+        "drop_out": 204.71,
+        "drop_in": 41.0,
+        "cut_out": 249.08,
+        "cut_in": 57.11
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "outro",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 13.27,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -43.81,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 13.23,
+      "cut_before_in_drop": false,
+      "overflow_bars": 37.0,
+      "overflow_seg": [
+        128,
+        159
+      ]
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          1
+        ],
+        [
+          "build",
+          1,
+          41
+        ],
+        [
+          "drop",
+          41,
+          103
+        ],
+        [
+          "build",
+          103,
+          104
+        ],
+        [
+          "breakdown",
+          104,
+          110
+        ],
+        [
+          "drop",
+          110,
+          128
+        ],
+        [
+          "build",
+          128,
+          129
+        ],
+        [
+          "breakdown",
+          129,
+          140
+        ],
+        [
+          "build",
+          140,
+          144
+        ],
+        [
+          "drop",
+          144,
+          192
+        ],
+        [
+          "outro",
+          192,
+          236
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          18
+        ],
+        [
+          "build",
+          18,
+          63
+        ],
+        [
+          "drop",
+          63,
+          128
+        ],
+        [
+          "breakdown",
+          128,
+          160
+        ],
+        [
+          "drop",
+          160,
+          224
+        ],
+        [
+          "outro",
+          224,
+          265
+        ]
+      ],
+      "brks_a": [
+        [
+          104,
+          110
+        ],
+        [
+          129,
+          140
+        ],
+        [
+          202,
+          236
+        ]
+      ],
+      "brks_b": [
+        [
+          128,
+          160
+        ],
+        [
+          224,
+          265
+        ]
+      ],
+      "loc_a": {
+        "z": 6.46,
+        "cc": 0.8554,
+        "mix_t": 10.194,
+        "track_t": 251.611,
+        "n": 107
+      },
+      "loc_b": {
+        "z": 6.304,
+        "cc": 0.6275,
+        "mix_t": 41.308,
+        "track_t": 83.87,
+        "n": 120
+      },
+      "loc_mixin_a": {
+        "z": 3.616,
+        "cc": 0.2711,
+        "mix_t": 0.046,
+        "track_t": 141.781,
+        "n": 161
+      },
+      "loc_mixin_b": {
+        "z": 4.531,
+        "cc": 0.9081,
+        "mix_t": 2.322,
+        "track_t": 67.895,
+        "n": 181
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.565,
+      "drop_b_bar": 63,
+      "drop_clip_s": 44.327,
+      "loc_drop_b": {
+        "z": 6.524,
+        "cc": 0.6853,
+        "mix_t": 44.327,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "out_brk": [
+        104,
+        110
+      ],
+      "brk_clip_s": 21.943,
+      "loc_brk_a": {
+        "z": 3.591,
+        "cc": 0.1902,
+        "mix_t": 21.943,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 103.48,
+        "mixin_in": 48.27,
+        "drop_out": 43.22,
+        "drop_in": 63.0,
+        "cut_out": 217.43,
+        "cut_in": 73.26
+      },
+      "phases": {
+        "mixin": [
+          "build",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "outro",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 16.23,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -0.52,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 10.26,
+      "cut_before_in_drop": false,
+      "overflow_bars": 32.43,
+      "overflow_seg": [
+        104,
+        110
+      ]
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          18
+        ],
+        [
+          "build",
+          18,
+          63
+        ],
+        [
+          "drop",
+          63,
+          128
+        ],
+        [
+          "breakdown",
+          128,
+          160
+        ],
+        [
+          "drop",
+          160,
+          224
+        ],
+        [
+          "outro",
+          224,
+          265
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          8
+        ],
+        [
+          "build",
+          8,
+          34
+        ],
+        [
+          "breakdown",
+          34,
+          47
+        ],
+        [
+          "build",
+          47,
+          61
+        ],
+        [
+          "drop",
+          61,
+          128
+        ],
+        [
+          "build",
+          128,
+          156
+        ],
+        [
+          "drop",
+          156,
+          224
+        ],
+        [
+          "outro",
+          224,
+          229
+        ]
+      ],
+      "brks_a": [
+        [
+          128,
+          160
+        ],
+        [
+          224,
+          265
+        ]
+      ],
+      "brks_b": [
+        [
+          34,
+          47
+        ],
+        [
+          224,
+          229
+        ]
+      ],
+      "loc_a": {
+        "z": 7.129,
+        "cc": 0.6189,
+        "mix_t": 9.172,
+        "track_t": 161.75,
+        "n": 120
+      },
+      "loc_b": {
+        "z": 10.251,
+        "cc": 0.7763,
+        "mix_t": 48.506,
+        "track_t": 68.894,
+        "n": 104
+      },
+      "loc_mixin_a": {
+        "z": 3.728,
+        "cc": 0.1057,
+        "mix_t": 3.599,
+        "track_t": 251.611,
+        "n": 181
+      },
+      "loc_mixin_b": {
+        "z": 4.967,
+        "cc": 0.3455,
+        "mix_t": 3.901,
+        "track_t": 201.689,
+        "n": 156
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.763,
+      "drop_b_bar": 156,
+      "drop_clip_s": 53.313,
+      "loc_drop_b": {
+        "z": 6.283,
+        "cc": 0.3627,
+        "mix_t": 53.313,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "out_brk": [
+        224,
+        265
+      ],
+      "brk_clip_s": 2.531,
+      "loc_brk_a": {
+        "z": 5.57,
+        "cc": 0.4449,
+        "mix_t": 2.531,
+        "track_t": 1.997,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 180.53,
+        "mixin_in": 144.12,
+        "drop_out": 153.38,
+        "drop_in": 156.0,
+        "cut_out": 153.02,
+        "cut_in": 57.18
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "build"
+        ],
+        "in_drop": [
+          "breakdown",
+          "drop"
+        ],
+        "out_cut": [
+          "breakdown",
+          "build"
+        ]
+      },
+      "align": {
+        "offset_bars": 36.82,
+        "in_drop_at_out_breakdown": true,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -43.47,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 3.75,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "hybrid_minds_ukf__00",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "build",
+          16,
+          64
+        ],
+        [
+          "drop",
+          64,
+          127
+        ],
+        [
+          "build",
+          127,
+          128
+        ],
+        [
+          "breakdown",
+          128,
+          144
+        ],
+        [
+          "drop",
+          144,
+          207
+        ],
+        [
+          "outro",
+          207,
+          228
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          2
+        ],
+        [
+          "build",
+          2,
+          22
+        ],
+        [
+          "drop",
+          22,
+          125
+        ],
+        [
+          "outro",
+          125,
+          150
+        ]
+      ],
+      "brks_a": [
+        [
+          128,
+          144
+        ],
+        [
+          224,
+          228
+        ]
+      ],
+      "brks_b": [],
+      "loc_a": {
+        "z": 6.319,
+        "cc": 0.7226,
+        "mix_t": 24.033,
+        "track_t": 131.796,
+        "n": 104
+      },
+      "loc_b": {
+        "z": 6.443,
+        "cc": 0.7384,
+        "mix_t": 56.541,
+        "track_t": 62.903,
+        "n": 68
+      },
+      "loc_mixin_a": {
+        "z": 5.132,
+        "cc": 0.6171,
+        "mix_t": 3.019,
+        "track_t": 133.793,
+        "n": 156
+      },
+      "loc_mixin_b": {
+        "z": 5.204,
+        "cc": 0.5393,
+        "mix_t": 2.252,
+        "track_t": 141.781,
+        "n": 102
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.336,
+      "drop_b_bar": 22,
+      "drop_clip_s": 24.172,
+      "loc_drop_b": {
+        "z": 6.523,
+        "cc": 0.7935,
+        "mix_t": 24.172,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "out_brk": [
+        128,
+        144
+      ],
+      "brk_clip_s": 23.824,
+      "loc_brk_a": {
+        "z": 4.49,
+        "cc": 0.3631,
+        "mix_t": 23.824,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 95.54,
+        "mixin_in": 101.88,
+        "drop_out": 95.67,
+        "drop_in": 22.0,
+        "cut_out": 120.53,
+        "cut_in": 47.01
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 0.25,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -32.46,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 24.88,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          19
+        ],
+        [
+          "build",
+          19,
+          48
+        ],
+        [
+          "drop",
+          48,
+          116
+        ],
+        [
+          "build",
+          116,
+          137
+        ],
+        [
+          "breakdown",
+          137,
+          144
+        ],
+        [
+          "drop",
+          144,
+          208
+        ],
+        [
+          "outro",
+          208,
+          228
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "build",
+          16,
+          64
+        ],
+        [
+          "drop",
+          64,
+          128
+        ],
+        [
+          "build",
+          128,
+          133
+        ],
+        [
+          "breakdown",
+          133,
+          176
+        ],
+        [
+          "drop",
+          176,
+          240
+        ],
+        [
+          "outro",
+          240,
+          262
+        ]
+      ],
+      "brks_a": [
+        [
+          137,
+          144
+        ],
+        [
+          208,
+          228
+        ]
+      ],
+      "brks_b": [
+        [
+          133,
+          176
+        ],
+        [
+          240,
+          262
+        ]
+      ],
+      "loc_a": {
+        "z": 11.405,
+        "cc": 0.6693,
+        "mix_t": 8.8,
+        "track_t": 182.718,
+        "n": 104
+      },
+      "loc_b": {
+        "z": 6.767,
+        "cc": 0.6345,
+        "mix_t": 29.164,
+        "track_t": 92.857,
+        "n": 119
+      },
+      "loc_mixin_a": {
+        "z": 5.195,
+        "cc": 0.6188,
+        "mix_t": 2.67,
+        "track_t": 199.692,
+        "n": 156
+      },
+      "loc_mixin_b": {
+        "z": 4.945,
+        "cc": 0.7221,
+        "mix_t": 2.043,
+        "track_t": 121.812,
+        "n": 178
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.285,
+      "drop_b_bar": 64,
+      "drop_clip_s": 30.581,
+      "loc_drop_b": {
+        "z": 7.194,
+        "cc": 0.6742,
+        "mix_t": 30.581,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "out_brk": [
+        137,
+        144
+      ],
+      "brk_clip_s": 20.968,
+      "loc_brk_a": {
+        "z": 8.525,
+        "cc": 0.5106,
+        "mix_t": 20.968,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 143.57,
+        "mixin_in": 87.56,
+        "drop_out": 148.35,
+        "drop_in": 64.0,
+        "cut_out": 168.49,
+        "cut_in": 88.58
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 6.97,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": 6.57,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 20.23,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.43,
+      "overflow_seg": [
+        137,
+        144
+      ]
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          16
+        ],
+        [
+          "build",
+          16,
+          64
+        ],
+        [
+          "drop",
+          64,
+          128
+        ],
+        [
+          "build",
+          128,
+          133
+        ],
+        [
+          "breakdown",
+          133,
+          176
+        ],
+        [
+          "drop",
+          176,
+          240
+        ],
+        [
+          "outro",
+          240,
+          262
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          19
+        ],
+        [
+          "build",
+          19,
+          37
+        ],
+        [
+          "breakdown",
+          37,
+          52
+        ],
+        [
+          "drop",
+          52,
+          114
+        ],
+        [
+          "build",
+          114,
+          115
+        ],
+        [
+          "breakdown",
+          115,
+          148
+        ],
+        [
+          "drop",
+          148,
+          210
+        ],
+        [
+          "outro",
+          210,
+          229
+        ]
+      ],
+      "brks_a": [
+        [
+          133,
+          176
+        ],
+        [
+          240,
+          262
+        ]
+      ],
+      "brks_b": [
+        [
+          37,
+          52
+        ],
+        [
+          115,
+          148
+        ],
+        [
+          211,
+          229
+        ]
+      ],
+      "loc_a": {
+        "z": 7.958,
+        "cc": 0.6152,
+        "mix_t": 2.554,
+        "track_t": 176.727,
+        "n": 119
+      },
+      "loc_b": {
+        "z": 10.458,
+        "cc": 0.672,
+        "mix_t": 49.412,
+        "track_t": 74.884,
+        "n": 104
+      },
+      "loc_mixin_a": {
+        "z": 3.659,
+        "cc": 0.0438,
+        "mix_t": 3.901,
+        "track_t": 19.969,
+        "n": 178
+      },
+      "loc_mixin_b": {
+        "z": 4.202,
+        "cc": 0.6506,
+        "mix_t": 3.576,
+        "track_t": 51.92,
+        "n": 155
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.383,
+      "drop_b_bar": 52,
+      "drop_clip_s": 50.248,
+      "loc_drop_b": {
+        "z": 10.47,
+        "cc": 0.6872,
+        "mix_t": 50.248,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "out_brk": [
+        133,
+        176
+      ],
+      "brk_clip_s": 13.212,
+      "loc_brk_a": {
+        "z": 7.75,
+        "cc": 0.4198,
+        "mix_t": 13.212,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 12.37,
+        "mixin_in": 35.77,
+        "drop_out": 62.89,
+        "drop_in": 52.0,
+        "cut_out": 168.68,
+        "cut_in": 60.87
+      },
+      "phases": {
+        "mixin": [
+          "intro",
+          "build"
+        ],
+        "in_drop": [
+          "build",
+          "drop"
+        ],
+        "out_cut": [
+          "breakdown",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 26.85,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -120.63,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 5.97,
+      "cut_before_in_drop": false,
+      "overflow_bars": 35.68,
+      "overflow_seg": [
+        133,
+        176
+      ]
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          17
+        ],
+        [
+          "build",
+          17,
+          48
+        ],
+        [
+          "drop",
+          48,
+          113
+        ],
+        [
+          "breakdown",
+          113,
+          144
+        ],
+        [
+          "drop",
+          144,
+          208
+        ],
+        [
+          "outro",
+          208,
+          240
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          2
+        ],
+        [
+          "build",
+          2,
+          28
+        ],
+        [
+          "breakdown",
+          28,
+          32
+        ],
+        [
+          "drop",
+          32,
+          95
+        ],
+        [
+          "breakdown",
+          95,
+          120
+        ],
+        [
+          "drop",
+          120,
+          183
+        ],
+        [
+          "outro",
+          183,
+          189
+        ]
+      ],
+      "brks_a": [
+        [
+          113,
+          144
+        ],
+        [
+          209,
+          240
+        ]
+      ],
+      "brks_b": [
+        [
+          28,
+          32
+        ],
+        [
+          95,
+          120
+        ],
+        [
+          183,
+          189
+        ]
+      ],
+      "loc_a": {
+        "z": 6.362,
+        "cc": 0.6653,
+        "mix_t": 20.48,
+        "track_t": 194.699,
+        "n": 109
+      },
+      "loc_b": {
+        "z": 8.336,
+        "cc": 0.5511,
+        "mix_t": 54.962,
+        "track_t": 74.884,
+        "n": 85
+      },
+      "loc_mixin_a": {
+        "z": 4.686,
+        "cc": 0.4683,
+        "mix_t": 1.997,
+        "track_t": 135.79,
+        "n": 165
+      },
+      "loc_mixin_b": {
+        "z": 5.593,
+        "cc": 0.7004,
+        "mix_t": 3.901,
+        "track_t": 101.843,
+        "n": 129
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 4.647,
+      "drop_b_bar": 32,
+      "drop_clip_s": 30.348,
+      "loc_drop_b": {
+        "z": 7.687,
+        "cc": 0.5302,
+        "mix_t": 30.348,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "out_brk": [
+        113,
+        144
+      ],
+      "brk_clip_s": 36.595,
+      "loc_brk_a": {
+        "z": 3.044,
+        "cc": 0.0945,
+        "mix_t": 36.595,
+        "track_t": 5.991,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 97.72,
+        "mixin_in": 71.73,
+        "drop_out": 192.35,
+        "drop_in": 32.0,
+        "cut_out": 168.71,
+        "cut_in": 56.84
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "drop"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": -4.53,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -15.28,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 20.4,
+      "cut_before_in_drop": false,
+      "overflow_bars": 31.0,
+      "overflow_seg": [
+        113,
+        144
+      ]
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "mixin_clip_s": 24.0,
+      "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+      "spans_a": [
+        [
+          "intro",
+          0,
+          32
+        ],
+        [
+          "build",
+          32,
+          60
+        ],
+        [
+          "breakdown",
+          60,
+          64
+        ],
+        [
+          "drop",
+          64,
+          158
+        ],
+        [
+          "build",
+          158,
+          176
+        ],
+        [
+          "drop",
+          176,
+          270
+        ],
+        [
+          "outro",
+          270,
+          288
+        ]
+      ],
+      "spans_b": [
+        [
+          "intro",
+          0,
+          14
+        ],
+        [
+          "build",
+          14,
+          48
+        ],
+        [
+          "drop",
+          48,
+          110
+        ],
+        [
+          "build",
+          110,
+          111
+        ],
+        [
+          "breakdown",
+          111,
+          144
+        ],
+        [
+          "drop",
+          144,
+          206
+        ],
+        [
+          "outro",
+          206,
+          225
+        ]
+      ],
+      "brks_a": [
+        [
+          60,
+          64
+        ]
+      ],
+      "brks_b": [
+        [
+          111,
+          144
+        ],
+        [
+          206,
+          225
+        ]
+      ],
+      "loc_a": {
+        "z": 7.476,
+        "cc": 0.7331,
+        "mix_t": 7.129,
+        "track_t": 203.685,
+        "n": 131
+      },
+      "loc_b": {
+        "z": 8.83,
+        "cc": 0.6872,
+        "mix_t": 45.813,
+        "track_t": 65.898,
+        "n": 102
+      },
+      "loc_mixin_a": {
+        "z": 3.99,
+        "cc": 0.1921,
+        "mix_t": 0.093,
+        "track_t": 103.84,
+        "n": 198
+      },
+      "loc_mixin_b": {
+        "z": 4.161,
+        "cc": 0.7328,
+        "mix_t": 2.972,
+        "track_t": 45.929,
+        "n": 153
+      },
+      "cut_clip_s": 58.483,
+      "cut_z0": 3.371,
+      "drop_b_bar": 48,
+      "drop_clip_s": 50.109,
+      "loc_drop_b": {
+        "z": 7.801,
+        "cc": 0.6106,
+        "mix_t": 50.109,
+        "track_t": 3.994,
+        "n": 4
+      },
+      "brk_from_outro": true,
+      "out_brk": [
+        270,
+        288
+      ],
+      "brk_clip_s": 21.293,
+      "loc_brk_a": {
+        "z": 5.506,
+        "cc": 0.3116,
+        "mix_t": 21.293,
+        "track_t": 0.0,
+        "n": 4
+      },
+      "bars": {
+        "mixin_out": 75.94,
+        "mixin_in": 31.87,
+        "drop_out": 234.02,
+        "drop_in": 48.0,
+        "cut_out": 184.9,
+        "cut_in": 56.96
+      },
+      "phases": {
+        "mixin": [
+          "drop",
+          "build"
+        ],
+        "in_drop": [
+          "drop",
+          "drop"
+        ],
+        "out_cut": [
+          "drop",
+          "drop"
+        ]
+      },
+      "align": {
+        "offset_bars": 20.89,
+        "in_drop_at_out_breakdown": false,
+        "in_drop_at_out_outro": false,
+        "mixin_vs_brk_bars": -194.06,
+        "has_brk": true
+      },
+      "in_window_drop": true,
+      "tail_after_in_drop_bars": 6.07,
+      "cut_before_in_drop": false,
+      "overflow_bars": 0.0,
+      "overflow_seg": null
+    }
+  ]
+}

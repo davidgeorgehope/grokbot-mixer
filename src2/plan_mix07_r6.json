@@ -1,0 +1,364 @@
+[
+ {
+  "id": "5196v8VY1LI",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "first",
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   32
+  ]
+ },
+ {
+  "id": "rpIpJQ7ujzc",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   160,
+   null,
+   80,
+   32
+  ]
+ },
+ {
+  "id": "KDRPfuZfNYw",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "la",
+   192,
+   176,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "OPuVVhbkicU",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   176,
+   null,
+   64,
+   32
+  ]
+ },
+ {
+  "id": "NaY3x3GRDF4",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   176,
+   null,
+   80,
+   32
+  ]
+ },
+ {
+  "id": "YNz30crm5g0",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "la",
+   176,
+   160,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "zGBn-IJ1isg",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   144,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "sObzaBqaBRQ",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   32
+  ]
+ },
+ {
+  "id": "PVa_LRlOqBE",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "MoYkYkoeb84",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "la",
+   128,
+   112,
+   0,
+   16
+  ]
+ },
+ {
+  "id": "2s3M6oX2lfo",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "la",
+   144,
+   128,
+   64,
+   16
+  ]
+ },
+ {
+  "id": "3BOWFQBhzhU",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "lb",
+   208,
+   null,
+   80,
+   32
+  ]
+ },
+ {
+  "id": "6YDKymmWe9o",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   208,
+   null,
+   64,
+   16
+  ]
+ },
+ {
+  "id": "kKu3fIOTiHk",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "la",
+   160,
+   144,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "FYpf8-UvCUk",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "out_win": [
+   "n",
+   112,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "h1RNzaTfRyY",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   32
+  ]
+ },
+ {
+  "id": "7Itbo72XEz4",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": true,
+  "out_win": [
+   "n",
+   160,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "OYzCe1T_Gpg",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   112,
+   null,
+   32,
+   32
+  ]
+ },
+ {
+  "id": "F1NCnCxyhqc",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   144,
+   null,
+   16,
+   32
+  ]
+ },
+ {
+  "id": "n1dOiesZS1g",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": true,
+  "out_win": [
+   "n",
+   224,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "-n50uo8so4U",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "la",
+   128,
+   112,
+   80,
+   16
+  ]
+ },
+ {
+  "id": "PYxgKt-Sr9A",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   160,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "cb2sbJ-ii-I",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "tech": "blend",
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   16
+  ]
+ },
+ {
+  "id": "luB7w7JBT14",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": true
+ }
+]

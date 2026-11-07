@@ -1,0 +1,26 @@
+{
+  "id": "netsky_hospital_classics__16",
+  "mix_id": "netsky_hospital_classics",
+  "dj": "Netsky",
+  "split": "test",
+  "a": {
+    "title": "Netsky - The Whistle Song",
+    "yt": "k-7z5X0ATEc",
+    "t": 2355.0
+  },
+  "b": {
+    "title": "Logistics - Together",
+    "yt": "3f-XOhfDhxk",
+    "t": 2627.0
+  },
+  "window": {
+    "mix_t_a": 2355.0,
+    "mix_t_b": 2627.0,
+    "mix_t_next": 2717.0,
+    "hint_a_played_sec": 272.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__16/pro.wav",
+  "pro_clip_start": 2603.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__16"
+}

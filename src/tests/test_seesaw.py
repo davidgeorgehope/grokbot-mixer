@@ -39,7 +39,7 @@ def test_loop_fill_is_soft_penalty():
 def test_beat_outro_remedy_ignite():
   """Mix 06 28:00 Remedy>Ignite with the synthetic beat-only outro (drums+bass stem loop): W1 passes, the beat-only source is in place
   before the blend starts, and each deck's crossfader gain stays monotonic through the blend (no ducking / gain riding)"""
-  import os,subprocess,tempfile,numpy as np;f=_rq_plan(['lx',176,160,48,32]);out=tempfile.mkdtemp(prefix='rqlx_')+'/rq'
+  import os,subprocess,tempfile,numpy as np;f=_rq_plan(['lx',144,128,80,16]);out=tempfile.mkdtemp(prefix='rqlx_')+'/rq'
   try:
     subprocess.run([sys.executable,'mix_simple.py','--plan',f,'--out',out],cwd='/workspace/mixes/src2',check=True,capture_output=True)
     M=json.load(open(out+'_meta.json'));t=M['trans'][0];A,B=M['decks'];src=[c for _,c in A['full_map']]

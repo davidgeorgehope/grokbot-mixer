@@ -1,0 +1,649 @@
+{
+  "summary": {
+    "n": 37,
+    "n_fail": 0,
+    "train_n": 27,
+    "test_n": 10,
+    "train_mean": 24.07,
+    "test_mean": 19.43,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 15,
+        "mean": 20.82,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 11,
+        "mean": 28.49,
+        "split": "train"
+      },
+      "London Elektricity": {
+        "n": 1,
+        "mean": 24.35,
+        "split": "train"
+      },
+      "Netsky": {
+        "n": 8,
+        "mean": 20.94,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 2,
+        "mean": 13.39,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "rows": [
+    {
+      "id": "wilkinson_boomtown2026__10",
+      "split": "test",
+      "dj": "Wilkinson",
+      "pair": "Yosemite (Wilkinson Remix) -> Wilkinson - Used To This (feat. Issey Cross)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        176,
+        null,
+        0,
+        32
+      ],
+      "score": 11.62,
+      "breakdown": null
+    },
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "split": "test",
+      "dj": "Wilkinson",
+      "pair": "Wilkinson - Ultraviolet feat. Katy Alex -> Wilkinson - Afterglow",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        144,
+        null,
+        0,
+        32
+      ],
+      "score": 15.17,
+      "breakdown": null
+    },
+    {
+      "id": "hospital_podcast393__04",
+      "split": "train",
+      "dj": "London Elektricity",
+      "pair": "Inja x Whiney - She Just Wanna Dance (Kyrist Remix) -> Fred V - Cosmic Flowchart",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        192,
+        null,
+        16,
+        32
+      ],
+      "score": 24.35,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        96,
+        null,
+        16,
+        32
+      ],
+      "score": 21.59,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        160,
+        null,
+        16,
+        32
+      ],
+      "score": 28.23,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        240,
+        null,
+        24,
+        32
+      ],
+      "score": 30.72,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__09",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        192,
+        null,
+        0,
+        32
+      ],
+      "score": 22.65,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__10",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky) -> Logistics - We Are One (Nu:Logic Remix)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        32
+      ],
+      "score": 29.61,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        224,
+        null,
+        0,
+        32
+      ],
+      "score": 22.39,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__17",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        128,
+        null,
+        16,
+        32
+      ],
+      "score": 23.57,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__18",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Netsky - Lotus Symphony -> Unquote & Molecular Structures - Lubov Moya",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        192,
+        null,
+        0,
+        32
+      ],
+      "score": 12.07,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        224,
+        null,
+        16,
+        32
+      ],
+      "score": 9.46,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        208,
+        null,
+        48,
+        32
+      ],
+      "score": 23.39,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        304,
+        null,
+        16,
+        32
+      ],
+      "score": 30.13,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        192,
+        null,
+        16,
+        32
+      ],
+      "score": 15.72,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__19",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Urbandawn - Prime Expansion -> Hybrid Minds - Demons (ft. Charlotte Haining)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        176,
+        null,
+        16,
+        32
+      ],
+      "score": 44.78,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__20",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Hybrid Minds - Demons (ft. Charlotte Haining) -> Changing Faces - Emptiness",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        208,
+        null,
+        0,
+        32
+      ],
+      "score": 20.37,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        224,
+        null,
+        0,
+        32
+      ],
+      "score": 14.55,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__25",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        192,
+        null,
+        16,
+        32
+      ],
+      "score": 11.54,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__33",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "1991 - Nine Clouds -> Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        192,
+        null,
+        32,
+        32
+      ],
+      "score": 7.28,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        128,
+        null,
+        16,
+        32
+      ],
+      "score": 35.14,
+      "breakdown": null
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        160,
+        null,
+        0,
+        32
+      ],
+      "score": 13.11,
+      "breakdown": null
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "High Contrast - Twilight's Last Gleaming -> Netsky - Escape (ft. Darrison)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        320,
+        null,
+        32,
+        32
+      ],
+      "score": 14.78,
+      "breakdown": null
+    },
+    {
+      "id": "netsky_hospital_classics__10",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Nu:Tone - Missing Link -> Netsky - Drawing Straws",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        240,
+        null,
+        0,
+        32
+      ],
+      "score": 25.03,
+      "breakdown": null
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        240,
+        null,
+        0,
+        32
+      ],
+      "score": 31.07,
+      "breakdown": null
+    },
+    {
+      "id": "netsky_hospital_classics__16",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Netsky - The Whistle Song -> Logistics - Together",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        192,
+        null,
+        0,
+        32
+      ],
+      "score": 24.95,
+      "breakdown": null
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        256,
+        null,
+        16,
+        32
+      ],
+      "score": 13.81,
+      "breakdown": null
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        192,
+        null,
+        0,
+        32
+      ],
+      "score": 24.03,
+      "breakdown": null
+    },
+    {
+      "id": "netsky_hospital_classics__24",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Nu:Logic - Morning Light -> Sigma - Nobody To Love",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        32
+      ],
+      "score": 20.74,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        240,
+        null,
+        8,
+        32
+      ],
+      "score": 48.6,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        224,
+        null,
+        32,
+        32
+      ],
+      "score": 42.99,
+      "breakdown": null
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        256,
+        null,
+        32,
+        32
+      ],
+      "score": 30.98,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__00",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        224,
+        null,
+        16,
+        32
+      ],
+      "score": 9.63,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        208,
+        null,
+        32,
+        32
+      ],
+      "score": 14.09,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        256,
+        null,
+        16,
+        32
+      ],
+      "score": 35.21,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        240,
+        null,
+        0,
+        32
+      ],
+      "score": 7.95,
+      "breakdown": null
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+      "fam": "nat_long",
+      "win": [
+        "n",
+        272,
+        null,
+        16,
+        32
+      ],
+      "score": 32.99,
+      "breakdown": null
+    }
+  ],
+  "rules": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp.",
+    "FADE": "tail",
+    "BASS_SWAP_BARS": 2,
+    "SWAP_POS": 0.35,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 4,
+    "STRUCT": 1,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 0,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0
+  },
+  "stem_kind": "bands"
+}

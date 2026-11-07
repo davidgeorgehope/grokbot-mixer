@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__08",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "Mitekiss - Final Hours",
+    "yt": "suPgRyRLVC4",
+    "t": 680.0
+  },
+  "b": {
+    "title": "Hybrid Minds - Listen (ft. Tiffani Juno)",
+    "yt": "J3oTRY7AdE4",
+    "t": 812.0
+  },
+  "window": {
+    "mix_t_a": 680.0,
+    "mix_t_b": 812.0,
+    "mix_t_next": 902.0,
+    "hint_a_played_sec": 132.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__08/pro.wav",
+  "pro_clip_start": 788.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__08"
+}

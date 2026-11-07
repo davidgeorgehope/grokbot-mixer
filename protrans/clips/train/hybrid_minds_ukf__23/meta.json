@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__23",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "SpectraSoul & Alix Perez - Undone (ft. DRS)",
+    "yt": "INaNIcQ4S7k",
+    "t": 2326.0
+  },
+  "b": {
+    "title": "Logistics - City Life",
+    "yt": "HpfQ0bus688",
+    "t": 2479.0
+  },
+  "window": {
+    "mix_t_a": 2326.0,
+    "mix_t_b": 2479.0,
+    "mix_t_next": 2569.0,
+    "hint_a_played_sec": 153.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__23/pro.wav",
+  "pro_clip_start": 2455.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__23"
+}

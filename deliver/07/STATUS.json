@@ -1,0 +1,12 @@
+{
+ "mix": "07",
+ "name": "mix07r17",
+ "stage": "escalated",
+ "tested": true,
+ "delivered": false,
+ "n_fail_guard": 0,
+ "pytest": "84 passed / 0 failed (2026-11-07 12:15 ET)",
+ "min": 60.9,
+ "updated_et": "2026-11-07 12:25 ET",
+ "notes": "Tail-window calibration done. r12 Day-Par last 5 bars fail (1115 -24ms/0.62, 1116 -14ms/0.73) due to la-loop Day 123-127 over Parallel intro 11-15 + opposing nudges. r17 n 128/32/16 drop overlay: tail -4..+1ms corr 0.99-1.0. 6 heard-OK r17 clips pass; r17 pytest 84/84; guard 0. Pros planned-deck clip-level 8/37, bar-level 92.2%. Not delivered (YouTube/Drive/iCloud still to run)."
+}

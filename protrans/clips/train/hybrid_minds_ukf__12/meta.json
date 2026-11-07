@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__12",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "Sabre - These Simple Things",
+    "yt": "M4UU1xn_K4s",
+    "t": 1185.0
+  },
+  "b": {
+    "title": "Hybrid Minds - Pretend (ft. Rocky Nti)",
+    "yt": "zEvLsOVhg0I",
+    "t": 1340.0
+  },
+  "window": {
+    "mix_t_a": 1185.0,
+    "mix_t_b": 1340.0,
+    "mix_t_next": 1430.0,
+    "hint_a_played_sec": 155.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__12/pro.wav",
+  "pro_clip_start": 1316.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__12"
+}

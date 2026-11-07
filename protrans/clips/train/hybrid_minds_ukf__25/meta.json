@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__25",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "Jome - Cinnamon (Hybrid Minds Remix)",
+    "yt": "9oBXWTlTPMw",
+    "t": 2567.0
+  },
+  "b": {
+    "title": "Logistics - Together",
+    "yt": "3f-XOhfDhxk",
+    "t": 2677.0
+  },
+  "window": {
+    "mix_t_a": 2567.0,
+    "mix_t_b": 2677.0,
+    "mix_t_next": 2767.0,
+    "hint_a_played_sec": 110.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__25/pro.wav",
+  "pro_clip_start": 2653.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__25"
+}

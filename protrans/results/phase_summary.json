@@ -1,0 +1,197 @@
+{
+  "n": 37,
+  "train": 27,
+  "test": 10,
+  "similarity": "bands",
+  "baseline": {
+    "train": 24.07,
+    "test": 19.43
+  },
+  "current_floor_before_phase_tune": {
+    "train": 20.06,
+    "test": 23.03,
+    "note": "After kept fade_lin, swap_1bar, swap_pos_021, struct_off. Phase weights not yet scored; queued behind loop_pen_2+."
+  },
+  "pairings_all": {
+    "mixin": {
+      "drop+drop": {
+        "n": 12,
+        "p": 0.324
+      },
+      "breakdown+build": {
+        "n": 6,
+        "p": 0.162
+      },
+      "drop+build": {
+        "n": 6,
+        "p": 0.162
+      },
+      "outro+build": {
+        "n": 3,
+        "p": 0.081
+      },
+      "breakdown+drop": {
+        "n": 3,
+        "p": 0.081
+      },
+      "drop+breakdown": {
+        "n": 2,
+        "p": 0.054
+      },
+      "outro+intro": {
+        "n": 1,
+        "p": 0.027
+      },
+      "build+breakdown": {
+        "n": 1,
+        "p": 0.027
+      },
+      "breakdown+breakdown": {
+        "n": 1,
+        "p": 0.027
+      },
+      "outro+drop": {
+        "n": 1,
+        "p": 0.027
+      },
+      "build+build": {
+        "n": 1,
+        "p": 0.027
+      }
+    },
+    "in_drop": {
+      "drop+drop": {
+        "n": 19,
+        "p": 0.514
+      },
+      "breakdown+drop": {
+        "n": 11,
+        "p": 0.297
+      },
+      "outro+drop": {
+        "n": 7,
+        "p": 0.189
+      }
+    },
+    "out_cut": {
+      "drop+drop": {
+        "n": 11,
+        "p": 0.297
+      },
+      "drop+build": {
+        "n": 6,
+        "p": 0.162
+      },
+      "breakdown+build": {
+        "n": 5,
+        "p": 0.135
+      },
+      "breakdown+drop": {
+        "n": 4,
+        "p": 0.108
+      },
+      "drop+breakdown": {
+        "n": 2,
+        "p": 0.054
+      },
+      "outro+build": {
+        "n": 2,
+        "p": 0.054
+      },
+      "outro+intro": {
+        "n": 1,
+        "p": 0.027
+      },
+      "build+breakdown": {
+        "n": 1,
+        "p": 0.027
+      },
+      "breakdown+breakdown": {
+        "n": 1,
+        "p": 0.027
+      },
+      "outro+breakdown": {
+        "n": 1,
+        "p": 0.027
+      },
+      "outro+drop": {
+        "n": 1,
+        "p": 0.027
+      },
+      "drop+outro": {
+        "n": 1,
+        "p": 0.027
+      },
+      "build+build": {
+        "n": 1,
+        "p": 0.027
+      }
+    }
+  },
+  "incoming_drop_vs_outgoing_breakdown": {
+    "out_phase_is_breakdown": {
+      "n": 11,
+      "p": 0.297
+    },
+    "out_phase_is_outro_or_breakdown": {
+      "n": 18,
+      "p": 0.486
+    },
+    "offset_bars": {
+      "n": 28,
+      "mean": 11.03,
+      "median": 14.66,
+      "p25": 2.61,
+      "p75": 26.9
+    },
+    "within_8_bars": {
+      "n": 6,
+      "p": 0.214
+    },
+    "within_4_bars": {
+      "n": 0,
+      "p": 0.0
+    }
+  },
+  "train_priors": {
+    "mixin_n": 27,
+    "mixin_raw": {
+      "outro+intro": 1,
+      "outro+build": 3,
+      "drop+drop": 10,
+      "drop+build": 4,
+      "build+breakdown": 1,
+      "breakdown+breakdown": 1,
+      "breakdown+drop": 3,
+      "breakdown+build": 3,
+      "build+build": 1
+    },
+    "in_drop_n": 26,
+    "in_drop_raw": {
+      "outro+drop": 4,
+      "drop+drop": 15,
+      "breakdown+drop": 7
+    },
+    "linger_grace_bars": 8.0,
+    "overflow_grace_bars": 2.0
+  },
+  "mix07r17": {
+    "n": 22,
+    "n_gt_1_bar": 8,
+    "n_gt_0_5_bar": 11
+  },
+  "planner": {
+    "recreate_keys": [
+      "phase_pref_w",
+      "linger_pen_w",
+      "breakdown_pen_w"
+    ],
+    "plan_search_env": [
+      "PHASEW",
+      "LINGERW",
+      "BREAKW"
+    ],
+    "defaults": 0,
+    "style": "Laplace-smoothed -log freq relative to mode; nothing banned"
+  }
+}

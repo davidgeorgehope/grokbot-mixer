@@ -1,0 +1,74 @@
+[
+ {
+  "path": "/workspace/mixes/deliver/ab/mix07r17_phase_Trip_Souvenirs_13m13.mp3",
+  "pair": "Sub Focus & Metrik \u2013 Trip -> Etherwood \u2013 Souvenirs (ft. Zara Kershaw)",
+  "ids": [
+   "NaY3x3GRDF4",
+   "YNz30crm5g0"
+  ],
+  "t": "13:13",
+  "cluster_bars": "575-586",
+  "window": "12:58\u201313:28 ET clip center 13:13",
+  "trans": "12:52\u201313:36"
+ },
+ {
+  "path": "/workspace/mixes/deliver/ab/mix07r17_phase_Souvenirs_WhiteLies_15m10.mp3",
+  "pair": "Etherwood \u2013 Souvenirs -> MXTR & Natty Lou ft. Lauren L'aimant \u2013 White Lies",
+  "ids": [
+   "YNz30crm5g0",
+   "zGBn-IJ1isg"
+  ],
+  "t": "15:10",
+  "cluster_bars": "658-668",
+  "window": "14:55\u201315:25 ET clip center 15:10",
+  "trans": "15:04\u201315:26"
+ },
+ {
+  "path": "/workspace/mixes/deliver/ab/mix07r17_phase_Parallel_Inside_27m40.mp3",
+  "pair": "Technimatic ft. Zara Kershaw \u2013 Parallel -> Hybrid Minds ft. Emily Jones \u2013 Inside",
+  "ids": [
+   "2s3M6oX2lfo",
+   "3BOWFQBhzhU"
+  ],
+  "t": "27:40",
+  "cluster_bars": "1204-1211",
+  "window": "27:25\u201327:55 ET clip center 27:40",
+  "trans": "27:35\u201327:57"
+ },
+ {
+  "path": "/workspace/mixes/deliver/ab/mix07r17_phase_Inside_Ember_31m20.mp3",
+  "pair": "Hybrid Minds ft. Emily Jones \u2013 Inside -> Camo & Krooked \u2013 Ember",
+  "ids": [
+   "3BOWFQBhzhU",
+   "6YDKymmWe9o"
+  ],
+  "t": "31:20",
+  "cluster_bars": "1365-1366",
+  "window": "31:05\u201331:35 ET clip center 31:20",
+  "trans": "31:15\u201331:37"
+ },
+ {
+  "path": "/workspace/mixes/deliver/ab/mix07r17_phase_Skyline_WhenMyLove_39m30.mp3",
+  "pair": "Grafix ft. Metrik \u2013 Skyline -> Zero T & Aaliyah Esprit \u2013 When My Love",
+  "ids": [
+   "h1RNzaTfRyY",
+   "7Itbo72XEz4"
+  ],
+  "t": "39:30",
+  "cluster_bars": "1720-1726",
+  "window": "39:15\u201339:45 ET clip center 39:30",
+  "trans": "39:21\u201340:05"
+ },
+ {
+  "path": "/workspace/mixes/deliver/ab/mix07r17_phase_SweetLies_JustHoldOn_44m08.mp3",
+  "pair": "Wilkinson ft. Karen Harding \u2013 Sweet Lies -> Sub Focus & Wilkinson \u2013 Just Hold On (Pola & Bryson Remix)",
+  "ids": [
+   "OYzCe1T_Gpg",
+   "cxS6yd0UAxw"
+  ],
+  "t": "44:08",
+  "cluster_bars": "1920+",
+  "window": "43:53\u201344:23 ET clip center 44:08",
+  "trans": "44:08\u201344:52"
+ }
+]

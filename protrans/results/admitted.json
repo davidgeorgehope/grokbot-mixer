@@ -1,0 +1,2223 @@
+[
+  {
+    "id": "wilkinson_boomtown2026__10",
+    "dj": "Wilkinson",
+    "split": "test",
+    "mix_id": "wilkinson_boomtown2026",
+    "mix_url": "https://www.youtube.com/watch?v=ifOtJV-xZ-U",
+    "pair": "Yosemite (Wilkinson Remix) -> Wilkinson - Used To This (feat. Issey Cross)",
+    "t_a": 1164.0,
+    "t_b": 1320.0,
+    "a": {
+      "title": "Yosemite (Wilkinson Remix)",
+      "yt": "PjGZX6K5XnE"
+    },
+    "b": {
+      "title": "Wilkinson - Used To This (feat. Issey Cross)",
+      "yt": "kKWX3C_odcc"
+    },
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 7.338,
+          "cc": 0.4882,
+          "mix_t": 2.043
+        },
+        "bpm": {
+          "bpm": 174.009
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 10.239,
+          "cc": 0.7061,
+          "mix_t": 55.751
+        },
+        "bpm": {
+          "bpm": 173.991
+        }
+      },
+      "passed": true
+    }
+  },
+  {
+    "id": "wilkinson_boomtown2026__33",
+    "dj": "Wilkinson",
+    "split": "test",
+    "mix_id": "wilkinson_boomtown2026",
+    "mix_url": "https://www.youtube.com/watch?v=ifOtJV-xZ-U",
+    "pair": "Wilkinson - Ultraviolet feat. Katy Alex -> Wilkinson - Afterglow",
+    "t_a": 3864.0,
+    "t_b": 3970.0,
+    "a": {
+      "title": "Wilkinson - Ultraviolet feat. Katy Alex",
+      "yt": "uP0KAzefX8Y"
+    },
+    "b": {
+      "title": "Wilkinson - Afterglow",
+      "yt": "I9QGpHScGug"
+    },
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.295,
+          "cc": 0.5264,
+          "mix_t": 4.505
+        },
+        "bpm": {
+          "bpm": 174.004
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 10.503,
+          "cc": 0.6048,
+          "mix_t": 51.548
+        },
+        "bpm": {
+          "bpm": 174.0
+        }
+      },
+      "passed": true
+    }
+  },
+  {
+    "id": "hospital_podcast393__04",
+    "dj": "London Elektricity",
+    "split": "train",
+    "mix_id": "hospital_podcast393",
+    "mix_url": "https://www.youtube.com/watch?v=2wXDFi2eL1U",
+    "pair": "Inja x Whiney - She Just Wanna Dance (Kyrist Remix) -> Fred V - Cosmic Flowchart",
+    "t_a": 1191.0,
+    "t_b": 1468.0,
+    "a": {
+      "title": "Inja x Whiney - She Just Wanna Dance (Kyrist Remix)",
+      "yt": "_Ij78U7OAX4"
+    },
+    "b": {
+      "title": "Fred V - Cosmic Flowchart",
+      "yt": "f2MzUhnpvgk"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hospital_podcast393__04/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 11.541,
+          "cc": 0.7193,
+          "mix_t": 1.881,
+          "track_t": 254.607,
+          "n": 90
+        },
+        "bpm": {
+          "bpm": 174.999,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 6.42,
+          "cc": 0.4979,
+          "mix_t": 50.271,
+          "track_t": 32.949,
+          "n": 94
+        },
+        "bpm": {
+          "bpm": 174.021,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__00",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
+    "t_a": 0.0,
+    "t_b": 199.0,
+    "a": {
+      "title": "Fred V & Grafix - Find My Way",
+      "yt": "R06kP42RFRo"
+    },
+    "b": {
+      "title": "Nu:Tone - The Feeling (ft. Ben Westbeech)",
+      "yt": "dOJp7bsjuyU"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__00/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 7.183,
+          "cc": 0.4337,
+          "mix_t": 15.07,
+          "track_t": 140.783,
+          "n": 50
+        },
+        "bpm": {
+          "bpm": 173.99,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.274,
+          "cc": 0.571,
+          "mix_t": 20.666,
+          "track_t": 62.903,
+          "n": 79
+        },
+        "bpm": {
+          "bpm": 174.985,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__01",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
+    "t_a": 199.0,
+    "t_b": 309.0,
+    "a": {
+      "title": "Nu:Tone - The Feeling (ft. Ben Westbeech)",
+      "yt": "dOJp7bsjuyU"
+    },
+    "b": {
+      "title": "High Contrast - Fearful Symmetry",
+      "yt": "zM6au9qc2XQ"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__01/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 7.392,
+          "cc": 0.7991,
+          "mix_t": 1.045,
+          "track_t": 152.764,
+          "n": 79
+        },
+        "bpm": {
+          "bpm": 174.985,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 6.344,
+          "cc": 0.7663,
+          "mix_t": 21.92,
+          "track_t": 86.866,
+          "n": 115
+        },
+        "bpm": {
+          "bpm": 173.024,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__08",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
+    "t_a": 1258.0,
+    "t_b": 1366.0,
+    "a": {
+      "title": "Nu:Tone - Shine In (ft. Natalie Williams)",
+      "yt": "NjwN3B617tg"
+    },
+    "b": {
+      "title": "Camo & Krooked - Dusk To Dawn",
+      "yt": "Dy3qi_gCP9k"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__08/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.527,
+          "cc": 0.6942,
+          "mix_t": 1.115,
+          "track_t": 149.769,
+          "n": 112
+        },
+        "bpm": {
+          "bpm": 175.969,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 10.104,
+          "cc": 0.8052,
+          "mix_t": 57.377,
+          "track_t": 74.884,
+          "n": 90
+        },
+        "bpm": {
+          "bpm": 175.002,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__09",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+    "t_a": 1366.0,
+    "t_b": 1479.0,
+    "a": {
+      "title": "Camo & Krooked - Dusk To Dawn",
+      "yt": "Dy3qi_gCP9k"
+    },
+    "b": {
+      "title": "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+      "yt": "fApyZbwuAjM"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__09/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.875,
+          "cc": 0.6546,
+          "mix_t": 17.786,
+          "track_t": 257.602,
+          "n": 90
+        },
+        "bpm": {
+          "bpm": 175.002,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 10.751,
+          "cc": 0.6047,
+          "mix_t": 53.452,
+          "track_t": 23.963,
+          "n": 50
+        },
+        "bpm": {
+          "bpm": 178.005,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__10",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky) -> Logistics - We Are One (Nu:Logic Remix)",
+    "t_a": 1479.0,
+    "t_b": 1634.0,
+    "a": {
+      "title": "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+      "yt": "fApyZbwuAjM"
+    },
+    "b": {
+      "title": "Logistics - We Are One (Nu:Logic Remix)",
+      "yt": "wUVt_GsvMzw"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__10/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.308,
+          "cc": 0.3928,
+          "mix_t": 3.274,
+          "track_t": 104.838,
+          "n": 50
+        },
+        "bpm": {
+          "bpm": 178.005,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 12.069,
+          "cc": 0.8169,
+          "mix_t": 56.889,
+          "track_t": 77.88,
+          "n": 111
+        },
+        "bpm": {
+          "bpm": 174.008,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__14",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
+    "t_a": 2207.0,
+    "t_b": 2405.0,
+    "a": {
+      "title": "London Elektricity - Meteorites (Danny Byrd Remix)",
+      "yt": "SqzxwPEa-DI"
+    },
+    "b": {
+      "title": "Logistics - Closer",
+      "yt": "q3WVxTT01dY"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__14/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 10.241,
+          "cc": 0.7144,
+          "mix_t": 4.923,
+          "track_t": 224.653,
+          "n": 104
+        },
+        "bpm": {
+          "bpm": 173.001,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 7.012,
+          "cc": 0.7505,
+          "mix_t": 22.314,
+          "track_t": 47.926,
+          "n": 49
+        },
+        "bpm": {
+          "bpm": 177.007,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__17",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
+    "t_a": 2648.0,
+    "t_b": 2803.0,
+    "a": {
+      "title": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound)",
+      "yt": "gZhjz2UQJv0"
+    },
+    "b": {
+      "title": "Netsky - Lotus Symphony",
+      "yt": "RTXo4b0RdyQ"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__17/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.098,
+          "cc": 0.3925,
+          "mix_t": 5.991,
+          "track_t": 128.801,
+          "n": 65
+        },
+        "bpm": {
+          "bpm": 173.992,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 7.767,
+          "cc": 0.8209,
+          "mix_t": 55.983,
+          "track_t": 164.746,
+          "n": 93
+        },
+        "bpm": {
+          "bpm": 173.997,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__18",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "Netsky - Lotus Symphony -> Unquote & Molecular Structures - Lubov Moya",
+    "t_a": 2803.0,
+    "t_b": 3000.0,
+    "a": {
+      "title": "Netsky - Lotus Symphony",
+      "yt": "RTXo4b0RdyQ"
+    },
+    "b": {
+      "title": "Unquote & Molecular Structures - Lubov Moya",
+      "yt": "2y8JriTNwyM"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__18/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 11.621,
+          "cc": 0.8025,
+          "mix_t": 2.276,
+          "track_t": 197.695,
+          "n": 93
+        },
+        "bpm": {
+          "bpm": 173.997,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.769,
+          "cc": 0.8829,
+          "mix_t": 55.635,
+          "track_t": 119.815,
+          "n": 105
+        },
+        "bpm": {
+          "bpm": 171.996,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__08",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
+    "t_a": 680.0,
+    "t_b": 812.0,
+    "a": {
+      "title": "Mitekiss - Final Hours",
+      "yt": "suPgRyRLVC4"
+    },
+    "b": {
+      "title": "Hybrid Minds - Listen (ft. Tiffani Juno)",
+      "yt": "J3oTRY7AdE4"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__08/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.075,
+          "cc": 0.5292,
+          "mix_t": 12.934,
+          "track_t": 188.709,
+          "n": 104
+        },
+        "bpm": {
+          "bpm": 173.997,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.203,
+          "cc": 0.5123,
+          "mix_t": 49.342,
+          "track_t": 92.857,
+          "n": 105
+        },
+        "bpm": {
+          "bpm": 172.009,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__11",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
+    "t_a": 1053.0,
+    "t_b": 1185.0,
+    "a": {
+      "title": "Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+      "yt": "Vwb-3pAvOVk"
+    },
+    "b": {
+      "title": "Sabre - These Simple Things",
+      "yt": "M4UU1xn_K4s"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__11/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 12.429,
+          "cc": 0.7395,
+          "mix_t": 15.673,
+          "track_t": 173.732,
+          "n": 104
+        },
+        "bpm": {
+          "bpm": 174.006,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 7.809,
+          "cc": 0.4263,
+          "mix_t": 45.14,
+          "track_t": 200.69,
+          "n": 141
+        },
+        "bpm": {
+          "bpm": 171.729,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__12",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+    "t_a": 1185.0,
+    "t_b": 1340.0,
+    "a": {
+      "title": "Sabre - These Simple Things",
+      "yt": "M4UU1xn_K4s"
+    },
+    "b": {
+      "title": "Hybrid Minds - Pretend (ft. Rocky Nti)",
+      "yt": "zEvLsOVhg0I"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__12/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.741,
+          "cc": 0.6202,
+          "mix_t": 7.314,
+          "track_t": 230.644,
+          "n": 141
+        },
+        "bpm": {
+          "bpm": 171.729,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 7.644,
+          "cc": 0.6858,
+          "mix_t": 39.358,
+          "track_t": 38.94,
+          "n": 92
+        },
+        "bpm": {
+          "bpm": 174.012,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__13",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+    "t_a": 1340.0,
+    "t_b": 1514.0,
+    "a": {
+      "title": "Hybrid Minds - Pretend (ft. Rocky Nti)",
+      "yt": "zEvLsOVhg0I"
+    },
+    "b": {
+      "title": "Logistics - Wanderlust",
+      "yt": "W77cCOreg_0"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__13/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.946,
+          "cc": 0.5549,
+          "mix_t": 23.197,
+          "track_t": 197.695,
+          "n": 92
+        },
+        "bpm": {
+          "bpm": 174.012,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 6.698,
+          "cc": 0.6439,
+          "mix_t": 46.579,
+          "track_t": 110.829,
+          "n": 54
+        },
+        "bpm": {
+          "bpm": 173.994,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__19",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Urbandawn - Prime Expansion -> Hybrid Minds - Demons (ft. Charlotte Haining)",
+    "t_a": 1953.0,
+    "t_b": 2084.0,
+    "a": {
+      "title": "Urbandawn - Prime Expansion",
+      "yt": "HP7Q0vDU9vI"
+    },
+    "b": {
+      "title": "Hybrid Minds - Demons (ft. Charlotte Haining)",
+      "yt": "5YG-HKjtiHM"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__19/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 10.881,
+          "cc": 0.6082,
+          "mix_t": 15.952,
+          "track_t": 146.773,
+          "n": 87
+        },
+        "bpm": {
+          "bpm": 173.002,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 11.126,
+          "cc": 0.7587,
+          "mix_t": 54.567,
+          "track_t": 206.681,
+          "n": 99
+        },
+        "bpm": {
+          "bpm": 174.005,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__20",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Hybrid Minds - Demons (ft. Charlotte Haining) -> Changing Faces - Emptiness",
+    "t_a": 2084.0,
+    "t_b": 2205.0,
+    "a": {
+      "title": "Hybrid Minds - Demons (ft. Charlotte Haining)",
+      "yt": "5YG-HKjtiHM"
+    },
+    "b": {
+      "title": "Changing Faces - Emptiness",
+      "yt": "tDIlCWhrBPU"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__20/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 7.354,
+          "cc": 0.3793,
+          "mix_t": 5.666,
+          "track_t": 146.773,
+          "n": 99
+        },
+        "bpm": {
+          "bpm": 174.005,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.673,
+          "cc": 0.3294,
+          "mix_t": 57.098,
+          "track_t": 137.787,
+          "n": 68
+        },
+        "bpm": {
+          "bpm": 173.996,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__23",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
+    "t_a": 2326.0,
+    "t_b": 2479.0,
+    "a": {
+      "title": "SpectraSoul & Alix Perez - Undone (ft. DRS)",
+      "yt": "INaNIcQ4S7k"
+    },
+    "b": {
+      "title": "Logistics - City Life",
+      "yt": "HpfQ0bus688"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__23/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.957,
+          "cc": 0.5654,
+          "mix_t": 11.238,
+          "track_t": 209.676,
+          "n": 108
+        },
+        "bpm": {
+          "bpm": 171.998,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 6.286,
+          "cc": 0.663,
+          "mix_t": 23.847,
+          "track_t": 131.796,
+          "n": 89
+        },
+        "bpm": {
+          "bpm": 174.002,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__25",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+    "t_a": 2567.0,
+    "t_b": 2677.0,
+    "a": {
+      "title": "Jome - Cinnamon (Hybrid Minds Remix)",
+      "yt": "9oBXWTlTPMw"
+    },
+    "b": {
+      "title": "Logistics - Together",
+      "yt": "3f-XOhfDhxk"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__25/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.705,
+          "cc": 0.6023,
+          "mix_t": 11.424,
+          "track_t": 167.741,
+          "n": 99
+        },
+        "bpm": {
+          "bpm": 170.018,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 6.959,
+          "cc": 0.6331,
+          "mix_t": 22.825,
+          "track_t": 263.593,
+          "n": 119
+        },
+        "bpm": {
+          "bpm": 173.986,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__33",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "1991 - Nine Clouds -> Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
+    "t_a": 3357.0,
+    "t_b": 3467.0,
+    "a": {
+      "title": "1991 - Nine Clouds",
+      "yt": "BSckjZOceFg"
+    },
+    "b": {
+      "title": "Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
+      "yt": "AT8lBlfTT2w"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__33/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 9.894,
+          "cc": 0.7243,
+          "mix_t": 16.881,
+          "track_t": 191.704,
+          "n": 84
+        },
+        "bpm": {
+          "bpm": 174.98,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 7.066,
+          "cc": 0.7324,
+          "mix_t": 23.127,
+          "track_t": 86.866,
+          "n": 127
+        },
+        "bpm": {
+          "bpm": 175.001,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__45",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+    "t_a": 4564.0,
+    "t_b": 4674.0,
+    "a": {
+      "title": "Alix Perez - Contradictions",
+      "yt": "xv0Qw1QZT8I"
+    },
+    "b": {
+      "title": "BCee - Lost & Found (Hybrid Minds Remix)",
+      "yt": "0oxJBc__U0c"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__45/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.217,
+          "cc": 0.6898,
+          "mix_t": 1.765,
+          "track_t": 134.792,
+          "n": 60
+        },
+        "bpm": {
+          "bpm": 172.0,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.173,
+          "cc": 0.6228,
+          "mix_t": 33.553,
+          "track_t": 53.917,
+          "n": 113
+        },
+        "bpm": {
+          "bpm": 174.0,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "netsky_hospital_classics__02",
+    "dj": "Netsky",
+    "split": "test",
+    "mix_id": "netsky_hospital_classics",
+    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
+    "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+    "t_a": 802.0,
+    "t_b": 950.0,
+    "a": {
+      "title": "Netsky - I See The Future In Your Eyes",
+      "yt": "0fjPvcfMJWk"
+    },
+    "b": {
+      "title": "Camo & Krooked - In The Future",
+      "yt": "XUX0ebuFh7Y"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__02/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 7.986,
+          "cc": 0.4144,
+          "mix_t": 0.372,
+          "track_t": 125.806,
+          "n": 84
+        },
+        "bpm": {
+          "bpm": 172.983,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 10.728,
+          "cc": 0.6875,
+          "mix_t": 27.446,
+          "track_t": 41.935,
+          "n": 103
+        },
+        "bpm": {
+          "bpm": 174.017,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "netsky_hospital_classics__06",
+    "dj": "Netsky",
+    "split": "test",
+    "mix_id": "netsky_hospital_classics",
+    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
+    "pair": "High Contrast - Twilight's Last Gleaming -> Netsky - Escape (ft. Darrison)",
+    "t_a": 1277.0,
+    "t_b": 1423.0,
+    "a": {
+      "title": "High Contrast - Twilight's Last Gleaming",
+      "yt": "CX4UFb_LlU4"
+    },
+    "b": {
+      "title": "Netsky - Escape (ft. Darrison)",
+      "yt": "na79dfVHpp0"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__06/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.055,
+          "cc": 0.5507,
+          "mix_t": 9.381,
+          "track_t": 155.759,
+          "n": 151
+        },
+        "bpm": {
+          "bpm": 172.971,
+          "ok": true,
+          "reason": "half-time-dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 7.687,
+          "cc": 0.6542,
+          "mix_t": 26.053,
+          "track_t": 23.963,
+          "n": 118
+        },
+        "bpm": {
+          "bpm": 174.0,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "netsky_hospital_classics__10",
+    "dj": "Netsky",
+    "split": "test",
+    "mix_id": "netsky_hospital_classics",
+    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
+    "pair": "Nu:Tone - Missing Link -> Netsky - Drawing Straws",
+    "t_a": 1750.0,
+    "t_b": 1883.0,
+    "a": {
+      "title": "Nu:Tone - Missing Link",
+      "yt": "RMM3y-WGgdA"
+    },
+    "b": {
+      "title": "Netsky - Drawing Straws",
+      "yt": "cqUMWCyiEFE"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__10/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.446,
+          "cc": 0.71,
+          "mix_t": 5.782,
+          "track_t": 137.787,
+          "n": 112
+        },
+        "bpm": {
+          "bpm": 174.0,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 9.89,
+          "cc": 0.8521,
+          "mix_t": 50.527,
+          "track_t": 161.75,
+          "n": 84
+        },
+        "bpm": {
+          "bpm": 173.016,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "netsky_hospital_classics__15",
+    "dj": "Netsky",
+    "split": "test",
+    "mix_id": "netsky_hospital_classics",
+    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
+    "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+    "t_a": 2254.0,
+    "t_b": 2355.0,
+    "a": {
+      "title": "Netsky - Memory Lane",
+      "yt": "cG7cRDcPY3k"
+    },
+    "b": {
+      "title": "Netsky - The Whistle Song",
+      "yt": "k-7z5X0ATEc"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__15/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.658,
+          "cc": 0.4364,
+          "mix_t": 0.789,
+          "track_t": 212.672,
+          "n": 110
+        },
+        "bpm": {
+          "bpm": 175.005,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 9.625,
+          "cc": 0.5903,
+          "mix_t": 46.974,
+          "track_t": 38.94,
+          "n": 93
+        },
+        "bpm": {
+          "bpm": 174.003,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "netsky_hospital_classics__16",
+    "dj": "Netsky",
+    "split": "test",
+    "mix_id": "netsky_hospital_classics",
+    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
+    "pair": "Netsky - The Whistle Song -> Logistics - Together",
+    "t_a": 2355.0,
+    "t_b": 2627.0,
+    "a": {
+      "title": "Netsky - The Whistle Song",
+      "yt": "k-7z5X0ATEc"
+    },
+    "b": {
+      "title": "Logistics - Together",
+      "yt": "3f-XOhfDhxk"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__16/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.828,
+          "cc": 0.3456,
+          "mix_t": 7.105,
+          "track_t": 236.635,
+          "n": 93
+        },
+        "bpm": {
+          "bpm": 174.003,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 6.886,
+          "cc": 0.4094,
+          "mix_t": 49.296,
+          "track_t": 68.894,
+          "n": 119
+        },
+        "bpm": {
+          "bpm": 173.986,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "netsky_hospital_classics__17",
+    "dj": "Netsky",
+    "split": "test",
+    "mix_id": "netsky_hospital_classics",
+    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
+    "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+    "t_a": 2627.0,
+    "t_b": 2738.0,
+    "a": {
+      "title": "Logistics - Together",
+      "yt": "3f-XOhfDhxk"
+    },
+    "b": {
+      "title": "Apex - Just One Second (London Elektricity Remix)",
+      "yt": "Mzgh0cLopck"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__17/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.529,
+          "cc": 0.7583,
+          "mix_t": 1.556,
+          "track_t": 131.796,
+          "n": 119
+        },
+        "bpm": {
+          "bpm": 173.986,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 10.719,
+          "cc": 0.6451,
+          "mix_t": 45.72,
+          "track_t": 65.898,
+          "n": 125
+        },
+        "bpm": {
+          "bpm": 172.996,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "netsky_hospital_classics__23",
+    "dj": "Netsky",
+    "split": "test",
+    "mix_id": "netsky_hospital_classics",
+    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
+    "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
+    "t_a": 3382.0,
+    "t_b": 3501.0,
+    "a": {
+      "title": "Netsky - Porcelain",
+      "yt": "gCkKc2LuCuM"
+    },
+    "b": {
+      "title": "Nu:Logic - Morning Light",
+      "yt": "KP8jwoWF44Y"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__23/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.058,
+          "cc": 0.5276,
+          "mix_t": 18.622,
+          "track_t": 155.759,
+          "n": 90
+        },
+        "bpm": {
+          "bpm": 174.993,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.199,
+          "cc": 0.608,
+          "mix_t": 49.017,
+          "track_t": 59.907,
+          "n": 72
+        },
+        "bpm": {
+          "bpm": 174.005,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "netsky_hospital_classics__24",
+    "dj": "Netsky",
+    "split": "test",
+    "mix_id": "netsky_hospital_classics",
+    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
+    "pair": "Nu:Logic - Morning Light -> Sigma - Nobody To Love",
+    "t_a": 3501.0,
+    "t_b": 3603.0,
+    "a": {
+      "title": "Nu:Logic - Morning Light",
+      "yt": "KP8jwoWF44Y"
+    },
+    "b": {
+      "title": "Sigma - Nobody To Love",
+      "yt": "esP9UWQOnxk"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__24/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.784,
+          "cc": 0.7382,
+          "mix_t": 7.268,
+          "track_t": 119.815,
+          "n": 72
+        },
+        "bpm": {
+          "bpm": 174.005,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 7.529,
+          "cc": 0.4122,
+          "mix_t": 35.689,
+          "track_t": 56.912,
+          "n": 89
+        },
+        "bpm": {
+          "bpm": 175.002,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__11",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+    "t_a": 1634.0,
+    "t_b": 1876.0,
+    "a": {
+      "title": "Logistics - We Are One (Nu:Logic Remix)",
+      "yt": "wUVt_GsvMzw"
+    },
+    "b": {
+      "title": "Cyantific - Ghetto Blaster",
+      "yt": "tCyYwek-o28"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__11/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 9.852,
+          "cc": 0.5666,
+          "mix_t": 11.471,
+          "track_t": 296.542,
+          "n": 111
+        },
+        "bpm": {
+          "bpm": 174.008,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 10.155,
+          "cc": 0.958,
+          "mix_t": 33.622,
+          "track_t": 53.917,
+          "n": 107
+        },
+        "bpm": {
+          "bpm": 173.96,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__12",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+    "t_a": 1876.0,
+    "t_b": 2097.0,
+    "a": {
+      "title": "Cyantific - Ghetto Blaster",
+      "yt": "tCyYwek-o28"
+    },
+    "b": {
+      "title": "S.P.Y - Seconds To Midnight",
+      "yt": "u6cggHmZEAs"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__12/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.459,
+          "cc": 0.8554,
+          "mix_t": 10.194,
+          "track_t": 251.611,
+          "n": 107
+        },
+        "bpm": {
+          "bpm": 173.96,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 6.72,
+          "cc": 0.58,
+          "mix_t": 41.935,
+          "track_t": 215.667,
+          "n": 120
+        },
+        "bpm": {
+          "bpm": 174.996,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "joe_syntax_hospital__13",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "mix_id": "joe_syntax_hospital",
+    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+    "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+    "t_a": 2097.0,
+    "t_b": 2207.0,
+    "a": {
+      "title": "S.P.Y - Seconds To Midnight",
+      "yt": "u6cggHmZEAs"
+    },
+    "b": {
+      "title": "London Elektricity - Meteorites (Danny Byrd Remix)",
+      "yt": "SqzxwPEa-DI"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__13/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 7.216,
+          "cc": 0.648,
+          "mix_t": 10.124,
+          "track_t": 161.75,
+          "n": 120
+        },
+        "bpm": {
+          "bpm": 174.996,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 9.852,
+          "cc": 0.7549,
+          "mix_t": 48.089,
+          "track_t": 68.894,
+          "n": 104
+        },
+        "bpm": {
+          "bpm": 173.001,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__00",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+    "t_a": 0.0,
+    "t_b": 131.0,
+    "a": {
+      "title": "SpectraSoul - Away With Me (Calibre Remix)",
+      "yt": "pzFgQ7iIfXQ"
+    },
+    "b": {
+      "title": "EastColors - Keys",
+      "yt": "qeXTBEtGUtk"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__00/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.323,
+          "cc": 0.723,
+          "mix_t": 24.033,
+          "track_t": 131.796,
+          "n": 104
+        },
+        "bpm": {
+          "bpm": 173.992,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 6.502,
+          "cc": 0.5631,
+          "mix_t": 46.951,
+          "track_t": 53.917,
+          "n": 68
+        },
+        "bpm": {
+          "bpm": 171.998,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__09",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+    "t_a": 812.0,
+    "t_b": 943.0,
+    "a": {
+      "title": "Hybrid Minds - Listen (ft. Tiffani Juno)",
+      "yt": "J3oTRY7AdE4"
+    },
+    "b": {
+      "title": "LSB - The Optimist",
+      "yt": "ksVDZt9_0J4"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__09/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 10.649,
+          "cc": 0.6763,
+          "mix_t": 6.664,
+          "track_t": 182.718,
+          "n": 105
+        },
+        "bpm": {
+          "bpm": 172.009,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 6.758,
+          "cc": 0.6335,
+          "mix_t": 29.164,
+          "track_t": 92.857,
+          "n": 119
+        },
+        "bpm": {
+          "bpm": 173.999,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__10",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+    "t_a": 943.0,
+    "t_b": 1053.0,
+    "a": {
+      "title": "LSB - The Optimist",
+      "yt": "ksVDZt9_0J4"
+    },
+    "b": {
+      "title": "Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+      "yt": "Vwb-3pAvOVk"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__10/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 7.953,
+          "cc": 0.6152,
+          "mix_t": 2.554,
+          "track_t": 176.727,
+          "n": 119
+        },
+        "bpm": {
+          "bpm": 173.999,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 10.445,
+          "cc": 0.6719,
+          "mix_t": 49.412,
+          "track_t": 74.884,
+          "n": 104
+        },
+        "bpm": {
+          "bpm": 174.006,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__28",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+    "t_a": 2808.0,
+    "t_b": 2940.0,
+    "a": {
+      "title": "Nu:Tone - Balaclava",
+      "yt": "bnRTUL2jnk0"
+    },
+    "b": {
+      "title": "SpectraSoul & Alix Perez - The Need",
+      "yt": "Op886B0sd4Q"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__28/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.386,
+          "cc": 0.6658,
+          "mix_t": 20.48,
+          "track_t": 194.699,
+          "n": 109
+        },
+        "bpm": {
+          "bpm": 173.987,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.014,
+          "cc": 0.4833,
+          "mix_t": 45.232,
+          "track_t": 65.898,
+          "n": 86
+        },
+        "bpm": {
+          "bpm": 171.988,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "hybrid_minds_ukf__40",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "mix_id": "hybrid_minds_ukf",
+    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+    "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+    "t_a": 4038.0,
+    "t_b": 4169.0,
+    "a": {
+      "title": "LSB - I Need Love",
+      "yt": "pqqjaLUk-MY"
+    },
+    "b": {
+      "title": "Hybrid Minds - Inside (ft. Emily Jones)",
+      "yt": "oySqE3z99AE"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__40/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 7.804,
+          "cc": 0.7846,
+          "mix_t": 5.317,
+          "track_t": 200.69,
+          "n": 131
+        },
+        "bpm": {
+          "bpm": 174.997,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.879,
+          "cc": 0.5289,
+          "mix_t": 25.24,
+          "track_t": 44.931,
+          "n": 101
+        },
+        "bpm": {
+          "bpm": 175.018,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  }
+]

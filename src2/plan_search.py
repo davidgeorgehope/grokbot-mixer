@@ -100,8 +100,8 @@ def predict(name):
   def ok(f):
     try:f();return True
     except AssertionError:return False
-    except Exception as ex:
-      if type(ex).__name__=='Skipped':return False  # a skipped structure test means the meta is not a structure build: not a pass
+    except BaseException as ex:
+      if type(ex).__name__=='Skipped':return False  # pytest.skip subclasses BaseException, not Exception
       raise
   lens=[t['end_bar']-t['start_bar'] for t in M['trans'] if 'echo' not in t['tech']]
   keyclash=[(a['id'],b['id']) for a,b in zip(D,D[1:]) if not C.camelot_ok(K[a['id']],K[b['id']]) and C.harmonic_overlap(a,b)>2]
@@ -258,6 +258,36 @@ def _pro_shape(w):
   lv=w['lv'];X=len(lv);c=X//2;pairs=[(lv[j],PROT[j-c]) for j in range(X) if (j-c) in PROT]
   if len(pairs)<4:return 0.5
   a=np.array(pairs,float);a-=a.mean(0);return float(min(1.0,np.mean(np.abs(a[:,0]-a[:,1]))/6))
+_PHLAB={};_PHPRI=None
+def _phlabs(b):
+  if b not in _PHLAB:
+    p=os.path.join('st',f'{b}.json')
+    if not os.path.exists(p):
+      _PHLAB[b]=(None,None)
+    else:
+      try:
+        sys.path.insert(0,'/workspace/mixes/protrans')
+        import structure as _ST
+        bar=_ST.load_bar(p);_PHLAB[b]=(_ST.label_phases(bar),_ST.detect_breakdowns(bar))
+      except Exception:
+        _PHLAB[b]=(None,None)
+  return _PHLAB[b]
+def phase_pair_cost(a,b,w):
+  """Soft frequency-weighted phase pairing + calibrated linger/breakdown extras. Default off (PHASEW=0). Never a ban."""
+  W=float(os.environ.get('PHASEW',0));LW=float(os.environ.get('LINGERW',0));BW=float(os.environ.get('BREAKW',0))
+  if W<=0 and LW<=0 and BW<=0:return 0.0
+  try:
+    sys.path.insert(0,'/workspace/mixes/protrans')
+    import structure as _ST
+    la,sa=_phlabs(a);lb,_sb=_phlabs(b)
+    if not la or not lb:return 0.0
+    global _PHPRI
+    if _PHPRI is None:
+      _PHPRI=_ST.load_priors(os.environ.get('PHASE_PRIORS') or '/workspace/mixes/protrans/results/phase_priors.json')
+    c,_=_ST.window_phase_cost(w['w'] if isinstance(w,dict) else w,la,lb,sa,_PHPRI,W,LW,BW)
+    return float(c)
+  except Exception:
+    return 0.0
 def soft_cost(k,w,PR):
   """search cost for what used to be a pre-reject"""
   c=VOCPEN*w['voc']+BOTHSPEN*max(0,BOTHMIN-w['both'])+(RSPEN*max(0,0.2-w['R']) if k not in RELAXR else 0)+MELSPEN*max(0,w['mel']-MELMAX)+(STEPSPEN*max(0,w['step']-STEPMAX) if PR.get(k,3)<4 else 0)
@@ -284,7 +314,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
           if DBG is not None:DBG[(a[:4],b[:4],'wins',len(row['wins']),row['key_ok'])]+=1
           _ck=f'{a}>{b}'
           if _ck not in _TOPW:  # ranked shortlist per pair (score order, nothing filtered by rule): soft costs + pro_shape + render pen
-            _TOPW[_ck]=sorted(row['wins'],key=lambda w:(soft_cost(_ck,w,PR) if SOFT else 0)+PROW*100*pro_shape(w)+w['pen']/100+X16PEN*(w['w'][4]<32))[:WIN_TOPK] if WIN_TOPK and _ck not in PINW else row['wins']
+            _TOPW[_ck]=sorted(row['wins'],key=lambda w:(soft_cost(_ck,w,PR) if SOFT else 0)+PROW*100*pro_shape(w)+phase_pair_cost(_ck.split('>')[0],_ck.split('>')[1],w)+w['pen']/100+X16PEN*(w['w'][4]<32))[:WIN_TOPK] if WIN_TOPK and _ck not in PINW else row['wins']
           for w in _TOPW[_ck]:
             if f'{a}>{b}' in PINW and w['w']!=PINW[f'{a}>{b}']:continue  # pinned window (the 5/5 gold blend)
             kind,e,p,ib,X=w['w']
@@ -319,7 +349,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
                 continue
             if KILL is not None:KILL[(a[:4]+'>'+b[:4],'survive')]+=1
             _soft=(soft_cost(_k,w,PR)+_bc-(LXREPAIR if kind=='lx' and _k in BADC else 0)) if SOFT else 0
-            cost=st['cost']+_soft+PROW*100*pro_shape(w)+w['pen']/100+bw*(w['bob']<16)+X16PEN*(X<32)+60*(w['beatless']>X/2)+COVPEN*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT and b not in LOVE)-LOVEW*(b in LOVE)+REUSEPEN*(f'{a}>{b}' in PP)+DROPPEN*(not _drop_ok(dict(a=a,b=b,**w)))+OUTPEN*(not _outro_ok(dict(a=a,b=b,**w)))
+            cost=st['cost']+_soft+PROW*100*pro_shape(w)+phase_pair_cost(a,b,w)+w['pen']/100+bw*(w['bob']<16)+X16PEN*(X<32)+60*(w['beatless']>X/2)+COVPEN*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT and b not in LOVE)-LOVEW*(b in LOVE)+REUSEPEN*(f'{a}>{b}' in PP)+DROPPEN*(not _drop_ok(dict(a=a,b=b,**w)))+OUTPEN*(not _outro_ok(dict(a=a,b=b,**w)))
             ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost)
             k=(frozenset(ns['seq']),b,ns['inn'])+((sum(x['bob']>=16 for x in bl),sum(x['w'][4]>=32 for x in bl),sum(_drop_ok(x) for x in bl),sum(_outro_ok(x) for x in bl)) if ORDER else ())  # fixed order: keep states that differ in plan-target counts
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns
@@ -368,6 +398,7 @@ def to_plan(d,base):
 def dry(plan,tag):
   """exact check: mix_simple --dry on the plan (no audio), then predict() on its meta"""
   import subprocess;f=f'_ps_{tag}.json';json.dump(plan,open(f,'w'))
+  # Full (non-dry) renders must call cleanup_round_wavs.cleanup(NAME) so only best+current round WAVs remain.
   r=subprocess.run([sys.executable,'mix_simple.py','--plan',f,'--out',f'_ps_{tag}','--dry'],capture_output=True,text=True)
   try:
     if r.returncode:return dict(error=r.stderr.strip().splitlines()[-1] if r.stderr.strip() else 'mix_simple failed')

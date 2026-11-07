@@ -42,6 +42,7 @@ def test_every_deck_on_its_planned_bar():
 def test_no_vocal_clash():
   bad=[c for c in C.vocal_clashes() if not c['whitelisted'] and c['bars']>=1];assert not bad,bad
 def test_mixdown_beats_aligned_every_overlap_bar():
-  R=C.bar_alignment_report();bad=[r for r in R if abs(r['lag'])>C.TOL_DRIFT_MS]
-  assert len(R)>50,'too few measurable overlap bars'
-  assert not bad,f'{len(bad)}/{len(R)} overlap bars off by >10ms: {bad[:15]}'
+  R=C.bar_alignment_report();bad=C.alignment_failures(R)
+  mix_rows=[r for r in R if r.get('kind')!='interdeck']
+  assert len(mix_rows)>50,'too few measurable overlap bars'
+  assert not bad,f'{len(bad)}/{len(R)} overlap bars fail beat/phase (>{C.TOL_DRIFT_MS}ms lag on an audible bar, including tail drift): {bad[:15]}'

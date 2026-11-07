@@ -1,0 +1,26 @@
+{
+  "id": "joe_syntax_hospital__17",
+  "mix_id": "joe_syntax_hospital",
+  "dj": "Joe Syntax",
+  "split": "train",
+  "a": {
+    "title": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound)",
+    "yt": "gZhjz2UQJv0",
+    "t": 2648.0
+  },
+  "b": {
+    "title": "Netsky - Lotus Symphony",
+    "yt": "RTXo4b0RdyQ",
+    "t": 2803.0
+  },
+  "window": {
+    "mix_t_a": 2648.0,
+    "mix_t_b": 2803.0,
+    "mix_t_next": 2893.0,
+    "hint_a_played_sec": 155.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__17/pro.wav",
+  "pro_clip_start": 2779.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__17"
+}

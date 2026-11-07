@@ -22,6 +22,7 @@ from engine import track,render_deck,SR,BAR,BEAT,BS
 plan=json.load(open(sys.argv[sys.argv.index('--plan')+1]));OUT=sys.argv[sys.argv.index('--out')+1]
 X=int(sys.argv[sys.argv.index('--xbars')+1]) if '--xbars' in sys.argv else int(os.environ.get('XBARS',32))
 POS=float(os.environ.get('SWAP_POS',0.35))  # bass handoff centre as a fraction of the blend (Raveform median ~0.36)
+POS0=POS
 ids=[p['id'] for p in plan]
 def A_(b):
   t=track(b);al=np.array(t['g']['bar']['all'],float);return t,al,np.percentile(al,75),np.array(t['vact'],bool),t['nb']
@@ -119,9 +120,9 @@ def _xpos(u):  # shared by score() and the render. Pure -30*u^1.5 tail failed X1
   # (u, u**1.5, D24 still gave X1 3.1 dB/beat on 16-bar blends in render c)
   if FADE=='lin' or u>=1:return u
   w=u**1.4;return float((1-w)*u+w*2/np.pi*np.arccos(10**(-FDB*u**1.7/20)))  # tuned at guardrail resolution (1/16 bar): X=16 incoming <=2.9 dB/beat, outgoing <=2.9 dB/bar, -4.2 dB mid-blend
-PIN={p['id']:p for p in plan if 'fade' in p or 'swap_bars' in p}  # per-outgoing overrides: a pinned blend (e.g. the listener's 5/5 gold) keeps its original fader and bass swap
+PIN={p['id']:p for p in plan if 'fade' in p or 'swap_bars' in p or 'swap_pos' in p}  # per-outgoing overrides: a pinned blend keeps its fader / bass swap / swap centre
 def _ctx(a):
-  global FADE,SW;q=PIN.get(a,{});FADE=q.get('fade',FADE0);SW=float(q.get('swap_bars',SW0))
+  global FADE,SW,POS;q=PIN.get(a,{}) if a else {};FADE=q.get('fade',FADE0);SW=float(q.get('swap_bars',SW0));POS=float(q.get('swap_pos',POS0))
 def score(a,b,wa,wb,refA):
   _ctx(a)
   try:return _score(a,b,wa,wb,refA)
@@ -319,6 +320,12 @@ for j,d in enumerate(decks):
   for k in list(engine._cache):
     if k not in need:engine._cache[k]['st'].clear()
 sf.write(OUT+'_raw.wav',M,SR,subtype='FLOAT')
+try:
+  import cleanup_round_wavs as _CR
+  _k,_r=_CR.cleanup(os.path.basename(OUT))
+  if _r:print('cleanup_round_wavs kept',sorted(_k),'removed',_r,flush=True)
+except Exception as _ex:
+  print('cleanup_round_wavs skipped',_ex,file=sys.stderr)
 json.dump(dict(engine='simple_crossfader',eq_mode=dict(SWAP_PHRASE=SNAP,HIGH_SWAP=HSW,HIGH_OFS=HOFS,SWAP_POS=POS,ECHO_OUT=EO,VARIETY=1,STRUCT=STRUCT,FADE=os.environ.get('FADE','tail'),LOOP32=int(os.environ.get('LOOP32',1))),decks=decks,trans=trans,fx=[],plan=plan,bar_sec=BAR,len_sec=len(M)/SR),open(OUT+'_meta.json','w'),indent=1,default=float)
 print('len min',round(len(M)/SR/60,2))
 for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])

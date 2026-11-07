@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__10",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "LSB - The Optimist",
+    "yt": "ksVDZt9_0J4",
+    "t": 943.0
+  },
+  "b": {
+    "title": "Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+    "yt": "Vwb-3pAvOVk",
+    "t": 1053.0
+  },
+  "window": {
+    "mix_t_a": 943.0,
+    "mix_t_b": 1053.0,
+    "mix_t_next": 1143.0,
+    "hint_a_played_sec": 110.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__10/pro.wav",
+  "pro_clip_start": 1029.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__10"
+}

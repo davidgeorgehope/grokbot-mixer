@@ -1,0 +1,26 @@
+{
+  "id": "netsky_hospital_classics__24",
+  "mix_id": "netsky_hospital_classics",
+  "dj": "Netsky",
+  "split": "test",
+  "a": {
+    "title": "Nu:Logic - Morning Light",
+    "yt": "KP8jwoWF44Y",
+    "t": 3501.0
+  },
+  "b": {
+    "title": "Sigma - Nobody To Love",
+    "yt": "esP9UWQOnxk",
+    "t": 3603.0
+  },
+  "window": {
+    "mix_t_a": 3501.0,
+    "mix_t_b": 3603.0,
+    "mix_t_next": 3693.0,
+    "hint_a_played_sec": 102.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__24/pro.wav",
+  "pro_clip_start": 3579.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__24"
+}

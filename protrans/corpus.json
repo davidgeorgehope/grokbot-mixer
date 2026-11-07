@@ -1,0 +1,452 @@
+{
+  "split_rule": "by_dj",
+  "train_djs": [
+    "London Elektricity"
+  ],
+  "test_djs": [
+    "Wilkinson",
+    "Grafix",
+    "Whiney",
+    "Degs",
+    "Hybrid Minds",
+    "Maduk",
+    "Andromedik",
+    "Joe Syntax",
+    "Netsky"
+  ],
+  "intended_train_djs": [
+    "London Elektricity",
+    "Wilkinson"
+  ],
+  "intended_test_djs": [
+    "Grafix",
+    "Whiney",
+    "Degs",
+    "Hybrid Minds",
+    "Maduk",
+    "Andromedik",
+    "Joe Syntax",
+    "Netsky"
+  ],
+  "note": "Split is by DJ. This run holds Wilkinson out so both sides can be scored from mixes already on disk, avoiding extra full-mix downloads. BBC R1/1Xtra (Friction) and a Netsky Boiler Room full set were searched; no official timestamped YouTube page could be verified for Friction, and no Netsky Boiler Room full-set URL was verified.",
+  "run_now": [
+    "hospital_podcast393__05",
+    "hospital_podcast393__06",
+    "wilkinson_boomtown2026__10",
+    "wilkinson_boomtown2026__33"
+  ],
+  "mixes": [
+    {
+      "id": "hospital_podcast393",
+      "dj": "London Elektricity",
+      "split": "train",
+      "title": "Hospital Podcast 393 with London Elektricity",
+      "url": "https://www.youtube.com/watch?v=2wXDFi2eL1U",
+      "channel": "Hospital Records",
+      "tracklist_source": "Official YouTube description (titles, no timestamps). Timestamps from prior anchored analysis (eval/sets/hospital_podcast393.json / run_all.sh anchors).",
+      "local_mix": "pro_sets/hospital_podcast393.m4a",
+      "tracks": [
+        {
+          "title": "Etherwood - Driving Out",
+          "source_yt": "Xzv35tElTi8",
+          "t": 0.0
+        },
+        {
+          "title": "Bop x Subwave - Take It Off",
+          "source_yt": "0QRPW2e1fkM",
+          "t": 330.0
+        },
+        {
+          "title": "Camo & Krooked - Loa",
+          "source_yt": "kYfua2wRajY",
+          "t": 628.0
+        },
+        {
+          "title": "Hugh Hardie & Unglued - Resistance",
+          "source_yt": "tSL2vi1_DR4",
+          "t": 883.0
+        },
+        {
+          "title": "Inja x Whiney - She Just Wanna Dance (Kyrist Remix)",
+          "source_yt": "_Ij78U7OAX4",
+          "t": 1191.0
+        },
+        {
+          "title": "Fred V - Cosmic Flowchart",
+          "source_yt": "f2MzUhnpvgk",
+          "t": 1468.0
+        },
+        {
+          "title": "S.P.Y - Don't You Leave Me (Dead Man's Chest Remix)",
+          "source_yt": "xN_8rvrsUvY",
+          "t": 1738.0
+        },
+        {
+          "title": "Grafix - Radiance",
+          "source_yt": "_Up8yNILt_o",
+          "t": 2041.0
+        },
+        {
+          "title": "Lewis James - Response",
+          "source_yt": null,
+          "t": 2291.0
+        },
+        {
+          "title": "Chris Inperspective - Call The Future",
+          "source_yt": "bOQo8Y9ydwE",
+          "t": 2860.29,
+          "t_note": "fitted overlap start from prior reverse-engineering (eval/control_curves.jsonl), not an official chapter"
+        },
+        {
+          "title": "Lakeway - Shimmering",
+          "source_yt": "BUkt5BJ4MCI",
+          "t": 3021.7,
+          "t_note": "fitted overlap start from prior reverse-engineering (eval/control_curves.jsonl), not an official chapter"
+        },
+        {
+          "title": "Neve - Skirts",
+          "source_yt": "0O5WQfdQxy0",
+          "t": 3154.98,
+          "t_note": "fitted overlap start from prior reverse-engineering (eval/control_curves.jsonl), not an official chapter"
+        },
+        {
+          "title": "Culture Shock - There For You (Breakage Remix)",
+          "source_yt": "8kEQZKV20SU"
+        },
+        {
+          "title": "Halogenix - Out Of Line (ft. SOLAH)",
+          "source_yt": "rPiP_AXANeI"
+        }
+      ]
+    },
+    {
+      "id": "hospital_podcast400",
+      "dj": "London Elektricity",
+      "split": "train",
+      "title": "Hospital Podcast 400 with London Elektricity",
+      "url": "https://www.youtube.com/watch?v=az6BZJAQCGo",
+      "channel": "Hospital Records",
+      "tracklist_source": "Official Hospital Records upload (id confirmed via public listings). Tracklist to be parsed from the video description/chapters on fetch.",
+      "tracks": []
+    },
+    {
+      "id": "wilkinson_boomtown2026",
+      "dj": "Wilkinson",
+      "split": "test",
+      "title": "Wilkinson | Live from Boomtown 2026 | Full Set",
+      "url": "https://www.youtube.com/watch?v=ifOtJV-xZ-U",
+      "channel": "Boomtown Fair (official upload)",
+      "tracklist_source": "Official YouTube chapters on the Boomtown upload.",
+      "local_mix": "pro_sets/wilkinson_boomtown2026.m4a",
+      "tracks": [
+        {
+          "title": "Wilkinson - All The Way feat. iiola",
+          "source_yt": "hZvzuiMUqMI",
+          "t": 0.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "CTRL - Grafix",
+          "source_yt": null,
+          "t": 96.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Jack (Hoax Rework) - Breach",
+          "source_yt": null,
+          "t": 276.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Sub Focus & Wilkinson - Illuminate",
+          "source_yt": "aYUY0q6dwoY",
+          "t": 384.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Feel the Vibration - Kanine",
+          "source_yt": null,
+          "t": 540.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson - Eternity feat. Mougleta",
+          "source_yt": "zm7CYGWFItc",
+          "t": 648.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Original Don - IRAH, Fireboy DML & Sub Focus",
+          "source_yt": null,
+          "t": 732.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson - Take You Higher",
+          "source_yt": "qGhkrvefkPU",
+          "t": 804.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Tell Me Why (1991 Remix) - Supermode & 1991",
+          "source_yt": null,
+          "t": 924.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Baddadan - Chase & Status & Bou",
+          "source_yt": null,
+          "t": 1056.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Yosemite (Wilkinson Remix)",
+          "source_yt": "PjGZX6K5XnE",
+          "t": 1164.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson - Used To This (feat. Issey Cross)",
+          "source_yt": "kKWX3C_odcc",
+          "t": 1320.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Come Down - Wilkinson",
+          "source_yt": null,
+          "t": 1536.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Miracle (VIP Mix) - Fragma, Culture Shock & Sub Focus",
+          "source_yt": null,
+          "t": 1608.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Back Up - Wilkinson & iiola",
+          "source_yt": null,
+          "t": 1776.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "It's That Time (Dimension Remix) - Marlon Hoffstadt & Dimension",
+          "source_yt": null,
+          "t": 1836.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Sweet Lies - Wilkinson feat. Karen Harding",
+          "source_yt": null,
+          "t": 1944.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "In The City - Basstripper",
+          "source_yt": null,
+          "t": 2160.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Get a Good Feeling - 1991",
+          "source_yt": null,
+          "t": 2328.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson - Break It Down (ft. Emily Makis)",
+          "source_yt": "kFUzP6UyyR4",
+          "t": 2436.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Lock It - Flowidus & Loboski",
+          "source_yt": null,
+          "t": 2580.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson - Back To Life (ft. Julia Church)",
+          "source_yt": "Qty8xfZbYpw",
+          "t": 2652.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Voodoo People (Pendulum Remix) - The Prodigy",
+          "source_yt": null,
+          "t": 2736.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson - Infinity (featuring ILIRA, Tom Cane & iiola)",
+          "source_yt": "-Lfw-kqBdwM",
+          "t": 2796.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "leavemealone - Fred again.. & Baby Keem",
+          "source_yt": null,
+          "t": 2904.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Silence (Dimension Remix)",
+          "source_yt": null,
+          "t": 3012.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Time Tripping - DJ Hazard",
+          "source_yt": null,
+          "t": 3096.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson, Camo & Krooked & Mefjus - Lose Control (ft. ILIRA)",
+          "source_yt": "silrFjLFzko",
+          "t": 3144.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson - Half Light ft. Tom Cane",
+          "source_yt": "zrX5zrPoZoM",
+          "t": 3276.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Chant - Logistics",
+          "source_yt": null,
+          "t": 3480.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Feel Again - Culture Shock",
+          "source_yt": null,
+          "t": 3540.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Where's My Money (Aries Remix) - TC",
+          "source_yt": null,
+          "t": 3648.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson & Becky Hill - Here For You",
+          "source_yt": "Fg_muDHhxD4",
+          "t": 3720.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson - Ultraviolet feat. Katy Alex",
+          "source_yt": "uP0KAzefX8Y",
+          "t": 3864.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson - Afterglow",
+          "source_yt": "I9QGpHScGug",
+          "t": 3970.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        },
+        {
+          "title": "Wilkinson & NORTH - Balance",
+          "source_yt": "X9RylLX0lvs",
+          "t": 4186.0,
+          "t_source": "official YouTube chapters on ifOtJV-xZ-U"
+        }
+      ],
+      "split_note": "Held out for this run so train/test are different DJs using mixes already on disk (no extra full-mix download). Intended later: move Wilkinson to train once another test DJ mix is fetched as sections-only."
+    },
+    {
+      "id": "hospital_podcast425_grafix",
+      "dj": "Grafix",
+      "split": "test",
+      "title": "Hospital Podcast 425 Grafix Takeover",
+      "url": "https://www.youtube.com/watch?v=XR2FdYeJ_4U",
+      "channel": "Hospital Records",
+      "tracklist_source": "Hospital Records official upload. Title/id from public listings (idscouter set page citing the video description).",
+      "tracks": []
+    },
+    {
+      "id": "hospital_podcast452_whiney",
+      "dj": "Whiney",
+      "split": "test",
+      "title": "Hospital Podcast 452 with Whiney",
+      "url": "https://www.youtube.com/watch?v=GwCR07oXGZs",
+      "channel": "Hospital Records",
+      "tracklist_source": "Hospital Records official upload (public listings).",
+      "tracks": []
+    },
+    {
+      "id": "hospital_podcast478_degs",
+      "dj": "Degs",
+      "split": "test",
+      "title": "Hospital Podcast with Degs #478",
+      "url": "https://www.youtube.com/watch?v=QkzMkgg2flQ",
+      "channel": "Hospital Records",
+      "tracklist_source": "Hospital Records official upload (public listings).",
+      "tracks": []
+    },
+    {
+      "id": "ukf_hybrid_minds_liquid",
+      "dj": "Hybrid Minds",
+      "split": "test",
+      "title": "Liquid Drum & Bass Mix by Hybrid Minds",
+      "url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
+      "channel": "UKF Drum & Bass",
+      "tracklist_source": "Official UKF video description (timestamped titles).",
+      "tracks": []
+    },
+    {
+      "id": "liquicity_yearmix_2024",
+      "dj": "Maduk",
+      "split": "test",
+      "title": "Liquicity Drum & Bass Yearmix 2024 (Mixed by Maduk)",
+      "url": "https://www.youtube.com/watch?v=VPBc1316Tro",
+      "channel": "Liquicity",
+      "tracklist_source": "Official Liquicity YouTube chapters/description.",
+      "tracks": []
+    },
+    {
+      "id": "liquicity_yearmix_2025",
+      "dj": "Maduk",
+      "split": "test",
+      "title": "Liquicity Drum & Bass Yearmix 2025 (Mixed by Maduk)",
+      "url": "https://www.youtube.com/watch?v=g1yq9w7moFI",
+      "channel": "Liquicity",
+      "tracklist_source": "Official Liquicity YouTube chapters/description.",
+      "tracks": []
+    },
+    {
+      "id": "liquicity_yearmix_2022",
+      "dj": "Andromedik",
+      "split": "test",
+      "title": "Liquicity Drum & Bass Yearmix 2022 (Mixed by Andromedik)",
+      "url": "https://www.youtube.com/watch?v=W7Q3QdLuW6w",
+      "channel": "Liquicity",
+      "tracklist_source": "Official Liquicity YouTube chapters.",
+      "tracks": []
+    },
+    {
+      "id": "hospital_joe_syntax_mix",
+      "dj": "Joe Syntax",
+      "split": "test",
+      "title": "Joe Syntax Hospital Mix",
+      "url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
+      "channel": "Hospital Records",
+      "tracklist_source": "Hospital Records official upload; description tracklist cited by public listings.",
+      "tracks": []
+    },
+    {
+      "id": "netsky_hospital_classics",
+      "dj": "Netsky",
+      "split": "test",
+      "title": "Netsky Livestream (Hospital Classics Set)",
+      "url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
+      "channel": "Hospital Records",
+      "tracklist_source": "Official Hospital Records livestream upload. Chapters/description to be confirmed on fetch; included as the Boiler Room / live-set lane stand-in after no Netsky Boiler Room full-set URL could be verified this turn.",
+      "tracks": []
+    }
+  ]
+}

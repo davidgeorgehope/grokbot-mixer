@@ -1,0 +1,26 @@
+{
+  "id": "hybrid_minds_ukf__33",
+  "mix_id": "hybrid_minds_ukf",
+  "dj": "Hybrid Minds",
+  "split": "train",
+  "a": {
+    "title": "1991 - Nine Clouds",
+    "yt": "BSckjZOceFg",
+    "t": 3357.0
+  },
+  "b": {
+    "title": "Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
+    "yt": "AT8lBlfTT2w",
+    "t": 3467.0
+  },
+  "window": {
+    "mix_t_a": 3357.0,
+    "mix_t_b": 3467.0,
+    "mix_t_next": 3557.0,
+    "hint_a_played_sec": 110.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__33/pro.wav",
+  "pro_clip_start": 3443.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__33"
+}

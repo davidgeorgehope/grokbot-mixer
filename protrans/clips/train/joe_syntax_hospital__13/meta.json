@@ -1,0 +1,26 @@
+{
+  "id": "joe_syntax_hospital__13",
+  "mix_id": "joe_syntax_hospital",
+  "dj": "Joe Syntax",
+  "split": "train",
+  "a": {
+    "title": "S.P.Y - Seconds To Midnight",
+    "yt": "u6cggHmZEAs",
+    "t": 2097.0
+  },
+  "b": {
+    "title": "London Elektricity - Meteorites (Danny Byrd Remix)",
+    "yt": "SqzxwPEa-DI",
+    "t": 2207.0
+  },
+  "window": {
+    "mix_t_a": 2097.0,
+    "mix_t_b": 2207.0,
+    "mix_t_next": 2297.0,
+    "hint_a_played_sec": 110.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__13/pro.wav",
+  "pro_clip_start": 2183.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__13"
+}

@@ -178,3 +178,36 @@ explain while both source vocals are locally quiet. Flag at >= 4 s or >= 15% of 
 `admit.process_pair` (new admissions), `admit.apply_talkover()` (moves flagged rows to
 `results/talkover_rejected.json`) and `run_admitted_tune.load_recs()` (daily pick + nightly tune).
 Cache: `results/talkover.json`. Clean baseline: `results/baseline_clean.json` (33 clips).
+
+
+## Real-blend admission (2026-11-08)
+
+`real_blend.py` supplements (does not replace) the talkover filter. It locates
+both sources, uses `diagnose_gap.band_gains`' source-fitted full-band NNLS deck
+gains, and counts only frames where **both** decks are within 12 dB of their
+own 95th-percentile gain. At least eight bars of simultaneous audibility are
+required. Total overlap, not an uninterrupted run, is used: short musical rests
+and EQ holes otherwise falsely reject genuine blends. Longest run is reported
+separately; silent gaps never count toward total overlap. Timing uses the same
+174-BPM bar duration as the scorer, with 0.25-second measurement resolution.
+
+`admit.process_pair` applies this after version/talkover checks;
+`admit.load_admitted()` and the daily/tuning `load_recs()` share the same gate.
+Missing audio/locator failures fail closed. Cached results include measurement
+version, thresholds and source/pro file fingerprints; writes are locked/atomic.
+`admit.apply_real_blend()` archives rejected rows without deleting their corpus
+audio. Per-clip measurements: `results/real_blend.json`; rejected rows:
+`results/real_blend_rejected.json`; audit: `results/real_blend_report.md`.
+
+Reproduce via `jobs/runjob.sh <name> python3 protrans/real_blend.py --force`,
+then `admit.apply_real_blend()` and `protrans/run_real_blend_baseline.py`.
+Calibration: `protrans/calibrate_real_blend.py` compares -9/-12/-15 dB on the
+retained Hospital negative excerpt and a genuine Hybrid Minds blend. The full
+Hospital control WAV had already been removed; its retained pro excerpt is
+46.7 seconds, not a substitute measurement of the entire original clip.
+
+A rejection means "less than the required eight audible overlap bars", not
+proof that the DJ never mixed. Short legitimate transitions can be excluded,
+including the previously favoured Netsky `__15`. No engine changes, score-weight
+changes or quality-improvement claim are implied by a different cohort mean.
+Tune decisions now carry their cohort ids to prevent replay across datasets.

@@ -1,0 +1,93 @@
+{
+  "id": "hospital_podcast393__04",
+  "pro_excerpt": "/workspace/mixes/deliver/protrans/daily_2026-11-08_A.mp3",
+  "duration_s": 46.7,
+  "full_clip_available": false,
+  "alignment": "Original version-gate anchors; excerpt begins at original clip time zero.",
+  "sweep": {
+    "-9": {
+      "version": "real-blend-v2",
+      "level_db": -9,
+      "min_bars": 8.0,
+      "overlap_bars": 2.356,
+      "longest_overlap_bars": 2.356,
+      "references": [
+        2.4811755990497257,
+        0.8544729616967175
+      ],
+      "flagged": true,
+      "reason": "insufficient_overlap"
+    },
+    "-12": {
+      "version": "real-blend-v2",
+      "level_db": -12,
+      "min_bars": 8.0,
+      "overlap_bars": 2.356,
+      "longest_overlap_bars": 2.356,
+      "references": [
+        2.4811755990497257,
+        0.8544729616967175
+      ],
+      "flagged": true,
+      "reason": "insufficient_overlap"
+    },
+    "-15": {
+      "version": "real-blend-v2",
+      "level_db": -15,
+      "min_bars": 8.0,
+      "overlap_bars": 3.081,
+      "longest_overlap_bars": 2.9,
+      "references": [
+        2.4811755990497257,
+        0.8544729616967175
+      ],
+      "flagged": true,
+      "reason": "insufficient_overlap"
+    }
+  },
+  "caveat": "Only the retained 46.7 s excerpt was measured; the missing full clip remains excluded by talkover and fail-closed missing-input gate.",
+  "genuine_blend_control": {
+    "id": "hybrid_minds_ukf__08",
+    "sweep": {
+      "-9": {
+        "version": "real-blend-v2",
+        "level_db": -9,
+        "min_bars": 8.0,
+        "overlap_bars": 23.923,
+        "longest_overlap_bars": 17.398,
+        "references": [
+          0.8027511025040011,
+          0.890251931121962
+        ],
+        "flagged": false,
+        "reason": null
+      },
+      "-12": {
+        "version": "real-blend-v2",
+        "level_db": -12,
+        "min_bars": 8.0,
+        "overlap_bars": 33.528,
+        "longest_overlap_bars": 17.58,
+        "references": [
+          0.8027511025040011,
+          0.890251931121962
+        ],
+        "flagged": false,
+        "reason": null
+      },
+      "-15": {
+        "version": "real-blend-v2",
+        "level_db": -15,
+        "min_bars": 8.0,
+        "overlap_bars": 40.778,
+        "longest_overlap_bars": 18.305,
+        "references": [
+          0.8027511025040011,
+          0.890251931121962
+        ],
+        "flagged": false,
+        "reason": null
+      }
+    }
+  }
+}

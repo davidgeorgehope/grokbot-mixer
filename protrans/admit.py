@@ -69,15 +69,34 @@ def resolve_yt(title, preset=None):
     print('search', title, '->', pick['id'], pick.get('title'), pick.get('channel'), 's', sc, flush=True)
     return pick['id']
 
-def load_admitted():
-    if os.path.exists(ADMITTED):
-        return json.load(open(ADMITTED))
-    return []
+def load_admitted(filtered=True):
+    rows = json.load(open(ADMITTED)) if os.path.exists(ADMITTED) else []
+    if not filtered:
+        return rows
+    import talkover, real_blend
+    bad = talkover.flagged_ids()
+    return [r for r in rows if r['id'] not in bad and real_blend.eligible(r)]
+
+
+def apply_real_blend():
+    import real_blend
+    rows = load_admitted(filtered=False)
+    keep, drop = [], []
+    for row in rows:
+        result = real_blend.check_row(row)
+        row['real_blend'] = result
+        (drop if result['flagged'] else keep).append(row)
+    p = os.path.join(paths.RESULTS, 'real_blend_rejected.json')
+    old = json.load(open(p)) if os.path.exists(p) else []
+    merged = {r['id']: r for r in old + drop}
+    json.dump(list(merged.values()), open(p, 'w'), indent=2)
+    save_admitted(keep)
+    return keep, drop
 
 def apply_talkover(rows=None):
     """Drop talkover-flagged rows from admitted.json into results/talkover_rejected.json."""
     import talkover
-    rows = load_admitted() if rows is None else rows
+    rows = load_admitted(filtered=False) if rows is None else rows
     bad = talkover.flagged_ids()
     keep = [r for r in rows if r['id'] not in bad]
     drop = [r for r in rows if r['id'] in bad]
@@ -135,6 +154,14 @@ def process_pair(c, mix_audio):
         row['talkover'] = {k: tk.get(k) for k in ('talk_s', 'talk_frac', 'flagged')}
         if tk.get('flagged'):
             row['verdict'] = 'reject'; row['reason'] = f"dj_talkover {tk['talk_s']}s"
+            gate['passed'] = False
+    if gate.get('passed'):
+        import real_blend
+        blend = real_blend.check_row(row)
+        row['real_blend'] = blend
+        if blend['flagged']:
+            row['verdict'] = 'reject'
+            row['reason'] = 'not_real_blend: ' + blend['reason']
             gate['passed'] = False
     if not gate.get('passed'):
         # drop clip if rejected

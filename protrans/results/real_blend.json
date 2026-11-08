@@ -1,0 +1,506 @@
+{
+  "wilkinson_boomtown2026__33": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 30.991,
+    "longest_overlap_bars": 14.136,
+    "references": [
+      0.46148338807049955,
+      0.6576253266366268
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Wilkinson",
+    "split": "test",
+    "fingerprint": "31bc50476f790a1f0283660c92677299b4a1c90383fa7bc709b28901c3bb80cd"
+  },
+  "joe_syntax_hospital__00": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 3.625,
+    "longest_overlap_bars": 2.719,
+    "references": [
+      1.0830722138015112,
+      1.023163669621156
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "acc38728114bc63d97b117fa2fe00ddf6cf4599997df34761eb5c428d9b9db4e"
+  },
+  "joe_syntax_hospital__01": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 17.58,
+    "longest_overlap_bars": 2.537,
+    "references": [
+      1.0108666330461276,
+      1.0060607682954315
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "37dfda870c392c19a765b02c30d6b379b9217c5ac0ad36650064669c5b5d59cc"
+  },
+  "joe_syntax_hospital__08": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 16.13,
+    "longest_overlap_bars": 12.505,
+    "references": [
+      1.1872091250860324,
+      1.025377681555479
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "20295a1fbf1c848a533e4ade93c8918a3149673d60cf26feb34457f34bddd759"
+  },
+  "joe_syntax_hospital__09": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 3.262,
+    "longest_overlap_bars": 3.262,
+    "references": [
+      2.65677322498953,
+      1.6025207847796823
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "58f374231b44b94475ebf69d1e60e6a0b7eefb46ae7014a6816c5cc37bce4dd8"
+  },
+  "joe_syntax_hospital__14": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 7.068,
+    "longest_overlap_bars": 2.356,
+    "references": [
+      1.2006450799746649,
+      1.518824924897467
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "be7aa0254fc79a947d4e045bafe165e58dcf540ab36ba1f6dcb5efe7637e047b"
+  },
+  "joe_syntax_hospital__17": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 0.0,
+    "longest_overlap_bars": 0.0,
+    "references": [
+      0.7933846079831808,
+      1.1335030047193535
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "10a2e96d06fe3e89bd25ded57441e8485cb3e57382a2aeb6100a733ab1dc0ca9"
+  },
+  "joe_syntax_hospital__18": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 1.994,
+    "longest_overlap_bars": 1.812,
+    "references": [
+      1.0322935476171677,
+      1.0539596859271414
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "286715674a2cb7bf9fa18b6ac509ad517dee1bdd38da9a9ac87911c637a25352"
+  },
+  "hybrid_minds_ukf__08": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 33.528,
+    "longest_overlap_bars": 17.58,
+    "references": [
+      0.8027511025040011,
+      0.890251931121962
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "2d89186ebc897a67c99edf063bc8e2f09628dd44eafccc5f05e50546c8bae785"
+  },
+  "hybrid_minds_ukf__11": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 9.424,
+    "longest_overlap_bars": 3.443,
+    "references": [
+      0.800869963086568,
+      2.136896164191477
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "fa2747eb6c8a10d412a73d060006a6073f4f56bde17524d54d32260ad7b6955c"
+  },
+  "hybrid_minds_ukf__12": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 41.865,
+    "longest_overlap_bars": 24.648,
+    "references": [
+      2.6494697998054257,
+      0.7366907190900609
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "74a861379c66691edd2bd9d880f4e6880525a6d920477cb164f01b652f84ea91"
+  },
+  "hybrid_minds_ukf__13": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 4.893,
+    "longest_overlap_bars": 2.9,
+    "references": [
+      0.9362727022977199,
+      0.8496523543359291
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "09c39167f9767cd5ddd2a04b3810e79c96f9d023a6a591a98e17d8e3920fc5be"
+  },
+  "hybrid_minds_ukf__19": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 25.554,
+    "longest_overlap_bars": 7.068,
+    "references": [
+      0.9391981696757761,
+      0.977609801068136
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "39f16e96d534dc4e3bfdcf616c768a453f80a9e15db5b194f1a1e7a625744076"
+  },
+  "hybrid_minds_ukf__20": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 2.356,
+    "longest_overlap_bars": 1.087,
+    "references": [
+      0.9710281549628713,
+      0.8408817760362425
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "a518eb4d99e6a2cd42e9bd3643f272674ce27c4e3fb4a298faf0630991d2885c"
+  },
+  "hybrid_minds_ukf__23": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 5.075,
+    "longest_overlap_bars": 2.537,
+    "references": [
+      0.8121592158616615,
+      1.849303826702298
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "7572ab3d00114f2d42496da662d523e650fad1c040209145b5889345c12d821d"
+  },
+  "hybrid_minds_ukf__25": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 9.605,
+    "longest_overlap_bars": 3.443,
+    "references": [
+      0.7706622276828975,
+      1.1262227775993339
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "4d008c09694a85a91a27e385022add99d4f62a6fa0c7ef492e16bdc790d9a4b9"
+  },
+  "hybrid_minds_ukf__33": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 1.812,
+    "longest_overlap_bars": 1.812,
+    "references": [
+      0.9149374512073568,
+      0.9227559095817535
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "78bb8fdcfdb22751ffe7d345011d488449f27895ada319d472bfb01835ee4ab3"
+  },
+  "hybrid_minds_ukf__45": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 34.253,
+    "longest_overlap_bars": 17.761,
+    "references": [
+      1.1885523289198772,
+      0.9727918955295652
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "14e95d76a3b67c4180bc36f8a312f06eee92b0e94c8ffba7034e91147d12a050"
+  },
+  "netsky_hospital_classics__02": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 16.311,
+    "longest_overlap_bars": 3.987,
+    "references": [
+      0.17663730111023024,
+      0.2913475404050124
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Netsky",
+    "split": "test",
+    "fingerprint": "e57ae6fdd0080d71f3027efb76ee93f0c4cab63ace9d548fe9c9187bef442593"
+  },
+  "netsky_hospital_classics__06": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 13.593,
+    "longest_overlap_bars": 5.256,
+    "references": [
+      0.34102966558415926,
+      0.22999145668714094
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Netsky",
+    "split": "test",
+    "fingerprint": "20bac2f92ac64675a7927c3880824c420adbca0034a1c244ab3419832442ade1"
+  },
+  "netsky_hospital_classics__15": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 3.262,
+    "longest_overlap_bars": 2.537,
+    "references": [
+      0.18766647441983597,
+      0.669130856985524
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Netsky",
+    "split": "test",
+    "fingerprint": "cbbc716530018db2b4c48cb8d6b9e96838d10fa4e5adfaec0ff57d8792823156"
+  },
+  "netsky_hospital_classics__17": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 16.855,
+    "longest_overlap_bars": 9.968,
+    "references": [
+      0.35450001259321007,
+      0.3912744183592217
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Netsky",
+    "split": "test",
+    "fingerprint": "d11dde7456bfcd977ddda7d5d08d80524a83552d9bbeee6ba2dfe42300d04100"
+  },
+  "netsky_hospital_classics__23": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 4.168,
+    "longest_overlap_bars": 1.631,
+    "references": [
+      0.3355682246299185,
+      0.3726164643050476
+    ],
+    "flagged": true,
+    "reason": "insufficient_overlap",
+    "dj": "Netsky",
+    "split": "test",
+    "fingerprint": "80c8f0c896c3e3a6b0930f5bc263b05f8eb00a53e55e8630bc22b06bf9433378"
+  },
+  "joe_syntax_hospital__11": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 13.23,
+    "longest_overlap_bars": 3.987,
+    "references": [
+      1.0074738829084602,
+      1.3109386679337929
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "230475512c0ebfca545e66283715232bf912bbc6a96a2039fa1e574fa9298b74"
+  },
+  "joe_syntax_hospital__12": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 19.754,
+    "longest_overlap_bars": 17.942,
+    "references": [
+      1.2838297753406929,
+      1.0182815296546097
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "f16c1dd0f9e9ff03e90bb6dc6ed0ab511496c16c827632a76ecbc0b6dad9f1b5"
+  },
+  "joe_syntax_hospital__13": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 19.754,
+    "longest_overlap_bars": 3.262,
+    "references": [
+      1.0307992504754457,
+      0.9272735152520915
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Joe Syntax",
+    "split": "train",
+    "fingerprint": "a201a56266fb5c9474816dcd99beda6a260a1af98696ecba424c1d136759ece5"
+  },
+  "hybrid_minds_ukf__00": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 21.386,
+    "longest_overlap_bars": 6.887,
+    "references": [
+      0.9817723928323483,
+      0.7339786481548696
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "53c74f20fe7d4dcd62e921327fe9c649f68717df9834556552de5d006e6ced16"
+  },
+  "hybrid_minds_ukf__09": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 13.411,
+    "longest_overlap_bars": 11.78,
+    "references": [
+      0.9287540189879793,
+      1.5882661247174044
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "18e13f57b8f1e5d7827df373b06c6c9e53d475de2be38367bba7b039b9dc6c59"
+  },
+  "hybrid_minds_ukf__10": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 11.961,
+    "longest_overlap_bars": 6.343,
+    "references": [
+      1.650234851721537,
+      0.979507980402766
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "240480991146d0190997187469cfccd704ad4190e24b7fa7312e22ee926cdeb9"
+  },
+  "hybrid_minds_ukf__28": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 19.03,
+    "longest_overlap_bars": 2.356,
+    "references": [
+      0.8410805217690319,
+      0.8987738306266819
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "77a7ccfb363a427b2c185b46154e04b62f9097a5440d4002b96384120160e967"
+  },
+  "hybrid_minds_ukf__40": {
+    "version": "real-blend-v2",
+    "level_db": -12.0,
+    "min_bars": 8.0,
+    "overlap_bars": 18.305,
+    "longest_overlap_bars": 13.23,
+    "references": [
+      0.9902515546691731,
+      0.9961513111423077
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Hybrid Minds",
+    "split": "train",
+    "fingerprint": "879d1665e2392cb9ca7d8e587df4624a3e385b4d5818b289f27c6805dcee0a3a"
+  },
+  "hospital_podcast393__04": {
+    "version": "real-blend-v1",
+    "flagged": true,
+    "error": "Command '['ffmpeg', '-v', 'error', '-i', '/workspace/mixes/protrans/clips/train/hospital_podcast393__04/pro.wav', '-ac', '1', '-ar', '22050', '-f', 'f32le', '-']' returned non-zero exit status 254.",
+    "reason": "measurement_failed",
+    "dj": "London Elektricity",
+    "split": "train"
+  }
+}

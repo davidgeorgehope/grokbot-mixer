@@ -58,7 +58,13 @@ def test_real_clean_pro_oracle_events():
     import diagnose_gap as D
     if not os.path.isfile(D.ADMITTED):
         pytest.skip('optional local pro corpus absent')
-    row=next(r for r in json.load(open(D.ADMITTED)) if r['id']=='joe_syntax_hospital__18')
+    # Event-oracle regression remains valid even when this short overlap is
+    # no longer eligible for recreation/daily A/B selection.
+    rows = json.load(open(D.ADMITTED))
+    rejected = os.path.join(os.path.dirname(D.ADMITTED), 'real_blend_rejected.json')
+    if os.path.isfile(rejected):
+        rows += json.load(open(rejected))
+    row=next(r for r in rows if r['id']=='joe_syntax_hospital__18')
     paths=[D._src_path(row[k]['yt']) for k in ('a','b')]
     if not all(os.path.isfile(p) for p in paths+[row['pro_clip']]):
         pytest.skip('optional studio/pro audio absent')

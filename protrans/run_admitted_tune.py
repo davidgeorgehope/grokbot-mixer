@@ -16,9 +16,8 @@ STATE = os.path.join(paths.RESULTS, 'tune_state.json')
 DONE = os.path.join(paths.RESULTS, 'tune_done.json')
 
 def load_recs():
-    import talkover
-    bad = talkover.flagged_ids()  # DJ/MC talkover clips never enter scoring, tuning or the daily pick
-    rows = [r for r in json.load(open(os.path.join(paths.RESULTS, 'admitted.json'))) if r['id'] not in bad]
+    import admit
+    rows = admit.load_admitted()  # shared fail-closed gates also protect the daily pick
     recs = []
     for r in rows:
         pro = os.path.join(paths.CLIPS, r['split'], r['id'], 'pro.wav')
@@ -206,7 +205,7 @@ def variant_specs():
         ('prefer_nat', {'prefer_family': 'nat'}),
     ]
 
-def decided_variants():
+def decided_variants(cohort_ids=None):
     """Return ordered list of {name,delta,kept,summary} from this corpus tune (has delta)."""
     out=[]
     p=os.path.join(paths.LOGS, 'tune_log.jsonl')
@@ -216,6 +215,8 @@ def decided_variants():
         try: r=json.loads(line)
         except json.JSONDecodeError: continue
         if r.get('scorer_version') != score.SCORER_VERSION:
+            continue
+        if cohort_ids is not None and r.get('cohort_ids') != sorted(cohort_ids):
             continue
         if 'delta' not in r:  # old 4-pair tune
             continue
@@ -265,7 +266,7 @@ def main():
     current_sum = base_sum
     current_rows = base_rows
     kept=[]; rejected=[]
-    for dec in decided_variants():
+    for dec in decided_variants([r['id'] for r in recs]):
         if dec.get('kept'):
             current.update(dec['delta'])
             current_sum = dec.get('summary') or dict(train_mean=dec.get('train_mean'),
@@ -280,7 +281,7 @@ def main():
                                  kept=False, why=dec.get('why') or 'previously rejected'))
             print(f'replay REJECT {dec["name"]} {dec["delta"]} test={dec.get("test_mean")}', flush=True)
     json.dump(current, open(paths.RULES,'w'), indent=2)
-    decided = {d['name'] for d in decided_variants()}
+    decided = {d['name'] for d in decided_variants([r['id'] for r in recs])}
 
     write_state(dict(current_rules=current, baseline=base_sum, kept=kept, rejected=rejected,
                      stem_kind=STEM_KIND, phase='tuning'))
@@ -321,7 +322,7 @@ def main():
             rec['why']=why
             rejected.append(rec)
             print(f'  REJECT {name}: {why}', flush=True)
-        tune.log_row(dict(name=name, delta=delta, scorer_version=score.SCORER_VERSION, train_mean=sm['train_mean'], test_mean=sm['test_mean'],
+        tune.log_row(dict(name=name, delta=delta, cohort_ids=sorted(r['id'] for r in recs), scorer_version=score.SCORER_VERSION, train_mean=sm['train_mean'], test_mean=sm['test_mean'],
                           by_dj=sm['by_dj'], kept=accept, floor_test=floor, why=why))
         write_state(dict(current_rules=current, baseline=base_sum, after=current_sum,
                          kept=[{k:v for k,v in x.items() if k!='rows'} for x in kept],

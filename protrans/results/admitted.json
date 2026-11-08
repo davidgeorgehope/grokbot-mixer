@@ -40,67 +40,22 @@
         }
       },
       "passed": true
-    }
-  },
-  {
-    "id": "joe_syntax_hospital__00",
-    "dj": "Joe Syntax",
-    "split": "train",
-    "mix_id": "joe_syntax_hospital",
-    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
-    "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
-    "t_a": 0.0,
-    "t_b": 199.0,
-    "a": {
-      "title": "Fred V & Grafix - Find My Way",
-      "yt": "R06kP42RFRo"
     },
-    "b": {
-      "title": "Nu:Tone - The Feeling (ft. Ben Westbeech)",
-      "yt": "dOJp7bsjuyU"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__00/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 7.183,
-          "cc": 0.4337,
-          "mix_t": 15.07,
-          "track_t": 140.783,
-          "n": 50
-        },
-        "bpm": {
-          "bpm": 173.99,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 8.274,
-          "cc": 0.571,
-          "mix_t": 20.666,
-          "track_t": 62.903,
-          "n": 79
-        },
-        "bpm": {
-          "bpm": 174.985,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 30.991,
+      "longest_overlap_bars": 14.136,
+      "references": [
+        0.46148338807049955,
+        0.6576253266366268
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Wilkinson",
+      "split": "test",
+      "fingerprint": "31bc50476f790a1f0283660c92677299b4a1c90383fa7bc709b28901c3bb80cd"
     }
   },
   {
@@ -162,6 +117,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 17.58,
+      "longest_overlap_bars": 2.537,
+      "references": [
+        1.0108666330461276,
+        1.0060607682954315
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Joe Syntax",
+      "split": "train",
+      "fingerprint": "37dfda870c392c19a765b02c30d6b379b9217c5ac0ad36650064669c5b5d59cc"
     }
   },
   {
@@ -223,250 +194,22 @@
         ]
       },
       "reasons": []
-    }
-  },
-  {
-    "id": "joe_syntax_hospital__09",
-    "dj": "Joe Syntax",
-    "split": "train",
-    "mix_id": "joe_syntax_hospital",
-    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
-    "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
-    "t_a": 1366.0,
-    "t_b": 1479.0,
-    "a": {
-      "title": "Camo & Krooked - Dusk To Dawn",
-      "yt": "Dy3qi_gCP9k"
     },
-    "b": {
-      "title": "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
-      "yt": "fApyZbwuAjM"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__09/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 8.875,
-          "cc": 0.6546,
-          "mix_t": 17.786,
-          "track_t": 257.602,
-          "n": 90
-        },
-        "bpm": {
-          "bpm": 175.002,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 10.751,
-          "cc": 0.6047,
-          "mix_t": 53.452,
-          "track_t": 23.963,
-          "n": 50
-        },
-        "bpm": {
-          "bpm": 178.005,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
-    }
-  },
-  {
-    "id": "joe_syntax_hospital__14",
-    "dj": "Joe Syntax",
-    "split": "train",
-    "mix_id": "joe_syntax_hospital",
-    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
-    "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
-    "t_a": 2207.0,
-    "t_b": 2405.0,
-    "a": {
-      "title": "London Elektricity - Meteorites (Danny Byrd Remix)",
-      "yt": "SqzxwPEa-DI"
-    },
-    "b": {
-      "title": "Logistics - Closer",
-      "yt": "q3WVxTT01dY"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__14/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 10.241,
-          "cc": 0.7144,
-          "mix_t": 4.923,
-          "track_t": 224.653,
-          "n": 104
-        },
-        "bpm": {
-          "bpm": 173.001,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 7.012,
-          "cc": 0.7505,
-          "mix_t": 22.314,
-          "track_t": 47.926,
-          "n": 49
-        },
-        "bpm": {
-          "bpm": 177.007,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
-    }
-  },
-  {
-    "id": "joe_syntax_hospital__17",
-    "dj": "Joe Syntax",
-    "split": "train",
-    "mix_id": "joe_syntax_hospital",
-    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
-    "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
-    "t_a": 2648.0,
-    "t_b": 2803.0,
-    "a": {
-      "title": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound)",
-      "yt": "gZhjz2UQJv0"
-    },
-    "b": {
-      "title": "Netsky - Lotus Symphony",
-      "yt": "RTXo4b0RdyQ"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__17/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 8.098,
-          "cc": 0.3925,
-          "mix_t": 5.991,
-          "track_t": 128.801,
-          "n": 65
-        },
-        "bpm": {
-          "bpm": 173.992,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 7.767,
-          "cc": 0.8209,
-          "mix_t": 55.983,
-          "track_t": 164.746,
-          "n": 93
-        },
-        "bpm": {
-          "bpm": 173.997,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
-    }
-  },
-  {
-    "id": "joe_syntax_hospital__18",
-    "dj": "Joe Syntax",
-    "split": "train",
-    "mix_id": "joe_syntax_hospital",
-    "mix_url": "https://www.youtube.com/watch?v=zgKc7vQNrrE",
-    "pair": "Netsky - Lotus Symphony -> Unquote & Molecular Structures - Lubov Moya",
-    "t_a": 2803.0,
-    "t_b": 3000.0,
-    "a": {
-      "title": "Netsky - Lotus Symphony",
-      "yt": "RTXo4b0RdyQ"
-    },
-    "b": {
-      "title": "Unquote & Molecular Structures - Lubov Moya",
-      "yt": "2y8JriTNwyM"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__18/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 11.621,
-          "cc": 0.8025,
-          "mix_t": 2.276,
-          "track_t": 197.695,
-          "n": 93
-        },
-        "bpm": {
-          "bpm": 173.997,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 8.769,
-          "cc": 0.8829,
-          "mix_t": 55.635,
-          "track_t": 119.815,
-          "n": 105
-        },
-        "bpm": {
-          "bpm": 171.996,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 16.13,
+      "longest_overlap_bars": 12.505,
+      "references": [
+        1.1872091250860324,
+        1.025377681555479
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Joe Syntax",
+      "split": "train",
+      "fingerprint": "20295a1fbf1c848a533e4ade93c8918a3149673d60cf26feb34457f34bddd759"
     }
   },
   {
@@ -528,6 +271,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 33.528,
+      "longest_overlap_bars": 17.58,
+      "references": [
+        0.8027511025040011,
+        0.890251931121962
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "2d89186ebc897a67c99edf063bc8e2f09628dd44eafccc5f05e50546c8bae785"
     }
   },
   {
@@ -589,6 +348,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 9.424,
+      "longest_overlap_bars": 3.443,
+      "references": [
+        0.800869963086568,
+        2.136896164191477
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "fa2747eb6c8a10d412a73d060006a6073f4f56bde17524d54d32260ad7b6955c"
     }
   },
   {
@@ -650,67 +425,22 @@
         ]
       },
       "reasons": []
-    }
-  },
-  {
-    "id": "hybrid_minds_ukf__13",
-    "dj": "Hybrid Minds",
-    "split": "train",
-    "mix_id": "hybrid_minds_ukf",
-    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
-    "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
-    "t_a": 1340.0,
-    "t_b": 1514.0,
-    "a": {
-      "title": "Hybrid Minds - Pretend (ft. Rocky Nti)",
-      "yt": "zEvLsOVhg0I"
     },
-    "b": {
-      "title": "Logistics - Wanderlust",
-      "yt": "W77cCOreg_0"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__13/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 6.946,
-          "cc": 0.5549,
-          "mix_t": 23.197,
-          "track_t": 197.695,
-          "n": 92
-        },
-        "bpm": {
-          "bpm": 174.012,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 6.698,
-          "cc": 0.6439,
-          "mix_t": 46.579,
-          "track_t": 110.829,
-          "n": 54
-        },
-        "bpm": {
-          "bpm": 173.994,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 41.865,
+      "longest_overlap_bars": 24.648,
+      "references": [
+        2.6494697998054257,
+        0.7366907190900609
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "74a861379c66691edd2bd9d880f4e6880525a6d920477cb164f01b652f84ea91"
     }
   },
   {
@@ -772,128 +502,22 @@
         ]
       },
       "reasons": []
-    }
-  },
-  {
-    "id": "hybrid_minds_ukf__20",
-    "dj": "Hybrid Minds",
-    "split": "train",
-    "mix_id": "hybrid_minds_ukf",
-    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
-    "pair": "Hybrid Minds - Demons (ft. Charlotte Haining) -> Changing Faces - Emptiness",
-    "t_a": 2084.0,
-    "t_b": 2205.0,
-    "a": {
-      "title": "Hybrid Minds - Demons (ft. Charlotte Haining)",
-      "yt": "5YG-HKjtiHM"
     },
-    "b": {
-      "title": "Changing Faces - Emptiness",
-      "yt": "tDIlCWhrBPU"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__20/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 7.354,
-          "cc": 0.3793,
-          "mix_t": 5.666,
-          "track_t": 146.773,
-          "n": 99
-        },
-        "bpm": {
-          "bpm": 174.005,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 8.673,
-          "cc": 0.3294,
-          "mix_t": 57.098,
-          "track_t": 137.787,
-          "n": 68
-        },
-        "bpm": {
-          "bpm": 173.996,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
-    }
-  },
-  {
-    "id": "hybrid_minds_ukf__23",
-    "dj": "Hybrid Minds",
-    "split": "train",
-    "mix_id": "hybrid_minds_ukf",
-    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
-    "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
-    "t_a": 2326.0,
-    "t_b": 2479.0,
-    "a": {
-      "title": "SpectraSoul & Alix Perez - Undone (ft. DRS)",
-      "yt": "INaNIcQ4S7k"
-    },
-    "b": {
-      "title": "Logistics - City Life",
-      "yt": "HpfQ0bus688"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__23/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 8.957,
-          "cc": 0.5654,
-          "mix_t": 11.238,
-          "track_t": 209.676,
-          "n": 108
-        },
-        "bpm": {
-          "bpm": 171.998,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 6.286,
-          "cc": 0.663,
-          "mix_t": 23.847,
-          "track_t": 131.796,
-          "n": 89
-        },
-        "bpm": {
-          "bpm": 174.002,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 25.554,
+      "longest_overlap_bars": 7.068,
+      "references": [
+        0.9391981696757761,
+        0.977609801068136
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "39f16e96d534dc4e3bfdcf616c768a453f80a9e15db5b194f1a1e7a625744076"
     }
   },
   {
@@ -955,67 +579,22 @@
         ]
       },
       "reasons": []
-    }
-  },
-  {
-    "id": "hybrid_minds_ukf__33",
-    "dj": "Hybrid Minds",
-    "split": "train",
-    "mix_id": "hybrid_minds_ukf",
-    "mix_url": "https://www.youtube.com/watch?v=Ea4ngKLPNMQ",
-    "pair": "1991 - Nine Clouds -> Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
-    "t_a": 3357.0,
-    "t_b": 3467.0,
-    "a": {
-      "title": "1991 - Nine Clouds",
-      "yt": "BSckjZOceFg"
     },
-    "b": {
-      "title": "Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
-      "yt": "AT8lBlfTT2w"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__33/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 9.894,
-          "cc": 0.7243,
-          "mix_t": 16.881,
-          "track_t": 191.704,
-          "n": 84
-        },
-        "bpm": {
-          "bpm": 174.98,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 7.066,
-          "cc": 0.7324,
-          "mix_t": 23.127,
-          "track_t": 86.866,
-          "n": 127
-        },
-        "bpm": {
-          "bpm": 175.001,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 9.605,
+      "longest_overlap_bars": 3.443,
+      "references": [
+        0.7706622276828975,
+        1.1262227775993339
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "4d008c09694a85a91a27e385022add99d4f62a6fa0c7ef492e16bdc790d9a4b9"
     }
   },
   {
@@ -1077,6 +656,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 34.253,
+      "longest_overlap_bars": 17.761,
+      "references": [
+        1.1885523289198772,
+        0.9727918955295652
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "14e95d76a3b67c4180bc36f8a312f06eee92b0e94c8ffba7034e91147d12a050"
     }
   },
   {
@@ -1138,6 +733,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 16.311,
+      "longest_overlap_bars": 3.987,
+      "references": [
+        0.17663730111023024,
+        0.2913475404050124
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Netsky",
+      "split": "test",
+      "fingerprint": "e57ae6fdd0080d71f3027efb76ee93f0c4cab63ace9d548fe9c9187bef442593"
     }
   },
   {
@@ -1199,77 +810,22 @@
         ]
       },
       "reasons": []
-    }
-  },
-  {
-    "id": "netsky_hospital_classics__15",
-    "dj": "Netsky",
-    "split": "test",
-    "mix_id": "netsky_hospital_classics",
-    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
-    "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
-    "t_a": 2254.0,
-    "t_b": 2355.0,
-    "a": {
-      "title": "Netsky - Memory Lane",
-      "yt": "DpYdXERlkFk",
-      "previous_yt": "cG7cRDcPY3k"
     },
-    "b": {
-      "title": "Netsky - The Whistle Song",
-      "yt": "k-7z5X0ATEc"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__15/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "track_t": 125.80571428571429,
-          "mix_t": 1.6950566893424037,
-          "cc": 0.8337120413780212,
-          "z": 6.610959053039551,
-          "n": 12
-        },
-        "bpm": {
-          "bpm": 175.005,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 9.625,
-          "cc": 0.5903,
-          "mix_t": 46.974,
-          "track_t": 38.94,
-          "n": 93
-        },
-        "bpm": {
-          "bpm": 174.003,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
-    },
-    "version_audit": {
-      "source_url": "https://www.youtube.com/watch?v=DpYdXERlkFk",
-      "solo_correlation": 0.8787,
-      "solo_window": [
-        1.0,
-        6.87
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 13.593,
+      "longest_overlap_bars": 5.256,
+      "references": [
+        0.34102966558415926,
+        0.22999145668714094
       ],
-      "rate": 0.98
+      "flagged": false,
+      "reason": null,
+      "dj": "Netsky",
+      "split": "test",
+      "fingerprint": "20bac2f92ac64675a7927c3880824c420adbca0034a1c244ab3419832442ade1"
     }
   },
   {
@@ -1331,67 +887,22 @@
         ]
       },
       "reasons": []
-    }
-  },
-  {
-    "id": "netsky_hospital_classics__23",
-    "dj": "Netsky",
-    "split": "test",
-    "mix_id": "netsky_hospital_classics",
-    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
-    "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
-    "t_a": 3382.0,
-    "t_b": 3501.0,
-    "a": {
-      "title": "Netsky - Porcelain",
-      "yt": "gCkKc2LuCuM"
     },
-    "b": {
-      "title": "Nu:Logic - Morning Light",
-      "yt": "KP8jwoWF44Y"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__23/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 8.058,
-          "cc": 0.5276,
-          "mix_t": 18.622,
-          "track_t": 155.759,
-          "n": 90
-        },
-        "bpm": {
-          "bpm": 174.993,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 8.199,
-          "cc": 0.608,
-          "mix_t": 49.017,
-          "track_t": 59.907,
-          "n": 72
-        },
-        "bpm": {
-          "bpm": 174.005,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 16.855,
+      "longest_overlap_bars": 9.968,
+      "references": [
+        0.35450001259321007,
+        0.3912744183592217
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Netsky",
+      "split": "test",
+      "fingerprint": "d11dde7456bfcd977ddda7d5d08d80524a83552d9bbeee6ba2dfe42300d04100"
     }
   },
   {
@@ -1453,6 +964,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 13.23,
+      "longest_overlap_bars": 3.987,
+      "references": [
+        1.0074738829084602,
+        1.3109386679337929
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Joe Syntax",
+      "split": "train",
+      "fingerprint": "230475512c0ebfca545e66283715232bf912bbc6a96a2039fa1e574fa9298b74"
     }
   },
   {
@@ -1514,6 +1041,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 19.754,
+      "longest_overlap_bars": 17.942,
+      "references": [
+        1.2838297753406929,
+        1.0182815296546097
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Joe Syntax",
+      "split": "train",
+      "fingerprint": "f16c1dd0f9e9ff03e90bb6dc6ed0ab511496c16c827632a76ecbc0b6dad9f1b5"
     }
   },
   {
@@ -1575,6 +1118,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 19.754,
+      "longest_overlap_bars": 3.262,
+      "references": [
+        1.0307992504754457,
+        0.9272735152520915
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Joe Syntax",
+      "split": "train",
+      "fingerprint": "a201a56266fb5c9474816dcd99beda6a260a1af98696ecba424c1d136759ece5"
     }
   },
   {
@@ -1636,6 +1195,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 21.386,
+      "longest_overlap_bars": 6.887,
+      "references": [
+        0.9817723928323483,
+        0.7339786481548696
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "53c74f20fe7d4dcd62e921327fe9c649f68717df9834556552de5d006e6ced16"
     }
   },
   {
@@ -1697,6 +1272,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 13.411,
+      "longest_overlap_bars": 11.78,
+      "references": [
+        0.9287540189879793,
+        1.5882661247174044
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "18e13f57b8f1e5d7827df373b06c6c9e53d475de2be38367bba7b039b9dc6c59"
     }
   },
   {
@@ -1758,6 +1349,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 11.961,
+      "longest_overlap_bars": 6.343,
+      "references": [
+        1.650234851721537,
+        0.979507980402766
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "240480991146d0190997187469cfccd704ad4190e24b7fa7312e22ee926cdeb9"
     }
   },
   {
@@ -1819,6 +1426,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 19.03,
+      "longest_overlap_bars": 2.356,
+      "references": [
+        0.8410805217690319,
+        0.8987738306266819
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "77a7ccfb363a427b2c185b46154e04b62f9097a5440d4002b96384120160e967"
     }
   },
   {
@@ -1880,6 +1503,22 @@
         ]
       },
       "reasons": []
+    },
+    "real_blend": {
+      "version": "real-blend-v2",
+      "level_db": -12.0,
+      "min_bars": 8.0,
+      "overlap_bars": 18.305,
+      "longest_overlap_bars": 13.23,
+      "references": [
+        0.9902515546691731,
+        0.9961513111423077
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "fingerprint": "879d1665e2392cb9ca7d8e587df4624a3e385b4d5818b289f27c6805dcee0a3a"
     }
   }
 ]

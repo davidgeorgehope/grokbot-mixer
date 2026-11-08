@@ -1,0 +1,298 @@
+{
+  "target_heldout": 10,
+  "existing_heldout": 6,
+  "status": "blocked_ingestion_transport",
+  "failure": "Existing fetch.meta_remote failed: Connection timed out during banner exchange; UNKNOWN port 65535. No fallback or credential route attempted.",
+  "note": "Public tracklists identify candidates only. Source identities, timestamps and audio must still pass normal ingestion and all gates. No queued row counts as admitted. All three new DJs are reserved entirely for held-out.",
+  "sets": [
+    {
+      "id": "maduk_liquicity_lunar2025",
+      "yt": "PZ6aQYEIqm0",
+      "title": "Maduk | Special Lunar set @ Liquicity Festival 2025",
+      "dj": "Maduk",
+      "split": "test",
+      "tracklist_source": "https://whatstheid.com/mix/youtube/PZ6aQYEIqm0/maduk-special-lunar-set-at-liquicity-festival-2025",
+      "status": "queued_not_downloaded_not_admitted",
+      "candidates": [
+        {
+          "id": "maduk_liquicity_lunar2025__00",
+          "mix_id": "maduk_liquicity_lunar2025",
+          "dj": "Maduk",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=PZ6aQYEIqm0",
+          "t_a": 1848,
+          "t_b": 1977,
+          "t_next": 2085,
+          "a": {
+            "title": "Brookes Brothers - Tear You Down"
+          },
+          "b": {
+            "title": "Maduk & Logistics - Solarize"
+          }
+        },
+        {
+          "id": "maduk_liquicity_lunar2025__01",
+          "mix_id": "maduk_liquicity_lunar2025",
+          "dj": "Maduk",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=PZ6aQYEIqm0",
+          "t_a": 1977,
+          "t_b": 2085,
+          "t_next": 2150,
+          "a": {
+            "title": "Maduk & Logistics - Solarize"
+          },
+          "b": {
+            "title": "Maduk - Bringing Me Down"
+          }
+        },
+        {
+          "id": "maduk_liquicity_lunar2025__02",
+          "mix_id": "maduk_liquicity_lunar2025",
+          "dj": "Maduk",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=PZ6aQYEIqm0",
+          "t_a": 2331,
+          "t_b": 2407,
+          "t_next": 2482,
+          "a": {
+            "title": "Camo & Krooked - Afterlife (BCee Remix)"
+          },
+          "b": {
+            "title": "Sub Focus & Wilkinson - Freedom (High Contrast Remix)"
+          }
+        },
+        {
+          "id": "maduk_liquicity_lunar2025__03",
+          "mix_id": "maduk_liquicity_lunar2025",
+          "dj": "Maduk",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=PZ6aQYEIqm0",
+          "t_a": 2407,
+          "t_b": 2482,
+          "t_next": 2568,
+          "a": {
+            "title": "Sub Focus & Wilkinson - Freedom (High Contrast Remix)"
+          },
+          "b": {
+            "title": "LSB - New Day"
+          }
+        },
+        {
+          "id": "maduk_liquicity_lunar2025__04",
+          "mix_id": "maduk_liquicity_lunar2025",
+          "dj": "Maduk",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=PZ6aQYEIqm0",
+          "t_a": 3970,
+          "t_b": 4056,
+          "t_next": 4163,
+          "a": {
+            "title": "DRS & LSB feat. Tyler Daley - The View"
+          },
+          "b": {
+            "title": "Netsky - Memory Lane"
+          }
+        },
+        {
+          "id": "maduk_liquicity_lunar2025__05",
+          "mix_id": "maduk_liquicity_lunar2025",
+          "dj": "Maduk",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=PZ6aQYEIqm0",
+          "t_a": 4056,
+          "t_b": 4163,
+          "t_next": 4249,
+          "a": {
+            "title": "Netsky - Memory Lane"
+          },
+          "b": {
+            "title": "Maduk - Miles Apart"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pola_bryson_puzzlewood",
+      "yt": "nNpy62IMI-A",
+      "title": "Pola & Bryson (DJ Set): Live From Puzzlewood",
+      "dj": "Pola & Bryson",
+      "split": "test",
+      "tracklist_source": "https://idscouter.app/set/nNpy62IMI-A",
+      "status": "queued_not_downloaded_not_admitted",
+      "candidates": [
+        {
+          "id": "pola_bryson_puzzlewood__00",
+          "mix_id": "pola_bryson_puzzlewood",
+          "dj": "Pola & Bryson",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=nNpy62IMI-A",
+          "t_a": 75,
+          "t_b": 225,
+          "t_next": 375,
+          "a": {
+            "title": "Pola & Bryson feat. Hugh Hardie - Vetur"
+          },
+          "b": {
+            "title": "Pola & Bryson & Ko-Jo - Closer to Home"
+          }
+        },
+        {
+          "id": "pola_bryson_puzzlewood__01",
+          "mix_id": "pola_bryson_puzzlewood",
+          "dj": "Pola & Bryson",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=nNpy62IMI-A",
+          "t_a": 750,
+          "t_b": 850,
+          "t_next": 1000,
+          "a": {
+            "title": "Nu:Tone - Souled Out"
+          },
+          "b": {
+            "title": "Pola & Bryson feat. Lauren Archer - Night Dawns"
+          }
+        },
+        {
+          "id": "pola_bryson_puzzlewood__02",
+          "mix_id": "pola_bryson_puzzlewood",
+          "dj": "Pola & Bryson",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=nNpy62IMI-A",
+          "t_a": 850,
+          "t_b": 1000,
+          "t_next": 1200,
+          "a": {
+            "title": "Pola & Bryson feat. Lauren Archer - Night Dawns"
+          },
+          "b": {
+            "title": "Pola & Bryson - Wind Rises"
+          }
+        },
+        {
+          "id": "pola_bryson_puzzlewood__03",
+          "mix_id": "pola_bryson_puzzlewood",
+          "dj": "Pola & Bryson",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=nNpy62IMI-A",
+          "t_a": 1000,
+          "t_b": 1200,
+          "t_next": 1300,
+          "a": {
+            "title": "Pola & Bryson - Wind Rises"
+          },
+          "b": {
+            "title": "Pola & Bryson - Abandon"
+          }
+        },
+        {
+          "id": "pola_bryson_puzzlewood__04",
+          "mix_id": "pola_bryson_puzzlewood",
+          "dj": "Pola & Bryson",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=nNpy62IMI-A",
+          "t_a": 1200,
+          "t_b": 1300,
+          "t_next": 1525,
+          "a": {
+            "title": "Pola & Bryson - Abandon"
+          },
+          "b": {
+            "title": "Pola & Bryson feat. Lauren Archer - Under"
+          }
+        },
+        {
+          "id": "pola_bryson_puzzlewood__05",
+          "mix_id": "pola_bryson_puzzlewood",
+          "dj": "Pola & Bryson",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=nNpy62IMI-A",
+          "t_a": 1300,
+          "t_b": 1525,
+          "t_next": 1700,
+          "a": {
+            "title": "Pola & Bryson feat. Lauren Archer - Under"
+          },
+          "b": {
+            "title": "Pola & Bryson & Solah - Neverend"
+          }
+        }
+      ]
+    },
+    {
+      "id": "glxy_fabric_rooftop",
+      "yt": "wRxePyKWgdU",
+      "title": "GLXY (DJ Set) @ Fabric Rooftop, London",
+      "dj": "GLXY",
+      "split": "test",
+      "tracklist_source": "https://idscouter.app/set/wRxePyKWgdU",
+      "status": "queued_not_downloaded_not_admitted",
+      "candidates": [
+        {
+          "id": "glxy_fabric_rooftop__00",
+          "mix_id": "glxy_fabric_rooftop",
+          "dj": "GLXY",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=wRxePyKWgdU",
+          "t_a": 22,
+          "t_b": 150,
+          "t_next": 200,
+          "a": {
+            "title": "GLXY - New Soul"
+          },
+          "b": {
+            "title": "Zero T - Refusal"
+          }
+        },
+        {
+          "id": "glxy_fabric_rooftop__01",
+          "mix_id": "glxy_fabric_rooftop",
+          "dj": "GLXY",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=wRxePyKWgdU",
+          "t_a": 150,
+          "t_b": 200,
+          "t_next": 290,
+          "a": {
+            "title": "Zero T - Refusal"
+          },
+          "b": {
+            "title": "Alix Perez - Swrv"
+          }
+        },
+        {
+          "id": "glxy_fabric_rooftop__02",
+          "mix_id": "glxy_fabric_rooftop",
+          "dj": "GLXY",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=wRxePyKWgdU",
+          "t_a": 810,
+          "t_b": 855,
+          "t_next": 930,
+          "a": {
+            "title": "Hyroglifics - Stone Rose"
+          },
+          "b": {
+            "title": "Hyroglifics & AC13 - Mercy & Misery"
+          }
+        },
+        {
+          "id": "glxy_fabric_rooftop__03",
+          "mix_id": "glxy_fabric_rooftop",
+          "dj": "GLXY",
+          "split": "test",
+          "mix_url": "https://www.youtube.com/watch?v=wRxePyKWgdU",
+          "t_a": 855,
+          "t_b": 930,
+          "t_next": 990,
+          "a": {
+            "title": "Hyroglifics & AC13 - Mercy & Misery"
+          },
+          "b": {
+            "title": "Lenzman - Down For Whatever (Jubei Remix)"
+          }
+        }
+      ]
+    }
+  ]
+}

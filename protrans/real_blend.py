@@ -1,7 +1,7 @@
 """Fail-closed real-blend gate: source-fitted deck gains, not pro loudness.
 
 Each deck must be within 12 dB of its own 95th-percentile fitted gain
-for eight bars in total. Only simultaneous frames count; silent gaps do not.
+for 2.5 bars in total. Only simultaneous frames count; silent gaps do not.
 The 0.25 s fit resolution slightly quantizes boundaries. Cached measurements
 include thresholds/version so stale results cannot admit a daily pick.
 """
@@ -10,9 +10,12 @@ import os
 import numpy as np
 import paths
 
-VERSION = 'real-blend-v2'
+VERSION = 'real-blend-v3'
 LEVEL_DB = -12.0
-MIN_BARS = 8.0
+# A fixed half-bar-resolution minimum, not a clip-specific exception. Two bars
+# alone admits the radio fade/talk control (2.356 fitted bars); 2.5 retains tight
+# cuts such as Netsky __15 (3.262). Talkover remains an independent veto.
+MIN_BARS = 2.5
 CACHE_JSON = os.path.join(paths.RESULTS, 'real_blend.json')
 
 

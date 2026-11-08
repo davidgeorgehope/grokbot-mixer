@@ -185,7 +185,7 @@ Cache: `results/talkover.json`. Clean baseline: `results/baseline_clean.json` (3
 `real_blend.py` supplements (does not replace) the talkover filter. It locates
 both sources, uses `diagnose_gap.band_gains`' source-fitted full-band NNLS deck
 gains, and counts only frames where **both** decks are within 12 dB of their
-own 95th-percentile gain. At least eight bars of simultaneous audibility are
+own 95th-percentile gain. At least 2.5 bars of simultaneous audibility are
 required. Total overlap, not an uninterrupted run, is used: short musical rests
 and EQ holes otherwise falsely reject genuine blends. Longest run is reported
 separately; silent gaps never count toward total overlap. Timing uses the same
@@ -197,7 +197,7 @@ Missing audio/locator failures fail closed. Cached results include measurement
 version, thresholds and source/pro file fingerprints; writes are locked/atomic.
 `admit.apply_real_blend()` archives rejected rows without deleting their corpus
 audio. Per-clip measurements: `results/real_blend.json`; rejected rows:
-`results/real_blend_rejected.json`; audit: `results/real_blend_report.md`.
+`results/real_blend_rejected.json`; current audit: `results/real_blend_recalibration_report.md` (the original eight-bar audit is historical).
 
 Reproduce via `jobs/runjob.sh <name> python3 protrans/real_blend.py --force`,
 then `admit.apply_real_blend()` and `protrans/run_real_blend_baseline.py`.
@@ -206,8 +206,17 @@ retained Hospital negative excerpt and a genuine Hybrid Minds blend. The full
 Hospital control WAV had already been removed; its retained pro excerpt is
 46.7 seconds, not a substitute measurement of the entire original clip.
 
-A rejection means "less than the required eight audible overlap bars", not
-proof that the DJ never mixed. Short legitimate transitions can be excluded,
-including the previously favoured Netsky `__15`. No engine changes, score-weight
+A rejection means "less than the required 2.5 audible overlap bars", not
+proof that the DJ never mixed. Short legitimate transitions can still be excluded.
+The previously favoured Netsky `__15` is now readmitted (3.262 bars). No engine changes, score-weight
 changes or quality-improvement claim are implied by a different cohort mean.
 Tune decisions now carry their cohort ids to prevent replay across datasets.
+
+
+### Held-out growth queue
+`results/growth_queue.json` stages 16 candidate pairs across Maduk (Liquicity),
+Pola & Bryson (Shogun) and GLXY (Shogun), all held-out DJs. These are **not**
+admitted clips. `grow_corpus.py` resumes via the existing metadata/download and
+`admit.process_mix` pipeline (version + talkover + real-blend gates). The first
+metadata probe failed at the existing SSH transport; no alternate transport or
+credential route was attempted. New baseline counts must not include this queue.

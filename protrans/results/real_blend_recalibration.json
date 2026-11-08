@@ -1,0 +1,65 @@
+{
+  "previous_min_bars": 8,
+  "min_bars": 2.5,
+  "readmitted": [
+    "joe_syntax_hospital__00",
+    "joe_syntax_hospital__09",
+    "joe_syntax_hospital__14",
+    "hybrid_minds_ukf__13",
+    "hybrid_minds_ukf__23",
+    "netsky_hospital_classics__15",
+    "netsky_hospital_classics__23"
+  ],
+  "status": "gate_and_baseline_done_growth_blocked",
+  "gate_rule": "At least 2.5 total simultaneous bars, each fitted deck gain within 12 dB of its own 95th percentile; no gap-closing or clip-specific exception.",
+  "admitted_train": 21,
+  "admitted_test": 6,
+  "control_hospital_excerpt_bars": 2.356,
+  "control_hospital_full_clip_available": false,
+  "control_joe17_bars": 0,
+  "control_netsky15_bars": 3.262,
+  "tests": {
+    "passed": 74,
+    "skipped": 0,
+    "failed": 0
+  },
+  "growth": {
+    "admitted_new_clips": 0,
+    "target_heldout": 10,
+    "queued_candidates": 16,
+    "queued_sets": 3,
+    "blocked_reason": "Existing ingestion SSH transport timed out during banner exchange (UNKNOWN port 65535). No alternate route attempted."
+  },
+  "baseline": {
+    "n": 27,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 6,
+    "train_mean": 25.31,
+    "test_mean": 24.54,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 22.28,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 30.23,
+        "split": "train"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 26.26,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 15.95,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "scratch_remaining": 0
+}

@@ -31,14 +31,14 @@ def test_short_overlap_and_disconnected_snippets():
 
 def test_inaudible_leakage_and_missing_deck():
     a = np.ones(100)
-    b = np.r_[np.ones(20), np.ones(80) * .1]
+    b = np.r_[np.ones(8), np.ones(92) * .1]
     assert R.assess(a, b, .25, 1)['flagged']
     assert R.assess(a, b * 0, .25, 1)['flagged']
 
 
 def test_threshold_boundary():
-    assert not R.assess(np.ones(32), np.ones(32), .25, 1)['flagged']
-    assert R.assess(np.ones(31), np.ones(31), .25, 1)['flagged']
+    assert not R.assess(np.ones(10), np.ones(10), .25, 1)['flagged']
+    assert R.assess(np.ones(9), np.ones(9), .25, 1)['flagged']
 
 
 def test_bad_measurement_rejected():
@@ -82,3 +82,37 @@ def test_tune_decisions_cannot_cross_cohorts(monkeypatch, tmp_path):
         cohort_ids=['a', 'b'])) + '\n')
     assert T.decided_variants(['a']) == []
     assert len(T.decided_variants(['b', 'a'])) == 1
+
+
+def test_calibration_boundary_separates_radio_gap_and_tight_cut():
+    # 13 frames at 174 BPM = 2.356 bars (Hospital excerpt), 18 = 3.262 (Netsky).
+    bar_sec = 240 / 174
+    assert R.assess(np.ones(13), np.ones(13), .25, bar_sec)['flagged']
+    assert not R.assess(np.ones(18), np.ones(18), .25, bar_sec)['flagged']
+    assert R.assess(np.zeros(18), np.ones(18), .25, bar_sec)['flagged']
+
+
+@pytest.mark.parametrize('failure', ['version', 'talkover', 'real_blend', None])
+def test_ingestion_applies_all_admission_gates(monkeypatch, tmp_path, failure):
+    import admit, talkover
+    clipdir = tmp_path / 'clip'
+    clipdir.mkdir()
+    pro = str(clipdir / 'pro.wav')
+    monkeypatch.setattr(admit.extract, 'extract_one', lambda r, m: dict(r, pro_clip=pro))
+    monkeypatch.setattr(admit, 'ensure_source', lambda yt: yt)
+    monkeypatch.setattr(admit.version_match, 'match_pair', lambda *a, **k:
+                        dict(passed=failure != 'version', reasons=[]))
+    monkeypatch.setattr(talkover, 'check_row', lambda r:
+                        dict(flagged=failure == 'talkover', talk_s=10, talk_frac=.2))
+    calls = []
+    def real(row):
+        calls.append(row['id'])
+        return dict(flagged=failure == 'real_blend', reason='insufficient_overlap')
+    monkeypatch.setattr(R, 'check_row', real)
+    monkeypatch.setattr(admit, '_log', lambda row: None)
+    c = dict(id='new', mix_id='set', dj='new-heldout-dj', split='test',
+             t_a=0, t_b=120, t_next=240,
+             a=dict(title='A', yt='a'), b=dict(title='B', yt='b'))
+    row = admit.process_pair(c, 'mix')
+    assert row['verdict'] == ('admit' if failure is None else 'reject')
+    assert bool(calls) == (failure in ('real_blend', None))

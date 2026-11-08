@@ -1,3 +1,5 @@
+> Historical eight-bar audit; superseded by real_blend_recalibration_report.md.
+
 # Real-blend admission audit — 2026-11-08 ET
 
 ## Rule and calibration

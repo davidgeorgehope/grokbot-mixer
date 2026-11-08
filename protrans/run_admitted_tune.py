@@ -51,7 +51,11 @@ def load_ckpt(variant):
             row=json.loads(line)
         except json.JSONDecodeError:
             continue
-        if row.get('id'):
+        # Scorer repairs change the metric, not engine quality. Never resume
+        # an old checkpoint and compare its scores with a newly measured round.
+        payload = row.get('score')
+        version = payload.get('scorer_version') if isinstance(payload, dict) else row.get('scorer_version')
+        if row.get('id') and version == score.SCORER_VERSION:
             by[row['id']] = row
     return by
 
@@ -101,7 +105,7 @@ def slim(rows):
         out.append(dict(id=r['id'], split=r.get('split'), dj=r.get('dj'), pair=r.get('pair'),
                         fam=(r.get('pick') or {}).get('fam'),
                         win=(r.get('pick') or {}).get('win'),
-                        score=sc.get('score'), breakdown=sc.get('breakdown')))
+                        score=sc.get('score'), breakdown=sc.get('breakdown'), scorer_version=sc.get('scorer_version')))
     return out
 
 def fill_meta(row, recs_by_id):
@@ -211,6 +215,8 @@ def decided_variants():
     for line in open(p):
         try: r=json.loads(line)
         except json.JSONDecodeError: continue
+        if r.get('scorer_version') != score.SCORER_VERSION:
+            continue
         if 'delta' not in r:  # old 4-pair tune
             continue
         out.append(r)
@@ -247,10 +253,12 @@ def main():
         "near_hint_bars": 32, "length_pref": 0, "family_prior_w": 0.3,
         "prefer_family": None, "loop_fam_pen": 1.0,
     }
+    if stored.get('scorer_version') != score.SCORER_VERSION:
+        base_rules = recreate.load_rules()  # preserve already-kept rules, remeasure the new metric
     base_rows = run_set_checkpointed(recs, base_rules, 'baseline', 'bl')
     base_sum = summarize(base_rows)
     print('baseline', json.dumps(base_sum, indent=2), flush=True)
-    json.dump(dict(summary=base_sum, rows=slim(base_rows), rules=base_rules, stem_kind=STEM_KIND),
+    json.dump(dict(summary=base_sum, rows=slim(base_rows), rules=base_rules, stem_kind=STEM_KIND, scorer_version=score.SCORER_VERSION),
               open(os.path.join(paths.RESULTS,'baseline.json'),'w'), indent=2)
 
     current = copy.deepcopy(base_rules)
@@ -313,7 +321,7 @@ def main():
             rec['why']=why
             rejected.append(rec)
             print(f'  REJECT {name}: {why}', flush=True)
-        tune.log_row(dict(name=name, delta=delta, train_mean=sm['train_mean'], test_mean=sm['test_mean'],
+        tune.log_row(dict(name=name, delta=delta, scorer_version=score.SCORER_VERSION, train_mean=sm['train_mean'], test_mean=sm['test_mean'],
                           by_dj=sm['by_dj'], kept=accept, floor_test=floor, why=why))
         write_state(dict(current_rules=current, baseline=base_sum, after=current_sum,
                          kept=[{k:v for k,v in x.items() if k!='rows'} for x in kept],

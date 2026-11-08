@@ -1,0 +1,116 @@
+[
+  {
+    "id": "netsky_hospital_classics__15",
+    "side": "a",
+    "yt": "DpYdXERlkFk",
+    "url": "https://www.youtube.com/watch?v=DpYdXERlkFk",
+    "locate": {
+      "track_t": 125.80571428571429,
+      "mix_t": 1.6950566893424037,
+      "cc": 0.8337120413780212,
+      "z": 6.610959053039551
+    },
+    "rate": 0.98,
+    "region": [
+      1.0,
+      6.87
+    ],
+    "correlation": 0.8787,
+    "pass_match": true
+  },
+  {
+    "id": "netsky_hospital_classics__15",
+    "side": "a",
+    "yt": "cb2sbJ-ii-I",
+    "url": "https://www.youtube.com/watch?v=cb2sbJ-ii-I",
+    "locate": {
+      "track_t": 125.80571428571429,
+      "mix_t": 1.787936507936508,
+      "cc": 0.8445739150047302,
+      "z": 6.662431240081787
+    },
+    "rate": 0.98,
+    "region": [
+      1.0,
+      6.87
+    ],
+    "correlation": 0.7444,
+    "pass_match": true
+  },
+  {
+    "id": "netsky_hospital_classics__16",
+    "side": "b",
+    "yt": "0KOtkN6iLkA",
+    "url": "https://www.youtube.com/watch?v=0KOtkN6iLkA",
+    "locate": {
+      "track_t": 44.93061224489796,
+      "mix_t": 36.36244897959184,
+      "cc": 0.7414591908454895,
+      "z": 6.470317840576172
+    },
+    "rate": 1.006,
+    "region": [
+      51.37,
+      63.0
+    ],
+    "correlation": 0.3705,
+    "pass_match": false
+  },
+  {
+    "id": "netsky_hospital_classics__16",
+    "side": "b",
+    "yt": "lgJT58nMECs",
+    "url": "https://www.youtube.com/watch?v=lgJT58nMECs",
+    "locate": {
+      "track_t": 56.91210884353742,
+      "mix_t": 31.764897959183674,
+      "cc": 0.6620333790779114,
+      "z": 6.473610877990723
+    },
+    "rate": 0.994,
+    "region": [
+      51.37,
+      63.0
+    ],
+    "correlation": 0.2783,
+    "pass_match": false
+  },
+  {
+    "id": "netsky_hospital_classics__24",
+    "side": "b",
+    "yt": "KD5fLb-WgBU",
+    "url": "https://www.youtube.com/watch?v=KD5fLb-WgBU",
+    "locate": {
+      "track_t": 158.75482993197278,
+      "mix_t": 36.87328798185941,
+      "cc": 0.5163788795471191,
+      "z": 7.220625400543213
+    },
+    "rate": 1.0,
+    "region": [
+      56.0,
+      63.0
+    ],
+    "correlation": 0.2543,
+    "pass_match": false
+  },
+  {
+    "id": "netsky_hospital_classics__24",
+    "side": "b",
+    "yt": "X52tywo1pfg",
+    "url": "https://www.youtube.com/watch?v=X52tywo1pfg",
+    "locate": {
+      "track_t": 146.77333333333334,
+      "mix_t": 29.512562358276643,
+      "cc": 0.4407908618450165,
+      "z": 6.229364395141602
+    },
+    "rate": 0.98,
+    "region": [
+      56.0,
+      63.0
+    ],
+    "correlation": 0.2618,
+    "pass_match": false
+  }
+]

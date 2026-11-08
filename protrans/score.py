@@ -18,6 +18,8 @@ from __future__ import annotations
 import json, os, subprocess, hashlib
 import numpy as np
 
+SCORER_VERSION = "gain-events-v2"
+
 SR = 22050
 HOP = 512
 NFFT = 2048
@@ -135,24 +137,64 @@ def _to_bars(db, hop=HOP, sr=SR):
     return np.array(out)
 
 def events_from_pair(out_db, in_db):
-    """bass_swap (first bar incoming>outgoing), outgoing_cut (first -6 dB from pre), blend_len.
+    """Events in bars from deck gain curves, relative to each deck's active level.
 
-    Inputs are per-frame dB curves (HOP samples). Events are measured in BARS:
-    the time_sim scales (4, 4, 8) were written as bars, but until 8 Nov 2026 the
-    events were computed on raw 23 ms frames, so a 4-frame (~93 ms) tolerance
-    made these terms ~0 for almost every pair. Fixed unit bug, weights unchanged.
+    Sustained presence avoids a single noisy frame becoming a bar-zero swap;
+    -12 dB relative presence measures the overlap, not absolute mastering level.
+    A cut is the final sustained exit (-12 dB), not the first -6 dB fade point.
     """
-    out_db, in_db = _to_bars(out_db), _to_bars(in_db)
-    n = min(len(out_db), len(in_db))
-    o, i = out_db[:n], in_db[:n]
-    pre = 4 if n > 8 else max(1, n//6)
-    pref = float(np.median(o[:pre]))
-    swap = next((k for k in range(n) if i[k] > o[k] and i[k] > -28), None)
-    cut = next((k for k in range(pre, n) if o[k] < pref - 6), None)
-    inn = next((k for k in range(n) if i[k] > -25), 0)
-    oute = next((k for k in range(n-1, -1, -1) if o[k] > -25), n-1)
-    blend = max(1, oute - inn + 1)
+    o, i = _to_bars(out_db), _to_bars(in_db)
+    n = min(len(o), len(i))
+    if not n:
+        return dict(bass_swap=None, outgoing_cut=None, blend_length=0)
+    o, i = o[:n], i[:n]
+    def relative(x):
+        ref = np.percentile(x, 90)
+        return x - ref if ref > -90 else np.full_like(x, -120)
+    o, i = relative(o), relative(i)
+    on_o, on_i = o > -12, i > -12
+    def sustained(mask):
+        return next((k for k in range(n-1) if mask[k:k+2].all()), None)
+    start = sustained(on_i)
+    # Require established outgoing dominance before an incoming handoff.
+    dominant = (o > i) & on_o
+    established = sustained(dominant)
+    swap = None if established is None else sustained(
+        (np.arange(n) > established) & (i >= o - 1.0) & on_i)
+    active = np.flatnonzero(on_o)
+    end = int(active[-1]) + 1 if len(active) else 0
+    cut = end if end < n and len(active) else None
+    both = np.flatnonzero(on_o & on_i)
+    runs = np.split(both, np.flatnonzero(np.diff(both) > 1) + 1)
+    blend = int(max(map(len, runs)))
     return dict(bass_swap=swap, outgoing_cut=cut, blend_length=blend)
+
+
+def source_gain_events(mix, src_a, src_b):
+    """Identify deck controls with multi-bin NNLS, not one equation/two unknowns.
+
+    The old per-frame power pseudoinverse assigned both decks gain even during
+    solo passages. Gains remove the source's own dynamics from event timing.
+    Spectral fitting is phase-tolerant; these controls are used only for events.
+    """
+    import diagnose_gap as D
+    aligned = []
+    for path in (src_a, src_b):
+        loc = D.version_match.locate_in(mix, _load(path))
+        if loc.get('track_t') is None:
+            return None
+        y = D.place_source(path, loc['track_t'], loc['mix_t'], len(mix))
+        y, _ = D.refine_lag(mix, y)
+        aligned.append(y)
+    gains, _, times, _ = D.band_gains(mix, *aligned)
+    def curves(band):
+        # events_from_pair accepts HOP-spaced dB curves.
+        t = np.arange(len(_rms(mix))) * HOP / SR
+        return tuple(_db(np.interp(t, times, gains[band][deck])) for deck in ('a', 'b'))
+    bass = events_from_pair(*curves('bass'))
+    full = events_from_pair(*curves('all'))
+    return dict(bass_swap=bass['bass_swap'], outgoing_cut=full['outgoing_cut'],
+                blend_length=full['blend_length'])
 
 def _kick_env(y, hop=ALIGN_HOP, sr=SR):
     z = _butter(y, 'low', 150, sr=sr)
@@ -353,8 +395,8 @@ def score(pro_path, ours_path, src_a=None, src_b=None, use_demucs=None, cache=No
                 deck = dict(per_stem_deck=round(deck_mean, 2))
                 bo_p, bi_p = deck_p.get('bass', next(iter(deck_p.values())))
                 bo_o, bi_o = deck_o.get('bass', next(iter(deck_o.values())))
-                ev_p = events_from_pair(bo_p, bi_p)
-                ev_o = events_from_pair(bo_o, bi_o)
+                ev_p = source_gain_events(y_p, src_a, src_b)
+                ev_o = source_gain_events(y_o, src_a, src_b)
         except Exception as e:
             deck = dict(error=str(e)[-200:])
 
@@ -377,6 +419,7 @@ def score(pro_path, ours_path, src_a=None, src_b=None, use_demucs=None, cache=No
              + W['bass_swap']*swap_s + W['outgoing_cut']*cut_s + W['blend_length']*len_s)
     return dict(
         score=round(float(total), 2),
+        scorer_version=SCORER_VERSION,
         breakdown=dict(stem_curves=round(stem_mean,2), deck_curves=round(deck_mean,2),
                        beat_align=round(float(beat_s),2), bass_swap=round(swap_s,2),
                        outgoing_cut=round(cut_s,2), blend_length=round(len_s,2),

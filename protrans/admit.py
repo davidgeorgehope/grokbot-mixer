@@ -146,6 +146,9 @@ def process_pair(c, mix_audio):
 def process_mix(mix_id, candidates, mix_path, delete_mix=True):
     admitted = load_admitted()
     have={r['id'] for r in admitted}
+    rejected_path = os.path.join(paths.RESULTS, 'version_rejected.json')
+    if os.path.exists(rejected_path):
+        have.update(r['id'] for r in json.load(open(rejected_path)))
     results=[]
     for c in candidates:
         if c['id'] in have:

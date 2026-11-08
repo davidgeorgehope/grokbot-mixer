@@ -1,0 +1,41 @@
+{
+  "paired_before": {
+    "train": {
+      "n": 25,
+      "mean": 24.51
+    },
+    "test": {
+      "n": 8,
+      "mean": 29.4
+    }
+  },
+  "paired_after": {
+    "train": {
+      "n": 25,
+      "mean": 23.86
+    },
+    "test": {
+      "n": 8,
+      "mean": 26.58
+    }
+  },
+  "corrected_corpus_after": {
+    "train": {
+      "n": 25,
+      "mean": 23.86
+    },
+    "test": {
+      "n": 6,
+      "mean": 24.54
+    }
+  },
+  "scorer_version": "gain-events-v2",
+  "weights": {
+    "stem_curves": 0.28,
+    "deck_curves": 0.22,
+    "beat_align": 0.15,
+    "bass_swap": 0.13,
+    "outgoing_cut": 0.12,
+    "blend_length": 0.1
+  }
+}

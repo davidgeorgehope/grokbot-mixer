@@ -1,30 +1,30 @@
 {
   "summary": {
-    "n": 33,
+    "n": 31,
     "n_fail": 0,
     "train_n": 25,
-    "test_n": 8,
-    "train_mean": 24.03,
-    "test_mean": 28.83,
+    "test_n": 6,
+    "train_mean": 23.86,
+    "test_mean": 24.54,
     "by_dj": {
       "Hybrid Minds": {
         "n": 15,
-        "mean": 21.84,
+        "mean": 21.39,
         "split": "train"
       },
       "Joe Syntax": {
         "n": 10,
-        "mean": 27.32,
+        "mean": 27.57,
         "split": "train"
       },
       "Netsky": {
-        "n": 7,
-        "mean": 30.03,
+        "n": 5,
+        "mean": 26.26,
         "split": "test"
       },
       "Wilkinson": {
         "n": 1,
-        "mean": 20.41,
+        "mean": 15.95,
         "split": "test"
       }
     },
@@ -36,22 +36,14 @@
       "split": "test",
       "dj": "Wilkinson",
       "pair": "Wilkinson - Ultraviolet feat. Katy Alex -> Wilkinson - Afterglow",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        144,
-        null,
-        16,
-        32
-      ],
-      "score": 20.41,
+      "score": 15.95,
       "breakdown": {
         "stem_curves": 19.37,
         "deck_curves": 23.49,
         "beat_align": 21.22,
-        "bass_swap": 1.85,
-        "outgoing_cut": 13.63,
-        "blend_length": 47.59,
+        "bass_swap": 2.37,
+        "outgoing_cut": 9.52,
+        "blend_length": 7.3,
         "stems": {
           "drums": 15.93,
           "bass": 42.4,
@@ -60,14 +52,14 @@
         },
         "beat_off_ms": 31.93,
         "events_pro": {
-          "bass_swap": 23,
-          "outgoing_cut": 7,
-          "blend_length": 35
+          "bass_swap": 8,
+          "outgoing_cut": null,
+          "blend_length": 19
         },
         "events_ours": {
-          "bass_swap": 10,
-          "outgoing_cut": 12,
-          "blend_length": 35
+          "bass_swap": 20,
+          "outgoing_cut": 24,
+          "blend_length": 4
         },
         "stem_kind": [
           "bands",
@@ -82,29 +74,22 @@
           "peak": 0.2096,
           "win_sec": 48.884
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "joe_syntax_hospital__00",
       "split": "train",
       "dj": "Joe Syntax",
       "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        96,
-        null,
-        0,
-        32
-      ],
-      "score": 28.39,
+      "score": 29.88,
       "breakdown": {
         "stem_curves": 25.54,
         "deck_curves": 40.77,
         "beat_align": 57.61,
-        "bass_swap": 0.74,
-        "outgoing_cut": 11.51,
-        "blend_length": 21.51,
+        "bass_swap": 6.98,
+        "outgoing_cut": 1.56,
+        "blend_length": 40.19,
         "stems": {
           "drums": 24.23,
           "bass": 25.84,
@@ -114,13 +99,13 @@
         "beat_off_ms": 0.0,
         "events_pro": {
           "bass_swap": 14,
-          "outgoing_cut": 14,
-          "blend_length": 16
+          "outgoing_cut": 16,
+          "blend_length": 3
         },
         "events_ours": {
-          "bass_swap": 31,
-          "outgoing_cut": 20,
-          "blend_length": 23
+          "bass_swap": 6,
+          "outgoing_cut": 30,
+          "blend_length": 5
         },
         "stem_kind": [
           "bands",
@@ -135,98 +120,38 @@
           "peak": 0.227,
           "win_sec": 62.328
         }
-      }
-    },
-    {
-      "id": "joe_syntax_hospital__09",
-      "split": "train",
-      "dj": "Joe Syntax",
-      "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        192,
-        null,
-        0,
-        32
-      ],
-      "score": 32.82,
-      "breakdown": {
-        "stem_curves": 24.12,
-        "deck_curves": 49.55,
-        "beat_align": 32.55,
-        "bass_swap": 39.47,
-        "outgoing_cut": 39.47,
-        "blend_length": 4.16,
-        "stems": {
-          "drums": 13.89,
-          "bass": 29.92,
-          "vocals": 31.03,
-          "melody": 21.64
-        },
-        "beat_off_ms": 8.71,
-        "events_pro": {
-          "bass_swap": 21,
-          "outgoing_cut": 19,
-          "blend_length": 1
-        },
-        "events_ours": {
-          "bass_swap": 22,
-          "outgoing_cut": 20,
-          "blend_length": 21
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 49.55
-        },
-        "align": {
-          "lag_samples": 17664,
-          "lag_ms": 801.09,
-          "peak": 0.2651,
-          "win_sec": 63.199
-        }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "joe_syntax_hospital__01",
       "split": "train",
       "dj": "Joe Syntax",
       "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        160,
-        null,
-        16,
-        32
-      ],
-      "score": 29.44,
+      "score": 35.15,
       "breakdown": {
-        "stem_curves": 45.4,
+        "stem_curves": 45.26,
         "deck_curves": 41.51,
-        "beat_align": 41.71,
-        "bass_swap": 4.12,
-        "outgoing_cut": 3.21,
-        "blend_length": 4.12,
+        "beat_align": 41.42,
+        "bass_swap": 12.88,
+        "outgoing_cut": 12.88,
+        "blend_length": 39.07,
         "stems": {
-          "drums": 47.86,
-          "bass": 34.47,
-          "vocals": 42.19,
-          "melody": 57.09
+          "drums": 48.15,
+          "bass": 33.89,
+          "vocals": 42.5,
+          "melody": 56.51
         },
         "beat_off_ms": 2.9,
         "events_pro": {
-          "bass_swap": 33,
-          "outgoing_cut": 33,
-          "blend_length": 44
+          "bass_swap": null,
+          "outgoing_cut": null,
+          "blend_length": 10
         },
         "events_ours": {
-          "bass_swap": 22,
-          "outgoing_cut": 21,
-          "blend_length": 22
+          "bass_swap": 7,
+          "outgoing_cut": 34,
+          "blend_length": 14
         },
         "stem_kind": [
           "bands",
@@ -238,32 +163,25 @@
         "align": {
           "lag_samples": -77312,
           "lag_ms": -3506.21,
-          "peak": 0.1568,
+          "peak": 0.151,
           "win_sec": 62.701
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "joe_syntax_hospital__08",
       "split": "train",
       "dj": "Joe Syntax",
       "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        240,
-        null,
-        32,
-        32
-      ],
-      "score": 26.76,
+      "score": 27.16,
       "breakdown": {
         "stem_curves": 37.64,
         "deck_curves": 14.05,
         "beat_align": 59.02,
-        "bass_swap": 0.31,
+        "bass_swap": 11.89,
         "outgoing_cut": 11.89,
-        "blend_length": 28.09,
+        "blend_length": 17.04,
         "stems": {
           "drums": 37.32,
           "bass": 34.58,
@@ -272,14 +190,14 @@
         },
         "beat_off_ms": 0.0,
         "events_pro": {
-          "bass_swap": 21,
+          "bass_swap": 7,
           "outgoing_cut": 18,
-          "blend_length": 40
+          "blend_length": 17
         },
         "events_ours": {
-          "bass_swap": 0,
+          "bass_swap": null,
           "outgoing_cut": null,
-          "blend_length": 46
+          "blend_length": 7
         },
         "stem_kind": [
           "bands",
@@ -294,81 +212,67 @@
           "peak": 0.2705,
           "win_sec": 63.988
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
-      "id": "joe_syntax_hospital__17",
+      "id": "joe_syntax_hospital__09",
       "split": "train",
       "dj": "Joe Syntax",
-      "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        96,
-        null,
-        32,
-        32
-      ],
-      "score": 15.63,
+      "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+      "score": 30.65,
       "breakdown": {
-        "stem_curves": 11.3,
-        "deck_curves": 11.67,
-        "beat_align": 41.44,
-        "bass_swap": 0.78,
-        "outgoing_cut": 8.47,
-        "blend_length": 25.68,
+        "stem_curves": 24.12,
+        "deck_curves": 49.55,
+        "beat_align": 32.55,
+        "bass_swap": 18.64,
+        "outgoing_cut": 10.14,
+        "blend_length": 44.72,
         "stems": {
-          "drums": 14.08,
-          "bass": 12.61,
-          "vocals": 9.13,
-          "melody": 9.36
+          "drums": 13.89,
+          "bass": 29.92,
+          "vocals": 31.03,
+          "melody": 21.64
         },
-        "beat_off_ms": 2.9,
+        "beat_off_ms": 8.71,
         "events_pro": {
-          "bass_swap": 2,
-          "outgoing_cut": null,
-          "blend_length": 30
+          "bass_swap": 24,
+          "outgoing_cut": 24,
+          "blend_length": 4
         },
         "events_ours": {
-          "bass_swap": 18,
-          "outgoing_cut": 23,
-          "blend_length": 26
+          "bass_swap": 20,
+          "outgoing_cut": null,
+          "blend_length": 3
         },
         "stem_kind": [
           "bands",
           "bands"
         ],
         "deck": {
-          "per_stem_deck": 11.67
+          "per_stem_deck": 49.55
         },
         "align": {
-          "lag_samples": 434944,
-          "lag_ms": 19725.35,
-          "peak": 0.0826,
-          "win_sec": 44.275
+          "lag_samples": 17664,
+          "lag_ms": 801.09,
+          "peak": 0.2651,
+          "win_sec": 63.199
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "joe_syntax_hospital__14",
       "split": "train",
       "dj": "Joe Syntax",
       "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        224,
-        null,
-        0,
-        32
-      ],
-      "score": 31.96,
+      "score": 24.79,
       "breakdown": {
         "stem_curves": 33.58,
         "deck_curves": 20.15,
         "beat_align": 36.18,
-        "bass_swap": 56.83,
-        "outgoing_cut": 26.84,
+        "bass_swap": 20.91,
+        "outgoing_cut": 5.99,
         "blend_length": 20.91,
         "stems": {
           "drums": 39.75,
@@ -379,13 +283,13 @@
         "beat_off_ms": 5.8,
         "events_pro": {
           "bass_swap": 17,
-          "outgoing_cut": 15,
-          "blend_length": 33
+          "outgoing_cut": 21,
+          "blend_length": 2
         },
         "events_ours": {
-          "bass_swap": 17,
-          "outgoing_cut": 12,
-          "blend_length": 25
+          "bass_swap": 13,
+          "outgoing_cut": 30,
+          "blend_length": 10
         },
         "stem_kind": [
           "bands",
@@ -400,29 +304,68 @@
           "peak": 0.1616,
           "win_sec": 46.54
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
+    },
+    {
+      "id": "joe_syntax_hospital__17",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
+      "score": 19.21,
+      "breakdown": {
+        "stem_curves": 11.3,
+        "deck_curves": 11.67,
+        "beat_align": 41.44,
+        "bass_swap": 25.68,
+        "outgoing_cut": 8.47,
+        "blend_length": 29.1,
+        "stems": {
+          "drums": 14.08,
+          "bass": 12.61,
+          "vocals": 9.13,
+          "melody": 9.36
+        },
+        "beat_off_ms": 2.9,
+        "events_pro": {
+          "bass_swap": 26,
+          "outgoing_cut": null,
+          "blend_length": 4
+        },
+        "events_ours": {
+          "bass_swap": 24,
+          "outgoing_cut": 27,
+          "blend_length": 1
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 11.67
+        },
+        "align": {
+          "lag_samples": 434944,
+          "lag_ms": 19725.35,
+          "peak": 0.0826,
+          "win_sec": 44.275
+        }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "joe_syntax_hospital__18",
       "split": "train",
       "dj": "Joe Syntax",
       "pair": "Netsky - Lotus Symphony -> Unquote & Molecular Structures - Lubov Moya",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        192,
-        null,
-        16,
-        32
-      ],
-      "score": 12.49,
+      "score": 14.65,
       "breakdown": {
         "stem_curves": 13.77,
         "deck_curves": 13.93,
         "beat_align": 28.73,
-        "bass_swap": 1.03,
-        "outgoing_cut": 5.95,
-        "blend_length": 4.09,
+        "bass_swap": 2.19,
+        "outgoing_cut": 8.79,
+        "blend_length": 20.76,
         "stems": {
           "drums": 17.44,
           "bass": 18.21,
@@ -431,14 +374,14 @@
         },
         "beat_off_ms": 5.8,
         "events_pro": {
-          "bass_swap": 3,
-          "outgoing_cut": 15,
-          "blend_length": 29
+          "bass_swap": 18,
+          "outgoing_cut": 16,
+          "blend_length": 0
         },
         "events_ours": {
-          "bass_swap": 18,
-          "outgoing_cut": 7,
-          "blend_length": 10
+          "bass_swap": 6,
+          "outgoing_cut": null,
+          "blend_length": 6
         },
         "stem_kind": [
           "bands",
@@ -453,29 +396,22 @@
           "peak": 0.0629,
           "win_sec": 43.382
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__08",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        224,
-        null,
-        32,
-        32
-      ],
-      "score": 21.17,
+      "score": 16.71,
       "breakdown": {
         "stem_curves": 18.14,
         "deck_curves": 15.72,
         "beat_align": 37.42,
-        "bass_swap": 9.36,
+        "bass_swap": 8.13,
         "outgoing_cut": 9.36,
-        "blend_length": 46.79,
+        "blend_length": 3.84,
         "stems": {
           "drums": 21.48,
           "bass": 17.57,
@@ -484,14 +420,14 @@
         },
         "beat_off_ms": 2.9,
         "events_pro": {
-          "bass_swap": null,
+          "bass_swap": 3,
           "outgoing_cut": null,
           "blend_length": 29
         },
         "events_ours": {
-          "bass_swap": 0,
-          "outgoing_cut": 5,
-          "blend_length": 29
+          "bass_swap": 10,
+          "outgoing_cut": 28,
+          "blend_length": 9
         },
         "stem_kind": [
           "bands",
@@ -506,135 +442,22 @@
           "peak": 0.0851,
           "win_sec": 40.014
         }
-      }
-    },
-    {
-      "id": "hybrid_minds_ukf__13",
-      "split": "train",
-      "dj": "Hybrid Minds",
-      "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        176,
-        null,
-        0,
-        32
-      ],
-      "score": 31.16,
-      "breakdown": {
-        "stem_curves": 33.65,
-        "deck_curves": 36.43,
-        "beat_align": 18.24,
-        "bass_swap": 11.37,
-        "outgoing_cut": 56.87,
-        "blend_length": 26.87,
-        "stems": {
-          "drums": 28.42,
-          "bass": 52.28,
-          "vocals": 27.63,
-          "melody": 26.27
-        },
-        "beat_off_ms": 29.02,
-        "events_pro": {
-          "bass_swap": 7,
-          "outgoing_cut": null,
-          "blend_length": 29
-        },
-        "events_ours": {
-          "bass_swap": null,
-          "outgoing_cut": null,
-          "blend_length": 35
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 36.43
-        },
-        "align": {
-          "lag_samples": 295936,
-          "lag_ms": 13421.13,
-          "peak": 0.2309,
-          "win_sec": 50.579
-        }
-      }
-    },
-    {
-      "id": "hybrid_minds_ukf__12",
-      "split": "train",
-      "dj": "Hybrid Minds",
-      "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        304,
-        null,
-        32,
-        32
-      ],
-      "score": 37.75,
-      "breakdown": {
-        "stem_curves": 34.36,
-        "deck_curves": 27.5,
-        "beat_align": 41.34,
-        "bass_swap": 57.34,
-        "outgoing_cut": 44.65,
-        "blend_length": 30.69,
-        "stems": {
-          "drums": 12.33,
-          "bass": 33.56,
-          "vocals": 49.49,
-          "melody": 42.07
-        },
-        "beat_off_ms": 2.9,
-        "events_pro": {
-          "bass_swap": 6,
-          "outgoing_cut": 23,
-          "blend_length": 29
-        },
-        "events_ours": {
-          "bass_swap": 6,
-          "outgoing_cut": 24,
-          "blend_length": 24
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 27.5
-        },
-        "align": {
-          "lag_samples": 498432,
-          "lag_ms": 22604.63,
-          "peak": 0.0847,
-          "win_sec": 41.395
-        }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__11",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        176,
-        null,
-        64,
-        32
-      ],
-      "score": 16.83,
+      "score": 26.71,
       "breakdown": {
         "stem_curves": 18.81,
         "deck_curves": 15.01,
         "beat_align": 40.34,
-        "bass_swap": 0.19,
-        "outgoing_cut": 9.45,
-        "blend_length": 10.54,
+        "bass_swap": 17.37,
+        "outgoing_cut": 47.23,
+        "blend_length": 41.68,
         "stems": {
           "drums": 18.28,
           "bass": 38.55,
@@ -643,14 +466,14 @@
         },
         "beat_off_ms": 5.8,
         "events_pro": {
-          "bass_swap": 5,
-          "outgoing_cut": 6,
-          "blend_length": 29
+          "bass_swap": 28,
+          "outgoing_cut": 40,
+          "blend_length": 6
         },
         "events_ours": {
-          "bass_swap": 27,
-          "outgoing_cut": null,
-          "blend_length": 17
+          "bass_swap": 24,
+          "outgoing_cut": 40,
+          "blend_length": 5
         },
         "stem_kind": [
           "bands",
@@ -665,29 +488,114 @@
           "peak": 0.2787,
           "win_sec": 56.674
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+      "score": 24.42,
+      "breakdown": {
+        "stem_curves": 34.36,
+        "deck_curves": 27.5,
+        "beat_align": 41.34,
+        "bass_swap": 2.22,
+        "outgoing_cut": 11.47,
+        "blend_length": 8.79,
+        "stems": {
+          "drums": 12.33,
+          "bass": 33.56,
+          "vocals": 49.49,
+          "melody": 42.07
+        },
+        "beat_off_ms": 2.9,
+        "events_pro": {
+          "bass_swap": 8,
+          "outgoing_cut": null,
+          "blend_length": 24
+        },
+        "events_ours": {
+          "bass_swap": 21,
+          "outgoing_cut": 24,
+          "blend_length": 9
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 27.5
+        },
+        "align": {
+          "lag_samples": 498432,
+          "lag_ms": 22604.63,
+          "peak": 0.0847,
+          "win_sec": 41.395
+        }
+      },
+      "scorer_version": "gain-events-v2"
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+      "score": 23.95,
+      "breakdown": {
+        "stem_curves": 33.65,
+        "deck_curves": 36.43,
+        "beat_align": 18.24,
+        "bass_swap": 0.3,
+        "outgoing_cut": 11.37,
+        "blend_length": 23.71,
+        "stems": {
+          "drums": 28.42,
+          "bass": 52.28,
+          "vocals": 27.63,
+          "melody": 26.27
+        },
+        "beat_off_ms": 29.02,
+        "events_pro": {
+          "bass_swap": 6,
+          "outgoing_cut": null,
+          "blend_length": 14
+        },
+        "events_ours": {
+          "bass_swap": 27,
+          "outgoing_cut": 28,
+          "blend_length": 7
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 36.43
+        },
+        "align": {
+          "lag_samples": 295936,
+          "lag_ms": 13421.13,
+          "peak": 0.2309,
+          "win_sec": 50.579
+        }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__19",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "Urbandawn - Prime Expansion -> Hybrid Minds - Demons (ft. Charlotte Haining)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        176,
-        null,
-        32,
-        32
-      ],
-      "score": 31.94,
+      "score": 22.57,
       "breakdown": {
         "stem_curves": 34.25,
         "deck_curves": 27.25,
         "beat_align": 35.25,
-        "bass_swap": 34.73,
-        "outgoing_cut": 34.73,
-        "blend_length": 23.87,
+        "bass_swap": 0.64,
+        "outgoing_cut": 9.95,
+        "blend_length": 4.15,
         "stems": {
           "drums": 40.6,
           "bass": 34.61,
@@ -696,14 +604,14 @@
         },
         "beat_off_ms": 5.8,
         "events_pro": {
-          "bass_swap": 18,
-          "outgoing_cut": 16,
-          "blend_length": 42
+          "bass_swap": 2,
+          "outgoing_cut": 26,
+          "blend_length": 26
         },
         "events_ours": {
           "bass_swap": 20,
-          "outgoing_cut": 18,
-          "blend_length": 35
+          "outgoing_cut": 19,
+          "blend_length": 5
         },
         "stem_kind": [
           "bands",
@@ -718,29 +626,22 @@
           "peak": 0.1805,
           "win_sec": 57.941
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__20",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "Hybrid Minds - Demons (ft. Charlotte Haining) -> Changing Faces - Emptiness",
-      "fam": "nat_short",
-      "win": [
-        "n",
-        144,
-        null,
-        32,
-        16
-      ],
-      "score": 17.44,
+      "score": 21.7,
       "breakdown": {
         "stem_curves": 21.59,
         "deck_curves": 20.6,
         "beat_align": 28.98,
-        "bass_swap": 1.9,
+        "bass_swap": 9.81,
         "outgoing_cut": 9.81,
-        "blend_length": 10.94,
+        "blend_length": 43.27,
         "stems": {
           "drums": 9.93,
           "bass": 58.58,
@@ -749,14 +650,14 @@
         },
         "beat_off_ms": 31.93,
         "events_pro": {
-          "bass_swap": 21,
+          "bass_swap": null,
           "outgoing_cut": null,
-          "blend_length": 8
+          "blend_length": 6
         },
         "events_ours": {
-          "bass_swap": 8,
-          "outgoing_cut": 4,
-          "blend_length": 20
+          "bass_swap": 12,
+          "outgoing_cut": 16,
+          "blend_length": 5
         },
         "stem_kind": [
           "bands",
@@ -771,29 +672,22 @@
           "peak": 0.3742,
           "win_sec": 41.163
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__23",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        224,
-        null,
-        16,
-        32
-      ],
-      "score": 23.95,
+      "score": 23.92,
       "breakdown": {
         "stem_curves": 30.15,
         "deck_curves": 17.28,
         "beat_align": 44.5,
-        "bass_swap": 20.08,
-        "outgoing_cut": 3.49,
-        "blend_length": 20.08,
+        "bass_swap": 10.92,
+        "outgoing_cut": 10.92,
+        "blend_length": 22.76,
         "stems": {
           "drums": 36.2,
           "bass": 40.47,
@@ -802,14 +696,14 @@
         },
         "beat_off_ms": 2.9,
         "events_pro": {
-          "bass_swap": 0,
-          "outgoing_cut": 6,
-          "blend_length": 41
+          "bass_swap": 18,
+          "outgoing_cut": 31,
+          "blend_length": 3
         },
         "events_ours": {
-          "bass_swap": 4,
-          "outgoing_cut": 17,
-          "blend_length": 33
+          "bass_swap": null,
+          "outgoing_cut": null,
+          "blend_length": 10
         },
         "stem_kind": [
           "bands",
@@ -824,29 +718,22 @@
           "peak": 0.1901,
           "win_sec": 57.685
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__25",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        192,
-        null,
-        0,
-        32
-      ],
-      "score": 17.56,
+      "score": 15.01,
       "breakdown": {
         "stem_curves": 21.06,
         "deck_curves": 13.01,
         "beat_align": 30.49,
-        "bass_swap": 9.74,
+        "bass_swap": 0.42,
         "outgoing_cut": 9.74,
-        "blend_length": 17.91,
+        "blend_length": 4.53,
         "stems": {
           "drums": 18.96,
           "bass": 18.19,
@@ -855,14 +742,14 @@
         },
         "beat_off_ms": 5.8,
         "events_pro": {
-          "bass_swap": null,
+          "bass_swap": 2,
           "outgoing_cut": null,
           "blend_length": 28
         },
         "events_ours": {
-          "bass_swap": 23,
-          "outgoing_cut": 6,
-          "blend_length": 20
+          "bass_swap": 21,
+          "outgoing_cut": 25,
+          "blend_length": 9
         },
         "stem_kind": [
           "bands",
@@ -877,135 +764,22 @@
           "peak": 0.1279,
           "win_sec": 40.002
         }
-      }
-    },
-    {
-      "id": "hybrid_minds_ukf__45",
-      "split": "train",
-      "dj": "Hybrid Minds",
-      "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        112,
-        null,
-        0,
-        32
-      ],
-      "score": 21.56,
-      "breakdown": {
-        "stem_curves": 30.32,
-        "deck_curves": 16.27,
-        "beat_align": 35.65,
-        "bass_swap": 20.13,
-        "outgoing_cut": 5.77,
-        "blend_length": 8.39,
-        "stems": {
-          "drums": 34.35,
-          "bass": 52.66,
-          "vocals": 14.06,
-          "melody": 20.2
-        },
-        "beat_off_ms": 8.71,
-        "events_pro": {
-          "bass_swap": 17,
-          "outgoing_cut": 16,
-          "blend_length": 31
-        },
-        "events_ours": {
-          "bass_swap": 13,
-          "outgoing_cut": 7,
-          "blend_length": 16
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 16.27
-        },
-        "align": {
-          "lag_samples": -443136,
-          "lag_ms": -20096.87,
-          "peak": 0.2439,
-          "win_sec": 46.11
-        }
-      }
-    },
-    {
-      "id": "netsky_hospital_classics__02",
-      "split": "test",
-      "dj": "Netsky",
-      "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        160,
-        null,
-        0,
-        32
-      ],
-      "score": 16.16,
-      "breakdown": {
-        "stem_curves": 15.0,
-        "deck_curves": 16.92,
-        "beat_align": 22.22,
-        "bass_swap": 1.74,
-        "outgoing_cut": 6.06,
-        "blend_length": 39.49,
-        "stems": {
-          "drums": 10.17,
-          "bass": 28.45,
-          "vocals": 11.4,
-          "melody": 9.99
-        },
-        "beat_off_ms": 11.61,
-        "events_pro": {
-          "bass_swap": 15,
-          "outgoing_cut": 4,
-          "blend_length": 36
-        },
-        "events_ours": {
-          "bass_swap": 28,
-          "outgoing_cut": 12,
-          "blend_length": 37
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 16.92
-        },
-        "align": {
-          "lag_samples": -315136,
-          "lag_ms": -14291.88,
-          "peak": 0.1147,
-          "win_sec": 51.915
-        }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__33",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "1991 - Nine Clouds -> Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        192,
-        null,
-        16,
-        32
-      ],
-      "score": 10.54,
+      "score": 9.47,
       "breakdown": {
         "stem_curves": 13.33,
         "deck_curves": 13.21,
         "beat_align": 9.45,
-        "bass_swap": 0.11,
+        "bass_swap": 1.69,
         "outgoing_cut": 8.73,
-        "blend_length": 14.18,
+        "blend_length": 1.49,
         "stems": {
           "drums": 9.88,
           "bass": 10.99,
@@ -1014,14 +788,14 @@
         },
         "beat_off_ms": 31.93,
         "events_pro": {
-          "bass_swap": 0,
+          "bass_swap": 2,
           "outgoing_cut": null,
           "blend_length": 29
         },
         "events_ours": {
-          "bass_swap": 24,
-          "outgoing_cut": 23,
-          "blend_length": 20
+          "bass_swap": 15,
+          "outgoing_cut": 25,
+          "blend_length": 2
         },
         "stem_kind": [
           "bands",
@@ -1036,135 +810,114 @@
           "peak": 0.125,
           "win_sec": 40.919
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
-      "id": "netsky_hospital_classics__16",
+      "id": "hybrid_minds_ukf__45",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+      "score": 24.48,
+      "breakdown": {
+        "stem_curves": 30.32,
+        "deck_curves": 16.27,
+        "beat_align": 35.65,
+        "bass_swap": 42.61,
+        "outgoing_cut": 10.94,
+        "blend_length": 2.12,
+        "stems": {
+          "drums": 34.35,
+          "bass": 52.66,
+          "vocals": 14.06,
+          "melody": 20.2
+        },
+        "beat_off_ms": 8.71,
+        "events_pro": {
+          "bass_swap": 14,
+          "outgoing_cut": null,
+          "blend_length": 33
+        },
+        "events_ours": {
+          "bass_swap": 13,
+          "outgoing_cut": 13,
+          "blend_length": 7
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 16.27
+        },
+        "align": {
+          "lag_samples": -443136,
+          "lag_ms": -20096.87,
+          "peak": 0.2439,
+          "win_sec": 46.11
+        }
+      },
+      "scorer_version": "gain-events-v2"
+    },
+    {
+      "id": "netsky_hospital_classics__02",
       "split": "test",
       "dj": "Netsky",
-      "pair": "Netsky - The Whistle Song -> Logistics - Together",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        192,
-        null,
-        0,
-        32
-      ],
-      "score": 35.73,
+      "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+      "score": 14.74,
       "breakdown": {
-        "stem_curves": 35.73,
-        "deck_curves": 36.73,
-        "beat_align": 47.36,
-        "bass_swap": 35.32,
-        "outgoing_cut": 1.07,
-        "blend_length": 58.23,
+        "stem_curves": 15.0,
+        "deck_curves": 16.92,
+        "beat_align": 22.22,
+        "bass_swap": 2.23,
+        "outgoing_cut": 8.95,
+        "blend_length": 21.14,
         "stems": {
-          "drums": 35.47,
-          "bass": 25.15,
-          "vocals": 50.43,
-          "melody": 31.88
+          "drums": 10.17,
+          "bass": 28.45,
+          "vocals": 11.4,
+          "melody": 9.99
         },
-        "beat_off_ms": 2.9,
+        "beat_off_ms": 11.61,
         "events_pro": {
+          "bass_swap": 6,
+          "outgoing_cut": null,
+          "blend_length": 8
+        },
+        "events_ours": {
           "bass_swap": 18,
-          "outgoing_cut": 21,
-          "blend_length": 1
-        },
-        "events_ours": {
-          "bass_swap": 16,
-          "outgoing_cut": 5,
-          "blend_length": 1
+          "outgoing_cut": 18,
+          "blend_length": 2
         },
         "stem_kind": [
           "bands",
           "bands"
         ],
         "deck": {
-          "per_stem_deck": 36.73
+          "per_stem_deck": 16.92
         },
         "align": {
-          "lag_samples": -248832,
-          "lag_ms": -11284.9,
-          "peak": 0.2601,
-          "win_sec": 54.922
+          "lag_samples": -315136,
+          "lag_ms": -14291.88,
+          "peak": 0.1147,
+          "win_sec": 51.915
         }
-      }
-    },
-    {
-      "id": "netsky_hospital_classics__15",
-      "split": "test",
-      "dj": "Netsky",
-      "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        240,
-        null,
-        0,
-        32
-      ],
-      "score": 45.83,
-      "breakdown": {
-        "stem_curves": 47.77,
-        "deck_curves": 50.23,
-        "beat_align": 54.23,
-        "bass_swap": 40.06,
-        "outgoing_cut": 66.05,
-        "blend_length": 1.37,
-        "stems": {
-          "drums": 43.79,
-          "bass": 45.01,
-          "vocals": 61.99,
-          "melody": 40.29
-        },
-        "beat_off_ms": 0.0,
-        "events_pro": {
-          "bass_swap": 36,
-          "outgoing_cut": 5,
-          "blend_length": 1
-        },
-        "events_ours": {
-          "bass_swap": 34,
-          "outgoing_cut": 5,
-          "blend_length": 32
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 50.23
-        },
-        "align": {
-          "lag_samples": -63488,
-          "lag_ms": -2879.27,
-          "peak": 0.1684,
-          "win_sec": 63.328
-        }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "netsky_hospital_classics__06",
       "split": "test",
       "dj": "Netsky",
       "pair": "High Contrast - Twilight's Last Gleaming -> Netsky - Escape (ft. Darrison)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        320,
-        null,
-        0,
-        32
-      ],
-      "score": 28.76,
+      "score": 31.18,
       "breakdown": {
         "stem_curves": 29.96,
         "deck_curves": 30.06,
         "beat_align": 30.34,
-        "bass_swap": 33.04,
-        "outgoing_cut": 33.04,
-        "blend_length": 9.47,
+        "bass_swap": 42.42,
+        "outgoing_cut": 10.89,
+        "blend_length": 48.07,
         "stems": {
           "drums": 30.46,
           "bass": 44.3,
@@ -1173,14 +926,14 @@
         },
         "beat_off_ms": 11.61,
         "events_pro": {
-          "bass_swap": 17,
-          "outgoing_cut": 16,
-          "blend_length": 37
+          "bass_swap": 15,
+          "outgoing_cut": null,
+          "blend_length": 8
         },
         "events_ours": {
-          "bass_swap": 19,
+          "bass_swap": 14,
           "outgoing_cut": 18,
-          "blend_length": 23
+          "blend_length": 7
         },
         "stem_kind": [
           "bands",
@@ -1195,29 +948,68 @@
           "peak": 0.2534,
           "win_sec": 53.506
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+      "score": 38.3,
+      "breakdown": {
+        "stem_curves": 53.92,
+        "deck_curves": 45.16,
+        "beat_align": 37.44,
+        "bass_swap": 7.38,
+        "outgoing_cut": 15.63,
+        "blend_length": 48.14,
+        "stems": {
+          "drums": 48.47,
+          "bass": 67.17,
+          "vocals": 56.02,
+          "melody": 44.02
+        },
+        "beat_off_ms": 8.71,
+        "events_pro": {
+          "bass_swap": 4,
+          "outgoing_cut": 8,
+          "blend_length": 7
+        },
+        "events_ours": {
+          "bass_swap": 13,
+          "outgoing_cut": 14,
+          "blend_length": 4
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 45.16
+        },
+        "align": {
+          "lag_samples": 422912,
+          "lag_ms": 19179.68,
+          "peak": 0.3449,
+          "win_sec": 44.138
+        }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "netsky_hospital_classics__17",
       "split": "test",
       "dj": "Netsky",
       "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        256,
-        null,
-        32,
-        32
-      ],
-      "score": 29.95,
+      "score": 24.19,
       "breakdown": {
         "stem_curves": 31.67,
         "deck_curves": 37.64,
         "beat_align": 25.11,
-        "bass_swap": 0.14,
-        "outgoing_cut": 43.29,
-        "blend_length": 38.2,
+        "bass_swap": 1.02,
+        "outgoing_cut": 11.12,
+        "blend_length": 18.05,
         "stems": {
           "drums": 27.83,
           "bass": 62.78,
@@ -1226,14 +1018,14 @@
         },
         "beat_off_ms": 26.12,
         "events_pro": {
-          "bass_swap": 0,
-          "outgoing_cut": 8,
-          "blend_length": 4
+          "bass_swap": 8,
+          "outgoing_cut": 25,
+          "blend_length": 9
         },
         "events_ours": {
           "bass_swap": 24,
-          "outgoing_cut": 7,
-          "blend_length": 1
+          "outgoing_cut": null,
+          "blend_length": 18
         },
         "stem_kind": [
           "bands",
@@ -1248,29 +1040,22 @@
           "peak": 0.2594,
           "win_sec": 51.949
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "netsky_hospital_classics__23",
       "split": "test",
       "dj": "Netsky",
       "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        192,
-        null,
-        16,
-        32
-      ],
-      "score": 25.05,
+      "score": 22.89,
       "breakdown": {
         "stem_curves": 35.13,
         "deck_curves": 24.17,
         "beat_align": 19.78,
-        "bass_swap": 7.83,
-        "outgoing_cut": 1.06,
-        "blend_length": 57.84,
+        "bass_swap": 11.57,
+        "outgoing_cut": 11.57,
+        "blend_length": 18.78,
         "stems": {
           "drums": 49.25,
           "bass": 9.76,
@@ -1279,14 +1064,14 @@
         },
         "beat_off_ms": 14.51,
         "events_pro": {
-          "bass_swap": 28,
-          "outgoing_cut": 4,
-          "blend_length": 13
+          "bass_swap": 26,
+          "outgoing_cut": 28,
+          "blend_length": 3
         },
         "events_ours": {
-          "bass_swap": 20,
-          "outgoing_cut": 20,
-          "blend_length": 13
+          "bass_swap": null,
+          "outgoing_cut": null,
+          "blend_length": 12
         },
         "stem_kind": [
           "bands",
@@ -1301,29 +1086,22 @@
           "peak": 0.1265,
           "win_sec": 56.675
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "joe_syntax_hospital__11",
       "split": "train",
       "dj": "Joe Syntax",
       "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
-      "fam": "nat_short",
-      "win": [
-        "n",
-        160,
-        null,
-        0,
-        16
-      ],
-      "score": 15.96,
+      "score": 17.01,
       "breakdown": {
         "stem_curves": 14.27,
         "deck_curves": 12.05,
         "beat_align": 24.61,
-        "bass_swap": 2.83,
-        "outgoing_cut": 34.48,
-        "blend_length": 11.19,
+        "bass_swap": 34.48,
+        "outgoing_cut": 2.83,
+        "blend_length": 18.46,
         "stems": {
           "drums": 13.53,
           "bass": 14.73,
@@ -1332,14 +1110,14 @@
         },
         "beat_off_ms": 23.22,
         "events_pro": {
-          "bass_swap": 0,
-          "outgoing_cut": 4,
-          "blend_length": 31
+          "bass_swap": 3,
+          "outgoing_cut": 30,
+          "blend_length": 15
         },
         "events_ours": {
-          "bass_swap": 11,
-          "outgoing_cut": 5,
-          "blend_length": 20
+          "bass_swap": 2,
+          "outgoing_cut": 19,
+          "blend_length": 8
         },
         "stem_kind": [
           "bands",
@@ -1354,241 +1132,22 @@
           "peak": 0.2881,
           "win_sec": 43.833
         }
-      }
-    },
-    {
-      "id": "netsky_hospital_classics__24",
-      "split": "test",
-      "dj": "Netsky",
-      "pair": "Nu:Logic - Morning Light -> Sigma - Nobody To Love",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        128,
-        null,
-        32,
-        32
-      ],
-      "score": 28.74,
-      "breakdown": {
-        "stem_curves": 28.69,
-        "deck_curves": 52.43,
-        "beat_align": 16.56,
-        "bass_swap": 7.26,
-        "outgoing_cut": 41.78,
-        "blend_length": 7.26,
-        "stems": {
-          "drums": 37.03,
-          "bass": 29.55,
-          "vocals": 25.07,
-          "melody": 23.13
-        },
-        "beat_off_ms": 23.22,
-        "events_pro": {
-          "bass_swap": 29,
-          "outgoing_cut": 17,
-          "blend_length": 1
-        },
-        "events_ours": {
-          "bass_swap": 21,
-          "outgoing_cut": 18,
-          "blend_length": 17
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 52.43
-        },
-        "align": {
-          "lag_samples": -18432,
-          "lag_ms": -835.92,
-          "peak": 0.1707,
-          "win_sec": 64.0
-        }
-      }
-    },
-    {
-      "id": "hybrid_minds_ukf__10",
-      "split": "train",
-      "dj": "Hybrid Minds",
-      "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        240,
-        null,
-        32,
-        32
-      ],
-      "score": 15.09,
-      "breakdown": {
-        "stem_curves": 19.08,
-        "deck_curves": 14.04,
-        "beat_align": 32.67,
-        "bass_swap": 5.0,
-        "outgoing_cut": 2.36,
-        "blend_length": 8.24,
-        "stems": {
-          "drums": 29.59,
-          "bass": 29.55,
-          "vocals": 8.0,
-          "melody": 9.2
-        },
-        "beat_off_ms": 5.8,
-        "events_pro": {
-          "bass_swap": 8,
-          "outgoing_cut": 5,
-          "blend_length": 8
-        },
-        "events_ours": {
-          "bass_swap": 17,
-          "outgoing_cut": 17,
-          "blend_length": 22
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 14.04
-        },
-        "align": {
-          "lag_samples": -315648,
-          "lag_ms": -14315.1,
-          "peak": 0.1112,
-          "win_sec": 51.892
-        }
-      }
-    },
-    {
-      "id": "hybrid_minds_ukf__09",
-      "split": "train",
-      "dj": "Hybrid Minds",
-      "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        176,
-        null,
-        0,
-        32
-      ],
-      "score": 32.25,
-      "breakdown": {
-        "stem_curves": 40.9,
-        "deck_curves": 29.41,
-        "beat_align": 23.79,
-        "bass_swap": 12.32,
-        "outgoing_cut": 61.58,
-        "blend_length": 17.64,
-        "stems": {
-          "drums": 35.11,
-          "bass": 58.46,
-          "vocals": 39.85,
-          "melody": 30.18
-        },
-        "beat_off_ms": 17.41,
-        "events_pro": {
-          "bass_swap": 2,
-          "outgoing_cut": 4,
-          "blend_length": 30
-        },
-        "events_ours": {
-          "bass_swap": null,
-          "outgoing_cut": 4,
-          "blend_length": 20
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 29.41
-        },
-        "align": {
-          "lag_samples": 297984,
-          "lag_ms": 13514.01,
-          "peak": 0.2368,
-          "win_sec": 50.486
-        }
-      }
-    },
-    {
-      "id": "joe_syntax_hospital__13",
-      "split": "train",
-      "dj": "Joe Syntax",
-      "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        256,
-        null,
-        64,
-        32
-      ],
-      "score": 34.61,
-      "breakdown": {
-        "stem_curves": 34.89,
-        "deck_curves": 40.43,
-        "beat_align": 57.96,
-        "bass_swap": 1.36,
-        "outgoing_cut": 57.68,
-        "blend_length": 1.54,
-        "stems": {
-          "drums": 35.02,
-          "bass": 60.53,
-          "vocals": 21.3,
-          "melody": 22.72
-        },
-        "beat_off_ms": 2.9,
-        "events_pro": {
-          "bass_swap": 23,
-          "outgoing_cut": 8,
-          "blend_length": 1
-        },
-        "events_ours": {
-          "bass_swap": 8,
-          "outgoing_cut": 8,
-          "blend_length": 30
-        },
-        "stem_kind": [
-          "bands",
-          "bands"
-        ],
-        "deck": {
-          "per_stem_deck": 40.43
-        },
-        "align": {
-          "lag_samples": 286208,
-          "lag_ms": 12979.95,
-          "peak": 0.3338,
-          "win_sec": 51.02
-        }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "joe_syntax_hospital__12",
       "split": "train",
       "dj": "Joe Syntax",
       "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        208,
-        null,
-        48,
-        32
-      ],
-      "score": 45.11,
+      "score": 44.37,
       "breakdown": {
         "stem_curves": 56.45,
         "deck_curves": 44.26,
         "beat_align": 55.27,
-        "bass_swap": 0.38,
-        "outgoing_cut": 33.87,
-        "blend_length": 71.69,
+        "bass_swap": 33.87,
+        "outgoing_cut": 4.58,
+        "blend_length": 55.83,
         "stems": {
           "drums": 70.77,
           "bass": 36.46,
@@ -1597,14 +1156,14 @@
         },
         "beat_off_ms": 2.9,
         "events_pro": {
-          "bass_swap": 0,
-          "outgoing_cut": 17,
-          "blend_length": 29
+          "bass_swap": 16,
+          "outgoing_cut": 33,
+          "blend_length": 19
         },
         "events_ours": {
-          "bass_swap": 21,
-          "outgoing_cut": 20,
-          "blend_length": 29
+          "bass_swap": 19,
+          "outgoing_cut": 44,
+          "blend_length": 17
         },
         "stem_kind": [
           "bands",
@@ -1619,29 +1178,68 @@
           "peak": 0.4235,
           "win_sec": 62.283
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+      "score": 32.85,
+      "breakdown": {
+        "stem_curves": 34.89,
+        "deck_curves": 40.43,
+        "beat_align": 57.96,
+        "bass_swap": 7.81,
+        "outgoing_cut": 11.54,
+        "blend_length": 30.87,
+        "stems": {
+          "drums": 35.02,
+          "bass": 60.53,
+          "vocals": 21.3,
+          "melody": 22.72
+        },
+        "beat_off_ms": 2.9,
+        "events_pro": {
+          "bass_swap": 8,
+          "outgoing_cut": null,
+          "blend_length": 5
+        },
+        "events_ours": {
+          "bass_swap": 16,
+          "outgoing_cut": 26,
+          "blend_length": 10
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 40.43
+        },
+        "align": {
+          "lag_samples": 286208,
+          "lag_ms": 12979.95,
+          "peak": 0.3338,
+          "win_sec": 51.02
+        }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__00",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        224,
-        null,
-        16,
-        32
-      ],
-      "score": 13.05,
+      "score": 14.06,
       "breakdown": {
         "stem_curves": 18.32,
         "deck_curves": 11.19,
         "beat_align": 18.27,
-        "bass_swap": 6.35,
-        "outgoing_cut": 10.47,
-        "blend_length": 6.35,
+        "bass_swap": 17.26,
+        "outgoing_cut": 6.35,
+        "blend_length": 7.19,
         "stems": {
           "drums": 21.43,
           "bass": 19.64,
@@ -1650,14 +1248,14 @@
         },
         "beat_off_ms": 14.51,
         "events_pro": {
-          "bass_swap": 2,
-          "outgoing_cut": 17,
-          "blend_length": 43
+          "bass_swap": 16,
+          "outgoing_cut": 33,
+          "blend_length": 19
         },
         "events_ours": {
-          "bass_swap": 10,
-          "outgoing_cut": 11,
-          "blend_length": 27
+          "bass_swap": 12,
+          "outgoing_cut": 41,
+          "blend_length": 4
         },
         "stem_kind": [
           "bands",
@@ -1672,27 +1270,112 @@
           "peak": 0.113,
           "win_sec": 60.622
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+      "score": 29.35,
+      "breakdown": {
+        "stem_curves": 40.9,
+        "deck_curves": 29.41,
+        "beat_align": 23.79,
+        "bass_swap": 37.35,
+        "outgoing_cut": 8.33,
+        "blend_length": 19.99,
+        "stems": {
+          "drums": 35.11,
+          "bass": 58.46,
+          "vocals": 39.85,
+          "melody": 30.18
+        },
+        "beat_off_ms": 17.41,
+        "events_pro": {
+          "bass_swap": 3,
+          "outgoing_cut": 32,
+          "blend_length": 18
+        },
+        "events_ours": {
+          "bass_swap": 5,
+          "outgoing_cut": 24,
+          "blend_length": 9
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 29.41
+        },
+        "align": {
+          "lag_samples": 297984,
+          "lag_ms": 13514.01,
+          "peak": 0.2368,
+          "win_sec": 50.486
+        }
+      },
+      "scorer_version": "gain-events-v2"
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+      "score": 26.2,
+      "breakdown": {
+        "stem_curves": 19.08,
+        "deck_curves": 14.04,
+        "beat_align": 32.67,
+        "bass_swap": 47.4,
+        "outgoing_cut": 28.75,
+        "blend_length": 32.58,
+        "stems": {
+          "drums": 29.59,
+          "bass": 29.55,
+          "vocals": 8.0,
+          "melody": 9.2
+        },
+        "beat_off_ms": 5.8,
+        "events_pro": {
+          "bass_swap": 17,
+          "outgoing_cut": 19,
+          "blend_length": 12
+        },
+        "events_ours": {
+          "bass_swap": 17,
+          "outgoing_cut": 17,
+          "blend_length": 9
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 14.04
+        },
+        "align": {
+          "lag_samples": -315648,
+          "lag_ms": -14315.1,
+          "peak": 0.1112,
+          "win_sec": 51.892
+        }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__28",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
-      "fam": "nat_short",
-      "win": [
-        "n",
-        144,
-        null,
-        0,
-        16
-      ],
-      "score": 16.93,
+      "score": 16.34,
       "breakdown": {
         "stem_curves": 8.15,
         "deck_curves": 23.74,
         "beat_align": 22.7,
-        "bass_swap": 11.55,
+        "bass_swap": 7.0,
         "outgoing_cut": 8.06,
         "blend_length": 35.56,
         "stems": {
@@ -1703,14 +1386,14 @@
         },
         "beat_off_ms": 23.22,
         "events_pro": {
-          "bass_swap": 17,
+          "bass_swap": 13,
           "outgoing_cut": null,
-          "blend_length": 18
+          "blend_length": 8
         },
         "events_ours": {
-          "bass_swap": 12,
-          "outgoing_cut": 7,
-          "blend_length": 19
+          "bass_swap": 6,
+          "outgoing_cut": 20,
+          "blend_length": 9
         },
         "stem_kind": [
           "bands",
@@ -1725,29 +1408,22 @@
           "peak": 0.248,
           "win_sec": 44.138
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     },
     {
       "id": "hybrid_minds_ukf__40",
       "split": "train",
       "dj": "Hybrid Minds",
       "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
-      "fam": "nat_long",
-      "win": [
-        "n",
-        272,
-        null,
-        32,
-        32
-      ],
-      "score": 20.39,
+      "score": 25.98,
       "breakdown": {
         "stem_curves": 21.19,
         "deck_curves": 20.19,
         "beat_align": 52.88,
-        "bass_swap": 2.43,
-        "outgoing_cut": 3.12,
-        "blend_length": 13.97,
+        "bass_swap": 17.94,
+        "outgoing_cut": 29.58,
+        "blend_length": 17.94,
         "stems": {
           "drums": 25.47,
           "bass": 27.01,
@@ -1756,14 +1432,14 @@
         },
         "beat_off_ms": 0.0,
         "events_pro": {
-          "bass_swap": 35,
-          "outgoing_cut": 15,
-          "blend_length": 12
+          "bass_swap": 17,
+          "outgoing_cut": 26,
+          "blend_length": 15
         },
         "events_ours": {
-          "bass_swap": 23,
-          "outgoing_cut": 4,
-          "blend_length": 22
+          "bass_swap": 21,
+          "outgoing_cut": 28,
+          "blend_length": 7
         },
         "stem_kind": [
           "bands",
@@ -1778,14 +1454,14 @@
           "peak": 0.1382,
           "win_sec": 63.003
         }
-      }
+      },
+      "scorer_version": "gain-events-v2"
     }
   ],
-  "excluded_talkover": [
-    "hospital_podcast393__04",
-    "joe_syntax_hospital__10",
-    "netsky_hospital_classics__10",
-    "wilkinson_boomtown2026__10"
-  ],
-  "source_ckpt": "d1108_base"
+  "source_ckpt": "event_detector_audit.jsonl + memory_replacement_score.json",
+  "scorer_version": "gain-events-v2",
+  "excluded_version": [
+    "netsky_hospital_classics__16",
+    "netsky_hospital_classics__24"
+  ]
 }

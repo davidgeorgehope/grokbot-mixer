@@ -46,6 +46,8 @@ def test_publish_writes_sidecars(tmp_path):
     d=glob.glob(f'{R}/deliver/ab/bm_m06_*/AC_ib_plus_cut.mp3')
     if not d:pytest.skip('no bm clip')
     tim=json.load(open(d[0].replace('.mp3','.timing.json')))
+    from conftest import require_fixtures
+    require_fixtures(*(f"{S2}/st/{deck['id']}.wav" for deck in tim['decks']))
     dst=str(tmp_path/'x.mp3');BC.publish(d[0],dst,tim)
     assert os.path.getsize(dst)>0 and json.load(open(dst.replace('.mp3','.timing.json')))['clip_start_bar']==tim['clip_start_bar']
     assert os.path.getsize(dst.replace('.mp3','.card.png'))>10000

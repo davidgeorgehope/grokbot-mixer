@@ -11,9 +11,11 @@ CLIP = '/workspace/mixes/deliver/ab/mix07r12_grid_Parallel_25m23.mp3'
 TIMING = CLIP.replace('.mp3', '.timing.json')
 
 def test_r12_parallel_trainwreck_fails_phase_check():
-    assert os.path.exists(CLIP) and os.path.exists(TIMING)
+    from conftest import require_fixtures
+    require_fixtures(CLIP, TIMING)
     os.environ.setdefault('NUDGE', 'nudge07.json')
     tim = json.load(open(TIMING))
+    require_fixtures(*(f"{C.SRC}/st/{d['id']}.wav" for d in tim['decks']))
     y, _ = librosa.load(CLIP, sr=22050, mono=True)
     hop = 64
     o = librosa.onset.onset_strength(y=y, sr=22050, hop_length=hop)

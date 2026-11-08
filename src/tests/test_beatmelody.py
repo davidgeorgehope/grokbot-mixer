@@ -19,6 +19,7 @@ def _crop(M,i,pre=8,post=8):
 def _stems(*ids):
   if not all(os.path.exists(f'{SRC}/st/{b}.dnb.wav') and os.path.exists(f'{SRC}/st/{b}.wav') for b in ids):pytest.skip('drums+bass stems not cached (python3 beatstem.py <id>)')
 def test_bm1_detector_flags_beats_into_melody(M):
+  _stems(*PAIR)
   import beatmelody as BM
   R=BM.bm1(M);i=_i(M);hit=[r for r in R if r['trans']==i]
   assert hit and max(r['bars'] for r in hit)>=8,R

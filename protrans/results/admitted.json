@@ -1212,7 +1212,8 @@
     "t_b": 2355.0,
     "a": {
       "title": "Netsky - Memory Lane",
-      "yt": "cG7cRDcPY3k"
+      "yt": "DpYdXERlkFk",
+      "previous_yt": "cG7cRDcPY3k"
     },
     "b": {
       "title": "Netsky - The Whistle Song",
@@ -1224,11 +1225,11 @@
     "gate": {
       "a": {
         "locate": {
-          "z": 8.658,
-          "cc": 0.4364,
-          "mix_t": 0.789,
-          "track_t": 212.672,
-          "n": 110
+          "track_t": 125.80571428571429,
+          "mix_t": 1.6950566893424037,
+          "cc": 0.8337120413780212,
+          "z": 6.610959053039551,
+          "n": 12
         },
         "bpm": {
           "bpm": 175.005,
@@ -1260,67 +1261,15 @@
         ]
       },
       "reasons": []
-    }
-  },
-  {
-    "id": "netsky_hospital_classics__16",
-    "dj": "Netsky",
-    "split": "test",
-    "mix_id": "netsky_hospital_classics",
-    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
-    "pair": "Netsky - The Whistle Song -> Logistics - Together",
-    "t_a": 2355.0,
-    "t_b": 2627.0,
-    "a": {
-      "title": "Netsky - The Whistle Song",
-      "yt": "k-7z5X0ATEc"
     },
-    "b": {
-      "title": "Logistics - Together",
-      "yt": "3f-XOhfDhxk"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__16/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 6.828,
-          "cc": 0.3456,
-          "mix_t": 7.105,
-          "track_t": 236.635,
-          "n": 93
-        },
-        "bpm": {
-          "bpm": 174.003,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 6.886,
-          "cc": 0.4094,
-          "mix_t": 49.296,
-          "track_t": 68.894,
-          "n": 119
-        },
-        "bpm": {
-          "bpm": 173.986,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
+    "version_audit": {
+      "source_url": "https://www.youtube.com/watch?v=DpYdXERlkFk",
+      "solo_correlation": 0.8787,
+      "solo_window": [
+        1.0,
+        6.87
+      ],
+      "rate": 0.98
     }
   },
   {
@@ -1429,67 +1378,6 @@
         },
         "bpm": {
           "bpm": 174.005,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "passed": true,
-      "thresh": {
-        "z": 6.0,
-        "cc": 0.28,
-        "bpm": [
-          169.0,
-          179.0
-        ]
-      },
-      "reasons": []
-    }
-  },
-  {
-    "id": "netsky_hospital_classics__24",
-    "dj": "Netsky",
-    "split": "test",
-    "mix_id": "netsky_hospital_classics",
-    "mix_url": "https://www.youtube.com/watch?v=0yIOFIW4Eow",
-    "pair": "Nu:Logic - Morning Light -> Sigma - Nobody To Love",
-    "t_a": 3501.0,
-    "t_b": 3603.0,
-    "a": {
-      "title": "Nu:Logic - Morning Light",
-      "yt": "KP8jwoWF44Y"
-    },
-    "b": {
-      "title": "Sigma - Nobody To Love",
-      "yt": "esP9UWQOnxk"
-    },
-    "pro_clip": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__24/pro.wav",
-    "verdict": "admit",
-    "reason": null,
-    "gate": {
-      "a": {
-        "locate": {
-          "z": 8.784,
-          "cc": 0.7382,
-          "mix_t": 7.268,
-          "track_t": 119.815,
-          "n": 72
-        },
-        "bpm": {
-          "bpm": 174.005,
-          "ok": true,
-          "reason": "dnb"
-        }
-      },
-      "b": {
-        "locate": {
-          "z": 7.529,
-          "cc": 0.4122,
-          "mix_t": 35.689,
-          "track_t": 56.912,
-          "n": 89
-        },
-        "bpm": {
-          "bpm": 175.002,
           "ok": true,
           "reason": "dnb"
         }

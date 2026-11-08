@@ -1,0 +1,107 @@
+{
+  "id": "netsky_hospital_classics__15",
+  "split": "test",
+  "before": {
+    "score": 33.43,
+    "breakdown": {
+      "stem_curves": 53.92,
+      "deck_curves": 28.2,
+      "beat_align": 37.44,
+      "bass_swap": 20.07,
+      "outgoing_cut": 1.28,
+      "blend_length": 37.49,
+      "stems": {
+        "drums": 48.47,
+        "bass": 67.17,
+        "vocals": 56.02,
+        "melody": 44.02
+      },
+      "beat_off_ms": 8.71,
+      "events_pro": {
+        "bass_swap": 8,
+        "outgoing_cut": 9,
+        "blend_length": 11
+      },
+      "events_ours": {
+        "bass_swap": 13,
+        "outgoing_cut": 25,
+        "blend_length": 16
+      },
+      "stem_kind": [
+        "bands",
+        "bands"
+      ],
+      "deck": {
+        "per_stem_deck": 28.2
+      },
+      "align": {
+        "lag_samples": 422912,
+        "lag_ms": 19179.68,
+        "peak": 0.3449,
+        "win_sec": 44.138
+      }
+    },
+    "weights": {
+      "stem_curves": 0.28,
+      "deck_curves": 0.22,
+      "beat_align": 0.15,
+      "bass_swap": 0.13,
+      "outgoing_cut": 0.12,
+      "blend_length": 0.1
+    },
+    "pro": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__15/pro.wav",
+    "ours": "/tmp/protrans_bench/events_netsky_hospital_classics__15.mp3"
+  },
+  "after": {
+    "score": 38.3,
+    "scorer_version": "gain-events-v2",
+    "breakdown": {
+      "stem_curves": 53.92,
+      "deck_curves": 45.16,
+      "beat_align": 37.44,
+      "bass_swap": 7.38,
+      "outgoing_cut": 15.63,
+      "blend_length": 48.14,
+      "stems": {
+        "drums": 48.47,
+        "bass": 67.17,
+        "vocals": 56.02,
+        "melody": 44.02
+      },
+      "beat_off_ms": 8.71,
+      "events_pro": {
+        "bass_swap": 4,
+        "outgoing_cut": 8,
+        "blend_length": 7
+      },
+      "events_ours": {
+        "bass_swap": 13,
+        "outgoing_cut": 14,
+        "blend_length": 4
+      },
+      "stem_kind": [
+        "bands",
+        "bands"
+      ],
+      "deck": {
+        "per_stem_deck": 45.16
+      },
+      "align": {
+        "lag_samples": 422912,
+        "lag_ms": 19179.68,
+        "peak": 0.3449,
+        "win_sec": 44.138
+      }
+    },
+    "weights": {
+      "stem_curves": 0.28,
+      "deck_curves": 0.22,
+      "beat_align": 0.15,
+      "bass_swap": 0.13,
+      "outgoing_cut": 0.12,
+      "blend_length": 0.1
+    },
+    "pro": "/workspace/mixes/protrans/clips/test/netsky_hospital_classics__15/pro.wav",
+    "ours": "/tmp/protrans_bench/events_netsky_hospital_classics__15.mp3"
+  }
+}

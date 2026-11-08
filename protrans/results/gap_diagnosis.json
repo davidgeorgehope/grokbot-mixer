@@ -1,0 +1,6039 @@
+{
+  "generated": "2026-11-08",
+  "method": "For each admitted clip, studio A/B are located in the 64 s pro extract, optionally rate-matched (\u00b13% CDJ-style), then fitted as time-varying bass/mid/high gains (NNLS per 250 ms). Unexplained energy is the leftover STFT magnitude after a 1 s NNLS mix of the two sources. The reconstruction is scored with score.py (use_demucs=False) against the pro clip; that score is the oracle ceiling for an engine that can only fade/EQ our copies. Current scores come from results/baseline_clean.json. Engine rules were not changed.",
+  "summary": {
+    "n": 33,
+    "n_error": 0,
+    "bucket_counts": {
+      "technique": 27,
+      "tempo_pitch": 1,
+      "extra_material": 1,
+      "version_mismatch": 3,
+      "scorer_limit": 1
+    },
+    "current_mean": 25.19,
+    "oracle_mean": 63.59,
+    "oracle_if_events_perfect_mean": 73.09,
+    "scorer_event_drag_mean": 9.5,
+    "oracle_median": 63.0,
+    "oracle_p25": 51.36,
+    "oracle_p75": 76.95,
+    "technique_gap_mean": 38.39,
+    "unexplained_mean": 0.1855,
+    "by_split": {
+      "train": {
+        "n": 25,
+        "current_mean": 24.03,
+        "oracle_mean": 67.99,
+        "technique_gap_mean": 43.96,
+        "unexplained_mean": 0.1572,
+        "version_corr_mean": 0.9026
+      },
+      "test": {
+        "n": 8,
+        "current_mean": 28.83,
+        "oracle_mean": 49.81,
+        "technique_gap_mean": 20.98,
+        "unexplained_mean": 0.2739,
+        "version_corr_mean": 0.7362
+      }
+    },
+    "mean_attributed_cost": {
+      "technique": 38.66,
+      "version_mismatch": 2.0,
+      "extra_material": 20.49,
+      "tempo_pitch": 4.98,
+      "scorer_limit": 8.94
+    },
+    "technique_term_gains": {
+      "stem_curves": 12.497,
+      "deck_curves": 9.534,
+      "beat_align": 4.17,
+      "bass_swap": 4.703,
+      "outgoing_cut": 6.445,
+      "blend_length": 3.145
+    },
+    "technique_flags": {
+      "eq_swap_ge2bars": 20,
+      "filter_sweep": 5,
+      "echo_out": 0,
+      "loop": 1,
+      "fader_shapes": {
+        "linear": 8,
+        "equal_power": 7,
+        "cut": 11,
+        "curve": 6,
+        "unknown": 1
+      },
+      "blend_bars_mean": 22.41,
+      "pitched_incoming": 5,
+      "pitched_outgoing": 4,
+      "drop_on_breakdown": 10,
+      "drop_on_drop": 16,
+      "drop_on_outro": 2
+    },
+    "estimated_gain": {
+      "technique_perfect_gains": 38.39,
+      "better_versions": 2.38,
+      "tempo_pitch_matching": 0.38,
+      "extra_material_unfixable_cost": 1.99,
+      "scorer_limit_cost": 8.94
+    },
+    "thresholds": {
+      "SOLO_CORR_BAD": 0.42,
+      "SOLO_UNEX_BAD": 0.28,
+      "RATE_MIN": 0.012,
+      "RATE_IMPROVE": 0.06,
+      "UNEX_EXTRA": 0.25,
+      "ORACLE_TECH_GAP": 20.0,
+      "ORACLE_LOW": 50.0,
+      "UNEX_CLEAN": 0.15
+    },
+    "plan_text": "The oracle is allowed to see *where* each studio track sits in the pro clip; the engine only gets a tracklist-time hint. So the +38 point gap is both \"we mixed a different phrase\" and \"we faded it differently\". Engine rules were not changed in this pass.\n\n1. Engine, biggest lever (~+38 on the corpus mean): hill-climb toward the oracle.\n   - Phrase / window picking first. Several clips have oracles in the 80s\u201390s (Joe Syntax 18 at 94, Hybrid Minds 40 at 92) while our recreation scored 12\u201321, with the scorer locking 20 s away. Phase-aware planning (incoming drop vs outgoing drop/breakdown/outro) is the right next rule family. Fitted pro behaviour: incoming drop lands on an outgoing drop 16 times, a breakdown 10 times, an outro twice \u2014 awareness, not a hard \"always drop on the breakdown\" rule. Fitted blend length averages 22.4 bars, not a flat 32.\n   - Then fader technique. 20 of 33 clips show an EQ swap of 2+ bars between the high and bass handoffs; outgoing shapes are mixed (11 cuts, 8 linear, 7 equal-power, 6 curves). Independent bass / mid / high handoffs and allowing a shorter cut (not only a long tail) should move stem_curves (+12.5) and deck_curves (+9.5), the two terms that account for most of the oracle gap. Filter sweeps are uncommon (5); echo-outs were not found; a loop showed up once.\n   - Keep the existing train/test-by-DJ gate. Only keep a change if held-out does not drop. Do not retune score.py weights.\n\n2. Metric, second lever (~+9.5): the scorer's bass-swap / outgoing-cut / blend-length detectors. A perfect gain-curve still loses about 10 points here (oracle 63.6 vs 73.1 if those event terms matched and were gated as they are today). The detectors sometimes read a real pro blend as 1 bar long or a bass swap at bar 0. Fixing the event detectors would make nightly hill-climbs steer toward real fade errors instead of measurement noise. This is not an engine-rule change.\n\n3. Data, third lever (~+2.4 on the whole set, much more on held-out): three Netsky test clips are version mismatches (`netsky_hospital_classics__15`, `__16`, `__24`). Test oracle mean is 49.8 vs train 68.0 mainly because of those copies, not because the held-out DJs are harder to mix. Re-find the matching studio/edit and re-admit. Tempo/pitch offsets exist (5 incoming, 4 outgoing flagged) but only one clip is primarily a pitch problem (~+0.4 if we added a \u00b13% rate search).\n\n4. Unfixable: only `netsky_hospital_classics__02` is primarily leftover energy (third track / sample / FX). Talkover was already filtered. Do not let one clip drive rule changes.\n\nPractical target: ~64 with today's scorer if we match windows and gains; ~73 after event-detector cleanup. 80 is not reachable without better versions on the mismatched Netsky clips and some metric repair.",
+    "notes": "mean_attributed_cost.extra_material (~20) spreads leftover unexplained energy across every clip (mean unexplained 18.6%). Only 1 clip is primarily extra_material; the corpus-mean cost of that bucket is about 2 points (see estimated_gain). The oracle knows the DJ\u2019s source alignment; the engine does not, so the technique gap includes wrong-phrase picks as well as wrong fades."
+  },
+  "clips": [
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "dj": "Wilkinson",
+      "split": "test",
+      "pair": "Wilkinson - Ultraviolet feat. Katy Alex -> Wilkinson - Afterglow",
+      "current_score": 20.41,
+      "current_breakdown": {
+        "stem_curves": 19.37,
+        "deck_curves": 23.49,
+        "beat_align": 21.22,
+        "bass_swap": 1.85,
+        "outgoing_cut": 13.63,
+        "blend_length": 47.59,
+        "beat_off_ms": 31.93
+      },
+      "current_events": {
+        "bass_swap": 10,
+        "outgoing_cut": 12,
+        "blend_length": 35
+      },
+      "pro_events_scorer": {
+        "bass_swap": 23,
+        "outgoing_cut": 7,
+        "blend_length": 35
+      },
+      "current_align": {
+        "lag_samples": 333312,
+        "lag_ms": 15116.19,
+        "peak": 0.2096,
+        "win_sec": 48.884
+      },
+      "oracle_score": 78.89,
+      "oracle_breakdown": {
+        "stem_curves": 70.15,
+        "deck_curves": 87.81,
+        "beat_align": 78.14,
+        "bass_swap": 80.6,
+        "outgoing_cut": 80.6,
+        "blend_length": 80.6,
+        "beat_off_ms": 0.0,
+        "stems": {
+          "drums": 69.36,
+          "bass": 89.4,
+          "vocals": 65.68,
+          "melody": 56.17
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 0,
+          "outgoing_cut": 21,
+          "blend_length": 46
+        },
+        "events_pro": {
+          "bass_swap": 0,
+          "outgoing_cut": 21,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.6612,
+        "win_sec": 64.0
+      },
+      "technique_gap": 58.48,
+      "oracle_if_events_perfect": 78.89,
+      "scorer_event_drag": 0.0,
+      "residual": {
+        "stft_unexplained": 0.1804,
+        "unexplained_pre": 0.15,
+        "unexplained_blend": 0.3007,
+        "unexplained_post": 0.0855,
+        "waveform_residual": 1.7957
+      },
+      "version": {
+        "solo_corr_a": 0.8825,
+        "solo_corr_b": 0.9324,
+        "solo_window_a": [
+          1.0,
+          16.87
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.295,
+          "cc": 0.5264,
+          "mix_t": 4.505,
+          "track_t": 98.847,
+          "n": 71
+        },
+        "locate_b": {
+          "z": 10.503,
+          "cc": 0.6048,
+          "mix_t": 51.548,
+          "track_t": 113.824,
+          "n": 56
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.02,
+        "rate_b": 1.02,
+        "corr_a_at_best": 0.8785,
+        "corr_a_at_1": 0.6786,
+        "corr_b_at_best": 0.9329,
+        "corr_b_at_1": 0.6084,
+        "cents_a": 34.3,
+        "cents_b": 34.3,
+        "flagged_a": true,
+        "flagged_b": true,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": 1536,
+        "refine_lag_b": 1536
+      },
+      "technique": {
+        "blend_window_s": [
+          17.87,
+          42.37
+        ],
+        "blend_bars": 17.76,
+        "fader_outgoing": {
+          "shape": "linear",
+          "drop_bars": 6.16,
+          "mse": 0.0294
+        },
+        "eq_swap_high_minus_bass_bars": 7.07,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 26.372607709750568,
+          "out_mids": 28.122448979591837,
+          "out_high": 36.12172335600907,
+          "in_bass": 23.122902494331065
+        },
+        "events_from_gains": {
+          "bass_swap_s": 23.12,
+          "outgoing_half_s": 26.37,
+          "outgoing_half_high_s": 36.12,
+          "blend_s": 24.5,
+          "blend_bars": 17.76
+        },
+        "phase": {
+          "incoming_drop_clip_s": 7.57,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 13.49,
+        "mean_unexplained": 0.417,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": true,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 6.219,
+        "tempo_pitch": 13.788,
+        "scorer_limit": 1.103,
+        "technique": 58.48,
+        "technique_parts": {
+          "stem_curves": 14.218,
+          "deck_curves": 14.15,
+          "beat_align": 8.538,
+          "bass_swap": 10.238,
+          "outgoing_cut": 8.036,
+          "blend_length": 3.301
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
+      "current_score": 28.39,
+      "current_breakdown": {
+        "stem_curves": 25.54,
+        "deck_curves": 40.77,
+        "beat_align": 57.61,
+        "bass_swap": 0.74,
+        "outgoing_cut": 11.51,
+        "blend_length": 21.51,
+        "beat_off_ms": 0.0
+      },
+      "current_events": {
+        "bass_swap": 31,
+        "outgoing_cut": 20,
+        "blend_length": 23
+      },
+      "pro_events_scorer": {
+        "bass_swap": 14,
+        "outgoing_cut": 14,
+        "blend_length": 16
+      },
+      "current_align": {
+        "lag_samples": 36864,
+        "lag_ms": 1671.84,
+        "peak": 0.227,
+        "win_sec": 62.328
+      },
+      "oracle_score": 84.31,
+      "oracle_breakdown": {
+        "stem_curves": 95.3,
+        "deck_curves": 98.24,
+        "beat_align": 63.93,
+        "bass_swap": 75.5,
+        "outgoing_cut": 75.5,
+        "blend_length": 75.5,
+        "beat_off_ms": 5.8,
+        "stems": {
+          "drums": 93.46,
+          "bass": 96.7,
+          "vocals": 95.57,
+          "melody": 95.47
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 16,
+          "outgoing_cut": 15,
+          "blend_length": 15
+        },
+        "events_pro": {
+          "bass_swap": 15,
+          "outgoing_cut": 16,
+          "blend_length": 17
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.782,
+        "win_sec": 64.0
+      },
+      "technique_gap": 55.92,
+      "oracle_if_events_perfect": 91.82,
+      "scorer_event_drag": 7.51,
+      "residual": {
+        "stft_unexplained": 0.0346,
+        "unexplained_pre": 0.0345,
+        "unexplained_blend": 0.0553,
+        "unexplained_post": 0.0081,
+        "waveform_residual": 1.5589
+      },
+      "version": {
+        "solo_corr_a": 0.9724,
+        "solo_corr_b": 0.9947,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 7.183,
+          "cc": 0.4337,
+          "mix_t": 15.07,
+          "track_t": 140.783,
+          "n": 50
+        },
+        "locate_b": {
+          "z": 8.274,
+          "cc": 0.571,
+          "mix_t": 20.666,
+          "track_t": 62.903,
+          "n": 79
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.0,
+        "rate_b": 0.994,
+        "corr_a_at_best": 0.9718,
+        "corr_a_at_1": 0.9718,
+        "corr_b_at_best": 0.9922,
+        "corr_b_at_1": 0.7743,
+        "cents_a": 0.0,
+        "cents_b": -10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": true,
+        "refine_lag_a": 256,
+        "refine_lag_b": -512
+      },
+      "technique": {
+        "blend_window_s": [
+          4.62,
+          29.37
+        ],
+        "blend_bars": 17.94,
+        "fader_outgoing": {
+          "shape": "equal_power",
+          "drop_bars": 2.72,
+          "mse": 0.0266
+        },
+        "eq_swap_high_minus_bass_bars": 3.08,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 20.873106575963718,
+          "out_mids": 22.872925170068026,
+          "out_high": 25.122721088435373,
+          "in_bass": 20.873106575963718
+        },
+        "events_from_gains": {
+          "bass_swap_s": 20.87,
+          "outgoing_half_s": 20.87,
+          "outgoing_half_high_s": 25.12,
+          "blend_s": 24.75,
+          "blend_bars": 17.94
+        },
+        "phase": {
+          "incoming_drop_clip_s": 7.06,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 0.96,
+        "mean_unexplained": 0.157,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 3.109,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 12.581,
+        "technique": 55.92,
+        "technique_parts": {
+          "stem_curves": 19.533,
+          "deck_curves": 12.643,
+          "beat_align": 0.948,
+          "bass_swap": 9.719,
+          "outgoing_cut": 7.679,
+          "blend_length": 5.399
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
+      "current_score": 29.44,
+      "current_breakdown": {
+        "stem_curves": 45.4,
+        "deck_curves": 41.51,
+        "beat_align": 41.71,
+        "bass_swap": 4.12,
+        "outgoing_cut": 3.21,
+        "blend_length": 4.12,
+        "beat_off_ms": 2.9
+      },
+      "current_events": {
+        "bass_swap": 22,
+        "outgoing_cut": 21,
+        "blend_length": 22
+      },
+      "pro_events_scorer": {
+        "bass_swap": 33,
+        "outgoing_cut": 33,
+        "blend_length": 44
+      },
+      "current_align": {
+        "lag_samples": -77312,
+        "lag_ms": -3506.21,
+        "peak": 0.1568,
+        "win_sec": 62.701
+      },
+      "oracle_score": 85.82,
+      "oracle_breakdown": {
+        "stem_curves": 90.87,
+        "deck_curves": 96.31,
+        "beat_align": 49.09,
+        "bass_swap": 94.07,
+        "outgoing_cut": 94.07,
+        "blend_length": 83.01,
+        "beat_off_ms": 5.8,
+        "stems": {
+          "drums": 92.4,
+          "bass": 93.05,
+          "vocals": 85.9,
+          "melody": 92.15
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 33,
+          "outgoing_cut": 33,
+          "blend_length": 43
+        },
+        "events_pro": {
+          "bass_swap": 33,
+          "outgoing_cut": 33,
+          "blend_length": 44
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.4946,
+        "win_sec": 64.0
+      },
+      "technique_gap": 56.38,
+      "oracle_if_events_perfect": 86.92,
+      "scorer_event_drag": 1.1,
+      "residual": {
+        "stft_unexplained": 0.0214,
+        "unexplained_pre": 0.0206,
+        "unexplained_blend": 0.0724,
+        "unexplained_post": 0.0132,
+        "waveform_residual": 1.9159
+      },
+      "version": {
+        "solo_corr_a": 0.984,
+        "solo_corr_b": 0.9887,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 7.392,
+          "cc": 0.7991,
+          "mix_t": 1.045,
+          "track_t": 152.764,
+          "n": 79
+        },
+        "locate_b": {
+          "z": 6.344,
+          "cc": 0.7663,
+          "mix_t": 21.92,
+          "track_t": 86.866,
+          "n": 115
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.994,
+        "rate_b": 1.006,
+        "corr_a_at_best": 0.983,
+        "corr_a_at_1": 0.742,
+        "corr_b_at_best": 0.9873,
+        "corr_b_at_1": 0.8278,
+        "cents_a": -10.4,
+        "cents_b": 10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": -512,
+        "refine_lag_b": 512
+      },
+      "technique": {
+        "blend_window_s": [
+          22.62,
+          23.62
+        ],
+        "blend_bars": 0.72,
+        "fader_outgoing": {
+          "shape": "equal_power",
+          "drop_bars": null,
+          "mse": 0.0537
+        },
+        "eq_swap_high_minus_bass_bars": 0.0,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 23.622857142857143,
+          "out_mids": 23.122902494331065,
+          "out_high": 23.622857142857143,
+          "in_bass": 23.87283446712018
+        },
+        "events_from_gains": {
+          "bass_swap_s": 23.87,
+          "outgoing_half_s": 23.62,
+          "outgoing_half_high_s": 23.62,
+          "blend_s": 1.0,
+          "blend_bars": 0.72
+        },
+        "phase": {
+          "incoming_drop_clip_s": 1.76,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.38,
+        "talk_frac": 0.006,
+        "loose_s": 0.38,
+        "mean_unexplained": 0.179,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 1.88,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 12.3,
+        "technique": 56.38,
+        "technique_parts": {
+          "stem_curves": 12.732,
+          "deck_curves": 12.056,
+          "beat_align": 1.107,
+          "bass_swap": 11.693,
+          "outgoing_cut": 10.903,
+          "blend_length": 7.889
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
+      "current_score": 26.76,
+      "current_breakdown": {
+        "stem_curves": 37.64,
+        "deck_curves": 14.05,
+        "beat_align": 59.02,
+        "bass_swap": 0.31,
+        "outgoing_cut": 11.89,
+        "blend_length": 28.09,
+        "beat_off_ms": 0.0
+      },
+      "current_events": {
+        "bass_swap": 0,
+        "outgoing_cut": null,
+        "blend_length": 46
+      },
+      "pro_events_scorer": {
+        "bass_swap": 21,
+        "outgoing_cut": 18,
+        "blend_length": 40
+      },
+      "current_align": {
+        "lag_samples": 256,
+        "lag_ms": 11.61,
+        "peak": 0.2705,
+        "win_sec": 63.988
+      },
+      "oracle_score": 56.61,
+      "oracle_breakdown": {
+        "stem_curves": 68.99,
+        "deck_curves": 53.25,
+        "beat_align": 42.27,
+        "bass_swap": 62.18,
+        "outgoing_cut": 79.84,
+        "blend_length": 15.72,
+        "beat_off_ms": 8.71,
+        "stems": {
+          "drums": 78.95,
+          "bass": 72.87,
+          "vocals": 59.64,
+          "melody": 64.49
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 20,
+          "outgoing_cut": 18,
+          "blend_length": 27
+        },
+        "events_pro": {
+          "bass_swap": 21,
+          "outgoing_cut": 18,
+          "blend_length": 40
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.4757,
+        "win_sec": 64.0
+      },
+      "technique_gap": 29.85,
+      "oracle_if_events_perfect": 65.32,
+      "scorer_event_drag": 8.71,
+      "residual": {
+        "stft_unexplained": 0.2039,
+        "unexplained_pre": 0.119,
+        "unexplained_blend": 0.1381,
+        "unexplained_post": 0.1795,
+        "waveform_residual": 1.7555
+      },
+      "version": {
+        "solo_corr_a": 0.8949,
+        "solo_corr_b": 0.8566,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 6.527,
+          "cc": 0.6942,
+          "mix_t": 1.115,
+          "track_t": 149.769,
+          "n": 112
+        },
+        "locate_b": {
+          "z": 10.104,
+          "cc": 0.8052,
+          "mix_t": 57.377,
+          "track_t": 74.884,
+          "n": 90
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.99,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.9285,
+        "corr_a_at_1": 0.8241,
+        "corr_b_at_best": 0.0,
+        "corr_b_at_1": 0.0,
+        "cents_a": -17.4,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": false,
+        "refine_lag_a": -256,
+        "refine_lag_b": -768
+      },
+      "technique": {
+        "blend_window_s": [
+          0.12,
+          32.12
+        ],
+        "blend_bars": 23.2,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": 0.72,
+          "mse": 0.0474
+        },
+        "eq_swap_high_minus_bass_bars": 5.8,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 24.6227664399093,
+          "out_mids": 24.6227664399093,
+          "out_high": 32.62204081632653,
+          "in_bass": 6.124444444444444
+        },
+        "events_from_gains": {
+          "bass_swap_s": 6.12,
+          "outgoing_half_s": 24.62,
+          "outgoing_half_high_s": 32.62,
+          "blend_s": 32.0,
+          "blend_bars": 23.2
+        },
+        "phase": {
+          "incoming_drop_clip_s": 70.26,
+          "outgoing_phase_at_in_drop": null,
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 1.63,
+        "talk_frac": 0.026,
+        "loose_s": 2.19,
+        "mean_unexplained": 0.225,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 37.504,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 5.886,
+        "technique": 29.85,
+        "technique_parts": {
+          "stem_curves": 8.778,
+          "deck_curves": 8.624,
+          "beat_align": 0.0,
+          "bass_swap": 8.043,
+          "outgoing_cut": 8.154,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__09",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+      "current_score": 32.82,
+      "current_breakdown": {
+        "stem_curves": 24.12,
+        "deck_curves": 49.55,
+        "beat_align": 32.55,
+        "bass_swap": 39.47,
+        "outgoing_cut": 39.47,
+        "blend_length": 4.16,
+        "beat_off_ms": 8.71
+      },
+      "current_events": {
+        "bass_swap": 22,
+        "outgoing_cut": 20,
+        "blend_length": 21
+      },
+      "pro_events_scorer": {
+        "bass_swap": 21,
+        "outgoing_cut": 19,
+        "blend_length": 1
+      },
+      "current_align": {
+        "lag_samples": 17664,
+        "lag_ms": 801.09,
+        "peak": 0.2651,
+        "win_sec": 63.199
+      },
+      "oracle_score": 52.88,
+      "oracle_breakdown": {
+        "stem_curves": 38.35,
+        "deck_curves": 97.35,
+        "beat_align": 65.84,
+        "bass_swap": 3.83,
+        "outgoing_cut": 36.35,
+        "blend_length": 59.93,
+        "beat_off_ms": 2.9,
+        "stems": {
+          "drums": 54.13,
+          "bass": 56.8,
+          "vocals": 24.6,
+          "melody": 17.86
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 33,
+          "outgoing_cut": 17,
+          "blend_length": 1
+        },
+        "events_pro": {
+          "bass_swap": 22,
+          "outgoing_cut": 19,
+          "blend_length": 1
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.6587,
+        "win_sec": 64.0
+      },
+      "technique_gap": 20.06,
+      "oracle_if_events_perfect": 63.01,
+      "scorer_event_drag": 10.13,
+      "residual": {
+        "stft_unexplained": 0.4544,
+        "unexplained_pre": 0.0264,
+        "unexplained_blend": 0.7093,
+        "unexplained_post": 0.6447,
+        "waveform_residual": 1.4085
+      },
+      "version": {
+        "solo_corr_a": 0.9796,
+        "solo_corr_b": 0.5527,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.875,
+          "cc": 0.6546,
+          "mix_t": 17.786,
+          "track_t": 257.602,
+          "n": 90
+        },
+        "locate_b": {
+          "z": 10.751,
+          "cc": 0.6047,
+          "mix_t": 53.452,
+          "track_t": 23.963,
+          "n": 50
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.994,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.9821,
+        "corr_a_at_1": 0.8775,
+        "corr_b_at_best": 0.0,
+        "corr_b_at_1": 0.0,
+        "cents_a": -10.4,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": false,
+        "refine_lag_a": -256,
+        "refine_lag_b": -4096
+      },
+      "technique": {
+        "blend_window_s": [
+          28.87,
+          33.37
+        ],
+        "blend_bars": 3.26,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": 0.54,
+          "mse": 0.0048
+        },
+        "eq_swap_high_minus_bass_bars": 9.06,
+        "filter_sweep": false,
+        "loop_shift_bars": [
+          16
+        ],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 21.373061224489796,
+          "out_mids": 35.62176870748299,
+          "out_high": 33.87192743764172,
+          "in_bass": 27.12253968253968
+        },
+        "events_from_gains": {
+          "bass_swap_s": 27.12,
+          "outgoing_half_s": 21.37,
+          "outgoing_half_high_s": 33.87,
+          "blend_s": 4.5,
+          "blend_bars": 3.26
+        },
+        "phase": {
+          "incoming_drop_clip_s": 67.24,
+          "outgoing_phase_at_in_drop": null,
+          "outgoing_phase_at_blend_start": "outro"
+        }
+      },
+      "talkover": {
+        "talk_s": 3.33,
+        "talk_frac": 0.052,
+        "loose_s": 16.64,
+        "mean_unexplained": 0.498,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": true
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 43.63,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 3.49,
+        "technique": 20.06,
+        "technique_parts": {
+          "stem_curves": 3.984,
+          "deck_curves": 10.516,
+          "beat_align": 4.994,
+          "bass_swap": 0.0,
+          "outgoing_cut": 0.0,
+          "blend_length": 5.577
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
+      "current_score": 31.96,
+      "current_breakdown": {
+        "stem_curves": 33.58,
+        "deck_curves": 20.15,
+        "beat_align": 36.18,
+        "bass_swap": 56.83,
+        "outgoing_cut": 26.84,
+        "blend_length": 20.91,
+        "beat_off_ms": 5.8
+      },
+      "current_events": {
+        "bass_swap": 17,
+        "outgoing_cut": 12,
+        "blend_length": 25
+      },
+      "pro_events_scorer": {
+        "bass_swap": 17,
+        "outgoing_cut": 15,
+        "blend_length": 33
+      },
+      "current_align": {
+        "lag_samples": -433664,
+        "lag_ms": -19667.3,
+        "peak": 0.1616,
+        "win_sec": 46.54
+      },
+      "oracle_score": 70.13,
+      "oracle_breakdown": {
+        "stem_curves": 68.6,
+        "deck_curves": 74.17,
+        "beat_align": 44.97,
+        "bass_swap": 79.59,
+        "outgoing_cut": 79.59,
+        "blend_length": 79.59,
+        "beat_off_ms": 8.71,
+        "stems": {
+          "drums": 76.65,
+          "bass": 93.17,
+          "vocals": 55.7,
+          "melody": 48.87
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 17,
+          "outgoing_cut": 15,
+          "blend_length": 46
+        },
+        "events_pro": {
+          "bass_swap": 17,
+          "outgoing_cut": 15,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.5303,
+        "win_sec": 64.0
+      },
+      "technique_gap": 38.17,
+      "oracle_if_events_perfect": 70.13,
+      "scorer_event_drag": 0.0,
+      "residual": {
+        "stft_unexplained": 0.1158,
+        "unexplained_pre": 0.0366,
+        "unexplained_blend": 0.1689,
+        "unexplained_post": 0.0844,
+        "waveform_residual": 1.7389
+      },
+      "version": {
+        "solo_corr_a": 0.9731,
+        "solo_corr_b": 0.9213,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 10.241,
+          "cc": 0.7144,
+          "mix_t": 4.923,
+          "track_t": 224.653,
+          "n": 104
+        },
+        "locate_b": {
+          "z": 7.012,
+          "cc": 0.7505,
+          "mix_t": 22.314,
+          "track_t": 47.926,
+          "n": 49
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.006,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.9746,
+        "corr_a_at_1": 0.8452,
+        "corr_b_at_best": 0.907,
+        "corr_b_at_1": 0.907,
+        "cents_a": 10.4,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": false,
+        "refine_lag_a": 256,
+        "refine_lag_b": 9472
+      },
+      "technique": {
+        "blend_window_s": [
+          22.87,
+          45.62
+        ],
+        "blend_bars": 16.49,
+        "fader_outgoing": {
+          "shape": "linear",
+          "drop_bars": 0.91,
+          "mse": 0.1043
+        },
+        "eq_swap_high_minus_bass_bars": -1.27,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 24.6227664399093,
+          "out_mids": 22.872925170068026,
+          "out_high": 22.872925170068026,
+          "in_bass": 23.622857142857143
+        },
+        "events_from_gains": {
+          "bass_swap_s": 23.62,
+          "outgoing_half_s": 24.62,
+          "outgoing_half_high_s": 22.87,
+          "blend_s": 22.75,
+          "blend_bars": 16.49
+        },
+        "phase": {
+          "incoming_drop_clip_s": 23.2,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.21,
+        "talk_frac": 0.003,
+        "loose_s": 2.78,
+        "mean_unexplained": 0.453,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 13.522,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 16.348,
+        "technique": 38.17,
+        "technique_parts": {
+          "stem_curves": 9.806,
+          "deck_curves": 11.884,
+          "beat_align": 1.318,
+          "bass_swap": 2.959,
+          "outgoing_cut": 6.33,
+          "blend_length": 5.868
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__17",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
+      "current_score": 15.63,
+      "current_breakdown": {
+        "stem_curves": 11.3,
+        "deck_curves": 11.67,
+        "beat_align": 41.44,
+        "bass_swap": 0.78,
+        "outgoing_cut": 8.47,
+        "blend_length": 25.68,
+        "beat_off_ms": 2.9
+      },
+      "current_events": {
+        "bass_swap": 18,
+        "outgoing_cut": 23,
+        "blend_length": 26
+      },
+      "pro_events_scorer": {
+        "bass_swap": 2,
+        "outgoing_cut": null,
+        "blend_length": 30
+      },
+      "current_align": {
+        "lag_samples": 434944,
+        "lag_ms": 19725.35,
+        "peak": 0.0826,
+        "win_sec": 44.275
+      },
+      "oracle_score": 51.36,
+      "oracle_breakdown": {
+        "stem_curves": 76.28,
+        "deck_curves": 49.59,
+        "beat_align": 73.04,
+        "bass_swap": 1.55,
+        "outgoing_cut": 65.87,
+        "blend_length": 0.31,
+        "beat_off_ms": 2.9,
+        "stems": {
+          "drums": 74.4,
+          "bass": 74.88,
+          "vocals": 74.71,
+          "melody": 81.14
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 17,
+          "outgoing_cut": 5,
+          "blend_length": 1
+        },
+        "events_pro": {
+          "bass_swap": 1,
+          "outgoing_cut": 4,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.7938,
+        "win_sec": 64.0
+      },
+      "technique_gap": 35.73,
+      "oracle_if_events_perfect": 72.83,
+      "scorer_event_drag": 21.47,
+      "residual": {
+        "stft_unexplained": 0.1451,
+        "unexplained_pre": 0.2815,
+        "unexplained_blend": 0.2194,
+        "unexplained_post": 0.0286,
+        "waveform_residual": 1.7853
+      },
+      "version": {
+        "solo_corr_a": 0.8188,
+        "solo_corr_b": 0.9752,
+        "solo_window_a": [
+          1.0,
+          18.87
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.098,
+          "cc": 0.3925,
+          "mix_t": 5.991,
+          "track_t": 128.801,
+          "n": 65
+        },
+        "locate_b": {
+          "z": 7.767,
+          "cc": 0.8209,
+          "mix_t": 55.983,
+          "track_t": 164.746,
+          "n": 93
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.0,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.8361,
+        "corr_a_at_1": 0.8361,
+        "corr_b_at_best": 0.0,
+        "corr_b_at_1": 0.0,
+        "cents_a": 0.0,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": 256,
+        "refine_lag_b": -256
+      },
+      "technique": {
+        "blend_window_s": [
+          19.87,
+          31.87
+        ],
+        "blend_bars": 8.7,
+        "fader_outgoing": {
+          "shape": "curve",
+          "drop_bars": 0.72,
+          "mse": 0.0434
+        },
+        "eq_swap_high_minus_bass_bars": 7.25,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 4.374603174603174,
+          "out_mids": 13.373786848072562,
+          "out_high": 14.373696145124716,
+          "in_bass": 23.87283446712018
+        },
+        "events_from_gains": {
+          "bass_swap_s": 23.87,
+          "outgoing_half_s": 4.37,
+          "outgoing_half_high_s": 14.37,
+          "blend_s": 12.0,
+          "blend_bars": 8.7
+        },
+        "phase": {
+          "incoming_drop_clip_s": 7.1,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "breakdown"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 1.34,
+        "mean_unexplained": 0.211,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 24.755,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 23.885,
+        "technique": 35.73,
+        "technique_parts": {
+          "stem_curves": 18.194,
+          "deck_curves": 8.342,
+          "beat_align": 4.74,
+          "bass_swap": 0.1,
+          "outgoing_cut": 6.888,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__18",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Netsky - Lotus Symphony -> Unquote & Molecular Structures - Lubov Moya",
+      "current_score": 12.49,
+      "current_breakdown": {
+        "stem_curves": 13.77,
+        "deck_curves": 13.93,
+        "beat_align": 28.73,
+        "bass_swap": 1.03,
+        "outgoing_cut": 5.95,
+        "blend_length": 4.09,
+        "beat_off_ms": 5.8
+      },
+      "current_events": {
+        "bass_swap": 18,
+        "outgoing_cut": 7,
+        "blend_length": 10
+      },
+      "pro_events_scorer": {
+        "bass_swap": 3,
+        "outgoing_cut": 15,
+        "blend_length": 29
+      },
+      "current_align": {
+        "lag_samples": -503296,
+        "lag_ms": -22825.22,
+        "peak": 0.0629,
+        "win_sec": 43.382
+      },
+      "oracle_score": 94.06,
+      "oracle_breakdown": {
+        "stem_curves": 92.43,
+        "deck_curves": 95.92,
+        "beat_align": 92.0,
+        "bass_swap": 95.08,
+        "outgoing_cut": 95.08,
+        "blend_length": 95.08,
+        "beat_off_ms": 0.0,
+        "stems": {
+          "drums": 93.29,
+          "bass": 95.48,
+          "vocals": 87.5,
+          "melody": 93.44
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 18,
+          "outgoing_cut": 15,
+          "blend_length": 46
+        },
+        "events_pro": {
+          "bass_swap": 18,
+          "outgoing_cut": 15,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.9095,
+        "win_sec": 64.0
+      },
+      "technique_gap": 81.57,
+      "oracle_if_events_perfect": 94.06,
+      "scorer_event_drag": 0.0,
+      "residual": {
+        "stft_unexplained": 0.0113,
+        "unexplained_pre": 0.018,
+        "unexplained_blend": 0.0336,
+        "unexplained_post": 0.0071,
+        "waveform_residual": 1.3829
+      },
+      "version": {
+        "solo_corr_a": 0.9856,
+        "solo_corr_b": 0.9955,
+        "solo_window_a": [
+          1.0,
+          15.87
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 11.621,
+          "cc": 0.8025,
+          "mix_t": 2.276,
+          "track_t": 197.695,
+          "n": 93
+        },
+        "locate_b": {
+          "z": 8.769,
+          "cc": 0.8829,
+          "mix_t": 55.635,
+          "track_t": 119.815,
+          "n": 105
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.0,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.9855,
+        "corr_a_at_1": 0.9855,
+        "corr_b_at_best": 0.0,
+        "corr_b_at_1": 0.0,
+        "cents_a": 0.0,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": 0,
+        "refine_lag_b": 256
+      },
+      "technique": {
+        "blend_window_s": [
+          16.87,
+          21.37
+        ],
+        "blend_bars": 3.26,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": null,
+          "mse": 0.0244
+        },
+        "eq_swap_high_minus_bass_bars": 0.54,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 20.62312925170068,
+          "out_mids": 20.62312925170068,
+          "out_high": 21.373061224489796,
+          "in_bass": 17.623401360544218
+        },
+        "events_from_gains": {
+          "bass_swap_s": 17.62,
+          "outgoing_half_s": 20.62,
+          "outgoing_half_high_s": 21.37,
+          "blend_s": 4.5,
+          "blend_bars": 3.26
+        },
+        "phase": {
+          "incoming_drop_clip_s": 6.98,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 0.0,
+        "mean_unexplained": 0.08,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 0.444,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 5.496,
+        "technique": 81.57,
+        "technique_parts": {
+          "stem_curves": 22.025,
+          "deck_curves": 18.038,
+          "beat_align": 9.49,
+          "bass_swap": 12.226,
+          "outgoing_cut": 10.696,
+          "blend_length": 9.099
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
+      "current_score": 21.17,
+      "current_breakdown": {
+        "stem_curves": 18.14,
+        "deck_curves": 15.72,
+        "beat_align": 37.42,
+        "bass_swap": 9.36,
+        "outgoing_cut": 9.36,
+        "blend_length": 46.79,
+        "beat_off_ms": 2.9
+      },
+      "current_events": {
+        "bass_swap": 0,
+        "outgoing_cut": 5,
+        "blend_length": 29
+      },
+      "pro_events_scorer": {
+        "bass_swap": null,
+        "outgoing_cut": null,
+        "blend_length": 29
+      },
+      "current_align": {
+        "lag_samples": 528896,
+        "lag_ms": 23986.21,
+        "peak": 0.0851,
+        "win_sec": 40.014
+      },
+      "oracle_score": 78.18,
+      "oracle_breakdown": {
+        "stem_curves": 80.2,
+        "deck_curves": 90.64,
+        "beat_align": 35.28,
+        "bass_swap": 87.13,
+        "outgoing_cut": 87.13,
+        "blend_length": 87.13,
+        "beat_off_ms": 23.22,
+        "stems": {
+          "drums": 80.75,
+          "bass": 95.24,
+          "vocals": 70.85,
+          "melody": 73.96
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 38,
+          "outgoing_cut": 14,
+          "blend_length": 29
+        },
+        "events_pro": {
+          "bass_swap": 38,
+          "outgoing_cut": 14,
+          "blend_length": 29
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.5618,
+        "win_sec": 64.0
+      },
+      "technique_gap": 57.01,
+      "oracle_if_events_perfect": 78.18,
+      "scorer_event_drag": 0.0,
+      "residual": {
+        "stft_unexplained": 0.1649,
+        "unexplained_pre": 0.1674,
+        "unexplained_blend": 0.1563,
+        "unexplained_post": 0.1894,
+        "waveform_residual": 1.5534
+      },
+      "version": {
+        "solo_corr_a": 0.8216,
+        "solo_corr_b": 0.8378,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          51.87,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.075,
+          "cc": 0.5292,
+          "mix_t": 12.934,
+          "track_t": 188.709,
+          "n": 104
+        },
+        "locate_b": {
+          "z": 8.203,
+          "cc": 0.5123,
+          "mix_t": 49.342,
+          "track_t": 92.857,
+          "n": 105
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.006,
+        "rate_b": 1.02,
+        "corr_a_at_best": 0.7779,
+        "corr_a_at_1": 0.6602,
+        "corr_b_at_best": 0.846,
+        "corr_b_at_1": 0.7622,
+        "cents_a": 10.4,
+        "cents_b": 34.3,
+        "flagged_a": false,
+        "flagged_b": true,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": 512,
+        "refine_lag_b": 1024
+      },
+      "technique": {
+        "blend_window_s": [
+          0.12,
+          50.87
+        ],
+        "blend_bars": 36.79,
+        "fader_outgoing": {
+          "shape": "linear",
+          "drop_bars": 4.53,
+          "mse": 0.0344
+        },
+        "eq_swap_high_minus_bass_bars": null,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 18.123356009070296,
+          "out_mids": 24.12281179138322,
+          "out_high": null,
+          "in_bass": 6.124444444444444
+        },
+        "events_from_gains": {
+          "bass_swap_s": 6.12,
+          "outgoing_half_s": 18.12,
+          "outgoing_half_high_s": null,
+          "blend_s": 50.75,
+          "blend_bars": 36.79
+        },
+        "phase": {
+          "incoming_drop_clip_s": 23.97,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "breakdown"
+        }
+      },
+      "talkover": {
+        "talk_s": 1.44,
+        "talk_frac": 0.023,
+        "loose_s": 6.74,
+        "mean_unexplained": 0.293,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": true,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 6.028,
+        "tempo_pitch": 14.622,
+        "scorer_limit": 1.17,
+        "technique": 57.01,
+        "technique_parts": {
+          "stem_curves": 17.377,
+          "deck_curves": 16.482,
+          "beat_align": 0.0,
+          "bass_swap": 10.11,
+          "outgoing_cut": 9.332,
+          "blend_length": 4.034
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
+      "current_score": 16.83,
+      "current_breakdown": {
+        "stem_curves": 18.81,
+        "deck_curves": 15.01,
+        "beat_align": 40.34,
+        "bass_swap": 0.19,
+        "outgoing_cut": 9.45,
+        "blend_length": 10.54,
+        "beat_off_ms": 5.8
+      },
+      "current_events": {
+        "bass_swap": 27,
+        "outgoing_cut": null,
+        "blend_length": 17
+      },
+      "pro_events_scorer": {
+        "bass_swap": 5,
+        "outgoing_cut": 6,
+        "blend_length": 29
+      },
+      "current_align": {
+        "lag_samples": 161536,
+        "lag_ms": 7325.9,
+        "peak": 0.2787,
+        "win_sec": 56.674
+      },
+      "oracle_score": 59.34,
+      "oracle_breakdown": {
+        "stem_curves": 75.06,
+        "deck_curves": 73.79,
+        "beat_align": 65.36,
+        "bass_swap": 16.76,
+        "outgoing_cut": 83.79,
+        "blend_length": 0.5,
+        "beat_off_ms": 2.9,
+        "stems": {
+          "drums": 67.41,
+          "bass": 81.31,
+          "vocals": 76.08,
+          "melody": 75.45
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": null,
+          "outgoing_cut": 4,
+          "blend_length": 5
+        },
+        "events_pro": {
+          "bass_swap": 1,
+          "outgoing_cut": 4,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.6494,
+        "win_sec": 64.0
+      },
+      "technique_gap": 42.51,
+      "oracle_if_events_perfect": 76.38,
+      "scorer_event_drag": 17.04,
+      "residual": {
+        "stft_unexplained": 0.2913,
+        "unexplained_pre": 0.2046,
+        "unexplained_blend": 0.2317,
+        "unexplained_post": 0.2473,
+        "waveform_residual": 1.4823
+      },
+      "version": {
+        "solo_corr_a": 0.8495,
+        "solo_corr_b": 0.8364,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          56.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 12.429,
+          "cc": 0.7395,
+          "mix_t": 15.673,
+          "track_t": 173.732,
+          "n": 104
+        },
+        "locate_b": {
+          "z": 7.809,
+          "cc": 0.4263,
+          "mix_t": 45.14,
+          "track_t": 200.69,
+          "n": 141
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.006,
+        "rate_b": 1.02,
+        "corr_a_at_best": 0.8677,
+        "corr_a_at_1": 0.6363,
+        "corr_b_at_best": 0.8477,
+        "corr_b_at_1": 0.7681,
+        "cents_a": 10.4,
+        "cents_b": 34.3,
+        "flagged_a": false,
+        "flagged_b": true,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": 512,
+        "refine_lag_b": 1536
+      },
+      "technique": {
+        "blend_window_s": [
+          48.37,
+          62.12
+        ],
+        "blend_bars": 9.97,
+        "fader_outgoing": {
+          "shape": "linear",
+          "drop_bars": null,
+          "mse": 0.1978
+        },
+        "eq_swap_high_minus_bass_bars": -6.52,
+        "filter_sweep": true,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 41.871201814058956,
+          "out_mids": 30.372244897959185,
+          "out_high": 32.87201814058957,
+          "in_bass": 46.120816326530615
+        },
+        "events_from_gains": {
+          "bass_swap_s": 46.12,
+          "outgoing_half_s": 41.87,
+          "outgoing_half_high_s": 32.87,
+          "blend_s": 13.75,
+          "blend_bars": 9.97
+        },
+        "phase": {
+          "incoming_drop_clip_s": 7.32,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.98,
+        "talk_frac": 0.015,
+        "loose_s": 3.84,
+        "mean_unexplained": 0.227,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": true,
+        "extra_material": true
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 16.375,
+        "tempo_pitch": 22.486,
+        "scorer_limit": 1.799,
+        "technique": 42.51,
+        "technique_parts": {
+          "stem_curves": 15.75,
+          "deck_curves": 12.932,
+          "beat_align": 3.753,
+          "bass_swap": 2.154,
+          "outgoing_cut": 8.921,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+      "current_score": 37.75,
+      "current_breakdown": {
+        "stem_curves": 34.36,
+        "deck_curves": 27.5,
+        "beat_align": 41.34,
+        "bass_swap": 57.34,
+        "outgoing_cut": 44.65,
+        "blend_length": 30.69,
+        "beat_off_ms": 2.9
+      },
+      "current_events": {
+        "bass_swap": 6,
+        "outgoing_cut": 24,
+        "blend_length": 24
+      },
+      "pro_events_scorer": {
+        "bass_swap": 6,
+        "outgoing_cut": 23,
+        "blend_length": 29
+      },
+      "current_align": {
+        "lag_samples": 498432,
+        "lag_ms": 22604.63,
+        "peak": 0.0847,
+        "win_sec": 41.395
+      },
+      "oracle_score": 50.24,
+      "oracle_breakdown": {
+        "stem_curves": 75.34,
+        "deck_curves": 63.83,
+        "beat_align": 70.45,
+        "bass_swap": 2.54,
+        "outgoing_cut": 1.97,
+        "blend_length": 39.67,
+        "beat_off_ms": 0.0,
+        "stems": {
+          "drums": 66.13,
+          "bass": 80.38,
+          "vocals": 81.68,
+          "melody": 73.18
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 0,
+          "outgoing_cut": 7,
+          "blend_length": 38
+        },
+        "events_pro": {
+          "bass_swap": 14,
+          "outgoing_cut": 22,
+          "blend_length": 44
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.5091,
+        "win_sec": 64.0
+      },
+      "technique_gap": 12.49,
+      "oracle_if_events_perfect": 75.1,
+      "scorer_event_drag": 24.86,
+      "residual": {
+        "stft_unexplained": 0.1322,
+        "unexplained_pre": 0.1197,
+        "unexplained_blend": 0.132,
+        "unexplained_post": 0.2132,
+        "waveform_residual": 1.7073
+      },
+      "version": {
+        "solo_corr_a": 0.9174,
+        "solo_corr_b": 0.7937,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          56.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 6.741,
+          "cc": 0.6202,
+          "mix_t": 7.314,
+          "track_t": 230.644,
+          "n": 141
+        },
+        "locate_b": {
+          "z": 7.644,
+          "cc": 0.6858,
+          "mix_t": 39.358,
+          "track_t": 38.94,
+          "n": 92
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.02,
+        "rate_b": 1.006,
+        "corr_a_at_best": 0.9235,
+        "corr_a_at_1": 0.59,
+        "corr_b_at_best": 0.6705,
+        "corr_b_at_1": 0.45,
+        "cents_a": 34.3,
+        "cents_b": 10.4,
+        "flagged_a": true,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": 1280,
+        "refine_lag_b": 0
+      },
+      "technique": {
+        "blend_window_s": [
+          0.12,
+          63.87
+        ],
+        "blend_bars": 46.21,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": 43.13,
+          "mse": 0.0178
+        },
+        "eq_swap_high_minus_bass_bars": 0.72,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 57.11981859410431,
+          "out_mids": 35.62176870748299,
+          "out_high": 58.119727891156465,
+          "in_bass": 8.374240362811792
+        },
+        "events_from_gains": {
+          "bass_swap_s": 8.37,
+          "outgoing_half_s": 57.12,
+          "outgoing_half_high_s": 58.12,
+          "blend_s": 63.74,
+          "blend_bars": 46.21
+        },
+        "phase": {
+          "incoming_drop_clip_s": 66.46,
+          "outgoing_phase_at_in_drop": null,
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.21,
+        "talk_frac": 0.003,
+        "loose_s": 0.21,
+        "mean_unexplained": 0.066,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": true,
+        "extra_material": false
+      },
+      "bucket": "tempo_pitch",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 9.786,
+        "tempo_pitch": 29.61,
+        "scorer_limit": 10.364,
+        "technique": 12.49,
+        "technique_parts": {
+          "stem_curves": 11.474,
+          "deck_curves": 7.993,
+          "beat_align": 4.366,
+          "bass_swap": 0.0,
+          "outgoing_cut": 0.0,
+          "blend_length": 0.898
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+      "current_score": 31.16,
+      "current_breakdown": {
+        "stem_curves": 33.65,
+        "deck_curves": 36.43,
+        "beat_align": 18.24,
+        "bass_swap": 11.37,
+        "outgoing_cut": 56.87,
+        "blend_length": 26.87,
+        "beat_off_ms": 29.02
+      },
+      "current_events": {
+        "bass_swap": null,
+        "outgoing_cut": null,
+        "blend_length": 35
+      },
+      "pro_events_scorer": {
+        "bass_swap": 7,
+        "outgoing_cut": null,
+        "blend_length": 29
+      },
+      "current_align": {
+        "lag_samples": 295936,
+        "lag_ms": 13421.13,
+        "peak": 0.2309,
+        "win_sec": 50.579
+      },
+      "oracle_score": 66.19,
+      "oracle_breakdown": {
+        "stem_curves": 89.44,
+        "deck_curves": 70.7,
+        "beat_align": 64.24,
+        "bass_swap": 20.78,
+        "outgoing_cut": 93.13,
+        "blend_length": 20.78,
+        "beat_off_ms": 5.8,
+        "stems": {
+          "drums": 89.34,
+          "bass": 95.59,
+          "vocals": 85.77,
+          "melody": 87.04
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 7,
+          "outgoing_cut": 6,
+          "blend_length": 29
+        },
+        "events_pro": {
+          "bass_swap": 1,
+          "outgoing_cut": 6,
+          "blend_length": 41
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.7877,
+        "win_sec": 64.0
+      },
+      "technique_gap": 35.03,
+      "oracle_if_events_perfect": 82.83,
+      "scorer_event_drag": 16.64,
+      "residual": {
+        "stft_unexplained": 0.1068,
+        "unexplained_pre": 0.1334,
+        "unexplained_blend": 0.0995,
+        "unexplained_post": 0.0785,
+        "waveform_residual": 1.688
+      },
+      "version": {
+        "solo_corr_a": 0.8985,
+        "solo_corr_b": 0.9239,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          56.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 6.946,
+          "cc": 0.5549,
+          "mix_t": 23.197,
+          "track_t": 197.695,
+          "n": 92
+        },
+        "locate_b": {
+          "z": 6.698,
+          "cc": 0.6439,
+          "mix_t": 46.579,
+          "track_t": 110.829,
+          "n": 54
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.006,
+        "rate_b": 1.006,
+        "corr_a_at_best": 0.9052,
+        "corr_a_at_1": 0.6461,
+        "corr_b_at_best": 0.9296,
+        "corr_b_at_1": 0.6692,
+        "cents_a": 10.4,
+        "cents_b": 10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": 512,
+        "refine_lag_b": 512
+      },
+      "technique": {
+        "blend_window_s": [
+          23.87,
+          59.37
+        ],
+        "blend_bars": 25.74,
+        "fader_outgoing": {
+          "shape": "equal_power",
+          "drop_bars": null,
+          "mse": 0.1025
+        },
+        "eq_swap_high_minus_bass_bars": null,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 18.62331065759637,
+          "out_mids": 24.6227664399093,
+          "out_high": null,
+          "in_bass": 24.6227664399093
+        },
+        "events_from_gains": {
+          "bass_swap_s": 24.62,
+          "outgoing_half_s": 18.62,
+          "outgoing_half_high_s": null,
+          "blend_s": 35.5,
+          "blend_bars": 25.74
+        },
+        "phase": {
+          "incoming_drop_clip_s": 2.23,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 0.1,
+        "mean_unexplained": 0.101,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 14.631,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 19.179,
+        "technique": 35.03,
+        "technique_parts": {
+          "stem_curves": 15.621,
+          "deck_curves": 7.539,
+          "beat_align": 6.9,
+          "bass_swap": 1.223,
+          "outgoing_cut": 4.351,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__19",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Urbandawn - Prime Expansion -> Hybrid Minds - Demons (ft. Charlotte Haining)",
+      "current_score": 31.94,
+      "current_breakdown": {
+        "stem_curves": 34.25,
+        "deck_curves": 27.25,
+        "beat_align": 35.25,
+        "bass_swap": 34.73,
+        "outgoing_cut": 34.73,
+        "blend_length": 23.87,
+        "beat_off_ms": 5.8
+      },
+      "current_events": {
+        "bass_swap": 20,
+        "outgoing_cut": 18,
+        "blend_length": 35
+      },
+      "pro_events_scorer": {
+        "bass_swap": 18,
+        "outgoing_cut": 16,
+        "blend_length": 42
+      },
+      "current_align": {
+        "lag_samples": -182272,
+        "lag_ms": -8266.3,
+        "peak": 0.1805,
+        "win_sec": 57.941
+      },
+      "oracle_score": 73.63,
+      "oracle_breakdown": {
+        "stem_curves": 66.79,
+        "deck_curves": 87.72,
+        "beat_align": 54.57,
+        "bass_swap": 78.42,
+        "outgoing_cut": 78.42,
+        "blend_length": 78.42,
+        "beat_off_ms": 5.8,
+        "stems": {
+          "drums": 63.57,
+          "bass": 84.14,
+          "vocals": 58.7,
+          "melody": 60.76
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 18,
+          "outgoing_cut": 16,
+          "blend_length": 46
+        },
+        "events_pro": {
+          "bass_swap": 18,
+          "outgoing_cut": 16,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.6039,
+        "win_sec": 64.0
+      },
+      "technique_gap": 41.69,
+      "oracle_if_events_perfect": 73.63,
+      "scorer_event_drag": 0.0,
+      "residual": {
+        "stft_unexplained": 0.2618,
+        "unexplained_pre": 0.0736,
+        "unexplained_blend": 0.3218,
+        "unexplained_post": 0.1142,
+        "waveform_residual": 1.7295
+      },
+      "version": {
+        "solo_corr_a": 0.9437,
+        "solo_corr_b": 0.9028,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          52.37,
+          63.0
+        ],
+        "locate_a": {
+          "z": 10.881,
+          "cc": 0.6082,
+          "mix_t": 15.952,
+          "track_t": 146.773,
+          "n": 87
+        },
+        "locate_b": {
+          "z": 11.126,
+          "cc": 0.7587,
+          "mix_t": 54.567,
+          "track_t": 206.681,
+          "n": 99
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.01,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.936,
+        "corr_a_at_1": 0.7754,
+        "corr_b_at_best": 0.0,
+        "corr_b_at_1": 0.0,
+        "cents_a": 17.2,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": false,
+        "refine_lag_a": 1024,
+        "refine_lag_b": -512
+      },
+      "technique": {
+        "blend_window_s": [
+          2.87,
+          51.37
+        ],
+        "blend_bars": 35.16,
+        "fader_outgoing": {
+          "shape": "equal_power",
+          "drop_bars": 5.07,
+          "mse": 0.0406
+        },
+        "eq_swap_high_minus_bass_bars": 11.96,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 23.122902494331065,
+          "out_mids": 26.872562358276642,
+          "out_high": 39.62140589569161,
+          "in_bass": 6.124444444444444
+        },
+        "events_from_gains": {
+          "bass_swap_s": 6.12,
+          "outgoing_half_s": 23.12,
+          "outgoing_half_high_s": 39.62,
+          "blend_s": 48.5,
+          "blend_bars": 35.16
+        },
+        "phase": {
+          "incoming_drop_clip_s": 46.5,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 3.94,
+        "talk_frac": 0.062,
+        "loose_s": 6.46,
+        "mean_unexplained": 0.296,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": true
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 23.498,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 2.872,
+        "technique": 41.69,
+        "technique_parts": {
+          "stem_curves": 9.111,
+          "deck_curves": 13.303,
+          "beat_align": 2.898,
+          "bass_swap": 5.68,
+          "outgoing_cut": 5.243,
+          "blend_length": 5.455
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__20",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Hybrid Minds - Demons (ft. Charlotte Haining) -> Changing Faces - Emptiness",
+      "current_score": 17.44,
+      "current_breakdown": {
+        "stem_curves": 21.59,
+        "deck_curves": 20.6,
+        "beat_align": 28.98,
+        "bass_swap": 1.9,
+        "outgoing_cut": 9.81,
+        "blend_length": 10.94,
+        "beat_off_ms": 31.93
+      },
+      "current_events": {
+        "bass_swap": 8,
+        "outgoing_cut": 4,
+        "blend_length": 20
+      },
+      "pro_events_scorer": {
+        "bass_swap": 21,
+        "outgoing_cut": null,
+        "blend_length": 8
+      },
+      "current_align": {
+        "lag_samples": 503552,
+        "lag_ms": 22836.83,
+        "peak": 0.3742,
+        "win_sec": 41.163
+      },
+      "oracle_score": 66.1,
+      "oracle_breakdown": {
+        "stem_curves": 81.79,
+        "deck_curves": 41.35,
+        "beat_align": 79.85,
+        "bass_swap": 88.16,
+        "outgoing_cut": 88.16,
+        "blend_length": 0.86,
+        "beat_off_ms": 0.0,
+        "stems": {
+          "drums": 78.88,
+          "bass": 87.93,
+          "vocals": 77.42,
+          "melody": 82.92
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 2,
+          "outgoing_cut": 9,
+          "blend_length": 9
+        },
+        "events_pro": {
+          "bass_swap": 2,
+          "outgoing_cut": 9,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.694,
+        "win_sec": 64.0
+      },
+      "technique_gap": 48.66,
+      "oracle_if_events_perfect": 74.83,
+      "scorer_event_drag": 8.73,
+      "residual": {
+        "stft_unexplained": 0.3627,
+        "unexplained_pre": 0.1151,
+        "unexplained_blend": 0.4837,
+        "unexplained_post": 0.3363,
+        "waveform_residual": 1.5626
+      },
+      "version": {
+        "solo_corr_a": 0.945,
+        "solo_corr_b": 0.7963,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          56.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 7.354,
+          "cc": 0.3793,
+          "mix_t": 5.666,
+          "track_t": 146.773,
+          "n": 99
+        },
+        "locate_b": {
+          "z": 8.673,
+          "cc": 0.3294,
+          "mix_t": 57.098,
+          "track_t": 137.787,
+          "n": 68
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.006,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.9721,
+        "corr_a_at_1": 0.9457,
+        "corr_b_at_best": 0.0,
+        "corr_b_at_1": 0.0,
+        "cents_a": 10.4,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": 256,
+        "refine_lag_b": 256
+      },
+      "technique": {
+        "blend_window_s": [
+          52.12,
+          63.12
+        ],
+        "blend_bars": 7.97,
+        "fader_outgoing": {
+          "shape": "linear",
+          "drop_bars": 3.81,
+          "mse": 0.1253
+        },
+        "eq_swap_high_minus_bass_bars": 14.86,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 15.62358276643991,
+          "out_mids": 16.8734693877551,
+          "out_high": 36.12172335600907,
+          "in_bass": 29.872290249433107
+        },
+        "events_from_gains": {
+          "bass_swap_s": 29.87,
+          "outgoing_half_s": 15.62,
+          "outgoing_half_high_s": 36.12,
+          "blend_s": 11.0,
+          "blend_bars": 7.97
+        },
+        "phase": {
+          "incoming_drop_clip_s": 7.59,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "build"
+        }
+      },
+      "talkover": {
+        "talk_s": 1.23,
+        "talk_frac": 0.019,
+        "loose_s": 22.35,
+        "mean_unexplained": 0.584,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": true
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 31.152,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 2.748,
+        "technique": 48.66,
+        "technique_parts": {
+          "stem_curves": 16.856,
+          "deck_curves": 4.565,
+          "beat_align": 7.63,
+          "bass_swap": 11.214,
+          "outgoing_cut": 9.402,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
+      "current_score": 23.95,
+      "current_breakdown": {
+        "stem_curves": 30.15,
+        "deck_curves": 17.28,
+        "beat_align": 44.5,
+        "bass_swap": 20.08,
+        "outgoing_cut": 3.49,
+        "blend_length": 20.08,
+        "beat_off_ms": 2.9
+      },
+      "current_events": {
+        "bass_swap": 4,
+        "outgoing_cut": 17,
+        "blend_length": 33
+      },
+      "pro_events_scorer": {
+        "bass_swap": 0,
+        "outgoing_cut": 6,
+        "blend_length": 41
+      },
+      "current_align": {
+        "lag_samples": -187904,
+        "lag_ms": -8521.72,
+        "peak": 0.1901,
+        "win_sec": 57.685
+      },
+      "oracle_score": 45.06,
+      "oracle_breakdown": {
+        "stem_curves": 48.71,
+        "deck_curves": 43.11,
+        "beat_align": 42.6,
+        "bass_swap": 51.92,
+        "outgoing_cut": 66.66,
+        "blend_length": 7.96,
+        "beat_off_ms": 17.41,
+        "stems": {
+          "drums": 43.54,
+          "bass": 84.26,
+          "vocals": 32.57,
+          "melody": 34.49
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 1,
+          "outgoing_cut": 6,
+          "blend_length": 29
+        },
+        "events_pro": {
+          "bass_swap": 0,
+          "outgoing_cut": 6,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 768,
+        "lag_ms": 34.83,
+        "peak": 0.6594,
+        "win_sec": 63.965
+      },
+      "technique_gap": 21.11,
+      "oracle_if_events_perfect": 52.84,
+      "scorer_event_drag": 7.78,
+      "residual": {
+        "stft_unexplained": 0.2379,
+        "unexplained_pre": 0.4014,
+        "unexplained_blend": 0.1927,
+        "unexplained_post": 0.136,
+        "waveform_residual": 1.7667
+      },
+      "version": {
+        "solo_corr_a": 0.731,
+        "solo_corr_b": 0.9289,
+        "solo_window_a": [
+          1.0,
+          19.87
+        ],
+        "solo_window_b": [
+          56.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.957,
+          "cc": 0.5654,
+          "mix_t": 11.238,
+          "track_t": 209.676,
+          "n": 108
+        },
+        "locate_b": {
+          "z": 6.286,
+          "cc": 0.663,
+          "mix_t": 23.847,
+          "track_t": 131.796,
+          "n": 89
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.994,
+        "rate_b": 1.006,
+        "corr_a_at_best": 0.7685,
+        "corr_a_at_1": 0.6372,
+        "corr_b_at_best": 0.9558,
+        "corr_b_at_1": 0.9357,
+        "cents_a": -10.4,
+        "cents_b": 10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": false,
+        "refine_lag_a": 3584,
+        "refine_lag_b": -3072
+      },
+      "technique": {
+        "blend_window_s": [
+          20.87,
+          62.37
+        ],
+        "blend_bars": 30.08,
+        "fader_outgoing": {
+          "shape": "curve",
+          "drop_bars": 2.17,
+          "mse": 0.1099
+        },
+        "eq_swap_high_minus_bass_bars": -9.42,
+        "filter_sweep": true,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 17.12344671201814,
+          "out_mids": 11.623945578231293,
+          "out_high": 4.124625850340136,
+          "in_bass": 13.623764172335601
+        },
+        "events_from_gains": {
+          "bass_swap_s": 13.62,
+          "outgoing_half_s": 17.12,
+          "outgoing_half_high_s": 4.12,
+          "blend_s": 41.5,
+          "blend_bars": 30.08
+        },
+        "phase": {
+          "incoming_drop_clip_s": 7.91,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "breakdown"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 0.0,
+        "mean_unexplained": 0.113,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 48.426,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 6.514,
+        "technique": 21.11,
+        "technique_parts": {
+          "stem_curves": 5.197,
+          "deck_curves": 5.683,
+          "beat_align": 0.0,
+          "bass_swap": 4.139,
+          "outgoing_cut": 7.58,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__25",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+      "current_score": 17.56,
+      "current_breakdown": {
+        "stem_curves": 21.06,
+        "deck_curves": 13.01,
+        "beat_align": 30.49,
+        "bass_swap": 9.74,
+        "outgoing_cut": 9.74,
+        "blend_length": 17.91,
+        "beat_off_ms": 5.8
+      },
+      "current_events": {
+        "bass_swap": 23,
+        "outgoing_cut": 6,
+        "blend_length": 20
+      },
+      "pro_events_scorer": {
+        "bass_swap": null,
+        "outgoing_cut": null,
+        "blend_length": 28
+      },
+      "current_align": {
+        "lag_samples": 529152,
+        "lag_ms": 23997.82,
+        "peak": 0.1279,
+        "win_sec": 40.002
+      },
+      "oracle_score": 53.66,
+      "oracle_breakdown": {
+        "stem_curves": 58.8,
+        "deck_curves": 64.29,
+        "beat_align": 65.96,
+        "bass_swap": 26.94,
+        "outgoing_cut": 73.22,
+        "blend_length": 8.74,
+        "beat_off_ms": 2.9,
+        "stems": {
+          "drums": 53.5,
+          "bass": 92.62,
+          "vocals": 42.5,
+          "melody": 46.58
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 4,
+          "outgoing_cut": 5,
+          "blend_length": 29
+        },
+        "events_pro": {
+          "bass_swap": 0,
+          "outgoing_cut": 5,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.6609,
+        "win_sec": 64.0
+      },
+      "technique_gap": 36.1,
+      "oracle_if_events_perfect": 66.13,
+      "scorer_event_drag": 12.47,
+      "residual": {
+        "stft_unexplained": 0.2443,
+        "unexplained_pre": 0.5517,
+        "unexplained_blend": 0.1866,
+        "unexplained_post": 0.1269,
+        "waveform_residual": 1.7671
+      },
+      "version": {
+        "solo_corr_a": 0.6038,
+        "solo_corr_b": 0.912,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          49.37,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.705,
+          "cc": 0.6023,
+          "mix_t": 11.424,
+          "track_t": 167.741,
+          "n": 99
+        },
+        "locate_b": {
+          "z": 6.959,
+          "cc": 0.6331,
+          "mix_t": 22.825,
+          "track_t": 263.593,
+          "n": 119
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.994,
+        "rate_b": 1.006,
+        "corr_a_at_best": 0.6325,
+        "corr_a_at_1": 0.623,
+        "corr_b_at_best": 0.9047,
+        "corr_b_at_1": 0.8151,
+        "cents_a": -10.4,
+        "cents_b": 10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": true,
+        "refine_lag_a": 8192,
+        "refine_lag_b": 512
+      },
+      "technique": {
+        "blend_window_s": [
+          22.62,
+          48.37
+        ],
+        "blend_bars": 18.67,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": null,
+          "mse": 0.1244
+        },
+        "eq_swap_high_minus_bass_bars": -5.98,
+        "filter_sweep": true,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 13.623764172335601,
+          "out_mids": 9.374149659863946,
+          "out_high": 5.374512471655329,
+          "in_bass": 23.122902494331065
+        },
+        "events_from_gains": {
+          "bass_swap_s": 23.12,
+          "outgoing_half_s": 13.62,
+          "outgoing_half_high_s": 5.37,
+          "blend_s": 25.75,
+          "blend_bars": 18.67
+        },
+        "phase": {
+          "incoming_drop_clip_s": 7.62,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "breakdown"
+        }
+      },
+      "talkover": {
+        "talk_s": 1.41,
+        "talk_frac": 0.022,
+        "loose_s": 13.02,
+        "mean_unexplained": 0.365,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 40.973,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 5.367,
+        "technique": 36.1,
+        "technique_parts": {
+          "stem_curves": 10.567,
+          "deck_curves": 11.282,
+          "beat_align": 5.321,
+          "bass_swap": 2.236,
+          "outgoing_cut": 7.618,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__33",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "1991 - Nine Clouds -> Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
+      "current_score": 10.54,
+      "current_breakdown": {
+        "stem_curves": 13.33,
+        "deck_curves": 13.21,
+        "beat_align": 9.45,
+        "bass_swap": 0.11,
+        "outgoing_cut": 8.73,
+        "blend_length": 14.18,
+        "beat_off_ms": 31.93
+      },
+      "current_events": {
+        "bass_swap": 24,
+        "outgoing_cut": 23,
+        "blend_length": 20
+      },
+      "pro_events_scorer": {
+        "bass_swap": 0,
+        "outgoing_cut": null,
+        "blend_length": 29
+      },
+      "current_align": {
+        "lag_samples": 508928,
+        "lag_ms": 23080.63,
+        "peak": 0.125,
+        "win_sec": 40.919
+      },
+      "oracle_score": 76.84,
+      "oracle_breakdown": {
+        "stem_curves": 78.28,
+        "deck_curves": 71.31,
+        "beat_align": 61.16,
+        "bass_swap": 85.88,
+        "outgoing_cut": 85.88,
+        "blend_length": 85.88,
+        "beat_off_ms": 5.8,
+        "stems": {
+          "drums": 80.86,
+          "bass": 87.68,
+          "vocals": 63.07,
+          "melody": 81.5
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 17,
+          "outgoing_cut": null,
+          "blend_length": 29
+        },
+        "events_pro": {
+          "bass_swap": 17,
+          "outgoing_cut": null,
+          "blend_length": 29
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.7308,
+        "win_sec": 64.0
+      },
+      "technique_gap": 66.3,
+      "oracle_if_events_perfect": 76.84,
+      "scorer_event_drag": 0.0,
+      "residual": {
+        "stft_unexplained": 0.1246,
+        "unexplained_pre": 0.3011,
+        "unexplained_blend": 0.1912,
+        "unexplained_post": 0.0727,
+        "waveform_residual": 2.4644
+      },
+      "version": {
+        "solo_corr_a": 0.7931,
+        "solo_corr_b": 0.9618,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 9.894,
+          "cc": 0.7243,
+          "mix_t": 16.881,
+          "track_t": 191.704,
+          "n": 84
+        },
+        "locate_b": {
+          "z": 7.066,
+          "cc": 0.7324,
+          "mix_t": 23.127,
+          "track_t": 86.866,
+          "n": 127
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.994,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.8024,
+        "corr_a_at_1": 0.7997,
+        "corr_b_at_best": 0.959,
+        "corr_b_at_1": 0.959,
+        "cents_a": -10.4,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": 4608,
+        "refine_lag_b": -256
+      },
+      "technique": {
+        "blend_window_s": [
+          22.12,
+          24.37
+        ],
+        "blend_bars": 1.63,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": null,
+          "mse": 0.029
+        },
+        "eq_swap_high_minus_bass_bars": 1.27,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 22.872925170068026,
+          "out_mids": 24.37278911564626,
+          "out_high": 24.6227664399093,
+          "in_bass": 23.622857142857143
+        },
+        "events_from_gains": {
+          "bass_swap_s": 23.62,
+          "outgoing_half_s": 22.87,
+          "outgoing_half_high_s": 24.62,
+          "blend_s": 2.25,
+          "blend_bars": 1.63
+        },
+        "phase": {
+          "incoming_drop_clip_s": 24.03,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "breakdown"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 0.0,
+        "mean_unexplained": 0.11,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 10.906,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 12.254,
+        "technique": 66.3,
+        "technique_parts": {
+          "stem_curves": 18.186,
+          "deck_curves": 12.782,
+          "beat_align": 7.756,
+          "bass_swap": 11.15,
+          "outgoing_cut": 9.258,
+          "blend_length": 7.17
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+      "current_score": 21.56,
+      "current_breakdown": {
+        "stem_curves": 30.32,
+        "deck_curves": 16.27,
+        "beat_align": 35.65,
+        "bass_swap": 20.13,
+        "outgoing_cut": 5.77,
+        "blend_length": 8.39,
+        "beat_off_ms": 8.71
+      },
+      "current_events": {
+        "bass_swap": 13,
+        "outgoing_cut": 7,
+        "blend_length": 16
+      },
+      "pro_events_scorer": {
+        "bass_swap": 17,
+        "outgoing_cut": 16,
+        "blend_length": 31
+      },
+      "current_align": {
+        "lag_samples": -443136,
+        "lag_ms": -20096.87,
+        "peak": 0.2439,
+        "win_sec": 46.11
+      },
+      "oracle_score": 81.96,
+      "oracle_breakdown": {
+        "stem_curves": 83.81,
+        "deck_curves": 96.17,
+        "beat_align": 80.76,
+        "bass_swap": 69.68,
+        "outgoing_cut": 89.48,
+        "blend_length": 54.27,
+        "beat_off_ms": 0.0,
+        "stems": {
+          "drums": 84.52,
+          "bass": 89.79,
+          "vocals": 80.64,
+          "melody": 80.29
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 16,
+          "outgoing_cut": 16,
+          "blend_length": 28
+        },
+        "events_pro": {
+          "bass_swap": 17,
+          "outgoing_cut": 16,
+          "blend_length": 32
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.7112,
+        "win_sec": 64.0
+      },
+      "technique_gap": 60.4,
+      "oracle_if_events_perfect": 88.05,
+      "scorer_event_drag": 6.09,
+      "residual": {
+        "stft_unexplained": 0.1373,
+        "unexplained_pre": 0.1874,
+        "unexplained_blend": 0.1734,
+        "unexplained_post": 0.0411,
+        "waveform_residual": 1.5123
+      },
+      "version": {
+        "solo_corr_a": 0.8742,
+        "solo_corr_b": 0.9724,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          50.37,
+          63.0
+        ],
+        "locate_a": {
+          "z": 6.217,
+          "cc": 0.6898,
+          "mix_t": 1.765,
+          "track_t": 134.792,
+          "n": 60
+        },
+        "locate_b": {
+          "z": 8.173,
+          "cc": 0.6228,
+          "mix_t": 33.553,
+          "track_t": 53.917,
+          "n": 113
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.02,
+        "rate_b": 1.006,
+        "corr_a_at_best": 0.9168,
+        "corr_a_at_1": 0.8287,
+        "corr_b_at_best": 0.949,
+        "corr_b_at_1": 0.6412,
+        "cents_a": 34.3,
+        "cents_b": 10.4,
+        "flagged_a": true,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": 1792,
+        "refine_lag_b": 256
+      },
+      "technique": {
+        "blend_window_s": [
+          0.62,
+          49.37
+        ],
+        "blend_bars": 35.34,
+        "fader_outgoing": {
+          "shape": "equal_power",
+          "drop_bars": 17.94,
+          "mse": 0.1452
+        },
+        "eq_swap_high_minus_bass_bars": 15.59,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 28.372426303854876,
+          "out_mids": 23.622857142857143,
+          "out_high": 49.87047619047619,
+          "in_bass": 6.374421768707483
+        },
+        "events_from_gains": {
+          "bass_swap_s": 6.37,
+          "outgoing_half_s": 28.37,
+          "outgoing_half_high_s": 49.87,
+          "blend_s": 48.75,
+          "blend_bars": 35.34
+        },
+        "phase": {
+          "incoming_drop_clip_s": 45.77,
+          "outgoing_phase_at_in_drop": "outro",
+          "outgoing_phase_at_blend_start": "outro"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.43,
+        "talk_frac": 0.007,
+        "loose_s": 3.44,
+        "mean_unexplained": 0.155,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": true,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 3.657,
+        "tempo_pitch": 10.654,
+        "scorer_limit": 3.729,
+        "technique": 60.4,
+        "technique_parts": {
+          "stem_curves": 14.977,
+          "deck_curves": 17.578,
+          "beat_align": 6.767,
+          "bass_swap": 6.442,
+          "outgoing_cut": 10.045,
+          "blend_length": 4.588
+        }
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+      "current_score": 16.16,
+      "current_breakdown": {
+        "stem_curves": 15.0,
+        "deck_curves": 16.92,
+        "beat_align": 22.22,
+        "bass_swap": 1.74,
+        "outgoing_cut": 6.06,
+        "blend_length": 39.49,
+        "beat_off_ms": 11.61
+      },
+      "current_events": {
+        "bass_swap": 28,
+        "outgoing_cut": 12,
+        "blend_length": 37
+      },
+      "pro_events_scorer": {
+        "bass_swap": 15,
+        "outgoing_cut": 4,
+        "blend_length": 36
+      },
+      "current_align": {
+        "lag_samples": -315136,
+        "lag_ms": -14291.88,
+        "peak": 0.1147,
+        "win_sec": 51.915
+      },
+      "oracle_score": 34.35,
+      "oracle_breakdown": {
+        "stem_curves": 49.36,
+        "deck_curves": 29.8,
+        "beat_align": 27.7,
+        "bass_swap": 13.42,
+        "outgoing_cut": 67.09,
+        "blend_length": 0.24,
+        "beat_off_ms": 17.41,
+        "stems": {
+          "drums": 45.41,
+          "bass": 65.41,
+          "vocals": 36.27,
+          "melody": 50.36
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 38,
+          "outgoing_cut": 4,
+          "blend_length": 1
+        },
+        "events_pro": {
+          "bass_swap": null,
+          "outgoing_cut": 4,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.36,
+        "win_sec": 64.0
+      },
+      "technique_gap": 18.19,
+      "oracle_if_events_perfect": 48.01,
+      "scorer_event_drag": 13.66,
+      "residual": {
+        "stft_unexplained": 0.3071,
+        "unexplained_pre": 0.3542,
+        "unexplained_blend": 0.387,
+        "unexplained_post": 0.0923,
+        "waveform_residual": 1.4671
+      },
+      "version": {
+        "solo_corr_a": 0.7199,
+        "solo_corr_b": 0.9171,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          51.12,
+          63.0
+        ],
+        "locate_a": {
+          "z": 7.986,
+          "cc": 0.4144,
+          "mix_t": 0.372,
+          "track_t": 125.806,
+          "n": 84
+        },
+        "locate_b": {
+          "z": 10.728,
+          "cc": 0.6875,
+          "mix_t": 27.446,
+          "track_t": 41.935,
+          "n": 103
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.01,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.8271,
+        "corr_a_at_1": 0.8038,
+        "corr_b_at_best": 0.5605,
+        "corr_b_at_1": 0.5605,
+        "cents_a": 17.2,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": -14592,
+        "refine_lag_b": -3072
+      },
+      "technique": {
+        "blend_window_s": [
+          3.62,
+          50.12
+        ],
+        "blend_bars": 33.71,
+        "fader_outgoing": {
+          "shape": "curve",
+          "drop_bars": 4.89,
+          "mse": 0.1957
+        },
+        "eq_swap_high_minus_bass_bars": 2.17,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 4.624580498866213,
+          "out_mids": 10.624036281179139,
+          "out_high": 7.624308390022676,
+          "in_bass": 8.62421768707483
+        },
+        "events_from_gains": {
+          "bass_swap_s": 8.62,
+          "outgoing_half_s": 4.62,
+          "outgoing_half_high_s": 7.62,
+          "blend_s": 46.5,
+          "blend_bars": 33.71
+        },
+        "phase": {
+          "incoming_drop_clip_s": 13.09,
+          "outgoing_phase_at_in_drop": "build",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.16,
+        "talk_frac": 0.003,
+        "loose_s": 10.1,
+        "mean_unexplained": 0.304,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": true
+      },
+      "bucket": "extra_material",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 59.455,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 6.195,
+        "technique": 18.19,
+        "technique_parts": {
+          "stem_curves": 9.621,
+          "deck_curves": 2.834,
+          "beat_align": 0.822,
+          "bass_swap": 1.518,
+          "outgoing_cut": 7.324,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "High Contrast - Twilight's Last Gleaming -> Netsky - Escape (ft. Darrison)",
+      "current_score": 28.76,
+      "current_breakdown": {
+        "stem_curves": 29.96,
+        "deck_curves": 30.06,
+        "beat_align": 30.34,
+        "bass_swap": 33.04,
+        "outgoing_cut": 33.04,
+        "blend_length": 9.47,
+        "beat_off_ms": 11.61
+      },
+      "current_events": {
+        "bass_swap": 19,
+        "outgoing_cut": 18,
+        "blend_length": 23
+      },
+      "pro_events_scorer": {
+        "bass_swap": 17,
+        "outgoing_cut": 16,
+        "blend_length": 37
+      },
+      "current_align": {
+        "lag_samples": -280064,
+        "lag_ms": -12701.32,
+        "peak": 0.2534,
+        "win_sec": 53.506
+      },
+      "oracle_score": 56.25,
+      "oracle_breakdown": {
+        "stem_curves": 59.55,
+        "deck_curves": 69.37,
+        "beat_align": 41.24,
+        "bass_swap": 14.74,
+        "outgoing_cut": 73.71,
+        "blend_length": 73.71,
+        "beat_off_ms": 8.71,
+        "stems": {
+          "drums": 58.75,
+          "bass": 78.87,
+          "vocals": 51.59,
+          "melody": 48.99
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": null,
+          "outgoing_cut": 16,
+          "blend_length": 46
+        },
+        "events_pro": {
+          "bass_swap": 17,
+          "outgoing_cut": 16,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.4547,
+        "win_sec": 64.0
+      },
+      "technique_gap": 27.49,
+      "oracle_if_events_perfect": 63.92,
+      "scorer_event_drag": 7.67,
+      "residual": {
+        "stft_unexplained": 0.2941,
+        "unexplained_pre": 0.1756,
+        "unexplained_blend": 0.2823,
+        "unexplained_post": 0.7193,
+        "waveform_residual": 1.9234
+      },
+      "version": {
+        "solo_corr_a": 0.8681,
+        "solo_corr_b": 0.3803,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          56.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.055,
+          "cc": 0.5507,
+          "mix_t": 9.381,
+          "track_t": 155.759,
+          "n": 151
+        },
+        "locate_b": {
+          "z": 7.687,
+          "cc": 0.6542,
+          "mix_t": 26.053,
+          "track_t": 23.963,
+          "n": 118
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.02,
+        "rate_b": 1.01,
+        "corr_a_at_best": 0.8982,
+        "corr_a_at_1": 0.8165,
+        "corr_b_at_best": 0.4948,
+        "corr_b_at_1": 0.3127,
+        "cents_a": 34.3,
+        "cents_b": 17.2,
+        "flagged_a": true,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": 1280,
+        "refine_lag_b": 0
+      },
+      "technique": {
+        "blend_window_s": [
+          2.37,
+          60.87
+        ],
+        "blend_bars": 42.41,
+        "fader_outgoing": {
+          "shape": "curve",
+          "drop_bars": 2.72,
+          "mse": 0.0484
+        },
+        "eq_swap_high_minus_bass_bars": 15.77,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 22.37297052154195,
+          "out_mids": 24.12281179138322,
+          "out_high": 44.120997732426304,
+          "in_bass": 45.370884353741495
+        },
+        "events_from_gains": {
+          "bass_swap_s": 45.37,
+          "outgoing_half_s": 22.37,
+          "outgoing_half_high_s": 44.12,
+          "blend_s": 58.49,
+          "blend_bars": 42.41
+        },
+        "phase": {
+          "incoming_drop_clip_s": 89.73,
+          "outgoing_phase_at_in_drop": null,
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 14.96,
+        "mean_unexplained": 0.275,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": true,
+        "tempo_pitch": true,
+        "extra_material": true
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 6.356,
+        "extra_material": 15.146,
+        "tempo_pitch": 20.6,
+        "scorer_limit": 1.648,
+        "technique": 27.49,
+        "technique_parts": {
+          "stem_curves": 8.285,
+          "deck_curves": 8.648,
+          "beat_align": 1.635,
+          "bass_swap": 0.0,
+          "outgoing_cut": 4.88,
+          "blend_length": 6.424
+        }
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+      "current_score": 45.83,
+      "current_breakdown": {
+        "stem_curves": 47.77,
+        "deck_curves": 50.23,
+        "beat_align": 54.23,
+        "bass_swap": 40.06,
+        "outgoing_cut": 66.05,
+        "blend_length": 1.37,
+        "beat_off_ms": 0.0
+      },
+      "current_events": {
+        "bass_swap": 34,
+        "outgoing_cut": 5,
+        "blend_length": 32
+      },
+      "pro_events_scorer": {
+        "bass_swap": 36,
+        "outgoing_cut": 5,
+        "blend_length": 1
+      },
+      "current_align": {
+        "lag_samples": -63488,
+        "lag_ms": -2879.27,
+        "peak": 0.1684,
+        "win_sec": 63.328
+      },
+      "oracle_score": 46.84,
+      "oracle_breakdown": {
+        "stem_curves": 50.29,
+        "deck_curves": 62.15,
+        "beat_align": 83.22,
+        "bass_swap": 1.59,
+        "outgoing_cut": 52.71,
+        "blend_length": 0.75,
+        "beat_off_ms": 0.0,
+        "stems": {
+          "drums": 42.5,
+          "bass": 59.74,
+          "vocals": 56.26,
+          "melody": 42.66
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 21,
+          "outgoing_cut": 4,
+          "blend_length": 37
+        },
+        "events_pro": {
+          "bass_swap": 36,
+          "outgoing_cut": 5,
+          "blend_length": 1
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.7574,
+        "win_sec": 64.0
+      },
+      "technique_gap": 1.01,
+      "oracle_if_events_perfect": 63.93,
+      "scorer_event_drag": 17.09,
+      "residual": {
+        "stft_unexplained": 0.2392,
+        "unexplained_pre": 0.8319,
+        "unexplained_blend": 0.674,
+        "unexplained_post": 0.0549,
+        "waveform_residual": 1.679
+      },
+      "version": {
+        "solo_corr_a": 0.3403,
+        "solo_corr_b": 0.953,
+        "solo_window_a": [
+          1.0,
+          6.87
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.658,
+          "cc": 0.4364,
+          "mix_t": 0.789,
+          "track_t": 212.672,
+          "n": 110
+        },
+        "locate_b": {
+          "z": 9.625,
+          "cc": 0.5903,
+          "mix_t": 46.974,
+          "track_t": 38.94,
+          "n": 93
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.98,
+        "rate_b": 0.994,
+        "corr_a_at_best": 0.3781,
+        "corr_a_at_1": 0.332,
+        "corr_b_at_best": 0.9628,
+        "corr_b_at_1": 0.8244,
+        "cents_a": -35.0,
+        "cents_b": -10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": true,
+        "refine_lag_a": 16128,
+        "refine_lag_b": -512
+      },
+      "technique": {
+        "blend_window_s": [
+          7.87,
+          8.12
+        ],
+        "blend_bars": 0.18,
+        "fader_outgoing": {
+          "shape": "unknown",
+          "drop_bars": null,
+          "eq_swap_bars": null
+        },
+        "eq_swap_high_minus_bass_bars": 0.0,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 4.124625850340136,
+          "out_mids": 7.8742857142857146,
+          "out_high": 4.124625850340136,
+          "in_bass": 6.124444444444444
+        },
+        "events_from_gains": {
+          "bass_swap_s": 6.12,
+          "outgoing_half_s": 4.12,
+          "outgoing_half_high_s": 4.12,
+          "blend_s": 0.25,
+          "blend_bars": 0.18
+        },
+        "phase": {
+          "incoming_drop_clip_s": 30.0,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 3.26,
+        "mean_unexplained": 0.308,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": true,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "version_mismatch",
+      "costs": {
+        "version_mismatch": 19.134,
+        "extra_material": 30.011,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 4.015,
+        "technique": 1.01,
+        "technique_parts": {
+          "stem_curves": 0.706,
+          "deck_curves": 2.622,
+          "beat_align": 4.349,
+          "bass_swap": 0.0,
+          "outgoing_cut": 0.0,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__16",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Netsky - The Whistle Song -> Logistics - Together",
+      "current_score": 35.73,
+      "current_breakdown": {
+        "stem_curves": 35.73,
+        "deck_curves": 36.73,
+        "beat_align": 47.36,
+        "bass_swap": 35.32,
+        "outgoing_cut": 1.07,
+        "blend_length": 58.23,
+        "beat_off_ms": 2.9
+      },
+      "current_events": {
+        "bass_swap": 16,
+        "outgoing_cut": 5,
+        "blend_length": 1
+      },
+      "pro_events_scorer": {
+        "bass_swap": 18,
+        "outgoing_cut": 21,
+        "blend_length": 1
+      },
+      "current_align": {
+        "lag_samples": -248832,
+        "lag_ms": -11284.9,
+        "peak": 0.2601,
+        "win_sec": 54.922
+      },
+      "oracle_score": 26.9,
+      "oracle_breakdown": {
+        "stem_curves": 27.97,
+        "deck_curves": 19.22,
+        "beat_align": 42.92,
+        "bass_swap": 1.61,
+        "outgoing_cut": 41.42,
+        "blend_length": 32.25,
+        "beat_off_ms": 5.8,
+        "stems": {
+          "drums": 26.81,
+          "bass": 33.76,
+          "vocals": 24.33,
+          "melody": 26.98
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 1,
+          "outgoing_cut": 16,
+          "blend_length": 10
+        },
+        "events_pro": {
+          "bass_swap": 15,
+          "outgoing_cut": 17,
+          "blend_length": 14
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 486656,
+        "lag_ms": 22070.57,
+        "peak": 0.286,
+        "win_sec": 41.929
+      },
+      "technique_gap": -8.83,
+      "oracle_if_events_perfect": 37.11,
+      "scorer_event_drag": 10.21,
+      "residual": {
+        "stft_unexplained": 0.4117,
+        "unexplained_pre": 0.2869,
+        "unexplained_blend": 0.3887,
+        "unexplained_post": 0.5092,
+        "waveform_residual": 2.1686
+      },
+      "version": {
+        "solo_corr_a": 0.772,
+        "solo_corr_b": 0.2736,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          51.37,
+          63.0
+        ],
+        "locate_a": {
+          "z": 6.828,
+          "cc": 0.3456,
+          "mix_t": 7.105,
+          "track_t": 236.635,
+          "n": 93
+        },
+        "locate_b": {
+          "z": 6.886,
+          "cc": 0.4094,
+          "mix_t": 49.296,
+          "track_t": 68.894,
+          "n": 119
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.994,
+        "rate_b": 0.994,
+        "corr_a_at_best": 0.5992,
+        "corr_a_at_1": 0.4362,
+        "corr_b_at_best": 0.2355,
+        "corr_b_at_1": 0.222,
+        "cents_a": -10.4,
+        "cents_b": -10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": false,
+        "refine_lag_a": 0,
+        "refine_lag_b": -2304
+      },
+      "technique": {
+        "blend_window_s": [
+          0.12,
+          50.37
+        ],
+        "blend_bars": 36.43,
+        "fader_outgoing": {
+          "shape": "curve",
+          "drop_bars": 9.79,
+          "mse": 0.092
+        },
+        "eq_swap_high_minus_bass_bars": 5.07,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 5.374512471655329,
+          "out_mids": 12.373877551020408,
+          "out_high": 12.373877551020408,
+          "in_bass": 6.87437641723356
+        },
+        "events_from_gains": {
+          "bass_swap_s": 6.87,
+          "outgoing_half_s": 5.37,
+          "outgoing_half_high_s": 12.37,
+          "blend_s": 50.25,
+          "blend_bars": 36.43
+        },
+        "phase": {
+          "incoming_drop_clip_s": 2.47,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 1.44,
+        "talk_frac": 0.023,
+        "loose_s": 10.99,
+        "mean_unexplained": 0.492,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": true,
+        "tempo_pitch": false,
+        "extra_material": true
+      },
+      "bucket": "version_mismatch",
+      "costs": {
+        "version_mismatch": 23.213,
+        "extra_material": 46.191,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 3.695,
+        "technique": 0.0,
+        "technique_parts": {
+          "stem_curves": 0.0,
+          "deck_curves": 0.0,
+          "beat_align": 0.0,
+          "bass_swap": 0.0,
+          "outgoing_cut": 4.842,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+      "current_score": 29.95,
+      "current_breakdown": {
+        "stem_curves": 31.67,
+        "deck_curves": 37.64,
+        "beat_align": 25.11,
+        "bass_swap": 0.14,
+        "outgoing_cut": 43.29,
+        "blend_length": 38.2,
+        "beat_off_ms": 26.12
+      },
+      "current_events": {
+        "bass_swap": 24,
+        "outgoing_cut": 7,
+        "blend_length": 1
+      },
+      "pro_events_scorer": {
+        "bass_swap": 0,
+        "outgoing_cut": 8,
+        "blend_length": 4
+      },
+      "current_align": {
+        "lag_samples": 265728,
+        "lag_ms": 12051.16,
+        "peak": 0.2594,
+        "win_sec": 51.949
+      },
+      "oracle_score": 51.25,
+      "oracle_breakdown": {
+        "stem_curves": 71.61,
+        "deck_curves": 45.49,
+        "beat_align": 74.02,
+        "bass_swap": 1.16,
+        "outgoing_cut": 81.55,
+        "blend_length": 1.49,
+        "beat_off_ms": 0.0,
+        "stems": {
+          "drums": 62.07,
+          "bass": 89.31,
+          "vocals": 73.75,
+          "melody": 61.32
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 17,
+          "outgoing_cut": 17,
+          "blend_length": 11
+        },
+        "events_pro": {
+          "bass_swap": 0,
+          "outgoing_cut": 17,
+          "blend_length": 43
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.5804,
+        "win_sec": 64.0
+      },
+      "technique_gap": 21.3,
+      "oracle_if_events_perfect": 69.7,
+      "scorer_event_drag": 18.45,
+      "residual": {
+        "stft_unexplained": 0.0714,
+        "unexplained_pre": 0.1014,
+        "unexplained_blend": 0.1021,
+        "unexplained_post": 0.0061,
+        "waveform_residual": 1.5732
+      },
+      "version": {
+        "solo_corr_a": 0.9045,
+        "solo_corr_b": 0.9953,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.529,
+          "cc": 0.7583,
+          "mix_t": 1.556,
+          "track_t": 131.796,
+          "n": 119
+        },
+        "locate_b": {
+          "z": 10.719,
+          "cc": 0.6451,
+          "mix_t": 45.72,
+          "track_t": 65.898,
+          "n": 125
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.994,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.9583,
+        "corr_a_at_1": 0.9224,
+        "corr_b_at_best": 0.9954,
+        "corr_b_at_1": 0.9954,
+        "cents_a": -10.4,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": 512,
+        "refine_lag_b": -256
+      },
+      "technique": {
+        "blend_window_s": [
+          0.12,
+          46.12
+        ],
+        "blend_bars": 33.35,
+        "fader_outgoing": {
+          "shape": "linear",
+          "drop_bars": 17.04,
+          "mse": 0.0724
+        },
+        "eq_swap_high_minus_bass_bars": 0.54,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 23.122902494331065,
+          "out_mids": 23.622857142857143,
+          "out_high": 23.87283446712018,
+          "in_bass": 12.623854875283447
+        },
+        "events_from_gains": {
+          "bass_swap_s": 12.62,
+          "outgoing_half_s": 23.12,
+          "outgoing_half_high_s": 23.87,
+          "blend_s": 46.0,
+          "blend_bars": 33.35
+        },
+        "phase": {
+          "incoming_drop_clip_s": 46.41,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 1.81,
+        "talk_frac": 0.028,
+        "loose_s": 3.65,
+        "mean_unexplained": 0.137,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 16.465,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 32.285,
+        "technique": 21.3,
+        "technique_parts": {
+          "stem_curves": 11.183,
+          "deck_curves": 1.727,
+          "beat_align": 7.336,
+          "bass_swap": 0.133,
+          "outgoing_cut": 4.591,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
+      "current_score": 25.05,
+      "current_breakdown": {
+        "stem_curves": 35.13,
+        "deck_curves": 24.17,
+        "beat_align": 19.78,
+        "bass_swap": 7.83,
+        "outgoing_cut": 1.06,
+        "blend_length": 57.84,
+        "beat_off_ms": 14.51
+      },
+      "current_events": {
+        "bass_swap": 20,
+        "outgoing_cut": 20,
+        "blend_length": 13
+      },
+      "pro_events_scorer": {
+        "bass_swap": 28,
+        "outgoing_cut": 4,
+        "blend_length": 13
+      },
+      "current_align": {
+        "lag_samples": -210176,
+        "lag_ms": -9531.79,
+        "peak": 0.1265,
+        "win_sec": 56.675
+      },
+      "oracle_score": 57.61,
+      "oracle_breakdown": {
+        "stem_curves": 76.22,
+        "deck_curves": 53.87,
+        "beat_align": 37.41,
+        "bass_swap": 1.55,
+        "outgoing_cut": 84.55,
+        "blend_length": 84.55,
+        "beat_off_ms": 31.93,
+        "stems": {
+          "drums": 83.31,
+          "bass": 93.77,
+          "vocals": 56.05,
+          "melody": 71.77
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 12,
+          "outgoing_cut": 4,
+          "blend_length": 18
+        },
+        "events_pro": {
+          "bass_swap": 28,
+          "outgoing_cut": 4,
+          "blend_length": 18
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 256,
+        "lag_ms": 11.61,
+        "peak": 0.6326,
+        "win_sec": 63.988
+      },
+      "technique_gap": 32.56,
+      "oracle_if_events_perfect": 68.39,
+      "scorer_event_drag": 10.78,
+      "residual": {
+        "stft_unexplained": 0.2207,
+        "unexplained_pre": 0.2822,
+        "unexplained_blend": 0.2678,
+        "unexplained_post": 0.1017,
+        "waveform_residual": 1.6157
+      },
+      "version": {
+        "solo_corr_a": 0.8025,
+        "solo_corr_b": 0.9141,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.058,
+          "cc": 0.5276,
+          "mix_t": 18.622,
+          "track_t": 155.759,
+          "n": 90
+        },
+        "locate_b": {
+          "z": 8.199,
+          "cc": 0.608,
+          "mix_t": 49.017,
+          "track_t": 59.907,
+          "n": 72
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.006,
+        "rate_b": 0.994,
+        "corr_a_at_best": 0.8454,
+        "corr_a_at_1": 0.8144,
+        "corr_b_at_best": 0.972,
+        "corr_b_at_1": 0.972,
+        "cents_a": 10.4,
+        "cents_b": -10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": 4608,
+        "refine_lag_b": 768
+      },
+      "technique": {
+        "blend_window_s": [
+          26.87,
+          41.87
+        ],
+        "blend_bars": 10.87,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": 0.91,
+          "mse": 0.0382
+        },
+        "eq_swap_high_minus_bass_bars": 22.65,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 5.874467120181406,
+          "out_mids": 36.871655328798184,
+          "out_high": 37.121632653061226,
+          "in_bass": 16.623492063492062
+        },
+        "events_from_gains": {
+          "bass_swap_s": 16.62,
+          "outgoing_half_s": 5.87,
+          "outgoing_half_high_s": 37.12,
+          "blend_s": 15.0,
+          "blend_bars": 10.87
+        },
+        "phase": {
+          "incoming_drop_clip_s": 37.38,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "breakdown"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 5.71,
+        "mean_unexplained": 0.508,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 37.022,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 5.368,
+        "technique": 32.56,
+        "technique_parts": {
+          "stem_curves": 11.505,
+          "deck_curves": 6.534,
+          "beat_align": 2.644,
+          "bass_swap": 0.0,
+          "outgoing_cut": 10.019,
+          "blend_length": 2.671
+        }
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__24",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Nu:Logic - Morning Light -> Sigma - Nobody To Love",
+      "current_score": 28.74,
+      "current_breakdown": {
+        "stem_curves": 28.69,
+        "deck_curves": 52.43,
+        "beat_align": 16.56,
+        "bass_swap": 7.26,
+        "outgoing_cut": 41.78,
+        "blend_length": 7.26,
+        "beat_off_ms": 23.22
+      },
+      "current_events": {
+        "bass_swap": 21,
+        "outgoing_cut": 18,
+        "blend_length": 17
+      },
+      "pro_events_scorer": {
+        "bass_swap": 29,
+        "outgoing_cut": 17,
+        "blend_length": 1
+      },
+      "current_align": {
+        "lag_samples": -18432,
+        "lag_ms": -835.92,
+        "peak": 0.1707,
+        "win_sec": 64.0
+      },
+      "oracle_score": 46.42,
+      "oracle_breakdown": {
+        "stem_curves": 40.85,
+        "deck_curves": 68.06,
+        "beat_align": 67.95,
+        "bass_swap": 12.31,
+        "outgoing_cut": 61.55,
+        "blend_length": 8.33,
+        "beat_off_ms": 0.0,
+        "stems": {
+          "drums": 47.95,
+          "bass": 64.32,
+          "vocals": 18.57,
+          "melody": 32.57
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": null,
+          "outgoing_cut": 17,
+          "blend_length": 17
+        },
+        "events_pro": {
+          "bass_swap": 29,
+          "outgoing_cut": 17,
+          "blend_length": 1
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.4584,
+        "win_sec": 64.0
+      },
+      "technique_gap": 17.68,
+      "oracle_if_events_perfect": 58.15,
+      "scorer_event_drag": 11.73,
+      "residual": {
+        "stft_unexplained": 0.4665,
+        "unexplained_pre": 0.184,
+        "unexplained_blend": 0.4664,
+        "unexplained_post": 0.8114,
+        "waveform_residual": 1.5879
+      },
+      "version": {
+        "solo_corr_a": 0.8525,
+        "solo_corr_b": 0.2707,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          56.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 8.784,
+          "cc": 0.7382,
+          "mix_t": 7.268,
+          "track_t": 119.815,
+          "n": 72
+        },
+        "locate_b": {
+          "z": 7.529,
+          "cc": 0.4122,
+          "mix_t": 35.689,
+          "track_t": 56.912,
+          "n": 89
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.994,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.9563,
+        "corr_a_at_1": 0.9117,
+        "corr_b_at_best": 0.3411,
+        "corr_b_at_1": 0.3411,
+        "cents_a": -10.4,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": 0,
+        "refine_lag_b": 10752
+      },
+      "technique": {
+        "blend_window_s": [
+          0.12,
+          63.87
+        ],
+        "blend_bars": 46.21,
+        "fader_outgoing": {
+          "shape": "linear",
+          "drop_bars": 16.85,
+          "mse": 0.2325
+        },
+        "eq_swap_high_minus_bass_bars": -2.17,
+        "filter_sweep": true,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 23.122902494331065,
+          "out_mids": 22.62294784580499,
+          "out_high": 20.123174603174604,
+          "in_bass": 11.123990929705215
+        },
+        "events_from_gains": {
+          "bass_swap_s": 11.12,
+          "outgoing_half_s": 23.12,
+          "outgoing_half_high_s": 20.12,
+          "blend_s": 63.74,
+          "blend_bars": 46.21
+        },
+        "phase": {
+          "incoming_drop_clip_s": 47.35,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 11.07,
+        "mean_unexplained": 0.396,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": true,
+        "tempo_pitch": false,
+        "extra_material": true
+      },
+      "bucket": "version_mismatch",
+      "costs": {
+        "version_mismatch": 17.136,
+        "extra_material": 33.744,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 2.7,
+        "technique": 17.68,
+        "technique_parts": {
+          "stem_curves": 3.405,
+          "deck_curves": 3.439,
+          "beat_align": 7.708,
+          "bass_swap": 0.657,
+          "outgoing_cut": 2.372,
+          "blend_length": 0.107
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+      "current_score": 15.96,
+      "current_breakdown": {
+        "stem_curves": 14.27,
+        "deck_curves": 12.05,
+        "beat_align": 24.61,
+        "bass_swap": 2.83,
+        "outgoing_cut": 34.48,
+        "blend_length": 11.19,
+        "beat_off_ms": 23.22
+      },
+      "current_events": {
+        "bass_swap": 11,
+        "outgoing_cut": 5,
+        "blend_length": 20
+      },
+      "pro_events_scorer": {
+        "bass_swap": 0,
+        "outgoing_cut": 4,
+        "blend_length": 31
+      },
+      "current_align": {
+        "lag_samples": 444672,
+        "lag_ms": 20166.53,
+        "peak": 0.2881,
+        "win_sec": 43.833
+      },
+      "oracle_score": 76.95,
+      "oracle_breakdown": {
+        "stem_curves": 87.93,
+        "deck_curves": 90.14,
+        "beat_align": 56.6,
+        "bass_swap": 92.16,
+        "outgoing_cut": 92.16,
+        "blend_length": 9.71,
+        "beat_off_ms": 5.8,
+        "stems": {
+          "drums": 88.3,
+          "bass": 89.92,
+          "vocals": 83.75,
+          "melody": 89.76
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 18,
+          "outgoing_cut": 18,
+          "blend_length": 13
+        },
+        "events_pro": {
+          "bass_swap": 18,
+          "outgoing_cut": 18,
+          "blend_length": 31
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.6437,
+        "win_sec": 64.0
+      },
+      "technique_gap": 60.99,
+      "oracle_if_events_perfect": 85.2,
+      "scorer_event_drag": 8.25,
+      "residual": {
+        "stft_unexplained": 0.0572,
+        "unexplained_pre": 0.1412,
+        "unexplained_blend": 0.0677,
+        "unexplained_post": 0.0116,
+        "waveform_residual": 2.0502
+      },
+      "version": {
+        "solo_corr_a": 0.8819,
+        "solo_corr_b": 0.9899,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          53.12,
+          63.0
+        ],
+        "locate_a": {
+          "z": 9.852,
+          "cc": 0.5666,
+          "mix_t": 11.471,
+          "track_t": 296.542,
+          "n": 111
+        },
+        "locate_b": {
+          "z": 10.155,
+          "cc": 0.958,
+          "mix_t": 33.622,
+          "track_t": 53.917,
+          "n": 107
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.0,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.9303,
+        "corr_a_at_1": 0.9303,
+        "corr_b_at_best": 0.9918,
+        "corr_b_at_1": 0.9918,
+        "cents_a": 0.0,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": 0,
+        "refine_lag_b": -256
+      },
+      "technique": {
+        "blend_window_s": [
+          0.12,
+          52.12
+        ],
+        "blend_bars": 37.7,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": 0.72,
+          "mse": 0.1038
+        },
+        "eq_swap_high_minus_bass_bars": 0.0,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 23.622857142857143,
+          "out_mids": 23.372879818594104,
+          "out_high": 23.622857142857143,
+          "in_bass": 10.624036281179139
+        },
+        "events_from_gains": {
+          "bass_swap_s": 10.62,
+          "outgoing_half_s": 23.62,
+          "outgoing_half_high_s": 23.62,
+          "blend_s": 52.0,
+          "blend_bars": 37.7
+        },
+        "phase": {
+          "incoming_drop_clip_s": 36.27,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 2.88,
+        "talk_frac": 0.045,
+        "loose_s": 8.18,
+        "mean_unexplained": 0.3,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 6.686,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 16.364,
+        "technique": 60.99,
+        "technique_parts": {
+          "stem_curves": 20.625,
+          "deck_curves": 17.18,
+          "beat_align": 4.798,
+          "bass_swap": 11.613,
+          "outgoing_cut": 6.922,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+      "current_score": 45.11,
+      "current_breakdown": {
+        "stem_curves": 56.45,
+        "deck_curves": 44.26,
+        "beat_align": 55.27,
+        "bass_swap": 0.38,
+        "outgoing_cut": 33.87,
+        "blend_length": 71.69,
+        "beat_off_ms": 2.9
+      },
+      "current_events": {
+        "bass_swap": 21,
+        "outgoing_cut": 20,
+        "blend_length": 29
+      },
+      "pro_events_scorer": {
+        "bass_swap": 0,
+        "outgoing_cut": 17,
+        "blend_length": 29
+      },
+      "current_align": {
+        "lag_samples": -86528,
+        "lag_ms": -3924.17,
+        "peak": 0.4235,
+        "win_sec": 62.283
+      },
+      "oracle_score": 51.92,
+      "oracle_breakdown": {
+        "stem_curves": 70.68,
+        "deck_curves": 62.09,
+        "beat_align": 82.19,
+        "bass_swap": 0.06,
+        "outgoing_cut": 49.1,
+        "blend_length": 2.44,
+        "beat_off_ms": 0.0,
+        "stems": {
+          "drums": 67.44,
+          "bass": 68.25,
+          "vocals": 71.36,
+          "melody": 75.69
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 29,
+          "outgoing_cut": 15,
+          "blend_length": 1
+        },
+        "events_pro": {
+          "bass_swap": 0,
+          "outgoing_cut": 17,
+          "blend_length": 29
+        }
+      },
+      "oracle_align": {
+        "lag_samples": -60928,
+        "lag_ms": -2763.17,
+        "peak": 0.6978,
+        "win_sec": 61.237
+      },
+      "technique_gap": 6.81,
+      "oracle_if_events_perfect": 74.11,
+      "scorer_event_drag": 22.19,
+      "residual": {
+        "stft_unexplained": 0.0884,
+        "unexplained_pre": 0.0213,
+        "unexplained_blend": 0.2408,
+        "unexplained_post": 0.0231,
+        "waveform_residual": 1.992
+      },
+      "version": {
+        "solo_corr_a": 0.9832,
+        "solo_corr_b": 0.9761,
+        "solo_window_a": [
+          1.0,
+          15.37
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 6.459,
+          "cc": 0.8554,
+          "mix_t": 10.194,
+          "track_t": 251.611,
+          "n": 107
+        },
+        "locate_b": {
+          "z": 6.72,
+          "cc": 0.58,
+          "mix_t": 41.935,
+          "track_t": 215.667,
+          "n": 120
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.0,
+        "rate_b": 0.994,
+        "corr_a_at_best": 0.9831,
+        "corr_a_at_1": 0.9831,
+        "corr_b_at_best": 0.9757,
+        "corr_b_at_1": 0.9101,
+        "cents_a": 0.0,
+        "cents_b": -10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": true,
+        "refine_lag_a": 256,
+        "refine_lag_b": -256
+      },
+      "technique": {
+        "blend_window_s": [
+          16.37,
+          43.37
+        ],
+        "blend_bars": 19.57,
+        "fader_outgoing": {
+          "shape": "equal_power",
+          "drop_bars": null,
+          "mse": 0.0616
+        },
+        "eq_swap_high_minus_bass_bars": 15.95,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 25.122721088435373,
+          "out_mids": 23.87283446712018,
+          "out_high": 47.120725623582764,
+          "in_bass": 6.124444444444444
+        },
+        "events_from_gains": {
+          "bass_swap_s": 6.12,
+          "outgoing_half_s": 25.12,
+          "outgoing_half_high_s": 47.12,
+          "blend_s": 27.0,
+          "blend_bars": 19.57
+        },
+        "phase": {
+          "incoming_drop_clip_s": 45.72,
+          "outgoing_phase_at_in_drop": "outro",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.3,
+        "talk_frac": 0.005,
+        "loose_s": 3.98,
+        "mean_unexplained": 0.262,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "scorer_limit",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 18.609,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 29.471,
+        "technique": 6.81,
+        "technique_parts": {
+          "stem_curves": 3.984,
+          "deck_curves": 3.923,
+          "beat_align": 4.038,
+          "bass_swap": 0.0,
+          "outgoing_cut": 1.828,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+      "current_score": 34.61,
+      "current_breakdown": {
+        "stem_curves": 34.89,
+        "deck_curves": 40.43,
+        "beat_align": 57.96,
+        "bass_swap": 1.36,
+        "outgoing_cut": 57.68,
+        "blend_length": 1.54,
+        "beat_off_ms": 2.9
+      },
+      "current_events": {
+        "bass_swap": 8,
+        "outgoing_cut": 8,
+        "blend_length": 30
+      },
+      "pro_events_scorer": {
+        "bass_swap": 23,
+        "outgoing_cut": 8,
+        "blend_length": 1
+      },
+      "current_align": {
+        "lag_samples": 286208,
+        "lag_ms": 12979.95,
+        "peak": 0.3338,
+        "win_sec": 51.02
+      },
+      "oracle_score": 78.42,
+      "oracle_breakdown": {
+        "stem_curves": 84.67,
+        "deck_curves": 76.07,
+        "beat_align": 76.26,
+        "bass_swap": 70.12,
+        "outgoing_cut": 70.12,
+        "blend_length": 90.04,
+        "beat_off_ms": 2.9,
+        "stems": {
+          "drums": 81.99,
+          "bass": 88.95,
+          "vocals": 81.89,
+          "melody": 85.84
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 33,
+          "outgoing_cut": 17,
+          "blend_length": 1
+        },
+        "events_pro": {
+          "bass_swap": 32,
+          "outgoing_cut": 18,
+          "blend_length": 1
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.8506,
+        "win_sec": 64.0
+      },
+      "technique_gap": 43.81,
+      "oracle_if_events_perfect": 83.39,
+      "scorer_event_drag": 4.97,
+      "residual": {
+        "stft_unexplained": 0.1245,
+        "unexplained_pre": 0.0155,
+        "unexplained_blend": 0.1049,
+        "unexplained_post": 0.1261,
+        "waveform_residual": 1.2241
+      },
+      "version": {
+        "solo_corr_a": 0.988,
+        "solo_corr_b": 0.9175,
+        "solo_window_a": [
+          1.0,
+          20.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 7.216,
+          "cc": 0.648,
+          "mix_t": 10.124,
+          "track_t": 161.75,
+          "n": 120
+        },
+        "locate_b": {
+          "z": 9.852,
+          "cc": 0.7549,
+          "mix_t": 48.089,
+          "track_t": 68.894,
+          "n": 104
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.994,
+        "rate_b": 1.006,
+        "corr_a_at_best": 0.99,
+        "corr_a_at_1": 0.9288,
+        "corr_b_at_best": 0.9659,
+        "corr_b_at_1": 0.8446,
+        "cents_a": -10.4,
+        "cents_b": 10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": -256,
+        "refine_lag_b": -256
+      },
+      "technique": {
+        "blend_window_s": [
+          21.87,
+          24.12
+        ],
+        "blend_bars": 1.63,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": null,
+          "mse": 0.0279
+        },
+        "eq_swap_high_minus_bass_bars": 0.0,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 24.12281179138322,
+          "out_mids": 23.87283446712018,
+          "out_high": 24.12281179138322,
+          "in_bass": 24.872743764172334
+        },
+        "events_from_gains": {
+          "bass_swap_s": 24.87,
+          "outgoing_half_s": 24.12,
+          "outgoing_half_high_s": 24.12,
+          "blend_s": 2.25,
+          "blend_bars": 1.63
+        },
+        "phase": {
+          "incoming_drop_clip_s": 63.72,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 1.41,
+        "talk_frac": 0.022,
+        "loose_s": 11.73,
+        "mean_unexplained": 0.38,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 10.158,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 11.422,
+        "technique": 43.81,
+        "technique_parts": {
+          "stem_curves": 13.938,
+          "deck_curves": 7.841,
+          "beat_align": 2.745,
+          "bass_swap": 8.939,
+          "outgoing_cut": 1.493,
+          "blend_length": 8.85
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__00",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+      "current_score": 13.05,
+      "current_breakdown": {
+        "stem_curves": 18.32,
+        "deck_curves": 11.19,
+        "beat_align": 18.27,
+        "bass_swap": 6.35,
+        "outgoing_cut": 10.47,
+        "blend_length": 6.35,
+        "beat_off_ms": 14.51
+      },
+      "current_events": {
+        "bass_swap": 10,
+        "outgoing_cut": 11,
+        "blend_length": 27
+      },
+      "pro_events_scorer": {
+        "bass_swap": 2,
+        "outgoing_cut": 17,
+        "blend_length": 43
+      },
+      "current_align": {
+        "lag_samples": -123136,
+        "lag_ms": -5584.4,
+        "peak": 0.113,
+        "win_sec": 60.622
+      },
+      "oracle_score": 47.21,
+      "oracle_breakdown": {
+        "stem_curves": 58.48,
+        "deck_curves": 35.49,
+        "beat_align": 45.25,
+        "bass_swap": 1.34,
+        "outgoing_cut": 73.01,
+        "blend_length": 73.01,
+        "beat_off_ms": 2.9,
+        "stems": {
+          "drums": 57.66,
+          "bass": 72.47,
+          "vocals": 60.22,
+          "melody": 43.58
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 2,
+          "outgoing_cut": 17,
+          "blend_length": 46
+        },
+        "events_pro": {
+          "bass_swap": 18,
+          "outgoing_cut": 17,
+          "blend_length": 46
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.2401,
+        "win_sec": 64.0
+      },
+      "technique_gap": 34.16,
+      "oracle_if_events_perfect": 56.52,
+      "scorer_event_drag": 9.31,
+      "residual": {
+        "stft_unexplained": 0.1668,
+        "unexplained_pre": 0.0951,
+        "unexplained_blend": 0.24,
+        "unexplained_post": 0.125,
+        "waveform_residual": 1.6787
+      },
+      "version": {
+        "solo_corr_a": 0.9333,
+        "solo_corr_b": 0.9059,
+        "solo_window_a": [
+          1.0,
+          13.62
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 6.323,
+          "cc": 0.723,
+          "mix_t": 24.033,
+          "track_t": 131.796,
+          "n": 104
+        },
+        "locate_b": {
+          "z": 6.502,
+          "cc": 0.5631,
+          "mix_t": 46.951,
+          "track_t": 53.917,
+          "n": 68
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.006,
+        "rate_b": 1.02,
+        "corr_a_at_best": 0.9812,
+        "corr_a_at_1": 0.9331,
+        "corr_b_at_best": 0.8805,
+        "corr_b_at_1": 0.7268,
+        "cents_a": 10.4,
+        "cents_b": 34.3,
+        "flagged_a": false,
+        "flagged_b": true,
+        "rate_applied_a": false,
+        "rate_applied_b": true,
+        "refine_lag_a": 1792,
+        "refine_lag_b": 1280
+      },
+      "technique": {
+        "blend_window_s": [
+          14.62,
+          36.62
+        ],
+        "blend_bars": 15.95,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": 1.99,
+          "mse": 0.0309
+        },
+        "eq_swap_high_minus_bass_bars": null,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 23.87283446712018,
+          "out_mids": 24.12281179138322,
+          "out_high": null,
+          "in_bass": 6.124444444444444
+        },
+        "events_from_gains": {
+          "bass_swap_s": 6.12,
+          "outgoing_half_s": 23.87,
+          "outgoing_half_high_s": null,
+          "blend_s": 22.0,
+          "blend_bars": 15.95
+        },
+        "phase": {
+          "incoming_drop_clip_s": 24.19,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 0.8,
+        "mean_unexplained": 0.157,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": true,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 14.705,
+        "tempo_pitch": 35.264,
+        "scorer_limit": 2.821,
+        "technique": 34.16,
+        "technique_parts": {
+          "stem_curves": 11.245,
+          "deck_curves": 5.346,
+          "beat_align": 4.047,
+          "bass_swap": 0.0,
+          "outgoing_cut": 7.505,
+          "blend_length": 6.666
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+      "current_score": 32.25,
+      "current_breakdown": {
+        "stem_curves": 40.9,
+        "deck_curves": 29.41,
+        "beat_align": 23.79,
+        "bass_swap": 12.32,
+        "outgoing_cut": 61.58,
+        "blend_length": 17.64,
+        "beat_off_ms": 17.41
+      },
+      "current_events": {
+        "bass_swap": null,
+        "outgoing_cut": 4,
+        "blend_length": 20
+      },
+      "pro_events_scorer": {
+        "bass_swap": 2,
+        "outgoing_cut": 4,
+        "blend_length": 30
+      },
+      "current_align": {
+        "lag_samples": 297984,
+        "lag_ms": 13514.01,
+        "peak": 0.2368,
+        "win_sec": 50.486
+      },
+      "oracle_score": 63.0,
+      "oracle_breakdown": {
+        "stem_curves": 81.01,
+        "deck_curves": 56.3,
+        "beat_align": 70.25,
+        "bass_swap": 3.4,
+        "outgoing_cut": 68.27,
+        "blend_length": 87.66,
+        "beat_off_ms": 2.9,
+        "stems": {
+          "drums": 88.87,
+          "bass": 96.32,
+          "vocals": 60.49,
+          "melody": 78.36
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 1,
+          "outgoing_cut": 5,
+          "blend_length": 29
+        },
+        "events_pro": {
+          "bass_swap": 14,
+          "outgoing_cut": 6,
+          "blend_length": 29
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.7424,
+        "win_sec": 64.0
+      },
+      "technique_gap": 30.75,
+      "oracle_if_events_perfect": 76.29,
+      "scorer_event_drag": 13.29,
+      "residual": {
+        "stft_unexplained": 0.1602,
+        "unexplained_pre": 0.1875,
+        "unexplained_blend": 0.3868,
+        "unexplained_post": 0.1016,
+        "waveform_residual": 1.6297
+      },
+      "version": {
+        "solo_corr_a": 0.8979,
+        "solo_corr_b": 0.9401,
+        "solo_window_a": [
+          1.0,
+          6.37
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 10.649,
+          "cc": 0.6763,
+          "mix_t": 6.664,
+          "track_t": 182.718,
+          "n": 105
+        },
+        "locate_b": {
+          "z": 6.758,
+          "cc": 0.6335,
+          "mix_t": 29.164,
+          "track_t": 92.857,
+          "n": 119
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 0.99,
+        "rate_b": 1.006,
+        "corr_a_at_best": 0.7122,
+        "corr_a_at_1": 0.6912,
+        "corr_b_at_best": 0.9349,
+        "corr_b_at_1": 0.8493,
+        "cents_a": -17.4,
+        "cents_b": 10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": true,
+        "refine_lag_a": 2560,
+        "refine_lag_b": 512
+      },
+      "technique": {
+        "blend_window_s": [
+          7.37,
+          24.37
+        ],
+        "blend_bars": 12.32,
+        "fader_outgoing": {
+          "shape": "cut",
+          "drop_bars": null,
+          "mse": 0.0368
+        },
+        "eq_swap_high_minus_bass_bars": -5.44,
+        "filter_sweep": true,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 17.623401360544218,
+          "out_mids": 20.62312925170068,
+          "out_high": 10.124081632653061,
+          "in_bass": 15.123628117913832
+        },
+        "events_from_gains": {
+          "bass_swap_s": 15.12,
+          "outgoing_half_s": 17.62,
+          "outgoing_half_high_s": 10.12,
+          "blend_s": 17.0,
+          "blend_bars": 12.32
+        },
+        "phase": {
+          "incoming_drop_clip_s": 24.61,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "build"
+        }
+      },
+      "talkover": {
+        "talk_s": 1.14,
+        "talk_frac": 0.018,
+        "loose_s": 18.82,
+        "mean_unexplained": 0.462,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 30.84,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 6.16,
+        "technique": 30.75,
+        "technique_parts": {
+          "stem_curves": 11.231,
+          "deck_curves": 5.916,
+          "beat_align": 6.969,
+          "bass_swap": 0.0,
+          "outgoing_cut": 0.803,
+          "blend_length": 7.002
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+      "current_score": 15.09,
+      "current_breakdown": {
+        "stem_curves": 19.08,
+        "deck_curves": 14.04,
+        "beat_align": 32.67,
+        "bass_swap": 5.0,
+        "outgoing_cut": 2.36,
+        "blend_length": 8.24,
+        "beat_off_ms": 5.8
+      },
+      "current_events": {
+        "bass_swap": 17,
+        "outgoing_cut": 17,
+        "blend_length": 22
+      },
+      "pro_events_scorer": {
+        "bass_swap": 8,
+        "outgoing_cut": 5,
+        "blend_length": 8
+      },
+      "current_align": {
+        "lag_samples": -315648,
+        "lag_ms": -14315.1,
+        "peak": 0.1112,
+        "win_sec": 51.892
+      },
+      "oracle_score": 69.69,
+      "oracle_breakdown": {
+        "stem_curves": 89.03,
+        "deck_curves": 66.58,
+        "beat_align": 74.92,
+        "bass_swap": 56.33,
+        "outgoing_cut": 92.87,
+        "blend_length": 4.08,
+        "beat_off_ms": 2.9,
+        "stems": {
+          "drums": 89.01,
+          "bass": 92.85,
+          "vocals": 86.88,
+          "melody": 87.38
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 12,
+          "outgoing_cut": 5,
+          "blend_length": 41
+        },
+        "events_pro": {
+          "bass_swap": 10,
+          "outgoing_cut": 5,
+          "blend_length": 16
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.8272,
+        "win_sec": 64.0
+      },
+      "technique_gap": 54.6,
+      "oracle_if_events_perfect": 83.32,
+      "scorer_event_drag": 13.63,
+      "residual": {
+        "stft_unexplained": 0.1032,
+        "unexplained_pre": 0.0971,
+        "unexplained_blend": 0.1098,
+        "unexplained_post": 0.0518,
+        "waveform_residual": 1.8815
+      },
+      "version": {
+        "solo_corr_a": 0.9355,
+        "solo_corr_b": 0.9623,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          56.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 7.953,
+          "cc": 0.6152,
+          "mix_t": 2.554,
+          "track_t": 176.727,
+          "n": 119
+        },
+        "locate_b": {
+          "z": 10.445,
+          "cc": 0.6719,
+          "mix_t": 49.412,
+          "track_t": 74.884,
+          "n": 104
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.006,
+        "rate_b": 1.006,
+        "corr_a_at_best": 0.8704,
+        "corr_a_at_1": 0.8115,
+        "corr_b_at_best": 0.965,
+        "corr_b_at_1": 0.8992,
+        "cents_a": 10.4,
+        "cents_b": 10.4,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": true,
+        "refine_lag_a": 512,
+        "refine_lag_b": 256
+      },
+      "technique": {
+        "blend_window_s": [
+          0.12,
+          58.87
+        ],
+        "blend_bars": 42.59,
+        "fader_outgoing": {
+          "shape": "curve",
+          "drop_bars": 13.77,
+          "mse": 0.0251
+        },
+        "eq_swap_high_minus_bass_bars": 7.79,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 20.123174603174604,
+          "out_mids": 22.872925170068026,
+          "out_high": 30.872199546485263,
+          "in_bass": 16.623492063492062
+        },
+        "events_from_gains": {
+          "bass_swap_s": 16.62,
+          "outgoing_half_s": 20.12,
+          "outgoing_half_high_s": 30.87,
+          "blend_s": 58.74,
+          "blend_bars": 42.59
+        },
+        "phase": {
+          "incoming_drop_clip_s": 46.27,
+          "outgoing_phase_at_in_drop": "breakdown",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 4.08,
+        "mean_unexplained": 0.191,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 12.862,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 17.448,
+        "technique": 54.6,
+        "technique_parts": {
+          "stem_curves": 19.586,
+          "deck_curves": 11.559,
+          "beat_align": 6.337,
+          "bass_swap": 6.673,
+          "outgoing_cut": 10.861,
+          "blend_length": 0.0
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+      "current_score": 16.93,
+      "current_breakdown": {
+        "stem_curves": 8.15,
+        "deck_curves": 23.74,
+        "beat_align": 22.7,
+        "bass_swap": 11.55,
+        "outgoing_cut": 8.06,
+        "blend_length": 35.56,
+        "beat_off_ms": 23.22
+      },
+      "current_events": {
+        "bass_swap": 12,
+        "outgoing_cut": 7,
+        "blend_length": 19
+      },
+      "pro_events_scorer": {
+        "bass_swap": 17,
+        "outgoing_cut": null,
+        "blend_length": 18
+      },
+      "current_align": {
+        "lag_samples": 143872,
+        "lag_ms": 6524.81,
+        "peak": 0.248,
+        "win_sec": 44.138
+      },
+      "oracle_score": 73.85,
+      "oracle_breakdown": {
+        "stem_curves": 87.85,
+        "deck_curves": 85.74,
+        "beat_align": 53.3,
+        "bass_swap": 43.51,
+        "outgoing_cut": 71.73,
+        "blend_length": 81.28,
+        "beat_off_ms": 5.8,
+        "stems": {
+          "drums": 87.2,
+          "bass": 91.02,
+          "vocals": 86.16,
+          "melody": 87.02
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 19,
+          "outgoing_cut": 5,
+          "blend_length": 28
+        },
+        "events_pro": {
+          "bass_swap": 22,
+          "outgoing_cut": 4,
+          "blend_length": 29
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.5789,
+        "win_sec": 64.0
+      },
+      "technique_gap": 56.92,
+      "oracle_if_events_perfect": 83.69,
+      "scorer_event_drag": 9.84,
+      "residual": {
+        "stft_unexplained": 0.1679,
+        "unexplained_pre": 0.1637,
+        "unexplained_blend": 0.1705,
+        "unexplained_post": 0.195,
+        "waveform_residual": 1.5827
+      },
+      "version": {
+        "solo_corr_a": 0.882,
+        "solo_corr_b": 0.819,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          56.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 6.386,
+          "cc": 0.6658,
+          "mix_t": 20.48,
+          "track_t": 194.699,
+          "n": 109
+        },
+        "locate_b": {
+          "z": 8.014,
+          "cc": 0.4833,
+          "mix_t": 45.232,
+          "track_t": 65.898,
+          "n": 86
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.006,
+        "rate_b": 1.02,
+        "corr_a_at_best": 0.9025,
+        "corr_a_at_1": 0.7506,
+        "corr_b_at_best": 0.8308,
+        "corr_b_at_1": 0.6836,
+        "cents_a": 10.4,
+        "cents_b": 34.3,
+        "flagged_a": false,
+        "flagged_b": true,
+        "rate_applied_a": true,
+        "rate_applied_b": true,
+        "refine_lag_a": 512,
+        "refine_lag_b": 1024
+      },
+      "technique": {
+        "blend_window_s": [
+          1.12,
+          63.87
+        ],
+        "blend_bars": 45.49,
+        "fader_outgoing": {
+          "shape": "linear",
+          "drop_bars": 2.9,
+          "mse": 0.0417
+        },
+        "eq_swap_high_minus_bass_bars": 1.45,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 23.622857142857143,
+          "out_mids": 25.122721088435373,
+          "out_high": 25.62267573696145,
+          "in_bass": 21.623038548752834
+        },
+        "events_from_gains": {
+          "bass_swap_s": 21.62,
+          "outgoing_half_s": 23.62,
+          "outgoing_half_high_s": 25.62,
+          "blend_s": 62.74,
+          "blend_bars": 45.49
+        },
+        "phase": {
+          "incoming_drop_clip_s": 24.4,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "breakdown"
+        }
+      },
+      "talkover": {
+        "talk_s": 2.29,
+        "talk_frac": 0.036,
+        "loose_s": 6.26,
+        "mean_unexplained": 0.431,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": true,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 7.319,
+        "tempo_pitch": 17.436,
+        "scorer_limit": 1.395,
+        "technique": 56.92,
+        "technique_parts": {
+          "stem_curves": 22.316,
+          "deck_curves": 13.64,
+          "beat_align": 4.59,
+          "bass_swap": 4.155,
+          "outgoing_cut": 7.64,
+          "blend_length": 4.572
+        }
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+      "current_score": 20.39,
+      "current_breakdown": {
+        "stem_curves": 21.19,
+        "deck_curves": 20.19,
+        "beat_align": 52.88,
+        "bass_swap": 2.43,
+        "outgoing_cut": 3.12,
+        "blend_length": 13.97,
+        "beat_off_ms": 0.0
+      },
+      "current_events": {
+        "bass_swap": 23,
+        "outgoing_cut": 4,
+        "blend_length": 22
+      },
+      "pro_events_scorer": {
+        "bass_swap": 35,
+        "outgoing_cut": 15,
+        "blend_length": 12
+      },
+      "current_align": {
+        "lag_samples": -70656,
+        "lag_ms": -3204.35,
+        "peak": 0.1382,
+        "win_sec": 63.003
+      },
+      "oracle_score": 92.39,
+      "oracle_breakdown": {
+        "stem_curves": 94.0,
+        "deck_curves": 97.5,
+        "beat_align": 73.22,
+        "bass_swap": 96.1,
+        "outgoing_cut": 96.1,
+        "blend_length": 96.1,
+        "beat_off_ms": 2.9,
+        "stems": {
+          "drums": 95.63,
+          "bass": 97.78,
+          "vocals": 89.57,
+          "melody": 93.02
+        }
+      },
+      "oracle_events": {
+        "events_oracle": {
+          "bass_swap": 35,
+          "outgoing_cut": 15,
+          "blend_length": 13
+        },
+        "events_pro": {
+          "bass_swap": 35,
+          "outgoing_cut": 15,
+          "blend_length": 13
+        }
+      },
+      "oracle_align": {
+        "lag_samples": 0,
+        "lag_ms": 0.0,
+        "peak": 0.797,
+        "win_sec": 64.0
+      },
+      "technique_gap": 72.0,
+      "oracle_if_events_perfect": 92.39,
+      "scorer_event_drag": 0.0,
+      "residual": {
+        "stft_unexplained": 0.0109,
+        "unexplained_pre": 0.0089,
+        "unexplained_blend": 0.0152,
+        "unexplained_post": 0.0084,
+        "waveform_residual": 2.064
+      },
+      "version": {
+        "solo_corr_a": 0.9879,
+        "solo_corr_b": 0.9934,
+        "solo_window_a": [
+          1.0,
+          6.0
+        ],
+        "solo_window_b": [
+          48.0,
+          63.0
+        ],
+        "locate_a": {
+          "z": 7.804,
+          "cc": 0.7846,
+          "mix_t": 5.317,
+          "track_t": 200.69,
+          "n": 131
+        },
+        "locate_b": {
+          "z": 8.879,
+          "cc": 0.5289,
+          "mix_t": 25.24,
+          "track_t": 44.931,
+          "n": 101
+        }
+      },
+      "tempo_pitch": {
+        "rate_a": 1.0,
+        "rate_b": 1.0,
+        "corr_a_at_best": 0.9766,
+        "corr_a_at_1": 0.9766,
+        "corr_b_at_best": 0.994,
+        "corr_b_at_1": 0.994,
+        "cents_a": 0.0,
+        "cents_b": 0.0,
+        "flagged_a": false,
+        "flagged_b": false,
+        "rate_applied_a": false,
+        "rate_applied_b": false,
+        "refine_lag_a": 0,
+        "refine_lag_b": 256
+      },
+      "technique": {
+        "blend_window_s": [
+          4.12,
+          34.87
+        ],
+        "blend_bars": 22.29,
+        "fader_outgoing": {
+          "shape": "equal_power",
+          "drop_bars": null,
+          "mse": 0.0205
+        },
+        "eq_swap_high_minus_bass_bars": 2.54,
+        "filter_sweep": false,
+        "loop_shift_bars": [],
+        "echo_out": false,
+        "half_cross_s": {
+          "out_bass": 23.372879818594104,
+          "out_mids": 24.6227664399093,
+          "out_high": 26.872562358276642,
+          "in_bass": 22.62294784580499
+        },
+        "events_from_gains": {
+          "bass_swap_s": 22.62,
+          "outgoing_half_s": 23.37,
+          "outgoing_half_high_s": 26.87,
+          "blend_s": 30.75,
+          "blend_bars": 22.29
+        },
+        "phase": {
+          "incoming_drop_clip_s": 46.13,
+          "outgoing_phase_at_in_drop": "drop",
+          "outgoing_phase_at_blend_start": "drop"
+        }
+      },
+      "talkover": {
+        "talk_s": 0.0,
+        "talk_frac": 0.0,
+        "loose_s": 1.95,
+        "mean_unexplained": 0.118,
+        "flagged": false
+      },
+      "flags": {
+        "version_mismatch": false,
+        "tempo_pitch": false,
+        "extra_material": false
+      },
+      "bucket": "technique",
+      "costs": {
+        "version_mismatch": 0.0,
+        "extra_material": 0.55,
+        "tempo_pitch": 0.0,
+        "scorer_limit": 7.06,
+        "technique": 72.0,
+        "technique_parts": {
+          "stem_curves": 20.387,
+          "deck_curves": 17.008,
+          "beat_align": 3.051,
+          "bass_swap": 12.177,
+          "outgoing_cut": 11.158,
+          "blend_length": 8.213
+        }
+      }
+    }
+  ]
+}

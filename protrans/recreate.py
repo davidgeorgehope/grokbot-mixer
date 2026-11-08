@@ -36,9 +36,21 @@ def _ensure_bar_proxies(st_js):
     if 'voc' not in bar and al:
         bar['voc']=[-100.0]*len(al)
     g['bar']=bar
-    json.dump(g, open(st_js,'w'))
+    tmp=st_js+f'.tmp{os.getpid()}'
+    with open(tmp,'w') as f: json.dump(g, f)
+    os.replace(tmp, st_js)  # atomic: concurrent readers never see a half-written file
 
 def _prep_track(ytid, src_m4a, created):
+    """Serialize prep per track: adjacent pairs share a track and parallel workers
+    used to re-prep it at the same time, truncating st/{id}.json (JSONDecodeError
+    on 11/37 pairs in the 7 Nov tune)."""
+    import fcntl
+    os.makedirs('/tmp/protrans_work', exist_ok=True)
+    with open(os.path.join('/tmp/protrans_work', f'{ytid}.lock'), 'w') as lk:
+        fcntl.flock(lk, fcntl.LOCK_EX)
+        return _prep_track_locked(ytid, src_m4a, created)
+
+def _prep_track_locked(ytid, src_m4a, created):
     """Stretch/grid into a private st/ then symlink into src2 if missing. No demucs."""
     src2 = paths.SRC2
     st_wav = os.path.join(src2, 'st', f'{ytid}.wav')

@@ -1,12 +1,18 @@
 {
  "mix": "07",
  "name": "mix07r17",
- "stage": "escalated",
+ "stage": "delivered",
  "tested": true,
- "delivered": false,
+ "delivered": true,
  "n_fail_guard": 0,
- "pytest": "84 passed / 0 failed (2026-11-07 12:15 ET)",
- "min": 60.9,
- "updated_et": "2026-11-07 12:25 ET",
- "notes": "Tail-window calibration done. r12 Day-Par last 5 bars fail (1115 -24ms/0.62, 1116 -14ms/0.73) due to la-loop Day 123-127 over Parallel intro 11-15 + opposing nudges. r17 n 128/32/16 drop overlay: tail -4..+1ms corr 0.99-1.0. 6 heard-OK r17 clips pass; r17 pytest 84/84; guard 0. Pros planned-deck clip-level 8/37, bar-level 92.2%. Not delivered (YouTube/Drive/iCloud still to run)."
+ "pytest": "84 passed / 0 failed",
+ "min": 60.91,
+ "lufs": -9.4,
+ "updated_et": "2026-11-07 13:02 ET",
+ "youtube": "https://youtu.be/tK56WckbctM",
+ "drive": "https://drive.google.com/file/d/1z6KodW49WKdALb9Fqhts1u4j_PswPNgO/view",
+ "icloud": "DJ Mixes / DJ Grok Bot \u2013 Mix 07.mp3",
+ "visuals": "Camelot Chladni Plate 1080p30",
+ "preview": "/workspace/mixes/visuals/mix07_proto/preview30.mp4",
+ "notes": "Delivered r17: 60.91 min, guard 0, pytest 84/84. Drive 128k latest only, iCloud DJ Mixes latest only (no prior Mix 07 to replace). Public YouTube + oembed ok. Visuals: Camelot Chladni Plate (new this week). backup_mixer_to_git.sh ok (8905ad7 / public 6d3fc5b). cleanup_after_build --delivered freed 18600 MB (r17 wavs + stems)."
 }

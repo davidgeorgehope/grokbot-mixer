@@ -156,3 +156,25 @@ Example pairs (pro vs ours, after the kept rule):
 - Nightly yt-dlp on the download machine pointed at a missing Python, so fetch uses Homebrew Python 3.13 plus the nightly package and Safari cookies. Older brew yt-dlp hit HTTP 403.
 - This run did not yet test a third DJ (Grafix / Liquicity / UKF). Doing that needs more full-mix audio or section pulls.
 - Yearmixes are catalogued but not extracted here (very short slots). Dimension / Old Guard remain unlistable (no reliable tracklist).
+
+## Daily rounds (from 8 Nov 2026)
+
+One unused admitted TRAIN pick per day, logged in `log.jsonl` (pick, scores,
+rules tried/kept/reverted, train/test means, which daily clip is pro).
+Clips: `deliver/protrans/daily_<date>_A.mp3` / `_B.mp3` (random pro/ours).
+
+8 Nov fixes (baseline rescored on all 37 so numbers are comparable):
+- `recreate.py` serializes per-track prep and writes `st/*.json` atomically.
+  Parallel workers had truncated shared JSONs, so 11/37 pairs failed on 7 Nov
+  and the later 7 Nov means (21.49 / 23.53) were over only 26 survivors.
+- `score.py` measures bass-swap / outgoing-cut / blend-length in bars (it was
+  using 23 ms frames against bar-sized tolerances). Weights unchanged.
+- Fixed baseline, current rules: train 23.86, test 29.74 (n=37, 0 fails).
+
+## DJ talkover filter (2026-11-08)
+`talkover.py` separates vocals (htdemucs) from the pro clip and both time-aligned sources, fits the pro vocal
+spectrum as a non-negative mix of the two source vocals per 2 s window, and counts active voice the fit can't
+explain while both source vocals are locally quiet. Flag at >= 4 s or >= 15% of the 64 s clip. Enforced in
+`admit.process_pair` (new admissions), `admit.apply_talkover()` (moves flagged rows to
+`results/talkover_rejected.json`) and `run_admitted_tune.load_recs()` (daily pick + nightly tune).
+Cache: `results/talkover.json`. Clean baseline: `results/baseline_clean.json` (33 clips).

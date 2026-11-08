@@ -74,6 +74,20 @@ def load_admitted():
         return json.load(open(ADMITTED))
     return []
 
+def apply_talkover(rows=None):
+    """Drop talkover-flagged rows from admitted.json into results/talkover_rejected.json."""
+    import talkover
+    rows = load_admitted() if rows is None else rows
+    bad = talkover.flagged_ids()
+    keep = [r for r in rows if r['id'] not in bad]
+    drop = [r for r in rows if r['id'] in bad]
+    p = os.path.join(paths.RESULTS, 'talkover_rejected.json')
+    old = json.load(open(p)) if os.path.exists(p) else []
+    seen = {r['id'] for r in old}
+    json.dump(old + [r for r in drop if r['id'] not in seen], open(p, 'w'), indent=2)
+    save_admitted(keep)
+    return keep, drop
+
 def save_admitted(rows):
     json.dump(rows, open(ADMITTED,'w'), indent=2)
 
@@ -115,6 +129,13 @@ def process_pair(c, mix_audio):
         verdict='admit' if gate.get('passed') else 'reject',
         reason='; '.join(gate.get('reasons') or []) or None,
     )
+    if gate.get('passed'):
+        import talkover
+        tk = talkover.check_row(row)
+        row['talkover'] = {k: tk.get(k) for k in ('talk_s', 'talk_frac', 'flagged')}
+        if tk.get('flagged'):
+            row['verdict'] = 'reject'; row['reason'] = f"dj_talkover {tk['talk_s']}s"
+            gate['passed'] = False
     if not gate.get('passed'):
         # drop clip if rejected
         shutil.rmtree(os.path.dirname(rec['pro_clip']), ignore_errors=True)

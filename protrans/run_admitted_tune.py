@@ -16,7 +16,9 @@ STATE = os.path.join(paths.RESULTS, 'tune_state.json')
 DONE = os.path.join(paths.RESULTS, 'tune_done.json')
 
 def load_recs():
-    rows = json.load(open(os.path.join(paths.RESULTS, 'admitted.json')))
+    import talkover
+    bad = talkover.flagged_ids()  # DJ/MC talkover clips never enter scoring, tuning or the daily pick
+    rows = [r for r in json.load(open(os.path.join(paths.RESULTS, 'admitted.json'))) if r['id'] not in bad]
     recs = []
     for r in rows:
         pro = os.path.join(paths.CLIPS, r['split'], r['id'], 'pro.wav')

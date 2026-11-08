@@ -121,8 +121,28 @@ def time_sim(t_ours, t_pro, scale):
     if t_ours is None or t_pro is None: return 20.0
     return float(np.clip(100 * np.exp(-abs(t_ours-t_pro) / max(scale, 1e-6)), 0, 100))
 
+BAR_SEC = 240.0 / 174.0  # one 4/4 bar at the harness tempo
+
+def _to_bars(db, hop=HOP, sr=SR):
+    """Pool a per-frame dB curve into per-bar dB (mean power)."""
+    db = np.asarray(db, float)
+    fpb = BAR_SEC * sr / hop
+    nb = int(len(db) // fpb)
+    if nb < 1:
+        return db
+    p = 10 ** (db / 10.0)
+    out = [10*np.log10(np.mean(p[int(round(k*fpb)):int(round((k+1)*fpb))]) + 1e-12) for k in range(nb)]
+    return np.array(out)
+
 def events_from_pair(out_db, in_db):
-    """bass_swap (first bar incoming>outgoing), outgoing_cut (first -6 dB from pre), blend_len."""
+    """bass_swap (first bar incoming>outgoing), outgoing_cut (first -6 dB from pre), blend_len.
+
+    Inputs are per-frame dB curves (HOP samples). Events are measured in BARS:
+    the time_sim scales (4, 4, 8) were written as bars, but until 8 Nov 2026 the
+    events were computed on raw 23 ms frames, so a 4-frame (~93 ms) tolerance
+    made these terms ~0 for almost every pair. Fixed unit bug, weights unchanged.
+    """
+    out_db, in_db = _to_bars(out_db), _to_bars(in_db)
     n = min(len(out_db), len(in_db))
     o, i = out_db[:n], in_db[:n]
     pre = 4 if n > 8 else max(1, n//6)

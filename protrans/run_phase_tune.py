@@ -14,7 +14,7 @@ LOCK = os.path.join(paths.RESULTS, 'phase_tune.lock')
 
 def busy():
     import subprocess
-    out = subprocess.check_output(['pgrep', '-af', 'run_admitted_tune.py'], text=True)
+    out = subprocess.run(['pgrep', '-af', 'run_admitted_tune.py'], text=True, capture_output=True).stdout  # pgrep exits 1 when nothing matches
     mine = str(os.getpid())
     others = [ln for ln in out.splitlines() if 'run_admitted_tune.py' in ln and mine not in ln]
     return others

@@ -21,11 +21,6 @@ def test_x1_fails_steep_step():
 def test_x1_fails_extra_automation():
   M=synth([[k/4,k/64] for k in range(65)]);M['decks'][0]['auto']['voc']=[[4,1],[5,0.2]]
   assert run(M)
-@pytest.mark.skipif(not os.path.exists(f'{SRC}/{NAME}_meta.json'),reason='mix meta missing')
-def test_x1_on_mix():
-  M=json.load(open(f'{SRC}/{NAME}_meta.json'))
-  if M.get('engine')!='simple_crossfader':pytest.skip('legacy engine')
-  assert run(M)==[]
 def bass(M,swap=(7,9),steps=16,up_extra=None):
   c0,c1=swap
   def r(up):return [[c0+(c1-c0)*j/steps,float((1-np.cos(np.pi*j/steps))/2 if up else (1+np.cos(np.pi*j/steps))/2)] for j in range(steps+1)]
@@ -44,11 +39,3 @@ def test_x1_passes_bass_swap_at_35pct():
   assert run(bass(synth([[k/4,k/64] for k in range(65)]),swap=(4.5,6.5)))==[]
 def test_x1_fails_bass_swap_not_tied_to_crossfader():
   assert run(bass(synth([[k/4,k/64] for k in range(65)]),swap=(13,15)))
-def test_mix_bass_swaps_monotonic_smooth():
-  if not os.path.exists(f'{SRC}/{NAME}_meta.json'):pytest.skip('mix meta missing')
-  M=json.load(open(f'{SRC}/{NAME}_meta.json'))
-  for d in M['decks']:
-    lo=d['auto'].get('low') or []
-    v=np.array([p[1] for p in lo]);
-    if len(v)<2:continue
-    assert np.abs(np.diff(v)).max()<=0.25,(d['id'],'bass EQ step too big')

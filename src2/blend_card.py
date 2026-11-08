@@ -8,7 +8,7 @@ import os, sys, json, copy, shutil, numpy as np
 LANES = [('drums', '#ffaa3c'), ('bass', '#ff4678'), ('melody', '#5ac8ff'), ('vocals', '#aaff8c')]
 HOP = 1024
 def deck_lanes(tim):  # engine paths are relative to src2
-    cwd = os.getcwd(); os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    cwd = os.getcwd(); os.chdir(tim.get('source_dir', os.path.dirname(os.path.abspath(__file__))))
     try: return _deck_lanes(tim)
     finally: os.chdir(cwd)
 

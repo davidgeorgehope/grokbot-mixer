@@ -35,7 +35,7 @@ for it in range(start,start+20):
   G=json.load(open(f'guard_{gname}/guardrails.json'));M=json.load(open(f'{gname}_meta.json'));T=M['trans']
   if G['n_fail']==0:
     log(f'iter {it}: {plan} guardrails 0 fails; running full pytest');open('../mix05v2/FINAL_NAME','w').write(f'{gname} {plan}')
-    rc=sh(f"DROP_FRAC=0.25 MIX_NAME={gname} MIX_MP3={MP3} MIX_WAV=/workspace/mixes/src2/{gname}_master.wav python3 -m pytest -q -p no:cacheprovider ../src/tests > ../mix05v2/{gname}_pytest.log 2>&1")
+    rc=sh(f"DROP_FRAC=0.25 MIX_NAME={gname} MIX_MP3={MP3} MIX_WAV=/workspace/mixes/src2/{gname}_master.wav python3 -m pytest -q -p no:cacheprovider ../src/tests ../src/build_qa > ../mix05v2/{gname}_pytest.log 2>&1")
     log(f'pytest exit {rc}: '+open(f'../mix05v2/{gname}_pytest.log').read().strip().splitlines()[-1]);sys.exit(rc)
   bad=set()
   for f in G['failures']:

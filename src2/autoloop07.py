@@ -29,7 +29,7 @@ name='mix07r0'
 G=render(name,plan0)
 if G is None:log('render failed');sys.exit(3)
 if G['n_fail']==0:
-  rc=sh(f"MIX_NAME={name} MIX_MP3={MP3} MIX_WAV=/workspace/mixes/src2/{name}_master.wav python3 -m pytest -q -p no:cacheprovider ../src/tests > {LOG}/{name}_pytest.log 2>&1")
+  rc=sh(f"MIX_NAME={name} MIX_MP3={MP3} MIX_WAV=/workspace/mixes/src2/{name}_master.wav python3 -m pytest -q -p no:cacheprovider ../src/tests ../src/build_qa > {LOG}/{name}_pytest.log 2>&1")
   log(f'pytest exit {rc}: '+open(f'{LOG}/{name}_pytest.log').read().strip().splitlines()[-1])
   open(f'{LOG}/FINAL_NAME','w').write(f'{name} {plan0}')
   sys.exit(rc)
@@ -56,7 +56,7 @@ try:
   if os.path.exists('plan_mix07_r1.json'):
     G2=render('mix07r1','plan_mix07_r1.json')
     if G2 and G2['n_fail']==0:
-      rc=sh(f"MIX_NAME=mix07r1 MIX_MP3={MP3} MIX_WAV=/workspace/mixes/src2/mix07r1_master.wav python3 -m pytest -q -p no:cacheprovider ../src/tests > {LOG}/mix07r1_pytest.log 2>&1")
+      rc=sh(f"MIX_NAME=mix07r1 MIX_MP3={MP3} MIX_WAV=/workspace/mixes/src2/mix07r1_master.wav python3 -m pytest -q -p no:cacheprovider ../src/tests ../src/build_qa > {LOG}/mix07r1_pytest.log 2>&1")
       log(f'r1 pytest {rc}');open(f'{LOG}/FINAL_NAME','w').write('mix07r1 plan_mix07_r1.json');sys.exit(rc)
 except Exception as e:
   log(f'repair err {e}')

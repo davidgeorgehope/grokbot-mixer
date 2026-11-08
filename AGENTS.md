@@ -59,7 +59,7 @@ This runs, in order:
 - `mix_simple.py`, which writes `NAME_raw.wav` and `NAME_meta.json` (including each blend's logged crossfader curve).
 - `master.sh`, which writes `NAME_master.wav` and a 320k MP3. Pick a `GAIN_DB` that lands around -9 LUFS.
 - `guardrails.py --png`, which writes `guard_NAME/`.
-- `pytest src/tests`.
+- `pytest src/tests src/build_qa` (fixture regressions plus the selected live-build acceptance gates, before cleanup).
 
 The script prints `RESULT guardrails_exit= pytest_exit=`. For timing fails (F1/N1), run `autofix.py` to write warp nudges, then re-render. Never loosen a threshold.
 

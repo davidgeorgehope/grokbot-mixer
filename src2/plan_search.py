@@ -6,7 +6,7 @@
 The chosen windows are written into the plan as 'out_win' so mix_simple renders exactly what was planned.
 Run with the same scorer env as the render (SHORTPEN, BOTHPEN, DRUMPEN, VPEN, ...)."""
 import sys,os,json,glob,time,math,numpy as np
-sys.path.insert(0,'.');sys.path.insert(0,'../src/tests');os.environ.setdefault('MIX_SRC','.')
+sys.path.insert(0,'.');sys.path.insert(0,'../src/tests');sys.path.insert(0,'../src/build_qa');os.environ.setdefault('MIX_SRC','.')
 import checks as C
 import pair_feats as PF
 MELMAX=int(os.environ.get('MELMAX',8))      # max blend bars where both decks' melody/chord layer is above its own median (Bad To Me->Blame You 34:05, rated 1/5: 11; Parallel->Bad To Me 30:56, 5/5: 0)
@@ -94,7 +94,7 @@ def e4_runs(L):
 def ts(b):s=b*C.BAR;return f'{int(s//60)}:{int(s%60):02d}'
 def predict(name):
   """every meta-only test target, computed with the tests' own functions on the meta, plus a level-model E4"""
-  _reset(name);import test_mix02_traits as T2,test_mix as TM,test_structure_tail as TS,test_variety as TV;M=C.meta();D=M['decks']
+  _reset(name);import test_release_mix02_traits as T2,test_release_mix as TM,test_release_structure_tail as TS,test_release_variety as TV;M=C.meta();D=M['decks']
   r=T2._drum_runs();n=len(r);K=C.keys()
   cov={d['id']:round(T2.body_coverage(d),2) for d in D if not d.get('acap')}
   def ok(f):

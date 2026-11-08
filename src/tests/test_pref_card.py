@@ -41,15 +41,21 @@ def test_score_without_model_is_zero(tmp_path,monkeypatch):
     pm=pytest.importorskip('pref_model');monkeypatch.setattr(pm,'MODEL',str(tmp_path/'none.npz'))
     assert pm.score(['x.mp3'])=={'x.mp3':0.0}
 
-def test_publish_writes_sidecars(tmp_path):
+def test_publish_writes_sidecars(audio_workspace, synthetic_meta, tmp_path):
+    import subprocess
     BC=importlib.import_module('blend_card')
-    d=glob.glob(f'{R}/deliver/ab/bm_m06_*/AC_ib_plus_cut.mp3')
-    if not d:pytest.skip('no bm clip')
-    tim=json.load(open(d[0].replace('.mp3','.timing.json')))
-    from conftest import require_fixtures
-    require_fixtures(*(f"{S2}/st/{deck['id']}.wav" for deck in tim['decks']))
-    dst=str(tmp_path/'x.mp3');BC.publish(d[0],dst,tim)
-    assert os.path.getsize(dst)>0 and json.load(open(dst.replace('.mp3','.timing.json')))['clip_start_bar']==tim['clip_start_bar']
+    import engine as E
+    source=tmp_path/'clip.mp3'
+    subprocess.run(['ffmpeg','-v','error','-y','-i',str(audio_workspace/'st/fixture_out.wav'),
+                    '-t','5','-c:a','libmp3lame',str(source)],check=True)
+    decks=synthetic_meta['decks']
+    for d in decks:d['full_map']=d['full_map'][:4];d['end_bar']=4
+    tim=dict(source_dir=str(audio_workspace),sr=E.SR,bs=E.BS,bar_sec=E.BAR,
+             clip_start_bar=0,clip_end_bar=3,trans=synthetic_meta['trans'][0],decks=decks)
+    dst=str(tmp_path/'x.mp3')
+    card=BC.publish(str(source),dst,tim)
+    assert card is not None, 'real card rendering failed (publish intentionally catches errors)'
+    assert os.path.getsize(dst)>0 and json.load(open(dst.replace('.mp3','.timing.json')))['clip_start_bar']==0
     assert os.path.getsize(dst.replace('.mp3','.card.png'))>10000
 
 def test_publish_never_raises(tmp_path):

@@ -2,11 +2,10 @@
 drum swap on a phrase line (dswap) is a drums-only cut that TAIL allows while a full-mix abrupt fade still blocks."""
 import os,sys,json,copy,numpy as np,pytest
 SRC=os.environ.get('BM_SRC','/workspace/mixes/src2');sys.path.insert(0,SRC)
-META=f'{SRC}/mix05v8_meta.json';PAIR=('MoYkYkoeb84','7Itbo72XEz4')  # Mix 05 v2 18:04: MoYk drums over 7Itb's beatless intro
+PAIR=('fixture_out','fixture_in')
 @pytest.fixture
-def M():
-  if not os.path.exists(META):pytest.skip('mix05v8 meta missing')
-  cwd=os.getcwd();os.chdir(SRC);yield json.load(open(META));os.chdir(cwd)
+def M(synthetic_meta):
+  return synthetic_meta
 def _i(M):return next(i for i,t in enumerate(M['trans']) if (t['a'],t['b'])==PAIR)
 def _crop(M,i,pre=8,post=8):
   """two decks around blend i, cropped (render speed); ib indices follow the crop like blend_bench.render"""
@@ -17,7 +16,7 @@ def _crop(M,i,pre=8,post=8):
     out.append(dd)
   return out
 def _stems(*ids):
-  if not all(os.path.exists(f'{SRC}/st/{b}.dnb.wav') and os.path.exists(f'{SRC}/st/{b}.wav') for b in ids):pytest.skip('drums+bass stems not cached (python3 beatstem.py <id>)')
+  assert all(os.path.isfile(f'st/{b}{ext}') for b in ids for ext in ('.wav','.dnb.wav'))
 def test_bm1_detector_flags_beats_into_melody(M):
   _stems(*PAIR)
   import beatmelody as BM

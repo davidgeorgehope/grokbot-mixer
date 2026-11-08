@@ -112,7 +112,7 @@ for r in range(ROUNDS):
     for w in o['where']:t=M_['trans'][int(w.split(' trans ')[1].split()[0])];bad.add(f"{t['a']}>{t['b']}")
   todo=sorted(bad);_p,_sl=diagnose.strategies(name,r) if bad and r<ROUNDS-1 else ({},[]);extra={k:[w] for k,w in _p.items()}
   # pytest gates every round (abrupt-fade rule absolute); a round only counts if it passes guardrails AND pytest
-  prc=sh(f"DROP_FRAC=0.25 MIX_NAME={name} MIX_MP3={LOG}/{name}.mp3 MIX_WAV=/workspace/mixes/src2/{name}_master.wav python3 -m pytest -q -p no:cacheprovider ../src/tests > {LOG}/{name}_pytest.log 2>&1")
+  prc=sh(f"DROP_FRAC=0.25 MIX_NAME={name} MIX_MP3={LOG}/{name}.mp3 MIX_WAV=/workspace/mixes/src2/{name}_master.wav python3 -m pytest -q -p no:cacheprovider ../src/tests ../src/build_qa > {LOG}/{name}_pytest.log 2>&1")
   PT[name]=(prc,open(f'{LOG}/{name}_pytest.log').read());log(f"round {r} pytest rc {prc}: {PT[name][1].strip().splitlines()[-1]}")
   if not D['regression'] and (cand is None or (prc!=0,G['n_fail'])<(PT[cand[0]][0]!=0,cand[1]['n_fail'])):cand=(name,G,plan)
   if not D['regression'] and G['n_fail']==0 and prc==0:best=(name,G,plan);break

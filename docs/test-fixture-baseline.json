@@ -1,0 +1,290 @@
+[
+  {
+    "test": "src.tests.test_bassgap::test_no_bass_gap_in_overlaps",
+    "reason": "MIX_NAME/MIX_WAV not set"
+  },
+  {
+    "test": "src.tests.test_beatmelody::test_bm1_detector_flags_beats_into_melody",
+    "reason": "drums+bass stems not cached (python3 beatstem.py <id>)"
+  },
+  {
+    "test": "src.tests.test_beatmelody::test_ib_render_keeps_beats_continuous",
+    "reason": "drums+bass stems not cached (python3 beatstem.py <id>)"
+  },
+  {
+    "test": "src.tests.test_beatmelody::test_dswap_is_not_a_full_mix_tail_fail",
+    "reason": "drums+bass stems not cached (python3 beatstem.py <id>)"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_passes_linear_equal_power",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_fails_non_monotonic",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_fails_steep_step",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_fails_extra_automation",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_on_mix",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_passes_one_smooth_bass_swap",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_fails_bass_swap_too_fast",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_fails_bass_swap_too_long",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_fails_second_bass_move",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_fails_bass_move_outside_blend",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_passes_bass_swap_at_35pct",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_x1_fails_bass_swap_not_tied_to_crossfader",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_crossfader::test_mix_bass_swaps_monotonic_smooth",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_ears::test_backbeats_line_up_through_every_blend",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_ears_gate::test_ears_and_direct_drums_agree_no_blend_is_off",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_echo_out::test_echo_tail_lands_on_phrase_boundary",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_echo_out::test_echo_tail_clear_of_incoming_kick",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_echo_out::test_echo_tail_no_level_jump",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_echo_out::test_echo_tail_decays_within_4_bars",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_echo_out::test_echo_out_leaves_dry_deck_identical",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_eq_swap::test_bass_never_doubles",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_eq_swap::test_phrase_swaps_land_on_phrase_boundary",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_eq_swap::test_no_level_dip_at_swap",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_eq_swap::test_eq_lanes_monotonic_in_every_blend",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_eq_swap::test_high_swaps_on_phrase_apart_from_bass",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_eq_swap::test_high_swap_no_doubled_highs",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_guardrails::test_guardrails_zero_failures",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_guardrails::test_guardrails_catch_listener_bad_spots",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix::test_stretched_sources_are_44k1",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix::test_beat_drift_across_transitions",
+    "reason": "integration QA needs explicit MIX_NAME"
+  },
+  {
+    "test": "src.tests.test_mix::test_global_grid_no_drift",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix::test_downbeats_aligned",
+    "reason": "integration QA needs explicit MIX_NAME"
+  },
+  {
+    "test": "src.tests.test_mix::test_beat_overlap_16_bars",
+    "reason": "integration QA needs explicit MIX_NAME"
+  },
+  {
+    "test": "src.tests.test_mix::test_no_key_clash",
+    "reason": "integration QA needs explicit MIX_NAME"
+  },
+  {
+    "test": "src.tests.test_mix::test_anchor_tracks_long_enough",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix::test_no_unintentional_energy_drops",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix::test_no_abrupt_cuts",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix::test_true_peak",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix::test_every_deck_on_its_planned_bar",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix::test_no_vocal_clash",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix::test_mixdown_beats_aligned_every_overlap_bar",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix02_traits::test_each_track_gets_its_body",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix02_traits::test_blends_mostly_32_bars",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix02_traits::test_no_long_drums_only_stretch",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix02_traits::test_half_the_blends_beat_on_beat_16_bars",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix02_traits::test_few_beatless_blends",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_mix02_traits::test_loops_only_repeat_the_phrase_just_played",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_pbpm::test_rejects_just_hold_on_breaks_original",
+    "reason": "breaks wav missing"
+  },
+  {
+    "test": "src.tests.test_pbpm::test_accepts_deeper_dnb",
+    "reason": "Deeper wav missing"
+  },
+  {
+    "test": "src.tests.test_pbpm::test_accepts_just_hold_on_pola_bryson_remix",
+    "reason": "Pola & Bryson remix wav not prepped yet"
+  },
+  {
+    "test": "src.tests.test_phase_trainwreck::test_r12_parallel_trainwreck_fails_phase_check",
+    "reason": "archival fixture missing: /workspace/mixes/src2/st/MoYkYkoeb84.wav, /workspace/mixes/src2/st/2s3M6oX2lfo.wav"
+  },
+  {
+    "test": "src.tests.test_pref_card::test_publish_writes_sidecars",
+    "reason": "archival fixture missing: /workspace/mixes/src/tests/../../src2/st/sObzaBqaBRQ.wav, /workspace/mixes/src/tests/../../src2/st/q_cZZY0BehE.wav"
+  },
+  {
+    "test": "src.tests.test_seesaw::test_no_seesaw_between_decks",
+    "reason": "MIX_NAME not set: no build under test"
+  },
+  {
+    "test": "src.tests.test_seesaw::test_beat_outro_remedy_ignite",
+    "reason": "archival fixture missing: /workspace/mixes/src2/st/sObzaBqaBRQ.wav, /workspace/mixes/src2/st/sObzaBqaBRQ.dnb.wav, /workspace/mixes/src2/st/q_cZZY0BehE.wav, /workspace/mixes/src2/st/q_cZZY0BehE.dnb.wav"
+  },
+  {
+    "test": "src.tests.test_structure_tail::test_sections_known_tracks[2s3M6oX2lfo]",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_structure_tail::test_sections_known_tracks[F1NCnCxyhqc]",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_structure_tail::test_sections_known_tracks[NaY3x3GRDF4]",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_structure_tail::test_sections_known_tracks[OPuVVhbkicU]",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_structure_tail::test_plan_respects_outro_and_intro",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_structure_tail::test_blend_lengths_vary",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_structure_tail::test_outgoing_fader_tail_is_gradual",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_structure_tail::test_outgoing_audio_tail_never_drops_abruptly",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_structure_tail::test_pin_exemption_only_for_5_rated_pairs",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_variety::test_ratings_scale_5_good_4_ok_3_bad",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_variety::test_pair_prefs_3_is_penalised_not_neutral",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_variety::test_diversity_rule",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_variety::test_outgoing_repeat_under_variety_rule",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  },
+  {
+    "test": "src.tests.test_variety::test_echo_outs_capped",
+    "reason": "integration QA needs an explicit MIX_NAME; no build selected"
+  }
+]

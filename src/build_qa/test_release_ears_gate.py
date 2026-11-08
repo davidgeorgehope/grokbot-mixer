@@ -8,7 +8,7 @@ The 1/5 blend (34:05 Bad To Me -> Blame You) had 21-25 beat-off bars, so the dir
 Writes <SRC>/<NAME>_ears_gate.json; src2/plan_search.py bans confirmed windows and penalises rated-mediocre suspects."""
 import os,sys,json,subprocess,functools,warnings,numpy as np,librosa,pytest
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
-import checks as C,deckpair as P,ears as E,test_ears as TE
+import checks as C,deckpair as P,ears as E,test_release_ears as TE
 pytestmark=pytest.mark.skipif(not os.path.exists(f'{C.SRC}/{C.NAME}_meta.json'),reason='mix meta missing')
 ROOT=os.path.abspath(os.path.join(os.path.dirname(__file__),'..','..'))
 LAG_MS=20  # direct deck-vs-deck onset lag that counts as 'off'; aligned blends measure 0-1.5 ms

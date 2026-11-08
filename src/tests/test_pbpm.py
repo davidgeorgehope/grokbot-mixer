@@ -1,30 +1,27 @@
-"""pbpm must accept real ~174 DnB and reject the 124 BPM UK-breaks original Just Hold On."""
+"""Tempo regression: reject 124 BPM breaks pulses; accept 174/176 DnB pulses."""
 import os, sys
 import pytest
 SRC2 = os.environ.get('MIX_SRC', '/workspace/mixes/src2')
 sys.path.insert(0, SRC2)
 import pbpm
 
-JHO_BREAKS = f'{SRC2}/wav/_K2sC9nrf_A.wav'   # Sub Focus & Wilkinson original, 124 BPM breaks
-DEEPER = f'{SRC2}/wav/F1NCnCxyhqc.wav'         # Kanine & Raphaella – Deeper, 174 DnB
-JHO_REMIX = f'{SRC2}/wav/cxS6yd0UAxw.wav'       # Pola & Bryson remix, 174 DnB (may be absent in older checkouts)
+@pytest.fixture(params=[124, 174, 176])
+def probe(request, tmp_path):
+  import importlib.util
+  from pathlib import Path
+  import soundfile as sf
+  spec=importlib.util.spec_from_file_location('fixture_generate',Path(__file__).parent/'fixtures/generate.py')
+  gen=importlib.util.module_from_spec(spec);spec.loader.exec_module(gen)
+  p=tmp_path/'pulse.flac';sf.write(p,gen.pulse(request.param),gen.SR)
+  yield request.param,p
+  p.unlink()
 
-@pytest.mark.skipif(not os.path.exists(JHO_BREAKS), reason='breaks wav missing')
-def test_rejects_just_hold_on_breaks_original():
-  bpm, meta = pbpm.analyze(JHO_BREAKS)
-  assert not meta['ok'], meta
-  assert 'break' in meta['reason'] or 'reject' in meta['reason']
-  with pytest.raises(ValueError):
-    pbpm.pbpm(JHO_BREAKS)
-
-@pytest.mark.skipif(not os.path.exists(DEEPER), reason='Deeper wav missing')
-def test_accepts_deeper_dnb():
-  bpm, meta = pbpm.analyze(DEEPER)
-  assert meta['ok'], meta
-  assert 170 <= bpm <= 178
-
-@pytest.mark.skipif(not os.path.exists(JHO_REMIX), reason='Pola & Bryson remix wav not prepped yet')
-def test_accepts_just_hold_on_pola_bryson_remix():
-  bpm, meta = pbpm.analyze(JHO_REMIX)
-  assert meta['ok'], meta
-  assert 170 <= bpm <= 178
+def test_tempo_acceptance_and_rejection(probe):
+  expected,path=probe
+  bpm,meta=pbpm.analyze(str(path))
+  if expected==124:
+    assert not meta['ok'],meta
+    with pytest.raises(ValueError):pbpm.pbpm(str(path))
+  else:
+    assert meta['ok'],meta
+    assert abs(bpm-expected)<1,meta

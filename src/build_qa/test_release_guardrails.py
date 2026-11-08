@@ -3,7 +3,7 @@ v1 render of dj-mix-03-60 at every spot the listener rated bad (regression again
 R1/T1 must catch the 124 BPM UK-breaks Just Hold On when that deck is present; the Pola & Bryson 174
 remix (cxS6yd0UAxw) is the fix and must not trip them."""
 import json,os,checks as C
-FIX=os.path.join(os.path.dirname(__file__),'fixtures','guardrails_dj-mix-03-60_v1_rated.json')
+FIX=os.path.join(os.path.dirname(__file__),'..','tests','fixtures','guardrails_dj-mix-03-60_v1_rated.json')
 sec=lambda t:int(t.split(':')[0])*60+int(t.split(':')[1])
 def test_guardrails_zero_failures():
   p=f'{C.SRC}/guard_{C.NAME}/guardrails.json';assert os.path.exists(p),'run src/guardrails.py first (render_and_test.sh does)'

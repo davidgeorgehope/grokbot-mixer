@@ -7,7 +7,11 @@ import paths, cleanup
 def load_rules(path=None):
     return json.load(open(path or paths.RULES))
 
+# Defaults from the nightly protrans hill-climb (kept 2026-11-09: 2-bar bass swap, held-out 25.19 -> 26.58).
+DEFAULTS = {'BASS_SWAP_BARS': 2}
+
 def apply_rules(rules):
+    rules = {**DEFAULTS, **(rules or {})}
     env = {}
     for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32'):
         if k in rules and rules[k] is not None:

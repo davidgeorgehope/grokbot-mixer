@@ -323,7 +323,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
           if DBG is not None:DBG[(a[:4],b[:4],'wins',len(row['wins']),row['key_ok'])]+=1
           _ck=f'{a}>{b}'
           if _ck not in _TOPW:  # ranked shortlist per pair (score order, nothing filtered by rule): soft costs + pro_shape + render pen
-            _TOPW[_ck]=sorted(row['wins'],key=lambda w:(soft_cost(_ck,w,PR) if SOFT else 0)+PROW*100*pro_shape(w)+phase_pair_cost(_ck.split('>')[0],_ck.split('>')[1],w)+w['pen']/100+X16PEN*(w['w'][4]<32))[:WIN_TOPK] if WIN_TOPK and _ck not in PINW else row['wins']
+            _TOPW[_ck]=sorted(row['wins'],key=lambda w:(soft_cost(_ck,w,PR) if SOFT else 0)+PROW*100*pro_shape(w)+phase_pair_cost(_ck.split('>')[0],_ck.split('>')[1],w)+w['pen']/100+X16PEN*(w['w'][4]<32)+DROPPEN*(not _drop_ok(dict(a=_ck.split('>')[0],b=_ck.split('>')[1],**w))))[:WIN_TOPK] if WIN_TOPK and _ck not in PINW else row['wins']
           for w in _TOPW[_ck]:
             if f'{a}>{b}' in PINW and w['w']!=PINW[f'{a}>{b}']:continue  # pinned window (the 5/5 gold blend)
             kind,e,p,ib,X=w['w']
@@ -360,7 +360,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if ORDER and not (PINW and len(PINW)>=len(ORDER)-1):
               NB=len(ORDER)-1;rem=NB-_n
             else:
-              rem=min(max(0,len(tr)-len(st['seq']+[b])), max(0,int((HIB-bars)/32)))
+              rem=min(max(0,len(tr)-len(st['seq']+[b])), max(0,int((HIB-bars)/64)))  # 64 bars ~ a short track after overlap; 32 over-counted remaining blends so 60-min paths with 1-2 drops still looked recoverable
               NB=_n+rem
             if rem>=0 and NB>0 and (
               (ORDER and os.environ.get('COUNTS_HARD')=='1' and (sum(x['bob']>=16 for x in bl)+rem<NB/2 or sum(x['w'][4]>=32 for x in bl)+rem<NB/2))
@@ -382,7 +382,9 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             _fp=bool(ORDER and PINW and len(PINW)>=len(ORDER)-1)
             if _fp and len(ns['seq'])==len(ORDER):print(f'pinned chain complete: {tot} bars (target {LOB}-{HIB}), last cov {cb:.2f}, lull {lb_}',flush=True)
             if (not ORDER or len(ns['seq'])==len(ORDER)) and ((LOB<=tot<=HIB and cb>=0.5 and lb_<=E4_BARS) or (_fp and os.environ.get('PS_KEEP') and len(ns['seq'])==len(ORDER))):done.append(dict(ns,cov=cv+[cb],bars=tot,bw=bw))
-      S=sorted(nxt.values(),key=lambda s:s['cost'])[:beam]
+      _frac=float(os.environ.get('DROP_FRAC',1/3))
+      # Hard tests first (drop landings, outro), then cost. Otherwise BW's bob16 warning (200/800) evicts on-pace drop paths from the beam.
+      S=sorted(nxt.values(),key=lambda s:(max(0,len(s['bl'])*_frac-sum(_drop_ok(x) for x in s['bl'])),max(0,0.7*len(s['bl'])-sum(_outro_ok(x) for x in s['bl'])),s['cost']))[:beam]
       print('depth',len(S[0]['seq']) if S else 0,'states',len(S),'done',len(done),round(time.time()-t0),'s',flush=True)
       if KILL is not None:print('PSKILL bw',bw,'depth',len(S[0]['seq']) if S else 0,'states',len(S),json.dumps({f'{k[0]} {k[1]}':v for k,v in sorted(KILL.items())}),flush=True);KILL.clear()
       if os.environ.get('PSDBG'):print('PSDBG bw',bw,'depth',len(S[0]['seq']) if S else None,'states',len(S),'done',len(done),dict(DBG),flush=True);DBG.clear()
@@ -511,8 +513,11 @@ if __name__=='__main__':
       out.update(plan=arg('--out'),pred=best[2],order=best[1]['seq'],blends=[dict(a=w['a'],b=w['b'],w=w['w'],bob=w['bob'],mel=w['mel'],rub=w['rub'],drift=w['drift']) for w in best[1]['bl']])
     else:
       fails={};[fails.__setitem__(f,fails.get(f,0)+1) for d in done[:200] for f in d['fails']]
-      near=[d for d in done if len(d['fails'])==1];bob=max((d['pred']['bob16']/d['pred']['blends'] for d in done),default=0)
+      near=sorted((d for d in done if len(d['fails'])==1),key=lambda d:(-d['pred'].get('drop_end',0)/max(1,d['pred']['blends']),-d['pred'].get('drop_end',0)));bob=max((d['pred']['bob16']/d['pred']['blends'] for d in done),default=0)
       dryf={};[dryf.__setitem__(k,dryf.get(k,0)+1) for _,t,_ in tried if isinstance(t,dict) for k,ok in t.items() if not ok]
+      _dh={}
+      for d in done:_dh[d['pred']['drop_end']]=_dh.get(d['pred']['drop_end'],0)+1
       out.update(infeasible=True,binding=max(fails,key=fails.get) if fails else (f'every table-feasible order failed the dry run on: {dryf}' if tried else 'no complete plan (length/coverage/lull pruned everything)'),
-        fail_counts_top200=fails,near_misses=[(d['fails'],d['pred']) for d in near[:3]],best_bob16_share=round(bob,3),crate=report_missing(done,K))
+        fail_counts_top200=fails,near_misses=[(d['fails'],d['pred']) for d in near[:3]],best_bob16_share=round(bob,3),
+        drop_end_hist=dict(sorted(_dh.items())),max_drop_end=max(_dh or [0]),crate=report_missing(done,K))
     print(json.dumps(out,indent=1,default=str))

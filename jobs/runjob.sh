@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 # usage: runjob.sh <name> <command...>  -> writes jobs/<name>.status + .log; optional POST to $JOB_WEBHOOK_URL
+# Load webhook creds from the local env file when they are not already set.
+if [ -z "$JOB_WEBHOOK_URL" ] && [ -f "$HOME/.config/dj/webhook.env" ]; then
+  set -a
+  # shellcheck disable=SC1091
+  . "$HOME/.config/dj/webhook.env"
+  set +a
+fi
 name="$1"; shift; d=/workspace/mixes/jobs
 echo "running $(date -Is)" > "$d/$name.status"
 "$@" > "$d/$name.log" 2>&1; rc=$?

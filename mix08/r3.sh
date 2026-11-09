@@ -1,0 +1,1 @@
+cd /workspace/mixes/src2 && python3 restore_audio.py b7GXbX0kvcY 6JmrdpH1B5M q_IuTV23x7Q 4WY9J_yXj8M q_cZZY0BehE EiZVTuiqo0w 9HglCFlxxuY xENmcMSvZFI rKWKopyC1GE zGBn-IJ1isg sObzaBqaBRQ n1dOiesZS1g && SOFT=1 DROP_FRAC=0.2 bash ../mix08/search.sh plan_mix08_r3.json --require 'j9AuFRpLk7U>cxS6yd0UAxw'

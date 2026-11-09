@@ -221,6 +221,14 @@ def _drop_ok(w):
 def _outro_ok(w):
   """outgoing leaves at or after its outro start"""
   return w['w'][1]>=SEC.get(w['a'])['outro_start']
+_DO={}  # tid -> per-bar drums-only mask (full mix within 2 dB of drums), same test as test_no_long_drums_only_stretch
+def _drums_solo_ok(w,n=8):
+  """incoming's first n bars after the blend must not all be drums-only (test_no_long_drums_only_stretch)"""
+  kind,e,p,ib,X=w['w'];at=int(ib+(16 if kind in('lb','ab') else X));b=w['b']
+  if b not in _DO:
+    J=json.load(open(f'st/{b}.json'));_DO[b]=(np.array(J['bar']['all'])-np.array(J['bar']['drums']))<2.0
+  sl=_DO[b][at:at+n]
+  return not (len(sl)==n and bool(sl.all()))
 def _rep_prefix_ok(bl):
   r=[w['w'][0] in('la','ab','lx') and w['w'][4]>16 for w in bl];NB=len(ORDER)-1 if ORDER else int(os.environ.get('NB_EXPECT',20))
   return sum(r)<=0.4*NB and not (len(r)>=3 and all(r[-3:]))
@@ -327,6 +335,9 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if _why:
               if KILL is not None:KILL[(a[:4]+'>'+b[:4],_why)]+=1
               continue
+            if not _pin and not _drums_solo_ok(dict(a=a,b=b,**w)):
+              if KILL is not None:KILL[(a[:4]+'>'+b[:4],'drums')]+=1
+              continue
             m=_deck(st['inn'],e,p,X if p is not None else 0,kind,a)
             cov,lull,sec=K.close(a,m,st['lin'],w['lv'],st['bars']-st['inn'][2])
             if not _pin and (cov<0.5 or lull>E4X.get(a,E4_BARS) or (tr[a]['anchor'] and sec<C.MIN_ANCHOR_S)):
@@ -352,7 +363,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             _soft=(soft_cost(_k,w,PR)+_bc-(LXREPAIR if kind=='lx' and _k in BADC else 0)) if SOFT else 0
             cost=st['cost']+_soft+PROW*100*pro_shape(w)+phase_pair_cost(a,b,w)+w['pen']/100+bw*(w['bob']<16)+X16PEN*(X<32)+60*(w['beatless']>X/2)+COVPEN*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT and b not in LOVE)-LOVEW*(b in LOVE)+REUSEPEN*(f'{a}>{b}' in PP)+DROPPEN*(not _drop_ok(dict(a=a,b=b,**w)))+OUTPEN*(not _outro_ok(dict(a=a,b=b,**w)))
             ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost)
-            k=(frozenset(ns['seq']),b,ns['inn'])+((sum(x['bob']>=16 for x in bl),sum(x['w'][4]>=32 for x in bl),sum(_drop_ok(x) for x in bl),sum(_outro_ok(x) for x in bl)) if ORDER else ())  # fixed order: keep states that differ in plan-target counts
+            k=(frozenset(ns['seq']),b,ns['inn'],sum(x['bob']>=16 for x in bl),sum(x['w'][4]>=32 for x in bl),sum(_drop_ok(x) for x in bl),sum(_outro_ok(x) for x in bl))  # keep states that differ in plan-target counts (open-any included: otherwise a slightly costlier high-drop path is dropped)
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns
             # close here: b is the last track and plays to its tail
             mb=_deck(ns['inn'],tr[b]['tail'],None,0);tot=bars+len(mb)-X;cb,lb_,_=K.close(b,mb,w['lv'],[],bars-X,tot)

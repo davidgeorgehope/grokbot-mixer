@@ -112,9 +112,11 @@ def predict(name):
     drums_only_ok=ok(T2.test_no_long_drums_only_stretch),anchors_ok=ok(TM.test_anchor_tracks_long_enough),
     vocal_clash=[c for c in C.vocal_clashes() if not c['whitelisted'] and c['bars']>=1],key_clash=keyclash,E4=e4,
     len_min=round(max(d['end_bar'] for d in D)*C.BAR/60,2),drum_runs=[b for b,_,_ in r])
-  p['tests']=dict(bob16=p['bob16']>=n/2,beatless=p['beatless']<=n/3,x32=p['x32']>=n/2,coverage=p['cov_mean']>=0.8 and p['cov_min']>=0.5,
+  # bob16/x32 >= half are warnings (test_release_mix02_traits, the listener 2026-11-01), not all_ok gates; Mix 07 r17 shipped at 6/22 x32.
+  p['tests']=dict(beatless=p['beatless']<=n/3,coverage=p['cov_mean']>=0.8 and p['cov_min']>=0.5,
     drums_only=p['drums_only_ok'],anchors=p['anchors_ok'],vocal=not p['vocal_clash'],keys=not keyclash,E4=not e4,
     structure=ok(TS.test_plan_respects_outro_and_intro),fader_tail=ok(TS.test_outgoing_fader_tail_is_gradual),lengths_vary=ok(TS.test_blend_lengths_vary),seesaw=not any(r['fails'] for r in __import__('seesaw').check(M)),variety=all(ok(getattr(TV,f)) for f in dir(TV) if f.startswith('test_') and f!='test_menu_lists_supported'))
+  p['warn']=dict(bob16=p['bob16']<n/2,x32=p['x32']<n/2)
   p['seesaw_fail']=[f"{r['a']}>{r['b']}" for r in __import__('seesaw').check(M) if r['fails']]
   p['all_ok']=all(p['tests'].values());return p
 
@@ -222,12 +224,27 @@ def _outro_ok(w):
   """outgoing leaves at or after its outro start"""
   return w['w'][1]>=SEC.get(w['a'])['outro_start']
 _DO={}  # tid -> per-bar drums-only mask (full mix within 2 dB of drums), same test as test_no_long_drums_only_stretch
+def _do_mask(tid):
+  if tid not in _DO:
+    J=json.load(open(f'st/{tid}.json'));_DO[tid]=(np.array(J['bar']['all'])-np.array(J['bar']['drums']))<2.0
+  return _DO[tid]
+def _is_do(tid,src):
+  m=_do_mask(tid)
+  return isinstance(src,int) and 0<=src<len(m) and bool(m[src])
+def _advance_drums(aud_bars,run=0,cap=8):
+  """aud_bars: iterable of lists of (tid, src) audible on that mix bar. A non-drums deck or silence resets.
+  Returns (ok, run). ok is False when a run hits cap (the release test fails at >=8)."""
+  for aud in aud_bars:
+    if aud and all(_is_do(t,s) for t,s in aud):
+      run+=1
+      if run>=cap:return False,run
+    else:
+      run=0
+  return True,run
 def _drums_solo_ok(w,n=8):
   """incoming's first n bars after the blend must not all be drums-only (test_no_long_drums_only_stretch)"""
   kind,e,p,ib,X=w['w'];at=int(ib+(16 if kind in('lb','ab') else X));b=w['b']
-  if b not in _DO:
-    J=json.load(open(f'st/{b}.json'));_DO[b]=(np.array(J['bar']['all'])-np.array(J['bar']['drums']))<2.0
-  sl=_DO[b][at:at+n]
+  sl=_do_mask(b)[at:at+n]
   return not (len(sl)==n and bool(sl.all()))
 def _rep_prefix_ok(bl):
   r=[w['w'][0] in('la','ab','lx') and w['w'][4]>16 for w in bl];NB=len(ORDER)-1 if ORDER else int(os.environ.get('NB_EXPECT',20))
@@ -354,6 +371,21 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if not _rep_prefix_ok(bl):
               if KILL is not None:KILL[(a[:4]+'>'+b[:4],'variety')]+=1
               continue
+            # Same test as test_no_long_drums_only_stretch: no 8+ mix bars where every audible deck is drums-only.
+            # Check outgoing solo + this blend, carrying the streak (drun) into the next track's solo.
+            kind,e,p,ib,X=w['w'];Xin=st['inn'][2]
+            wa,wb=windows(kind,e,p,ib,X,b_out=a)
+            solo_src=m[Xin:max(Xin,len(m)-len(wa))]
+            seg=[[(a,sb)] for sb in solo_src]
+            out_src=m[len(m)-len(wa):] if len(wa)<=len(m) else list(wa)
+            for i,sa in enumerate(out_src):
+              pair=[(a,sa)]
+              if i<len(wb):pair.append((b,int(wb[i])))
+              seg.append(pair)
+            okd,drun=_advance_drums(seg,st.get('drun',0))
+            if not okd:
+              if KILL is not None:KILL[(a[:4]+'>'+b[:4],'drums_run')]+=1
+              continue
             # Optimistic remaining-blend bound so open-any keeps paths that can still hit the HARD tests
             # (drop_end, outro, beatless). x32/bob16 stay costs, not hard prunes (they are warnings).
             _frac=float(os.environ.get('DROP_FRAC',1/3));_n=len(bl)
@@ -373,7 +405,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if KILL is not None:KILL[(a[:4]+'>'+b[:4],'survive')]+=1
             _soft=(soft_cost(_k,w,PR)+_bc-(LXREPAIR if kind=='lx' and _k in BADC else 0)) if SOFT else 0
             cost=st['cost']+_soft+PROW*100*pro_shape(w)+phase_pair_cost(a,b,w)+w['pen']/100+bw*(w['bob']<16)+X16PEN*(X<32)+60*(w['beatless']>X/2)+COVPEN*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT and b not in LOVE)-LOVEW*(b in LOVE)+REUSEPEN*(f'{a}>{b}' in PP)+DROPPEN*(not _drop_ok(dict(a=a,b=b,**w)))+OUTPEN*(not _outro_ok(dict(a=a,b=b,**w)))
-            ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost)
+            ns=dict(seq=st['seq']+[b],inn=(kind,ib,X),lin=w['lv'],bl=bl,cov=cv,bars=bars,cost=cost,drun=drun)
             k=(frozenset(ns['seq']),b,ns['inn'],sum(x['bob']>=16 for x in bl),sum(x['w'][4]>=32 for x in bl),sum(_drop_ok(x) for x in bl),sum(_outro_ok(x) for x in bl))  # keep states that differ in plan-target counts (open-any included: otherwise a slightly costlier high-drop path is dropped)
             if k not in nxt or nxt[k]['cost']>cost:nxt[k]=ns
             # close here: b is the last track and plays to its tail
@@ -381,7 +413,10 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             # all-pinned chain may be short: only a seed for autoloop's length fill (PS_KEEP), which enforces the 56-min floor with longer passing candidates
             _fp=bool(ORDER and PINW and len(PINW)>=len(ORDER)-1)
             if _fp and len(ns['seq'])==len(ORDER):print(f'pinned chain complete: {tot} bars (target {LOB}-{HIB}), last cov {cb:.2f}, lull {lb_}',flush=True)
-            if (not ORDER or len(ns['seq'])==len(ORDER)) and ((LOB<=tot<=HIB and cb>=0.5 and lb_<=E4_BARS) or (_fp and os.environ.get('PS_KEEP') and len(ns['seq'])==len(ORDER))):done.append(dict(ns,cov=cv+[cb],bars=tot,bw=bw))
+            okc,_=_advance_drums([[(b,sb)] for sb in mb[X:]],drun)
+            if not okc:
+              if KILL is not None:KILL[(a[:4]+'>'+b[:4],'drums_close')]+=1
+            elif (not ORDER or len(ns['seq'])==len(ORDER)) and ((LOB<=tot<=HIB and cb>=0.5 and lb_<=E4_BARS) or (_fp and os.environ.get('PS_KEEP') and len(ns['seq'])==len(ORDER))):done.append(dict(ns,cov=cv+[cb],bars=tot,bw=bw))
       _frac=float(os.environ.get('DROP_FRAC',1/3))
       # Hard tests first (drop landings, outro), then cost. Otherwise BW's bob16 warning (200/800) evicts on-pace drop paths from the beam.
       S=sorted(nxt.values(),key=lambda s:(max(0,len(s['bl'])*_frac-sum(_drop_ok(x) for x in s['bl'])),max(0,0.7*len(s['bl'])-sum(_outro_ok(x) for x in s['bl'])),s['cost']))[:beam]

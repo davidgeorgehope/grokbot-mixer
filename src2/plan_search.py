@@ -354,11 +354,22 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if not _rep_prefix_ok(bl):
               if KILL is not None:KILL[(a[:4]+'>'+b[:4],'variety')]+=1
               continue
-            if ORDER and not (PINW and len(PINW)>=len(ORDER)-1):  # bound: the remaining blends must still be able to reach every plan target
-              NB=len(ORDER)-1;rem=NB-len(bl)  # 2026-11-01 19:30 ET: 32-bar/beat-on-beat counts are warnings (eval/calibration_notes.md), still costs (X16PEN/bw)
-              if (os.environ.get('COUNTS_HARD')=='1' and (sum(x['bob']>=16 for x in bl)+rem<NB/2 or sum(x['w'][4]>=32 for x in bl)+rem<NB/2)) or sum(_outro_ok(x) for x in bl)+rem<0.7*NB or sum(_drop_ok(x) for x in bl)+rem<NB*float(os.environ.get('DROP_FRAC',1/3)):
-                if KILL is not None:KILL[(a[:4]+'>'+b[:4],'target_bound')]+=1
-                continue
+            # Optimistic remaining-blend bound so open-any keeps paths that can still hit the HARD tests
+            # (drop_end, outro, beatless). x32/bob16 stay costs, not hard prunes (they are warnings).
+            _frac=float(os.environ.get('DROP_FRAC',1/3));_n=len(bl)
+            if ORDER and not (PINW and len(PINW)>=len(ORDER)-1):
+              NB=len(ORDER)-1;rem=NB-_n
+            else:
+              rem=min(max(0,len(tr)-len(st['seq']+[b])), max(0,int((HIB-bars)/32)))
+              NB=_n+rem
+            if rem>=0 and NB>0 and (
+              (ORDER and os.environ.get('COUNTS_HARD')=='1' and (sum(x['bob']>=16 for x in bl)+rem<NB/2 or sum(x['w'][4]>=32 for x in bl)+rem<NB/2))
+              or sum(_outro_ok(x) for x in bl)+rem<0.7*NB
+              or sum(_drop_ok(x) for x in bl)+rem<NB*_frac
+              or sum(x['beatless']>x['w'][4]/2 for x in bl)>(NB/3)
+            ):
+              if KILL is not None:KILL[(a[:4]+'>'+b[:4],'target_bound')]+=1
+              continue
             if KILL is not None:KILL[(a[:4]+'>'+b[:4],'survive')]+=1
             _soft=(soft_cost(_k,w,PR)+_bc-(LXREPAIR if kind=='lx' and _k in BADC else 0)) if SOFT else 0
             cost=st['cost']+_soft+PROW*100*pro_shape(w)+phase_pair_cost(a,b,w)+w['pen']/100+bw*(w['bob']<16)+X16PEN*(X<32)+60*(w['beatless']>X/2)+COVPEN*max(0,0.85-cov)+MELPEN*w['mel']*w['rub']/0.25+DRIFTPEN*max(0,w['drift']-5)+STEPPEN*max(0,w['step']-6)-PREFW*(TQ.pref_score(PR[f'{a}>{b}']) if f'{a}>{b}' in PR else 0)+SUSPPEN*(f'{a}>{b}' in SUS)+FRESHPEN*(b in PT and b not in LOVE)-LOVEW*(b in LOVE)+REUSEPEN*(f'{a}>{b}' in PP)+DROPPEN*(not _drop_ok(dict(a=a,b=b,**w)))+OUTPEN*(not _outro_ok(dict(a=a,b=b,**w)))
@@ -379,8 +390,10 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
     n=len(d['bl']);d['pred']=dict(blends=n,bob16=sum(w['bob']>=16 for w in d['bl']),beatless=sum(w['beatless']>w['w'][4]/2 for w in d['bl']),
       x32=sum(w['w'][4]>=32 for w in d['bl']),cov_mean=round(float(np.mean(d['cov'])),3),cov_min=round(min(d['cov']),2),len_min=round(d['bars']*C.BAR/60,2))
     p=d['pred'];p['drop_end']=sum(_drop_ok(w) for w in d['bl']);p['outro']=sum(_outro_ok(w) for w in d['bl'])
-    d['fails']=[k for k,ok in dict(bob16=p['bob16']>=n/2,beatless=p['beatless']<=n/3,x32=p['x32']>=n/2,coverage=p['cov_mean']>=0.8,
-      drop_end=p['drop_end']>=n*float(os.environ.get('DROP_FRAC',1/3)),repeat_share=_rep_ok(d['bl']),outro=p['outro']>=0.7*n).items() if not ok]  # the last two = test_structure_tail's plan targets
+    # Hard table gates must match the release tests. x32 and bob16 >= half are warnings
+    # (test_release_mix02_traits, the listener 2026-11-01); Mix 07 r17 shipped at 6/22 x32.
+    d['fails']=[k for k,ok in dict(beatless=p['beatless']<=n/3,coverage=p['cov_mean']>=0.8 and p['cov_min']>=0.5,
+      drop_end=p['drop_end']>=n*float(os.environ.get('DROP_FRAC',1/3)),repeat_share=_rep_ok(d['bl']),outro=p['outro']>=0.7*n).items() if not ok]  # drop_end/outro = test_plan_respects_outro_and_intro; coverage/beatless stay asserts
   return done,K,round(time.time()-t0,1)
 def nudge_kind(w0,w1):
   """which ladder rung turns the pair's natural first choice w0 into the chosen w1"""

@@ -1,6 +1,6 @@
 # AGENTS.md: start here
 
-This is **grokbot-mixer**, an automated liquid drum & bass mix builder. It takes YouTube track IDs, time-stretches every track to 174 BPM and analyses grids, keys and per-bar features. It then renders beat-matched **crossfader** blends from a JSON plan and runs deterministic guardrails and tests. It produces an MP3, an audio-reactive video and a private YouTube upload.
+This is **grokbot-mixer**, an automated liquid drum & bass mix builder. It takes YouTube track IDs, time-stretches every track to 174 BPM and analyses grids, keys and per-bar features. It then renders beat-matched **crossfader** blends from a JSON plan and runs deterministic guardrails and tests. It produces an MP3, a twin-turntable video and a public YouTube upload.
 
 Audio is **not** in this repo. You source your own tracks, legally.
 
@@ -10,7 +10,9 @@ Audio is **not** in this repo. You source your own tracks, legally.
 3. `docs/MIXING_RULES.md`: hard rules. Do not break them.
 4. `docs/GUARDRAILS.md`: what each check catches and how to fix it
 5. `docs/TASTE.md`: build a taste profile before picking tracks
-6. `docs/LESSONS.md`: troubleshooting
+6. `docs/PROCESS.md`: current defaults (visuals, GPU render, public YouTube, git backup, scheduled jobs)
+7. `docs/LESSONS.md`: troubleshooting
+8. `skills/`: assistant skills for this pipeline; keep in sync when the process changes
 
 ## Layout and paths
 The scripts hardcode `/workspace/mixes` with the working dir at `/workspace/mixes/src2`. The simplest setup is to put this repo's contents at `/workspace/mixes` (`src/`, `src2/`, `eval/`, `visuals/code/`). Otherwise, search and replace `/workspace/mixes` (see SETUP.md).
@@ -74,29 +76,37 @@ The score is advisory: it is not yet calibrated to the listener (eval/README.md)
 ### 7. Tracklist
 `python3 src/gen_tracklist.py src2/NAME_meta.json dj-mix-NN-tracklist.md "DJ Mix NN – Liquid"` writes times from the meta and Camelot keys.
 
-### 8. Visuals (run from `visuals/code`, in the venv)
-```
-python3 analyze_mix.py ../../dj-mix-NN.mp3 mixNN_tracks.json mixNN_analysis.json --lag 0.055
-python3 procedural_backdrops2.py <n_tracks> ../tex_mixNN                      # backdrop textures
-FRAG=liquid2.frag python3 render_visuals2.py mixNN_analysis.json ../../dj-mix-NN.mp3 ../dj-mix-NN-visuals-1080p30.mp4 --tex ../tex_mixNN
-```
-- The tracks JSON format is `{"overlap": sec, "tracks": [{"artist","title","feat","start","mix_in"}]}`; see `mix03_60_tracks.json`.
-- Preview a slice first with `--start S --dur 60`.
-- Rendering is headless (moderngl EGL) and runs at about 20 fps at 1080p30, so a 60-minute mix takes about 1.5 hours.
+### 8. Visuals
+The default visual is the twin-turntable renderer in `visuals/code/turntable_viz` (v2 layout, driven by the mix's real timing data, with occasional groove-dive camera moves at real drops or breakdowns, `GROOVE_DIVE=1`). Do not switch to other visual styles for a weekly mix. Render the full video **after** audio delivery, on a rented GPU, so a slow render never delays the MP3:
 
-### 9. YouTube (private)
+```
+META=/workspace/mixes/src2/<mixNN_meta.json> MIX=/workspace/mixes/deliver/NN/dj-mix-NN-128k.mp3 \
+  TRACKLIST=/workspace/mixes/deliver/NN/dj-mix-NN-tracklist.md \
+  OUT=/workspace/mixes/visuals/dj-mix-NN-visuals-1080p30.mp4 GROOVE_DIVE=1 \
+  /workspace/mixes/jobs/runjob.sh turntable-mixNN bash /workspace/mixes/visuals/code/turntable_viz/runpod_render.sh
+```
+
+The script walks several GPU types (Community first, then Secure) and always terminates the pod. Put the API key in `RUNPOD_API_KEY` or `$HOME/.runpod_api_key`; never commit it. Expect about 0.56× realtime (roughly 1.8 hours per hour of mix, about $1–2). Afterward, confirm no pods are left running. See `docs/PROCESS.md`.
+
+### 9. YouTube (public by default)
 ```
 python3 src/yt_upload.py --check          # mints token, prints channel (read-only)
-python3 src/yt_upload.py dj-mix-NN-visuals-1080p30.mp4 --title "..." --description "$(cat yt_desc_NN.txt)" --tags dnb,liquid --privacy private
+python3 src/yt_upload.py dj-mix-NN-visuals-1080p30.mp4 --title "DJ Grok Bot – Mix NN | Liquid Drum & Bass" --description "$(cat yt_desc_NN.txt)" --tags dnb,liquid --privacy public
 ```
-Always upload as private. The owner makes the video public. The token scope may not allow changing privacy afterwards.
+Default privacy is public (since 2026-10-30). Confirm the uploaded video is public via oembed before sending the link.
 
 ### 10. Delivery
 - `src/sync_icloud.sh <mp3> <tracklist.md> <track_no> "<Title>"`: tags the MP3 (ID3 plus a generated cover) and copies it atomically (tmp then `mv`) over ssh to `$HOST`'s iCloud Drive "DJ Mixes". It never deletes. To deliver some other way, replace the ssh/iCloud lines.
 - Send the share MP3, the tracklist and the YouTube link to the listener. Ask for minute-stamped feedback and log it to `eval/example_ratings.jsonl` (your own ratings file).
 
 ### 11. Back up the code
-`bash /workspace/backup_mixer_to_git.sh` (private repo; see the script).
+After every mix, and whenever the process, skills, or code changes, snapshot the mixer (no audio, video, or secrets):
+
+```
+bash /workspace/backup_mixer_to_git.sh
+```
+
+That updates `grokbot-mixer/` on the private crate repo and, if the public audit passes, syncs https://github.com/davidgeorgehope/grokbot-mixer. Skills in `skills/` are part of that snapshot. Details are in `docs/PROCESS.md`.
 
 - EQ default since Mix 05: SWAP_PHRASE=1 HIGH_SWAP=1 (phrase-snapped bass swap + separate >2 kHz swap). Set both to 0 to reproduce Mix 01-04 (meta 'eq_mode' records the mode).
 - Delay-tail exit: ECHO_OUT (default on since Mix 05; 0 rebuilds older mixes) adds a filtered 1-beat delay tail after the outgoing crossfader end on <=10% of blends (shortest runway first); tests in src/tests/test_echo_out.py.

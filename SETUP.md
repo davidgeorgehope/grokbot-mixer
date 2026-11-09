@@ -27,6 +27,15 @@ python3 -m venv visuals/venv && visuals/venv/bin/pip install numpy scipy moderng
 ```
 `analyze_mix.py` uses numpy and scipy plus ffmpeg on PATH. `render_visuals2.py` uses moderngl and Pillow and pipes frames into ffmpeg.
 
+## Twin-turntable visuals (default)
+
+Weekly mixes use `visuals/code/turntable_viz` rendered on a rented GPU (`runpod_render.sh`). The API key is `RUNPOD_API_KEY` or `$HOME/.runpod_api_key` and must never be committed. See `docs/PROCESS.md` and `AGENTS.md` section 8.
+
+## Git backup
+
+`bash /workspace/backup_mixer_to_git.sh` snapshots this tree (no audio, video, or secrets) after every mix and after any process or skill change.
+
+
 ## Memory notes (60-minute mixes)
 - `engine.py` loads each track's audio lazily (`LazySt`), and `mix_simple.py` frees it after the track's last deck.
 - `src/tests/checks.py` and `guardrails.py` compute onsets in chunks and read audio blockwise. A full-length STFT of 64 minutes needed about 11 GB.

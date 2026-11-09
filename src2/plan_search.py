@@ -426,10 +426,12 @@ def dry(plan,tag):
   """exact check: mix_simple --dry on the plan (no audio), then predict() on its meta"""
   import subprocess;f=f'_ps_{tag}.json';json.dump(plan,open(f,'w'))
   # Full (non-dry) renders must call cleanup_round_wavs.cleanup(NAME) so only best+current round WAVs remain.
-  r=subprocess.run([sys.executable,'mix_simple.py','--plan',f,'--out',f'_ps_{tag}','--dry'],capture_output=True,text=True)
   try:
+    r=subprocess.run([sys.executable,'mix_simple.py','--plan',f,'--out',f'_ps_{tag}','--dry'],capture_output=True,text=True)
     if r.returncode:return dict(error=r.stderr.strip().splitlines()[-1] if r.stderr.strip() else 'mix_simple failed')
     return predict(f'_ps_{tag}_dry')
+  except Exception as e:
+    return dict(error=f'{type(e).__name__}: {e}')  # one cache/test crash must not abort the whole verify pool
   finally:
     for x in(() if os.environ.get('PS_KEEP') else (f,))+(f'_ps_{tag}_dry_meta.json',):
       if os.path.exists(x):os.remove(x)
@@ -484,6 +486,12 @@ if __name__=='__main__':
     _FP=bool(ORDER and PINW and len(PINW)>=len(ORDER)-1)
     pool=[d for d in done if (_FP or not d['fails']) and all(r in {f"{w['a']}>{w['b']}" for w in d['bl']} for r in req)];pi=0
     print(f'dry-verify: {len(pool)} candidate plans, up to {arg("--verify",25)} distinct, {NPAR} parallel, budget {BUD:.0f}s',flush=True)
+    try:
+      pf=arg('--out').rsplit('.',1)[0]+'.pool.json'
+      json.dump([dict(seq=d['seq'],pred=d['pred'],fails=d['fails'],bl=[dict(a=w['a'],b=w['b'],w=w['w'],bob=w.get('bob')) for w in d['bl']]) for d in pool],open(pf,'w'))
+      print(f'wrote {len(pool)} table-feasible plans to {pf}',flush=True)
+    except Exception as e:
+      print(f'pool dump failed: {e}',flush=True)
     while not best and pi<len(pool) and len(seen)<int(arg('--verify',25)) and time.time()-tv<BUD:
       _sbf=os.environ.get('SEESAW_BANFILE');_SB=json.load(open(_sbf)) if _sbf and os.path.exists(_sbf) else {}
       batch=[]

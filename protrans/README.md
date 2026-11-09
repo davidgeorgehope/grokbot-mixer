@@ -220,3 +220,10 @@ admitted clips. `grow_corpus.py` resumes via the existing metadata/download and
 `admit.process_mix` pipeline (version + talkover + real-blend gates). The first
 metadata probe failed at the existing SSH transport; no alternate transport or
 credential route was attempted. New baseline counts must not include this queue.
+
+
+
+### Growth resume (2026-11-08 evening)
+Residential download host (config.env HOST SSH alias) recovered after an SSH banner-exchange timeout.
+`grow_corpus.py` ingested Maduk Liquicity + Pola & Bryson Puzzlewood through the existing fetch/admit pipeline.
+Held-out now meets ≥10. Details: `results/growth_resume_report.md` and `jobs/grow-transport-diagnosis.log` (local).

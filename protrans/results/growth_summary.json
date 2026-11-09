@@ -1,0 +1,49 @@
+{
+  "heldout": 12,
+  "target": 10,
+  "ts": "2026-11-08 19:32:35 EST",
+  "sets": {
+    "maduk_liquicity_lunar2025": {
+      "meta": {
+        "id": "PZ6aQYEIqm0",
+        "title": "Maduk | Special Lunar set @ Liquicity Festival 2025",
+        "channel": "Liquicity",
+        "duration": 4437,
+        "chapters": 55
+      },
+      "downloaded": "/workspace/mixes/protrans/cache/mixes/PZ6aQYEIqm0.m4a",
+      "bytes": 71760013,
+      "status": "done",
+      "n_results": 6,
+      "n_admit": 3
+    },
+    "pola_bryson_puzzlewood": {
+      "meta": {
+        "id": "nNpy62IMI-A",
+        "title": "Pola & Bryson (DJ Set): Live From Puzzlewood",
+        "channel": "Shogun Audio",
+        "duration": 3689,
+        "chapters": 0
+      },
+      "downloaded": "/workspace/mixes/protrans/cache/mixes/nNpy62IMI-A.m4a",
+      "bytes": 59654725,
+      "status": "done",
+      "n_results": 6,
+      "n_admit": 3
+    }
+  },
+  "admitted_ids": [
+    "wilkinson_boomtown2026__33",
+    "netsky_hospital_classics__02",
+    "netsky_hospital_classics__06",
+    "netsky_hospital_classics__17",
+    "netsky_hospital_classics__15",
+    "netsky_hospital_classics__23",
+    "maduk_liquicity_lunar2025__02",
+    "maduk_liquicity_lunar2025__03",
+    "maduk_liquicity_lunar2025__05",
+    "pola_bryson_puzzlewood__00",
+    "pola_bryson_puzzlewood__02",
+    "pola_bryson_puzzlewood__04"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "maduk_liquicity_lunar2025__05",
+  "mix_id": "maduk_liquicity_lunar2025",
+  "dj": "Maduk",
+  "split": "test",
+  "a": {
+    "title": "Netsky - Memory Lane",
+    "yt": "cG7cRDcPY3k",
+    "t": 4056
+  },
+  "b": {
+    "title": "Maduk - Miles Apart",
+    "yt": "EpHrodtTiK0",
+    "t": 4163
+  },
+  "window": {
+    "mix_t_a": 4056,
+    "mix_t_b": 4163,
+    "mix_t_next": 4249,
+    "hint_a_played_sec": 107
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/maduk_liquicity_lunar2025__05/pro.wav",
+  "pro_clip_start": 4139.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/maduk_liquicity_lunar2025__05"
+}

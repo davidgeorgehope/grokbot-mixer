@@ -1,0 +1,26 @@
+{
+  "id": "maduk_liquicity_lunar2025__03",
+  "mix_id": "maduk_liquicity_lunar2025",
+  "dj": "Maduk",
+  "split": "test",
+  "a": {
+    "title": "Sub Focus & Wilkinson - Freedom (High Contrast Remix)",
+    "yt": "smXG7OvMrFI",
+    "t": 2407
+  },
+  "b": {
+    "title": "LSB - New Day",
+    "yt": "11SJZqMmzQ0",
+    "t": 2482
+  },
+  "window": {
+    "mix_t_a": 2407,
+    "mix_t_b": 2482,
+    "mix_t_next": 2568,
+    "hint_a_played_sec": 75
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/maduk_liquicity_lunar2025__03/pro.wav",
+  "pro_clip_start": 2458.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/maduk_liquicity_lunar2025__03"
+}

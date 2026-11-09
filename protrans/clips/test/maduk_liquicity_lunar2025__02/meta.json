@@ -1,0 +1,26 @@
+{
+  "id": "maduk_liquicity_lunar2025__02",
+  "mix_id": "maduk_liquicity_lunar2025",
+  "dj": "Maduk",
+  "split": "test",
+  "a": {
+    "title": "Camo & Krooked - Afterlife (BCee Remix)",
+    "yt": "U1VSQ7SRtX0",
+    "t": 2331
+  },
+  "b": {
+    "title": "Sub Focus & Wilkinson - Freedom (High Contrast Remix)",
+    "yt": "smXG7OvMrFI",
+    "t": 2407
+  },
+  "window": {
+    "mix_t_a": 2331,
+    "mix_t_b": 2407,
+    "mix_t_next": 2482,
+    "hint_a_played_sec": 76
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/maduk_liquicity_lunar2025__02/pro.wav",
+  "pro_clip_start": 2383.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/maduk_liquicity_lunar2025__02"
+}

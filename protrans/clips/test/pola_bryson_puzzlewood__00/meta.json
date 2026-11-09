@@ -1,0 +1,26 @@
+{
+  "id": "pola_bryson_puzzlewood__00",
+  "mix_id": "pola_bryson_puzzlewood",
+  "dj": "Pola & Bryson",
+  "split": "test",
+  "a": {
+    "title": "Pola & Bryson feat. Hugh Hardie - Vetur",
+    "yt": "_IgqP6Hv3fs",
+    "t": 75
+  },
+  "b": {
+    "title": "Pola & Bryson & Ko-Jo - Closer to Home",
+    "yt": "wyl3hVnB1dQ",
+    "t": 225
+  },
+  "window": {
+    "mix_t_a": 75,
+    "mix_t_b": 225,
+    "mix_t_next": 375,
+    "hint_a_played_sec": 150
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/pola_bryson_puzzlewood__00/pro.wav",
+  "pro_clip_start": 201.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/pola_bryson_puzzlewood__00"
+}

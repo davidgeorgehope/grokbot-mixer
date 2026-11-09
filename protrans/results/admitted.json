@@ -2069,5 +2069,497 @@
       "split": "test",
       "fingerprint": "80c8f0c896c3e3a6b0930f5bc263b05f8eb00a53e55e8630bc22b06bf9433378"
     }
+  },
+  {
+    "id": "maduk_liquicity_lunar2025__02",
+    "dj": "Maduk",
+    "split": "test",
+    "mix_id": "maduk_liquicity_lunar2025",
+    "mix_url": "https://www.youtube.com/watch?v=PZ6aQYEIqm0",
+    "pair": "Camo & Krooked - Afterlife (BCee Remix) -> Sub Focus & Wilkinson - Freedom (High Contrast Remix)",
+    "t_a": 2331,
+    "t_b": 2407,
+    "a": {
+      "title": "Camo & Krooked - Afterlife (BCee Remix)",
+      "yt": "U1VSQ7SRtX0"
+    },
+    "b": {
+      "title": "Sub Focus & Wilkinson - Freedom (High Contrast Remix)",
+      "yt": "smXG7OvMrFI"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/maduk_liquicity_lunar2025__02/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "talkover": {
+      "talk_s": 0.83,
+      "talk_frac": 0.013,
+      "flagged": false
+    },
+    "real_blend": {
+      "version": "real-blend-v3",
+      "level_db": -12.0,
+      "min_bars": 2.5,
+      "overlap_bars": 25.554,
+      "longest_overlap_bars": 6.524,
+      "references": [
+        0.48505911280426833,
+        0.4722800538229252
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Maduk",
+      "split": "test",
+      "fingerprint": "fc255394c11614da7acffae72ccf1b4af5ce3b77b1192ca51a467b0ef0c164c6"
+    },
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.616,
+          "cc": 0.6553,
+          "mix_t": 10.077,
+          "track_t": 74.884,
+          "n": 54
+        },
+        "bpm": {
+          "bpm": 175.169,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 9.168,
+          "cc": 0.6011,
+          "mix_t": 52.175,
+          "track_t": 83.87,
+          "n": 83
+        },
+        "bpm": {
+          "bpm": 174.011,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "maduk_liquicity_lunar2025__03",
+    "dj": "Maduk",
+    "split": "test",
+    "mix_id": "maduk_liquicity_lunar2025",
+    "mix_url": "https://www.youtube.com/watch?v=PZ6aQYEIqm0",
+    "pair": "Sub Focus & Wilkinson - Freedom (High Contrast Remix) -> LSB - New Day",
+    "t_a": 2407,
+    "t_b": 2482,
+    "a": {
+      "title": "Sub Focus & Wilkinson - Freedom (High Contrast Remix)",
+      "yt": "smXG7OvMrFI"
+    },
+    "b": {
+      "title": "LSB - New Day",
+      "yt": "11SJZqMmzQ0"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/maduk_liquicity_lunar2025__03/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "talkover": {
+      "talk_s": 1.06,
+      "talk_frac": 0.017,
+      "flagged": false
+    },
+    "real_blend": {
+      "version": "real-blend-v3",
+      "level_db": -12.0,
+      "min_bars": 2.5,
+      "overlap_bars": 29.541,
+      "longest_overlap_bars": 8.699,
+      "references": [
+        0.4815588714750048,
+        0.7969049618382511
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Maduk",
+      "split": "test",
+      "fingerprint": "1396e8249f6295e5cb70bb35152185b5bc7f7bb18ad5878a1e851e8800b66425"
+    },
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.266,
+          "cc": 0.4444,
+          "mix_t": 15.186,
+          "track_t": 122.81,
+          "n": 83
+        },
+        "bpm": {
+          "bpm": 174.011,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 9.786,
+          "cc": 0.6106,
+          "mix_t": 40.054,
+          "track_t": 41.935,
+          "n": 72
+        },
+        "bpm": {
+          "bpm": 174.004,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "maduk_liquicity_lunar2025__05",
+    "dj": "Maduk",
+    "split": "test",
+    "mix_id": "maduk_liquicity_lunar2025",
+    "mix_url": "https://www.youtube.com/watch?v=PZ6aQYEIqm0",
+    "pair": "Netsky - Memory Lane -> Maduk - Miles Apart",
+    "t_a": 4056,
+    "t_b": 4163,
+    "a": {
+      "title": "Netsky - Memory Lane",
+      "yt": "cG7cRDcPY3k"
+    },
+    "b": {
+      "title": "Maduk - Miles Apart",
+      "yt": "EpHrodtTiK0"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/maduk_liquicity_lunar2025__05/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "talkover": {
+      "talk_s": 0.0,
+      "talk_frac": 0.0,
+      "flagged": false
+    },
+    "real_blend": {
+      "version": "real-blend-v3",
+      "level_db": -12.0,
+      "min_bars": 2.5,
+      "overlap_bars": 23.379,
+      "longest_overlap_bars": 5.799,
+      "references": [
+        0.5603461656537749,
+        0.6452980360492984
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Maduk",
+      "split": "test",
+      "fingerprint": "12f691b333329f5037c200f6ac4f339aff7896effccf44a3686a3012bfd784ab"
+    },
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 8.087,
+          "cc": 0.4376,
+          "mix_t": 11.029,
+          "track_t": 161.75,
+          "n": 110
+        },
+        "bpm": {
+          "bpm": 175.005,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 9.975,
+          "cc": 0.6384,
+          "mix_t": 26.61,
+          "track_t": 23.963,
+          "n": 78
+        },
+        "bpm": {
+          "bpm": 174.016,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "pola_bryson_puzzlewood__00",
+    "dj": "Pola & Bryson",
+    "split": "test",
+    "mix_id": "pola_bryson_puzzlewood",
+    "mix_url": "https://www.youtube.com/watch?v=nNpy62IMI-A",
+    "pair": "Pola & Bryson feat. Hugh Hardie - Vetur -> Pola & Bryson & Ko-Jo - Closer to Home",
+    "t_a": 75,
+    "t_b": 225,
+    "a": {
+      "title": "Pola & Bryson feat. Hugh Hardie - Vetur",
+      "yt": "_IgqP6Hv3fs"
+    },
+    "b": {
+      "title": "Pola & Bryson & Ko-Jo - Closer to Home",
+      "yt": "wyl3hVnB1dQ"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/pola_bryson_puzzlewood__00/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "talkover": {
+      "talk_s": 0.1,
+      "talk_frac": 0.002,
+      "flagged": false
+    },
+    "real_blend": {
+      "version": "real-blend-v3",
+      "level_db": -12.0,
+      "min_bars": 2.5,
+      "overlap_bars": 9.968,
+      "longest_overlap_bars": 9.968,
+      "references": [
+        0.48923077177345287,
+        0.4344404796711404
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Pola & Bryson",
+      "split": "test",
+      "fingerprint": "ed422d2d94899d96413ea535d1f54e5119473cec81b253c7203fa1c03c72c8f4"
+    },
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 6.479,
+          "cc": 0.3578,
+          "mix_t": 1.161,
+          "track_t": 161.75,
+          "n": 83
+        },
+        "bpm": {
+          "bpm": 174.038,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.39,
+          "cc": 0.8713,
+          "mix_t": 33.622,
+          "track_t": 83.87,
+          "n": 78
+        },
+        "bpm": {
+          "bpm": 173.99,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "pola_bryson_puzzlewood__02",
+    "dj": "Pola & Bryson",
+    "split": "test",
+    "mix_id": "pola_bryson_puzzlewood",
+    "mix_url": "https://www.youtube.com/watch?v=nNpy62IMI-A",
+    "pair": "Pola & Bryson feat. Lauren Archer - Night Dawns -> Pola & Bryson - Wind Rises",
+    "t_a": 850,
+    "t_b": 1000,
+    "a": {
+      "title": "Pola & Bryson feat. Lauren Archer - Night Dawns",
+      "yt": "5VtwlyaYohs"
+    },
+    "b": {
+      "title": "Pola & Bryson - Wind Rises",
+      "yt": "fvSe3ZmZRPs"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/pola_bryson_puzzlewood__02/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "talkover": {
+      "talk_s": 1.22,
+      "talk_frac": 0.019,
+      "flagged": false
+    },
+    "real_blend": {
+      "version": "real-blend-v3",
+      "level_db": -12.0,
+      "min_bars": 2.5,
+      "overlap_bars": 30.991,
+      "longest_overlap_bars": 9.243,
+      "references": [
+        0.2255624614897685,
+        0.3949934940866245
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Pola & Bryson",
+      "split": "test",
+      "fingerprint": "105e2623b5db52c06adab554b431073922092f39be00e0b76e815d8a95cfe46b"
+    },
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 7.281,
+          "cc": 0.4188,
+          "mix_t": 0.534,
+          "track_t": 185.713,
+          "n": 105
+        },
+        "bpm": {
+          "bpm": 174.003,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 7.322,
+          "cc": 0.8236,
+          "mix_t": 54.474,
+          "track_t": 107.833,
+          "n": 91
+        },
+        "bpm": {
+          "bpm": 172.993,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
+  },
+  {
+    "id": "pola_bryson_puzzlewood__04",
+    "dj": "Pola & Bryson",
+    "split": "test",
+    "mix_id": "pola_bryson_puzzlewood",
+    "mix_url": "https://www.youtube.com/watch?v=nNpy62IMI-A",
+    "pair": "Pola & Bryson - Abandon -> Pola & Bryson feat. Lauren Archer - Under",
+    "t_a": 1200,
+    "t_b": 1300,
+    "a": {
+      "title": "Pola & Bryson - Abandon",
+      "yt": "ogXFi8wa56w"
+    },
+    "b": {
+      "title": "Pola & Bryson feat. Lauren Archer - Under",
+      "yt": "nNXHqtByO-A"
+    },
+    "pro_clip": "/workspace/mixes/protrans/clips/test/pola_bryson_puzzlewood__04/pro.wav",
+    "verdict": "admit",
+    "reason": null,
+    "talkover": {
+      "talk_s": 0.0,
+      "talk_frac": 0.0,
+      "flagged": false
+    },
+    "real_blend": {
+      "version": "real-blend-v3",
+      "level_db": -12.0,
+      "min_bars": 2.5,
+      "overlap_bars": 10.693,
+      "longest_overlap_bars": 6.524,
+      "references": [
+        0.551937524412602,
+        0.5059945982748713
+      ],
+      "flagged": false,
+      "reason": null,
+      "dj": "Pola & Bryson",
+      "split": "test",
+      "fingerprint": "74a83b5b509dff570ed17fc3c40b2290fcfcf525d74ecdbddb090df12f1e86d6"
+    },
+    "gate": {
+      "a": {
+        "locate": {
+          "z": 9.99,
+          "cc": 0.6484,
+          "mix_t": 15.697,
+          "track_t": 170.736,
+          "n": 108
+        },
+        "bpm": {
+          "bpm": 172.982,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "b": {
+        "locate": {
+          "z": 8.873,
+          "cc": 0.7687,
+          "mix_t": 55.263,
+          "track_t": 65.898,
+          "n": 90
+        },
+        "bpm": {
+          "bpm": 174.042,
+          "ok": true,
+          "reason": "dnb"
+        }
+      },
+      "passed": true,
+      "thresh": {
+        "z": 6.0,
+        "cc": 0.28,
+        "bpm": [
+          169.0,
+          179.0
+        ]
+      },
+      "reasons": []
+    }
   }
 ]

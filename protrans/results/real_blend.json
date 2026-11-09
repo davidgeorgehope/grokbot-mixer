@@ -502,5 +502,101 @@
     "reason": "measurement_failed",
     "dj": "London Elektricity",
     "split": "train"
+  },
+  "maduk_liquicity_lunar2025__02": {
+    "version": "real-blend-v3",
+    "level_db": -12.0,
+    "min_bars": 2.5,
+    "overlap_bars": 25.554,
+    "longest_overlap_bars": 6.524,
+    "references": [
+      0.48505911280426833,
+      0.4722800538229252
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Maduk",
+    "split": "test",
+    "fingerprint": "fc255394c11614da7acffae72ccf1b4af5ce3b77b1192ca51a467b0ef0c164c6"
+  },
+  "maduk_liquicity_lunar2025__03": {
+    "version": "real-blend-v3",
+    "level_db": -12.0,
+    "min_bars": 2.5,
+    "overlap_bars": 29.541,
+    "longest_overlap_bars": 8.699,
+    "references": [
+      0.4815588714750048,
+      0.7969049618382511
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Maduk",
+    "split": "test",
+    "fingerprint": "1396e8249f6295e5cb70bb35152185b5bc7f7bb18ad5878a1e851e8800b66425"
+  },
+  "maduk_liquicity_lunar2025__05": {
+    "version": "real-blend-v3",
+    "level_db": -12.0,
+    "min_bars": 2.5,
+    "overlap_bars": 23.379,
+    "longest_overlap_bars": 5.799,
+    "references": [
+      0.5603461656537749,
+      0.6452980360492984
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Maduk",
+    "split": "test",
+    "fingerprint": "12f691b333329f5037c200f6ac4f339aff7896effccf44a3686a3012bfd784ab"
+  },
+  "pola_bryson_puzzlewood__00": {
+    "version": "real-blend-v3",
+    "level_db": -12.0,
+    "min_bars": 2.5,
+    "overlap_bars": 9.968,
+    "longest_overlap_bars": 9.968,
+    "references": [
+      0.48923077177345287,
+      0.4344404796711404
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Pola & Bryson",
+    "split": "test",
+    "fingerprint": "ed422d2d94899d96413ea535d1f54e5119473cec81b253c7203fa1c03c72c8f4"
+  },
+  "pola_bryson_puzzlewood__02": {
+    "version": "real-blend-v3",
+    "level_db": -12.0,
+    "min_bars": 2.5,
+    "overlap_bars": 30.991,
+    "longest_overlap_bars": 9.243,
+    "references": [
+      0.2255624614897685,
+      0.3949934940866245
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Pola & Bryson",
+    "split": "test",
+    "fingerprint": "105e2623b5db52c06adab554b431073922092f39be00e0b76e815d8a95cfe46b"
+  },
+  "pola_bryson_puzzlewood__04": {
+    "version": "real-blend-v3",
+    "level_db": -12.0,
+    "min_bars": 2.5,
+    "overlap_bars": 10.693,
+    "longest_overlap_bars": 6.524,
+    "references": [
+      0.551937524412602,
+      0.5059945982748713
+    ],
+    "flagged": false,
+    "reason": null,
+    "dj": "Pola & Bryson",
+    "split": "test",
+    "fingerprint": "74a83b5b509dff570ed17fc3c40b2290fcfcf525d74ecdbddb090df12f1e86d6"
   }
 }

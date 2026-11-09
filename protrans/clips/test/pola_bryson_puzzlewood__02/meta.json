@@ -1,0 +1,26 @@
+{
+  "id": "pola_bryson_puzzlewood__02",
+  "mix_id": "pola_bryson_puzzlewood",
+  "dj": "Pola & Bryson",
+  "split": "test",
+  "a": {
+    "title": "Pola & Bryson feat. Lauren Archer - Night Dawns",
+    "yt": "5VtwlyaYohs",
+    "t": 850
+  },
+  "b": {
+    "title": "Pola & Bryson - Wind Rises",
+    "yt": "fvSe3ZmZRPs",
+    "t": 1000
+  },
+  "window": {
+    "mix_t_a": 850,
+    "mix_t_b": 1000,
+    "mix_t_next": 1200,
+    "hint_a_played_sec": 150
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/pola_bryson_puzzlewood__02/pro.wav",
+  "pro_clip_start": 976.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/pola_bryson_puzzlewood__02"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "pola_bryson_puzzlewood__04",
+  "mix_id": "pola_bryson_puzzlewood",
+  "dj": "Pola & Bryson",
+  "split": "test",
+  "a": {
+    "title": "Pola & Bryson - Abandon",
+    "yt": "ogXFi8wa56w",
+    "t": 1200
+  },
+  "b": {
+    "title": "Pola & Bryson feat. Lauren Archer - Under",
+    "yt": "nNXHqtByO-A",
+    "t": 1300
+  },
+  "window": {
+    "mix_t_a": 1200,
+    "mix_t_b": 1300,
+    "mix_t_next": 1525,
+    "hint_a_played_sec": 100
+  },
+  "pro_clip": "/workspace/mixes/protrans/clips/test/pola_bryson_puzzlewood__04/pro.wav",
+  "pro_clip_start": 1276.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/clips/test/pola_bryson_puzzlewood__04"
+}

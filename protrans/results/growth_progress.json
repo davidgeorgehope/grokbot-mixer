@@ -1,0 +1,106 @@
+{
+  "sets": {
+    "maduk_liquicity_lunar2025": {
+      "meta": {
+        "id": "PZ6aQYEIqm0",
+        "title": "Maduk | Special Lunar set @ Liquicity Festival 2025",
+        "channel": "Liquicity",
+        "duration": 4437,
+        "chapters": 55
+      },
+      "downloaded": "/workspace/mixes/protrans/cache/mixes/PZ6aQYEIqm0.m4a",
+      "bytes": 71760013,
+      "status": "done",
+      "n_results": 6,
+      "n_admit": 3
+    },
+    "pola_bryson_puzzlewood": {
+      "meta": {
+        "id": "nNpy62IMI-A",
+        "title": "Pola & Bryson (DJ Set): Live From Puzzlewood",
+        "channel": "Shogun Audio",
+        "duration": 3689,
+        "chapters": 0
+      },
+      "downloaded": "/workspace/mixes/protrans/cache/mixes/nNpy62IMI-A.m4a",
+      "bytes": 59654725,
+      "status": "done",
+      "n_results": 6,
+      "n_admit": 3
+    }
+  },
+  "candidates": {
+    "maduk_liquicity_lunar2025__00": {
+      "verdict": "reject",
+      "reason": "dj_talkover 6.78s",
+      "split": "test",
+      "dj": "Maduk"
+    },
+    "maduk_liquicity_lunar2025__01": {
+      "verdict": "reject",
+      "reason": "dj_talkover 5.7s",
+      "split": "test",
+      "dj": "Maduk"
+    },
+    "maduk_liquicity_lunar2025__02": {
+      "verdict": "admit",
+      "reason": null,
+      "split": "test",
+      "dj": "Maduk"
+    },
+    "maduk_liquicity_lunar2025__03": {
+      "verdict": "admit",
+      "reason": null,
+      "split": "test",
+      "dj": "Maduk"
+    },
+    "maduk_liquicity_lunar2025__04": {
+      "verdict": "reject",
+      "reason": "b: locate at 18.0s is before the blend, expected incoming",
+      "split": "test",
+      "dj": "Maduk"
+    },
+    "maduk_liquicity_lunar2025__05": {
+      "verdict": "admit",
+      "reason": null,
+      "split": "test",
+      "dj": "Maduk"
+    },
+    "pola_bryson_puzzlewood__00": {
+      "verdict": "admit",
+      "reason": null,
+      "split": "test",
+      "dj": "Pola & Bryson"
+    },
+    "pola_bryson_puzzlewood__01": {
+      "verdict": "reject",
+      "reason": "a: weak locate z=5.932 cc=0.493",
+      "split": "test",
+      "dj": "Pola & Bryson"
+    },
+    "pola_bryson_puzzlewood__02": {
+      "verdict": "admit",
+      "reason": null,
+      "split": "test",
+      "dj": "Pola & Bryson"
+    },
+    "pola_bryson_puzzlewood__03": {
+      "verdict": "reject",
+      "reason": "a: weak locate z=5.543 cc=0.489",
+      "split": "test",
+      "dj": "Pola & Bryson"
+    },
+    "pola_bryson_puzzlewood__04": {
+      "verdict": "admit",
+      "reason": null,
+      "split": "test",
+      "dj": "Pola & Bryson"
+    },
+    "pola_bryson_puzzlewood__05": {
+      "verdict": "reject",
+      "reason": "a: weak locate z=5.463 cc=0.399",
+      "split": "test",
+      "dj": "Pola & Bryson"
+    }
+  }
+}

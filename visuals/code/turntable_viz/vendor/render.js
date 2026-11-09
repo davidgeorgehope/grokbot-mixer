@@ -116,9 +116,10 @@ export class Renderer {
   // orbit camera: st.az (around the deck), st.el (elevation), st.zoom (0 = whole deck, 1 = at the stylus, < 0 = further away)
   camera(st) {
     const c = this.canvas, vp0 = st.vp || [0, 0, c.width, c.height], asp = vp0[2] / vp0[3], z = st.zoom, zi = Math.max(0, z), [sx, sy] = stylusXY(st.al);
-    const at = st.at || [lerp(0.042, sx, zi), lerp(0, sy, zi), lerp(-0.015, 0, zi)], base = Math.max(0.95, 0.95 * 1.5 / asp);
+    const at = st.at ? st.at.slice() : [lerp(0.042, sx, zi), lerp(0, sy, zi), lerp(-0.015, 0, zi)], base = Math.max(0.95, 0.95 * 1.5 / asp);
     const dist = st.dist || (z >= 0 ? lerp(base, 0.06, z) : base * Math.exp(-0.9 * z)), ce = Math.cos(st.el);   // z < 0 pulls back
     const eye = [at[0] + dist * ce * Math.sin(st.az), at[1] - dist * ce * Math.cos(st.az), at[2] + dist * Math.sin(st.el)];
+    if (st.off) { for (let i = 0; i < 3; i++) { eye[i] -= st.off[i]; at[i] -= st.off[i]; } }   // one booth camera: deck drawn in its own frame, camera shifted by the deck's booth offset
     const v = G.lookAt(eye, at);
     this.cam = { eye, asp, ...v, vp: G.mul(G.perspective(FOV, asp, lerp(0.05, 0.004, zi), 150), v.m) };
     return this.cam;
@@ -184,7 +185,7 @@ export class Renderer {
     gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(vp[0], vp[1], vp[2], vp[3]);
     gl.enable(gl.SCISSOR_TEST); gl.scissor(vp[0], vp[1], vp[2], vp[3]);
     if (st.bare) gl.clearColor(0, 0, 0, 1); else gl.clearColor(0.004, 0.004, 0.005, 1);
-    gl.clear((st.noClearColor ? 0 : gl.COLOR_BUFFER_BIT) | gl.DEPTH_BUFFER_BIT); gl.disable(gl.SCISSOR_TEST);
+    if (!st.noClear) gl.clear((st.noClearColor ? 0 : gl.COLOR_BUFFER_BIT) | gl.DEPTH_BUFFER_BIT); gl.disable(gl.SCISSOR_TEST);
     gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, this.tex.shadow);
     const common = (u) => {
       gl.uniformMatrix4fv(u.uVP, false, cam.vp); gl.uniformMatrix4fv(u.uLVP, false, this.lvp); gl.uniform3fv(u.uEye, cam.eye);

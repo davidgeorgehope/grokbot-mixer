@@ -2,7 +2,10 @@
 // ./vendor with small patches); the records are "cut" from each track's real energy (prep.py), and the
 // platter angle, tonearm and mixer controls are driven per frame from the engine's timing.json.
 import { Renderer } from './vendor/render.js';
-import { grooveRadius, alphaForRadius, stylusXY, ALPHA_REST } from './vendor/geometry.js';
+import { grooveRadius, alphaForRadius, stylusXY } from './vendor/geometry.js';
+import * as G from './vendor/gl-util.js';
+import { KEY } from './vendor/shaders.js';
+const SHADOW_SIZE = globalThis.TT_SHADOW || 2048;
 
 const W = 1920, H = 1080, TAU = Math.PI * 2;
 const PINK = [1.0, 0.36, 0.62], CYAN = [0.30, 0.78, 1.0];
@@ -38,102 +41,141 @@ function snapshotTex(r) { const t = r.tex.label; r.tex.label = r.gl.createTextur
 function snapTexVis(r) { const t = r.tex.vis; r.tex.vis = r.gl.createTexture(); return t; }
 function snapTexLut(r) { const t = r.tex.lut; r.tex.lut = r.gl.createTexture(); return t; }
 
-function deckState(i, fs, t) {
+// ---- booth layout (metres, one world): mixer centred at x = 0, decks butted against it, all square to the camera ----
+const MIX_HW = 0.15, MIX_HD = 0.19, TOP_Z = -0.022, FLOOR_Z = -0.080;
+const DECK_X0 = -0.185, DECK_X1 = 0.27;                       // upstream plinth extent in its own frame
+const OFF = [[-MIX_HW - DECK_X1, 0, 0], [MIX_HW - DECK_X0, 0, 0]];
+const CAM = { az: 0, el: 0.70, dist: 1.50, at: [0, 0.0, -0.05] };   // ~38 deg down, straight on
+
+function deckState(i, fs) {
   const d = D.decks[i], s = fs.d[i], rec = D.recs[i];
   const theta = TAU * (d.lead + s.tb);
   const r = grooveRadius(rec.rec.rTab, theta), al = alphaForRadius(r), [sx, sy] = stylusXY(al);
   const thp = theta - Math.atan2(sy, sx);
   const beatPh = (fs.mb * 4) % 1, beat = Math.exp(-beatPh * 6) * (s.on ? 1 : 0.15) * (0.25 + 0.75 * s.g);
-  const left = i === 0, dw = D.opts.deckW;
   return {
-    thp, al, zt: 0, zoom: 0, motor: s.on, rpm: 60 / d.barSec,
-    az: left ? 0.40 : -0.40, el: 0.80, dist: 1.18, at: [left ? 0.030 : 0.060, 0.030, -0.035], keyGain: 0.6,
-    vp: left ? [0, 0, dw, H] : [W - dw, 0, dw, H], noClearColor: true,
-    grooveW: d.pitch * 0.30, tint: left ? PINK.map((v) => v * 1.6) : CYAN, beat, playRev: d.lead + s.tb, glow: 3.5 * (0.3 + 0.7 * s.g),
+    thp, al, zt: 0, zoom: 0, motor: s.on, rpm: 60 / d.barSec, ...CAM, off: OFF[i], bare: true, noClear: true, keyGain: 0.6,
+    grooveW: d.pitch * 0.30, tint: i === 0 ? PINK.map((v) => v * 1.6) : CYAN, beat, playRev: d.lead + s.tb, glow: 3.5 * (0.3 + 0.7 * s.g),
   };
 }
 
-let x0lab = 0;
-function knob(x, y, r, v, col, label, lit) {        // v 0..1, 0.5 = noon? we pass absolute angle fraction
-  const a0 = Math.PI * 0.75, a1 = Math.PI * 2.25, a = a0 + (a1 - a0) * v;
-  ctx.save();
-  ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,0.07)'; ctx.beginPath(); ctx.arc(x, y, r + 7, a0, a1); ctx.stroke();
-  ctx.strokeStyle = css(col, 0.35 + 0.65 * lit); ctx.shadowColor = css(col, 0.9); ctx.shadowBlur = 10 * lit;
-  ctx.beginPath(); ctx.arc(x, y, r + 7, a0, a); ctx.stroke(); ctx.shadowBlur = 0;
-  const g = ctx.createRadialGradient(x - r * 0.3, y - r * 0.4, 1, x, y, r);
-  g.addColorStop(0, '#3a3c44'); g.addColorStop(1, '#0d0e12');
-  ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
-  ctx.strokeStyle = '#000'; ctx.lineWidth = 1.5; ctx.stroke();
-  ctx.strokeStyle = '#e8e8ee'; ctx.lineWidth = 2.5; ctx.beginPath();
-  ctx.moveTo(x + Math.cos(a) * r * 0.25, y + Math.sin(a) * r * 0.25); ctx.lineTo(x + Math.cos(a) * r * 0.9, y + Math.sin(a) * r * 0.9); ctx.stroke();
-  if (label) { ctx.fillStyle = 'rgba(200,205,220,0.55)'; ctx.font = '600 11px DejaVu Sans, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(label, x0lab, y + 4); }
-  ctx.restore();
+// ---- 3D mixer + booth table, drawn with the vendored PBR shader in the same camera ----
+let MX = null;
+const KX = [-0.072, 0.072], KY = { hi: 0.125, mid: 0.080, lo: 0.035 }, FAD = [-0.105, -0.010], XF = [-0.065, 0.065, -0.150];
+function buildMixer() {
+  const gl = R.gl, m = (d) => G.mesh(gl, d), L = G.lathe;
+  const knob = L([[0.0115, TOP_Z], [0.0115, TOP_Z + 0.004], [0.0102, TOP_Z + 0.013], [0.0088, TOP_Z + 0.0155], [0, TOP_Z + 0.0158]], 40);
+  const ledM = G.box(-0.0011, -0.0011, TOP_Z, 0.0011, 0.0011, TOP_Z + 0.0007);
+  MX = {
+    table: m(G.box(-3, -1.2, FLOOR_Z - 0.04, 3, 1.2, FLOOR_Z)),
+    body: m(G.rbox(-MIX_HW, -MIX_HD, MIX_HW, MIX_HD, FLOOR_Z + 0.004, -0.030, 0.010, 0.002)),
+    plate: m(G.rbox(-MIX_HW + 0.002, -MIX_HD + 0.002, MIX_HW - 0.002, MIX_HD - 0.002, -0.030, TOP_Z, 0.009, 0.0015)),
+    knob: m(knob),
+    ptr: m(G.box(-0.0007, 0.0035, TOP_Z + 0.0156, 0.0007, 0.0098, TOP_Z + 0.0162)),
+    led: m(ledM),
+    slot: m(G.rbox(-0.0022, FAD[0], 0.0022, FAD[1], TOP_Z - 0.0004, TOP_Z + 0.0002, 0.001, 0.0002)),
+    xslot: m(G.rbox(XF[0], XF[2] - 0.0022, XF[1], XF[2] + 0.0022, TOP_Z - 0.0004, TOP_Z + 0.0002, 0.001, 0.0002)),
+    cap: m(G.merge(G.rbox(-0.011, -0.0065, 0.011, 0.0065, TOP_Z, TOP_Z + 0.011, 0.002, 0.0012))),
+    capLine: m(G.box(-0.010, -0.0007, TOP_Z + 0.0112, 0.010, 0.0007, TOP_Z + 0.0116)),
+    xcap: m(G.rbox(-0.0065, -0.011, 0.0065, 0.011, TOP_Z, TOP_Z + 0.012, 0.002, 0.0012)),
+    xcapLine: m(G.box(-0.0007, -0.010, TOP_Z + 0.0122, 0.0007, 0.010, TOP_Z + 0.0126)),
+    tick: m(G.box(-0.004, -0.0003, TOP_Z, 0.004, 0.0003, TOP_Z + 0.0002)),
+  };
+  const c = [0, 0, -0.03], eye = c.map((v, k) => v + KEY[k] * 1.3);
+  MX.lvp = G.mul(G.ortho(-0.85, 0.85, -0.85, 0.85, 0.2, 2.6), G.lookAt(eye, c).m);
 }
+const T = (x, y, z = 0) => G.T(x, y, z);
+const OFFCOL = [0.015, 0.015, 0.017];
+const glowC = (c, k) => c.map((v) => v * 1.4 * k);
 
-function meter(x, y, w, h, v, col) {
-  const n = 18;
-  for (let k = 0; k < n; k++) {
-    const on = v * n > k, yy = y + h - (k + 1) * (h / n);
-    const c = k > 15 ? [1, 0.25, 0.25] : k > 12 ? [1, 0.8, 0.3] : col;
-    ctx.fillStyle = on ? css(c, 0.95) : 'rgba(255,255,255,0.05)';
-    if (on) { ctx.shadowColor = css(c, 0.8); ctx.shadowBlur = 6; }
-    ctx.fillRect(x, yy + 1, w, h / n - 3); ctx.shadowBlur = 0;
-  }
-}
-
-function fader(x, y, h, v, col, vertical = true, label = '') {
-  ctx.save();
-  ctx.fillStyle = '#050507'; ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-  if (vertical) {
-    ctx.fillRect(x - 3, y, 6, h); ctx.strokeRect(x - 3, y, 6, h);
-    for (let k = 0; k <= 10; k++) { ctx.fillStyle = 'rgba(255,255,255,0.12)'; ctx.fillRect(x - 16, y + k * h / 10, 7, 1); ctx.fillRect(x + 9, y + k * h / 10, 7, 1); }
-    const yy = y + h * (1 - v);
-    ctx.fillStyle = css(col, 0.25); ctx.fillRect(x - 2, yy, 4, y + h - yy);
-    const g = ctx.createLinearGradient(0, yy - 14, 0, yy + 14); g.addColorStop(0, '#4a4c55'); g.addColorStop(0.5, '#1a1b20'); g.addColorStop(1, '#2c2e35');
-    ctx.fillStyle = g; ctx.fillRect(x - 18, yy - 12, 36, 24);
-    ctx.fillStyle = css(col, 0.95); ctx.shadowColor = css(col); ctx.shadowBlur = 8; ctx.fillRect(x - 16, yy - 1, 32, 2);
-  } else {
-    ctx.fillRect(x, y - 3, h, 6); ctx.strokeRect(x, y - 3, h, 6);
-    const xx = x + h * v;
-    const g = ctx.createLinearGradient(xx - 14, 0, xx + 14, 0); g.addColorStop(0, '#4a4c55'); g.addColorStop(0.5, '#1a1b20'); g.addColorStop(1, '#2c2e35');
-    ctx.fillStyle = g; ctx.fillRect(xx - 14, y - 20, 28, 40);
-    const c = [PINK[0] * (1 - v) + CYAN[0] * v, PINK[1] * (1 - v) + CYAN[1] * v, PINK[2] * (1 - v) + CYAN[2] * v];
-    ctx.fillStyle = css(c); ctx.shadowColor = css(c); ctx.shadowBlur = 10; ctx.fillRect(xx - 1, y - 18, 2, 36);
-  }
-  ctx.restore();
-  if (label) { ctx.fillStyle = 'rgba(200,205,220,0.55)'; ctx.font = '600 11px DejaVu Sans, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(label, vertical ? x : x + h / 2, vertical ? y + h + 22 : y + 38); }
-}
-
-function drawMixer(fs) {
-  const mw = D.opts.mixW, x0 = (W - mw) / 2, y0 = 250, y1 = 960;
-  ctx.save();
-  // panel
-  ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 18;
-  const g = ctx.createLinearGradient(x0, y0, x0 + mw, y1); g.addColorStop(0, '#1b1c21'); g.addColorStop(1, '#0c0d10');
-  ctx.fillStyle = g; ctx.beginPath(); ctx.roundRect(x0, y0, mw, y1 - y0, 14); ctx.fill();
-  ctx.shadowColor = 'transparent'; ctx.shadowOffsetY = 0; ctx.shadowBlur = 0;
-  ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 1; ctx.stroke();
-  for (let k = 0; k < 60; k++) { ctx.fillStyle = `rgba(255,255,255,${0.008 + 0.006 * Math.sin(k * 7.1)})`; ctx.fillRect(x0 + 4, y0 + 6 + k * (y1 - y0 - 12) / 60, mw - 8, 1); }
-  ctx.fillStyle = 'rgba(210,214,228,0.7)'; ctx.font = '700 13px DejaVu Sans, sans-serif'; ctx.textAlign = 'center';
-  ctx.fillText('GROKBOT · MIXER', x0 + mw / 2, y0 + 26);
-  const cx = [x0 + mw * 0.27, x0 + mw * 0.73], cols = [PINK, CYAN];
+function mixerItems(fs) {
+  const it = [], cols = [PINK, CYAN];
+  const P = (mesh, M, col, rough, metal, emis = [0, 0, 0]) => it.push([mesh, M, col, rough, metal, emis]);
+  P(MX.body, G.ident(), [0.012, 0.012, 0.013], 0.6, 0);
+  P(MX.plate, G.ident(), [0.045, 0.047, 0.052], 0.42, 0.75);
   for (let i = 0; i < 2; i++) {
-    const s = fs.d[i], lit = s.on ? 0.3 + 0.7 * s.g : 0.1;
-    ctx.fillStyle = css(cols[i], 0.85); ctx.font = '700 12px DejaVu Sans, sans-serif'; ctx.fillText(i ? 'CH 2' : 'CH 1', cx[i], y0 + 54);
-    // EQ: engine lanes are 1 = flat (noon), 0 = kill (fully counter-clockwise). MID has no lane -> stays at noon.
-    x0lab = x0 + mw / 2; const lb = (s2) => (i ? '' : s2);
-    knob(cx[i], y0 + 100, 24, 0.5 * s.hi, cols[i], lb('HIGH'), lit);
-    knob(cx[i], y0 + 175, 24, 0.5, cols[i], lb('MID'), lit * 0.5);
-    knob(cx[i], y0 + 250, 24, 0.5 * s.lo, cols[i], lb('LOW'), lit);
-    fader(cx[i], y0 + 320, 230, s.g, cols[i], true, 'GAIN');
+    const s = fs.d[i], col = cols[i], lit = s.on ? 0.35 + 0.65 * s.g : 0.08, x = KX[i];
+    // EQ lanes: 1 = flat (noon), 0 = kill (fully CCW). No mid lane in the engine -> MID stays at noon.
+    for (const [key, v] of [['hi', s.hi], ['mid', 1], ['lo', s.lo]]) {
+      const y = KY[key], kv = 0.5 * v, ang = (0.5 - kv) * 1.5 * Math.PI;
+      P(MX.knob, T(x, y), [0.03, 0.03, 0.034], 0.32, 0.6);
+      P(MX.ptr, G.chain(T(x, y), G.Rz(ang)), [0.8, 0.8, 0.82], 0.3, 0, [0.5, 0.5, 0.52]);
+      for (let k = 0; k < 11; k++) {                                    // LED ring, lit from min up to the knob value
+        const a = (0.75 + 1.5 * (k / 10)) * Math.PI, on = k / 10 <= kv + 1e-3 && key !== 'mid' ? 1 : (key === 'mid' && k === 5 ? 0.6 : 0);
+        const lx = x + 0.0165 * Math.cos(-a + Math.PI), ly = y + 0.0165 * Math.sin(-a + Math.PI);
+        P(MX.led, T(lx, ly), OFFCOL, 0.4, 0, glowC(col, on * lit));
+      }
+    }
+    // channel fader (engine gain lane)
+    P(MX.slot, T(x, 0), [0.003, 0.003, 0.003], 0.3, 0);
+    for (let k = 0; k <= 10; k++) P(MX.tick, T(x + (k % 5 === 0 ? 0.0145 : 0.0135), FAD[0] + (FAD[1] - FAD[0]) * k / 10), [0.25, 0.25, 0.27], 0.5, 0);
+    const fy = FAD[0] + (FAD[1] - FAD[0]) * s.g;
+    P(MX.cap, T(x, fy), [0.05, 0.05, 0.055], 0.35, 0.4);
+    P(MX.capLine, T(x, fy), col, 0.4, 0, glowC(col, 0.25 + 0.75 * lit));
+    // level meter (approx: track energy x gain), 16 LEDs beside the fader
+    const mx = i === 0 ? -0.020 : 0.020;
+    for (let k = 0; k < 16; k++) {
+      const on = s.lvl * 16 > k ? 1 : 0, c = k > 13 ? [1, 0.25, 0.25] : k > 10 ? [1, 0.8, 0.3] : col;
+      P(MX.led, T(mx, FAD[0] + 0.003 + k * 0.0058), OFFCOL, 0.4, 0, glowC(c, on));
+    }
   }
-  meter(x0 + mw / 2 - 14, y0 + 320, 10, 230, fs.d[0].lvl, PINK);
-  meter(x0 + mw / 2 + 4, y0 + 320, 10, 230, fs.d[1].lvl, CYAN);
-  ctx.fillStyle = 'rgba(200,205,220,0.45)'; ctx.font = '600 10px DejaVu Sans, sans-serif'; ctx.fillText('LVL', x0 + mw / 2, y0 + 572);
-  fader(x0 + 40, y0 + 640, mw - 80, fs.xf, PINK, false, 'CROSSFADER');
-  ctx.restore();
+  P(MX.xslot, G.ident(), [0.003, 0.003, 0.003], 0.3, 0);
+  const xx = XF[0] + (XF[1] - XF[0]) * fs.xf, xc = PINK.map((v, k) => v * (1 - fs.xf) + CYAN[k] * fs.xf);
+  P(MX.xcap, T(xx, XF[2]), [0.05, 0.05, 0.055], 0.35, 0.4);
+  P(MX.xcapLine, T(xx, XF[2]), xc, 0.4, 0, glowC(xc, 0.8));
+  for (let k = 0; k < 16; k++) {                                        // master meter (real, from the mix mp3)
+    const on = fs.m * 16 > k ? 1 : 0, c = k > 13 ? [1, 0.25, 0.25] : k > 10 ? [1, 0.8, 0.3] : [0.85, 0.9, 1.0];
+    P(MX.led, T(0, FAD[0] + 0.003 + k * 0.0058), OFFCOL, 0.4, 0, glowC(c, on * 0.8));
+  }
+  return it;
 }
 
+function drawMixerPass(fs) {
+  const gl = R.gl, cam = R.camera({ ...CAM, zoom: 0, al: 0 });
+  const items = mixerItems(fs);
+  const casters = [[MX.body, G.ident()], [MX.plate, G.ident()]];
+  for (const o of OFF) for (const mm of [R.m.body, R.m.plate, R.m.feet, R.m.platter, R.m.tower]) casters.push([mm, T(o[0], o[1], o[2])]);
+  for (const x of items) casters.push([x[0], x[1]]);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, R.fbo); gl.viewport(0, 0, SHADOW_SIZE, SHADOW_SIZE); gl.clear(gl.DEPTH_BUFFER_BIT);
+  gl.useProgram(R.dep.p); gl.uniformMatrix4fv(R.dep.u.uVP, false, MX.lvp);
+  gl.enable(gl.POLYGON_OFFSET_FILL); gl.polygonOffset(2, 4);
+  for (const [mesh, M] of casters) { gl.uniformMatrix4fv(R.dep.u.uM, false, M); gl.bindVertexArray(mesh.vao); gl.drawArrays(gl.TRIANGLES, 0, mesh.count); }
+  gl.disable(gl.POLYGON_OFFSET_FILL);
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null); gl.viewport(0, 0, W, H);
+  gl.activeTexture(gl.TEXTURE3); gl.bindTexture(gl.TEXTURE_2D, R.tex.shadow);
+  const u = R.std.u; gl.useProgram(R.std.p);
+  gl.uniformMatrix4fv(u.uVP, false, cam.vp); gl.uniformMatrix4fv(u.uLVP, false, MX.lvp); gl.uniform3fv(u.uEye, cam.eye);
+  gl.uniform1i(u.uShadow, 3); gl.uniform4f(u.uLamp, 0, 0, 0, 0); gl.uniform1f(u.uKeyGain, 0.6); gl.uniform2f(u.uPivot, 9, 9);
+  const all = [[MX.table, G.ident(), [0.018, 0.018, 0.02], 0.6, 0, [0, 0, 0]], ...items];
+  for (const [mesh, M, col, rough, metal, emis] of all) {
+    gl.uniformMatrix4fv(u.uM, false, M); gl.uniform3fv(u.uCol, col); gl.uniform3fv(u.uEmis, emis);
+    gl.uniform1f(u.uRough, rough); gl.uniform1f(u.uMetal, metal); gl.uniform1i(u.uMode, 0);
+    gl.bindVertexArray(mesh.vao); gl.drawArrays(gl.TRIANGLES, 0, mesh.count);
+  }
+  return cam;
+}
+
+// faceplate text, projected into the same perspective (affine per label)
+function proj(vp, p) {
+  const x = vp[0] * p[0] + vp[4] * p[1] + vp[8] * p[2] + vp[12], y = vp[1] * p[0] + vp[5] * p[1] + vp[9] * p[2] + vp[13];
+  const w = vp[3] * p[0] + vp[7] * p[1] + vp[11] * p[2] + vp[15];
+  return [(x / w * 0.5 + 0.5) * W, (0.5 - y / w * 0.5) * H];
+}
+function plateText(cam, x, y, txt, sizeMM, col, weight = 600) {
+  const z = TOP_Z + 0.0003, u = 0.001, o = proj(cam.vp, [x, y, z]), ex = proj(cam.vp, [x + u, y, z]), ey = proj(cam.vp, [x, y - u, z]);
+  ctx.save(); ctx.setTransform(ex[0] - o[0], ex[1] - o[1], ey[0] - o[0], ey[1] - o[1], o[0], o[1]);
+  ctx.font = `${weight} ${sizeMM}px DejaVu Sans, sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = col;
+  ctx.fillText(txt, 0, 0); ctx.restore();
+}
+function mixerLabels(cam) {
+  const g = 'rgba(200,205,222,0.62)';
+  plateText(cam, 0, 0.178, 'GROKBOT · MIXER', 7, 'rgba(220,224,236,0.8)', 700);
+  plateText(cam, KX[0], 0.163, 'CH 1', 6, css(PINK, 0.9), 700); plateText(cam, KX[1], 0.163, 'CH 2', 6, css(CYAN, 0.9), 700);
+  for (const [k, n] of [['hi', 'HIGH'], ['mid', 'MID'], ['lo', 'LOW']]) plateText(cam, 0, KY[k], n, 5, g);
+  plateText(cam, 0, FAD[0] - 0.010, 'LVL', 4.5, g);
+  for (const x of KX) plateText(cam, x, FAD[0] - 0.015, 'GAIN', 5, g);
+  plateText(cam, 0, XF[2] - 0.022, 'CROSSFADER', 5, g);
+}
 function hud(fs, t) {
   const tr = D.trans, mb = fs.mb, bar = Math.floor(mb), beat = Math.floor((mb % 1) * 4) + 1;
   ctx.save();
@@ -170,22 +212,23 @@ function hud(fs, t) {
 
 window.renderFrame = (f, fmt = 'image/jpeg', q = 0.92, noEncode = false) => {
   const fs = D.frameState[Math.min(f, D.frameState.length - 1)], t = f / D.fps;
-  const gl = R.gl; gl.clearColor(0.004, 0.004, 0.005, 1); gl.clear(gl.COLOR_BUFFER_BIT);
+  if (!MX) buildMixer();
+  const gl = R.gl; gl.viewport(0, 0, W, H); gl.clearColor(0.004, 0.004, 0.005, 1); gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+  const cam = drawMixerPass(fs);                        // table + mixer first (fills depth), then the two decks
   for (let i = 0; i < 2; i++) {
     const rr = D.recs[i];
     R.info = rr.info; R.tex.label = rr.label; R.tex.vis = rr.vis; R.tex.lut = rr.lut;
-    R.draw(deckState(i, fs, t));
+    R.draw(deckState(i, fs));
   }
-  R.gl.finish();
-  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+  gl.finish();
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
   ctx.drawImage(glc, 0, 0);
-  // vignette + top fade for the HUD
-  let g = ctx.createLinearGradient(0, 0, 0, 260); g.addColorStop(0, 'rgba(0,0,0,0.85)'); g.addColorStop(1, 'rgba(0,0,0,0)');
-  ctx.fillStyle = g; ctx.fillRect(0, 0, W, 260);
-  g = ctx.createRadialGradient(W / 2, H / 2, H * 0.45, W / 2, H / 2, H * 1.05); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.6)');
+  mixerLabels(cam);
+  let g = ctx.createLinearGradient(0, 0, 0, 230); g.addColorStop(0, 'rgba(0,0,0,0.85)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, 230);
+  g = ctx.createRadialGradient(W / 2, H / 2, H * 0.5, W / 2, H / 2, H * 1.1); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.55)');
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-  drawMixer(fs);
   hud(fs, t);
-  if (noEncode) { out.getContext('2d').getImageData(0, 0, 1, 1); return ''; }
+  if (noEncode) return '';
   return out.toDataURL(fmt, q);
 };

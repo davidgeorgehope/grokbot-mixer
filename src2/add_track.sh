@@ -20,5 +20,6 @@ PY
   SEP="$T/htdemucs" BF="st/$b.json" python3 barfeats.py | cut -c1-120
   rm -rf "$T"
   python3 phasechk.py "$b" 2>&1 | tail -3
+  python3 -c "import onsets; onsets.ensure('$b')"
 done
 echo "Add each new key to src/tests/keys_extra.json (id -> Camelot) and keys_full.json."

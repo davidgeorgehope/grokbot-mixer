@@ -63,14 +63,7 @@ def F(b):
 _ON={}
 def onsets(b):  # per-bar onset envelope (cached), used only to predict guardrail R1 (drums fighting)
   if b in _ON:return _ON[b]
-  f=f'st/{b}.onset.npy'
-  if os.path.exists(f):_ON[b]=np.load(f);return _ON[b]
-  import librosa;tr=track(b);x=tr['st']['mix'];x=x.mean(1) if x.ndim>1 else x;L=int(BAR*SR);out=[]
-  for k in range(tr['nb']):
-    j=int(round((tr['d0']+k*BAR)*SR));seg=np.asarray(x[max(0,j):j+L],np.float32)
-    if len(seg)<L:seg=np.pad(seg,(0,L-len(seg)))
-    out.append(librosa.onset.onset_strength(y=seg,sr=SR,hop_length=512))
-  n=min(len(o) for o in out);_ON[b]=np.array([o[:n] for o in out]);np.save(f,_ON[b]);return _ON[b]
+  import onsets as _onsetlib;_ON[b]=_onsetlib.ensure(b);return _ON[b]
 def rxc(a,b,wa,wb):
   oa,ob=onsets(a),onsets(b);ml=max(1,int((BEAT/8)*(SR/512)));xs=[]
   for xa,xb in zip(wa,wb):

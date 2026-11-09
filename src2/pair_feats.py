@@ -18,7 +18,7 @@ def build(b):
   for i in range(nb):
     m=(t>=d0+i*BAR)&(t<d0+(i+1)*BAR)
     if m.any():E[i]=ch[:,m].mean(1);en[i]=S[:,m].mean()
-  o=np.load(f'st/{b}.onset.npy');ph=np.full(nb,np.nan);per=BAR/16;fpb=o.shape[1]
+  import onsets;o=onsets.ensure(b);ph=np.full(nb,np.nan);per=BAR/16;fpb=o.shape[1]
   for i in range(min(nb,len(o))):
     seg=o[i];g=np.arange(16)*fpb/16;offs=np.arange(-per/2,per/2,0.001)
     sc=np.array([seg[np.clip(np.round(g+x*fpb/BAR).astype(int),0,fpb-1)].mean() for x in offs])

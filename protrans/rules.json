@@ -5,7 +5,7 @@
   "SWAP_POS": 0.21,
   "HIGH_SWAP": 1,
   "HIGH_OFS": 4,
-  "STRUCT": 0,
+  "STRUCT": 1,
   "LOOP32": 0,
   "hint_weight": 0.15,
   "near_hint_bars": 32,

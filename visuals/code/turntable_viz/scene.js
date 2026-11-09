@@ -46,15 +46,49 @@ const MIX_HW = 0.15, MIX_HD = 0.19, TOP_Z = -0.022, FLOOR_Z = -0.080;
 const DECK_X0 = -0.185, DECK_X1 = 0.27;                       // upstream plinth extent in its own frame
 const OFF = [[-MIX_HW - DECK_X1, 0, 0], [MIX_HW - DECK_X0, 0, 0]];
 const CAM = { az: 0, el: 0.70, dist: 1.50, at: [0, 0.0, -0.05] };   // ~38 deg down, straight on
+const DIVE_ON = () => (D.opts && D.opts.dive !== false);
 
-function deckState(i, fs) {
+function smoothstep(a, b, x) {
+  const t = Math.max(0, Math.min(1, (x - a) / (b - a)));
+  return t * t * (3 - 2 * t);
+}
+function diveAmt(fs) {
+  // 0 = booth overview, 1 = needle close-up. Ease in/out over the dive window.
+  if (!DIVE_ON() || !D.dives || !D.dives.length) return { k: 0, deck: 0 };
+  const mb = fs.mb;
+  let best = null;
+  for (const dv of D.dives) {
+    if (mb < dv.startBar || mb > dv.endBar) continue;
+    const span = dv.endBar - dv.startBar, u = (mb - dv.startBar) / span;
+    // hold near peak in the middle third
+    const k = u < 0.25 ? smoothstep(0, 0.25, u) : u > 0.75 ? 1 - smoothstep(0.75, 1, u) : 1;
+    if (!best || k > best.k) best = { k, deck: dv.deck | 0, kind: dv.kind };
+  }
+  return best || { k: 0, deck: 0 };
+}
+function camFor(fs) {
+  const dv = diveAmt(fs);
+  if (dv.k < 1e-4) return { ...CAM, zoom: 0, dive: dv };
+  // Fly toward the focused deck's stylus: raise elevation a touch, nudge az, pull zoom in.
+  const az = CAM.az + (dv.deck === 0 ? -0.18 : 0.18) * dv.k;
+  const el = CAM.el + 0.25 * dv.k;
+  const dist = CAM.dist * (1 - 0.55 * dv.k);
+  const at = [CAM.at[0] + (dv.deck === 0 ? -0.12 : 0.12) * dv.k, CAM.at[1] + 0.02 * dv.k, CAM.at[2]];
+  return { az, el, dist, at, zoom: 0.82 * dv.k, dive: dv };
+}
+
+function deckState(i, fs, cam) {
   const d = D.decks[i], s = fs.d[i], rec = D.recs[i];
   const theta = TAU * (d.lead + s.tb);
   const r = grooveRadius(rec.rec.rTab, theta), al = alphaForRadius(r), [sx, sy] = stylusXY(al);
   const thp = theta - Math.atan2(sy, sx);
   const beatPh = (fs.mb * 4) % 1, beat = Math.exp(-beatPh * 6) * (s.on ? 1 : 0.15) * (0.25 + 0.75 * s.g);
+  const c = cam || CAM;
+  // Only the focused deck gets the stylus zoom; the other stays in booth frame so the dive reads clearly.
+  const zoom = (c.dive && c.dive.k > 0 && c.dive.deck === i) ? c.zoom : 0;
   return {
-    thp, al, zt: 0, zoom: 0, motor: s.on, rpm: 60 / d.barSec, ...CAM, off: OFF[i], bare: true, noClear: true, keyGain: 0.6,
+    thp, al, zt: 0, zoom, motor: s.on, rpm: 60 / d.barSec, az: c.az, el: c.el, dist: c.dist, at: c.at,
+    off: OFF[i], bare: true, noClear: true, keyGain: 0.6,
     grooveW: d.pitch * 0.30, tint: i === 0 ? PINK.map((v) => v * 1.6) : CYAN, beat, playRev: d.lead + s.tb, glow: 3.5 * (0.3 + 0.7 * s.g),
   };
 }
@@ -130,8 +164,8 @@ function mixerItems(fs) {
   return it;
 }
 
-function drawMixerPass(fs) {
-  const gl = R.gl, cam = R.camera({ ...CAM, zoom: 0, al: 0 });
+function drawMixerPass(fs, camIn) {
+  const gl = R.gl, cam = R.camera({ ...(camIn || CAM), zoom: 0, al: 0 });
   const items = mixerItems(fs);
   const casters = [[MX.body, G.ident()], [MX.plate, G.ident()]];
   for (const o of OFF) for (const mm of [R.m.body, R.m.plate, R.m.feet, R.m.platter, R.m.tower]) casters.push([mm, T(o[0], o[1], o[2])]);
@@ -214,11 +248,12 @@ window.renderFrame = (f, fmt = 'image/jpeg', q = 0.92, noEncode = false) => {
   const fs = D.frameState[Math.min(f, D.frameState.length - 1)], t = f / D.fps;
   if (!MX) buildMixer();
   const gl = R.gl; gl.viewport(0, 0, W, H); gl.clearColor(0.004, 0.004, 0.005, 1); gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-  const cam = drawMixerPass(fs);                        // table + mixer first (fills depth), then the two decks
+  const camP = camFor(fs);
+  const cam = drawMixerPass(fs, camP);                  // table + mixer first (fills depth), then the two decks
   for (let i = 0; i < 2; i++) {
     const rr = D.recs[i];
     R.info = rr.info; R.tex.label = rr.label; R.tex.vis = rr.vis; R.tex.lut = rr.lut;
-    R.draw(deckState(i, fs));
+    R.draw(deckState(i, fs, camP));
   }
   gl.finish();
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);

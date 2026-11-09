@@ -101,6 +101,68 @@ def deck_bar(deck, mb):
     return float(fm[k][0]) + (i - k), True
 
 
+def plan_dives(out, decks, envs, s0, s1, bs):
+    """Rare camera swoops tied to real musical moments (drop landings, breakdowns).
+
+    Returns a list of {startBar, endBar, deck, kind, peakBar}. About 4-8 bars each,
+    a few per hour, spaced at least ~64 bars apart. FORCE_DIVE=1 plants one mid-clip
+    when nothing natural falls inside the window (preview testing).
+    """
+    import os
+    want = os.environ.get('GROOVE_DIVE', '1') != '0'
+    if not want:
+        return []
+    cands = []
+    for di, (d, (st, env)) in enumerate(zip(decks, envs)):
+        sec = out['decks'][di].get('sections') or {}
+        # map track-bar event -> mix bar via full_map
+        fm = d['full_map']; sb = d['start_bar']
+        def mix_of(tb):
+            # full_map[k][0] is track bar at mix bar sb+k
+            for k, row in enumerate(fm):
+                if abs(float(row[0]) - tb) < 0.51:
+                    return sb + k
+            # interpolate
+            tbs = [float(r[0]) for r in fm]
+            if not tbs or tb < tbs[0] - 1 or tb > tbs[-1] + 1:
+                return None
+            import numpy as np
+            return float(np.interp(tb, tbs, [sb + i for i in range(len(tbs))]))
+        for kind, key in (('drop', 'drop2'), ('drop', 'drop1'), ('breakdown', 'breakdown')):
+            tb = sec.get(key)
+            if tb is None:
+                continue
+            mb = mix_of(float(tb))
+            if mb is None or mb < s0 or mb > s1:
+                continue
+            # 6-bar swoop centered just after the event (settle into the groove)
+            dur = 6.0
+            cands.append(dict(peakBar=mb, startBar=mb - 1.0, endBar=mb - 1.0 + dur, deck=di, kind=kind))
+        # also mark each drops[] interval start
+        for pair in sec.get('drops') or []:
+            if not pair: continue
+            tb = float(pair[0]); mb = mix_of(tb)
+            if mb is None or mb < s0 or mb > s1: continue
+            cands.append(dict(peakBar=mb, startBar=mb - 1.0, endBar=mb + 5.0, deck=di, kind='drop'))
+    # prefer drops, then chronological; enforce spacing
+    cands.sort(key=lambda c: (0 if c['kind'] == 'drop' else 1, c['peakBar']))
+    picked, last = [], None
+    for c in cands:
+        c['startBar'] = max(s0, c['startBar']); c['endBar'] = min(s1, c['endBar'])
+        if c['endBar'] - c['startBar'] < 3: continue
+        if last is not None and c['peakBar'] - last < 64: continue
+        picked.append(c); last = c['peakBar']
+        if len(picked) >= max(1, int((s1 - s0) * bs / 900) + 1):  # ~1 per 15 min, at least 1 if any
+            break
+    if not picked and os.environ.get('FORCE_DIVE', '0') == '1':
+        mid = (s0 + s1) / 2
+        picked = [dict(peakBar=mid, startBar=mid - 1, endBar=mid + 5, deck=0, kind='forced')]
+    for c in picked:
+        print(f"  dive: deck {c['deck']} {c['kind']} bars {c['startBar']:.1f}-{c['endBar']:.1f}")
+    return picked
+
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--timing', required=True)
@@ -150,8 +212,9 @@ def main():
             fr['d'].append(dict(tb=tb, on=playing, cued=mb < d['start_bar'], g=g, lo=lo, hi=hi, lvl=float(np.clip((lvl + 40) / 40, 0, 1))))
         frames.append(fr)
     out['frameState'] = frames
+    out['dives'] = plan_dives(out, decks, envs, s0, s1, bs)
     json.dump(out, open(a.out, 'w'))
-    print(f'prep: {n} frames, decks {[d["id"] for d in decks]}, bars {[r["nBars"] for r in out["decks"]]} -> {a.out}')
+    print(f'prep: {n} frames, decks {[d["id"] for d in decks]}, bars {[r["nBars"] for r in out["decks"]]}, dives={len(out["dives"])} -> {a.out}')
 
 
 if __name__ == '__main__':

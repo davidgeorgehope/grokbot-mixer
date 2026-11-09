@@ -2,7 +2,7 @@
 """Auto-delivery after a passing build: 128k mp3, tracklist, iCloud (latest only), visuals render, YouTube public upload, backup, link files.
 usage: deliver.py NN META MP3 "Mix NN title"   (Drive upload is done by the agent with the UploadFile tool from deliver/NN/)
 Idempotent: each step writes a marker in deliver/NN/ and is skipped when present."""
-import json,os,re,sys,subprocess,glob,time
+import os,json,re,sys,subprocess,glob,time
 NN,META,MP3,TITLE=sys.argv[1:5];R='/workspace/mixes';D=f'{R}/deliver/{NN}';os.makedirs(D,exist_ok=True)
 P=f'{R}/PROGRESS_mix06.md'
 def log(m):open(P,'a').write(f"- {time.strftime('%H:%M')} ET: [deliver {NN}] {m}\n")
@@ -58,8 +58,26 @@ if not step('yt'):
   json.dump(dict(overlap=round(ov,2),tracks=tr),open(f'{V}/code/{KEY}_tracks.json','w'),indent=1)
   desc=f"DJ Grok Bot – {TITLE}: {round(M['len_sec']/60)} minutes of liquid drum & bass at 174 BPM, mixed and visualised by Grok Bot. Audio-reactive visuals generated in code.\n\nTracklist:\n"+'\n'.join(f"{fmt(s)} {T.get(b,b)}" for b,s in order)
   open(f'{D}/yt_desc.txt','w').write(desc)
-  log('visuals render start (Camelot Chladni Plate)')
-  ok=sh(f"cd {V} && {PY} code/analyze_mix.py {K128} code/{KEY}_tracks.json code/{KEY}_analysis.json && {PY} code/render_chladni.py code/{KEY}_analysis.json {K128} {OUT}").returncode==0
+  log('visuals render start (twin-turntable default)')
+  # Twin-turntable is the default visual. Prefer Runpod GPU when a key is available; else box CPU.
+  meta=f"{R}/src2/"+os.environ.get('DELIVER_META', f'mix{NN}_meta.json')
+  # fall back to newest mixNN*r*_meta.json / mixS_meta.json patterns the caller may set via DELIVER_META
+  import glob as _g
+  if not os.path.exists(meta):
+    cands=sorted(_g.glob(f'{R}/src2/mix{NN}*_meta.json')+ _g.glob(f'{R}/src2/mix{NN}r*_meta.json'), key=os.path.getmtime)
+    meta=cands[-1] if cands else meta
+  tl=f'{D}/dj-mix-{NN}-tracklist.md'
+  rp=f'{R}/visuals/code/turntable_viz/runpod_render.sh'
+  rf=f'{R}/visuals/code/turntable_viz/render_full.sh'
+  has_key=bool(os.environ.get('RUNPOD_API_KEY')) or os.path.exists(os.path.expanduser('~/.runpod_api_key'))
+  if has_key and os.path.exists(meta):
+    ok=sh(f"META={meta} MIX={K128} TRACKLIST={tl} OUT={OUT} GROOVE_DIVE=1 bash {rp}").returncode==0
+  elif os.path.exists(meta):
+    log('no Runpod key; rendering turntable on box CPU (slow)')
+    ok=sh(f"META={meta} MIX={K128} TRACKLIST={tl} OUT={OUT} BACKEND=cpu GROOVE_DIVE=1 bash {rf}").returncode==0
+  else:
+    log(f'turntable meta missing ({meta}); falling back to Chladni')
+    ok=sh(f"cd {V} && {PY} code/analyze_mix.py {K128} code/{KEY}_tracks.json code/{KEY}_analysis.json && {PY} code/render_chladni.py code/{KEY}_analysis.json {K128} {OUT}").returncode==0
   dur=sh(f'ffprobe -v error -show_entries format=duration -of csv=p=0 {OUT}').stdout.strip();ad=sh(f'ffprobe -v error -show_entries format=duration -of csv=p=0 {K128}').stdout.strip()
   if not ok or not dur or abs(float(dur)-float(ad))>2:log(f'visuals FAILED dur={dur} audio={ad}');sys.exit(1)
   r=sh(f"cd {R}/src && python3 yt_upload.py {OUT} --title 'DJ Grok Bot – {TITLE} | Liquid Drum & Bass' --description \"$(cat {D}/yt_desc.txt)\" --privacy public")

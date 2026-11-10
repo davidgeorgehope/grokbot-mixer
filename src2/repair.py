@@ -20,6 +20,7 @@ MIN_LEN=float(os.environ.get('MIN_LEN',60))
 TEST_CODES={'test_no_bass_gap_in_overlaps':'bassgap','test_no_level_dip_at_swap':'swapdip','test_downbeats_aligned':'downbeats',
   'test_mixdown_beats_aligned_every_overlap_bar':'beat_aligned','test_outgoing_audio_tail_never_drops_abruptly':'tail'}
 FILE_CODES={'structure_tail':'tail','bassgap':'bassgap','eq_swap':'swapdip','mix':'downbeats'}
+PAIRRE=re.compile(r"'([A-Za-z0-9_-]{11})',\s*'([A-Za-z0-9_-]{11})'")
 YT=re.compile(r"'([A-Za-z0-9_-]{11})'")
 MMSS=re.compile(r'\b(\d{1,2}):(\d{2})\b')
 
@@ -46,13 +47,21 @@ def render_culprits(name,log=None,src='.'):
     txt=open(lp,errors='replace').read();cur='pytest';pend=[]  # a tailed log may have lost the test header; the "file.py:N: AssertionError" line follows the E lines
     for line in txt.splitlines():
       m=re.match(r'_+ (test_\w+) _+',line.strip())
-      if m:cur=TEST_CODES.get(m.group(1),m.group(1));continue
+      if m:
+        for i in pend:add(i,cur)
+        pend=[];cur=TEST_CODES.get(m.group(1),m.group(1));continue
       m=re.search(r'test_release_(\w+)\.py:\d+: AssertionError',line)
       if m:
         code=FILE_CODES.get(m.group(1),m.group(1)) if cur=='pytest' else cur
         for i in pend:add(i,code)
         pend=[];continue
       if not line.lstrip().startswith('E ') or 'assert not' in line:continue
+      if 'bass gaps (trans' in line:  # test_release_bassgap: (trans index, mix bar, bars)
+        pend+=[int(x) for x in re.findall(r'\((\d+),\s*\d+,\s*\d+\)',line)];continue
+      pairs=PAIRRE.findall(line)
+      if pairs:  # ('a', 'b', ...) tuples name the blend directly (test_release_eq_swap)
+        for a,b in pairs:pend+=[i for i,t in enumerate(T) if t['a']==a and t['b']==b][:1]
+        continue
       ids=YT.findall(line);bars=[int(x) for x in re.findall(r"'[A-Za-z0-9_-]{11}',\s*(\d+)",line)]
       for k,a in enumerate(ids):
         c=[i for i,t in enumerate(T) if t['a']==a and (k>=len(bars) or t['start_bar']==bars[k])] or [i for i,t in enumerate(T) if t['a']==a]

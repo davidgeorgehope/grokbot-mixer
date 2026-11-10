@@ -140,3 +140,12 @@ def test_drop_outgoing_then_pad_insert_elsewhere():
   P,res,hist=R.repair(plan,[('S','B','G1')],ctx,log=lambda *_:None)
   ids=[p['id'] for p in P]
   assert 'S' not in ids and 'Z' in ids and R.passes(res) and hist[0]['action'].startswith('drop')
+
+def test_render_culprits_parse_bassgap_trans_and_swap_pairs(tmp_path):
+  M=dict(bar_sec=1.38,trans=[dict(a='AAAAAAAAAAA',b='BBBBBBBBBBB',start_bar=100,end_bar=116),dict(a='BBBBBBBBBBB',b='CCCCCCCCCCC',start_bar=300,end_bar=332)])
+  (tmp_path/'m_meta.json').write_text(json.dumps(M));(tmp_path/'guard_m').mkdir()
+  (tmp_path/'guard_m'/'pytest.log').write_text(
+    "____ test_no_bass_gap_in_overlaps ____\nE     AssertionError: bass gaps (trans,mix bar,bars): [(1, 918, 2)]\n"
+    "____ test_no_level_dip_at_swap ____\nE     AssertionError: [(23.54, 'AAAAAAAAAAA', 'BBBBBBBBBBB', 12, np.float32(-4.1))]\n")
+  c=R.render_culprits('m',src=str(tmp_path))
+  assert c==[('BBBBBBBBBBB','CCCCCCCCCCC','bassgap'),('AAAAAAAAAAA','BBBBBBBBBBB','swapdip')]

@@ -149,3 +149,12 @@ def test_render_culprits_parse_bassgap_trans_and_swap_pairs(tmp_path):
     "____ test_no_level_dip_at_swap ____\nE     AssertionError: [(23.54, 'AAAAAAAAAAA', 'BBBBBBBBBBB', 12, np.float32(-4.1))]\n")
   c=R.render_culprits('m',src=str(tmp_path))
   assert c==[('BBBBBBBBBBB','CCCCCCCCCCC','bassgap'),('AAAAAAAAAAA','BBBBBBBBBBB','swapdip')]
+
+def test_energy_failure_can_rewindow_same_pair():
+  # swapdip/bassgap/N1 may keep the pair if the window is clearly different (exit, ib, or length)
+  T=table({'A>B':[W(e=128,ib=0),W(e=144,ib=16)]})
+  plan=[step('A',['n',128,None,0,32]),step('B')]
+  dry,_=fake_dry(set(),length_per_track=31)
+  ctx=R.Ctx(T,['A','B'],ok=ok,cost=lambda T,a,b,w:0 if w['w'][3]==16 else 10,dry=dry)
+  P,res,hist=R.repair(plan,[('A','B','swapdip')],ctx,log=lambda *_:None)
+  assert hist[0]['action']=='rewindow' and P[0]['out_win'][3]==16 and R.passes(res)

@@ -2,7 +2,10 @@
   python3 repair.py --plan plan.json --out fixed.json [--render NAME] [--culprit a>b[:code],...] [--budget-s 1800] [--max-dry 150]
 Culprits (failing pairs) come from a render's guardrails.json + pytest output (--render NAME) and/or the dry check of the plan itself.
 For each culprit a>b the repair tries, cheapest first: replace b with an unused crate track c (a>c and c>next both key-compatible
-with a legal window), or insert c between a and b. Windows for every new pair are re-picked from the pair table with the planner's
+with a legal window), or insert c between a and b. For bassgap/swapdip/N1 (and phase/tail), a clearly different window of the same pair
+is also tried (different exit, incoming start, or length): X1 keeps the bass handoff at crossfader x 0.2-0.65, so a mid-blend
+swap into an intro-until-drop window is often the hole, and a different window is the fix that stays inside the tests.
+Windows for every new pair are re-picked from the pair table with the planner's
 own SOFT=0 filters (no vocal overlap, ib<=80, _valid, drums-solo rule, render-proved bad windows banned). Each candidate is checked
 with plan_search.dry(); the first that is all_ok and >= MIN_LEN minutes is kept, then the next culprit is repaired on top of it.
 Nothing here loosens a test: dry() runs the release tests' own functions, and the render still runs every guardrail and pytest."""
@@ -10,6 +13,7 @@ import os,re,sys,json,time,itertools
 LOOPS=('la','ab','lx','lb')
 PHASE_CODES={'G1','F1','downbeats','beat_aligned'}   # beat-phase failures: a looped outgoing deck is the usual cause (r9c 37:31)
 TAIL_CODES={'tail','A1'}                              # abrupt outgoing tail: avoid the same exit bar
+ENERGY_CODES={'bassgap','swapdip','N1'}          # Mix 08 r10bb: mid-blend swap into a bass-less intro, or a quiet/early incoming start; rewindow only (X1 still caps the handoff at x<=0.65)
 IBMAX=int(os.environ.get('IBMAX',80))
 NO_LX=int(os.environ.get('REPAIR_NO_LX',1))  # Mix 08: beat-stem loop exits slipped +8 ms (G1) on two different tracks (r9c Stars, r10x Shadows): re-picks never use lx
 LXPEN=float(os.environ.get('REPAIR_LXPEN',30))  # Mix 08 r9c: a beat-stem loop (lx) exit slipped +8 ms (G1); re-picked windows prefer plain/la exits
@@ -151,6 +155,8 @@ def _avoid(old_w,codes):
   f=[]
   if old_w and set(codes)&PHASE_CODES and old_w[0] in LOOPS:f.append(lambda w,k=old_w[0]:w[0] in(k,'lx'))  # the looped kind that slipped, and the beat-stem loop; plain or la still allowed
   if old_w and set(codes)&TAIL_CODES:f.append(lambda w,e=old_w[1]:w[1]==e)
+  if old_w and set(codes)&ENERGY_CODES:
+    f.append(lambda w,o=tuple(old_w):(w[1],w[3],w[4])==(o[1],o[3],o[4]))  # keep the pair only if exit, incoming start, or length changes
   return f
 def _step(pid,w,base=None):
   d=dict(base or {'id':pid,'kw':{'pre':16,'build':True},'anchor':False});d['id']=pid;d['tech']='blend'
@@ -203,8 +209,9 @@ def candidates(ctx,plan,i,codes,ban=()):
     for alt in range(ALTS):
       r=build(ctx,plan,seq,avoid,ban,alt)
       if r:out.append((r[0]+MOVEPEN[move],move,c,r[1]))
-  if set(codes)&(PHASE_CODES|TAIL_CODES) and avoid[a]:
-    # same tracks, clearly different window: a phase slip on a loop gets a non-loop/la exit, an abrupt tail a different exit bar
+  if set(codes)&(PHASE_CODES|TAIL_CODES|ENERGY_CODES) and avoid[a]:
+    # same tracks, clearly different window: a phase slip on a loop gets a non-loop/la exit, an abrupt tail a different exit bar,
+    # a bass gap / swap dip / entry step a different exit, incoming start, or length (the mid-blend handoff stays inside X1)
     for alt in range(REWINDOW_ALTS):  # every legal exit of the same pair (a plain or la exit replacing a slipped beat-stem loop), cheapest first
       r=build(ctx,plan,ids,avoid,set(ban)-{(ids[i],ids[i+1])},alt,force=a,fill=True)
       if r:out.append((r[0]+MOVEPEN['rewindow'],'rewindow',ids[i+1],r[1]))

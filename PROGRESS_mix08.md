@@ -58,3 +58,22 @@ the r10x Shadows lx exit). No test, threshold, DROP_FRAC or structure test chang
   - Stars Align > Supernova (G1): inserted Soul Central x Clipz – Strings Of Life (2B); Stars exits plain n144/32/32 (no beat-stem loop).
   - In The Shadows > Green Light (tail): dropped In The Shadows; Come Together now goes straight into Green Light (la128/112/64/16).
 - 07:38 ET: render round 0 started inside job render-mix08-r10 (jobs/render-mix08-r10.status); up to 3 render rounds, each fail re-repaired automatically.
+
+## r10bb fail and r11 repair (2026-11-10 10:21–10:35 ET)
+
+render-mix08-r10b finished failed rc=2 at 10:21 ET: "repair could not clear every culprit". Last rendered mix is mix08_r10bb (plan_mix08_r10bb.json, dry 67.13 min after the unrendered last swap). Remaining fails on that render:
+
+- 43:46 Stars Align (1991 & Grace Barton, LJJ4cJzpjKk, 3B) into Solitude (Hybrid Minds ft. Alexa Harley, n1dOiesZS1g, 2B). Window n 128 / in 16 / 32. N1 +3.0 dB at entry, bassgap trans 19 mix bar 1933 (3 bars), swapdip -3.5 dB at bass swap offset 16. Clips: `/workspace/mixes/deliver/mix08/r10bb_StarsAlign_Solitude_LJJ4cJzpjKk-n1dOiesZS1g_43m46.mp3`
+- 52:57 Ready To Fly (Sub Focus & Dimension, xENmcMSvZFI, 1A) into Kismet (Hybrid Minds ft. Riya, yogt46dJJ4g, 1B). Window n 144 / in 0 / 32. N1 -3.8 dB at entry, swapdip -3.2 dB at high swap offset 24. Clips: `/workspace/mixes/deliver/mix08/r10bb_ReadyToFly_Kismet_xENmcMSvZFI-yogt46dJJ4g_52m57.mp3`
+
+Diagnosis (did not loosen tests, DROP_FRAC, or the structure test; did not move the X1 bass-swap cap of x 0.2-0.65):
+
+- Stars->Solitude is a STRUCT drop-end window (Solitude drop at bar 48 lands at blend end) but Solitude has no bass until that drop (intro bass -80 dB from bar 24-47). Stars also has a breakdown bass hole at 104-119, then drop2 bass returns at 120. The phrase-snapped bass swap is forced mid-blend (offset 16, Stars 112 / Solitude 32) because X1 requires the handoff centre at crossfader x 0.2-0.65. After the swap, Stars drop2 bass is muted and Solitude still has no bass, which is the 3-bar gap at 1933. A later swap at the drop would fix the hole but would fail X1, so this is a window problem, not a threshold problem. Repair previously only rewindowed phase slips and abrupt tails, and banned the pair, so it never tried a different exit / incoming start / length of the same pair.
+- Ready->Kismet starts Kismet at bar 0 (near-silent intro, all-band ~-49 dB; drums and energy arrive at bar 16). The incoming drop at 48 is 16 bars after the blend ends (not a drop-end landing). The swapdip is the HIGH swap at offset 24 (Ready bar 136, in the outro and on its 8-bar fill pattern). A window with incoming start 16 and the drop at the blend end is the first thing to try.
+
+Code: `src2/repair.py` now rewindows bassgap/swapdip/N1 when the window is clearly different (exit, incoming start, or length). 15 repair tests pass (14 old + this case).
+
+Crate r11 (69, Lilies kept): restored Sub Focus, Wilkinson – Just Hold On (original VEVO, _K2sC9nrf_A, 2A, key-compatible with both slots) and added three new official uploads fetched on the residential machine: Hybrid Minds & LYVIA – Tear Drops (UKF, ujjImKRMX-M, 10A), Etherwood – Sinking Sand (UKF, YFMvngI33oE, 9A), Hybrid Minds & Catching Cairo – Come Down (Liquicity official, QeOaNGKUybE, 7B). The three new keys are not neighbours of the two failing slots; they are still in the crate for other repairs.
+
+Job render-mix08-r11 started from plan_mix08_r10bb.json, history includes r9/r9c/r10x/r10/r10b/r10bb, up to 3 render rounds, same engine env, gain 9.3, nudge08_r9c.json. Status: jobs/render-mix08-r11.status. Delivery waits until tests pass. Not loosening tests.
+

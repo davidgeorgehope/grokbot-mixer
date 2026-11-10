@@ -18,7 +18,8 @@ class _FLock:
 def path(b):return f'st/{b}.dnb.wav'
 def _atomic_write(dest,write):
   d=os.path.dirname(os.path.abspath(dest)) or '.'
-  fd,part=tempfile.mkstemp(prefix=os.path.basename(dest)+'.',suffix='.part',dir=d)
+  base=os.path.basename(dest); stem,ext=os.path.splitext(base)
+  fd,part=tempfile.mkstemp(prefix=stem+'.',suffix='.part'+ext,dir=d)
   os.close(fd)
   try:
     write(part);os.replace(part,dest)
@@ -38,7 +39,7 @@ def ensure(b):
         print(f'beatstem: building drums+bass cache for {b}',flush=True)
         subprocess.run([sys.executable,'-m','demucs','-n','htdemucs','-o',tmp,'--float32',f'st/{b}.wav'],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
         d=f'{tmp}/htdemucs/{b}';y=sf.read(f'{d}/drums.wav',dtype='float32',always_2d=True)[0]+sf.read(f'{d}/bass.wav',dtype='float32',always_2d=True)[0]
-        _atomic_write(p,lambda part:sf.write(part,y,44100,subtype='FLOAT'))
+        _atomic_write(p,lambda part:sf.write(part,y,44100,subtype='FLOAT',format='WAV'))
       finally:shutil.rmtree(tmp,ignore_errors=True)
   return p
 def levels(b):

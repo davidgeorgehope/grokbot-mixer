@@ -1,0 +1,217 @@
+{
+  "tag": "d1110",
+  "pick_id": "joe_syntax_hospital__01",
+  "base_variant": "n1110_high_ofs_8",
+  "base": {
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 28.74,
+    "test_mean": 28.47,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 25.9,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 33.34,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 31.82,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 29.17,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 28.14,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 15.93,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "pick_before": 35.28,
+  "base_pick_row": {
+    "id": "joe_syntax_hospital__01",
+    "split": "train",
+    "dj": "Joe Syntax",
+    "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
+    "pick": {
+      "fam": "nat_long",
+      "win": [
+        "n",
+        160,
+        null,
+        16,
+        32
+      ],
+      "env": {
+        "FADE": "lin",
+        "BASS_SWAP_BARS": "2",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0"
+      }
+    },
+    "score": {
+      "score": 35.28,
+      "scorer_version": "gain-events-v2",
+      "breakdown": {
+        "stem_curves": 45.6,
+        "deck_curves": 41.53,
+        "beat_align": 41.5,
+        "bass_swap": 12.93,
+        "outgoing_cut": 12.93,
+        "blend_length": 39.21,
+        "stems": {
+          "drums": 48.1,
+          "bass": 35.33,
+          "vocals": 42.41,
+          "melody": 56.56
+        },
+        "beat_off_ms": 2.9,
+        "events_pro": {
+          "bass_swap": null,
+          "outgoing_cut": null,
+          "blend_length": 10
+        },
+        "events_ours": {
+          "bass_swap": 7,
+          "outgoing_cut": 34,
+          "blend_length": 14
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 41.53
+        },
+        "align": {
+          "lag_samples": -77312,
+          "lag_ms": -3506.21,
+          "peak": 0.1526,
+          "win_sec": 62.701
+        }
+      },
+      "weights": {
+        "stem_curves": 0.28,
+        "deck_curves": 0.22,
+        "beat_align": 0.15,
+        "bass_swap": 0.13,
+        "outgoing_cut": 0.12,
+        "blend_length": 0.1
+      },
+      "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__01/pro.wav",
+      "ours": "/tmp/protrans_bench/n1110high_o1.mp3"
+    },
+    "ours": "/tmp/protrans_bench/n1110high_o1.mp3",
+    "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__01/pro.wav",
+    "created": [],
+    "ts": "2026-11-10 01:40:12 EST"
+  },
+  "tried": [
+    {
+      "name": "swap_pos_050",
+      "delta": {
+        "SWAP_POS": 0.5
+      },
+      "pick_score": 35.28,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "swap_1bar",
+      "delta": {
+        "BASS_SWAP_BARS": 1
+      },
+      "pick_score": 35.15,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "length_pref_16",
+      "delta": {
+        "length_pref": 16
+      },
+      "pick_score": 30.39,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "hint_stronger",
+      "delta": {
+        "hint_weight": 0.4
+      },
+      "pick_score": 35.28,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "near_hint_64",
+      "delta": {
+        "near_hint_bars": 64
+      },
+      "pick_score": 35.28,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "high_swap_off",
+      "delta": {
+        "HIGH_SWAP": 0
+      },
+      "pick_score": 35.28,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "loop32_on",
+      "delta": {
+        "LOOP32": 1
+      },
+      "pick_score": 35.28,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    }
+  ],
+  "kept": null,
+  "rules_after": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp.",
+    "FADE": "lin",
+    "BASS_SWAP_BARS": 2,
+    "SWAP_POS": 0.21,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 8,
+    "STRUCT": 1,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 32,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0
+  }
+}

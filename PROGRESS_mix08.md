@@ -22,3 +22,17 @@ Ad hoc build started 2026-11-09 16:44 ET (America/New_York). Env: STRUCT=1 FADE=
 - 18:58 ET: [08] predict() all_ok no longer requires bob16/x32. Planner now carries a drums-only streak and prunes solo+blend+close paths that would hit 8 bars (same test). r9: same crate/tests, not loosening coverage or drop_end.
 - 20:21 ET: [08] r9 finished rc=0. Search 1880 complete, 495 table-feasible (drop_end 8 on the winner). Dry-verify: first 4 distinct plans all ALL OK. Winner plan_mix08_r9.json: 24 tracks, 23 blends, 60.51 min, drop_end 8, outro 19, cov 0.802/0.5, drums_only/seesaw/vocal/keys/anchors/variety all pass. Warnings only: bob16 11, x32 8. Weightless is in the plan (routed around drums-only runs); Miles Apart is not. Starting render-mix08-r9 (gain 9.3, nudge05n) via render08.sh. Not loosening tests.
 - 20:24 ET: [08] render-mix08-r9 failed rc=1 at 20:22 ET. Plan still good. crash in beatstem.ensure for N-j7tIeGm1E (lx window): sf.write could not infer WAV from unique temp suffix '.part' (st/<id>.dnb.wav.<rand>.part). Added format='WAV' and preserved the real extension on the temp ('.part.wav' / '.part.npz'). Relaunching as render-mix08-r9b (same plan, gain 9.3, nudge05n). Backing up the fix to git.
+
+## r9c plan (2026-11-09 22:05 ET)
+
+r9b official fail: guardrails E1×2 + N1×2, plus pytest bassgap, echo kick, swap-dip, abrupt tail.
+Rewrote `src2/plan_mix08_r9c.json` from r9 (not the over-ambitious 8-window draft). Dry `plan_search.dry` **all_ok True**, **len 60.14 min**, no vocal clash, no E4, cov 0.808 / 0.51, bob16=11 x32=9 (warn only). Nudge `src2/nudge08_r9c.json` (+11 ms on Just Hold On bars 0–31). Render job `render-mix08-r9c` started 22:05 ET, gain 9.3.
+
+Window changes vs r9:
+- Weightless `['lb', 128, None, 16, 32]` (was lb 160/16/32): out before the mid-track hole, keep White Lies drop landing
+- U & I `['n', 144, None, 80, 32]` (was lx 144/128/80/16): 32-bar cover of Bad To Me's 96–103 hole
+- Stars Align `['lx', 144, 128, 0, 16]` (was n 112/0/16): blend in the second drop (kills the +3.5 dB step), lx pre-loop brings length over 60:00
+- Blur: `echo_out: false` (echo tail was 0.3 dB over the floor)
+- Left alone for this round (may still fail on render; clips if so): Shadows swap/tail, Always Be swap dip, Supernova→Solitude 2-bar bassgap, Solitude la tail, Just Hold On window (nudge only)
+
+Do not loosen tests. If this render/test also fails, send clips rather than starting r10 silently.

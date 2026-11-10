@@ -15,14 +15,16 @@ MAX_CANDS = 6
 
 def candidates():
     # priority: phase-aware picking, EQ swap >=2 bars, outgoing shape, length, then phase extras
+    # n1110 list, re-tested on the STRUCT=1 + 2-bar-swap base (n1109 kept bass_swap_2bar,
+    # phase_pref 0.4/0.8 rejected; d1109 kept STRUCT=1)
     return [
-        ('phase_pref_04', {'phase_pref_w': 0.4}),
-        ('phase_pref_08', {'phase_pref_w': 0.8}),
-        ('bass_swap_2bar', {'BASS_SWAP_BARS': 2}),
+        ('phase_pref_02', {'phase_pref_w': 0.2}),
+        ('bass_swap_4bar', {'BASS_SWAP_BARS': 4}),
         ('fade_tail_curve', {'FADE': 'tail'}),
         ('phase_soft_combo', {'phase_pref_w': 0.4, 'linger_pen_w': 0.3, 'breakdown_pen_w': 0.3}),
         ('linger_03', {'linger_pen_w': 0.3}),
-    ][:MAX_CANDS]
+        ('high_ofs_8', {'HIGH_OFS': 8}),
+][:MAX_CANDS]
 
 def main():
     tag = time.strftime('n%m%d')

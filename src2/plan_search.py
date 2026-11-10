@@ -8,6 +8,7 @@ Run with the same scorer env as the render (SHORTPEN, BOTHPEN, DRUMPEN, VPEN, ..
 import sys,os,json,glob,time,math,numpy as np
 sys.path.insert(0,'.');sys.path.insert(0,'../src/tests');sys.path.insert(0,'../src/build_qa');os.environ.setdefault('MIX_SRC','.')
 os.environ.setdefault('BASS_SWAP_BARS','2')  # nightly protrans hill-climb 2026-11-09: 2-bar bass handoff beat 1 bar on held-out pro DJs (25.19 -> 26.58); explicit env still wins, render guardrails still judge
+os.environ.setdefault('HIGH_OFS','8')  # nightly protrans hill-climb 2026-11-10: highs hand over 8 bars after the phrase start instead of 4 (held-out pro DJs 27.97 -> 28.47); explicit env still wins
 import checks as C
 import pair_feats as PF
 MELMAX=int(os.environ.get('MELMAX',8))      # max blend bars where both decks' melody/chord layer is above its own median (Bad To Me->Blame You 34:05, rated 1/5: 11; Parallel->Bad To Me 30:56, 5/5: 0)

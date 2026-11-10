@@ -165,27 +165,39 @@ def table(base,path=os.environ.get('PAIR_TABLE','pair_table.json'),K=int(os.envi
   if os.path.exists(path):
     T=json.load(open(path))
     if T['key']==key:return T
-  import cue;CM=cue.load();ns=scorer(base);KE=C.keys();ids=crate();t0=time.time();tr={};pairs={};FT={b:PF.load(b) for b in ids};BT={b:PF.beats(b)[0] for b in ids};PT={b:PF.pattern(b) for b in ids}
+  t0=time.time();ids=crate();X=_row_ctx(base,ids);pairs={f'{a}>{b}':_pair_row(X,a,b,K) for a in ids for b in ids if a!=b}
+  tr=X['tr']
+  for b in tr:tr[b].pop('cuef')
+  T=dict(key=key,built_s=round(time.time()-t0,1),tracks=tr,pairs=pairs);json.dump(T,open(path,'w'));return T
+def _row_ctx(base,ids):
+  """everything _pair_row needs for these tracks, loaded once (mix_simple's scorer, cue model, per-bar features)"""
+  import cue;CM=cue.load();ns=scorer(base);KE=C.keys();FT={b:PF.load(b) for b in ids};BT={b:PF.beats(b)[0] for b in ids};PT={b:PF.pattern(b) for b in ids}
   DA={b:(lambda x:x>np.percentile(x,75)-8)(np.array(json.load(open(f'st/{b}.json'))['bar']['drums'])) for b in ids}  # the ears test's drum-activity rule
+  tr={}
   for b in ids:
     t,al,body,v,nb=ns['A_'](b);g=t['g']['bar']
     tr[b]=dict(key=KE[b],nb=nb,body=float(body),tail=int(ns['tail0'](al,body)),e_max=int(min(ns['tail0'](al,body),nb,ns['OUTMAX'].get(b,nb))//16*16),
       anchor=b in ns['ANCH'],cuef=cue.track_feats(g['all'],g['low'],g['hat']))
-  for a in ids:
-    for b in ids:
-      if a==b:continue
-      ok=bool(C.camelot_ok(KE[a],KE[b]));row=dict(key_ok=ok,keys=f'{KE[a]}->{KE[b]}',energy_step=round(tr[b]['body']-tr[a]['body'],1),wins=[])
-      if ok:
-        ns['ids'][:]=[a,b];dA,dB=ns['drums_on'](a),ns['drums_on'](b);alA,alB=ns['A_'](a)[1],ns['A_'](b)[1]
-        for sc,kind,e,ib,r,X in ns['pair_cands'](0,0)[:K]:
-          e,p=e if isinstance(e,tuple) else (e,None);wa,wb=windows(kind,e,p,ib,X,a)
-          none=sum(not(xa<len(dA) and dA[xa]) and not(xb<len(dB) and dB[xb]) for xa,xb in zip(wa,wb))
-          x=(np.arange(X)+.5)/X;lv=10*np.log10(np.cos(x*np.pi/2)**2*10**(alA[wa]/10)+np.sin(x*np.pi/2)**2*10**(alB[np.minimum(wb,len(alB)-1)]/10))
-          row['wins'].append(dict(w=[kind,int(e),None if p is None else int(p),int(ib),int(X)],pen=round(float(r['pen']),1),bob=int(r['DT']),beatless=int(none),
-            voc=int(r['V']),both=int(r['both']),L=int(r['L']),R=r['R'],dip=round(float(tr[a]['body']-lv.min()),1),lv=[round(float(x),1) for x in lv],cue=round(1-cue.pctl(CM,'out',tr[a]['cuef'],e),3),**clash(FT[a],FT[b],wa,wb),step=entry_step(BT[a],wa,e-1 if kind in('la','ab','lx') else wa[0]-1),boff=beat_off_bars(PT[a],PT[b],DA[a],DA[b],wa,wb)))
-      pairs[f'{a}>{b}']=row
-  for b in tr:tr[b].pop('cuef')
-  T=dict(key=key,built_s=round(time.time()-t0,1),tracks=tr,pairs=pairs);json.dump(T,open(path,'w'));return T
+  return dict(CM=CM,ns=ns,KE=KE,FT=FT,BT=BT,PT=PT,DA=DA,tr=tr,cue=cue)
+def _pair_row(X,a,b,K,ia=0):
+  """one table row: key compatibility and the K best windows for a>b with a entering at source bar ia (0 = the cached table)"""
+  ns,KE,tr,FT,BT,PT,DA,CM,cue=(X[k] for k in('ns','KE','tr','FT','BT','PT','DA','CM','cue'))
+  ok=bool(C.camelot_ok(KE[a],KE[b]));row=dict(key_ok=ok,keys=f'{KE[a]}->{KE[b]}',energy_step=round(tr[b]['body']-tr[a]['body'],1),wins=[])
+  if ok:
+    ns['ids'][:]=[a,b];dA,dB=ns['drums_on'](a),ns['drums_on'](b);alA,alB=ns['A_'](a)[1],ns['A_'](b)[1]
+    for sc,kind,e,ib,r,Xn in ns['pair_cands'](0,ia)[:K]:
+      e,p=e if isinstance(e,tuple) else (e,None);wa,wb=windows(kind,e,p,ib,Xn,a)
+      none=sum(not(xa<len(dA) and dA[xa]) and not(xb<len(dB) and dB[xb]) for xa,xb in zip(wa,wb))
+      x=(np.arange(Xn)+.5)/Xn;lv=10*np.log10(np.cos(x*np.pi/2)**2*10**(alA[wa]/10)+np.sin(x*np.pi/2)**2*10**(alB[np.minimum(wb,len(alB)-1)]/10))
+      row['wins'].append(dict(w=[kind,int(e),None if p is None else int(p),int(ib),int(Xn)],pen=round(float(r['pen']),1),bob=int(r['DT']),beatless=int(none),
+        voc=int(r['V']),both=int(r['both']),L=int(r['L']),R=r['R'],dip=round(float(tr[a]['body']-lv.min()),1),lv=[round(float(x),1) for x in lv],cue=round(1-cue.pctl(CM,'out',tr[a]['cuef'],e),3),**clash(FT[a],FT[b],wa,wb),step=entry_step(BT[a],wa,e-1 if kind in('la','ab','lx') else wa[0]-1),boff=beat_off_bars(PT[a],PT[b],DA[a],DA[b],wa,wb)))
+  return row
+_RX={}
+def pair_rows(base,pairs,K=400,ia=None):
+  """fresh rows for just these (a,b) pairs, every pair_cands window (K), scored from each outgoing's real entry bar ia[a] (repair.py)"""
+  ids=sorted({x for p in pairs for x in p});k=(base,tuple(ids))
+  if k not in _RX:_RX[k]=_row_ctx(base,ids)
+  return {f'{a}>{b}':_pair_row(_RX[k],a,b,K,(ia or {}).get(a,0)) for a,b in pairs}
 
 # ---------- search over order + windows ----------
 def _valid(t,w,ia):

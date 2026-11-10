@@ -36,3 +36,25 @@ Window changes vs r9:
 - Left alone for this round (may still fail on render; clips if so): Shadows swap/tail, Always Be swap dip, Supernova→Solitude 2-bar bassgap, Solitude la tail, Just Hold On window (nudge only)
 
 Do not loosen tests. If this render/test also fails, send clips rather than starting r10 silently.
+
+## r10: DJustify-style auto-repair (2026-11-10 06:12–07:38 ET)
+
+New `src2/repair.py` (planner repair loop, tests in `src/tests/test_repair.py`, 13 pass). A blend that fails a gate is a culprit; the
+culprit pair is banned and the repair re-picks the slot: replace/insert the incoming track (unused crate track), move a plan track
+in, drop the incoming or outgoing, replace the outgoing, or (phase-slip/abrupt-tail only) a clearly different window of the same pair.
+Windows come from fresh `plan_search.pair_rows` (all pair_cands windows from the outgoing's real entry bar; `table()` now shares
+`_row_ctx/_pair_row`), planner SOFT=0 filters first, soft-cost tier only if nothing strict. Every candidate goes through `plan_search.dry`
+(all_ok and >= 60 min). Depth 2: a near miss that only broke a new pair (vocal/key/see-saw) gets that pair repaired; all_ok but short
+gets a length pad (later exit elsewhere or an inserted crate track). Earlier misses get a second pass after a later fix.
+Render feedback: `--rounds N` renders via render08.sh only when every culprit is cleared; the render's guardrail + pytest failures
+(`guard_<name>/pytest.log`, now kept in full by render08.sh) become the next round's culprits, and every render-failed (pair, window)
+from earlier renders (`--history`) is never re-picked. Beat-stem loop (lx) exits are not re-picked (G1 +8 ms slip on r9c Stars and on
+the r10x Shadows lx exit). No test, threshold, DROP_FRAC or structure test changed.
+
+- r10x (aborted orphan render, plan_mix08_r10x.json): Shadows lx exit G1 + C2, Weightless lb160 E1 (r9b window re-picked by a pad), In Your Eyes>Bad To Me E1, Stars n112 N1. Fed back as bans.
+- Crate grew by 19 already-prepped official tracks with keys (mix08/crate_r10.txt, 65; Lilies kept), audio restored.
+- Result plan_mix08_r10.json: dry all_ok, 60.32 min, 25 tracks / 24 blends, cov 0.801/0.51, no vocal clash, no E4, bob16 11/24 (warn), x32 12/24, no lx.
+  - U & I > Bad To Me (L1): inserted Camo & Krooked – Ember (5A) between them (U & I now out n128/0/32, Ember out n208/80/32).
+  - Stars Align > Supernova (G1): inserted Soul Central x Clipz – Strings Of Life (2B); Stars exits plain n144/32/32 (no beat-stem loop).
+  - In The Shadows > Green Light (tail): dropped In The Shadows; Come Together now goes straight into Green Light (la128/112/64/16).
+- 07:38 ET: render round 0 started inside job render-mix08-r10 (jobs/render-mix08-r10.status); up to 3 render rounds, each fail re-repaired automatically.

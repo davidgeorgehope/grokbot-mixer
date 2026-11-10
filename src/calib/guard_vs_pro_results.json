@@ -1,0 +1,1931 @@
+{
+  "generated": "2026-11-10T17:28:11-05:00",
+  "timezone": "America/New_York",
+  "read_only": true,
+  "applied": false,
+  "mix": "mix08_r11c",
+  "current_thresholds": {
+    "bassgap_db": 8.0,
+    "swapdip_db": 3.0,
+    "N1_db": 3.0
+  },
+  "method": {
+    "bassgap": "src2/bassgap.py bar_db + gaps (neighbour median of +-4 bars, GAP_DB, L>1 inside overlap). Source-dip exemption uses aligned studio tracks when locate is available (same GAP_DB/2 rule as bassgap.src_dip). Continuous metric: worst adjacent-pair depth.",
+    "swapdip": "test_release_eq_swap.test_no_level_dip_at_swap: lo-ref of half-bar full-band dB, +-1 bar around swap vs quieter of the 2 bars before/after. Mix 08 fail/placement uses official pre-master summed rendered decks (the test); master_* is the same formula on the mastered wav. Pro clips are released mixdowns (no separate decks) with swap time from score.source_gain_events; the measurement window origin is swapped back 3 bars when the clip has audio (the formula only needs +-3 bars). High-swap is measured on Mix 08 only.",
+    "N1": "guardrails.py master level-step branch only (not the 10 ms grid branch): ffmpeg ebur128 momentary, median of 8 frames before vs 8 frames after (skip 2) at incoming start and bass swap. Mix 08 incoming start is B start_bar (blend start). Pro incoming start is first sustained incoming presence from full-band deck gains.",
+    "corpus": "33 admitted in protrans/results/admitted.json, plus any other extracted clips under protrans/clips (64 s, listed incoming at 24 s)."
+  },
+  "summary": {
+    "admitted": {
+      "label": "admitted",
+      "n": 33,
+      "bassgap": {
+        "distribution": {
+          "n": 33,
+          "median": 2.68,
+          "p75": 4.123,
+          "p90": 6.706,
+          "p95": 9.839,
+          "max": 14.251
+        },
+        "n_measured": 33,
+        "n_fail": 2,
+        "pct_fail": 6.1,
+        "metric": "worst_run2_depth_db (max over adjacent overlap bars of min(depth_i, depth_i+1); fail if > GAP_DB and not source-exempt)"
+      },
+      "swapdip": {
+        "distribution_dip_db": {
+          "n": 30,
+          "median": -0.288,
+          "p75": 1.605,
+          "p90": 4.936,
+          "p95": 6.067,
+          "max": 7.737
+        },
+        "distribution_depth_db": {
+          "n": 30,
+          "median": 0.288,
+          "p75": 1.273,
+          "p90": 3.402,
+          "p95": 4.414,
+          "max": 7.263
+        },
+        "n_measured": 30,
+        "n_unmeasured": 3,
+        "n_fail": 5,
+        "pct_fail": 16.7,
+        "metric": "lo-ref dB at detected bass swap (fail if < -DIP_DB). Unmeasured swaps are not counted as fails."
+      },
+      "N1": {
+        "distribution_abs_step_db": {
+          "n": 33,
+          "median": 0.75,
+          "p75": 2.05,
+          "p90": 3.1,
+          "p95": 3.83,
+          "max": 6.05
+        },
+        "n_measured": 33,
+        "n_unmeasured": 0,
+        "n_fail": 6,
+        "pct_fail": 18.2,
+        "metric": "max |post-pre| ebur128 M step (dB) at incoming start and bass swap (fail if > N1_db)"
+      }
+    },
+    "all_available": {
+      "label": "all_available",
+      "n": 39,
+      "bassgap": {
+        "distribution": {
+          "n": 39,
+          "median": 2.665,
+          "p75": 4.119,
+          "p90": 6.811,
+          "p95": 11.086,
+          "max": 14.251
+        },
+        "n_measured": 39,
+        "n_fail": 4,
+        "pct_fail": 10.3,
+        "metric": "worst_run2_depth_db (max over adjacent overlap bars of min(depth_i, depth_i+1); fail if > GAP_DB and not source-exempt)"
+      },
+      "swapdip": {
+        "distribution_dip_db": {
+          "n": 31,
+          "median": -0.316,
+          "p75": 1.549,
+          "p90": 4.848,
+          "p95": 6.036,
+          "max": 7.737
+        },
+        "distribution_depth_db": {
+          "n": 31,
+          "median": 0.316,
+          "p75": 1.258,
+          "p90": 3.297,
+          "p95": 4.408,
+          "max": 7.263
+        },
+        "n_measured": 31,
+        "n_unmeasured": 8,
+        "n_fail": 5,
+        "pct_fail": 16.1,
+        "metric": "lo-ref dB at detected bass swap (fail if < -DIP_DB). Unmeasured swaps are not counted as fails."
+      },
+      "N1": {
+        "distribution_abs_step_db": {
+          "n": 39,
+          "median": 0.95,
+          "p75": 2.375,
+          "p90": 3.13,
+          "p95": 3.62,
+          "max": 6.05
+        },
+        "n_measured": 39,
+        "n_unmeasured": 0,
+        "n_fail": 7,
+        "pct_fail": 17.9,
+        "metric": "max |post-pre| ebur128 M step (dB) at incoming start and bass swap (fail if > N1_db)"
+      }
+    },
+    "other_clips": {
+      "label": "other_clips",
+      "n": 6,
+      "bassgap": {
+        "distribution": {
+          "n": 6,
+          "median": 2.636,
+          "p75": 3.079,
+          "p90": 7.0,
+          "p95": 8.891,
+          "max": 10.782
+        },
+        "n_measured": 6,
+        "n_fail": 2,
+        "pct_fail": 33.3,
+        "metric": "worst_run2_depth_db (max over adjacent overlap bars of min(depth_i, depth_i+1); fail if > GAP_DB and not source-exempt)"
+      },
+      "swapdip": {
+        "distribution_dip_db": {
+          "n": 1,
+          "median": -1.214,
+          "p75": -1.214,
+          "p90": -1.214,
+          "p95": -1.214,
+          "max": -1.214
+        },
+        "distribution_depth_db": {
+          "n": 1,
+          "median": 1.214,
+          "p75": 1.214,
+          "p90": 1.214,
+          "p95": 1.214,
+          "max": 1.214
+        },
+        "n_measured": 1,
+        "n_unmeasured": 5,
+        "n_fail": 0,
+        "pct_fail": 0.0,
+        "metric": "lo-ref dB at detected bass swap (fail if < -DIP_DB). Unmeasured swaps are not counted as fails."
+      },
+      "N1": {
+        "distribution_abs_step_db": {
+          "n": 6,
+          "median": 2.075,
+          "p75": 2.787,
+          "p90": 3.025,
+          "p95": 3.138,
+          "max": 3.25
+        },
+        "n_measured": 6,
+        "n_unmeasured": 0,
+        "n_fail": 1,
+        "pct_fail": 16.7,
+        "metric": "max |post-pre| ebur128 M step (dB) at incoming start and bass swap (fail if > N1_db)"
+      }
+    },
+    "mix08_r11c_in_admitted_distribution": [
+      {
+        "id": "rJuyd8koFAU>kKu3fIOTiHk",
+        "check": "N1",
+        "artist_title": "Son & Lauren Walton \u2013 Always Be -> Wilkinson \u2013 Hypnotic",
+        "value_db": 3.2,
+        "abs_step_db": 3.2,
+        "admitted_percentile": 90.9,
+        "would_fail_current": true
+      },
+      {
+        "id": "EiZVTuiqo0w>n1dOiesZS1g",
+        "check": "bassgap",
+        "artist_title": "Hybrid Minds ft. Catching Cairo \u2013 Supernova -> Hybrid Minds ft. Alexa Harley \u2013 Solitude",
+        "value_db": 8.515,
+        "admitted_percentile": 93.9,
+        "would_fail_current": true
+      },
+      {
+        "id": "NaY3x3GRDF4>sObzaBqaBRQ",
+        "check": "swapdip",
+        "artist_title": "Sub Focus & Metrik \u2013 Trip -> Dimension ft. TS Graye \u2013 Remedy",
+        "value_db": -3.548,
+        "depth_db": 3.548,
+        "admitted_percentile": 90.0,
+        "would_fail_current": true
+      }
+    ],
+    "proposed_thresholds": {
+      "bassgap_db": {
+        "current": 8.0,
+        "proposed_p90": 6.706,
+        "vs_current": "tighter than current",
+        "note": "Pro p90 is 6.71 dB. Current gate is 8 dB (tighter than current). Proposal only \u2014 not written into any test."
+      },
+      "swapdip_db": {
+        "current": 3.0,
+        "proposed_p90": 3.402,
+        "vs_current": "looser than current",
+        "note": "Pro p90 is 3.40 dB. Current gate is 3 dB (looser than current). Proposal only \u2014 not written into any test."
+      },
+      "N1_db": {
+        "current": 3.0,
+        "proposed_p90": 3.1,
+        "vs_current": "looser than current",
+        "note": "Pro p90 is 3.10 dB. Current gate is 3 dB (looser than current). Proposal only \u2014 not written into any test."
+      },
+      "note": "Proposals are the admitted-set p90 of each worse-direction metric. They are not applied. Standing rule: do not loosen thresholds by hand, and do not lower DROP_FRAC or change the structure test. Previous energy-drop calibration (docs/PRO_CALIBRATION_2026-11-07.md) used p95; p95 is reported alongside p90 for comparison."
+    }
+  },
+  "mix08_r11c": [
+    {
+      "id": "rJuyd8koFAU>kKu3fIOTiHk",
+      "check": "N1",
+      "artist_title": "Son & Lauren Walton \u2013 Always Be -> Wilkinson \u2013 Hypnotic",
+      "trans": 15,
+      "start_bar": 1504,
+      "end_bar": 1536,
+      "swap_bar": 1515.0,
+      "start_s": 2074.483,
+      "swap_s": 2089.655,
+      "end_s": 2118.621,
+      "bassgap": {
+        "worst_run2_depth_db": 4.511,
+        "official_gaps": [],
+        "measured_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "master_dip_db": -0.228,
+        "master_at_bass": -0.228,
+        "master_at_high": null,
+        "official_deck_at_bass": -0.278,
+        "official_deck_at_high": null,
+        "dip_db": -0.278,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 3.2,
+        "at_entry": 3.2,
+        "at_swap": 0.3,
+        "fail": true
+      }
+    },
+    {
+      "id": "EiZVTuiqo0w>n1dOiesZS1g",
+      "check": "bassgap",
+      "artist_title": "Hybrid Minds ft. Catching Cairo \u2013 Supernova -> Hybrid Minds ft. Alexa Harley \u2013 Solitude",
+      "trans": 18,
+      "start_bar": 1872,
+      "end_bar": 1904,
+      "swap_bar": 1888.0,
+      "start_s": 2582.069,
+      "swap_s": 2604.138,
+      "end_s": 2626.207,
+      "bassgap": {
+        "worst_run2_depth_db": 8.515,
+        "official_gaps": [
+          {
+            "trans": 18,
+            "mix_bar": 1902,
+            "bars": 2
+          }
+        ],
+        "measured_gaps": [
+          {
+            "start_bar": 1902,
+            "bars": 2,
+            "depth_db": 12.718
+          }
+        ],
+        "fail": true
+      },
+      "swapdip": {
+        "master_dip_db": -0.188,
+        "master_at_bass": 0.143,
+        "master_at_high": -0.188,
+        "official_deck_at_bass": 0.043,
+        "official_deck_at_high": -0.043,
+        "dip_db": -0.043,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 1.45,
+        "at_entry": 1.45,
+        "at_swap": 0.65,
+        "fail": false
+      }
+    },
+    {
+      "id": "NaY3x3GRDF4>sObzaBqaBRQ",
+      "check": "swapdip",
+      "artist_title": "Sub Focus & Metrik \u2013 Trip -> Dimension ft. TS Graye \u2013 Remedy",
+      "trans": 9,
+      "start_bar": 1008,
+      "end_bar": 1040,
+      "swap_bar": 1024.0,
+      "start_s": 1390.345,
+      "swap_s": 1412.414,
+      "end_s": 1434.483,
+      "bassgap": {
+        "worst_run2_depth_db": 8.72,
+        "official_gaps": [],
+        "measured_gaps": [
+          {
+            "start_bar": 1036,
+            "bars": 2,
+            "depth_db": 14.906
+          }
+        ],
+        "fail": false
+      },
+      "swapdip": {
+        "master_dip_db": -2.601,
+        "master_at_bass": -2.601,
+        "master_at_high": 0.036,
+        "official_deck_at_bass": -3.548,
+        "official_deck_at_high": -0.162,
+        "dip_db": -3.548,
+        "fail": true
+      },
+      "N1": {
+        "step_db": -2.45,
+        "at_entry": 0.1,
+        "at_swap": -2.45,
+        "fail": false
+      }
+    }
+  ],
+  "pro_rows": [
+    {
+      "id": "maduk_liquicity_lunar2025__02",
+      "dj": "Maduk",
+      "split": "test",
+      "pair": "Camo & Krooked - Afterlife (BCee Remix) -> Sub Focus & Wilkinson - Freedom (High Contrast Remix)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 2,
+        "outgoing_cut": null,
+        "blend_length": 11,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 46
+      },
+      "start_s": 0.0,
+      "end_s": 63.448,
+      "entry_s": 0.0,
+      "swap_s": 2.759,
+      "bassgap": {
+        "worst_run2_depth_db": 4.779,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": null,
+        "measured": false,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 0.15,
+        "at_entry": null,
+        "at_swap": 0.15,
+        "at_tracklist_b": 2.25,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__03",
+      "dj": "Maduk",
+      "split": "test",
+      "pair": "Sub Focus & Wilkinson - Freedom (High Contrast Remix) -> LSB - New Day",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 14,
+        "outgoing_cut": null,
+        "blend_length": 11,
+        "incoming_start": 2,
+        "overlap_start": 2,
+        "overlap_end": 46
+      },
+      "start_s": 2.759,
+      "end_s": 63.448,
+      "entry_s": 2.759,
+      "swap_s": 19.31,
+      "bassgap": {
+        "worst_run2_depth_db": 1.799,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 1.436,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 2.2,
+        "at_entry": 2.2,
+        "at_swap": 0.05,
+        "at_tracklist_b": 0.7,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__05",
+      "dj": "Maduk",
+      "split": "test",
+      "pair": "Netsky - Memory Lane -> Maduk - Miles Apart",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 14,
+        "outgoing_cut": null,
+        "blend_length": 15,
+        "incoming_start": 1,
+        "overlap_start": 1,
+        "overlap_end": 46
+      },
+      "start_s": 1.379,
+      "end_s": 63.448,
+      "entry_s": 1.379,
+      "swap_s": 19.31,
+      "bassgap": {
+        "worst_run2_depth_db": 13.818,
+        "gaps": [
+          {
+            "start_bar": 15,
+            "bars": 3,
+            "depth_db": 19.978,
+            "source_dip_a": false,
+            "source_dip_b": true
+          }
+        ],
+        "exempt_gaps": [],
+        "fail": true
+      },
+      "swapdip": {
+        "dip_db": -0.748,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.75,
+        "at_entry": 0.0,
+        "at_swap": -0.75,
+        "at_tracklist_b": 0.25,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 10,
+        "outgoing_cut": 31,
+        "blend_length": 9,
+        "incoming_start": 10,
+        "overlap_start": 10,
+        "overlap_end": 31
+      },
+      "start_s": 13.793,
+      "end_s": 42.759,
+      "entry_s": 13.793,
+      "swap_s": 13.793,
+      "bassgap": {
+        "worst_run2_depth_db": 4.123,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -0.261,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 1.8,
+        "at_entry": 1.8,
+        "at_swap": 1.8,
+        "at_tracklist_b": -0.8,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "High Contrast - Twilight's Last Gleaming -> Netsky - Escape (ft. Darrison)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 16,
+        "outgoing_cut": 44,
+        "blend_length": 7,
+        "incoming_start": 3,
+        "overlap_start": 3,
+        "overlap_end": 44
+      },
+      "start_s": 4.138,
+      "end_s": 60.69,
+      "entry_s": 4.138,
+      "swap_s": 22.069,
+      "bassgap": {
+        "worst_run2_depth_db": 1.056,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -3.297,
+        "measured": true,
+        "fail": true
+      },
+      "N1": {
+        "step_db": -0.1,
+        "at_entry": 0.05,
+        "at_swap": -0.1,
+        "at_tracklist_b": 2.65,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 4,
+        "outgoing_cut": null,
+        "blend_length": 4,
+        "incoming_start": 12,
+        "overlap_start": 12,
+        "overlap_end": 46
+      },
+      "start_s": 16.552,
+      "end_s": 63.448,
+      "entry_s": 16.552,
+      "swap_s": 5.517,
+      "bassgap": {
+        "worst_run2_depth_db": 2.568,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 5.726,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.75,
+        "at_entry": -0.75,
+        "at_swap": 0.75,
+        "at_tracklist_b": 1.4,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__16",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Netsky - The Whistle Song -> Logistics - Together",
+      "admitted": false,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 38,
+        "outgoing_cut": 37,
+        "blend_length": 18,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 37
+      },
+      "start_s": 0.0,
+      "end_s": 51.034,
+      "entry_s": 0.0,
+      "swap_s": 52.414,
+      "bassgap": {
+        "worst_run2_depth_db": 2.665,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -1.214,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 0.05,
+        "at_entry": null,
+        "at_swap": 0.05,
+        "at_tracklist_b": -2.2,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 12,
+        "outgoing_cut": 34,
+        "blend_length": 17,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 34
+      },
+      "start_s": 0.0,
+      "end_s": 46.897,
+      "entry_s": 0.0,
+      "swap_s": 16.552,
+      "bassgap": {
+        "worst_run2_depth_db": 3.996,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -0.597,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.95,
+        "at_entry": null,
+        "at_swap": -0.95,
+        "at_tracklist_b": 0.7,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 26,
+        "outgoing_cut": 27,
+        "blend_length": 2,
+        "incoming_start": 25,
+        "overlap_start": 19,
+        "overlap_end": 27
+      },
+      "start_s": 26.207,
+      "end_s": 37.241,
+      "entry_s": 34.483,
+      "swap_s": 35.862,
+      "bassgap": {
+        "worst_run2_depth_db": 4.915,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -2.115,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -3.1,
+        "at_entry": -3.1,
+        "at_swap": -0.25,
+        "at_tracklist_b": 0.9,
+        "measured": true,
+        "fail": true
+      }
+    },
+    {
+      "id": "netsky_hospital_classics__24",
+      "dj": "Netsky",
+      "split": "test",
+      "pair": "Nu:Logic - Morning Light -> Sigma - Nobody To Love",
+      "admitted": false,
+      "window": "fallback_tracklist",
+      "duration_s": 64.0,
+      "events": null,
+      "start_s": 1.931,
+      "end_s": 57.103,
+      "entry_s": 24.0,
+      "swap_s": null,
+      "bassgap": {
+        "worst_run2_depth_db": 2.607,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": null,
+        "measured": false,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -2.8,
+        "at_entry": -2.8,
+        "at_swap": null,
+        "at_tracklist_b": -2.8,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "pola_bryson_puzzlewood__00",
+      "dj": "Pola & Bryson",
+      "split": "test",
+      "pair": "Pola & Bryson feat. Hugh Hardie - Vetur -> Pola & Bryson & Ko-Jo - Closer to Home",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 9,
+        "outgoing_cut": 10,
+        "blend_length": 10,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 10
+      },
+      "start_s": 0.0,
+      "end_s": 13.793,
+      "entry_s": 0.0,
+      "swap_s": 12.414,
+      "bassgap": {
+        "worst_run2_depth_db": 3.033,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -2.422,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 0.05,
+        "at_entry": null,
+        "at_swap": 0.05,
+        "at_tracklist_b": -1.25,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "pola_bryson_puzzlewood__02",
+      "dj": "Pola & Bryson",
+      "split": "test",
+      "pair": "Pola & Bryson feat. Lauren Archer - Night Dawns -> Pola & Bryson - Wind Rises",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 11,
+        "outgoing_cut": null,
+        "blend_length": 24,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 46
+      },
+      "start_s": 0.0,
+      "end_s": 63.448,
+      "entry_s": 0.0,
+      "swap_s": 15.172,
+      "bassgap": {
+        "worst_run2_depth_db": 2.27,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -0.316,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -1.1,
+        "at_entry": null,
+        "at_swap": -1.1,
+        "at_tracklist_b": 0.45,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "pola_bryson_puzzlewood__04",
+      "dj": "Pola & Bryson",
+      "split": "test",
+      "pair": "Pola & Bryson - Abandon -> Pola & Bryson feat. Lauren Archer - Under",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 16,
+        "outgoing_cut": 23,
+        "blend_length": 7,
+        "incoming_start": 10,
+        "overlap_start": 6,
+        "overlap_end": 23
+      },
+      "start_s": 8.276,
+      "end_s": 31.724,
+      "entry_s": 13.793,
+      "swap_s": 22.069,
+      "bassgap": {
+        "worst_run2_depth_db": 2.932,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -4.472,
+        "measured": true,
+        "fail": true
+      },
+      "N1": {
+        "step_db": -0.35,
+        "at_entry": -0.25,
+        "at_swap": -0.35,
+        "at_tracklist_b": 6.4,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "dj": "Wilkinson",
+      "split": "test",
+      "pair": "Wilkinson - Ultraviolet feat. Katy Alex -> Wilkinson - Afterglow",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 12,
+        "outgoing_cut": null,
+        "blend_length": 20,
+        "incoming_start": 5,
+        "overlap_start": 5,
+        "overlap_end": 46
+      },
+      "start_s": 6.897,
+      "end_s": 63.448,
+      "entry_s": 6.897,
+      "swap_s": 16.552,
+      "bassgap": {
+        "worst_run2_depth_db": 3.547,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -0.619,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.2,
+        "at_entry": 0.15,
+        "at_swap": -0.2,
+        "at_tracklist_b": -1.0,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__00",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 16,
+        "outgoing_cut": 33,
+        "blend_length": 19,
+        "incoming_start": 8,
+        "overlap_start": 8,
+        "overlap_end": 33
+      },
+      "start_s": 11.034,
+      "end_s": 45.517,
+      "entry_s": 11.034,
+      "swap_s": 22.069,
+      "bassgap": {
+        "worst_run2_depth_db": 1.327,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 4.848,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.55,
+        "at_entry": -0.4,
+        "at_swap": -0.55,
+        "at_tracklist_b": -3.55,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 3,
+        "outgoing_cut": null,
+        "blend_length": 18,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 46
+      },
+      "start_s": 0.0,
+      "end_s": 63.448,
+      "entry_s": 0.0,
+      "swap_s": 4.138,
+      "bassgap": {
+        "worst_run2_depth_db": 5.512,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -1.183,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 0.7,
+        "at_entry": null,
+        "at_swap": 0.7,
+        "at_tracklist_b": 6.85,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 12,
+        "outgoing_cut": 42,
+        "blend_length": 20,
+        "incoming_start": 2,
+        "overlap_start": 2,
+        "overlap_end": 42
+      },
+      "start_s": 2.759,
+      "end_s": 57.931,
+      "entry_s": 2.759,
+      "swap_s": 16.552,
+      "bassgap": {
+        "worst_run2_depth_db": 1.043,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -3.169,
+        "measured": true,
+        "fail": true
+      },
+      "N1": {
+        "step_db": 4.25,
+        "at_entry": 2.45,
+        "at_swap": 4.25,
+        "at_tracklist_b": 1.6,
+        "measured": true,
+        "fail": true
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 14,
+        "outgoing_cut": 25,
+        "blend_length": 12,
+        "incoming_start": 7,
+        "overlap_start": 7,
+        "overlap_end": 25
+      },
+      "start_s": 9.655,
+      "end_s": 34.483,
+      "entry_s": 9.655,
+      "swap_s": 19.31,
+      "bassgap": {
+        "worst_run2_depth_db": 4.115,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 0.07,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.65,
+        "at_entry": -0.65,
+        "at_swap": -0.05,
+        "at_tracklist_b": 0.35,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 7,
+        "outgoing_cut": null,
+        "blend_length": 32,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 46
+      },
+      "start_s": 0.0,
+      "end_s": 63.448,
+      "entry_s": 0.0,
+      "swap_s": 9.655,
+      "bassgap": {
+        "worst_run2_depth_db": 14.251,
+        "gaps": [],
+        "exempt_gaps": [
+          {
+            "start_bar": 31,
+            "bars": 2,
+            "depth_db": 34.338,
+            "source_dip_a": true,
+            "source_dip_b": true
+          }
+        ],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 1.109,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.25,
+        "at_entry": null,
+        "at_swap": -0.25,
+        "at_tracklist_b": -1.5,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 8,
+        "outgoing_cut": 45,
+        "blend_length": 45,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 45
+      },
+      "start_s": 0.0,
+      "end_s": 62.069,
+      "entry_s": 0.0,
+      "swap_s": 11.034,
+      "bassgap": {
+        "worst_run2_depth_db": 1.662,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -1.303,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.75,
+        "at_entry": null,
+        "at_swap": -0.75,
+        "at_tracklist_b": -0.2,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 18,
+        "outgoing_cut": null,
+        "blend_length": 3,
+        "incoming_start": 17,
+        "overlap_start": 17,
+        "overlap_end": 46
+      },
+      "start_s": 23.448,
+      "end_s": 63.448,
+      "entry_s": 23.448,
+      "swap_s": 24.828,
+      "bassgap": {
+        "worst_run2_depth_db": 0.212,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 1.795,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 3.55,
+        "at_entry": 3.55,
+        "at_swap": -0.75,
+        "at_tracklist_b": 3.0,
+        "measured": true,
+        "fail": true
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__19",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Urbandawn - Prime Expansion -> Hybrid Minds - Demons (ft. Charlotte Haining)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 1,
+        "outgoing_cut": 36,
+        "blend_length": 9,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 36
+      },
+      "start_s": 0.0,
+      "end_s": 49.655,
+      "entry_s": 0.0,
+      "swap_s": 1.379,
+      "bassgap": {
+        "worst_run2_depth_db": 6.717,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": null,
+        "measured": false,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 1.65,
+        "at_entry": null,
+        "at_swap": 1.65,
+        "at_tracklist_b": -4.1,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__20",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Hybrid Minds - Demons (ft. Charlotte Haining) -> Changing Faces - Emptiness",
+      "admitted": false,
+      "window": "fallback_tracklist",
+      "duration_s": 64.0,
+      "events": null,
+      "start_s": 1.931,
+      "end_s": 57.103,
+      "entry_s": 24.0,
+      "swap_s": null,
+      "bassgap": {
+        "worst_run2_depth_db": 3.217,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": null,
+        "measured": false,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.6,
+        "at_entry": -0.6,
+        "at_swap": null,
+        "at_tracklist_b": -0.6,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 19,
+        "outgoing_cut": null,
+        "blend_length": 5,
+        "incoming_start": 17,
+        "overlap_start": 17,
+        "overlap_end": 46
+      },
+      "start_s": 23.448,
+      "end_s": 63.448,
+      "entry_s": 23.448,
+      "swap_s": 26.207,
+      "bassgap": {
+        "worst_run2_depth_db": 2.68,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 7.737,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -1.1,
+        "at_entry": 0.8,
+        "at_swap": -1.1,
+        "at_tracklist_b": 5.5,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__25",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 20,
+        "outgoing_cut": null,
+        "blend_length": 5,
+        "incoming_start": 16,
+        "overlap_start": 16,
+        "overlap_end": 46
+      },
+      "start_s": 22.069,
+      "end_s": 63.448,
+      "entry_s": 22.069,
+      "swap_s": 27.586,
+      "bassgap": {
+        "worst_run2_depth_db": 0.338,
+        "gaps": [
+          {
+            "start_bar": 14,
+            "bars": 3,
+            "depth_db": 19.85,
+            "source_dip_a": false,
+            "source_dip_b": false
+          }
+        ],
+        "exempt_gaps": [],
+        "fail": true
+      },
+      "swapdip": {
+        "dip_db": 0.702,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -1.1,
+        "at_entry": -1.1,
+        "at_swap": -0.5,
+        "at_tracklist_b": 2.75,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 15,
+        "outgoing_cut": null,
+        "blend_length": 14,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 46
+      },
+      "start_s": 0.0,
+      "end_s": 63.448,
+      "entry_s": 0.0,
+      "swap_s": 20.69,
+      "bassgap": {
+        "worst_run2_depth_db": 2.638,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 1.662,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 1.65,
+        "at_entry": null,
+        "at_swap": 1.65,
+        "at_tracklist_b": 6.55,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__33",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "1991 - Nine Clouds -> Hybrid Minds - Meant To Be (ft. Grimm) (LSB Remix)",
+      "admitted": false,
+      "window": "fallback_tracklist",
+      "duration_s": 64.0,
+      "events": null,
+      "start_s": 1.931,
+      "end_s": 57.103,
+      "entry_s": 24.0,
+      "swap_s": null,
+      "bassgap": {
+        "worst_run2_depth_db": 1.87,
+        "gaps": [
+          {
+            "start_bar": 0,
+            "bars": 2,
+            "depth_db": 19.962,
+            "source_dip_a": false,
+            "source_dip_b": false
+          }
+        ],
+        "exempt_gaps": [],
+        "fail": true
+      },
+      "swapdip": {
+        "dip_db": null,
+        "measured": false,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 3.25,
+        "at_entry": 3.25,
+        "at_swap": null,
+        "at_tracklist_b": 3.25,
+        "measured": true,
+        "fail": true
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 17,
+        "outgoing_cut": 26,
+        "blend_length": 15,
+        "incoming_start": 3,
+        "overlap_start": 0,
+        "overlap_end": 26
+      },
+      "start_s": 0.0,
+      "end_s": 35.862,
+      "entry_s": 4.138,
+      "swap_s": 23.448,
+      "bassgap": {
+        "worst_run2_depth_db": 2.828,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -0.004,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -3.1,
+        "at_entry": -3.1,
+        "at_swap": 0.6,
+        "at_tracklist_b": 0.95,
+        "measured": true,
+        "fail": true
+      }
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "dj": "Hybrid Minds",
+      "split": "train",
+      "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 24,
+        "outgoing_cut": 37,
+        "blend_length": 21,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 37
+      },
+      "start_s": 0.0,
+      "end_s": 51.034,
+      "entry_s": 0.0,
+      "swap_s": 33.103,
+      "bassgap": {
+        "worst_run2_depth_db": 7.187,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -4.343,
+        "measured": true,
+        "fail": true
+      },
+      "N1": {
+        "step_db": 6.05,
+        "at_entry": null,
+        "at_swap": 6.05,
+        "at_tracklist_b": -8.25,
+        "measured": true,
+        "fail": true
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 15,
+        "outgoing_cut": 22,
+        "blend_length": 3,
+        "incoming_start": 14,
+        "overlap_start": 14,
+        "overlap_end": 22
+      },
+      "start_s": 19.31,
+      "end_s": 30.345,
+      "entry_s": 19.31,
+      "swap_s": 20.69,
+      "bassgap": {
+        "worst_run2_depth_db": 1.86,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 3.431,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.55,
+        "at_entry": 0.35,
+        "at_swap": -0.55,
+        "at_tracklist_b": -2.4,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 4,
+        "outgoing_cut": null,
+        "blend_length": 11,
+        "incoming_start": 3,
+        "overlap_start": 0,
+        "overlap_end": 46
+      },
+      "start_s": 0.0,
+      "end_s": 63.448,
+      "entry_s": 4.138,
+      "swap_s": 5.517,
+      "bassgap": {
+        "worst_run2_depth_db": 0.342,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -0.169,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -0.2,
+        "at_entry": -0.05,
+        "at_swap": -0.2,
+        "at_tracklist_b": 0.65,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 1,
+        "outgoing_cut": 24,
+        "blend_length": 18,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 24
+      },
+      "start_s": 0.0,
+      "end_s": 33.103,
+      "entry_s": 0.0,
+      "swap_s": 1.379,
+      "bassgap": {
+        "worst_run2_depth_db": 1.19,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": null,
+        "measured": false,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 0.75,
+        "at_entry": null,
+        "at_swap": 0.75,
+        "at_tracklist_b": -2.1,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__09",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 19,
+        "outgoing_cut": 41,
+        "blend_length": 21,
+        "incoming_start": 20,
+        "overlap_start": 20,
+        "overlap_end": 41
+      },
+      "start_s": 27.586,
+      "end_s": 56.552,
+      "entry_s": 27.586,
+      "swap_s": 26.207,
+      "bassgap": {
+        "worst_run2_depth_db": 3.574,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -0.675,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 0.1,
+        "at_entry": 0.05,
+        "at_swap": 0.1,
+        "at_tracklist_b": -2.0,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 17,
+        "outgoing_cut": 38,
+        "blend_length": 5,
+        "incoming_start": 0,
+        "overlap_start": 0,
+        "overlap_end": 38
+      },
+      "start_s": 0.0,
+      "end_s": 52.414,
+      "entry_s": 0.0,
+      "swap_s": 23.448,
+      "bassgap": {
+        "worst_run2_depth_db": 1.197,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -7.263,
+        "measured": true,
+        "fail": true
+      },
+      "N1": {
+        "step_db": -2.55,
+        "at_entry": null,
+        "at_swap": -2.55,
+        "at_tracklist_b": -8.85,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 17,
+        "outgoing_cut": null,
+        "blend_length": 5,
+        "incoming_start": 13,
+        "overlap_start": 13,
+        "overlap_end": 46
+      },
+      "start_s": 17.931,
+      "end_s": 63.448,
+      "entry_s": 17.931,
+      "swap_s": 23.448,
+      "bassgap": {
+        "worst_run2_depth_db": 0.47,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": -0.424,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -3.0,
+        "at_entry": -0.2,
+        "at_swap": -3.0,
+        "at_tracklist_b": -0.8,
+        "measured": true,
+        "fail": true
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 17,
+        "outgoing_cut": null,
+        "blend_length": 4,
+        "incoming_start": 15,
+        "overlap_start": 0,
+        "overlap_end": 46
+      },
+      "start_s": 0.0,
+      "end_s": 63.448,
+      "entry_s": 20.69,
+      "swap_s": 23.448,
+      "bassgap": {
+        "worst_run2_depth_db": 6.66,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 6.346,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": -2.05,
+        "at_entry": 0.15,
+        "at_swap": -2.05,
+        "at_tracklist_b": -8.05,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
+      "admitted": true,
+      "window": "events",
+      "duration_s": 64.0,
+      "events": {
+        "bass_swap": 18,
+        "outgoing_cut": null,
+        "blend_length": 3,
+        "incoming_start": 16,
+        "overlap_start": 16,
+        "overlap_end": 46
+      },
+      "start_s": 22.069,
+      "end_s": 63.448,
+      "entry_s": 22.069,
+      "swap_s": 24.828,
+      "bassgap": {
+        "worst_run2_depth_db": 0.6,
+        "gaps": [],
+        "exempt_gaps": [
+          {
+            "start_bar": 15,
+            "bars": 2,
+            "depth_db": 19.323,
+            "source_dip_a": true,
+            "source_dip_b": true
+          }
+        ],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": 3.512,
+        "measured": true,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 0.2,
+        "at_entry": 0.0,
+        "at_swap": 0.2,
+        "at_tracklist_b": 0.75,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__17",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Camo & Krooked - Lost In The Future (ft. Jenna G & Futurebound) -> Netsky - Lotus Symphony",
+      "admitted": false,
+      "window": "fallback_tracklist",
+      "duration_s": 64.0,
+      "events": null,
+      "start_s": 1.931,
+      "end_s": 57.103,
+      "entry_s": 24.0,
+      "swap_s": null,
+      "bassgap": {
+        "worst_run2_depth_db": 0.019,
+        "gaps": [],
+        "exempt_gaps": [],
+        "fail": false
+      },
+      "swapdip": {
+        "dip_db": null,
+        "measured": false,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 1.4,
+        "at_entry": 1.4,
+        "at_swap": null,
+        "at_tracklist_b": 1.4,
+        "measured": true,
+        "fail": false
+      }
+    },
+    {
+      "id": "joe_syntax_hospital__18",
+      "dj": "Joe Syntax",
+      "split": "train",
+      "pair": "Netsky - Lotus Symphony -> Unquote & Molecular Structures - Lubov Moya",
+      "admitted": false,
+      "window": "fallback_tracklist",
+      "duration_s": 64.0,
+      "events": null,
+      "start_s": 1.931,
+      "end_s": 57.103,
+      "entry_s": 24.0,
+      "swap_s": null,
+      "bassgap": {
+        "worst_run2_depth_db": 10.782,
+        "gaps": [
+          {
+            "start_bar": 15,
+            "bars": 3,
+            "depth_db": 23.013,
+            "source_dip_a": false,
+            "source_dip_b": false
+          }
+        ],
+        "exempt_gaps": [],
+        "fail": true
+      },
+      "swapdip": {
+        "dip_db": null,
+        "measured": false,
+        "fail": false
+      },
+      "N1": {
+        "step_db": 2.75,
+        "at_entry": 2.75,
+        "at_swap": null,
+        "at_tracklist_b": 2.75,
+        "measured": true,
+        "fail": false
+      }
+    }
+  ]
+}

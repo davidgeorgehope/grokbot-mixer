@@ -91,3 +91,5 @@ Relaunch once via runjob.sh after committing this fix.
 
 Attempt 2 (19:21–19:29 ET): Community RTX 4090 came up at $0.34/hr (pod fv2k6gika47j2o) but never got a direct SSH address (proxy only, ssh.direct=null). This box's resolver sinkholes ssh.runpod.io, and the Runpod SSH proxy needs a PTY and does not run remote commands or scp. Discarded after 486s (est $0.0459). runpod_render.sh now drops a pod with no direct SSH after 90s and skips the rest of Community, then tries Secure.
 
+
+runpod_render.sh now prefers Secure (RTX 4090 first, the type that got a public SSH endpoint) and fails a pod with no IP/port after 180s, then tries the next GPU type/tier in the same run.

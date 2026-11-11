@@ -19,7 +19,7 @@ MIX=${MIX:?set MIX}; OUT=${OUT:?set OUT}
 GPU_TYPE=${GPU_TYPE:-}   # if set, try only this; else walk GPU_CANDIDATES
 CLOUD=${CLOUD:-}         # if set, try only this; else COMMUNITY then SECURE
 GPU_CANDIDATES=${GPU_CANDIDATES:-NVIDIA GeForce RTX 4090|NVIDIA L4|NVIDIA RTX A5000|NVIDIA GeForce RTX 3090|NVIDIA RTX A4000|NVIDIA L40S}
-CLOUD_CANDIDATES=${CLOUD_CANDIDATES:-COMMUNITY|SECURE}
+CLOUD_CANDIDATES=${CLOUD_CANDIDATES:-SECURE|COMMUNITY}
 MAX_RUNTIME_SEC=${MAX_RUNTIME_SEC:-10800}
 IMAGE=${IMAGE:-runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04}
 NAME=${POD_NAME:-tt-viz-$(date +%Y%m%d%H%M%S)}
@@ -168,7 +168,7 @@ discard_pod() {
 wait_direct_ssh() {
   local deadline st ip port
   PUB_IP=""; SSH_PORT=""
-  deadline=$(( $(date +%s) + ${SSH_WAIT_SEC:-90} ))
+  deadline=$(( $(date +%s) + ${SSH_WAIT_SEC:-180} ))  # ~3 min, then try next type/tier
   while [ $(date +%s) -lt $deadline ]; do
     info=$(curl -sS -m 30 -H "$(auth)" "$API_V2/pods/$POD_ID")
     eval "$(echo "$info" | python3 -c "
@@ -214,7 +214,7 @@ for cloud in "${CLOUDS[@]}"; do
         CREATED=1
         break 2
       fi
-      discard_pod "no direct SSH within ${SSH_WAIT_SEC:-90}s"
+      discard_pod "no direct SSH within ${SSH_WAIT_SEC:-180}s"
       if [ "$cloud" = COMMUNITY ]; then
         log "community has no direct SSH from this box; skipping remaining community types"
         break

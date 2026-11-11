@@ -16,6 +16,16 @@ run_to() {
   timeout --foreground -k 15 "$t" "$@"
 }
 
+# Base images ship a deadsnakes PPA we never use; when launchpad is down (Mix 08 r7: 503s) every
+# apt-get update, including the one inside the nodesource setup script, stalls until our timeout.
+# Drop third-party PPAs and bound apt's own network waits so one dead mirror cannot hang the bootstrap.
+rm -f /etc/apt/sources.list.d/*deadsnakes* 2>/dev/null || true
+cat > /etc/apt/apt.conf.d/99tt-timeouts <<'APT'
+Acquire::http::Timeout "20";
+Acquire::https::Timeout "20";
+Acquire::Retries "2";
+APT
+
 find_chrome() {
   command -v google-chrome-stable || command -v google-chrome || command -v chromium-browser || command -v chromium || true
 }

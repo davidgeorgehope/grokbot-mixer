@@ -8,7 +8,7 @@ def load_rules(path=None):
     return json.load(open(path or paths.RULES))
 
 # Defaults from the nightly protrans hill-climb (kept 2026-11-09: 2-bar bass swap, held-out 25.19 -> 26.58).
-DEFAULTS = {'BASS_SWAP_BARS': 2, 'HIGH_OFS': 8}  # HIGH_OFS 8: nightly hill-climb 2026-11-10, held-out 27.97 -> 28.47
+DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8}  # HIGH_OFS 8: nightly hill-climb 2026-11-10, held-out 27.97 -> 28.47; BASS_SWAP_BARS 3: nightly 2026-11-11, held-out 28.47 -> 29.51
 
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}

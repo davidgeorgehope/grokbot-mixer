@@ -7,7 +7,7 @@ The chosen windows are written into the plan as 'out_win' so mix_simple renders 
 Run with the same scorer env as the render (SHORTPEN, BOTHPEN, DRUMPEN, VPEN, ...)."""
 import sys,os,json,glob,time,math,numpy as np
 sys.path.insert(0,'.');sys.path.insert(0,'../src/tests');sys.path.insert(0,'../src/build_qa');os.environ.setdefault('MIX_SRC','.')
-os.environ.setdefault('BASS_SWAP_BARS','2')  # nightly protrans hill-climb 2026-11-09: 2-bar bass handoff beat 1 bar on held-out pro DJs (25.19 -> 26.58); explicit env still wins, render guardrails still judge
+os.environ.setdefault('BASS_SWAP_BARS','3')  # nightly protrans hill-climb 2026-11-11: 3-bar bass handoff beat 2 bars on held-out pro DJs (28.47 -> 29.51; 2 bars beat 1 on 2026-11-09, 25.19 -> 26.58); explicit env still wins, render guardrails still judge
 os.environ.setdefault('HIGH_OFS','8')  # nightly protrans hill-climb 2026-11-10: highs hand over 8 bars after the phrase start instead of 4 (held-out pro DJs 27.97 -> 28.47); explicit env still wins
 import checks as C
 import pair_feats as PF

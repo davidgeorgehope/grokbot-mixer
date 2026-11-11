@@ -1,0 +1,33 @@
+{
+ "blend": 13,
+ "a": "nT25guf4DRU",
+ "b": "FYpf8-UvCUk",
+ "start_bar": 1392.0,
+ "end_bar": 1408.0,
+ "png": "../deliver/mix08_long1c/diagnostics/blend13_nT25guf4DRU_FYpf8-UvCUk.png",
+ "halfbeat": {
+  "r0": 0.882,
+  "rh": 0.542,
+  "lag_ms": 0.0,
+  "bars": 12,
+  "phase_fail": false,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": -0.125,
+  "phase_b": 0.0,
+  "dphase_beats": -0.125,
+  "dphase_ms": -43.1,
+  "strength": 1.38,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": null,
+ "offset_ms_median": -24.7,
+ "offset_bars": 11,
+ "clash_bars": 7.69,
+ "sum_lows_dip_db": 18.9,
+ "bass_swap": [
+  1397.5,
+  1402.5
+ ],
+ "phrase_cut": null
+}

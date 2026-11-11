@@ -5,7 +5,7 @@
 set -uo pipefail
 NAME=${1:-mix08_long1}; PLAN=plan_mix08_r11c.json; MP3=/workspace/mixes/src2/${NAME}.mp3
 export STRUCT=1 FADE=long LONG_SOLO=16 LONG_SWAP=exit LONG_SOLO_STRUCT=1 LOOP32=0 ECHO_MAX=2 PREF_W=0 SWAP_PHRASE=1 HIGH_SWAP=1 HIGH_OFS=8 BASS_SWAP_BARS=4
-export NUDGE=nudge08_r9c.json
+export NUDGE=nudge08_long.json  # copy of r9c plus Me & You intro nudges for N1 at 13:42; do not edit r9c in place
 cd /workspace/mixes/src2
 python3 restore_audio.py $(python3 -c "import json,sys;print(' '.join(p['id'] for p in json.load(open(sys.argv[1]))))" "$PLAN") >/dev/null || exit 1
 python3 mix_simple.py --plan "$PLAN" --out "$NAME" 2>&1 | grep -v '^choose'; R=${PIPESTATUS[0]}

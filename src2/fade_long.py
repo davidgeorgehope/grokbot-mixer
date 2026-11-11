@@ -78,25 +78,32 @@ def struct_solo(al, wa, X, rise=2.0, exit_=8.0, solo=0.0, **_):
 
 
 def cap_solo_incoming(al, lo, wb, X, rise=2.0, exit_=8.0, solo=0.0, **_):
-    """Cap solo so the outgoing's exit does not finish while the incoming is still thin.
+    """Cap solo so the outgoing's exit does not finish into a later thin stretch of the incoming.
 
-    Same 4 dB-under-body, 2-bar line as struct_solo, applied to the incoming's all-band and low
-    bars across the window. A 16-bar incoming solo on a drop-end window otherwise exposes a
-    bass-less or quiet intro (2026-11-11 Mix 08 long test: Solitude pre-drop, 2-bar bass gap at
-    1901, that r11c with FADE=tail only had as 1 bar; Bad To Me quiet stretch, E1 at 30:35).
-    If the incoming is never ready, solo=0 (exit in the last exit_ bars)."""
-    def first_ready(arr):
+    Thin = a second-half bar >= 4 dB under the incoming's own first-half median (all-band or low),
+    not under the full-track body (an intro window is often a few dB under the track's drop, and
+    treating that as 'never ready' delayed the exit on Mix 08 long1c trans 0 and layered vocals).
+    A mid-window crash (Bad To Me bars 16-31, E1 at 30:35; Solitude's pre-drop lows) still caps
+    solo so the outgoing covers it. If the second half is as strong as the first, solo is unchanged."""
+    def series(arr):
         arr = np.asarray(arr, float)
-        if arr.size == 0:
-            return int(X)
-        body = float(np.percentile(arr, 75))
-        for j in range(0, int(X)):
-            k = [wb[t] for t in (j, j + 1) if t < len(wb) and 0 <= wb[t] < len(arr)]
-            if len(k) == 2 and float(np.mean(arr[k])) > body - 4:
-                return j
-        return int(X)
-    ready = max(first_ready(al), first_ready(lo) if lo is not None else 0)
-    return solo_bars(X, rise, exit_, min(float(solo), max(0.0, X - ready)))
+        out = []
+        for j in range(int(X)):
+            k = wb[j] if j < len(wb) and 0 <= wb[j] < len(arr) else None
+            out.append(arr[k] if k is not None else np.nan)
+        return np.array(out, float)
+    def last_thin(arr, db=4):
+        s_ = series(arr)
+        half = max(4, int(X) // 2)
+        if np.isfinite(s_[:half]).sum() < 2:
+            return -1
+        ref = float(np.nanmedian(s_[:half]))
+        thin = np.where((np.arange(int(X)) >= half) & (s_ < ref - db))[0]
+        return int(thin[-1]) if len(thin) else -1
+    last = max(last_thin(al), last_thin(lo) if lo is not None else -1)
+    if last < 0:
+        return solo_bars(X, rise, exit_, solo)
+    return solo_bars(X, rise, exit_, min(float(solo), max(0.0, X - (last + 1))))
 
 
 def vocal_hold(vA, rvA, wa, vB, rvB, wb, X, early=8):
@@ -106,12 +113,94 @@ def vocal_hold(vA, rvA, wa, vB, rvB, wb, X, early=8):
     incoming under 0.3 for the first bars; the long rise made a 1-bar and a 3-bar clash audible."""
     hits = [k for k, (xa, xb) in enumerate(zip(wa, wb))
             if k < int(X) and xa < len(vA) and xb < len(vB) and vA[xa] > rvA - 12 and vB[xb] > rvB - 12]
-    if not hits or hits[0] > early:
+    early_hits = [k for k in hits if k <= early]
+    if not early_hits:
         return 0
-    last = hits[0]
-    for k in hits[1:]:
-        if k == last + 1:
-            last = k
-        else:
-            break
-    return int(last + 1)
+    # through the last early clash (a 1-bar gap after a weak first bar must not hide the real phrase;
+    # Mix 08 long1c trans 22: hits at 0,2,3,4 — the first-run-only hold was 1 and V1 still fired)
+    return int(early_hits[-1] + 1)
+
+
+def bass_lead(blead=1.0, phrase=False, fade='tail'):
+    """(outgoing_lead, incoming_lag) in bars for the low lanes.
+
+    Phrase-snapped swaps already lead the outgoing by BASS_LEAD and land the incoming on the 1.
+    FADE=long uses the same shape even when the swap is at POS (the exit start): a symmetric
+    0.5+0.5 lead mid-crosses on the plateau at x=0.5, and two similar quiet subs summed 3.1-3.5 dB
+    over the louder deck (Mix 08 long1e L1 at 2:45 and 16:00). Outgoing-leads keeps width and
+    centre unchanged (X1 and the 4-bar abrupt-tail reason stay). A 2-bar swap starting on this
+    exit is the long1 Ember shape that failed the 6 dB/bar rendered-tail cap, so we do not go back
+    to it."""
+    blead = float(blead)
+    if fade == 'long' or phrase:
+        return (blead, 0.0)
+    return (blead / 2, blead / 2)
+
+
+def vocal_exit_params(vB, rvB, wb, X, rise=2.0, exit_=8.0, solo=0.0, hold=0.0,
+                      xp=0.35, xp2=0.5, cap_solo=None, **_):
+    """(solo, exit_) so the outgoing is under VOC_GAIN 0.3 on late incoming-vocal bars.
+
+    cap_solo is a ceiling on solo (how early the exit may *end*): cap_solo_incoming's value, so
+    a late vocal does not uncover a thin incoming stretch (Mix 08 long1e trans 18: cap wanted
+    solo 0 to cover Solitude's pre-drop hole at 1901-1902; solo_before used to raise solo to 4
+    and the official 2-bar bass gap came back). If a vocal still clashes at that ceiling,
+    lengthen the exit (start earlier, keep the end). A longer exit is shallower than 3 dB/bar.
+    cap_solo is None: same raise-solo behaviour as before (tests, and blends with no thin cap).
+    Leading clashes are vocal_hold."""
+    start = int(max(hold + rise, 8))
+    hits = [k for k, xb in enumerate(wb)
+            if start <= k < int(X) and xb < len(vB) and vB[xb] > rvB - 12]
+    s0 = solo_bars(X, rise, exit_, solo)
+    ex0 = float(exit_)
+    if not hits:
+        return s0, ex0
+
+    def outgoing_ok(ss, ex):
+        for k in hits:
+            x = xlong(k / X, X, rise=rise, xp=xp, xp2=xp2, exit_=ex, solo=ss, hold=hold)
+            if np.cos(x * np.pi / 2) > 0.3 + 1e-9:
+                return False
+        return True
+
+    if cap_solo is None:
+        ceiling = solo_bars(X, rise, exit_, X)  # old: may raise freely
+        if outgoing_ok(s0, ex0):
+            return s0, ex0
+        for ss in range(int(s0) + 4, int(ceiling) + 1, 4):
+            if outgoing_ok(ss, ex0):
+                return float(ss), ex0
+        return float(ceiling), ex0
+
+    ceiling = solo_bars(X, rise, exit_, cap_solo)
+    # may raise solo only up to the cap
+    if outgoing_ok(s0, ex0):
+        return s0, ex0
+    for ss in range(int(s0) + 4, int(ceiling) + 1, 4):
+        if outgoing_ok(ss, ex0):
+            return float(ss), ex0
+    # keep the cap (exit ends late enough to cover the thin stretch); lengthen the exit
+    ss = float(ceiling)
+    hold = max(0.0, float(hold))
+    max_exit = max(ex0, X - ss - hold - rise - 1)
+    max_exit = min(max_exit, max(ex0, X - rise - 4 - ss))
+    for ex in range(int(ex0) + 1, int(np.floor(max_exit)) + 1):
+        if outgoing_ok(ss, float(ex)):
+            return ss, float(ex)
+    return ss, float(max(ex0, np.floor(max_exit)))
+
+
+def solo_before_incoming_vocal(vB, rvB, wb, X, rise=2.0, exit_=8.0, solo=0.0, hold=0.0,
+                               xp=0.35, xp2=0.5, cap_solo=None, **_):
+    """Raise solo (exit earlier) so the outgoing is already under VOC_GAIN (0.3) when the incoming
+    is singing. cap_solo_incoming can delay the exit to cover a thin incoming stretch; on Mix 08
+    long1c that left both decks above 0.3 on incoming-vocal bars (trans 0 at +23, trans 18 at +25,
+    trans 24 at +26). Leading clashes are vocal_hold (incoming stays down). This only looks after
+    the opening hold+rise (or 8 bars). The planner's vocal term never saw these bars: the plan was
+    scored under FADE=tail, where the outgoing was already under 0.3 there.
+
+    Pass cap_solo (the cap_solo_incoming result) to refuse to uncover that thin stretch; see
+    vocal_exit_params. Without cap_solo this still returns only the solo, old behaviour."""
+    s, _ex = vocal_exit_params(vB, rvB, wb, X, rise=rise, exit_=exit_, solo=solo, hold=hold,
+                               xp=xp, xp2=xp2, cap_solo=cap_solo)
+    return s

@@ -89,10 +89,15 @@ def test_long_swap_exit_is_inside_x1_swap_window(X, solo):
     assert c == FL.exit_start(X, solo=solo)
     assert 0.2 <= FL.xlong(c / X, X, solo=solo) <= 0.65
 
-def test_cap_solo_incoming_zero_when_ready_only_at_the_end():
-  # Solitude-style: full track has a loud body; the 32-bar window is a quiet intro then the drop (last 2 bars)
-  al=np.r_[np.full(48,-40.),np.zeros(80)]; lo=al.copy(); wb=list(range(18,50))  # 30 quiet + 2 drop
+def test_cap_solo_incoming_zero_when_second_half_crashes():
+  # Bad To Me / Solitude-style: first half at body, second half drops 12 dB (E1 / bass hole if we solo)
+  al=np.r_[np.zeros(16),np.full(16,-12.)]; lo=al.copy(); wb=list(range(32))
   assert int(FL.cap_solo_incoming(al,lo,wb,32,solo=16))==0
+
+def test_cap_solo_incoming_keeps_16_when_second_half_is_as_strong():
+  # a uniformly slightly-quiet intro (Forest Fires trans 0) must not delay the exit — that layered vocals
+  al=np.full(64,-7.); lo=al.copy(); wb=list(range(32))
+  assert int(FL.cap_solo_incoming(al,lo,wb,32,solo=16))==16
 
 def test_cap_solo_incoming_keeps_16_when_incoming_is_ready_at_16():
   al=np.r_[np.full(16,-40.),np.zeros(80)]; lo=al.copy(); wb=list(range(32))
@@ -103,6 +108,9 @@ def test_vocal_hold_leading_clash():
   wa=wb=list(range(32))
   assert FL.vocal_hold(vA,0,wa,vB,0,wb,32)==5
   vB2=np.full(32,-100.);assert FL.vocal_hold(vA,0,wa,vB2,0,wb,32)==0
+  # a weak first bar then a 1-bar gap must not hide the real phrase (Mix 08 long1c trans 22)
+  vA=np.full(32,-100.);vB=np.full(32,-100.);vA[0]=0;vB[0]=0;vA[2:5]=0;vB[2:5]=0
+  assert FL.vocal_hold(vA,0,wa,vB,0,wb,32)==5
 
 def test_xlong_hold_stays_zero_then_rises_monotonic():
   xs=[FL.xlong(b/32,32,hold=3,solo=16) for b in np.arange(0,32.01,0.25)]
@@ -133,3 +141,57 @@ def test_swap_pos_in_x1_window_on_typical_long_blends():
   for X,hold,solo in ((16,0,0),(16,3,0),(16,6,0),(32,0,16),(32,6,16),(32,0,0),(32,8,0)):
     x=FL.xlong(FL.swap_pos(X,hold=hold,solo=solo),X,hold=hold,solo=solo)
     assert 0.2<=x<=0.65, (X,hold,solo,x)
+
+
+def test_solo_before_incoming_vocal_exits_before_a_late_vocal():
+  # cap_solo had delayed the exit to the window end (solo=0); incoming sings at bar 25
+  vB=np.full(32,-100.);vB[25]=0;wb=list(range(32))
+  s=FL.solo_before_incoming_vocal(vB,0,wb,32,solo=0,hold=0)
+  assert s>=4
+  x=FL.xlong(25/32,32,solo=s)
+  assert np.cos(x*np.pi/2)<=0.3+1e-9
+
+def test_solo_before_incoming_vocal_leaves_an_early_exit_alone():
+  vB=np.full(32,-100.);vB[25]=0;wb=list(range(32))
+  assert int(FL.solo_before_incoming_vocal(vB,0,wb,32,solo=16,hold=0))==16
+
+def test_solo_before_incoming_vocal_ignores_leading_clashes():
+  # bars 2-4 are vocal_hold's job; must not force an early exit
+  vB=np.full(32,-100.);vB[2:5]=0;wb=list(range(32))
+  assert int(FL.solo_before_incoming_vocal(vB,0,wb,32,solo=16,hold=5))==16
+
+
+def test_vocal_exit_params_lengthens_exit_when_cap_blocks_solo():
+  # long1e trans 18 shape: cap_solo=0 to cover a late thin stretch; incoming sings at bar 25.
+  # Must not raise solo (that re-opened the 1901 bass gap). Lengthen the exit instead.
+  vB=np.full(32,-100.);vB[25]=0;wb=list(range(32))
+  s,ex=FL.vocal_exit_params(vB,0,wb,32,solo=0,hold=0,cap_solo=0)
+  assert s==0
+  assert ex>8
+  x=FL.xlong(25/32,32,solo=s,exit_=ex)
+  assert np.cos(x*np.pi/2)<=0.3+1e-9
+  # still present through a thin bar at +30 (1901-ish on a 1872-1904 window)
+  assert FL.xlong(30/32,32,solo=s,exit_=ex)<1-1e-6
+  # longer exit is shallower than 3 dB/bar (linear in dB from -3 to -24)
+  a0=20*np.log10(np.cos(0.5*np.pi/2)); assert (-24-a0)/ex<=3+1e-9
+
+def test_vocal_exit_params_can_still_raise_solo_when_uncapped():
+  vB=np.full(32,-100.);vB[25]=0;wb=list(range(32))
+  s,ex=FL.vocal_exit_params(vB,0,wb,32,solo=0,hold=0,cap_solo=None)
+  assert s>=4 and ex==8
+
+def test_bass_lead_long_outgoing_leaves_first():
+  assert FL.bass_lead(1.0,fade='long')==(1.0,0.0)
+  assert FL.bass_lead(1.0,fade='tail')==(0.5,0.5)
+  assert FL.bass_lead(1.0,phrase=True,fade='tail')==(1.0,0.0)
+
+def test_long_swap_centre_still_in_x1_with_outgoing_lead():
+  # centre stays at exit start, x=0.5, even though the outgoing lane starts one bar earlier
+  X=32; pos=FL.swap_pos(X,solo=16)
+  x=FL.xlong(pos,X,solo=16)
+  assert 0.2<=x<=0.65
+  # a 2-bar swap starting at the exit would centre at exit+1, still legal, but we do not use it
+  # (long1 Ember abrupt tail). Document the x at exit+1 stays <=0.65.
+  ex0=FL.exit_start(X,solo=16)
+  x1=FL.xlong((ex0+1)/X,X,solo=16)
+  assert x1<=0.65+1e-9

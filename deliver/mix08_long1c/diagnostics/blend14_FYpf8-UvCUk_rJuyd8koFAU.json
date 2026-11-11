@@ -1,0 +1,33 @@
+{
+ "blend": 14,
+ "a": "FYpf8-UvCUk",
+ "b": "rJuyd8koFAU",
+ "start_bar": 1456.0,
+ "end_bar": 1472.0,
+ "png": "../deliver/mix08_long1c/diagnostics/blend14_FYpf8-UvCUk_rJuyd8koFAU.png",
+ "halfbeat": {
+  "r0": 0.724,
+  "rh": 0.552,
+  "lag_ms": 0.0,
+  "bars": 16,
+  "phase_fail": false,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": -0.125,
+  "phase_b": 0.0,
+  "dphase_beats": -0.125,
+  "dphase_ms": -43.1,
+  "strength": 1.29,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": null,
+ "offset_ms_median": 11.6,
+ "offset_bars": 11,
+ "clash_bars": 7.69,
+ "sum_lows_dip_db": 1.6,
+ "bass_swap": [
+  1461.5,
+  1466.5
+ ],
+ "phrase_cut": null
+}

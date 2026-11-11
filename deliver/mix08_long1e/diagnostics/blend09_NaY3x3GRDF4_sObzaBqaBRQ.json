@@ -1,0 +1,33 @@
+{
+ "blend": 9,
+ "a": "NaY3x3GRDF4",
+ "b": "sObzaBqaBRQ",
+ "start_bar": 1008.0,
+ "end_bar": 1040.0,
+ "png": "../deliver/mix08_long1e/diagnostics/blend09_NaY3x3GRDF4_sObzaBqaBRQ.png",
+ "halfbeat": {
+  "r0": 0.832,
+  "rh": 0.46,
+  "lag_ms": 0.0,
+  "bars": 28,
+  "phase_fail": false,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": -0.125,
+  "phase_b": -0.125,
+  "dphase_beats": 0.0,
+  "dphase_ms": 0.0,
+  "strength": 1.452,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": null,
+ "offset_ms_median": 4.4,
+ "offset_bars": 13,
+ "clash_bars": 7.69,
+ "sum_lows_dip_db": 10.9,
+ "bass_swap": [
+  1013.5,
+  1018.5
+ ],
+ "phrase_cut": null
+}

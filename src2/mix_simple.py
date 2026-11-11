@@ -147,7 +147,7 @@ def _ctx(a,wa=None,b=None,wb=None):
   # FADE=long + a 2-bar bass handoff stacked on the exit took 6.4 dB off Ember in one bar (Mix 08 long test).
   # 4-bar swaps have been the default since 2026-10-31 for this reason; PIN can still force 2.
   if FADE=='long' and 'swap_bars' not in q and SW<4:SW=4.0
-  LG['solo']=LG0['solo'];LG['hold']=0.0
+  LG['solo']=LG0['solo'];LG['hold']=0.0;LG['exit_']=LG0['exit_']
   if a and wa is not None and FADE=='long' and LGST:
     LG['solo']=_FL.struct_solo(np.array(track(a)['g']['bar']['all'],float),list(wa),X,**LG0)
     if b and wb is not None:
@@ -156,6 +156,13 @@ def _ctx(a,wa=None,b=None,wb=None):
   if a and wa is not None and b and wb is not None and FADE=='long':
     *_u,vA,rvA,_ba=F(a);*_u,vB,rvB,_bb=F(b)
     LG['hold']=float(_FL.vocal_hold(vA,rvA,list(wa),vB,rvB,list(wb),X))
+    # After a delayed exit to cover a thin incoming, keep the outgoing under 0.3 before the
+    # incoming starts singing (Mix 08 long1c V1 at 3:06 / 43:36 / 59:48) without uncovering
+    # that thin stretch (long1e trans 18: raising solo re-opened the 1901 bass gap). If a late
+    # vocal still clashes at the cap, lengthen the exit instead of ending it earlier.
+    cap=LG['solo']
+    LG['solo'],ex=_FL.vocal_exit_params(vB,rvB,list(wb),X,**{**LG0,'solo':LG['solo'],'hold':LG['hold'],'cap_solo':cap})
+    LG['exit_']=ex
   if a and FADE=='long' and LGSW=='exit' and 'swap_pos' not in q:POS=_FL.swap_pos(X,**LG)
 def score(a,b,wa,wb,refA):
   _ctx(a,wa,b,wb)
@@ -332,7 +339,11 @@ for i,d in enumerate(decks):
     def at(t):return t['swap_bar']+t.get('swap_ofs',t['swap_w']/2 if t['swap_phrase'] else 0)  # 2026-11-01 v6r3: any non-POS pick (phrase OR SWAP_THIN) is a swap START, as score()/hole() assume (ce=c+SW/2); off-phrase picks were centred 2 bars early -> 24:48/40:38 holes  # phrase-snapped swaps start ON the boundary (incoming bass lands on the 1, not a bar early)
     # BASS_LEAD (2026-11-01, Mix 05 v2 i18 L1 x3): the two lows used to ramp on the SAME raised cosine, so mid-swap both sat at
     # -6 dB ('both decks carry full bass'). Outgoing low now leads by LEAD bars (same 4-bar shape, still monotonic): they cross ~-10 dB.
-    def lead(t):return (0.0,0.0) if t['a'] in PIN or f"{t['a']}>{t['b']}" in LEADOFF else (BLEAD,0.0) if t['swap_phrase'] else (BLEAD/2,BLEAD/2)  # phrase-snapped: incoming still lands on the 1
+    def lead(t):
+      if t['a'] in PIN or f"{t['a']}>{t['b']}" in LEADOFF:return (0.0,0.0)
+      # FADE=long: outgoing lows leave first, even when the swap is at POS (exit start), so the
+      # mid-cross is not two equal plateau faders (Mix 08 long1e L1). Phrase-snapped unchanged.
+      return _FL.bass_lead(BLEAD,phrase=bool(t.get('swap_phrase')),fade=t.get('fade',FADE))
     if i>0:lo+=ramp(at(trans[i-1])+lead(trans[i-1])[1],True,trans[i-1]['swap_w'])
     if i<len(decks)-1:lo+=ramp(at(trans[i])-lead(trans[i])[0],False,trans[i]['swap_w'])
     d['auto']['low']=lo
@@ -343,7 +354,7 @@ for i,d in enumerate(decks):
 if SW0>0 or PIN:  # trans['bass_swap'] = the low lanes as rendered (2026-11-11 RCA: it reported POS*X, 213.5-216.5, while the lanes ran 225.5-229.5)
   for t in trans:
     if t['swap_w']>0:
-      _c=t['swap_bar']+t.get('swap_ofs',t['swap_w']/2 if t['swap_phrase'] else 0);_bl=float(os.environ.get('BASS_LEAD',1));_l=(0.0,0.0) if t['a'] in PIN or f"{t['a']}>{t['b']}" in set(x for x in os.environ.get('BASS_LEAD_OFF','').split(',') if x) else (_bl,0.0) if t['swap_phrase'] else (_bl/2,_bl/2)
+      _c=t['swap_bar']+t.get('swap_ofs',t['swap_w']/2 if t['swap_phrase'] else 0);_l=lead(t)
       t['bass_swap']=[round(_c-_l[0]-t['swap_w']/2,3),round(_c+_l[1]+t['swap_w']/2,3)]
 for t in trans:
   t['vocal_data']={t['a']:t['a'] not in VOCOFF,t['b']:t['b'] not in VOCOFF}

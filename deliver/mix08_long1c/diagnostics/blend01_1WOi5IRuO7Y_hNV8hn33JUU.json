@@ -1,0 +1,27 @@
+{
+ "blend": 1,
+ "a": "1WOi5IRuO7Y",
+ "b": "hNV8hn33JUU",
+ "start_bar": 224.0,
+ "end_bar": 256.0,
+ "png": "../deliver/mix08_long1c/diagnostics/blend01_1WOi5IRuO7Y_hNV8hn33JUU.png",
+ "halfbeat": {
+  "r0": 0.437,
+  "rh": 0.349,
+  "lag_ms": 0.0,
+  "bars": 2,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": null,
+ "offset_ms_median": 21.8,
+ "offset_bars": 24,
+ "clash_bars": 22.69,
+ "sum_lows_dip_db": 22.5,
+ "bass_swap": [
+  245.5,
+  250.5
+ ],
+ "phrase_cut": null
+}

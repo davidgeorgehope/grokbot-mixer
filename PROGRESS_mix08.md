@@ -93,3 +93,5 @@ Attempt 2 (19:21–19:29 ET): Community RTX 4090 came up at $0.34/hr (pod fv2k6g
 
 
 runpod_render.sh now prefers Secure (RTX 4090 first, the type that got a public SSH endpoint) and fails a pod with no IP/port after 180s, then tries the next GPU type/tier in the same run.
+
+Attempt 3 (19:30–19:34 ET): Secure RTX 4090 at $0.89/hr (pod vdndknddmck3w6) got a public IP (47.47.180.45:24599) but sshd never accepted within 3 min — the start script was likely still apt-installing openssh-server. Terminated, est $0.0551. SSH accept wait is now 10 min after an IP appears (the 3 min fail-fast still applies only when there is no IP/port).

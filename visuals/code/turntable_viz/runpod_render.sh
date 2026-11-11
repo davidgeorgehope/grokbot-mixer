@@ -224,17 +224,29 @@ for cloud in "${CLOUDS[@]}"; do
 done
 [ "$CREATED" = 1 ] || { log "no candidate deployed with direct SSH (clouds=${CLOUDS[*]} gpus=${GPUS[*]})"; exit 1; }
 
+# ConnectTimeout stays short so a closed port retries quickly. The 3-minute
+# fail-fast above is only for "no IP/port"; sshd may still be installing.
 SSH=(ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR
-     -o ConnectTimeout=15 -i "$SSH_PRIV" -p "$SSH_PORT")
+     -o ConnectTimeout=8 -i "$SSH_PRIV" -p "$SSH_PORT")
 SCP=(scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR
      -o ConnectTimeout=15 -i "$SSH_PRIV" -P "$SSH_PORT")
 TARGET=root@$PUB_IP
 
-for i in $(seq 1 60); do
-  if "${SSH[@]}" "$TARGET" 'echo ssh_ok' 2>/dev/null; then break; fi
-  sleep 3
-  [ "$i" = 60 ] && { log "ssh never accepted"; exit 1; }
+ssh_deadline=$(( $(date +%s) + ${SSH_ACCEPT_SEC:-600} ))
+i=0
+ssh_ok=0
+while [ $(date +%s) -lt $ssh_deadline ]; do
+  i=$((i + 1))
+  if "${SSH[@]}" "$TARGET" 'echo ssh_ok' >"$STAGING/ssh.out" 2>"$STAGING/ssh.err"; then
+    if grep -q ssh_ok "$STAGING/ssh.out"; then ssh_ok=1; break; fi
+  fi
+  if [ $((i % 6)) -eq 1 ]; then
+    err=$(tr '\n' ' ' < "$STAGING/ssh.err" 2>/dev/null | tr -d '\r' | tail -c 180)
+    log "ssh not ready try=$i err=${err:-none}"
+  fi
+  sleep 4
 done
+[ "$ssh_ok" = 1 ] || { log "ssh never accepted after ${SSH_ACCEPT_SEC:-600}s"; exit 1; }
 log "ssh ok $TARGET:$SSH_PORT"
 
 ( sleep "$MAX_RUNTIME_SEC"; log "MAX_RUNTIME_SEC hit"; kill -TERM $$ 2>/dev/null ) &

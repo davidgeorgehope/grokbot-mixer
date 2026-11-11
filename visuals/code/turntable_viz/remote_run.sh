@@ -38,12 +38,27 @@ mkdir -p /workspace/mixes/visuals/code
 ln -sfn "$HERE" /workspace/mixes/visuals/code/turntable_viz
 ln -sfn "$TT_ROOT/beatgrid_viz.py" /workspace/mixes/visuals/code/beatgrid_viz.py
 
-# prep.py needs --st/--src on the pod (sources live under $TT_ROOT, not /workspace/mixes/src2).
-# Only patch that invocation. A blanket --fps replace also rewrote build_segs.py, which
-# rejects unknown flags and aborted the Mix 08 render after bootstrap (2026-11-10).
-if ! grep -q -- 'prep.py.*--st ' "$HERE/render_full.sh"; then
-  sed -i "s|prep.py --timing \"\$timing\" --mix \"\$MIX\" --out \"\$sdir/data.json\" --fps \"\$FPS\"|prep.py --timing \"\$timing\" --mix \"\$MIX\" --out \"\$sdir/data.json\" --fps \"\$FPS\" --st $TT_ROOT/st --src $TT_ROOT/src|" "$HERE/render_full.sh"
+# Analysis + source audio live under $TT_ROOT on the pod, not /workspace/mixes/src2.
+# render_full.sh honors ST_DIR/SRC_DIR (no sed). Symlinks cover the default paths too.
+export ST_DIR=$TT_ROOT/st SRC_DIR=$TT_ROOT/src
+mkdir -p /workspace/mixes/src2
+ln -sfn "$ST_DIR" /workspace/mixes/src2/st
+# Default --src is /workspace/mixes/src2; link each packed audio into place as a fallback.
+for f in "$SRC_DIR"/*; do
+  [ -e "$f" ] || continue
+  ln -sfn "$f" "/workspace/mixes/src2/$(basename "$f")"
+done
+missing=0
+for j in "$ST_DIR"/*.json; do
+  [ -e "$j" ] || missing=1
+done
+# Fail closed if this mix's analysis files did not arrive in the payload.
+if [ ! -d "$ST_DIR" ] || [ "$missing" = 1 ] || ! ls "$ST_DIR"/*.json >/dev/null 2>&1; then
+  echo "FATAL: no analysis json under $ST_DIR" >&2
+  ls -la "$ST_DIR" "$TT_ROOT" >&2 || true
+  exit 2
 fi
+log "st=$ST_DIR src=$SRC_DIR analysis_json=$(ls -1 "$ST_DIR"/*.json | grep -v sections | wc -l | tr -d ' ')"
 
 OUT=$TT_ROOT/out.mp4
 WORK=$TT_ROOT/work

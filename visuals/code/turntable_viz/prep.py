@@ -183,9 +183,15 @@ def main():
                trans={k: tr.get(k) for k in ('start_bar', 'end_bar', 'bass_swap', 'high_bar', 'swap_bar')}, decks=[])
     envs = []
     for d in decks:
-        st = json.load(open(os.path.join(a.st, d['id'] + '.json')))
+        st_path = os.path.join(a.st, d['id'] + '.json')
+        if not os.path.exists(st_path):
+            raise SystemExit(f"prep: missing analysis file {st_path}")
+        st = json.load(open(st_path))
         sec = load_sections(a.st, d['id'])
-        src = next(p for p in (os.path.join(a.src, d['id'] + ext) for ext in ('.flac', '.wav', '.m4a')) if os.path.exists(p))
+        src_cands = [os.path.join(a.src, d['id'] + ext) for ext in ('.flac', '.wav', '.m4a', '.mp3', '.opus', '.ogg')]
+        src = next((p for p in src_cands if os.path.exists(p)), None)
+        if src is None:
+            raise SystemExit(f"prep: missing source audio for {d['id']} under {a.src}")
         env = envelope(src); envs.append((st, env))
         rec = cut_record(st, sec, env)
         rec.update(id=d['id'], sections=sec, bpm=60 / st['per'])

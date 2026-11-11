@@ -71,7 +71,8 @@ render_seg() {
   fi
   if [ ! -s "$sdir/data.json" ]; then
     FORCE_DIVE=$FORCE_DIVE GROOVE_DIVE=$GROOVE_DIVE \
-      python3 "$HERE/prep.py" --timing "$timing" --mix "$MIX" --out "$sdir/data.json" --fps "$FPS"
+      python3 "$HERE/prep.py" --timing "$timing" --mix "$MIX" --out "$sdir/data.json" --fps "$FPS" \
+        --st "${ST_DIR:-/workspace/mixes/src2/st}" --src "${SRC_DIR:-/workspace/mixes/src2}"
   fi
   local N FPS_R SS
   read N FPS_R SS < <(python3 -c "import json;d=json.load(open('$sdir/data.json'));print(d['frames'],d['fps'],d['mixOffset'])")
@@ -121,8 +122,11 @@ render_seg() {
   # mux consumes the rest of seg_list (Mix 08 failed this way, 2026-11-10).
   ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i "$list" -c copy "$sdir/video.mp4" </dev/null
   # per-seg mux is optional listening aid; final pass remuxes the whole mix
-  ffmpeg -nostdin -y -loglevel error -i "$sdir/video.mp4" -ss "$SS" -t "$DUR" -i "$MIX" \
-    -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$sdir/done.mp4" </dev/null
+  # SKIP_AUDIO_MUX=1: leave video-only (the host remuxes the master after pull).
+  if [ "${SKIP_AUDIO_MUX:-0}" != 1 ]; then
+    ffmpeg -nostdin -y -loglevel error -i "$sdir/video.mp4" -ss "$SS" -t "$DUR" -i "$MIX" \
+      -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$sdir/done.mp4" </dev/null
+  fi
   echo ok > "$sdir/done.marker"
   log "$tag: done (${DUR}s)"
 }
@@ -141,8 +145,13 @@ done 3< "$WORK/seg_list.txt"
 TOTAL=$(python3 -c "import json;d=json.load(open('$WORK/segs.json'));print(d['cut'][-1])")
 ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i "$WORK/final_list.txt" -c copy "$WORK/video_all.mp4" </dev/null
 mkdir -p "$(dirname "$OUT")"
-ffmpeg -nostdin -y -loglevel error -i "$WORK/video_all.mp4" -t "$TOTAL" -i "$MIX" \
-  -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$OUT" </dev/null
+if [ "${SKIP_AUDIO_MUX:-0}" = 1 ]; then
+  # Video-only output; runpod_render.sh muxes MASTER locally at 320k AAC.
+  ffmpeg -nostdin -y -loglevel error -i "$WORK/video_all.mp4" -c:v copy -an -movflags +faststart "$OUT" </dev/null
+else
+  ffmpeg -nostdin -y -loglevel error -i "$WORK/video_all.mp4" -t "$TOTAL" -i "$MIX" \
+    -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$OUT" </dev/null
+fi
 if [ -n "${STILL_F:-}" ]; then
   FIRST=$(awk -F'\t' 'NR==1{print $1}' "$WORK/seg_list.txt")
   node "$HERE/render.mjs" --data "$WORK/$FIRST/data.json" --still "$STILL_F" --png "${OUT%.mp4}.png" \

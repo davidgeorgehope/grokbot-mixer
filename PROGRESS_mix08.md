@@ -96,3 +96,7 @@ runpod_render.sh now prefers Secure (RTX 4090 first, the type that got a public 
 
 Attempt 3 (19:30–19:34 ET): Secure RTX 4090 at $0.89/hr (pod vdndknddmck3w6) got a public IP (47.47.180.45:24599) but sshd never accepted within 3 min — the start script was likely still apt-installing openssh-server. Terminated, est $0.0551. SSH accept wait is now 10 min after an IP appears (the 3 min fail-fast still applies only when there is no IP/port).
 - 01:25 ET: [deliver 08] YouTube public https://youtu.be/E8OMhXbRoKg (oembed 200, title exact). Drive 128k https://drive.google.com/file/d/1Iy6TJ3YQvWvRte-jRN1rQDV2g6fBvti6/view (anyone-with-link). iCloud 320k + tracklist already in DJ Mixes. Twin-turntable 1080p30. Runpod $4.33. 111/111, -9.3 LUFS, pro-p95 + beat-alignment nudge.
+
+## Visual re-render r9 (2026-11-11 09:38 ET)
+
+Re-rendered Mix 08 twin-turntable visuals with fixed groove dives (shared camera near-distance; dives onto the real needle). Uploaded a new public YouTube video with the same title, description, tags (dnb, liquid), and category 10: https://youtu.be/jRTCAA4PpLY (oembed 200, processing succeeded, duration PT1H2M22S). Previous video https://youtu.be/E8OMhXbRoKg set private, not deleted (API privacy=private, oembed 403). Drive 1080p keeper replaced in place, same id https://drive.google.com/file/d/1pIApesFrZWw0HJzHaptKyuhVEesR5xC8/view (1,577,833,544 bytes, anyone-with-link). r9 Runpod spend $1.13 (pod 23clq9cc7t835l $0.91 of that). Audio unchanged (stream-copied r11c master).

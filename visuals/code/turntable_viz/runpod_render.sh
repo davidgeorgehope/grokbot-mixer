@@ -55,6 +55,8 @@ STAGING=${STAGING:-/tmp/tt_runpod_$$}
 ACTIVE_PODS=${ACTIVE_PODS:-/workspace/mixes/jobs/runpod-active.pods}
 SPEND_LOG=${SPEND_LOG:-/workspace/mixes/jobs/runpod-spend.log}
 MAX_SPEND_USD=${MAX_SPEND_USD:-5}
+# Skip any pod whose hourly rate is above this (terminated right after create, before upload).
+MAX_RATE_USD=${MAX_RATE_USD:-0.90}
 MIN_UPLOAD_BPS=${MIN_UPLOAD_BPS:-1000000}
 UPLOAD_PROBE_SEC=${UPLOAD_PROBE_SEC:-60}
 STALL_SEC=${STALL_SEC:-600}
@@ -602,9 +604,11 @@ UNCONSTRAINED=0
 for cloud in "${CLOUDS[@]}"; do
   for gpu in "${GPUS[@]}"; do
     GPU_TYPE="$gpu"
+    FORCE_ANY=0; UNCONSTRAINED=0
     while true; do
       local_dcs=$(remaining_dcs)
-      if [ -z "$local_dcs" ]; then
+      [ "$FORCE_ANY" = 1 ] && local_dcs=""
+      if [ -z "$local_dcs" ] && [ "$FORCE_ANY" != 1 ]; then
         if [ "$UNCONSTRAINED" = 1 ]; then
           log "no remaining datacenters and unconstrained already tried for this gpu"
           break
@@ -616,7 +620,11 @@ for cloud in "${CLOUDS[@]}"; do
       log "trying cloud=$cloud gpu=$gpu dc=${local_dcs:-any} spent=${spent_now}"
       budget_or_die "$EST_RENDER_USD" || { log "FATAL: spend budget would exceed \$${MAX_SPEND_USD}"; exit 2; }
       if create_pod "$cloud" "$local_dcs"; then
-        log "deployed cloud=$cloud gpu=$GPU_TYPE pod=$POD_ID dc=${POD_DC:-?}"
+        log "deployed cloud=$cloud gpu=$GPU_TYPE pod=$POD_ID dc=${POD_DC:-?} rate=${COST_PER_HR:-?}/hr"
+        if [ -z "$COST_PER_HR" ] || ! python3 -c "import sys; sys.exit(0 if float('$COST_PER_HR') <= float('$MAX_RATE_USD') else 1)"; then
+          discard_pod "rate ${COST_PER_HR:-unknown}/hr over cap \$${MAX_RATE_USD}/hr"
+          break
+        fi
         if ! wait_direct_ssh; then
           discard_pod "no direct SSH within ${SSH_WAIT_SEC:-180}s"
           if [ "$cloud" = COMMUNITY ]; then
@@ -628,7 +636,7 @@ for cloud in "${CLOUDS[@]}"; do
         if ! wait_ssh_accept; then
           [ -n "$POD_DC" ] && deny_dc "$POD_DC"
           discard_pod "ssh never accepted after ${SSH_ACCEPT_SEC:-600}s"
-          continue
+          [ "$FORCE_ANY" = 1 ] && break; continue
         fi
         if stream_upload; then
           CREATED=1
@@ -638,19 +646,23 @@ for cloud in "${CLOUDS[@]}"; do
           if [ "$up_rc" = 7 ]; then
             [ -n "$POD_DC" ] && deny_dc "$POD_DC"
             discard_pod "upload too slow (<${MIN_UPLOAD_BPS} B/s after ${UPLOAD_PROBE_SEC}s) dc=${POD_DC:-?}"
-            continue
+            [ "$FORCE_ANY" = 1 ] && break; continue
           fi
           discard_pod "upload failed rc=$up_rc"
-          continue
+          [ "$FORCE_ANY" = 1 ] && break; continue
         fi
       else
+        # No capacity in the preferred DCs: one more try for this GPU with no DC filter
+        # (the upload speed guard still rejects a far, slow datacenter).
+        if [ -n "$local_dcs" ] && [ "$FORCE_ANY" != 1 ]; then FORCE_ANY=1; continue; fi
         break
       fi
     done
   done
 done
 fi  # end fresh-pod create loop
-[ "$CREATED" = 1 ] || { log "no candidate deployed with direct SSH and a fast upload (clouds=${CLOUDS[*]} gpus=${GPUS[*]})"; exit 1; }
+# rc 75 = no capacity / no usable pod anywhere; callers may wait and retry (see jobs/turntable_mix08.sh).
+[ "$CREATED" = 1 ] || { log "no candidate deployed with direct SSH and a fast upload (clouds=${CLOUDS[*]} gpus=${GPUS[*]})"; exit 75; }
 
 SSH=(ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR
      -o ConnectTimeout=8 -i "$SSH_PRIV" -p "$SSH_PORT")

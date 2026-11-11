@@ -406,7 +406,7 @@ start = (
   "export DEBIAN_FRONTEND=noninteractive; "
   "rm -f /etc/apt/sources.list.d/*; "
   "printf 'Acquire::http::Timeout \"20\";\\nAcquire::https::Timeout \"20\";\\nAcquire::Retries \"2\";\\n' > /etc/apt/apt.conf.d/99tt-timeouts; "
-  "command -v sshd >/dev/null || { timeout 180 apt-get update -qq; timeout 180 apt-get install -y -qq openssh-server >/dev/null; }; "
+  "[ -x /usr/sbin/sshd ] || { timeout 180 apt-get update -qq; timeout 180 apt-get install -y -qq openssh-server >/dev/null; }; "
   "mkdir -p /var/run/sshd /root/.ssh; "
   'echo "$PUBLIC_KEY" > /root/.ssh/authorized_keys; '
   "chmod 700 /root/.ssh; chmod 600 /root/.ssh/authorized_keys; "
@@ -414,7 +414,8 @@ start = (
   "sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config || "
   "echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config; "
   "sed -i 's/^PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config; "
-  "/usr/sbin/sshd; sleep infinity"
+  # Host keys: the image's own start script normally makes them; our cmd replaces it (Mix 08 r8: sshd refused).
+  "ssh-keygen -A; /usr/sbin/sshd; sleep infinity"
 )
 body = {
   "name": os.environ["_RP_NAME"],

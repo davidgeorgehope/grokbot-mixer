@@ -35,3 +35,4 @@ description: >-
 ## Long blends (2026-11-11)
 - Window length (XBARS, length_pref) does not set how long a blend sounds; the fader shape and the low lanes do. FADE=long (src2/fade_long.py: early-in plateau + decisive outgoing exit on a phrase, one crossfader, guard-clean) is opt-in. It didn't hold on held-out (30.09 -> 29.61 / 26.47), so rules.json and the full-mix default FADE=tail are unchanged.
 - The protrans event detector (blend_length / outgoing_cut) is noisy on NNLS gains: judge length/cut changes by the diagnostic figure and ears, not by those subscores alone.
+- Long-blend RCA #2 (2026-11-11): FADE=long + LONG_SOLO_STRUCT=1 (exit ends where the outgoing's own energy drops) + LONG_SWAP=exit (bass swap at the exit start) holds held-out (30.09 -> 30.75). It's proposed, not adopted, until the listener picks. Per-bar beat offsets on sparse intros and the snare band are not evidence of a half-beat; use the kick band on both-drum bars with xcorr r >= 0.15.

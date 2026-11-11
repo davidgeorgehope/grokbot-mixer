@@ -1,0 +1,18 @@
+{
+ "mix": "08",
+ "name": "mix08_r11c",
+ "stage": "delivered",
+ "tested": true,
+ "delivered": true,
+ "n_fail_guard": 0,
+ "pytest": "111 passed / 0 failed",
+ "min": 62.36,
+ "lufs": -9.3,
+ "updated_et": "2026-11-11 01:25 ET",
+ "youtube": "https://youtu.be/E8OMhXbRoKg",
+ "drive": "https://drive.google.com/file/d/1Iy6TJ3YQvWvRte-jRN1rQDV2g6fBvti6/view",
+ "icloud": "DJ Mixes / DJ Grok Bot \u2013 Mix 08.mp3",
+ "visuals": "twin-turntable 1080p30, groove-dives on",
+ "notes": "Delivered r11c: 62.36 min, 111/111 tests, pro-p95-calibrated guardrails plus a beat-alignment nudge, -9.3 LUFS. Drive 128k anyone-with-link. iCloud 320k + tracklist already in DJ Mixes. Public YouTube + oembed 200. Runpod spend $4.33. Visuals: twin-turntable 1080p30. 1080p30 video also on Drive (anyone-with-link).",
+ "drive_video": "https://drive.google.com/file/d/1pIApesFrZWw0HJzHaptKyuhVEesR5xC8/view"
+}

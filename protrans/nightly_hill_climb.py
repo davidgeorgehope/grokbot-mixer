@@ -18,12 +18,14 @@ def candidates():
     # n1110 list, re-tested on the STRUCT=1 + 2-bar-swap base (n1109 kept bass_swap_2bar,
     # phase_pref 0.4/0.8 rejected; d1109 kept STRUCT=1)
     return [
-        ('phase_pref_02', {'phase_pref_w': 0.2}),
-        ('bass_swap_4bar', {'BASS_SWAP_BARS': 4}),
-        ('fade_tail_curve', {'FADE': 'tail'}),
-        ('phase_soft_combo', {'phase_pref_w': 0.4, 'linger_pen_w': 0.3, 'breakdown_pen_w': 0.3}),
-        ('linger_03', {'linger_pen_w': 0.3}),
-        ('high_ofs_8', {'HIGH_OFS': 8}),
+        # n1111 list on the STRUCT=1 + 2-bar swap + HIGH_OFS 8 base. n1110 rejected
+        # phase_pref 0.2, bass swap 4, FADE tail, phase soft combo, linger 0.3.
+        ('high_ofs_12', {'HIGH_OFS': 12}),
+        ('bass_swap_3bar', {'BASS_SWAP_BARS': 3}),
+        ('break_03', {'breakdown_pen_w': 0.3}),
+        ('linger_015', {'linger_pen_w': 0.15}),
+        ('length_pref_16', {'length_pref': 16}),
+        ('swap_pos_035', {'SWAP_POS': 0.35}),
 ][:MAX_CANDS]
 
 def main():

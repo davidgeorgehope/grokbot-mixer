@@ -19,9 +19,23 @@ LEAD, TAIL, COLS, SPIN_DOWN = 3, 3, 512, 0.6
 R_LEADIN, R_PROGRAM, R_PROGRAM_MIN, R_LOCK, TAB_PER_REV = 0.1490, 0.1463, 0.0603, 0.0532, 64
 
 
+def load_mono(path, sr=22050):
+    """librosa first; if libsndfile cannot open the container (e.g. m4a on Python 3.13, no audioread), decode with ffmpeg."""
+    import librosa
+    try:
+        y, _ = librosa.load(path, sr=sr, mono=True)
+        return y
+    except Exception as e:
+        import subprocess
+        print(f'prep: librosa could not open {os.path.basename(path)} ({type(e).__name__}); decoding with ffmpeg', file=sys.stderr)
+        raw = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-i', os.path.abspath(path), '-f', 'f32le', '-ac', '1', '-ar', str(sr), '-'],
+                             check=True, stdout=subprocess.PIPE, stdin=subprocess.DEVNULL).stdout
+        return np.frombuffer(raw, dtype=np.float32).copy()
+
+
 def envelope(path, sr=22050, hop=110):
     import librosa
-    y, sr = librosa.load(path, sr=sr, mono=True)
+    y = load_mono(path, sr)
     fr = librosa.util.frame(np.pad(y, (256, 256)), frame_length=512, hop_length=hop)
     rms = np.sqrt((fr ** 2).mean(0) + 1e-12)
     from scipy.signal import butter, sosfilt

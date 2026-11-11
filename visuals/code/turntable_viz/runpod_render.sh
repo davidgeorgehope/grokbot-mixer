@@ -740,9 +740,11 @@ fi
 ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact "$PULL_TMP"
 
 if [ -n "${MASTER:-}" ] && [ -f "$MASTER" ]; then
-  log "muxing master audio at 320k AAC into $OUT"
+  # An AAC master (.m4a/.aac/.mp4, e.g. pulled from a delivered video) is stream-copied, never re-encoded.
+  case "${MASTER,,}" in *.m4a|*.aac|*.mp4) ACODEC=(-c:a copy); amsg="stream copy" ;; *) ACODEC=(-c:a aac -b:a 320k -ar 44100 -ac 2); amsg="320k AAC" ;; esac
+  log "muxing master audio ($amsg) into $OUT"
   ffmpeg -nostdin -y -loglevel error -i "$PULL_TMP" -i "$MASTER" \
-    -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -ar 44100 -ac 2 -shortest -movflags +faststart \
+    -map 0:v -map 1:a:0 -c:v copy "${ACODEC[@]}" -shortest -movflags +faststart \
     "$OUT" </dev/null
   rm -f "$PULL_TMP"
 else

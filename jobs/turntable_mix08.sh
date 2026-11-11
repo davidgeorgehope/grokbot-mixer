@@ -2,9 +2,9 @@
 set -euo pipefail
 export META=/workspace/mixes/src2/mix08_r11c_meta.json
 export MIX=/workspace/mixes/deliver/08/dj-mix-08-128k.mp3
-export MASTER=/workspace/mixes/src2/mix08_r11c_master.wav
+export MASTER=${MASTER:-/workspace/mixes/src2/mix08_r11c_master.wav}
 export TRACKLIST=/workspace/mixes/deliver/08/dj-mix-08-tracklist.md
-export OUT=/workspace/mixes/visuals/dj-mix-08-visuals-1080p30.mp4
+export OUT=${OUT:-/workspace/mixes/visuals/dj-mix-08-visuals-1080p30.mp4}
 export GROOVE_DIVE=1
 export SKIP_AUDIO_MUX=1
 # Finished segments are copied here as they complete; a retry on a fresh pod resumes from them.

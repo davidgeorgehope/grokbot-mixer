@@ -48,6 +48,7 @@ def beat_phrases(b,e,ia):
   return [p for p in range(e-16,max(ia,16,e-64)-1,-16) if beatstem.lx_len(b,p,LOOPDIP)]
 def lx_wa(b,p,X):L=beatstem.lx_len(b,p,LOOPDIP);return [p+((LX_PRE+k)%L) for k in range(X)]
 NOVOC=set()  # tracks currently scored as beat-only: no vocal activity
+VOCOFF=set()  # tracks without vocal data: the V (vocal clash) term is off for them, recorded in the plan meta
 # per-track in/out plan: score every phrase-aligned candidate window by simulating the guardrails
 # (V1 vocal clash, L1 double bass, O1 both audible >=8 bars, C2 outgoing not too quiet) under the crossfader.
 ANCH={p['id'] for p in plan if p.get('anchor')};NOIN={p['id'] for p in plan if p.get('anchor_in') is False};HEAVY=float(os.environ.get('HEAVY',-6))
@@ -59,19 +60,29 @@ def F(b):
   bact=(bs>np.percentile(bs,90)-10) if bs is not None else (lo-al>HEAVY)
   hi=10*np.log10(np.maximum(10**(al/10)-10**(lo/10),1e-10))  # level above the bass band (what stays audible through the handoff)
   if b in NOVOC:v=np.full(len(al),-100.)
+  # no vocal data (protrans prep wrote a constant -100 stand-in; NOVOC beat-only outros): with rv = percentile(v,95) every bar
+  # counted as 'vocal' (2026-11-11 RCA: V=20 on every 32-bar window, real overlap unchecked). Now: no V term for that deck (VOCOFF).
+  if len(v)!=len(al) or float(np.ptp(v))==0:
+    if b not in NOVOC:VOCOFF.add(b)
+    return hi,lo,v,float('inf'),bact
   return hi,lo,v,float(np.percentile(v,95)),bact
 _ON={}
 def onsets(b):  # per-bar onset envelope (cached), used only to predict guardrail R1 (drums fighting)
   if b in _ON:return _ON[b]
   import onsets as _onsetlib;_ON[b]=_onsetlib.ensure(b);return _ON[b]
 def rxc(a,b,wa,wb):
-  oa,ob=onsets(a),onsets(b);ml=max(1,int((BEAT/8)*(SR/512)));xs=[]
-  for xa,xb in zip(wa,wb):
-    if xa>=len(oa) or xb>=len(ob):continue
-    ea=oa[xa]-oa[xa].mean();eb=ob[xb]-ob[xb].mean();na,nb_=np.linalg.norm(ea),np.linalg.norm(eb)
-    if na<1e-9 or nb_<1e-9:continue
-    c=np.correlate(ea/na,eb/nb_,mode='full');m=len(c)//2;xs.append(float(c[m-ml:m+ml+1].max()))
-  return float(np.median(xs)) if xs else 1.0
+  """drum-fight R: median per-bar onset xcorr between the decks, best lag within +-BEAT/8 (unchanged pass criterion, RPEN below 0.25)"""
+  return rxc_lags(a,b,wa,wb)['r0']
+import halfbeat as _HB
+def rxc_lags(a,b,wa,wb,both_drums=False):
+  """per-bar onset xcorr between the decks searched over +-BEAT/2 (halfbeat.deck_lags; 2026-11-11 RCA: Shine In sat 158 ms =
+  0.46 beat off Dusk To Dawn, outside the old +-BEAT/8 search, and R=0.42 passed). r0 is the unchanged drum-fight R."""
+  mask=None
+  if both_drums:dA,dB=drums_on(a),drums_on(b);mask=[xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] for xa,xb in zip(wa,wb)]
+  return _HB.deck_lags(onsets(a),onsets(b),wa,wb,mask)
+def halfbeat(a,b,wa,wb):
+  """render-time half-beat check over the overlap (drum-on-drum bars): fail when the decks line up better half a beat apart"""
+  return _HB.blend_check(a,b,list(wa),list(wb))  # drum-phase basis (halfbeat.blend_check); the lag xcorr rides along in the dict
 _DR={}
 def drums_on(i):  # per source bar: drums within 8 dB of the record's drum body (Mix 02 trait: long drums-together blends)
   if i not in _DR:d=np.array(json.load(open(f'st/{i}.json'))['bar']['drums']);_DR[i]=d>np.percentile(d,75)-8
@@ -96,6 +107,9 @@ def swap_at(a,b,wa,wb):
   bA,bB=F(a)[4],F(b)[4]
   lA,lB=F(a)[1],F(b)[1];bodA,bodB=np.percentile(lA,75),np.percentile(lB,75)
   def thin(c):return sum(lA[wa[k]]<bodA-6 for k in range(max(0,c-2),c))+sum(lB[wb[k]]<bodB-6 for k in range(c,min(X,c+2)))  # low end not yet/no longer at body level next to the swap: dip (Mix 03 v2 36:47, -3.2 dB)
+  QDB=float(os.environ.get('SWAP_QUIET_DB',999))  # opt-in (e.g. 15): on, held-out 30.09 -> 29.50 (2026-11-11; Pola & Bryson swap on Closer to Home's bar 32 bass fill is what the pro did), so off by default
+  def quiet(c,centred=False):  # incoming bars inside the handoff whose low band sits >= SWAP_QUIET_DB under its body (2026-11-11 RCA: the swap landed on Dusk To Dawn bar 44, -35 dB: an 18 dB hole)
+    lo_=c-SW/2 if centred else c;return sum(wb[k]<len(lB) and lB[wb[k]]<bodB-QDB for k in range(max(0,int(np.floor(lo_))),min(X,int(np.ceil(lo_+SW))+1)))
   if not bob(a,b,wa,wb):
     # SWAP_THIN (2026-11-01, Mix 05 v2 v4 24:46 2s3M>nT25 -6.2 dB energy drop): non beat-on-beat blends used POS*X blindly, so the
     # outgoing bass went at bar ~6 while nT25's intro had no bass yet (-29 vs -17 dB) = a hole. Hand the bass over where the incoming
@@ -103,10 +117,11 @@ def swap_at(a,b,wa,wb):
     if not int(os.environ.get('SWAP_THIN',1)):return POS*X
     _hl=float(os.environ.get('BASS_LEAD',1))/2;cs=[c for c in range(2,int(X-SW)+1) if 0.2<=_xpos((c+SW/2-_hl)/X) and _xpos((c+SW/2+_hl)/X)<=0.65]  # v6r4: off-phrase picks render with lead (BLEAD/2 each side), so BOTH decks' swap centres must sit in X1's window (r4 incoming at x=0.68)  # X1 window; off-phrase picks are treated like POS swaps (not phrase-snapped)  # X1: swap centred at crossfader x 0.2-0.65
     def hole(c):return sum(lB[wb[k]]<bodB-6 and lA[wa[k]]>=bodA-6 for k in range(int(c+SW/2),X))  # bars with no bass after the handoff that the outgoing still had
-    if not cs or hole(POS*X)<int(os.environ.get('SWAP_HOLE_BARS',3)) or (a=='j9AuFRpLk7U' and b=='cxS6yd0UAxw'):return POS*X  # only real holes; gold blend untouched
-    best=min(cs,key=lambda c:(hole(c),thin(c),abs(c-POS*X)))
-    return best if hole(best)<hole(POS*X) else POS*X
-  def bad(c):return 2*thin(c)+sum(2*(c<=k<c+SW and bA[xa] and bB[xb])+((k<c and not bA[xa]) or (k>=c and not bB[xb])) for k,(xa,xb) in enumerate(zip(wa,wb)))
+    if (a=='j9AuFRpLk7U' and b=='cxS6yd0UAxw') or not cs:return POS*X  # gold blend untouched
+    if hole(POS*X)<int(os.environ.get('SWAP_HOLE_BARS',3)) and (quiet(POS*X,True)==0 or all(quiet(c) for c in cs)):return POS*X  # only real holes / quiet bars
+    best=min(cs,key=lambda c:(quiet(c),hole(c),thin(c),abs(c-POS*X)))
+    return best if (quiet(best),hole(best))<(quiet(POS*X,True),hole(POS*X)) else POS*X
+  def bad(c):return 2*thin(c)+3*quiet(c)+sum(2*(c<=k<c+SW and bA[xa] and bB[xb])+((k<c and not bA[xa]) or (k>=c and not bB[xb])) for k,(xa,xb) in enumerate(zip(wa,wb)))
   return min((c for c in range(4,X,4) if 0.2<=_xpos((c+SW/2)/X)<=0.65),key=lambda c:(bad(c),abs(c-POS*X)))
 FADE=os.environ.get('FADE','tail');FADE0=FADE;FDB=float(os.environ.get('FADE_DB',22))  # 'tail' (default 2026-10-31): blend of the linear position and a -FDB*u^1.5 dB outgoing tail, weighted by u; 'lin' = old linear position (outgoing gone ~10 bars after the swap, -7..-11 dB/bar in Mix 05)
 def _xpos(u):  # shared by score() and the render. Pure -30*u^1.5 tail failed X1 (incoming +4.5 dB/beat early) and C2 (outgoing -10.6 dB at mid-blend) on the Mix 06 render;
@@ -190,7 +205,7 @@ def pair_cands(i,ia0):
       r=score(a,b,list(wa),list(wb),ref);NOVOC.discard(a)
       step=(max(abs(np.median(ala[e-4:e])-np.median(ala[p:p+4])),abs(np.mean(ala[e-2:e])-np.mean(ala[p:p+2]))) if kind in('la','ab') else 0)+(abs(alb[q]-alb[q+15]) if kind in('lb','ab') else 0)  # level jump at the loop seam
       if kind=='lx':dra=np.array(track(a)['g']['bar']['drums'],float);step+=abs(np.mean(dra[e-2:e])-np.mean(dra[p:p+2]))  # beat seam e-1 -> p
-      r['pen']+=float(os.environ.get('SEAMPEN',8))*max(0,step-2);r['R']=round(rxc(a,b,list(wa),list(wb)),3);r['pen']+=float(os.environ.get('RPEN',300))*max(0,0.25-r['R'])
+      r['pen']+=float(os.environ.get('SEAMPEN',8))*max(0,step-2);r['R']=round(rxc(a,b,list(wa),list(wb)),3);r['pen']+=float(os.environ.get('RPEN',300))*max(0,0.25-r['R']);r['HB']=halfbeat(a,b,list(wa),list(wb))
       skipped=(e_max-ea)+ib  # bars of music not heard
       if kind in('la','ab'):r['pen']+=DIPPEN*loop_dip(a,p)
       if kind=='ab':r['pen']+=DIPPEN*loop_dip(b,q)
@@ -247,7 +262,11 @@ for i in range(len(ids)-1):
   A,B=decks[i],decks[i+1];X=XT[(A['id'],B['id'])];s=B['start_bar'];e=s+X;_ctx(A['id'])
   xs=[[s+k/4,round(_xpos(k/(4*X)) if k<4*X else 1.0,5)] for k in range(4*X+1)]  # crossfader position per beat, 0->1 (single equal-power control)
   n,cl=notes[(A['id'],B['id'])]
-  trans.append(dict(swap_w=SW,fade=FADE,tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_ofs=float(SW/2 if (SNAP and SW>0 and info_[(A['id'],B['id'])]['c']!=POS*X) else 0),swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X and info_[(A['id'],B['id'])]['c']%4==0),end_bar=e,xfader=xs,vocal_clash_bars=cl,keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
+  trans.append(dict(swap_w=SW,fade=FADE,tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_ofs=float(SW/2 if (SNAP and SW>0 and info_[(A['id'],B['id'])]['c']!=POS*X) else 0),swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X and info_[(A['id'],B['id'])]['c']%4==0),end_bar=e,xfader=xs,vocal_clash_bars=cl,halfbeat=info_[(A['id'],B['id'])].get('HB'),keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
+HBG=int(os.environ.get('HALFBEAT_GATE',1))  # 2026-11-11 RCA: a blend whose decks align better half a beat apart is a train-wreck the +-BEAT/8 guards can't see
+_hbf=[t for t in trans if (t.get('halfbeat') or {}).get('fail')]
+for t in _hbf:print(f"HALFBEAT FAIL {t['a']}>{t['b']}: decks align better half a beat apart (r0={t['halfbeat']['r0']} rh={t['halfbeat']['rh']} lag={t['halfbeat']['lag_ms']} ms over {t['halfbeat']['bars']} drum bars); re-grid with halfbeat.py --apply",file=sys.stderr)
+if _hbf and HBG and '--dry' not in sys.argv:sys.exit(3)
 EO=int(os.environ.get('ECHO_OUT',1));ESH=float(os.environ.get('ECHO_SHARE',0.1))  # echo default on for Mix 05+ (the listener A/B 2026-10-29 'that's nice'); 0 reproduces older mixes
 EOUT=dict(bars=1,delay_beats=float(os.environ.get('ECHO_BEATS',1)),fb=0.5,wet_db=float(os.environ.get('ECHO_WET',-6)),lo=300.0,hi=6000.0,tail_bars=4)
 def echo_pick():
@@ -292,6 +311,14 @@ for i,d in enumerate(decks):
     if hi:d['auto']['high']=hi
   if i in EOS:d['echo_out']=dict(EOUT)
   d['end_bar']=d['start_bar']+len(d['full_map']);d['echo']=False;d['label']='';d['map']=d['full_map'][:1]+d['full_map'][-1:];d['acap']=False;d['drop_bar']=None
+if SW0>0 or PIN:  # trans['bass_swap'] = the low lanes as rendered (2026-11-11 RCA: it reported POS*X, 213.5-216.5, while the lanes ran 225.5-229.5)
+  for t in trans:
+    if t['swap_w']>0:
+      _c=t['swap_bar']+t.get('swap_ofs',t['swap_w']/2 if t['swap_phrase'] else 0);_bl=float(os.environ.get('BASS_LEAD',1));_l=(0.0,0.0) if t['a'] in PIN or f"{t['a']}>{t['b']}" in set(x for x in os.environ.get('BASS_LEAD_OFF','').split(',') if x) else (_bl,0.0) if t['swap_phrase'] else (_bl/2,_bl/2)
+      t['bass_swap']=[round(_c-_l[0]-t['swap_w']/2,3),round(_c+_l[1]+t['swap_w']/2,3)]
+for t in trans:
+  t['vocal_data']={t['a']:t['a'] not in VOCOFF,t['b']:t['b'] not in VOCOFF}
+  if t['a'] in VOCOFF or t['b'] in VOCOFF:t['notes']=list(t['notes'])+['vocal overlap not checked: no vocal data for '+', '.join(x for x in (t['a'],t['b']) if x in VOCOFF)]
 # beats -> melody-only fixes (beatmelody.py, 2026-11-02): plan step 'bm_fix' ('dswap' | 'dswap_beat' | 'ib' | 'ib+dswap'), or env BM_FIX on every BM1 blend
 import beatmelody as _BMX
 _BMM=dict(decks=decks,trans=trans,bar_sec=BAR);_bmenv=os.environ.get('BM_FIX','')

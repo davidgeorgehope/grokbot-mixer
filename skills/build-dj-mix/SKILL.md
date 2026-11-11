@@ -25,3 +25,9 @@ description: >-
 - Structure first (STRUCT=1): outro-over-intro, incoming drop on the outgoing's music end; blend length per pair (16 or 32) from structure + fit.
 - Hard rule: no abrupt outgoing fade. FADE=tail, phrase-snapped bass handoff; test_structure_tail.py gates fader (<=3 dB/bar) and rendered tail (<=6 dB/bar).
 - Gold reference blend: Mix 05 55:10, goddard. - Lilies -> Just Hold On (incoming loops 48-64, drop at 64 lands as Lilies ends). Lilies is a loved track (track_prefs.json).
+
+## Beat grid, half-beat gate and diagnostics (2026-11-11)
+- Prep runs a half-beat grid check (src2/halfbeat.py: snare-on-2-and-4 template vs the grid shifted half a beat) and moves an off-beat grid; re-check the whole library with halfbeat_library.py via runjob.sh after prep changes.
+- Every render checks each blend for decks half a beat apart (drum phase AND onset xcorr must agree); mix_simple.py exits 3 with HALFBEAT FAIL and build QA gates it (test_release_halfbeat.py). Never disable the gate to ship.
+- Every build writes one diagnostic figure per blend to deliver/<mix>/diagnostics (src2/blend_diag.py; generate-only); the daily protrans round writes deliver/protrans/diagnostics/daily_<date>.png.
+- RCA by default: a mix or blend rated below 4, or a test that keeps failing during mix creation, gets a full root-cause pass (diagnostic figure, compare with the pro/gold blend, find the code path, fix the general rule, re-render, report before/after numbers).

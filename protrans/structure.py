@@ -216,13 +216,37 @@ def phase_spans(labels):
         i = j
     return spans
 
+def _bar(v):
+    """a bar number from a window field: int, float, numpy scalar, or the engine's ('loopB', q) / [e, p] forms"""
+    if isinstance(v, (list, tuple)):
+        nums = [x for x in v if isinstance(x, (int, float, np.integer, np.floating)) and not isinstance(x, bool)]
+        if not nums:
+            raise TypeError(f'no bar number in window field {v!r}')
+        return int(nums[0])
+    return int(v)
+
+def parse_window(win):
+    """(kind, out_end, loop_phrase, in_begin, X) from a flat [kind, e, p, ib, X] window or the nested
+    [kind, (e, p), ib, X] / ('loopB', q) forms mix_simple uses internally. 2026-11-11 RCA: int(list) here raised a
+    TypeError on loop windows and recreate.py swallowed it, so loop families silently got phase cost 0."""
+    win = list(win)
+    if len(win) == 4 and isinstance(win[1], (list, tuple)):
+        kind, (e, p), ib, X = win[0], win[1], win[2], win[3]
+    elif len(win) == 5:
+        kind, e, p, ib, X = win
+        if isinstance(e, (list, tuple)) and len(e) == 2 and p is None:
+            e, p = e
+    else:
+        raise ValueError(f'window must be [kind, e, p, ib, X], got {win!r}')
+    return kind, _bar(e), (None if p is None else _bar(p)), _bar(ib), _bar(X)
+
 def map_window_bars(win):
     """Approximate outgoing/incoming source bars at mixin, along the blend, and at cut.
 
     win = [kind, out_end, loop, in_begin, X]. Loop families use the repeated
     phrase; nothing is rejected here, this is only for soft scoring.
     """
-    kind, e, p, ib, X = win[0], int(win[1]), win[2], int(win[3]), int(win[4])
+    kind, e, p, ib, X = parse_window(win)
     def out_at(k):
         if kind in ('la', 'ab', 'lx') and p is not None:
             return int(p) + (k % 16)

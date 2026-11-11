@@ -57,6 +57,13 @@ def main(pick_id, base_variant, cands):
     json.dump(out, open(os.path.join(paths.RESULTS, f'daily_{time.strftime("%Y-%m-%d")}.json'), 'w'), indent=2, default=str)
     print('RESULT', json.dumps(dict(before=bpick, kept=kept and kept['name'],
                                     tried=[(t['name'], t['pick_score']) for t in tried])), flush=True)
+    # standard per-blend diagnostic figure for the pick under the rules now in place (generate-only, never fails the round)
+    try:
+        import daily_diag
+        d = daily_diag.make(pick_id, f'daily_{time.strftime("%Y-%m-%d")}')
+        print('DIAG', d['png'], 'half-beat', 'FAIL' if (d.get('halfbeat') or {}).get('fail') else 'ok', flush=True)
+    except Exception as e:
+        print('DIAG skipped:', type(e).__name__, str(e)[-200:], flush=True)
 
 if __name__ == '__main__':
     CANDS = [

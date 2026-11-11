@@ -1,0 +1,48 @@
+{
+  "variant": "rca1111_phrase_cut",
+  "v3": {
+    "train": 29.91,
+    "test": 27.11,
+    "n": 33,
+    "n_fail": 0
+  },
+  "v2": {
+    "train": 28.81,
+    "test": 25.75
+  },
+  "fams": {
+    "phrase_cut": 33
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 26.72,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 35.1,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 27.8,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 29.66,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 25.42,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 17.29,
+      "split": "test"
+    }
+  }
+}

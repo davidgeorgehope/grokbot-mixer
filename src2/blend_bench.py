@@ -57,7 +57,8 @@ def families(cs,rated_win,renv={}):
   C=[dict(fam=k,win=w,env={}) for k,w in F.items() if w]
   if nl:
     C+=[dict(fam='swap_early',win=nl,env={'SWAP_POS':'0.21'}),dict(fam='swap_late',win=nl,env={'SWAP_POS':'0.6'}),dict(fam='sneak_in',win=nl,env={},sneak=True)]
-  for c in C:c['is_rated']=bool(rated_win) and not renv and c['win']==rated_win and not c['env'] and not c.get('sneak')
+    if nl[4]>=32:C.append(dict(fam='phrase_cut',win=nl,env={},phrase_cut=True))  # 2026-11-11 RCA: Joe Syntax-style early in, cut on the phrase
+  for c in C:c['is_rated']=bool(rated_win) and not renv and c['win']==rated_win and not c['env'] and not c.get('sneak') and not c.get('phrase_cut')
   if rated_win and not any(c['is_rated'] for c in C):C.append(dict(fam='rated',win=rated_win,env=dict(renv),is_rated=True))  # rendered with the engine settings the listener heard
   return C
 
@@ -76,6 +77,40 @@ def sneak(M):
       if D['auto'].get(lane):D['auto'][lane]=[[p+d,g] for p,g in D['auto'][lane]]
   return M
 
+PC_IN_DB=float(os.environ.get('PHRASE_CUT_IN_DB',-4))    # incoming level from its entry until the cut (Joe: -2..-8 dB)
+PC_LOW_DB=float(os.environ.get('PHRASE_CUT_LOW_DB',-12)) # incoming lows under that until the cut (Joe: -4..-15 dB)
+PC_LEAD=int(os.environ.get('PHRASE_CUT_LEAD',16))        # bars the incoming is up before the cut (Joe: 17)
+PC_RAMP=float(os.environ.get('PHRASE_CUT_RAMP',2))       # bars for the incoming to come up at its entry
+PC_CUT=float(os.environ.get('PHRASE_CUT_BARS',1))        # outgoing + its lows out (and incoming to full) over this many bars
+PC_QUIET_DB=float(os.environ.get('SWAP_QUIET_DB',15))    # incoming low band this far under its body = a quiet bar, no cut/swap onto it
+def cut_bar(M):
+  """mix bar of the phrase cut: the first incoming 16-bar phrase boundary (then 8-bar) >= PC_LEAD bars into the blend whose
+  cut bar and next bar have incoming low end (not PC_QUIET_DB under its body: the 2026-11-11 swap landed on a -35 dB dip)"""
+  import engine
+  t=M['trans'][0];B=M['decks'][1];s,e=int(t['start_bar']),int(t['end_bar']);lo=np.array(engine.track(B['id'])['g']['bar']['low'],float);body=np.percentile(lo,75)
+  src=lambda m:B['full_map'][m-B['start_bar']][0] if 0<=m-B['start_bar']<len(B['full_map']) else None
+  ok=lambda m:all(src(x) is not None and src(x)<len(lo) and lo[src(x)]>=body-PC_QUIET_DB for x in (m,m+1))
+  for q in (16,8,4):
+    for m in range(s+PC_LEAD,e):
+      if src(m) is not None and src(m)%q==0 and ok(m):return m
+  return max(s+PC_LEAD,e-1) if e-1>=s else s
+def phrase_cut(M):
+  """'early in, cut on the phrase' (2026-11-11 RCA, Joe Syntax Hospital mix 22:46, Shine In > Dusk To Dawn): the incoming comes up to
+  PC_IN_DB over PC_RAMP bars at blend start with its lows at PC_LOW_DB, the outgoing stays at full level, then on an incoming phrase
+  boundary (cut_bar) the outgoing and its lows go out and the incoming (lows too) comes to full over PC_CUT bars. No high lane.
+  Note: the 1-bar outgoing exit is by design steeper than the abrupt-fade guard (measure() 'fade_step' / test_structure_tail),
+  which is left as is: this family is for the bench, the daily A/B and protrans, not for full mixes until the listener OKs it there."""
+  t=M['trans'][0];A,B=M['decks'];s=float(t['start_bar']);m=float(cut_bar(M));e=float(t['end_bar']);gi=10**(PC_IN_DB/20);gl=10**(PC_LOW_DB/20)
+  def ramp(t0,w,v0,v1,n=16,shape='cos'):
+    return [[t0+w*j/n,round(float(v0+(v1-v0)*((1-np.cos(np.pi*j/n))/2)),5)] for j in range(n+1)]
+  A['auto']['gain']=[[s,1.0]]+ramp(m,PC_CUT,1.0,0.0)+[[max(e,m+PC_CUT)+1,0.0]]
+  B['auto']['gain']=ramp(s,PC_RAMP,0.0,gi)+ramp(m,PC_CUT,gi,1.0)
+  A['auto']['low']=ramp(m,PC_CUT,1.0,0.0);B['auto']['low']=[[s,gl]]+ramp(m,PC_CUT,gl,1.0)
+  for D in (A,B):D['auto'].pop('high',None)
+  t['phrase_cut']=dict(cut_bar=m,in_db=PC_IN_DB,low_db=PC_LOW_DB,lead=PC_LEAD,cut_bars=PC_CUT);t['bass_swap']=[m,m+PC_CUT];t['swap_bar']=m
+  t['tech']=f"early in ({PC_IN_DB:g} dB, lows {PC_LOW_DB:g} dB) + cut on the incoming phrase at bar {m:g} over {PC_CUT:g} bar"
+  return M
+
 def render(c,a,b,tag):
   """real engine: dry plan -> crop decks to the snippet -> engine.render_deck per deck -> sum -> master.sh (unchanged)"""
   import soundfile as sf,engine
@@ -84,6 +119,7 @@ def render(c,a,b,tag):
   sh(f'python3 mix_simple.py --plan {f} --out {SCR}/{tag} --dry',c['env'])
   M=json.load(open(f'{SCR}/{tag}_dry_meta.json'))
   if c.get('sneak'):M=sneak(M)
+  if c.get('phrase_cut'):M=phrase_cut(M)
   t=M['trans'][0];A=M['decks'][0];lx=any(s=='beat' for _,s in A['full_map'])
   pre=PRE+(int(A.get('lx_xf',2))+8 if lx else 0)
   s0,s1=int(t['start_bar'])-pre,int(t['end_bar'])+POST;n=int(round((s1-s0)*BS));dk=[]
@@ -117,14 +153,17 @@ def bar_db(y,BS,nb):
 def band_db(y,BS,nb,kind,fc):
   from scipy.signal import butter,sosfiltfilt
   return bar_db(sosfiltfilt(butter(4,fc,kind,fs=44100,output='sos'),y,axis=0),BS,nb)
-def flam_ms(a,b):
-  """beat-phase offset between the decks (each alone): lag of max xcorr of kick-band onset envelopes, +-40 ms"""
+FLAM_MAX_MS=float(os.environ.get('FLAM_MAX_MS',200))  # 2026-11-11 RCA: was +-40 ms, so a deck half a beat (172 ms) off could never show up
+def flam_ms(a,b,signed=False):
+  """beat-phase offset between the decks (each alone): lag of max xcorr of kick-band onset envelopes over +-FLAM_MAX_MS
+  (covers half a beat, 172 ms; one beat is 345 ms so the next on-beat match stays outside). abs ms by default, signed=True keeps the sign (+ = the first deck late)"""
   import librosa
   from scipy.signal import butter,sosfiltfilt
   sos=butter(4,120,'low',fs=44100,output='sos');hop=64
   oa=librosa.onset.onset_strength(y=sosfiltfilt(sos,a.mean(1)),sr=44100,hop_length=hop);ob=librosa.onset.onset_strength(y=sosfiltfilt(sos,b.mean(1)),sr=44100,hop_length=hop)
-  L=int(0.04*44100/hop);n=min(len(oa),len(ob));oa,ob=oa[:n]-oa[:n].mean(),ob[:n]-ob[:n].mean()
-  xc=[np.dot(oa[max(0,k):n+min(0,k)],ob[max(0,-k):n-max(0,k)]) for k in range(-L,L+1)];return abs(int(np.argmax(xc))-L)*hop/44.1
+  L=int(FLAM_MAX_MS/1000*44100/hop);n=min(len(oa),len(ob));oa,ob=oa[:n]-oa[:n].mean(),ob[:n]-ob[:n].mean()
+  xc=[np.dot(oa[max(0,k):n+min(0,k)],ob[max(0,-k):n-max(0,k)]) for k in range(-L,L+1)];v=(int(np.argmax(xc))-L)*hop/44.1
+  return float(v) if signed else abs(v)
 def measure(c,dk,M):
   """measured-audio checks on the rendered decks (not predicted levels)"""
   import seesaw as SS,ears
@@ -151,13 +190,16 @@ def measure(c,dk,M):
   ca,cb=ears.chroma_beats(A[b0*BSi:b1*BSi]),ears.chroma_beats(B[b0*BSi:b1*BSi])
   di=[ears.dissonance(ca[k],cb[k]) for k in range(min(len(ca),len(cb))) if a[b0+k//4]>ref-20 and b[b0+k//4]>ref-20]
   for k in range(b0,b1,4):
-    if a[k]>ref-20 and b[k]>ref-20:fl.append(flam_ms(A[k*BSi:(k+4)*BSi],B[k*BSi:(k+4)*BSi]))
+    if a[k]>ref-20 and b[k]>ref-20:fl.append(-flam_ms(A[k*BSi:(k+4)*BSi],B[k*BSi:(k+4)*BSi],signed=True))
+  fls=list(fl);fl=[abs(x) for x in fl]
   f=dict(seesaw=seesaw,lull=lull,fade_step=max(0,fade-6),flam=max(0.0,float(np.median(fl))-8) if fl else 0.0,beat_off=float(np.mean(bo)) if bo else 0.0,
     dissonance=float(np.mean(di)) if di else 0.0,vocal=c['vocal_clash_bars'],pro_shape=pro,loop=float(c['win'][0] in('la','lb','ab','lx')),struct=c['struct'])
   hard=[]
   if fade>12:hard.append(f'abrupt outgoing fade {fade:.1f} dB/bar')
   if (fl and np.median(fl)>30) or (bo and np.mean(bo)>0.6):hard.append('beat train-wreck')
-  c.update(feats={k:round(float(v),3) for k,v in f.items()},w1=w1,raw=dict(out_rise=round(rise,1),wobble=wob,anti_r=round(r,2),fade_db=round(fade,1),fade3to20=i20-i3,lull_db=round(ref-float(np.min(sb)),1)),hard=hard)
+  hb=(M['trans'][0].get('halfbeat') or {}) if M.get('trans') else {}
+  if hb.get('fail'):hard.append(f"half-beat grid (decks lock better {hb.get('lag_ms')} ms apart: r0 {hb.get('r0')} < rh {hb.get('rh')})")
+  c.update(feats={k:round(float(v),3) for k,v in f.items()},w1=w1,raw=dict(flam_signed_ms=[round(x,1) for x in fls],halfbeat=hb or None,out_rise=round(rise,1),wobble=wob,anti_r=round(r,2),fade_db=round(fade,1),fade3to20=i20-i3,lull_db=round(ref-float(np.min(sb)),1)),hard=hard)
 
 def fv(c):return np.array([c['feats'][k] for k in FEATS])
 def bt_fit(P,w0=W0,lam=LAM,it=3000,lr=0.02):

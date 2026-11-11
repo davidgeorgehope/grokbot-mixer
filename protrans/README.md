@@ -227,3 +227,10 @@ credential route was attempted. New baseline counts must not include this queue.
 Residential download host (config.env HOST SSH alias) recovered after an SSH banner-exchange timeout.
 `grow_corpus.py` ingested Maduk Liquicity + Pola & Bryson Puzzlewood through the existing fetch/admit pipeline.
 Held-out now meets ≥10. Details: `results/growth_resume_report.md` and `jobs/grow-transport-diagnosis.log` (local).
+
+## 11 Nov 2026: scorer v3 (beat identity), half-beat check, daily diagnostics
+
+- `score.py` is `gain-events-v3-beatid`. It locates each stretched source inside the pro clip and inside ours (band-power chunk location + line fit, then a +-80 ms onset refine) and compares the deck lock phase (A minus B): `ident = 100*exp(-ms/25)`. `beat_align = 0.5*old + 0.5*ident` when both decks are located; otherwise the old term alone. The weights are unchanged; `score_v2` (the previous scorer) stays in every result. Checkpoints are keyed by scorer version.
+- `eval_cohort.py <variant> [rules.json]` runs the full admitted cohort and prints v3 and v2 train/test.
+- Families: `phrase_cut` (incoming early at -4 dB with lows at -12 dB, outgoing and its bass out within one bar on the incoming's 16/8/4-bar phrase, never on a quiet low-end bar) is offered on nat_long windows >= 32 bars. Its 1-bar exit trips the full-mix abrupt-fade guard (left unchanged), so it is a protrans/bench family only. Families now have distinct small costs (`recreate.FAMILY_COST`, override with rules `family_cost`) and a family's own env wins over rules.json.
+- `daily_round.py` ends by writing `deliver/protrans/diagnostics/daily_<date>.png/.json` (`daily_diag.py`, generate-only).

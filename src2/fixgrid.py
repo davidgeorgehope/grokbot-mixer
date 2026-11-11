@@ -2,8 +2,12 @@ import numpy as np,json,librosa,glob,sys
 # only the ids given (add_track.sh passes the new track); never mixpoints files. Running over every track would undo hand-shifted grids (N-j7tIeGm1E, rpIpJQ7ujzc)
 IDS=sys.argv[1:]
 for f in ([f'st/{i}.json' for i in IDS] if IDS else sorted(g for g in glob.glob('st/*.json') if 'mixpoints' not in g)):
-  b=f[3:-5];g=json.load(open(f));beats=np.array(g['beats'])
+  b=f[3:-5];g=json.load(open(f))
   y,sr=librosa.load(f'st/{b}.wav',sr=22050)
+  import halfbeat  # 2026-11-11: re-check the beat phase (whole vs half a beat) before choosing among the four whole-beat downbeats
+  g,_hb=halfbeat.fix_grid(g,y,sr)
+  if _hb['half_off']:print(b,'half-beat grid fixed: shifted',round(_hb['shift_sec']*1000),'ms, margin',_hb['margin'])
+  beats=np.array(g['beats'])
   S=np.abs(librosa.stft(y,hop_length=128));fr=librosa.fft_frequencies(sr=sr);t=np.arange(S.shape[1])*128/sr
   lo=np.maximum(0,np.diff(S[fr<120].sum(0),prepend=0));mid=np.maximum(0,np.diff(S[(fr>1500)&(fr<5000)].sum(0),prepend=0))
   idx=np.searchsorted(t,beats)

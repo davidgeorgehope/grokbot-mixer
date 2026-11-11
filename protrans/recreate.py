@@ -20,8 +20,8 @@ def apply_rules(rules):
 
 
 def _ensure_bar_proxies(st_js):
-    """Fill drums/bass/voc so mix_simple can run without demucs stems.
-    drums ~ full-band energy; bass ~ low band; voc stays quiet if unknown."""
+    """Fill drums/bass so mix_simple can run without demucs stems.
+    drums ~ hat+low (else full-band) energy; bass ~ low band; voc is left out when unknown."""
     import json
     g=json.load(open(st_js)); bar=g.get('bar') or {}
     al=bar.get('all') or []
@@ -37,8 +37,8 @@ def _ensure_bar_proxies(st_js):
             bar['drums']=list(al)
     if 'bass' not in bar and bar.get('low'):
         bar['bass']=list(bar['low'])
-    if 'voc' not in bar and al:
-        bar['voc']=[-100.0]*len(al)
+    # No vocal stand-in any more (2026-11-11 RCA): the old constant -100 'voc' made every bar count as vocal in
+    # mix_simple's V term. Without vocal data mix_simple now switches the V term off for that deck and says so.
     g['bar']=bar
     tmp=st_js+f'.tmp{os.getpid()}'
     with open(tmp,'w') as f: json.dump(g, f)
@@ -101,6 +101,7 @@ def _prep_track_locked(ytid, src_m4a, created):
 
 
 _PHASE_CACHE = {}
+PHASE_COST_ERRORS = []  # (a, b, win, error) of phase-cost failures this process (reported in info['phase_cost_errors'])
 
 def _phase_pick_cost(a_yt, b_yt, win, phase_pref_w, linger_pen_w, breakdown_pen_w):
     """Frequency-weighted soft preference from train pro pairings. Nothing is banned."""
@@ -118,8 +119,24 @@ def _phase_pick_cost(a_yt, b_yt, win, phase_pref_w, linger_pen_w, breakdown_pen_
         extra, _ = ST.window_phase_cost(win, la, lb, sa, priors,
                                         phase_pref_w, linger_pen_w, breakdown_pen_w)
         return float(extra)
-    except Exception:
+    except Exception as e:
+        # 2026-11-11 RCA: this used to return 0 silently (a TypeError on loop windows zeroed the knobs).
+        # Still a soft cost (0, so one bad track can't block a pick), but logged and counted.
+        PHASE_COST_ERRORS.append(dict(a=a_yt, b=b_yt, win=list(win), error=f'{type(e).__name__}: {e}'[-200:]))
+        print(f'WARN phase cost failed for {a_yt}>{b_yt} {win}: {type(e).__name__}: {e}', file=sys.stderr, flush=True)
+        if os.environ.get('PHASE_COST_STRICT'):
+            raise
         return 0.0
+
+# Tie-break cost per family (lower = preferred when every other term ties). Distinct on purpose; tuned via rules.json
+# 'family_cost' ({fam: cost}) like any other general rule. nat_long stays the cheapest default (held-out baseline).
+FAMILY_COST = {'nat_long': 0.0, 'nat_short': 0.01, 'out_loop': 0.02, 'in_loop': 0.03, 'lx_beat': 0.04,
+               'cue_early': 0.05, 'cue_late': 0.06, 'phrase_cut': 0.07, 'swap_early': 0.08, 'swap_late': 0.09,
+               'sneak_in': 0.10, 'rated': 0.0}
+
+def family_cost(fam, rules=None):
+    over = (rules or {}).get('family_cost') or {}
+    return float(over.get(fam, FAMILY_COST.get(fam, 0.11)))
 
 def _hint_bar(hint_sec, bar_sec=240/174):
     if hint_sec is None: return None
@@ -174,16 +191,26 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             bw = float(rules.get('breakdown_pen_w') or 0)
             if pw or lw or bw:
                 cost += _phase_pick_cost(a, b, win, pw, lw, bw)
+            # distinct per-family cost (2026-11-11 RCA): swap_early/swap_late/sneak_in share nat_long's window, so they
+            # tied it on every term and the stable sort always kept nat_long. rules.json 'family_cost' may override.
+            cost += family_cost(c['fam'], rules)
             scored.append((cost, c))
         scored.sort(key=lambda x: x[0])
         pick = scored[0][1]
-        pick['env'] = dict(pick.get('env') or {})
-        pick['env'].update(env)
+        # rules env first, then the family's own params on top (2026-11-11 RCA: the old update() let rules
+        # overwrite swap_early/swap_late's SWAP_POS, so those families rendered exactly like nat_long)
+        pick['env'] = {**env, **dict(pick.get('env') or {})}
         dk, M = BB.render(pick, a, b, tag)
         ours = pick.get('mp3')
-        info = dict(a=a, b=b, fam=pick['fam'], win=pick['win'], env=pick['env'],
+        meta_path = os.path.join('/tmp/protrans_bench', f'{tag}_{a}_{b}_meta.json')   # for blend_diag (daily diagnostics)
+        try:
+            json.dump(M, open(meta_path, 'w'), default=str)
+        except Exception:
+            meta_path = None
+        info = dict(meta_path=meta_path, a=a, b=b, fam=pick['fam'], win=pick['win'], env=pick['env'],
                     hint_a_played_sec=hint_a_played_sec, ours=ours, created=created,
-                    n_cands=len(fams))
+                    n_cands=len(fams), phase_cost_errors=list(PHASE_COST_ERRORS),
+                    halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'))
         return info
     finally:
         os.chdir(oldcwd)

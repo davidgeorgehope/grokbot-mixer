@@ -58,6 +58,12 @@ if abs(T/bpm-1)<2e-4: os.replace(tmp,out)
 else:
   subprocess.run(['rubberband','-3','-F','-T',str(T/bpm),'-q',tmp,out],check=True); os.remove(tmp)
 y2,_=librosa.load(out,sr=22050,mono=True)
-g=grid(y2,22050);g['orig_bpm']=bpm;g['dur']=len(y2)/22050
+g=grid(y2,22050)
+# half-beat check (2026-11-11 RCA): the comb above can lock onto the off-beat and the downbeat choice only tries whole beats.
+# halfbeat scores the grid against the same grid shifted half a beat on the drum pattern (snare on 2 and 4) and keeps the better one.
+import halfbeat
+g,_hb=halfbeat.fix_grid(g,y2,22050)
+if _hb['half_off']:print(f"{b}: grid was half a beat off (margin {_hb['margin']}), shifted {_hb['shift_sec']*1000:.0f} ms",flush=True)
+g['orig_bpm']=bpm;g['dur']=len(y2)/22050
 json.dump(g,open(f'st/{b}.json','w'))
 print(b,round(bpm,3),'downs',len(g['downs']),'phr0',round(g['phrases'][0],2))

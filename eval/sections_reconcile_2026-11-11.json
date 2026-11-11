@@ -1,0 +1,31 @@
+{
+ "changed": [
+  [
+   "-Lfw-kqBdwM",
+   48,
+   56
+  ],
+  [
+   "1WOi5IRuO7Y",
+   40,
+   48
+  ],
+  [
+   "Dy3qi_gCP9k",
+   56,
+   64
+  ],
+  [
+   "EJH4x12uFdc",
+   40,
+   48
+  ],
+  [
+   "uMDP4VTzlBI",
+   40,
+   48
+  ]
+ ],
+ "n": 127,
+ "rule": "structure.py drop phrase-aligned and 1-8 bars later"
+}

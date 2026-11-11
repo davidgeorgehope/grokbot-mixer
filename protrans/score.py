@@ -18,7 +18,7 @@ from __future__ import annotations
 import json, os, subprocess, hashlib
 import numpy as np
 
-SCORER_VERSION = "gain-events-v2"
+SCORER_VERSION = "gain-events-v3-beatid"  # v3 (2026-11-11 RCA): beat_align also scores beat identity (deck-vs-deck lock vs the pro); score_v2 kept in the result
 
 SR = 22050
 HOP = 512
@@ -259,6 +259,125 @@ def beat_score(yp, yo, sr=SR):
     env_s = curve_sim(_kick_env(yp), _kick_env(yo))
     return 0.4 * flam_s + 0.6 * env_s, flam
 
+BEAT_SEC = 60.0 / 174.0
+ID_HOP = 64
+ID_TAU_MS = 25.0
+
+def _stretched_source(path):
+    """the 174-BPM stretched source the engine plays (src2/st/<id>.wav) when it exists, else the file itself"""
+    yt = os.path.splitext(os.path.basename(path))[0]
+    st = os.path.join(os.path.dirname(__file__), '..', 'src2', 'st', yt + '.wav')
+    return st if os.path.exists(st) else path
+
+def _fine_env(y, hop=32, sig=2.0):
+    from scipy.signal import butter, sosfiltfilt
+    from scipy.ndimage import gaussian_filter1d
+    z = sosfiltfilt(butter(4, [40, 4000], 'band', fs=SR, output='sos'), y)
+    n = len(z) // hop
+    e = np.sqrt((z[:n*hop].reshape(n, hop)**2).mean(1) + 1e-12)
+    d = gaussian_filter1d(np.maximum(np.diff(e, prepend=e[:1]), 0.0), sig)
+    return d - d.mean()
+
+_SRC = {}
+def _src_feats(path):
+    p = _stretched_source(path)
+    if p not in _SRC:
+        import sys
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src', 'eval'))
+        import control_curves as CC
+        y = _load(p)
+        _SRC[p] = (CC.bandpow(y), _fine_env(y))
+    return _SRC[p]
+
+def _fit_chunks(h, cc_min=0.45, tol=0.05):
+    """mix_t = a + s*track_t from chunk hits (track_t, mix_t, cc, z): every pair of strong hits proposes a line
+    (|s-1| < 3%), the line with the largest summed cc of inliers wins (repeated choruses only win if they explain more)."""
+    if h is None or len(h) == 0:
+        return None
+    H = h[h[:, 2] >= cc_min]
+    if len(H) < 2:
+        return None
+    best = None
+    for i in range(len(H)):
+        for j in range(i + 1, len(H)):
+            dt = H[j, 0] - H[i, 0]
+            if abs(dt) < 3:
+                continue
+            s_ = (H[j, 1] - H[i, 1]) / dt
+            if not 0.97 < s_ < 1.03:
+                continue
+            a = H[i, 1] - s_ * H[i, 0]
+            inl = np.abs(H[:, 1] - (a + s_ * H[:, 0])) < tol
+            sc = float(H[inl, 2].sum())
+            if inl.sum() >= 2 and (best is None or sc > best[0]):
+                best = (sc, inl)
+    if best is None:
+        return None
+    I = H[best[1]]
+    s_, a = np.polyfit(I[:, 0], I[:, 1], 1) if len(I) >= 3 else (1.0, float(np.mean(I[:, 1] - I[:, 0])))
+    return dict(a=float(a), s=float(s_), n=int(len(I)), m0=float(I[:, 1].min()), m1=float(I[:, 1].max() + 6.0))
+
+def _deck_line(y, Fm, em, path, max_shift=0.08):
+    """mix_t = a + s * src_t for one deck (band-power chunk RANSAC, control_curves.fit_line), then the beat-level
+    fine shift (onset envelope, +-80 ms, i.e. well under half a beat so it can't jump to the off-beat)."""
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src', 'eval'))
+    import control_curves as CC
+    Ft, es = _src_feats(path)
+    h, _ = CC.locate(Fm, Ft, chunk_s=6.0, hop_s=2.0)
+    line = _fit_chunks(h)
+    if not line:
+        return None
+    a, s_ = line['a'], line['s']
+    fr = SR / 32.0
+    m0, m1 = max(0.0, line['m0']), min(len(y) / SR, line['m1'])
+    if m1 - m0 < 6:
+        return None
+    tm = np.arange(int(m0 * fr), int(m1 * fr)) / fr
+    ref = em[(tm * fr).astype(int)]
+    best = None
+    for d in np.arange(-max_shift, max_shift + 1e-9, 0.001):
+        ts = (tm - a - d) / s_ * fr
+        ok = (ts >= 0) & (ts < len(es) - 1)
+        if ok.sum() < len(ts) * 0.8:
+            continue
+        v = np.interp(ts[ok], np.arange(len(es)), es)
+        c = float(np.dot(ref[ok], v) / (np.linalg.norm(ref[ok]) * np.linalg.norm(v) + 1e-12))
+        if best is None or c > best[0]:
+            best = (c, d)
+    if best is None:
+        return None
+    return dict(a=a + best[1], s=s_, r=round(best[0], 3), span=(round(m0, 1), round(m1, 1)))
+
+def deck_lock(y, src_a, src_b):
+    """phase (beats, [-0.5, 0.5)) of deck A's source beat grid relative to deck B's at the middle of mix clip y"""
+    import sys
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src', 'eval'))
+    import control_curves as CC
+    Fm, em = CC.bandpow(y), _fine_env(y)
+    la, lb = _deck_line(y, Fm, em, src_a), _deck_line(y, Fm, em, src_b)
+    if not la or not lb:
+        return None
+    tc = len(y) / SR / 2
+    ua = (tc - la['a']) / la['s'] / BEAT_SEC
+    ub = (tc - lb['a']) / lb['s'] / BEAT_SEC
+    ph = float((ua - ub + 0.5) % 1.0 - 0.5)
+    return dict(phase_beats=round(ph, 4), rate=round(1 / la['s'], 4), r_a=la['r'], r_b=lb['r'])
+
+def beat_identity(y_p, y_o, src_a, src_b, r_min=0.2):
+    """v3 beat-identity term: does ours lock the two decks the way the pro does (same beat, not half a beat off)?
+    100 * exp(-|lock_ours - lock_pro| ms / 25). None when either deck can't be located in either clip."""
+    try:
+        lp = deck_lock(y_p, src_a, src_b)
+        lo = deck_lock(y_o, src_a, src_b)
+    except Exception as e:
+        return None, dict(error=str(e)[-200:])
+    if not lp or not lo or min(lp['r_a'], lp['r_b'], lo['r_a'], lo['r_b']) < r_min:
+        return None, dict(pro=lp, ours=lo, why='deck not located (onset r < %g)' % r_min)
+    d = float((lo['phase_beats'] - lp['phase_beats'] + 0.5) % 1.0 - 0.5)
+    ms = abs(d) * BEAT_SEC * 1000.0
+    return float(100.0 * np.exp(-ms / ID_TAU_MS)), dict(pro=lp, ours=lo, diff_beats=round(d, 4), diff_ms=round(ms, 1))
+
 def _stem_bundle_from_wave(y, path, use_demucs, cache):
     stems = None
     if use_demucs:
@@ -407,6 +526,12 @@ def score(pro_path, ours_path, src_a=None, src_b=None, use_demucs=None, cache=No
         deck_mean = stem_mean
 
     beat_s, beat = beat_score(y_p, y_o)
+    beat_v2 = beat_s
+    ident_s, ident = (None, None)
+    if src_a and src_b and os.path.exists(src_a) and os.path.exists(src_b):
+        ident_s, ident = beat_identity(y_p, y_o, src_a, src_b)
+    if ident_s is not None:
+        beat_s = 0.5 * beat_v2 + 0.5 * ident_s
     swap_s = time_sim(ev_o.get('bass_swap'), ev_p.get('bass_swap'), 4)
     cut_s = time_sim(ev_o.get('outgoing_cut'), ev_p.get('outgoing_cut'), 4)
     len_s = time_sim(ev_o.get('blend_length'), ev_p.get('blend_length'), 8)
@@ -417,14 +542,17 @@ def score(pro_path, ours_path, src_a=None, src_b=None, use_demucs=None, cache=No
 
     total = (W['stem_curves']*stem_mean + W['deck_curves']*deck_mean + W['beat_align']*beat_s
              + W['bass_swap']*swap_s + W['outgoing_cut']*cut_s + W['blend_length']*len_s)
+    total_v2 = total + W['beat_align'] * (beat_v2 - beat_s)
     return dict(
         score=round(float(total), 2),
+        score_v2=round(float(total_v2), 2),
         scorer_version=SCORER_VERSION,
         breakdown=dict(stem_curves=round(stem_mean,2), deck_curves=round(deck_mean,2),
                        beat_align=round(float(beat_s),2), bass_swap=round(swap_s,2),
                        outgoing_cut=round(cut_s,2), blend_length=round(len_s,2),
                        stems= {k: round(v,2) for k,v in stem_scores.items()},
-                       beat_off_ms=round(float(beat),2), events_pro=ev_p, events_ours=ev_o,
+                       beat_off_ms=round(float(beat),2), beat_align_v2=round(float(beat_v2),2),
+                       beat_identity=None if ident_s is None else round(float(ident_s),2), beat_lock=ident, events_pro=ev_p, events_ours=ev_o,
                        stem_kind=(kind_p, kind_o), deck=deck,
                        align=dict(lag_samples=int(lag), lag_ms=round(lag * 1000.0 / SR, 2),
                                   peak=round(float(peak), 4), win_sec=round(len(y_p)/SR, 3))),

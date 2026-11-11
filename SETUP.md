@@ -15,11 +15,12 @@ sudo apt-get install -y ffmpeg rubberband-cli libsndfile1 libegl1 libgl1-mesa-dr
 
 ## Python (audio and tests), derived from the imports
 ```
-pip install numpy scipy librosa soundfile pyloudnorm essentia demucs pytest matplotlib
+pip install numpy scipy librosa soundfile pyloudnorm essentia demucs pytest matplotlib libtsm
 ```
 - `essentia` does key detection in `keys.py` / `add_track.sh`.
 - `demucs` (htdemucs, CPU torch) is only used inside `add_track.sh` to cache per-bar vocal/drum activity; its stems are deleted.
 - `matplotlib` is only needed for `guardrails.py --png`.
+- `libtsm` (Audiolabs TSM toolbox) is used by `src2/drumstretch.py` for HPSS, overlap-add and the phase vocoder.
 
 ## Visuals venv (`visuals/venv`)
 ```

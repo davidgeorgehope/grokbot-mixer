@@ -99,10 +99,16 @@ def high_at(a,b,wa,wb,c,on):
   if not(HSW and on):return None
   hA,hB=F(a)[0],F(b)[0];bodA,bodB=np.percentile(hA,75),np.percentile(hB,75)
   def thin(h):return sum(hA[wa[k]]<bodA-6 for k in range(max(0,h-2),h))+sum(hB[wb[k]]<bodB-6 for k in range(h,min(X,h+2)))
-  ok=[h for h in range(4,X,4) if abs(h-c)>=4 and 0.1<=_xpos(h/X)<=0.9]  # crossfader x, not blend fraction (they differ under FADE=tail)
+  # X1 reads the swap *centre* (ramp starts at high_bar+1 over 2 bars, centre = h+2). Checking x at h
+  # allowed FADE=long to place a late high swap at x=0.90 (2026-11-11 Mix 08 long test). Omit the swap if none fit.
+  ok=[h for h in range(4,X,4) if abs(h-c)>=4 and 0.1<=_xpos((h+2)/X)<=0.9]  # crossfader x at the centre, not blend fraction
   return min(ok,key=lambda h:(thin(h),abs(h-(c+HOFS)),abs(h-(c-HOFS)))) if ok else None
 def swap_at(a,b,wa,wb):
   """bass handoff centre in bars into the blend: POS*X, or with SWAP_PHRASE the best 4-bar phrase boundary on beat-on-beat blends"""
+  # FADE=long already places the handoff in x-space (LONG_SWAP=exit: fade_long.swap_pos, centre at the
+  # exit start, x=xp2=0.5). The tail planner's 4-bar phrase snap assumes x≈u, and with a 4-bar swap
+  # plus a vocal hold or a short plateau it can have zero candidates (Mix 08 long1b, ValueError).
+  if FADE=='long':return POS*X
   if not(SNAP and SW>0):return POS*X
   bA,bB=F(a)[4],F(b)[4]
   lA,lB=F(a)[1],F(b)[1];bodA,bodB=np.percentile(lA,75),np.percentile(lB,75)
@@ -136,12 +142,23 @@ def _xpos(u):  # shared by score() and the render. Pure -30*u^1.5 tail failed X1
   if FADE=='lin' or u>=1:return u
   w=u**1.4;return float((1-w)*u+w*2/np.pi*np.arccos(10**(-FDB*u**1.7/20)))  # tuned at guardrail resolution (1/16 bar): X=16 incoming <=2.9 dB/beat, outgoing <=2.9 dB/bar, -4.2 dB mid-blend
 PIN={p['id']:p for p in plan if 'fade' in p or 'swap_bars' in p or 'swap_pos' in p}  # per-outgoing overrides: a pinned blend keeps its fader / bass swap / swap centre
-def _ctx(a,wa=None):
+def _ctx(a,wa=None,b=None,wb=None):
   global FADE,SW,POS;q=PIN.get(a,{}) if a else {};FADE=q.get('fade',FADE0);SW=float(q.get('swap_bars',SW0));POS=float(q.get('swap_pos',POS0))
-  LG['solo']=_FL.struct_solo(np.array(track(a)['g']['bar']['all'],float),list(wa),X,**LG0) if (a and wa is not None and FADE=='long' and LGST) else LG0['solo']
+  # FADE=long + a 2-bar bass handoff stacked on the exit took 6.4 dB off Ember in one bar (Mix 08 long test).
+  # 4-bar swaps have been the default since 2026-10-31 for this reason; PIN can still force 2.
+  if FADE=='long' and 'swap_bars' not in q and SW<4:SW=4.0
+  LG['solo']=LG0['solo'];LG['hold']=0.0
+  if a and wa is not None and FADE=='long' and LGST:
+    LG['solo']=_FL.struct_solo(np.array(track(a)['g']['bar']['all'],float),list(wa),X,**LG0)
+    if b and wb is not None:
+      g=track(b)['g']['bar']
+      LG['solo']=_FL.cap_solo_incoming(np.array(g['all'],float),np.array(g.get('low',g['all']),float),list(wb),X,**{**LG0,'solo':LG['solo']})
+  if a and wa is not None and b and wb is not None and FADE=='long':
+    *_u,vA,rvA,_ba=F(a);*_u,vB,rvB,_bb=F(b)
+    LG['hold']=float(_FL.vocal_hold(vA,rvA,list(wa),vB,rvB,list(wb),X))
   if a and FADE=='long' and LGSW=='exit' and 'swap_pos' not in q:POS=_FL.swap_pos(X,**LG)
 def score(a,b,wa,wb,refA):
-  _ctx(a,wa)
+  _ctx(a,wa,b,wb)
   try:return _score(a,b,wa,wb,refA)
   finally:_ctx(None)
 def _score(a,b,wa,wb,refA):
@@ -150,7 +167,7 @@ def _score(a,b,wa,wb,refA):
   dA,dB=drums_on(a),drums_on(b);DT=run=0
   for xa,xb in zip(wa,wb):run=run+1 if xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] else 0;DT=max(DT,run)  # longest straight drums-together run
   for k,(xa,xb) in enumerate(zip(wa,wb)):
-    x=_xpos((k+0.5)/X);ga,gb=np.cos(x*np.pi/2),np.sin(x*np.pi/2);da,dbb=20*np.log10(ga),20*np.log10(gb)
+    x=_xpos((k+0.5)/X);ga,gb=np.cos(x*np.pi/2),np.sin(x*np.pi/2);da,dbb=20*np.log10(ga+1e-9),20*np.log10(gb+1e-9)
     LA,LB=alA[xa]+da,alB[xb]+dbb
     if LA>refA-12 and LB>refA-12:both+=1
     if k<X/2 and LA<refA-10:C+=1
@@ -268,7 +285,10 @@ for i,b in enumerate(ids):
 import os;sys.path.insert(0,'../src/tests');os.environ.setdefault('MIX_SRC','.');import checks as _C;KEYS=_C.keys()
 trans=[]
 for i in range(len(ids)-1):
-  A,B=decks[i],decks[i+1];X=XT[(A['id'],B['id'])];s=B['start_bar'];e=s+X;_ctx(A['id'],[A['full_map'][int(s-A['start_bar'])+k][0] for k in range(X) if 0<=int(s-A['start_bar'])+k<len(A['full_map'])])
+  A,B=decks[i],decks[i+1];X=XT[(A['id'],B['id'])];s=B['start_bar'];e=s+X
+  wa_=[A['full_map'][int(s-A['start_bar'])+k][0] for k in range(X) if 0<=int(s-A['start_bar'])+k<len(A['full_map'])]
+  wb_=[B['full_map'][int(s-B['start_bar'])+k][0] for k in range(X) if 0<=int(s-B['start_bar'])+k<len(B['full_map'])]
+  _ctx(A['id'],wa_,B['id'],wb_)
   xs=[[s+k/4,round(_xpos(k/(4*X)) if k<4*X else 1.0,5)] for k in range(4*X+1)]  # crossfader position per beat, 0->1 (single equal-power control)
   n,cl=notes[(A['id'],B['id'])]
   trans.append(dict(swap_w=SW,fade=FADE,tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_ofs=float(SW/2 if (SNAP and SW>0 and info_[(A['id'],B['id'])]['c']!=POS*X) else 0),swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X and info_[(A['id'],B['id'])]['c']%4==0),end_bar=e,xfader=xs,vocal_clash_bars=cl,halfbeat=info_[(A['id'],B['id'])].get('HB'),keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))

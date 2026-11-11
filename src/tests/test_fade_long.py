@@ -88,3 +88,48 @@ def test_long_swap_exit_is_inside_x1_swap_window(X, solo):
     p = FL.swap_pos(X, solo=solo); c = p * X
     assert c == FL.exit_start(X, solo=solo)
     assert 0.2 <= FL.xlong(c / X, X, solo=solo) <= 0.65
+
+def test_cap_solo_incoming_zero_when_ready_only_at_the_end():
+  # Solitude-style: full track has a loud body; the 32-bar window is a quiet intro then the drop (last 2 bars)
+  al=np.r_[np.full(48,-40.),np.zeros(80)]; lo=al.copy(); wb=list(range(18,50))  # 30 quiet + 2 drop
+  assert int(FL.cap_solo_incoming(al,lo,wb,32,solo=16))==0
+
+def test_cap_solo_incoming_keeps_16_when_incoming_is_ready_at_16():
+  al=np.r_[np.full(16,-40.),np.zeros(80)]; lo=al.copy(); wb=list(range(32))
+  assert int(FL.cap_solo_incoming(al,lo,wb,32,solo=16))==16
+
+def test_vocal_hold_leading_clash():
+  vA=np.full(32,-100.);vB=np.full(32,-100.);vA[2:5]=0;vB[2:5]=0
+  wa=wb=list(range(32))
+  assert FL.vocal_hold(vA,0,wa,vB,0,wb,32)==5
+  vB2=np.full(32,-100.);assert FL.vocal_hold(vA,0,wa,vB2,0,wb,32)==0
+
+def test_xlong_hold_stays_zero_then_rises_monotonic():
+  xs=[FL.xlong(b/32,32,hold=3,solo=16) for b in np.arange(0,32.01,0.25)]
+  assert all(x==0 for x in xs[:12])  # 3 bars * 4 beats
+  assert all(a<=b+1e-9 for a,b in zip(xs,xs[1:])) and xs[-1]==1
+
+
+def _phrase_snap_cands(X, SW=4, **kw):
+  """the tail planner's beat-on-beat candidates (mix_simple.swap_at range(4,X,4) with x at the centre)."""
+  return [c for c in range(4, X, 4) if 0.2 <= FL.xlong((c + SW / 2) / X, X, **kw) <= 0.65]
+
+def test_long_swap_legal_when_phrase_snap_is_empty():
+  """Mix 08 long1b (2026-11-11): a 16-bar long fade with a 6-bar vocal hold and a 4-bar bass swap left
+  the tail phrase-snap with no bar in x 0.2-0.65. LONG_SWAP=exit must still return a legal centre."""
+  kw=dict(hold=6, solo=0, rise=2, exit_=8)
+  assert _phrase_snap_cands(16, 4, **kw) == []
+  pos=FL.swap_pos(16, **kw)
+  assert 0.2 <= FL.xlong(pos, 16, **kw) <= 0.65
+
+def test_swap_pos_matches_xlong_exit_start_with_hold():
+  for X,hold,solo in ((16,0,0),(16,6,0),(32,0,16),(32,6,16),(32,0,0)):
+    kw=dict(hold=hold,solo=solo,rise=2,exit_=8)
+    pos=FL.swap_pos(X,**kw); ex=FL.exit_start(X,**kw)
+    assert abs(pos*X-ex)<1e-9
+    assert abs(FL.xlong(pos,X,**kw)-0.5)<1e-9  # xp2: still in X1's 0.2-0.65 window
+
+def test_swap_pos_in_x1_window_on_typical_long_blends():
+  for X,hold,solo in ((16,0,0),(16,3,0),(16,6,0),(32,0,16),(32,6,16),(32,0,0),(32,8,0)):
+    x=FL.xlong(FL.swap_pos(X,hold=hold,solo=solo),X,hold=hold,solo=solo)
+    assert 0.2<=x<=0.65, (X,hold,solo,x)

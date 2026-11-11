@@ -30,8 +30,9 @@ def test_blend_lengths_vary():
   M=_meta();L=[int(t['end_bar']-t['start_bar']) for t in M['trans']];assert len(set(L))>=2 and max(L.count(x) for x in set(L))<=0.8*len(L),L
 
 
+RIDE_FRAC=0.15  # pro p5 of 33 admitted blends, 2026-11-11 (was 0.35; src/calib/ride_vs_pro_results.json pass_frac p5=0.149; 5/33 pros broke 0.35). the listener approved calibrating to pro p95. See docs/PRO_CALIBRATION_2026-11-11.md.
 def test_outgoing_fader_tail_is_gradual():
-  """outgoing crossfader level: never more than 3 dB/bar while above -24 dB, and still above -20 dB for >=35% of the blend after the bass swap"""
+  """outgoing crossfader level: never more than 3 dB/bar while above -24 dB, and still above -20 dB after the bass swap for >= RIDE_FRAC of the blend, minus 1 bar (RIDE_FRAC 0.15, pro p95; docs/PRO_CALIBRATION_2026-11-11.md)"""
   M=_meta();bad=[];pin=_pinned(M)
   for t in M['trans']:
     if t['a'] in pin:continue
@@ -39,7 +40,7 @@ def test_outgoing_fader_tail_is_gradual():
     g=20*np.log10(np.cos(np.interp(bars,xs[:,0],xs[:,1])*np.pi/2)+1e-9);d=np.diff(g)
     steep=[float(x) for x,v in zip(d,g[1:]) if v>-24 and x<-3]
     sw=(t['bass_swap'][1] if t.get('bass_swap') else s+0.35*X);ride=float(np.sum(g[bars>=sw]>-20))
-    if steep or ride<0.35*X-1:bad.append((t['a'],s,steep[:3],ride,X))
+    if steep or ride<RIDE_FRAC*X-1:bad.append((t['a'],s,steep[:3],ride,X))
   assert not bad,bad
 
 

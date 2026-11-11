@@ -196,6 +196,23 @@ for d in D:
   dnb=_band_ac(raw,165,180);brk=_band_ac(raw,120,130)
   if brk>=TH['T1_breaks_min'] and brk>dnb and dnb<TH['T1_dnb_min']:
     fail('T1',d['start_bar']*BAR,d['end_bar']*BAR,f"{d['id']} raw pulse is UK-breaks/house (~120-130 BPM ac={brk:.2f}) not DnB (165-180 ac={dnb:.2f}); pbpm forced a fake ~174 orig_bpm",deck=d['id'])
+def c2_half(rows, s, e, sw, refAh, xfader=None):
+  """Bars in the first half of the designed overlap.
+
+  Designed overlap ends when the crossfader has taken the outgoing more than 10 dB down (the same
+  'still in' line C2 uses on the rendered deck). FADE=long's trailing incoming-solo is past that point,
+  so measuring the first half of the *window* flagged a legal exit (2026-11-11 Mix 08 long test).
+  The -10 dB threshold on the rendered outgoing is unchanged. With no xfader, the first half of the
+  window (old behaviour). An early drop in the audio still sits inside the designed first half and fails."""
+  import numpy as np
+  end=e
+  if xfader:
+    xs=np.asarray(xfader,float)
+    for b in range(int(s),int(e)):
+      x=float(np.interp(b,xs[:,0],xs[:,1]));g=20*np.log10(np.cos(np.clip(x,0,1)*np.pi/2)+1e-9)
+      if g<-10:end=b;break
+  return [r for r in rows if s<=r['bar']<(s+max(end,sw))/2]
+
 # ---------- per transition / per deck (decks rendered alone) ----------
 @functools.lru_cache(maxsize=3)
 def render(i):return P._render(D[i])
@@ -251,8 +268,8 @@ for ti,t in enumerate(TR):
   # O1 real overlap: both decks at musical level (within 12 dB of the outgoing body) for >= 8 bars
   both=sum(1 for r in rows if r['Ah']>refAh-12 and r['Bh']>refAh-12)
   if both<8:fail('O1',s*BAR,e*BAR,f'only {both} bars with both decks audible at musical level (need >= 8)',trans=ti)
-  # C2 outgoing groove: outgoing deck > -10 dB rel. its body for the first half of the overlap
-  half=[r for r in rows if s<=r['bar']<(s+max(e,sw))/2]
+  # C2 outgoing groove: outgoing deck > -10 dB rel. its body for the first half of the audible overlap
+  half=c2_half(rows, s, e, sw, refAh, t.get("xfader"))
   low=[r for r in half if r['Ah']<refAh-10]
   if low:fail('C2',low[0]['bar']*BAR,low[-1]['bar']*BAR+BAR,f"outgoing {t['a']} {min(r['Ah'] for r in low)-refAh:+.1f} dB under its body in the first half of the overlap",trans=ti)
   # energy confirm: summed mid-band of both decks vs outgoing body mid

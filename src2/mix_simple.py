@@ -128,16 +128,20 @@ FADE=os.environ.get('FADE','tail');FADE0=FADE;FDB=float(os.environ.get('FADE_DB'
 import fade_long as _FL
 LG=dict(rise=float(os.environ.get('LONG_RISE',2)),xp=float(os.environ.get('LONG_XP',0.35)),xp2=float(os.environ.get('LONG_XP2',0.5)),
         exit_=float(os.environ.get('LONG_EXIT',8)),solo=float(os.environ.get('LONG_SOLO',0)))
+LG0=dict(LG);LGST=int(os.environ.get('LONG_SOLO_STRUCT',0))  # 1: exit ends where the outgoing's own energy drops (fade_long.struct_solo), else LONG_SOLO
+LGSW=os.environ.get('LONG_SWAP','')  # 'exit': under FADE=long the bass swap centres on the exit start (fade_long.swap_pos), opt-in
 def _xpos(u):  # shared by score() and the render. Pure -30*u^1.5 tail failed X1 (incoming +4.5 dB/beat early) and C2 (outgoing -10.6 dB at mid-blend) on the Mix 06 render;
   # (u, u**1.5, D24 still gave X1 3.1 dB/beat on 16-bar blends in render c)
   if FADE=='long':return _FL.xlong(u,X,**LG)
   if FADE=='lin' or u>=1:return u
   w=u**1.4;return float((1-w)*u+w*2/np.pi*np.arccos(10**(-FDB*u**1.7/20)))  # tuned at guardrail resolution (1/16 bar): X=16 incoming <=2.9 dB/beat, outgoing <=2.9 dB/bar, -4.2 dB mid-blend
 PIN={p['id']:p for p in plan if 'fade' in p or 'swap_bars' in p or 'swap_pos' in p}  # per-outgoing overrides: a pinned blend keeps its fader / bass swap / swap centre
-def _ctx(a):
+def _ctx(a,wa=None):
   global FADE,SW,POS;q=PIN.get(a,{}) if a else {};FADE=q.get('fade',FADE0);SW=float(q.get('swap_bars',SW0));POS=float(q.get('swap_pos',POS0))
+  LG['solo']=_FL.struct_solo(np.array(track(a)['g']['bar']['all'],float),list(wa),X,**LG0) if (a and wa is not None and FADE=='long' and LGST) else LG0['solo']
+  if a and FADE=='long' and LGSW=='exit' and 'swap_pos' not in q:POS=_FL.swap_pos(X,**LG)
 def score(a,b,wa,wb,refA):
-  _ctx(a)
+  _ctx(a,wa)
   try:return _score(a,b,wa,wb,refA)
   finally:_ctx(None)
 def _score(a,b,wa,wb,refA):
@@ -264,7 +268,7 @@ for i,b in enumerate(ids):
 import os;sys.path.insert(0,'../src/tests');os.environ.setdefault('MIX_SRC','.');import checks as _C;KEYS=_C.keys()
 trans=[]
 for i in range(len(ids)-1):
-  A,B=decks[i],decks[i+1];X=XT[(A['id'],B['id'])];s=B['start_bar'];e=s+X;_ctx(A['id'])
+  A,B=decks[i],decks[i+1];X=XT[(A['id'],B['id'])];s=B['start_bar'];e=s+X;_ctx(A['id'],[A['full_map'][int(s-A['start_bar'])+k][0] for k in range(X) if 0<=int(s-A['start_bar'])+k<len(A['full_map'])])
   xs=[[s+k/4,round(_xpos(k/(4*X)) if k<4*X else 1.0,5)] for k in range(4*X+1)]  # crossfader position per beat, 0->1 (single equal-power control)
   n,cl=notes[(A['id'],B['id'])]
   trans.append(dict(swap_w=SW,fade=FADE,tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_ofs=float(SW/2 if (SNAP and SW>0 and info_[(A['id'],B['id'])]['c']!=POS*X) else 0),swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X and info_[(A['id'],B['id'])]['c']%4==0),end_bar=e,xfader=xs,vocal_clash_bars=cl,halfbeat=info_[(A['id'],B['id'])].get('HB'),keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))

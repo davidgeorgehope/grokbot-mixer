@@ -41,3 +41,32 @@ def xlong(u, X, rise=2.0, xp=0.35, xp2=0.5, exit_=8.0, solo=0.0):
 def exit_bar(X, rise=2.0, exit_=8.0, solo=0.0):
     """bars into the window where the outgoing is gone"""
     return X - solo_bars(X, rise, exit_, solo)
+
+
+def exit_start(X, rise=2.0, exit_=8.0, solo=0.0):
+    """bars into the window where the outgoing's exit ramp starts (end of the plateau)"""
+    return max(rise + 1, exit_bar(X, rise, exit_, solo) - exit_)
+
+
+def swap_pos(X, rise=2.0, exit_=8.0, solo=0.0, **_):
+    """LONG_SWAP=exit (2026-11-11 long-blend RCA #2): the bass swap centred on the exit start, as a fraction of the window.
+    Joe Syntax kept Shine In's lows at full until his cut, then lows and level left together; with the swap at SWAP_POS
+    (0.21, bar ~7 of 32) on the plateau, ours lost Shine In's low end 1-3 bars before its 8-bar exit even began,
+    so the outgoing faded twice (~11 bars). At the exit start x = xp2 (0.5), inside X1's 0.2-0.65 swap window."""
+    return exit_start(X, rise, exit_, solo) / X
+
+
+def struct_solo(al, wa, X, rise=2.0, exit_=8.0, solo=0.0, **_):
+    """LONG_SOLO_STRUCT=1 (2026-11-11 long-blend RCA #1): end the outgoing's exit where its OWN energy drops, so the exit
+    lands on the outgoing's phrase and its quiet bars are never faded through. Joe Syntax cut Shine In in 1 bar at its
+    bar ~127, exactly where Shine In dips 4-7 dB on its own; ours (LONG_SOLO=16) faded Shine In's full-energy drop
+    (bars 216-224) over 8 bars. al = the outgoing's per-bar level (dB), wa = its source bars across the window.
+    First window bar j (4-bar boundary, >= rise+exit_+4) where the outgoing's next 2 bars sit >= 4 dB under its body
+    (75th percentile) -> solo = X - j; no such bar -> the fixed `solo`."""
+    import numpy as np
+    al = np.asarray(al, float); body = float(np.percentile(al, 75)); j0 = int(np.ceil((rise + exit_ + 4) / 4) * 4)
+    for j in range(j0, int(X), 4):
+        k = [wa[t] for t in (j, j + 1) if t < len(wa) and 0 <= wa[t] < len(al)]
+        if len(k) == 2 and float(np.mean(al[k])) <= body - 4:
+            return float(X - j)
+    return float(solo)

@@ -65,3 +65,26 @@ def test_lin_is_unchanged_when_fade_is_not_long():
     src = open(os.path.join(ROOT, 'src2', 'mix_simple.py')).read()
     body = src[src.index('def _xpos(u):'):].split('\ndef ', 1)[0]
     assert "if FADE=='long':return _FL.xlong(u,X,**LG)" in body and "if FADE=='lin' or u>=1:return u" in body
+
+
+def test_struct_solo_ends_exit_on_the_outgoing_energy_drop():
+    """LONG_SOLO_STRUCT: Shine In-like outgoing, full drop to bar 232 then -6 dB outro; window 208-240 -> exit ends at 232"""
+    al = np.full(249, -18.0); al[232:] = -24.0; wa = list(range(208, 240))
+    assert FL.struct_solo(al, wa, 32, solo=16) == 8
+    assert FL.exit_bar(32, solo=FL.struct_solo(al, wa, 32, solo=16)) == 24
+
+
+def test_struct_solo_falls_back_and_never_squeezes_the_plateau():
+    al = np.full(249, -18.0); wa = list(range(208, 240))
+    assert FL.struct_solo(al, wa, 32, solo=16) == 16                 # no energy drop in the window: fixed LONG_SOLO
+    al[212:] = -30.0                                                 # a drop before rise+exit+4 bars is ignored
+    assert FL.struct_solo(al, wa, 32, solo=16) == 32 - 16
+    assert FL.struct_solo(np.full(100, -18.0), list(range(80, 96)), 16, solo=0) == 0
+
+
+@pytest.mark.parametrize('X,solo', [(16, 0), (32, 0), (32, 8), (32, 16)])
+def test_long_swap_exit_is_inside_x1_swap_window(X, solo):
+    """LONG_SWAP=exit: swap centred on the exit start, where x = xp2 (inside X1's 0.2-0.65)"""
+    p = FL.swap_pos(X, solo=solo); c = p * X
+    assert c == FL.exit_start(X, solo=solo)
+    assert 0.2 <= FL.xlong(c / X, X, solo=solo) <= 0.65

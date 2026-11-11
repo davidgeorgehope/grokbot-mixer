@@ -18,7 +18,8 @@ if [ "${RESUME:-0}" = 1 ] && [ -f /tmp/tt_gl_env.sh ] && command -v node >/dev/n
    && { command -v google-chrome-stable || command -v google-chrome || command -v chromium; } >/dev/null; then
   log "resume: bootstrap already done on this pod, skipping"
 else
-  bash bootstrap_runpod.sh
+  # rc 86 tells the box this pod could not be set up (apt/chrome/node); it moves to the next GPU.
+  bash bootstrap_runpod.sh || { log "bootstrap failed rc=$?"; exit 86; }
 fi
 # shellcheck disable=SC1091
 [ -f /tmp/tt_gl_env.sh ] && source /tmp/tt_gl_env.sh

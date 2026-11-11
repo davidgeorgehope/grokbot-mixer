@@ -19,11 +19,24 @@ export RESUME_POD=${RESUME_POD:-}
 # No capacity anywhere (rc 75): wait CAPACITY_RETRY_SEC and walk the list again, up to CAPACITY_WAIT_SEC in total.
 CAPACITY_RETRY_SEC=${CAPACITY_RETRY_SEC:-600}
 CAPACITY_WAIT_SEC=${CAPACITY_WAIT_SEC:-3600}
-t_first=$(date +%s); try=1
+# Pod setup failed (rc 76, e.g. apt hung): that pod is already terminated; drop its GPU type and
+# walk the rest of the list right away, at most SETUP_RETRIES times.
+SETUP_RETRIES=${SETUP_RETRIES:-3}
+export FAILED_GPU_FILE=/tmp/tt_failed_gpus_$$
+: > "$FAILED_GPU_FILE"; trap 'rm -f "$FAILED_GPU_FILE"' EXIT
+t_first=$(date +%s); try=1; setup_fails=0
 while true; do
   rc=0
   bash /workspace/mixes/visuals/code/turntable_viz/runpod_render.sh || rc=$?
   [ "$rc" = 0 ] && break
+  if [ "$rc" = 76 ] && [ "$setup_fails" -lt "$SETUP_RETRIES" ]; then
+    setup_fails=$((setup_fails + 1))
+    GPU_CANDIDATES=$(python3 -c "import sys; bad={l.strip() for l in open(sys.argv[2]) if l.strip()}; keep=[g for g in sys.argv[1].split('|') if g not in bad]; print('|'.join(keep))" "$GPU_CANDIDATES" "$FAILED_GPU_FILE")
+    export GPU_CANDIDATES
+    [ -n "$GPU_CANDIDATES" ] || { echo "[turntable_mix08] every GPU type failed pod setup"; exit 76; }
+    echo "[turntable_mix08] pod setup failed ($setup_fails/$SETUP_RETRIES); next GPUs: $GPU_CANDIDATES"
+    continue
+  fi
   if [ "$rc" = 75 ] && [ $(( $(date +%s) - t_first + CAPACITY_RETRY_SEC )) -le "$CAPACITY_WAIT_SEC" ]; then
     echo "[turntable_mix08] no GPU capacity on try $try; retrying in ${CAPACITY_RETRY_SEC}s ($(date))"
     sleep "$CAPACITY_RETRY_SEC"; try=$((try + 1)); continue

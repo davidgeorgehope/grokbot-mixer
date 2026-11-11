@@ -404,7 +404,9 @@ create_pod() {
 import json, os
 start = (
   "export DEBIAN_FRONTEND=noninteractive; "
-  "apt-get update -qq; apt-get install -y -qq openssh-server >/dev/null; "
+  "rm -f /etc/apt/sources.list.d/*; "
+  "printf 'Acquire::http::Timeout \"20\";\\nAcquire::https::Timeout \"20\";\\nAcquire::Retries \"2\";\\n' > /etc/apt/apt.conf.d/99tt-timeouts; "
+  "command -v sshd >/dev/null || { timeout 180 apt-get update -qq; timeout 180 apt-get install -y -qq openssh-server >/dev/null; }; "
   "mkdir -p /var/run/sshd /root/.ssh; "
   'echo "$PUBLIC_KEY" > /root/.ssh/authorized_keys; '
   "chmod 700 /root/.ssh; chmod 600 /root/.ssh/authorized_keys; "
@@ -716,6 +718,10 @@ while true; do
     fi
     case "$r_st" in
       done) log "remote render done (parts=$r_parts segs_done=$r_segs)"; ckpt_pull_new; break ;;
+      fail:86)
+        log "FATAL: pod setup (apt/chrome/node) failed on gpu=$GPU_TYPE dc=${POD_DC:-?}; pod will be terminated"
+        [ -n "${FAILED_GPU_FILE:-}" ] && printf '%s\n' "$GPU_TYPE" >> "$FAILED_GPU_FILE"
+        exit 76 ;;
       fail:*) log "FATAL: remote render failed (${r_st#fail:})"; exit 1 ;;
       dead) log "FATAL: remote render died without a done/fail marker"; exit 1 ;;
       none) log "FATAL: remote render not found on pod"; exit 1 ;;

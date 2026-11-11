@@ -16,10 +16,11 @@ run_to() {
   timeout --foreground -k 15 "$t" "$@"
 }
 
-# Base images ship a deadsnakes PPA we never use; when launchpad is down (Mix 08 r7: 503s) every
+# Base images ship a deadsnakes PPA and a cuda repo we never use; when launchpad is down (Mix 08 r7: 503s) every
 # apt-get update, including the one inside the nodesource setup script, stalls until our timeout.
 # Drop third-party PPAs and bound apt's own network waits so one dead mirror cannot hang the bootstrap.
-rm -f /etc/apt/sources.list.d/*deadsnakes* 2>/dev/null || true
+# Only Ubuntu's own sources are needed (the driver comes from the host); cuda/ppa lists are dropped.
+rm -f /etc/apt/sources.list.d/* 2>/dev/null || true
 cat > /etc/apt/apt.conf.d/99tt-timeouts <<'APT'
 Acquire::http::Timeout "20";
 Acquire::https::Timeout "20";

@@ -1,6 +1,6 @@
 {
   "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp.",
-  "FADE": "lin",
+  "FADE": "long",
   "BASS_SWAP_BARS": 3,
   "SWAP_POS": 0.21,
   "HIGH_SWAP": 1,
@@ -12,5 +12,8 @@
   "length_pref": 32,
   "family_prior_w": 0.3,
   "prefer_family": null,
-  "loop_fam_pen": 1.0
+  "loop_fam_pen": 1.0,
+  "LONG_SOLO": 16,
+  "LONG_SWAP": "exit",
+  "LONG_SOLO_STRUCT": 1
 }

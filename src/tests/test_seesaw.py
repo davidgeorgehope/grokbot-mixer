@@ -17,16 +17,25 @@ def _rq_plan(win=None):
   p=json.load(open('/workspace/mixes/src2/plan_mix06i12.json'));q=[dict(p[8]),dict(p[9])];q[0].pop('out_win',None)
   if win:q[0]['out_win']=win
   import tempfile;f=tempfile.NamedTemporaryFile('w',suffix='.json',delete=False);json.dump(q,f);f.close();return f.name
+def _restore_stems(ids):
+  """Mix 06 stems are deleted after delivery (cleanup policy); restore them bit-exact (restore_audio.py) for this test and
+  return the ones it created so they are removed again afterwards (2026-11-11: the test failed whenever cleanup had run)"""
+  import os,subprocess;st='/workspace/mixes/src2/st';miss=[i for i in ids if not os.path.exists(f'{st}/{i}.wav')]
+  if miss:subprocess.run([sys.executable,'restore_audio.py',*miss],cwd='/workspace/mixes/src2',check=True,capture_output=True)
+  return [f'{st}/{i}.wav' for i in miss]
 def test_loop_fill_is_soft_penalty():
   """the listener 2026-11-01 (no hard 'never' rules): a loop over a fill (Remedy 160-175, fill 172-175) is still a candidate, just scored worse"""
-  import os;f=_rq_plan();cw=os.getcwd()
+  import os;f=_rq_plan();cw=os.getcwd();made=_restore_stems([d['id'] for d in json.load(open(f))])
   try:
     ns=_scorer(f);os.chdir('/workspace/mixes/src2')
     assert ns['loop_dip']('sObzaBqaBRQ',160)>0 and ns['loop_clean']('sObzaBqaBRQ',144)
     cs=ns['pair_cands'](0,0);la=[c for c in cs if c[1]=='la' and c[2]==(176,160)]
     assert la, 'loop over the fill must stay a candidate (soft penalty, not a refusal)'
     assert any(c[1]=='lx' for c in cs), 'beat-only synthetic outro must be offered'
-  finally:os.chdir(cw);os.unlink(f)
+  finally:
+    os.chdir(cw);os.unlink(f)
+    for w in made:
+      if os.path.exists(w):os.remove(w)
 def test_beat_outro_is_rendered_before_blend(synthetic_meta, monkeypatch):
   """A synthetic beat-only outro starts before the blend; faders stay monotonic.
 

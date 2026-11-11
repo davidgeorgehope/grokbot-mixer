@@ -1,0 +1,48 @@
+{
+  "variant": "lgadopt_long1111",
+  "v3": {
+    "train": 31.14,
+    "test": 30.75,
+    "n": 33,
+    "n_fail": 0
+  },
+  "v2": {
+    "train": 30.61,
+    "test": 30.06
+  },
+  "fams": {
+    "nat_long": 33
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 27.83,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 36.52,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 31.98,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 34.02,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 28.89,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 16.3,
+      "split": "test"
+    }
+  }
+}

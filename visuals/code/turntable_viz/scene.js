@@ -66,16 +66,30 @@ function diveAmt(fs) {
   }
   return best || { k: 0, deck: 0 };
 }
+// Groove-dive shot at full depth: camera rides the focused deck's stylus (booth-world point), a little higher and
+// angled in from the tonearm's side so the headshell, needle and the groove under it all read.
+const DIVE_SHOT = { dist: 0.21, el: 0.86, az: [-0.30, 0.30] };
+function stylusWorld(i, fs) {
+  const d = D.decks[i], s = fs.d[i], rec = D.recs[i];
+  const r = grooveRadius(rec.rec.rTab, TAU * (d.lead + s.tb)), [sx, sy] = stylusXY(alphaForRadius(r));
+  return [OFF[i][0] + sx, OFF[i][1] + sy, OFF[i][2] + 0.002];
+}
+// One camera for every pass: the mixer/table pass and both deck passes share one depth buffer, so they MUST share
+// the same projection (including the near plane). Mix 08 broke here: the dived deck was drawn with a smaller near
+// plane than the table, its depth values came out "further" than the table's, and the whole deck failed the depth
+// test (vanished) for the length of each dive.
+function nearFor(dist) { return Math.min(0.05, Math.max(0.004, 0.05 * dist)); }
 function camFor(fs) {
   const dv = diveAmt(fs);
-  if (dv.k < 1e-4) return { ...CAM, zoom: 0, dive: dv };
-  // Fly toward the focused deck's stylus: raise elevation a touch, nudge az, pull zoom in.
-  const az = CAM.az + (dv.deck === 0 ? -0.18 : 0.18) * dv.k;
-  const el = CAM.el + 0.25 * dv.k;
-  const dist = CAM.dist * (1 - 0.55 * dv.k);
-  const at = [CAM.at[0] + (dv.deck === 0 ? -0.12 : 0.12) * dv.k, CAM.at[1] + 0.02 * dv.k, CAM.at[2]];
-  return { az, el, dist, at, zoom: 0.82 * dv.k, dive: dv };
+  if (dv.k < 1e-4) return { ...CAM, zoom: 0, near: nearFor(CAM.dist), dive: dv };
+  const k = dv.k, i = dv.deck, tgt = stylusWorld(i, fs);
+  const at = CAM.at.map((v, j) => v + (tgt[j] - v) * k);
+  const dist = CAM.dist * Math.pow(DIVE_SHOT.dist / CAM.dist, k);          // geometric: constant-feel swoop speed
+  const el = CAM.el + (DIVE_SHOT.el - CAM.el) * k;
+  const az = CAM.az + (DIVE_SHOT.az[i] - CAM.az) * k;
+  return { az, el, dist, at, zoom: 0, near: nearFor(dist), dive: dv };
 }
+window.camAt = (f) => camFor(D.frameState[Math.min(f, D.frameState.length - 1)]);   // for tests
 
 function deckState(i, fs, cam) {
   const d = D.decks[i], s = fs.d[i], rec = D.recs[i];
@@ -83,11 +97,9 @@ function deckState(i, fs, cam) {
   const r = grooveRadius(rec.rec.rTab, theta), al = alphaForRadius(r), [sx, sy] = stylusXY(al);
   const thp = theta - Math.atan2(sy, sx);
   const beatPh = (fs.mb * 4) % 1, beat = Math.exp(-beatPh * 6) * (s.on ? 1 : 0.15) * (0.25 + 0.75 * s.g);
-  const c = cam || CAM;
-  // Only the focused deck gets the stylus zoom; the other stays in booth frame so the dive reads clearly.
-  const zoom = (c.dive && c.dive.k > 0 && c.dive.deck === i) ? c.zoom : 0;
+  const c = cam || { ...CAM, near: nearFor(CAM.dist) };
   return {
-    thp, al, zt: 0, zoom, motor: s.on, rpm: 60 / d.barSec, az: c.az, el: c.el, dist: c.dist, at: c.at,
+    thp, al, zt: 0, zoom: 0, near: c.near, motor: s.on, rpm: 60 / d.barSec, az: c.az, el: c.el, dist: c.dist, at: c.at,
     off: OFF[i], bare: true, noClear: true, keyGain: 0.6,
     grooveW: d.pitch * 0.30, tint: i === 0 ? PINK.map((v) => v * 1.6) : CYAN, beat, playRev: d.lead + s.tb, glow: 3.5 * (0.3 + 0.7 * s.g),
   };
@@ -165,7 +177,7 @@ function mixerItems(fs) {
 }
 
 function drawMixerPass(fs, camIn) {
-  const gl = R.gl, cam = R.camera({ ...(camIn || CAM), zoom: 0, al: 0 });
+  const gl = R.gl, cam = R.camera({ ...(camIn || { ...CAM, near: nearFor(CAM.dist) }), zoom: 0, al: 0 });
   const items = mixerItems(fs);
   const casters = [[MX.body, G.ident()], [MX.plate, G.ident()]];
   for (const o of OFF) for (const mm of [R.m.body, R.m.plate, R.m.feet, R.m.platter, R.m.tower]) casters.push([mm, T(o[0], o[1], o[2])]);
@@ -244,6 +256,7 @@ function hud(fs, t) {
   ctx.restore();
 }
 
+let skipDeck = -1;
 window.renderFrame = (f, fmt = 'image/jpeg', q = 0.92, noEncode = false) => {
   const fs = D.frameState[Math.min(f, D.frameState.length - 1)], t = f / D.fps;
   if (!MX) buildMixer();
@@ -251,6 +264,7 @@ window.renderFrame = (f, fmt = 'image/jpeg', q = 0.92, noEncode = false) => {
   const camP = camFor(fs);
   const cam = drawMixerPass(fs, camP);                  // table + mixer first (fills depth), then the two decks
   for (let i = 0; i < 2; i++) {
+    if (i === skipDeck) continue;                      // test hook (deckCheck)
     const rr = D.recs[i];
     R.info = rr.info; R.tex.label = rr.label; R.tex.vis = rr.vis; R.tex.lut = rr.lut;
     R.draw(deckState(i, fs, camP));
@@ -267,3 +281,40 @@ window.renderFrame = (f, fmt = 'image/jpeg', q = 0.92, noEncode = false) => {
   if (noEncode) return '';
   return out.toDataURL(fmt, q);
 };
+
+// ---- automated visibility check (render.mjs --check): is each deck actually drawn wherever it is in frame? ----
+// Samples a grid on each deck's top plate, projects it with the shared camera, then renders the frame with and
+// without that deck; an on-screen sample whose pixel does not change means the deck was culled/occluded there.
+function glPixels() {
+  const gl = R.gl, px = new Uint8Array(W * H * 4);
+  gl.readPixels(0, 0, W, H, gl.RGBA, gl.UNSIGNED_BYTE, px);
+  return px;
+}
+window.deckCheck = (f) => {
+  const fs = D.frameState[Math.min(f, D.frameState.length - 1)], camP = camFor(fs);
+  skipDeck = -1; window.renderFrame(f, 'image/jpeg', 0.9, true);
+  const cam = R.camera({ ...camP, zoom: 0, al: 0 }), full = glPixels(), res = [];
+  for (let i = 0; i < 2; i++) {
+    skipDeck = i; window.renderFrame(f, 'image/jpeg', 0.9, true); const without = glPixels();
+    let onScreen = 0, drawn = 0; const N = 13;
+    for (let a = 0; a < N; a++) for (let b = 0; b < N; b++) {
+      const p = [OFF[i][0] + DECK_X0 + 0.01 + (DECK_X1 - DECK_X0 - 0.02) * a / (N - 1), -0.18 + 0.36 * b / (N - 1), TOP_Z + 0.001], v = cam.vp;
+      const w = v[3] * p[0] + v[7] * p[1] + v[11] * p[2] + v[15];
+      if (w <= camP.near) continue;
+      const [x, y] = proj(v, p);
+      if (x < 2 || y < 2 || x > W - 3 || y > H - 3) continue;
+      onScreen++;
+      const o = ((H - 1 - Math.round(y)) * W + Math.round(x)) * 4;
+      if (Math.abs(full[o] - without[o]) + Math.abs(full[o + 1] - without[o + 1]) + Math.abs(full[o + 2] - without[o + 2]) >= 3) drawn++;
+    }
+    res.push({ deck: i, inFrame: onScreen / (N * N), drawn: onScreen ? drawn / onScreen : 1 });
+  }
+  skipDeck = -1;
+  const dv = camP.dive; let stylus = null;
+  if (dv && dv.k > 0.99) { const [x, y] = proj(cam.vp, stylusWorld(dv.deck, fs)); stylus = { deck: dv.deck, x: x / W, y: y / H }; }
+  return { f, mb: fs.mb, k: dv ? dv.k : 0, near: camP.near, decks: res, stylus };
+};
+window.__nframes = () => D.frameState.length;
+window.__fps = () => D.fps;
+window.__dives = () => (DIVE_ON() && D.dives ? D.dives : []).map((dv) => ({
+  f0: Math.round((dv.startBar - D.clipStartBar) * D.barSec * D.fps), f1: Math.round((dv.endBar - D.clipStartBar) * D.barSec * D.fps) }));

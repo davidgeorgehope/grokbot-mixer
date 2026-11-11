@@ -1,4 +1,4 @@
-// MODIFIED for grokbot-mixer turntable_viz (twin decks, data-driven groove glow). Upstream: github.com/rauchg/vinyl (MIT).
+// MODIFIED for grokbot-mixer turntable_viz (twin decks, data-driven groove glow, caller-set near plane st.near). Upstream: github.com/rauchg/vinyl (MIT).
 // WebGL2 scene: a dark direct-drive style deck, the disc (drawn from the cut geometry) and the tonearm.
 // World = physics world: origin at the spindle, +x right, +y away from the viewer, +z up, metres.
 import * as G from './gl-util.js';
@@ -121,7 +121,7 @@ export class Renderer {
     const eye = [at[0] + dist * ce * Math.sin(st.az), at[1] - dist * ce * Math.cos(st.az), at[2] + dist * Math.sin(st.el)];
     if (st.off) { for (let i = 0; i < 3; i++) { eye[i] -= st.off[i]; at[i] -= st.off[i]; } }   // one booth camera: deck drawn in its own frame, camera shifted by the deck's booth offset
     const v = G.lookAt(eye, at);
-    this.cam = { eye, asp, ...v, vp: G.mul(G.perspective(FOV, asp, lerp(0.05, 0.004, zi), 150), v.m) };
+    this.cam = { eye, asp, ...v, vp: G.mul(G.perspective(FOV, asp, st.near || lerp(0.05, 0.004, zi), 150), v.m) };   // st.near: every pass sharing a depth buffer must use the same projection
     return this.cam;
   }
 

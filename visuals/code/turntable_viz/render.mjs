@@ -1,5 +1,5 @@
 // Offline frame capture for turntable_viz: headless Chrome WebGL2 -> JPEG frames -> ffmpeg.
-// usage: node render.mjs --data data.json --out out.mp4 [--from 0 --to N] [--still F --png out.png]
+// usage: node render.mjs --data data.json --out out.mp4 [--from 0 --to N] [--still F --png out.png] [--check N]
 //        [--backend auto|gpu|cpu]  auto prefers GPU (egl/vulkan) and falls back to SwiftShader;
 //        gpu fails closed if the WebGL renderer is SwiftShader/llvmpipe/softpipe.
 import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import { spawn } from 'node:child_process';
@@ -93,6 +93,25 @@ try {
       for (const mode of ['full', 'glonly']) { const t0 = Date.now();
         for (let f = 400; f < 420; f++) await page.evaluate((f, m) => { if (m === 'glonly') { window.renderFrame(f, 'image/jpeg', 0.9, true); return 1; } return window.renderFrame(f).length; }, f, mode);
         console.log(mode, ((Date.now() - t0) / 20).toFixed(0), 'ms/frame'); }
+    } else if (args.check) {
+      // --check [N]: sample N frames across every dive window (plus booth frames) and fail if an in-frame deck is not drawn.
+      const D = await page.evaluate(() => ({ dives: window.__dives(), n: window.__nframes(), fps: window.__fps() }));
+      const per = +args.check || 24, frames = new Set();
+      for (const dv of D.dives) for (let k = 0; k <= per; k++) frames.add(Math.round(dv.f0 + (dv.f1 - dv.f0) * k / per));
+      for (let k = 0; k < 4; k++) frames.add(Math.round((D.n - 1) * k / 3));
+      let bad = 0;
+      for (const f of [...frames].filter((f) => f >= 0 && f < D.n).sort((a, b) => a - b)) {
+        const r = await page.evaluate((f) => window.deckCheck(f), f);
+        const errs = [];
+        for (const d of r.decks) if (d.inFrame >= 0.05 && d.drawn < 0.6) errs.push(`deck ${d.deck + 1} in frame (${(d.inFrame * 100).toFixed(0)}% of plate) but only ${(d.drawn * 100).toFixed(0)}% drawn`);
+        if (r.k < 1e-4 && r.decks.some((d) => d.inFrame < 0.9)) errs.push('booth shot does not show both full decks');
+        if (r.stylus && (r.stylus.x < 0.2 || r.stylus.x > 0.8 || r.stylus.y < 0.2 || r.stylus.y > 0.8)) errs.push(`dive peak: stylus off-centre at (${r.stylus.x.toFixed(2)}, ${r.stylus.y.toFixed(2)})`);
+        const line = `f=${f} bar=${r.mb.toFixed(2)} dive=${r.k.toFixed(2)} near=${r.near.toFixed(4)} ` + r.decks.map((d) => `d${d.deck + 1}:inFrame=${d.inFrame.toFixed(2)},drawn=${d.drawn.toFixed(2)}`).join(' ');
+        console.log((errs.length ? 'FAIL ' : 'ok   ') + line + (errs.length ? '  <- ' + errs.join('; ') : ''));
+        bad += errs.length ? 1 : 0;
+      }
+      console.log(bad ? `DECK_CHECK_FAIL ${bad} frame(s)` : `DECK_CHECK_OK ${frames.size} frames, ${D.dives.length} dive(s)`);
+      if (bad) process.exitCode = 1;
     } else if (args.still) {
       for (const f of args.still.split(',')) {
         const u = await page.evaluate((f) => window.renderFrame(f, 'image/png'), +f);

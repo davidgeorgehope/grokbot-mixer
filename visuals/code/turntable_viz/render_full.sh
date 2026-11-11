@@ -14,6 +14,8 @@
 #   BACKEND       auto|gpu|cpu (default auto; runpod sets gpu)
 #   GLOPT         JSON for render.mjs --gl (default {"shadow":1024})
 #   GROOVE_DIVE   1 to enable needle swoops (default 1); 0 locks the booth cam
+#   DIVE_GAP_SEC  min seconds between groove dives across the whole mix (default 600)
+#   DECK_CHECK    1 (default) runs render.mjs --check per segment before rendering; 0 skips
 #   FORCE_DIVE    1 to plant a mid-clip dive when prep finds none (preview testing)
 #   STILL_F       optional still frame after the render
 #   KEEP_WORK     1 to keep WORK on success
@@ -61,6 +63,9 @@ elif [ -n "${META:-}" ]; then
   TL_ARG=(); [ -n "${TRACKLIST:-}" ] && TL_ARG=(--tracklist "$TRACKLIST")
   python3 "$HERE/build_segs.py" "$META" "$MIX" "$WORK/segs" --fps "$FPS" "${TL_ARG[@]}"
   cp "$WORK/segs/segs.json" "$WORK/segs.json"
+  # Whole-mix dive plan: a handful of real drops, >= DIVE_GAP_SEC apart (per-segment planning gave 24/h on Mix 08).
+  GROOVE_DIVE=$GROOVE_DIVE python3 "$HERE/prep.py" --plan-dives "$WORK/segs.json" --out "$WORK/dive_plan.json" \
+    --st "${ST_DIR:-/workspace/mixes/src2/st}" --dive-gap-sec "${DIVE_GAP_SEC:-600}"
 else
   echo "set META=... or TIMING=..." >&2; exit 2
 fi
@@ -91,9 +96,17 @@ render_seg() {
     rm -f "$sdir/done.marker" "$sdir/video.mp4"
   fi
   if [ ! -s "$sdir/data.json" ]; then
+    local PLAN_ARG=(); [ -s "$WORK/dive_plan.json" ] && PLAN_ARG=(--dive-plan "$WORK/dive_plan.json")
     FORCE_DIVE=$FORCE_DIVE GROOVE_DIVE=$GROOVE_DIVE \
-      python3 "$HERE/prep.py" --timing "$timing" --mix "$MIX" --out "$sdir/data.json" --fps "$FPS" \
+      python3 "$HERE/prep.py" --timing "$timing" --mix "$MIX" --out "$sdir/data.json" --fps "$FPS" "${PLAN_ARG[@]+"${PLAN_ARG[@]}"}" \
         --st "${ST_DIR:-/workspace/mixes/src2/st}" --src "${SRC_DIR:-/workspace/mixes/src2}"
+  fi
+  # Visibility gate: sample frames across each dive (and booth frames) and fail before rendering if a deck that
+  # is in frame is not actually drawn (Mix 08 shipped 24 dives where the dived deck vanished).
+  if [ "${DECK_CHECK:-1}" = 1 ] && [ ! -s "$sdir/deck_check.ok" ]; then
+    node "$HERE/render.mjs" --data "$sdir/data.json" --check 12 --backend "$BACKEND" --gl "$GLOPT" --opts "$OPTS_JSON" \
+      > "$sdir/deck_check.log" 2>&1 || { log "$tag: DECK CHECK FAILED"; grep -E 'FAIL' "$sdir/deck_check.log" | head -20; return 1; }
+    grep DECK_CHECK_OK "$sdir/deck_check.log" > "$sdir/deck_check.ok"; log "$tag: $(cat "$sdir/deck_check.ok")"
   fi
   local N FPS_R SS
   read N FPS_R SS < <(python3 -c "import json;d=json.load(open('$sdir/data.json'));print(d['frames'],d['fps'],d['mixOffset'])")

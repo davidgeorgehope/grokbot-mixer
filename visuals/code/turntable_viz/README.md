@@ -76,10 +76,25 @@ FORCE_DIVE=1 GROOVE_DIVE=1 \
 | `CHUNK_FRAMES` | 900 | frames per part (~30 s @30 fps) |
 | `BACKEND` | `auto` | `gpu` on Runpod; `cpu` forces SwiftShader |
 | `GROOVE_DIVE` | `1` | needle swoops on drops/breakdowns |
+| `DIVE_GAP_SEC` | `600` | min gap between dives across the whole mix (full-mix mode plans dives once, globally) |
+| `DECK_CHECK` | `1` | per-segment visibility gate (`render.mjs --check`) before rendering |
 | `FORCE_DIVE` | `0` | plant a mid-clip dive if prep finds none |
 | `KEEP_WORK` | `0` | keep checkpoints after success |
 | `CLOUD` / `GPU_TYPE` | empty = walk candidates | pin one cloud or GPU to skip the walk |
 | `MAX_RUNTIME_SEC` | `10800` | hard pod kill cap (~3 h) |
+
+## Groove dives and the visibility check
+
+- One camera for every pass. The table/mixer pass and both deck passes share one depth buffer, so they must
+  use the same projection, near plane included (`camFor` sets `near`; vendored `camera()` honours `st.near`).
+  Mix 08 drew the dived deck with a smaller near plane than the table, so its depth landed behind the table and
+  the whole deck vanished for every dive.
+- A dive flies the camera onto the focused deck's real stylus position (booth world), lands on the drop
+  (2 bars in), rides the needle 4 bars, and pulls back over 2 bars. Full-mix renders plan dives once across the
+  whole mix (`prep.py --plan-dives`), drops only, at least `DIVE_GAP_SEC` apart (about 6 per hour).
+- `node render.mjs --data seg/data.json --check 12 --backend cpu` samples frames across each dive plus booth
+  frames, renders each with and without each deck, and fails if a deck that is in frame is not drawn, if the
+  booth shot does not show both full decks, or if the stylus is off-centre at the dive peak.
 
 ## Notes
 

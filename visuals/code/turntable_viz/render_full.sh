@@ -17,6 +17,11 @@
 #   FORCE_DIVE    1 to plant a mid-clip dive when prep finds none (preview testing)
 #   STILL_F       optional still frame after the render
 #   KEEP_WORK     1 to keep WORK on success
+#   RESUME        1 to reuse an existing WORK/segs.json instead of rebuilding it
+#
+# Resume: a segment is skipped when done.marker exists and video.mp4 has the
+# expected frame count; a chunk part is skipped when ffprobe counts exactly the
+# expected frames. Anything else (partial, corrupt, stale .tmp) is re-rendered.
 set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 cd /workspace/mixes
@@ -50,6 +55,8 @@ json.dump({'meta':None,'mix':'$MIX','bar_sec':bs,'fps':$FPS,'cut':[0.0,dur],
   open('$WORK/segs.json','w'), indent=1)
 print(f'single timing clip {dur:.1f}s')
 "
+elif [ "${RESUME:-0}" = 1 ] && [ -s "$WORK/segs.json" ] && [ -s "$WORK/seg_list.txt" ]; then
+  echo "[render_full] resume: reusing $WORK/segs.json"
 elif [ -n "${META:-}" ]; then
   TL_ARG=(); [ -n "${TRACKLIST:-}" ] && TL_ARG=(--tracklist "$TRACKLIST")
   python3 "$HERE/build_segs.py" "$META" "$MIX" "$WORK/segs" --fps "$FPS" "${TL_ARG[@]}"
@@ -62,12 +69,26 @@ NSEG=$(python3 -c "import json;print(len(json.load(open('$WORK/segs.json'))['seg
 log "work=$WORK backend=$BACKEND workers=$WORKERS chunks=$CHUNK_FRAMES segs=$NSEG dive=$GROOVE_DIVE"
 t0=$(date +%s)
 
+# Frame count of an mp4's video stream (0 if unreadable).
+nframes() {
+  local n
+  n=$(ffprobe -v error -select_streams v:0 -count_packets -show_entries stream=nb_read_packets \
+        -of default=nw=1:nk=1 "$1" 2>/dev/null </dev/null | head -1)
+  case "$n" in ''|*[!0-9]*) echo 0 ;; *) echo "$n" ;; esac
+}
+
 render_seg() {
   local tag=$1 timing=$2
   local sdir="$WORK/$tag"
   mkdir -p "$sdir"
-  if [ -s "$sdir/video.mp4" ] && [ -s "$sdir/done.marker" ]; then
-    log "$tag: checkpoint hit"; return 0
+  rm -f "$sdir"/*.tmp.mp4
+  if [ -s "$sdir/video.mp4" ] && [ -s "$sdir/done.marker" ] && [ -s "$sdir/data.json" ]; then
+    local want have
+    want=$(python3 -c "import json;print(json.load(open('$sdir/data.json'))['frames'])")
+    have=$(nframes "$sdir/video.mp4")
+    if [ "$have" = "$want" ]; then log "$tag: checkpoint hit ($have frames)"; return 0; fi
+    log "$tag: checkpoint invalid (video.mp4 frames=$have want=$want); rebuilding"
+    rm -f "$sdir/done.marker" "$sdir/video.mp4"
   fi
   if [ ! -s "$sdir/data.json" ]; then
     FORCE_DIVE=$FORCE_DIVE GROOVE_DIVE=$GROOVE_DIVE \
@@ -85,14 +106,17 @@ render_seg() {
       local a=$((ci * CHUNK_FRAMES)) b=$(( (ci + 1) * CHUNK_FRAMES ))
       [ $b -gt $N ] && b=$N
       local part="$sdir/part$(printf '%04d' $ci).mp4"
-      if [ -s "$part" ]; then
-        log "  $tag part $ci: checkpoint hit"
+      local have=0
+      [ -s "$part" ] && have=$(nframes "$part")
+      if [ "$have" = $((b - a)) ]; then
+        log "  $tag part $ci: checkpoint hit ($have frames)"
       else
+        [ -e "$part" ] && { log "  $tag part $ci: invalid part (frames=$have want=$((b - a))); re-rendering"; rm -f "$part"; }
         specs+=("$ci $a $b $part")
       fi
       ci=$((ci + 1)); w=$((w + 1))
     done
-    for spec in "${specs[@]:-}"; do
+    for spec in ${specs[@]+"${specs[@]}"}; do
       [ -z "${spec:-}" ] && continue
       local idx a b part
       read -r idx a b part <<<"$spec"
@@ -104,8 +128,10 @@ render_seg() {
       ) &
       pids+=($!)
     done
-    for p in "${pids[@]:-}"; do
-      wait "$p" || { fail=1; log "  worker failed"; tail -40 "$sdir"/w*.log || true; }
+    # Only real pids: a slot whose part was a checkpoint hit launches nothing
+    # (Mix 08 r4 died on `wait ""` here).
+    for p in ${pids[@]+"${pids[@]}"}; do
+      wait "$p" || { fail=1; log "  worker failed"; tail -n 40 "$sdir"/w*.log || true; }
     done
     [ $fail -eq 0 ] || return 1
   done

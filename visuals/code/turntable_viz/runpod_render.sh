@@ -14,6 +14,20 @@
 # Upload guard: if throughput is under MIN_UPLOAD_BPS (default 1 MB/s) after
 # UPLOAD_PROBE_SEC (default 60), the pod is terminated and the next GPU type /
 # datacenter is tried. MAX_RUNTIME_SEC defaults to 2.5x mix duration + 30 min.
+#
+# The remote render runs DETACHED on the pod (remote_detach.sh: setsid nohup,
+# log to /workspace/tt_viz/remote_run.log, done/fail marker). The box never
+# holds a long-lived ssh stream; it polls remote_status.sh over short ssh calls
+# (POLL_SEC, default 30) with retries. Failure if: the marker says fail, the
+# run dies without a marker, the log + work dir stop growing for STALL_SEC
+# (default 600), ssh polls fail for SSH_FAIL_SEC (default 600), the spend cap
+# is hit, or MAX_RUNTIME_SEC passes. Every exit path terminates the pod.
+# (Mix 08 r3: the old foreground `ssh ... | tee` stream died when the channel
+# dropped; remote tee took SIGPIPE and pipefail killed the render.)
+#
+# Resume: RESUME_POD=<pod id> reuses that running pod and its work dir. No new
+# pod, no payload upload; updated shell scripts are synced, then the render is
+# relaunched with RESUME=1 so finished segments / valid chunk parts are kept.
 set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 API_V2=https://api.runpod.io/v2
@@ -44,6 +58,12 @@ MAX_SPEND_USD=${MAX_SPEND_USD:-5}
 MIN_UPLOAD_BPS=${MIN_UPLOAD_BPS:-1000000}
 UPLOAD_PROBE_SEC=${UPLOAD_PROBE_SEC:-60}
 STALL_SEC=${STALL_SEC:-600}
+POLL_SEC=${POLL_SEC:-30}
+SSH_FAIL_SEC=${SSH_FAIL_SEC:-600}
+RESUME_POD=${RESUME_POD:-}
+# Box-side copy of finished segments (see ckpt_sync.sh). Kept across failures,
+# pushed into a fresh pod so a retry resumes; deleted after a good pull unless KEEP_CKPT=1.
+CKPT_DIR=${CKPT_DIR:-/workspace/tt_viz_ckpt/$(basename "${OUT%.mp4}")}
 POD_ID=""; COST_PER_HR=""; POD_DC=""; POD_START_TS=""
 START_TS=$(date +%s); PUB_IP=""; SSH_PORT=""
 WATCHDOG=""; STALL_WD=""
@@ -52,6 +72,8 @@ DENIED_DCS=""
 SPENT_SESSION=0
 
 log() { printf '[runpod_render] %s\n' "$*"; }
+# shellcheck disable=SC1091
+. "$HERE/ckpt_sync.sh"
 auth() { printf 'Authorization: Bearer %s' "$RUNPOD_API_KEY"; }
 
 # Background + wait so a trap can run immediately (bash defers traps until a
@@ -148,6 +170,7 @@ reap_stale_pods() {
   [ -f "$ACTIVE_PODS" ] || return 0
   while read -r id; do
     [ -n "$id" ] || continue
+    if [ -n "$RESUME_POD" ] && [ "$id" = "$RESUME_POD" ]; then log "keeping resume pod $id"; continue; fi
     info=$(curl -sS -m 20 -H "$(auth)" "$API_V2/pods/$id" 2>/dev/null || true)
     st=$(printf '%s' "$info" | python3 -c "import sys,json
 t=sys.stdin.read()
@@ -229,6 +252,7 @@ reap_stale_pods
 
 mkdir -p "$STAGING/in"
 
+if [ -z "$RESUME_POD" ]; then
 # --- pack payload (compact audio, pruned node_modules; no tarball on disk) ---
 rsync -a --exclude node_modules --exclude '*.bak' --exclude 'tt_*' --exclude '__pycache__' \
   "$HERE/" "$STAGING/in/turntable_viz/"
@@ -247,6 +271,7 @@ elif [ -n "${META:-}" ]; then
 else
   echo "set TIMING= or META=" >&2; exit 2
 fi
+fi  # end packing (fresh pod only)
 
 MIX_DUR=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$MIX")
 # 2.5x mix duration + 30 min, floor 45 min. Override with MAX_RUNTIME_SEC=...
@@ -256,7 +281,9 @@ fi
 log "mix_dur=${MIX_DUR}s MAX_RUNTIME_SEC=$MAX_RUNTIME_SEC"
 
 # Visualization proxy when we will remux the master locally after pull.
-if [ -n "${MASTER:-}" ] && [ -f "$MASTER" ]; then
+if [ -n "$RESUME_POD" ]; then
+  if [ -n "${MASTER:-}" ] && [ -f "$MASTER" ]; then SKIP_AUDIO_MUX=${SKIP_AUDIO_MUX:-1}; else SKIP_AUDIO_MUX=${SKIP_AUDIO_MUX:-0}; fi
+elif [ -n "${MASTER:-}" ] && [ -f "$MASTER" ]; then
   log "encoding 64k mono mix proxy (master remux after pull)"
   ffmpeg -nostdin -y -loglevel error -i "$MIX" -ac 1 -ar 22050 -c:a libmp3lame -b:a 64k \
     -f mp3 "$STAGING/in/mix.audio" </dev/null
@@ -266,6 +293,7 @@ else
   SKIP_AUDIO_MUX=${SKIP_AUDIO_MUX:-0}
 fi
 export SKIP_AUDIO_MUX
+if [ -z "$RESUME_POD" ]; then
 export TT_DST_ST="$STAGING/in/st" TT_DST_SRC="$STAGING/in/src" TT_MODE="$MODE" TT_STAGING_IN="$STAGING/in"
 
 python3 - <<'PY3'
@@ -340,6 +368,9 @@ for sz, rel in rows[:8]:
     print(f"  {sz/1e6:7.1f} MB  {rel}")
 print(f"[runpod_render] staged_tree {sum(s for s,_ in rows)/1e6:.1f} MB uncompressed")
 PY4
+fi  # end preflight/payload (fresh pod only)
+
+ckpt_prepare
 
 if [ "${PACK_ONLY:-0}" = 1 ]; then
   log "PACK_ONLY=1, not creating a pod"
@@ -352,12 +383,14 @@ log "est_full_render_usd=${EST_RENDER_USD} (0.56x realtime + 20 min at 0.89/hr)"
 budget_or_die "$EST_RENDER_USD" || { log "FATAL: spend budget would exceed \$${MAX_SPEND_USD} (need ${EST_RENDER_USD} more)"; exit 2; }
 
 # Register SSH pubkey as a list of strings (v2 schema).
+if [ -z "$RESUME_POD" ]; then
 PUB=$(cat "$SSH_PUB")
 reg=$(curl -sS -m 20 -w '\n%{http_code}' -X PUT -H "$(auth)" -H 'Content-Type: application/json' \
   -d "$(python3 -c "import json,sys;print(json.dumps({'keys':[sys.argv[1]]}))" "$PUB")" \
   "$API_V2/account/ssh-keys")
 reg_code=$(echo "$reg" | tail -1)
 [ "$reg_code" = 200 ] || log "ssh-key register http=$reg_code (continuing; PUBLIC_KEY env still set on pod)"
+fi
 
 create_pod() {
   local cloud=$1 dcs=${2:-} body resp code
@@ -522,6 +555,43 @@ stream_upload() {
   return $rc
 }
 
+# Resume: attach to an existing pod (no create, no upload) and sync the shell scripts.
+resume_attach() {
+  local info
+  POD_ID=$RESUME_POD
+  info=$(curl -sS -m 30 -H "$(auth)" "$API_V2/pods/$POD_ID" 2>/dev/null || true)
+  eval "$(printf '%s' "$info" | python3 -c "
+import sys, json, datetime
+try: d = json.load(sys.stdin)
+except Exception: d = {}
+ts = d.get('createdAt') or d.get('startedAt') or ''
+ep = ''
+if ts:
+    ep = str(int(datetime.datetime.fromisoformat(ts.replace('Z', '+00:00')).timestamp()))
+print(f\"COST_PER_HR={str(d.get('costPerHr') or d.get('cost') or '')!r}\")
+print(f\"POD_DC={str(d.get('dataCenterId') or '')!r}\")
+print(f\"POD_START_TS={ep!r}\")
+print(f\"_rst={str(d.get('status') or d.get('desiredStatus') or 'GONE')!r}\")
+")"
+  [ -n "$POD_START_TS" ] || POD_START_TS=$(date +%s)
+  note_active
+  log "resume pod=$POD_ID status=$_rst rate=${COST_PER_HR:-?}/hr dc=${POD_DC:-?} age=$(( $(date +%s) - POD_START_TS ))s"
+  [ "$_rst" = RUNNING ] || { log "FATAL: resume pod is not RUNNING"; return 1; }
+  wait_direct_ssh || { log "FATAL: resume pod has no direct ssh"; return 1; }
+  wait_ssh_accept || { log "FATAL: resume pod ssh not accepting"; return 1; }
+  # Sync only the orchestration scripts; render.mjs/scene.js stay as uploaded so
+  # resumed segments look identical to the finished ones.
+  run_wait timeout -k 5 120 bash -c 'tar -C "$1" -cf - render_full.sh remote_run.sh remote_detach.sh remote_status.sh \
+    | "${@:3}" "$2" "tar -C /workspace/tt_viz/turntable_viz -xf - && test -d /workspace/tt_viz/work && echo synced"' \
+    _ "$HERE" "$TARGET" "${SSH[@]}" > "$STAGING/sync.out" 2>&1 || true
+  grep -q synced "$STAGING/sync.out" || { log "FATAL: script sync / work dir check failed: $(tail -c 300 "$STAGING/sync.out")"; return 1; }
+  log "resume: scripts synced, work dir present"
+}
+
+if [ -n "$RESUME_POD" ]; then
+  resume_attach || exit 1
+  CREATED=1
+else
 # Walk cloud x GPU x remaining datacenters until one deploys with direct SSH and a fast upload.
 CLOUDS=()
 if [ -n "$CLOUD" ]; then CLOUDS=("$CLOUD"); else IFS='|' read -ra CLOUDS <<<"$CLOUD_CANDIDATES"; fi
@@ -579,6 +649,7 @@ for cloud in "${CLOUDS[@]}"; do
     done
   done
 done
+fi  # end fresh-pod create loop
 [ "$CREATED" = 1 ] || { log "no candidate deployed with direct SSH and a fast upload (clouds=${CLOUDS[*]} gpus=${GPUS[*]})"; exit 1; }
 
 SSH=(ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR
@@ -590,40 +661,82 @@ TARGET=root@$PUB_IP
 ( sleep "$MAX_RUNTIME_SEC"; log "MAX_RUNTIME_SEC hit"; kill -TERM $$ 2>/dev/null ) &
 WATCHDOG=$!
 
-# Line-buffered remote log (the Mix 08 first attempt looked stuck at Chrome because
-# SSH stdout was block-buffered). Stall watchdog aborts if this file goes quiet.
+# Detached remote render + short polls. No long-lived ssh stream: a dropped
+# channel can no longer kill the render, and a hung poll is bounded by timeout.
 : > "$STAGING/remote.out"
-stall_watch() {
-  local f=$1 last_sz=-1 last_change now sz
-  last_change=$(date +%s)
-  while true; do
-    sleep 20
-    sz=0
-    [ -f "$f" ] && sz=$(wc -c < "$f" | tr -d " ")
-    now=$(date +%s)
-    if [ "$sz" -ne "$last_sz" ]; then
-      last_sz=$sz
-      last_change=$now
-    elif [ $((now - last_change)) -ge "$STALL_SEC" ]; then
-      log "STALL ${STALL_SEC}s with no remote output; aborting"
-      kill -TERM $$ 2>/dev/null
-      exit 1
-    fi
-  done
-}
-stall_watch "$STAGING/remote.out" &
-STALL_WD=$!
-log "remote_run start (stall=${STALL_SEC}s max=${MAX_RUNTIME_SEC}s skip_audio_mux=${SKIP_AUDIO_MUX})"
+POLL_SSH=("${SSH[@]}" -o ServerAliveInterval=5 -o ServerAliveCountMax=3 -o BatchMode=yes)
+RESUME_FLAG=0; [ -n "$RESUME_POD" ] && RESUME_FLAG=1
+if [ -z "$RESUME_POD" ] && [ "$(ckpt_count)" -gt 0 ]; then
+  if ckpt_push; then RESUME_FLAG=1; else log "ckpt: push failed; rendering from scratch"; fi
+fi
+REMOTE_ENV="export PYTHONUNBUFFERED=1 CHUNK_FRAMES=${CHUNK_FRAMES:-900} GROOVE_DIVE=${GROOVE_DIVE:-1} FORCE_DIVE=${FORCE_DIVE:-0} WORKERS=${WORKERS:-1} TT_GL_OVERRIDE=${TT_GL_OVERRIDE:-} SKIP_AUDIO_MUX=${SKIP_AUDIO_MUX:-0} RESUME=$RESUME_FLAG;"
+log "remote_run launch detached (resume=$RESUME_FLAG poll=${POLL_SEC}s stall=${STALL_SEC}s ssh_fail=${SSH_FAIL_SEC}s max=${MAX_RUNTIME_SEC}s skip_audio_mux=${SKIP_AUDIO_MUX})"
+LOG_OFF=0; launched=0
+for i in 1 2 3 4 5; do
+  if run_wait timeout -k 5 60 "${POLL_SSH[@]}" "$TARGET" "$REMOTE_ENV bash /workspace/tt_viz/turntable_viz/remote_detach.sh" \
+       > "$STAGING/launch.out" 2>&1 && grep -qE 'LAUNCHED|ALREADY_RUNNING' "$STAGING/launch.out"; then
+    launched=1; break
+  fi
+  log "launch try $i failed: $(tr '\n' ' ' < "$STAGING/launch.out" | tail -c 200)"
+  run_wait sleep 10
+done
+[ "$launched" = 1 ] || { log "FATAL: could not launch remote render"; exit 1; }
+log "$(tr '\n' ' ' < "$STAGING/launch.out")"
+LOG_OFF=$(sed -n 's/.*logoff=\([0-9]*\).*/\1/p' "$STAGING/launch.out" | head -1); LOG_OFF=${LOG_OFF:-0}
 
-# stdbuf so each log line reaches us immediately; tee keeps a remote copy too.
-# Process substitution + run_wait: the main shell blocks in wait, so TERM traps
-# run immediately (a foreground pipe would defer them).
-run_wait "${SSH[@]}" "$TARGET" "set -o pipefail; export PYTHONUNBUFFERED=1 CHUNK_FRAMES=${CHUNK_FRAMES:-900} GROOVE_DIVE=${GROOVE_DIVE:-1} FORCE_DIVE=${FORCE_DIVE:-0} WORKERS=${WORKERS:-1} TT_GL_OVERRIDE=${TT_GL_OVERRIDE:-} SKIP_AUDIO_MUX=${SKIP_AUDIO_MUX:-0}; stdbuf -oL -eL bash /workspace/tt_viz/turntable_viz/remote_run.sh 2>&1 | stdbuf -oL -eL tee /workspace/tt_viz/remote_run.log" \
-  > >(stdbuf -oL -eL tee -a "$STAGING/remote.out")
+last_sig=""; last_change=$(date +%s); last_ok=$(date +%s); last_note=0; ck_segs=-1
+while true; do
+  now=$(date +%s)
+  if run_wait timeout -k 5 60 "${POLL_SSH[@]}" "$TARGET" "bash /workspace/tt_viz/turntable_viz/remote_status.sh $LOG_OFF" \
+       > "$STAGING/poll.out" 2> "$STAGING/poll.err" && head -1 "$STAGING/poll.out" | grep -q '^STATUS '; then
+    last_ok=$now
+    read -r _ r_st r_sig r_parts r_segs r_lsz < <(head -1 "$STAGING/poll.out")
+    hdr=$(head -1 "$STAGING/poll.out" | wc -c | tr -d ' ')
+    tot=$(wc -c < "$STAGING/poll.out" | tr -d ' ')
+    if [ "$tot" -gt "$hdr" ]; then
+      tail -c +"$((hdr + 1))" "$STAGING/poll.out" | tee -a "$STAGING/remote.out"
+      LOG_OFF=$((LOG_OFF + tot - hdr))
+    fi
+    if [ "$r_sig" != "$last_sig" ]; then last_sig=$r_sig; last_change=$now; fi
+    if [ "$r_segs" != "$ck_segs" ] && [ "$r_segs" -gt 0 ]; then ckpt_pull_new; ck_segs=$r_segs; fi
+    if [ $((now - last_note)) -ge 300 ]; then
+      log "progress: status=$r_st parts=$r_parts segs_done=$r_segs log=${r_lsz}B"; last_note=$now
+    fi
+    case "$r_st" in
+      done) log "remote render done (parts=$r_parts segs_done=$r_segs)"; ckpt_pull_new; break ;;
+      fail:*) log "FATAL: remote render failed (${r_st#fail:})"; exit 1 ;;
+      dead) log "FATAL: remote render died without a done/fail marker"; exit 1 ;;
+      none) log "FATAL: remote render not found on pod"; exit 1 ;;
+    esac
+    if [ $((now - last_change)) -ge "$STALL_SEC" ]; then
+      log "STALL: remote log and work dir unchanged for ${STALL_SEC}s; aborting"; exit 1
+    fi
+  else
+    if [ $((now - last_ok)) -ge "$SSH_FAIL_SEC" ]; then
+      log "FATAL: status polls failing for ${SSH_FAIL_SEC}s: $(tr '\n' ' ' < "$STAGING/poll.err" | tail -c 200)"; exit 1
+    fi
+    log "poll failed (retrying): $(tr '\n' ' ' < "$STAGING/poll.err" | tail -c 160)"
+  fi
+  if [ -n "$COST_PER_HR" ] && [ -n "$POD_START_TS" ]; then
+    if ! python3 -c "import sys; sys.exit(0 if float('$(spend_so_far)') + ($now-$POD_START_TS)/3600*float('$COST_PER_HR') <= float('$MAX_SPEND_USD') else 1)"; then
+      log "FATAL: spend cap \$${MAX_SPEND_USD} reached while rendering"; exit 1
+    fi
+  fi
+  run_wait sleep "$POLL_SEC"
+done
 
 mkdir -p "$(dirname "$OUT")"
 PULL_TMP=${OUT}.pulled.mp4
-run_wait "${SCP[@]}" "$TARGET:/workspace/tt_viz/out.mp4" "$PULL_TMP"
+pulled=0
+for i in 1 2 3; do
+  if run_wait timeout -k 10 2400 "${SCP[@]}" -o ServerAliveInterval=10 -o ServerAliveCountMax=6 \
+       "$TARGET:/workspace/tt_viz/out.mp4" "$PULL_TMP"; then pulled=1; break; fi
+  log "pull try $i failed"; run_wait sleep 10
+done
+if [ "$pulled" != 1 ]; then
+  log "pull failed; assembling from box checkpoints"
+  ckpt_assemble "$PULL_TMP" || { log "FATAL: could not pull out.mp4 and box checkpoints are incomplete"; exit 1; }
+fi
 ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact "$PULL_TMP"
 
 if [ -n "${MASTER:-}" ] && [ -f "$MASTER" ]; then
@@ -637,5 +750,6 @@ else
 fi
 ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact "$OUT"
 log "pulled $OUT"
-kill ${STALL_WD:-} ${WATCHDOG:-} 2>/dev/null || true
+if [ "${KEEP_CKPT:-0}" != 1 ]; then rm -rf "$CKPT_DIR"; log "ckpt: removed $CKPT_DIR"; fi
+kill ${WATCHDOG:-} 2>/dev/null || true
 STALL_WD=""; WATCHDOG=""

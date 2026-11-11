@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Runs on the Runpod GPU box. Expects payload at $TT_ROOT (default /workspace/tt_viz).
+# Launched detached by remote_detach.sh (never in the foreground of an ssh session).
+# RESUME=1 reuses $TT_ROOT/work: finished segments and valid chunk parts are kept.
 set -euo pipefail
 TT_ROOT=${TT_ROOT:-/workspace/tt_viz}
 HERE=$TT_ROOT/turntable_viz
@@ -11,7 +13,13 @@ export __NV_PRIME_RENDER_OFFLOAD=1
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
 cd "$HERE"
-bash bootstrap_runpod.sh
+# RESUME=1 on a pod that already bootstrapped: skip the apt/chrome install.
+if [ "${RESUME:-0}" = 1 ] && [ -f /tmp/tt_gl_env.sh ] && command -v node >/dev/null \
+   && { command -v google-chrome-stable || command -v google-chrome || command -v chromium; } >/dev/null; then
+  log "resume: bootstrap already done on this pod, skipping"
+else
+  bash bootstrap_runpod.sh
+fi
 # shellcheck disable=SC1091
 [ -f /tmp/tt_gl_env.sh ] && source /tmp/tt_gl_env.sh
 export CHROME_PATH=$(command -v google-chrome-stable || command -v google-chrome || command -v chromium-browser || command -v chromium)

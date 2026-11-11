@@ -1,0 +1,251 @@
+{
+  "tag": "d1111",
+  "pick_id": "joe_syntax_hospital__08",
+  "base_variant": "n1111_bass_swap_3bar",
+  "base": {
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 29.84,
+    "test_mean": 29.51,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 27.49,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 33.65,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 32.2,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 31.18,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 29.39,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 13.45,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "pick_before": 33.67,
+  "base_pick_row": {
+    "id": "joe_syntax_hospital__08",
+    "split": "train",
+    "dj": "Joe Syntax",
+    "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
+    "pick": {
+      "fam": "nat_long",
+      "win": [
+        "n",
+        240,
+        null,
+        24,
+        32
+      ],
+      "env": {
+        "FADE": "lin",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0"
+      }
+    },
+    "score": {
+      "score": 33.67,
+      "scorer_version": "gain-events-v2",
+      "breakdown": {
+        "stem_curves": 44.41,
+        "deck_curves": 29.94,
+        "beat_align": 26.04,
+        "bass_swap": 49.74,
+        "outgoing_cut": 18.3,
+        "blend_length": 20.74,
+        "stems": {
+          "drums": 47.39,
+          "bass": 46.25,
+          "vocals": 46.67,
+          "melody": 37.35
+        },
+        "beat_off_ms": 17.41,
+        "events_pro": {
+          "bass_swap": 7,
+          "outgoing_cut": 18,
+          "blend_length": 17
+        },
+        "events_ours": {
+          "bass_swap": 6,
+          "outgoing_cut": 23,
+          "blend_length": 8
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 29.94
+        },
+        "align": {
+          "lag_samples": -167168,
+          "lag_ms": -7581.32,
+          "peak": 0.2838,
+          "win_sec": 58.626
+        }
+      },
+      "weights": {
+        "stem_curves": 0.28,
+        "deck_curves": 0.22,
+        "beat_align": 0.15,
+        "bass_swap": 0.13,
+        "outgoing_cut": 0.12,
+        "blend_length": 0.1
+      },
+      "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__08/pro.wav",
+      "ours": "/tmp/protrans_bench/n1111bass_s2.mp3"
+    },
+    "ours": "/tmp/protrans_bench/n1111bass_s2.mp3",
+    "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__08/pro.wav",
+    "created": [],
+    "ts": "2026-11-11 01:44:03 EST"
+  },
+  "tried": [
+    {
+      "name": "break_03",
+      "delta": {
+        "breakdown_pen_w": 0.3
+      },
+      "pick_score": 33.67,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "linger_015",
+      "delta": {
+        "linger_pen_w": 0.15
+      },
+      "pick_score": 33.67,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "length_pref_16",
+      "delta": {
+        "length_pref": 16
+      },
+      "pick_score": 32.36,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "swap_pos_035",
+      "delta": {
+        "SWAP_POS": 0.35
+      },
+      "pick_score": 33.67,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "fade_tail",
+      "delta": {
+        "FADE": "tail"
+      },
+      "pick_score": 33.99,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "train_mean": 28.76,
+      "test_mean": 27.51,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 25.71,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 33.7,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 29.99,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 25.99,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 29.46,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 21.86,
+          "split": "test"
+        }
+      },
+      "why": "overfit: held-out dropped 29.51 -> 27.51"
+    },
+    {
+      "name": "hint_025",
+      "delta": {
+        "hint_weight": 0.25
+      },
+      "pick_score": 33.67,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "famprior_06",
+      "delta": {
+        "family_prior_w": 0.6
+      },
+      "pick_score": 33.67,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    }
+  ],
+  "kept": null,
+  "rules_after": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp.",
+    "FADE": "lin",
+    "BASS_SWAP_BARS": 3,
+    "SWAP_POS": 0.21,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 8,
+    "STRUCT": 1,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 32,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0
+  }
+}

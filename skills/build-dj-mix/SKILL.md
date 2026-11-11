@@ -31,3 +31,7 @@ description: >-
 - Every render checks each blend for decks half a beat apart (drum phase AND onset xcorr must agree); mix_simple.py exits 3 with HALFBEAT FAIL and build QA gates it (test_release_halfbeat.py). Never disable the gate to ship.
 - Every build writes one diagnostic figure per blend to deliver/<mix>/diagnostics (src2/blend_diag.py; generate-only); the daily protrans round writes deliver/protrans/diagnostics/daily_<date>.png.
 - RCA by default: a mix or blend rated below 4, or a test that keeps failing during mix creation, gets a full root-cause pass (diagnostic figure, compare with the pro/gold blend, find the code path, fix the general rule, re-render, report before/after numbers).
+
+## Long blends (2026-11-11)
+- Window length (XBARS, length_pref) does not set how long a blend sounds; the fader shape and the low lanes do. FADE=long (src2/fade_long.py: early-in plateau + decisive outgoing exit on a phrase, one crossfader, guard-clean) is opt-in. It didn't hold on held-out (30.09 -> 29.61 / 26.47), so rules.json and the full-mix default FADE=tail are unchanged.
+- The protrans event detector (blend_length / outgoing_cut) is noisy on NNLS gains: judge length/cut changes by the diagnostic figure and ears, not by those subscores alone.

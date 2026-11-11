@@ -1,0 +1,116 @@
+{
+ "blend": 0,
+ "a": "NjwN3B617tg",
+ "b": "Dy3qi_gCP9k",
+ "start_bar": 208.0,
+ "end_bar": 240.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-11_long.png",
+ "halfbeat": {
+  "r0": 0.313,
+  "rh": 0.439,
+  "lag_ms": -150.93,
+  "bars": 14,
+  "phase_fail": false,
+  "lag_fail": true,
+  "fail": false,
+  "phase_a": 0.0,
+  "phase_b": -0.125,
+  "dphase_beats": 0.125,
+  "dphase_ms": 43.1,
+  "strength": 1.163,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": 0.1039,
+   "rate": 1.0,
+   "r_a": 0.703,
+   "r_b": 0.736
+  },
+  "ours": {
+   "phase_beats": 0.0261,
+   "rate": 1.0,
+   "r_a": 0.904,
+   "r_b": 0.861
+  },
+  "diff_beats": -0.0778,
+  "diff_ms": 26.8
+ },
+ "offset_ms_median": 91.4,
+ "offset_bars": 10,
+ "clash_bars": 7.69,
+ "sum_lows_dip_db": 19.9,
+ "bass_swap": [
+  213.0,
+  217.0
+ ],
+ "phrase_cut": null,
+ "pick_id": "joe_syntax_hospital__08",
+ "fam": "nat_long",
+ "win": [
+  "n",
+  240,
+  null,
+  24,
+  32
+ ],
+ "score": 48.22,
+ "score_v2": 50.32,
+ "breakdown": {
+  "stem_curves": 78.85,
+  "deck_curves": 55.67,
+  "beat_align": 48.19,
+  "bass_swap": 9.09,
+  "outgoing_cut": 19.25,
+  "blend_length": 31.73,
+  "stems": {
+   "drums": 78.92,
+   "bass": 94.41,
+   "vocals": 74.35,
+   "melody": 67.71
+  },
+  "beat_off_ms": 2.9,
+  "beat_align_v2": 62.18,
+  "beat_identity": 34.19,
+  "beat_lock": {
+   "pro": {
+    "phase_beats": 0.1039,
+    "rate": 1.0,
+    "r_a": 0.703,
+    "r_b": 0.736
+   },
+   "ours": {
+    "phase_beats": 0.0261,
+    "rate": 1.0,
+    "r_a": 0.904,
+    "r_b": 0.861
+   },
+   "diff_beats": -0.0778,
+   "diff_ms": 26.8
+  },
+  "events_pro": {
+   "bass_swap": 3,
+   "outgoing_cut": 23,
+   "blend_length": 15
+  },
+  "events_ours": {
+   "bass_swap": 12,
+   "outgoing_cut": 17,
+   "blend_length": 7
+  },
+  "stem_kind": [
+   "bands",
+   "bands"
+  ],
+  "deck": {
+   "per_stem_deck": 55.67
+  },
+  "align": {
+   "lag_samples": 95232,
+   "lag_ms": 4318.91,
+   "peak": 0.5221,
+   "win_sec": 59.681
+  }
+ },
+ "ours": "/tmp/protrans_bench/diag2745048.mp3"
+}

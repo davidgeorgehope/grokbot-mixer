@@ -240,7 +240,13 @@ def main():
     n = int(round(dur * a.fps))
     out = dict(fps=a.fps, frames=n, dur=dur, barSec=bs, clipStartBar=s0, mixOffset=s0 * bs,
                titles=tim.get('titles', {}), tech=tr.get('tech', ''), keys=tr.get('keys', ''),
-               trans={k: tr.get(k) for k in ('start_bar', 'end_bar', 'bass_swap', 'high_bar', 'swap_bar')}, decks=[])
+               trans={k: tr.get(k) for k in ('start_bar', 'end_bar', 'bass_swap', 'high_bar', 'swap_bar')}, decks=[],
+               # decks[] is physical (0 = deck A, 1 = deck B); outDeck holds the outgoing track. Single-clip timings
+               # without it keep the old layout (outgoing on A). fx = optional record-swap windows (build_segs.py).
+               outDeck=int(tim.get('out_deck', 0)), fx=tim.get('fx') or {})
+    tt = out['titles']
+    if 'deck' not in tt:
+        tt['deck'] = [tt.get('out'), tt.get('in')] if out['outDeck'] == 0 else [tt.get('in'), tt.get('out')]
     envs = []
     for d in decks:
         st_path = os.path.join(a.st, d['id'] + '.json')
@@ -262,11 +268,19 @@ def main():
     hop = sr // a.fps
     mrms = np.array([np.sqrt((y[i * hop:i * hop + 1024] ** 2).mean() + 1e-12) for i in range(n)])
     mdb = 20 * np.log10(mrms)
+    # low-band (kick/bass) level per frame, for the optional beat-synced light rig (FX_LIGHTS)
+    from scipy.signal import butter, sosfilt
+    ylo = sosfilt(butter(4, 120, 'low', fs=sr, output='sos'), y)
+    lrms = np.array([np.sqrt((ylo[i * hop:i * hop + 735] ** 2).mean() + 1e-12) for i in range(n)])
+    ldb = 20 * np.log10(lrms); ltop = np.percentile(ldb, 99) if n else 0
+    klo = np.clip((ldb - (ltop - 18)) / 18, 0, 1)
     frames = []
     xf = tr.get('xfader') or []
     for f in range(n):
         mb = s0 + f / a.fps / bs
-        fr = dict(mb=mb, xf=xfader_at(xf, mb) if mb >= (xf[0][0] if xf else 0) else 0.0, m=float(np.clip((mdb[f] + 40) / 40, 0, 1)), d=[])
+        x = xfader_at(xf, mb) if mb >= (xf[0][0] if xf else 0) else 0.0    # 0 = outgoing, 1 = incoming
+        fr = dict(mb=mb, xf=x if out['outDeck'] == 0 else 1 - x,          # physical: 0 = deck A, 1 = deck B
+                  m=float(np.clip((mdb[f] + 40) / 40, 0, 1)), k=float(klo[f]), d=[])
         for di, d in enumerate(decks):
             au = d.get('auto', {})
             tb, playing = deck_bar(d, mb)

@@ -41,7 +41,8 @@ if [ -z "${WORKERS:-}" ]; then
   if [ "$BACKEND" = gpu ]; then WORKERS=1; else WORKERS=3; fi
 fi
 export TT_BACKEND=$BACKEND
-OPTS_JSON=$(GROOVE_DIVE=$GROOVE_DIVE python3 -c "import json,os;print(json.dumps({'dive':os.environ.get('GROOVE_DIVE','1')=='1'}))")
+# FX_RECORD_SWAP / FX_LIGHTS: the listener's record fly-off/spin-in and light rig ideas, default OFF until he approves them.
+OPTS_JSON=$(GROOVE_DIVE=$GROOVE_DIVE FX_RECORD_SWAP=${FX_RECORD_SWAP:-0} FX_LIGHTS=${FX_LIGHTS:-0} python3 -c "import json,os;e=os.environ.get;print(json.dumps({'dive':e('GROOVE_DIVE','1')=='1','fxSwap':e('FX_RECORD_SWAP','0')=='1','fxLights':e('FX_LIGHTS','0')=='1'}))")
 
 log() { printf '[render_full] %s\n' "$*"; }
 

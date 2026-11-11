@@ -1,4 +1,4 @@
-// MODIFIED for grokbot-mixer turntable_viz (twin decks, data-driven groove glow, caller-set near plane st.near). Upstream: github.com/rauchg/vinyl (MIT).
+// MODIFIED for grokbot-mixer turntable_viz (twin decks, data-driven groove glow, caller-set near plane st.near, st.recM record pose / st.noDisc for record-swap FX). Upstream: github.com/rauchg/vinyl (MIT).
 // WebGL2 scene: a dark direct-drive style deck, the disc (drawn from the cut geometry) and the tonearm.
 // World = physics world: origin at the spindle, +x right, +y away from the viewer, +z up, metres.
 import * as G from './gl-util.js';
@@ -152,7 +152,7 @@ export class Renderer {
     const gl = this.gl, c = this.canvas, m = this.m, I = G.ident(), info = this.info, ecc = info ? info.ecc : [0, 0];
     const vp = st.vp || [0, 0, c.width, c.height];
     const cam = this.camera(st);
-    const spin = G.Rz(-st.thp), discM = G.chain(spin, G.T(ecc[0], ecc[1], 0));
+    const spin = G.Rz(-st.thp), discM = st.recM ? G.chain(st.recM, spin, G.T(ecc[0], ecc[1], 0)) : G.chain(spin, G.T(ecc[0], ecc[1], 0));   // st.recM: record lifted off the platter (swap FX)
     const arm = G.chain(G.T(PIVOT_X, PIVOT_Y, PIVOT_H), G.Rz(st.al), G.Ry(-Math.asin(Math.max(-0.2, Math.min(0.2, st.zt / ARM_LE)))));
     const head = G.chain(arm, G.T(ARM_LE, 0, 0), G.Rz(-ARM_BETA));
     const lensM = G.chain(G.T(STROBE[0] + 0.7026 * 0.0185, STROBE[1] + 0.7115 * 0.0185, 0), G.Rz(0.7917));
@@ -172,7 +172,7 @@ export class Renderer {
       [m.tube, arm, [0.30, 0.30, 0.32], 0.16, 1, 0, off], [m.weight, arm, [0.022, 0.022, 0.024], 0.42, 0.7, 0, off], [m.dial, arm, CHROME, 0.28, 1, 0, off],
       [m.collar, head, CHROME, 0.2, 1, 0, off], [m.shell, head, [0.014, 0.014, 0.015], 0.4, 0.2, 0, off], [m.holder, head, [0.80, 0.36, 0.05], 0.42, 0, 0, off],
     ];
-    if (info) items.push([m.edge, discM, [0.008, 0.008, 0.008], 0.22, 0, 0, off]);
+    if (info && !st.noDisc) items.push([m.edge, discM, [0.008, 0.008, 0.008], 0.22, 0, 0, off]);
 
     // 1. shadow map from the key light
     gl.bindFramebuffer(gl.FRAMEBUFFER, this.fbo); gl.viewport(0, 0, SHADOW, SHADOW); gl.clear(gl.DEPTH_BUFFER_BIT);
@@ -198,7 +198,7 @@ export class Renderer {
       gl.uniform1f(u.uRough, rough); gl.uniform1f(u.uMetal, metal); gl.uniform1i(u.uMode, mode);
       gl.bindVertexArray(mesh.vao); gl.drawArrays(gl.TRIANGLES, 0, mesh.count);
     }
-    if (!info) return;
+    if (!info || st.noDisc) return;
     u = this.rec.u;
     gl.useProgram(this.rec.p); common(u); gl.uniformMatrix4fv(u.uM, false, discM);
     gl.uniform3fv(u.uWarp, info.warp); gl.uniform4fv(u.uScr, info.scr); gl.uniform1i(u.uNScr, info.nScr);

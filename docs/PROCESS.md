@@ -25,6 +25,10 @@ Bass handoff: the planner default is `BASS_SWAP_BARS=2` (set 2026-11-09 after a 
 
 Default: twin-turntable renderer, driven by the mix's real timing data, with rare groove-dive camera moves at real drops or breakdowns. The rented-GPU script walks GPU types (Community first, then Secure) and always terminates the pod. Put the API key in `RUNPOD_API_KEY` or `$HOME/.runpod_api_key`; never commit it. Do not fall back to a many-hour CPU render unless there is time and the GPU path has already been reported as failing.
 
+Decks (fixed 2026-11-11 after Mix 08 v2): a playing record never changes decks. Track 0 starts on deck A; each incoming track loads on the idle deck (the one whose record stopped), so track k is always on deck k % 2 and decks alternate A/B/A/B. `build_segs.py` writes each segment's decks in physical order (`decks[0]` = deck A) with `out_deck` saying which holds the outgoing track, and refuses to build if `deck_state.walk_segments` finds a record changing decks. Mix 08 v2 and earlier had the bug: every segment put the outgoing track on deck A, so the record that had just taken over on deck B jumped to deck A at each segment cut (midway between blends). Test: `src/tests/test_turntable_decks.py`. Old videos are not re-rendered.
+
+Optional effects, **off until the listener approves them**: `FX_RECORD_SWAP=1` (stopped record flies off its deck before the cut; the next record spins in and flips onto that deck before it starts) and `FX_LIGHTS=1` (beat-synced truss beams plus deck-coloured ambient glow, driven by the mix's low end). Both pass through `render_full.sh` and the Runpod scripts. Cheap CPU previews of a window: `visuals/code/turntable_viz/preview_window.sh` (`META MIX FROM TO OUT`, seconds) via `runjob.sh`.
+
 ## YouTube
 
 `yt_upload.py` defaults to **public**. That replaced the old private-by-default rule (2026-10-30). Confirm publicity with oembed before sending the link.

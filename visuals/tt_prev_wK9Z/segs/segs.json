@@ -1,0 +1,211 @@
+{
+ "meta": "src2/mix08_r11c_meta.json",
+ "mix": "deliver/08/dj-mix-08-128k.mp3",
+ "bar_sec": 1.3793103448275863,
+ "fps": 30,
+ "cut": [
+  0.0,
+  253.8,
+  452.4,
+  606.9,
+  706.2,
+  794.4666666666667,
+  904.8333333333334,
+  1048.2666666666667,
+  1202.7666666666667,
+  1335.1666666666667,
+  1478.6333333333334,
+  1555.8666666666666,
+  1710.3333333333333,
+  1886.9,
+  1975.1666666666667,
+  2052.4,
+  2162.766666666667,
+  2317.233333333333,
+  2493.8,
+  2736.5666666666666,
+  2946.2,
+  3089.6666666666665,
+  3200.0,
+  3332.4,
+  3475.866666666667,
+  3741.6666666666665
+ ],
+ "segs": [
+  {
+   "tag": "seg00",
+   "t0": 0.0,
+   "t1": 253.8,
+   "dur": 253.8,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg00.timing.json"
+  },
+  {
+   "tag": "seg01",
+   "t0": 253.8,
+   "t1": 452.4,
+   "dur": 198.59999999999997,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg01.timing.json"
+  },
+  {
+   "tag": "seg02",
+   "t0": 452.4,
+   "t1": 606.9,
+   "dur": 154.5,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg02.timing.json"
+  },
+  {
+   "tag": "seg03",
+   "t0": 606.9,
+   "t1": 706.2,
+   "dur": 99.30000000000007,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg03.timing.json"
+  },
+  {
+   "tag": "seg04",
+   "t0": 706.2,
+   "t1": 794.4666666666667,
+   "dur": 88.26666666666665,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg04.timing.json"
+  },
+  {
+   "tag": "seg05",
+   "t0": 794.4666666666667,
+   "t1": 904.8333333333334,
+   "dur": 110.36666666666667,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg05.timing.json"
+  },
+  {
+   "tag": "seg06",
+   "t0": 904.8333333333334,
+   "t1": 1048.2666666666667,
+   "dur": 143.43333333333328,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg06.timing.json"
+  },
+  {
+   "tag": "seg07",
+   "t0": 1048.2666666666667,
+   "t1": 1202.7666666666667,
+   "dur": 154.5,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg07.timing.json"
+  },
+  {
+   "tag": "seg08",
+   "t0": 1202.7666666666667,
+   "t1": 1335.1666666666667,
+   "dur": 132.4000000000001,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg08.timing.json"
+  },
+  {
+   "tag": "seg09",
+   "t0": 1335.1666666666667,
+   "t1": 1478.6333333333334,
+   "dur": 143.4666666666667,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg09.timing.json"
+  },
+  {
+   "tag": "seg10",
+   "t0": 1478.6333333333334,
+   "t1": 1555.8666666666666,
+   "dur": 77.23333333333312,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg10.timing.json"
+  },
+  {
+   "tag": "seg11",
+   "t0": 1555.8666666666666,
+   "t1": 1710.3333333333333,
+   "dur": 154.4666666666667,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg11.timing.json"
+  },
+  {
+   "tag": "seg12",
+   "t0": 1710.3333333333333,
+   "t1": 1886.9,
+   "dur": 176.56666666666683,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg12.timing.json"
+  },
+  {
+   "tag": "seg13",
+   "t0": 1886.9,
+   "t1": 1975.1666666666667,
+   "dur": 88.26666666666665,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg13.timing.json"
+  },
+  {
+   "tag": "seg14",
+   "t0": 1975.1666666666667,
+   "t1": 2052.4,
+   "dur": 77.23333333333335,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg14.timing.json"
+  },
+  {
+   "tag": "seg15",
+   "t0": 2052.4,
+   "t1": 2162.766666666667,
+   "dur": 110.36666666666679,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg15.timing.json"
+  },
+  {
+   "tag": "seg16",
+   "t0": 2162.766666666667,
+   "t1": 2317.233333333333,
+   "dur": 154.46666666666624,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg16.timing.json"
+  },
+  {
+   "tag": "seg17",
+   "t0": 2317.233333333333,
+   "t1": 2493.8,
+   "dur": 176.56666666666706,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg17.timing.json"
+  },
+  {
+   "tag": "seg18",
+   "t0": 2493.8,
+   "t1": 2736.5666666666666,
+   "dur": 242.76666666666642,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg18.timing.json"
+  },
+  {
+   "tag": "seg19",
+   "t0": 2736.5666666666666,
+   "t1": 2946.2,
+   "dur": 209.6333333333332,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg19.timing.json"
+  },
+  {
+   "tag": "seg20",
+   "t0": 2946.2,
+   "t1": 3089.6666666666665,
+   "dur": 143.4666666666667,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg20.timing.json"
+  },
+  {
+   "tag": "seg21",
+   "t0": 3089.6666666666665,
+   "t1": 3200.0,
+   "dur": 110.33333333333348,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg21.timing.json"
+  },
+  {
+   "tag": "seg22",
+   "t0": 3200.0,
+   "t1": 3332.4,
+   "dur": 132.4000000000001,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg22.timing.json"
+  },
+  {
+   "tag": "seg23",
+   "t0": 3332.4,
+   "t1": 3475.866666666667,
+   "dur": 143.4666666666667,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg23.timing.json"
+  },
+  {
+   "tag": "seg24",
+   "t0": 3475.866666666667,
+   "t1": 3741.6666666666665,
+   "dur": 265.7999999999997,
+   "timing": "/workspace/mixes/visuals/tt_prev_wK9Z/segs/seg24.timing.json"
+  }
+ ]
+}

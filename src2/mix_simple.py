@@ -124,8 +124,13 @@ def swap_at(a,b,wa,wb):
   def bad(c):return 2*thin(c)+3*quiet(c)+sum(2*(c<=k<c+SW and bA[xa] and bB[xb])+((k<c and not bA[xa]) or (k>=c and not bB[xb])) for k,(xa,xb) in enumerate(zip(wa,wb)))
   return min((c for c in range(4,X,4) if 0.2<=_xpos((c+SW/2)/X)<=0.65),key=lambda c:(bad(c),abs(c-POS*X)))
 FADE=os.environ.get('FADE','tail');FADE0=FADE;FDB=float(os.environ.get('FADE_DB',22))  # 'tail' (default 2026-10-31): blend of the linear position and a -FDB*u^1.5 dB outgoing tail, weighted by u; 'lin' = old linear position (outgoing gone ~10 bars after the swap, -7..-11 dB/bar in Mix 05)
+# FADE=long (2026-11-11 long-blend RCA): early-in plateau + decisive outgoing exit on a phrase (fade_long.py). Same single crossfader.
+import fade_long as _FL
+LG=dict(rise=float(os.environ.get('LONG_RISE',2)),xp=float(os.environ.get('LONG_XP',0.35)),xp2=float(os.environ.get('LONG_XP2',0.5)),
+        exit_=float(os.environ.get('LONG_EXIT',8)),solo=float(os.environ.get('LONG_SOLO',0)))
 def _xpos(u):  # shared by score() and the render. Pure -30*u^1.5 tail failed X1 (incoming +4.5 dB/beat early) and C2 (outgoing -10.6 dB at mid-blend) on the Mix 06 render;
   # (u, u**1.5, D24 still gave X1 3.1 dB/beat on 16-bar blends in render c)
+  if FADE=='long':return _FL.xlong(u,X,**LG)
   if FADE=='lin' or u>=1:return u
   w=u**1.4;return float((1-w)*u+w*2/np.pi*np.arccos(10**(-FDB*u**1.7/20)))  # tuned at guardrail resolution (1/16 bar): X=16 incoming <=2.9 dB/beat, outgoing <=2.9 dB/bar, -4.2 dB mid-blend
 PIN={p['id']:p for p in plan if 'fade' in p or 'swap_bars' in p or 'swap_pos' in p}  # per-outgoing overrides: a pinned blend keeps its fader / bass swap / swap centre

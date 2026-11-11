@@ -1,4 +1,8 @@
 """Full-mix staff_viz --v1plus: one 2-deck segment per transition (timing.json like bm_demo), frame-aligned boundaries, concat + full audio."""
+# NOTE 2026-11-11: this per-transition cut (midpoint between blends, decks=[out, in] by ROLE) is the shared root of the
+# "deck swaps after a blend" bug in both the score visual and the turntable visual: at each cut the track that came in
+# on the IN/right lane is redrawn on the OUT/left lane. The turntable copy (visuals/code/turntable_viz/build_segs.py) now
+# uses deck_state.py (physical decks, track k on deck k % 2). This retired score visual is left as is.
 import json,os,sys,copy,math,subprocess,numpy as np
 os.environ['NUDGE']='/nonexistent'  # m06v2/v3 render nudge (none)
 import engine as E

@@ -39,7 +39,9 @@ await new Promise((ok) => srv.once('listening', ok));
 const port = srv.address().port;
 
 async function launch(backend) {
-  const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: chromeArgs(backend) });
+  // protocolTimeout: setup() decodes a big data.json + uploads textures; under heavy box load it took >180 s (puppeteer's
+  // default) and every chunk died in evaluate (deckfix preview, 2026-11-11). TT_PROTOCOL_TIMEOUT_MS, default 20 min.
+  const browser = await puppeteer.launch({ executablePath: CHROME, headless: true, args: chromeArgs(backend), protocolTimeout: +(process.env.TT_PROTOCOL_TIMEOUT_MS || 1200000) });
   const page = await browser.newPage();
   page.on('console', (m) => console.log('[page]', m.text())); page.on('pageerror', (e) => console.log('[pageerror]', e.message));
   const gopt = JSON.parse(args.gl || '{}');

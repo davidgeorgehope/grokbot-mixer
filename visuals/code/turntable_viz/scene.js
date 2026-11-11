@@ -2,7 +2,7 @@
 // ./vendor with small patches); the records are "cut" from each track's real energy (prep.py), and the
 // platter angle, tonearm and mixer controls are driven per frame from the engine's timing.json.
 import { Renderer } from './vendor/render.js';
-import { grooveRadius, alphaForRadius, stylusXY } from './vendor/geometry.js';
+import { grooveRadius, alphaForRadius, stylusXY, ALPHA_REST } from './vendor/geometry.js';
 import * as G from './vendor/gl-util.js';
 import { KEY } from './vendor/shaders.js';
 const SHADOW_SIZE = globalThis.TT_SHADOW || 2048;
@@ -20,12 +20,14 @@ function decodeVis(rec) {
 
 window.setup = async (url, opts = {}) => {
   D = await (await fetch(url)).json();
-  D.opts = Object.assign({ deckW: 960, mixW: 300 }, opts);
+  D.opts = Object.assign({ deckW: 960, mixW: 300, fxSwap: false, fxLights: false }, opts);
+  D.outDeck = D.outDeck | 0; D.fx = D.fx || {};
   glc = document.getElementById('gl'); out = document.getElementById('out'); ctx = out.getContext('2d');
   R = new Renderer(glc);
   // one renderer, two records: keep both cuts and swap textures per deck
   D.recs = D.decks.map((d, i) => {
-    const t = i === 0 ? D.titles.out : D.titles.in;
+    // decks are physical (0 = A/left, 1 = B/right); the record never changes deck while it plays (deck_state.py)
+    const t = D.titles.deck ? D.titles.deck[i] : (i === 0 ? D.titles.out : D.titles.in);
     const rec = { rTab: Float64Array.from(d.rTab), thetaEnd: d.thetaEnd, warp: [{ k: 2, amp: 0.00035, ph: i * 1.7 }], ecc: [0, 0], scratches: [],
       condition: { dust: 0.15 }, tracks: [{ title: t.title }, { title: t.artist }],
       labelOpts: { mark: i === 0 ? 'A' : 'B', corners: ['DECK', i === 0 ? 'ONE' : 'TWO', d.bpm.toFixed(0), 'BPM'], numbered: false,
@@ -98,11 +100,60 @@ function deckState(i, fs, cam) {
   const thp = theta - Math.atan2(sy, sx);
   const beatPh = (fs.mb * 4) % 1, beat = Math.exp(-beatPh * 6) * (s.on ? 1 : 0.15) * (0.25 + 0.75 * s.g);
   const c = cam || { ...CAM, near: nearFor(CAM.dist) };
+  const pose = recPose(i, fs);
   return {
-    thp, al, zt: 0, zoom: 0, near: c.near, motor: s.on, rpm: 60 / d.barSec, az: c.az, el: c.el, dist: c.dist, at: c.at,
+    thp, al: pose ? ALPHA_REST : al, zt: pose ? 0.012 : 0, recM: pose && pose.M, noDisc: pose && pose.hide, zoom: 0, near: c.near, motor: s.on, rpm: 60 / d.barSec, az: c.az, el: c.el, dist: c.dist, at: c.at,
     off: OFF[i], bare: true, noClear: true, keyGain: 0.6,
     grooveW: d.pitch * 0.30, tint: i === 0 ? PINK.map((v) => v * 1.6) : CYAN, beat, playRev: d.lead + s.tb, glow: 3.5 * (0.3 + 0.7 * s.g),
   };
+}
+
+// ---- optional record-swap FX (FX_RECORD_SWAP=1): outgoing record flies off its stopped deck, next one spins in and
+// flips onto it. Windows come from build_segs.py / deck_state.fx_windows; never while a record plays.
+const Rx = (a) => { const m = G.ident(), c = Math.cos(a), s = Math.sin(a); m[5] = c; m[6] = s; m[9] = -s; m[10] = c; return m; };
+const ease = (u) => u * u * (3 - 2 * u);
+function recPose(i, fs) {
+  if (!D.opts.fxSwap) return null;
+  const mb = fs.mb, out = i === 0 ? -1 : 1;                 // fly outward, away from the mixer
+  const fo = D.fx.fly_off, si = D.fx.spin_in;
+  if (fo && fo.deck === i && mb >= fo.start_bar) {
+    const u = Math.min(1, (mb - fo.start_bar) / (fo.end_bar - fo.start_bar));
+    if (u >= 1) return { hide: true };
+    const e = u * u, lift = 0.22 * ease(Math.min(1, u * 1.6));
+    const M = G.chain(G.T(out * 0.55 * e, 0.35 * e, lift + 0.0001), Rx(out * 2.2 * e * Math.PI), G.Rz(-8 * e * TAU));
+    return { M };
+  }
+  if (si && si.deck === i && mb < si.end_bar) {
+    const u = Math.max(0, (mb - si.start_bar) / (si.end_bar - si.start_bar));
+    const r = 1 - ease(u), r2 = r * r;                     // r: 1 = far away, 0 = seated
+    const M = G.chain(G.T(out * 0.45 * r2, 0.30 * r2, 0.20 * ease(Math.min(1, r * 1.4)) + 0.0001), Rx(-out * 2 * Math.PI * r), G.Rz(6 * r * TAU));
+    return { M };
+  }
+  return null;
+}
+
+// ---- optional light rig (FX_LIGHTS=1): beat-synced beams from a truss + ambient deck glow, driven by the mix audio ----
+function lights(fs, cam) {
+  const mb = fs.mb, beatPh = (mb * 4) % 1, pulse = Math.exp(-beatPh * 5) * (0.25 + 0.75 * fs.k), lvl = 0.35 + 0.65 * fs.m;
+  const phrase = Math.floor(mb / 16), cols = phrase % 2 ? [CYAN, PINK] : [PINK, CYAN];
+  ctx.save(); ctx.globalCompositeOperation = 'lighter';
+  // ambient glow pooled under each deck, tinted by deck colour, sized by that channel's level
+  for (let i = 0; i < 2; i++) {
+    const s = fs.d[i], [x, y] = proj(cam.vp, [OFF[i][0] + 0.04, 0, TOP_Z]), a = (s.on ? 0.10 + 0.22 * s.lvl * s.g : 0.03) * (0.7 + 0.3 * pulse);
+    const g = ctx.createRadialGradient(x, y, 20, x, y, 560); const c = i ? CYAN : PINK;
+    g.addColorStop(0, css(c, a)); g.addColorStop(1, css(c, 0)); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  }
+  // six beams from a truss above frame, slow sweep per bar, flash on the beat
+  const N = 6;
+  for (let b = 0; b < N; b++) {
+    const x0 = W * (0.12 + 0.76 * b / (N - 1)), sw = Math.sin(mb * Math.PI / 8 + b * 1.3) * 0.32, len = H * 1.25;
+    const x1 = x0 + Math.sin(sw) * len, y1 = Math.cos(sw) * len, wdt = 70 + 50 * pulse, c = cols[b % 2];
+    const a = (0.07 + 0.30 * pulse) * lvl;
+    const g = ctx.createLinearGradient(x0, 0, x1, y1); g.addColorStop(0, css(c, a)); g.addColorStop(1, css(c, 0));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(x0 - 6, -4); ctx.lineTo(x0 + 6, -4); ctx.lineTo(x1 + wdt, y1); ctx.lineTo(x1 - wdt, y1); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = css(c, 0.35 + 0.6 * pulse); ctx.beginPath(); ctx.arc(x0, 2, 7 + 5 * pulse, 0, TAU); ctx.fill();   // lamp head
+  }
+  ctx.restore();
 }
 
 // ---- 3D mixer + booth table, drawn with the vendored PBR shader in the same camera ----
@@ -232,17 +283,19 @@ function hud(fs, t) {
     ctx.fillStyle = 'rgba(220,224,236,0.7)'; ctx.font = '400 20px DejaVu Sans, sans-serif'; ctx.fillText(t2.artist + (t2.feat ? ' ' + t2.feat : ''), x, 122);
   };
   const st = (i) => { const s = fs.d[i]; return s.cued ? 'CUED · bar ' + Math.floor(s.tb) : !s.on ? 'STOPPED' : `PLAYING · bar ${Math.floor(s.tb)}`; };
-  tl(56, 'left', PINK, D.titles.out, 'DECK 1  ·  ' + st(0));
-  tl(W - 56, 'right', CYAN, D.titles.in, st(1) + '  ·  DECK 2');
+  const TT = D.titles.deck || [D.titles.out, D.titles.in];
+  tl(56, 'left', PINK, TT[0], 'DECK 1  ·  ' + st(0));
+  tl(W - 56, 'right', CYAN, TT[1], st(1) + '  ·  DECK 2');
   ctx.textAlign = 'center';
   ctx.fillStyle = 'rgba(238,240,246,0.95)'; ctx.font = '700 40px DejaVu Sans Mono, monospace'; ctx.fillText(`${bar}.${beat}`, W / 2, 92);
   ctx.fillStyle = 'rgba(200,205,220,0.5)'; ctx.font = '600 12px DejaVu Sans, sans-serif'; ctx.fillText('MIX BAR · BEAT', W / 2, 52);
   for (let k = 0; k < 4; k++) { ctx.fillStyle = k + 1 === beat ? 'rgba(255,90,160,0.95)' : 'rgba(255,255,255,0.12)'; ctx.fillRect(W / 2 - 42 + k * 22, 108, 16, 5); }
-  let phase = 'DECK 1 SOLO';
+  const oN = D.outDeck + 1, iN = 2 - D.outDeck;
+  let phase = `DECK ${oN} SOLO`;
   if (mb >= tr.start_bar && mb < tr.end_bar) phase = 'BLEND';
   if (tr.bass_swap && mb >= tr.bass_swap[0] && mb < tr.bass_swap[1]) phase = 'BASS SWAP';
   if (tr.high_bar != null && mb >= tr.high_bar && mb < tr.high_bar + 2) phase = 'HIGHS HANDOFF';
-  if (mb >= tr.end_bar) phase = 'DECK 2 SOLO';
+  if (mb >= tr.end_bar) phase = `DECK ${iN} SOLO`;
   ctx.fillStyle = phase === 'BLEND' || phase.includes('SWAP') || phase.includes('HAND') ? 'rgba(255,110,170,0.95)' : 'rgba(200,205,220,0.6)';
   ctx.font = '700 16px DejaVu Sans, sans-serif'; ctx.fillText(phase, W / 2, 150);
   // blend progress
@@ -273,6 +326,7 @@ window.renderFrame = (f, fmt = 'image/jpeg', q = 0.92, noEncode = false) => {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
   ctx.drawImage(glc, 0, 0);
   mixerLabels(cam);
+  if (D.opts.fxLights) lights(fs, cam);
   let g = ctx.createLinearGradient(0, 0, 0, 230); g.addColorStop(0, 'rgba(0,0,0,0.85)'); g.addColorStop(1, 'rgba(0,0,0,0)');
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, 230);
   g = ctx.createRadialGradient(W / 2, H / 2, H * 0.5, W / 2, H / 2, H * 1.1); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.55)');

@@ -26,7 +26,9 @@ usually `egl_angle` (ANGLE → NVIDIA OpenGL ES); plain `--use-gl=egl` often fai
 - `probe_webgl.mjs` — try egl / egl_angle / vulkan / … and print the winner
 - `render_preview.sh` — short single-clip helper (legacy)
 - `render_full.sh` — **full-mix entry point**, restartable chunked parts
-- `build_segs.py` — meta.json → per-transition timing segments
+- `build_segs.py` — meta.json → per-transition timing segments (physical deck order, deck-rule gate)
+- `deck_state.py` — two-deck state machine, FX windows, plan walker
+- `preview_window.sh` — short CPU preview of a mix time window
 - `runpod_render.sh` / `remote_run.sh` / `bootstrap_runpod.sh` — rent GPU, render, pull, terminate
 - `Dockerfile` — optional warm image (stock pytorch + bootstrap is the default path)
 
@@ -78,10 +80,29 @@ FORCE_DIVE=1 GROOVE_DIVE=1 \
 | `GROOVE_DIVE` | `1` | needle swoops on drops/breakdowns |
 | `DIVE_GAP_SEC` | `600` | min gap between dives across the whole mix (full-mix mode plans dives once, globally) |
 | `DECK_CHECK` | `1` | per-segment visibility gate (`render.mjs --check`) before rendering |
+| `FX_RECORD_SWAP` | `0` | record fly-off / spin-in at deck swaps |
+| `FX_LIGHTS` | `0` | beat-synced light rig + ambient glow |
 | `FORCE_DIVE` | `0` | plant a mid-clip dive if prep finds none |
 | `KEEP_WORK` | `0` | keep checkpoints after success |
 | `CLOUD` / `GPU_TYPE` | empty = walk candidates | pin one cloud or GPU to skip the walk |
 | `MAX_RUNTIME_SEC` | `10800` | hard pod kill cap (~3 h) |
+
+## Decks (state machine)
+
+`deck_state.py`: track 0 on deck A; every incoming track loads on the idle deck, so track k is on deck k % 2 and the
+playing record never moves. Segment timings list decks in physical order (`decks[0]` = A) plus `out_deck`;
+`prep.py` flips the crossfader to match and the HUD/labels follow the physical deck. `build_segs.py` fails if
+`walk_segments` finds a record on two decks (Mix 08 v2 bug: outgoing was always drawn on A, so the new track jumped
+B -> A at each segment cut). Test: `src/tests/test_turntable_decks.py`.
+
+## Optional FX (default off until the listener approves)
+
+| env | effect |
+|-----|--------|
+| `FX_RECORD_SWAP=1` | stopped record lifts and flies off its deck over the 2 bars before the cut; the next record spins in and flips onto that deck over 3 bars after it (never while a record plays) |
+| `FX_LIGHTS=1` | six truss beams that sweep per bar and flash on the beat (mix low-band level), plus deck-coloured ambient glow by channel level; colours swap every 16 bars |
+
+CPU preview of a window: `META=... MIX=... TRACKLIST=... FROM=780 TO=822 OUT=x.mp4 FX_RECORD_SWAP=1 FX_LIGHTS=1 preview_window.sh`.
 
 ## Groove dives and the visibility check
 

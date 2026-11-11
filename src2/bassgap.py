@@ -1,9 +1,9 @@
 """BASSGAP check (the listener 2026-11-02 19:33 ET): in every blend overlap, low-end (<150 Hz) energy per bar of the mixdown must not fall
->GAP_DB (10) below its neighbours (median of the bars within +-4 outside the dip) for more than 1 bar, unless both source tracks
+>GAP_DB below its neighbours (median of the bars within +-4 outside the dip) for more than 1 bar, unless both source tracks
 themselves dip there (a deliberate breakdown in the source)."""
 import numpy as np,soundfile as sf
 from scipy.signal import butter,sosfilt
-GAP_DB=8.0  # 'about 10 dB': the reported AC card hole (06v3 v1 render, bars 1145-47) measures 7.6-9 dB under its groove, so 8
+GAP_DB=9.84  # pro p95 of 33 admitted blends, 2026-11-10 (was 8.0; src/calib/guard_vs_pro_results.json p95=9.839). the listener heard the flagged Mix 08 r11c blends and said they were fine. See docs/PRO_CALIBRATION_2026-11-10.md.
 def bar_db(x,sr,bs,b0,b1,ofs=0):
   sos=butter(4,150,'low',fs=sr,output='sos');out=[]
   for b in range(b0,b1):

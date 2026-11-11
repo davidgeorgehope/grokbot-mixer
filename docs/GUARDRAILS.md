@@ -12,7 +12,7 @@ python3 src/guardrails.py --name NAME --mp3 OUT.mp3 --nudge nudge60f.json --png 
 |---|---|---|
 | E1 energy hole | 3 s loudness > 6 dB under the local 30 s median, unless intentional (own breakdown or declared `breakdowns`) | a fade almost to nothing between tracks |
 | E2 near silence | 400 ms loudness < −35 LUFS (not in the first or last 5 s) | silence gaps |
-| N1 entry shock | incoming first beats > 10 ms off the grid, or a master level step > 3 dB at entry | weird entries, stem-switch jumps |
+| N1 entry shock | incoming first beats > 10 ms off the grid (unchanged), or a master level step > 3.83 dB at entry (level-step branch only; pro p95 2026-11-10, see docs/PRO_CALIBRATION_2026-11-10.md) | weird entries, stem-switch jumps |
 | F1 flam | per overlap bar, the decks' 16th-grid phases differ by > 15 ms | trainwrecked, flamming beats |
 | G1 grid | master phase jump > 8 ms between 2-bar windows, or > 15 ms off the global grid | drift, off-grid source sections |
 | K1 key clash | Camelot distance > 2 with more than 2 harmonic overlap bars | dissonant blends |

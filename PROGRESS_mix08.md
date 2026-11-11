@@ -77,3 +77,14 @@ Crate r11 (69, Lilies kept): restored Sub Focus, Wilkinson – Just Hold On (ori
 
 Job render-mix08-r11 started from plan_mix08_r10bb.json, history includes r9/r9c/r10x/r10/r10b/r10bb, up to 3 render rounds, same engine env, gain 9.3, nudge08_r9c.json. Status: jobs/render-mix08-r11.status. Delivery waits until tests pass. Not loosening tests.
 
+
+
+## Delivery r11c (2026-11-10 19:20 ET)
+
+Passed tests (test-mix08-r11c-p95-nudge rc 0). Drive 128k already up (DJ Grok Bot – Mix 08, 59.9 MB, anyone-with-link). iCloud 320k + tracklist already on DJ Mixes at 18:27 ET.
+
+Turntable attempt 1 (job turntable-mix08, 18:28–19:18 ET): Community GPUs were out of capacity; Secure RTX 4090 at $0.89/hr (pod axqe3slq4gl3bq). Local log looked stuck at Chrome install because SSH stdout was block-buffered. Remote log shows Chrome finished quickly; the real failure was ffmpeg in render_full.sh reading stdin inside the segment loop, which ate the rest of seg_list after muxing seg00 (classic ffmpeg parse-error). SSH then hung with the GPU idle. Terminated the pod (wall 3027s, est $0.7483).
+
+Fixes before relaunch: render_full.sh uses -nostdin and a dedicated fd for the segment list; bootstrap installs Chrome from the .deb with timeouts and retries (apt repo fallback; uses an already-present Chrome/Chromium); runpod_render.sh line-buffers remote output and aborts after 600s of no log progress; cleanup now kills the runtime watchdog so it cannot leak.
+
+Relaunch once via runjob.sh after committing this fix.

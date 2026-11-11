@@ -14,7 +14,7 @@ cd "$HERE"
 bash bootstrap_runpod.sh
 # shellcheck disable=SC1091
 [ -f /tmp/tt_gl_env.sh ] && source /tmp/tt_gl_env.sh
-export CHROME_PATH=$(command -v google-chrome-stable || command -v google-chrome)
+export CHROME_PATH=$(command -v google-chrome-stable || command -v google-chrome || command -v chromium-browser || command -v chromium)
 
 # Probe WebGL backends; pick the first hardware one.
 log "probing WebGL2 backends"
@@ -38,8 +38,11 @@ mkdir -p /workspace/mixes/visuals/code
 ln -sfn "$HERE" /workspace/mixes/visuals/code/turntable_viz
 ln -sfn "$TT_ROOT/beatgrid_viz.py" /workspace/mixes/visuals/code/beatgrid_viz.py
 
-if ! grep -q -- '--st ' "$HERE/render_full.sh"; then
-  sed -i "s|--fps \"\$FPS\"|--fps \"\$FPS\" --st $TT_ROOT/st --src $TT_ROOT/src|" "$HERE/render_full.sh"
+# prep.py needs --st/--src on the pod (sources live under $TT_ROOT, not /workspace/mixes/src2).
+# Only patch that invocation. A blanket --fps replace also rewrote build_segs.py, which
+# rejects unknown flags and aborted the Mix 08 render after bootstrap (2026-11-10).
+if ! grep -q -- 'prep.py.*--st ' "$HERE/render_full.sh"; then
+  sed -i "s|prep.py --timing \"\$timing\" --mix \"\$MIX\" --out \"\$sdir/data.json\" --fps \"\$FPS\"|prep.py --timing \"\$timing\" --mix \"\$MIX\" --out \"\$sdir/data.json\" --fps \"\$FPS\" --st $TT_ROOT/st --src $TT_ROOT/src|" "$HERE/render_full.sh"
 fi
 
 OUT=$TT_ROOT/out.mp4

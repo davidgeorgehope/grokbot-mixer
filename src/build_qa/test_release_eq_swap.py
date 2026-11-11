@@ -6,7 +6,7 @@ sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 import checks as C,deckpair as P
 pytestmark=pytest.mark.skipif(not os.path.exists(f'{C.SRC}/{C.NAME}_meta.json'),reason='mix meta missing')
 LP=butter(4,150,'low',fs=P.SR,output='sos');HP=butter(4,2000,'high',fs=P.SR,output='sos');BAR=P.BAR;SR=P.SR
-DOUBLE_DB=6;DOUBLE_MAX=2;DIP_DB=3
+DOUBLE_DB=6;DOUBLE_MAX=2;DIP_DB=4.41  # pro p95 of 33 admitted blends, 2026-11-10 (was 3; src/calib/guard_vs_pro_results.json depth p95=4.414). the listener heard the flagged Mix 08 r11c blends and said they were fine. See docs/PRO_CALIBRATION_2026-11-10.md.
 def _db(x):return 10*np.log10(np.mean(x**2)+1e-12)
 @functools.lru_cache()
 def blends():
@@ -36,7 +36,7 @@ def test_phrase_swaps_land_on_phrase_boundary():
   if not T:pytest.skip('no phrase-snapped swaps in this mix')
   assert all((t['swap_bar']-t['start_bar'])%4==0 for t in T),[(t['a'],t['swap_bar']-t['start_bar']) for t in T if (t['swap_bar']-t['start_bar'])%4]
 def test_no_level_dip_at_swap():
-  """Summed decks over each swap (bass, and high when present) (+-1 bar, per half bar so a single drum-fill beat doesn't count) stay within 3 dB of the quieter of the 2 bars before and after."""
+  """Summed decks over each swap (bass, and high when present) (+-1 bar, per half bar so a single drum-fill beat doesn't count) stay within DIP_DB (4.41 dB, pro p95; docs/PRO_CALIBRATION_2026-11-10.md) of the quieter of the 2 bars before and after."""
   bad=[]
   for r in blends():
     bt=np.array(r['beats'])

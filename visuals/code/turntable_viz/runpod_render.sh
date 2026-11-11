@@ -27,6 +27,8 @@ SSH_PUB=${SSH_PUB:-$HOME/.ssh/id_ed25519.pub}
 SSH_PRIV=${SSH_PRIV:-$HOME/.ssh/id_ed25519}
 STAGING=${STAGING:-/tmp/tt_runpod_$$}
 POD_ID=""; COST_PER_HR=""; START_TS=$(date +%s); PUB_IP=""; SSH_PORT=""
+WATCHDOG=""; STALL_WD=""
+STALL_SEC=${STALL_SEC:-600}
 
 log() { printf '[runpod_render] %s\n' "$*"; }
 auth() { printf 'Authorization: Bearer %s' "$RUNPOD_API_KEY"; }
@@ -34,6 +36,9 @@ auth() { printf 'Authorization: Bearer %s' "$RUNPOD_API_KEY"; }
 cleanup() {
   local rc=$?; set +e
   log "cleanup rc=$rc pod=${POD_ID:-none}"
+  # Kill watchdogs first so a leftover sleep cannot SIGTERM a later PID.
+  if [ -n "${STALL_WD:-}" ]; then kill "$STALL_WD" 2>/dev/null; wait "$STALL_WD" 2>/dev/null; fi
+  if [ -n "${WATCHDOG:-}" ]; then kill "$WATCHDOG" 2>/dev/null; wait "$WATCHDOG" 2>/dev/null; fi
   if [ -n "${POD_ID:-}" ]; then
     curl -sS -m 30 -X DELETE -H "$(auth)" "$API_V2/pods/$POD_ID" >/dev/null 2>&1 || true
     log "terminate requested for $POD_ID"
@@ -215,10 +220,38 @@ WATCHDOG=$!
 "${SCP[@]}" "$STAGING/payload.tgz" "$TARGET:/tmp/tt_payload.tgz"
 "${SSH[@]}" "$TARGET" 'rm -rf /workspace/tt_viz && mkdir -p /workspace/tt_viz && tar -C /workspace/tt_viz -xzf /tmp/tt_payload.tgz && rm -f /tmp/tt_payload.tgz'
 
-"${SSH[@]}" "$TARGET" "CHUNK_FRAMES=${CHUNK_FRAMES:-900} GROOVE_DIVE=${GROOVE_DIVE:-1} FORCE_DIVE=${FORCE_DIVE:-0} WORKERS=${WORKERS:-1} TT_GL_OVERRIDE=${TT_GL_OVERRIDE:-} bash /workspace/tt_viz/turntable_viz/remote_run.sh"
+# Line-buffered remote log (the Mix 08 first attempt looked stuck at Chrome because
+# SSH stdout was block-buffered). Stall watchdog aborts if this file goes quiet.
+: > "$STAGING/remote.out"
+stall_watch() {
+  local f=$1 last_sz=-1 last_change now sz
+  last_change=$(date +%s)
+  while true; do
+    sleep 20
+    sz=0
+    [ -f "$f" ] && sz=$(wc -c < "$f" | tr -d " ")
+    now=$(date +%s)
+    if [ "$sz" -ne "$last_sz" ]; then
+      last_sz=$sz
+      last_change=$now
+    elif [ $((now - last_change)) -ge "$STALL_SEC" ]; then
+      log "STALL ${STALL_SEC}s with no remote output; aborting"
+      kill -TERM $$ 2>/dev/null
+      exit 1
+    fi
+  done
+}
+stall_watch "$STAGING/remote.out" &
+STALL_WD=$!
+log "remote_run start (stall=${STALL_SEC}s)"
+
+# stdbuf so each log line reaches us immediately; tee keeps a remote copy too.
+"${SSH[@]}" "$TARGET" "set -o pipefail; export PYTHONUNBUFFERED=1 CHUNK_FRAMES=${CHUNK_FRAMES:-900} GROOVE_DIVE=${GROOVE_DIVE:-1} FORCE_DIVE=${FORCE_DIVE:-0} WORKERS=${WORKERS:-1} TT_GL_OVERRIDE=${TT_GL_OVERRIDE:-}; stdbuf -oL -eL bash /workspace/tt_viz/turntable_viz/remote_run.sh 2>&1 | stdbuf -oL -eL tee /workspace/tt_viz/remote_run.log" \
+  | stdbuf -oL -eL tee -a "$STAGING/remote.out"
 
 mkdir -p "$(dirname "$OUT")"
 "${SCP[@]}" "$TARGET:/workspace/tt_viz/out.mp4" "$OUT"
 ffprobe -v error -show_entries format=duration:stream=codec_name,width,height -of compact "$OUT"
 log "pulled $OUT"
-kill $WATCHDOG 2>/dev/null || true
+kill ${STALL_WD:-} ${WATCHDOG:-} 2>/dev/null || true
+STALL_WD=""; WATCHDOG=""

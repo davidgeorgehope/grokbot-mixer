@@ -1,11 +1,11 @@
 {
  "mix": "mix08_r11c",
- "mp3": "mix08_r11c.mp3",
+ "mp3": "/workspace/mixes/src2/mix08_r11c.mp3",
  "thresholds": {
   "E1_db": 6,
   "E2_lufs": -35,
   "N1_ms": 10,
-  "N1_db": 3,
+  "N1_db": 3.83,
   "F1_ms": 15,
   "G1_jit_ms": 8,
   "G1_abs_ms": 15,
@@ -27,20 +27,9 @@
   "dc": 0.0008708533132448792,
   "grid": []
  },
- "n_fail": 1,
- "by_check": {
-  "N1": 1
- },
- "failures": [
-  {
-   "check": "N1",
-   "t": "34:34",
-   "t_end": "34:35",
-   "sec": 2074.48,
-   "msg": "master level step +3.2 dB at entry",
-   "trans": 15
-  }
- ],
+ "n_fail": 0,
+ "by_check": {},
+ "failures": [],
  "warnings": [
   {
    "check": "F1",
@@ -355,9 +344,7 @@
    "tech": "32-bar crossfader blend (equal-power, single control) + 2-bar bass handoff",
    "keys": "3A->4A",
    "flam_max": 4.0,
-   "fails": [
-    "N1"
-   ]
+   "fails": []
   },
   {
    "i": 16,

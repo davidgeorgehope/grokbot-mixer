@@ -117,10 +117,12 @@ render_seg() {
     j=$((j + 1))
   done
   local DUR; DUR=$(python3 -c "print($N/$FPS_R)")
-  ffmpeg -y -loglevel error -f concat -safe 0 -i "$list" -c copy "$sdir/video.mp4"
+  # ffmpeg reads stdin for interactive cmds unless -nostdin; otherwise the first
+  # mux consumes the rest of seg_list (Mix 08 failed this way, 2026-11-10).
+  ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i "$list" -c copy "$sdir/video.mp4" </dev/null
   # per-seg mux is optional listening aid; final pass remuxes the whole mix
-  ffmpeg -y -loglevel error -i "$sdir/video.mp4" -ss "$SS" -t "$DUR" -i "$MIX" \
-    -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$sdir/done.mp4"
+  ffmpeg -nostdin -y -loglevel error -i "$sdir/video.mp4" -ss "$SS" -t "$DUR" -i "$MIX" \
+    -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$sdir/done.mp4" </dev/null
   echo ok > "$sdir/done.marker"
   log "$tag: done (${DUR}s)"
 }
@@ -128,19 +130,19 @@ render_seg() {
 python3 -c "import json;d=json.load(open('$WORK/segs.json'));
 [print(s['tag']+'\t'+s['timing']) for s in d['segs']]" > "$WORK/seg_list.txt"
 
-while IFS=$'\t' read -r tag timing; do
+while IFS=$'\t' read -r tag timing <&3; do
   render_seg "$tag" "$timing"
-done < "$WORK/seg_list.txt"
+done 3< "$WORK/seg_list.txt"
 
 : > "$WORK/final_list.txt"
-while IFS=$'\t' read -r tag timing; do
+while IFS=$'\t' read -r tag timing <&3; do
   echo "file '$WORK/$tag/video.mp4'" >> "$WORK/final_list.txt"
-done < "$WORK/seg_list.txt"
+done 3< "$WORK/seg_list.txt"
 TOTAL=$(python3 -c "import json;d=json.load(open('$WORK/segs.json'));print(d['cut'][-1])")
-ffmpeg -y -loglevel error -f concat -safe 0 -i "$WORK/final_list.txt" -c copy "$WORK/video_all.mp4"
+ffmpeg -nostdin -y -loglevel error -f concat -safe 0 -i "$WORK/final_list.txt" -c copy "$WORK/video_all.mp4" </dev/null
 mkdir -p "$(dirname "$OUT")"
-ffmpeg -y -loglevel error -i "$WORK/video_all.mp4" -t "$TOTAL" -i "$MIX" \
-  -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$OUT"
+ffmpeg -nostdin -y -loglevel error -i "$WORK/video_all.mp4" -t "$TOTAL" -i "$MIX" \
+  -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$OUT" </dev/null
 if [ -n "${STILL_F:-}" ]; then
   FIRST=$(awk -F'\t' 'NR==1{print $1}' "$WORK/seg_list.txt")
   node "$HERE/render.mjs" --data "$WORK/$FIRST/data.json" --still "$STILL_F" --png "${OUT%.mp4}.png" \

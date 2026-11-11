@@ -10,7 +10,7 @@ P=${P:-4}; FPS=${FPS:-30}; CH=${CH:-150}
 WORK=${WORK:-$(mktemp -d /workspace/mixes/visuals/tt_prev_XXXX)}
 TL=(); [ -n "${TRACKLIST:-}" ] && TL=(--tracklist "$TRACKLIST")
 python3 "$HERE/build_segs.py" "$META" "$MIX" "$WORK/segs" --fps "$FPS" "${TL[@]}" | tail -2
-OPTS=$(GROOVE_DIVE=${GROOVE_DIVE:-0} python3 -c "import json,os;e=os.environ.get;print(json.dumps({'dive':e('GROOVE_DIVE','0')=='1','fxSwap':e('FX_RECORD_SWAP','0')=='1','fxLights':e('FX_LIGHTS','0')=='1'}))")
+OPTS=$(GROOVE_DIVE=${GROOVE_DIVE:-0} python3 -c "import json,os;e=os.environ.get;print(json.dumps({'dive':e('GROOVE_DIVE','0')=='1','fxSwap':e('FX_RECORD_SWAP','1')=='1','fxLights':e('FX_LIGHTS','1')=='1'}))")
 echo "opts=$OPTS window=${FROM}-${TO}s work=$WORK"
 python3 - "$WORK" "$FROM" "$TO" "$FPS" "$CH" > "$WORK/jobs.txt" <<'PY'
 import json, sys, math

@@ -76,7 +76,7 @@ mkdir -p "$WORK"
 if [ -f "$TT_ROOT/timing.json" ]; then
   log "mode=timing"
   TIMING="$TT_ROOT/timing.json" MIX="$TT_ROOT/mix.audio" OUT="$OUT" WORK="$WORK" \
-    BACKEND=gpu CHUNK_FRAMES="${CHUNK_FRAMES:-900}" GROOVE_DIVE="${GROOVE_DIVE:-1}" FX_RECORD_SWAP="${FX_RECORD_SWAP:-0}" FX_LIGHTS="${FX_LIGHTS:-0}" \
+    BACKEND=gpu CHUNK_FRAMES="${CHUNK_FRAMES:-900}" GROOVE_DIVE="${GROOVE_DIVE:-1}" FX_RECORD_SWAP="${FX_RECORD_SWAP:-1}" FX_LIGHTS="${FX_LIGHTS:-1}" \
     FORCE_DIVE="${FORCE_DIVE:-0}" KEEP_WORK=1 WORKERS="${WORKERS:-1}" \
     bash "$HERE/render_full.sh"
 elif [ -f "$TT_ROOT/meta.json" ]; then
@@ -84,7 +84,7 @@ elif [ -f "$TT_ROOT/meta.json" ]; then
   TL_ENV=()
   [ -f "$TT_ROOT/tracklist.md" ] && TL_ENV+=(TRACKLIST="$TT_ROOT/tracklist.md")
   env META="$TT_ROOT/meta.json" MIX="$TT_ROOT/mix.audio" OUT="$OUT" WORK="$WORK" \
-    BACKEND=gpu CHUNK_FRAMES="${CHUNK_FRAMES:-900}" GROOVE_DIVE="${GROOVE_DIVE:-1}" FX_RECORD_SWAP="${FX_RECORD_SWAP:-0}" FX_LIGHTS="${FX_LIGHTS:-0}" \
+    BACKEND=gpu CHUNK_FRAMES="${CHUNK_FRAMES:-900}" GROOVE_DIVE="${GROOVE_DIVE:-1}" FX_RECORD_SWAP="${FX_RECORD_SWAP:-1}" FX_LIGHTS="${FX_LIGHTS:-1}" \
     FORCE_DIVE="${FORCE_DIVE:-0}" KEEP_WORK=1 WORKERS="${WORKERS:-1}" \
     "${TL_ENV[@]}" \
     bash "$HERE/render_full.sh"

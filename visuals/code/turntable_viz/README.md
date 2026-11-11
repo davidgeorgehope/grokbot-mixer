@@ -80,8 +80,8 @@ FORCE_DIVE=1 GROOVE_DIVE=1 \
 | `GROOVE_DIVE` | `1` | needle swoops on drops/breakdowns |
 | `DIVE_GAP_SEC` | `600` | min gap between dives across the whole mix (full-mix mode plans dives once, globally) |
 | `DECK_CHECK` | `1` | per-segment visibility gate (`render.mjs --check`) before rendering |
-| `FX_RECORD_SWAP` | `0` | record fly-off / spin-in at deck swaps |
-| `FX_LIGHTS` | `0` | beat-synced light rig + ambient glow |
+| `FX_RECORD_SWAP` | `1` | record fly-off / spin-in at deck swaps |
+| `FX_LIGHTS` | `1` | beat-synced light rig + ambient glow |
 | `FORCE_DIVE` | `0` | plant a mid-clip dive if prep finds none |
 | `KEEP_WORK` | `0` | keep checkpoints after success |
 | `CLOUD` / `GPU_TYPE` | empty = walk candidates | pin one cloud or GPU to skip the walk |

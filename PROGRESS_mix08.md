@@ -88,3 +88,6 @@ Turntable attempt 1 (job turntable-mix08, 18:28–19:18 ET): Community GPUs were
 Fixes before relaunch: render_full.sh uses -nostdin and a dedicated fd for the segment list; bootstrap installs Chrome from the .deb with timeouts and retries (apt repo fallback; uses an already-present Chrome/Chromium); runpod_render.sh line-buffers remote output and aborts after 600s of no log progress; cleanup now kills the runtime watchdog so it cannot leak.
 
 Relaunch once via runjob.sh after committing this fix.
+
+Attempt 2 (19:21–19:29 ET): Community RTX 4090 came up at $0.34/hr (pod fv2k6gika47j2o) but never got a direct SSH address (proxy only, ssh.direct=null). This box's resolver sinkholes ssh.runpod.io, and the Runpod SSH proxy needs a PTY and does not run remote commands or scp. Discarded after 486s (est $0.0459). runpod_render.sh now drops a pod with no direct SSH after 90s and skips the rest of Community, then tries Secure.
+

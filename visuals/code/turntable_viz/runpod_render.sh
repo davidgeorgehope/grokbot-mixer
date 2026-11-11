@@ -153,30 +153,25 @@ PY
   log "pod=$POD_ID rate=${COST_PER_HR:-?}/hr"
 }
 
-# Walk cloud x GPU candidates until one deploys.
-CLOUDS=()
-if [ -n "$CLOUD" ]; then CLOUDS=("$CLOUD"); else IFS='|' read -ra CLOUDS <<<"$CLOUD_CANDIDATES"; fi
-GPUS=()
-if [ -n "$GPU_TYPE" ]; then GPUS=("$GPU_TYPE"); else IFS='|' read -ra GPUS <<<"$GPU_CANDIDATES"; fi
-CREATED=0
-for cloud in "${CLOUDS[@]}"; do
-  for gpu in "${GPUS[@]}"; do
-    GPU_TYPE="$gpu"
-    log "trying cloud=$cloud gpu=$gpu"
-    if create_pod "$cloud"; then
-      CLOUD=$cloud
-      CREATED=1
-      log "deployed cloud=$CLOUD gpu=$GPU_TYPE pod=$POD_ID"
-      break 2
-    fi
-  done
-done
-[ "$CREATED" = 1 ] || { log "no candidate deployed (clouds=${CLOUDS[*]} gpus=${GPUS[*]})"; exit 1; }
+discard_pod() {
+  local reason=$1
+  if [ -n "${POD_ID:-}" ]; then
+    log "discarding $POD_ID ($reason)"
+    curl -sS -m 30 -X DELETE -H "$(auth)" "$API_V2/pods/$POD_ID" >/dev/null 2>&1 || true
+    POD_ID=""; COST_PER_HR=""
+  fi
+}
 
-deadline=$(( $(date +%s) + 600 ))
-while [ $(date +%s) -lt $deadline ]; do
-  info=$(curl -sS -m 30 -H "$(auth)" "$API_V2/pods/$POD_ID")
-  eval "$(echo "$info" | python3 -c "
+# Direct public SSH only. Community pods often expose only the ssh.runpod.io
+# proxy, which this box cannot use (resolver sinkholes that host; the proxy
+# also requires a PTY and does not run remote commands or scp).
+wait_direct_ssh() {
+  local deadline st ip port
+  PUB_IP=""; SSH_PORT=""
+  deadline=$(( $(date +%s) + ${SSH_WAIT_SEC:-90} ))
+  while [ $(date +%s) -lt $deadline ]; do
+    info=$(curl -sS -m 30 -H "$(auth)" "$API_V2/pods/$POD_ID")
+    eval "$(echo "$info" | python3 -c "
 import sys, json
 d = json.load(sys.stdin)
 st = d.get('status') or ''
@@ -193,13 +188,41 @@ print(f'st={st!r}')
 print(f'ip={host!r}')
 print(f'port={port!r}')
 ")"
-  log "wait status=$st ip=${ip:-?} port=${port:-?}"
-  if [ "$st" = RUNNING ] && [ -n "$ip" ] && [ -n "$port" ]; then
-    PUB_IP=$ip; SSH_PORT=$port; break
-  fi
-  sleep 5
+    log "wait status=$st ip=${ip:-?} port=${port:-?}"
+    if [ "$st" = RUNNING ] && [ -n "$ip" ] && [ -n "$port" ]; then
+      PUB_IP=$ip; SSH_PORT=$port; return 0
+    fi
+    sleep 5
+  done
+  return 1
+}
+
+# Walk cloud x GPU candidates until one deploys with direct SSH.
+CLOUDS=()
+if [ -n "$CLOUD" ]; then CLOUDS=("$CLOUD"); else IFS='|' read -ra CLOUDS <<<"$CLOUD_CANDIDATES"; fi
+GPUS=()
+if [ -n "$GPU_TYPE" ]; then GPUS=("$GPU_TYPE"); else IFS='|' read -ra GPUS <<<"$GPU_CANDIDATES"; fi
+CREATED=0
+for cloud in "${CLOUDS[@]}"; do
+  for gpu in "${GPUS[@]}"; do
+    GPU_TYPE="$gpu"
+    log "trying cloud=$cloud gpu=$gpu"
+    if create_pod "$cloud"; then
+      log "deployed cloud=$cloud gpu=$GPU_TYPE pod=$POD_ID"
+      if wait_direct_ssh; then
+        CLOUD=$cloud
+        CREATED=1
+        break 2
+      fi
+      discard_pod "no direct SSH within ${SSH_WAIT_SEC:-90}s"
+      if [ "$cloud" = COMMUNITY ]; then
+        log "community has no direct SSH from this box; skipping remaining community types"
+        break
+      fi
+    fi
+  done
 done
-[ -n "$PUB_IP" ] && [ -n "$SSH_PORT" ] || { log "timeout waiting for SSH endpoint"; exit 1; }
+[ "$CREATED" = 1 ] || { log "no candidate deployed with direct SSH (clouds=${CLOUDS[*]} gpus=${GPUS[*]})"; exit 1; }
 
 SSH=(ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR
      -o ConnectTimeout=15 -i "$SSH_PRIV" -p "$SSH_PORT")

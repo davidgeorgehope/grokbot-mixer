@@ -1,8 +1,8 @@
-Mix 08 A/B clips (v2 vs a FADE=long test render). Audio only.
+Mix 08 A/B clips. Audio only.
 
-Each file is one real blend from the mix. The filename is the mix time where the blend starts.
-Every clip starts 16 bars before that blend and ends 8 bars after it.
+Each file is one real blend from the mix. The filename has the two track names and the time inside the clip where the blend starts.
+Every clip starts 16 bars before that blend and ends 8 bars after the outgoing track is gone (A and B of the same number share the same window, long enough for both versions).
 A short tick marks the exact blend start (always 16 bars / about 0:22 into the file, unless the mix began later).
 A and B of the same number are the same blend and the same window, two versions, labelled blindly.
 
-The times when the outgoing track is fully gone are in the accompanying message (they differ between A and B).
+The times when the outgoing track is fully gone are in the accompanying message (they can differ between A and B).

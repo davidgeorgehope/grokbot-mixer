@@ -1,0 +1,236 @@
+{
+  "long1g_pytest": "4 failed, 213 passed, 1 skipped in 2069.95s",
+  "official": [
+    "X1 (14, including t1 5:08 x=1.00 and 13 \u201cdoes not go 1->0\u201d)",
+    "test_bass_never_doubles (3 blends, 3\u20136 bars both loud)",
+    "guardrails n_fail=49 (X1 14, L1 35 including 10:51 both decks full bass)",
+    "test_outgoing_fader_tail_is_gradual ride=0.0 (steep=[], xfader was not empty: bass_swap[1] was at/past the window end)"
+  ],
+  "ranked_causes": [
+    {
+      "rank": 1,
+      "cause": "cover_through delayed the outgoing low down-ramp to last_thin+1 on every blend that had any second-half thin bars, even when the exit-start handoff already finished BEFORE first_thin (t1, t2, t3, \u2026). That is a later move, to x=1 / past the window end.",
+      "evidence": [
+        {
+          "i": 1,
+          "tag": "5:08",
+          "start": 224,
+          "end": 256,
+          "first_thin": 241,
+          "bass_swap_f": [
+            227.0,
+            232.0
+          ],
+          "bass_swap_g": [
+            228.0,
+            254.0
+          ],
+          "swap_bar_f": 230,
+          "swap_bar_g": 230,
+          "x_centre_f": 0.475,
+          "x_centre_g": 0.865,
+          "xfader_n_f": 129,
+          "xfader_n_g": 129,
+          "both_full_bars_f": 0.0,
+          "both_full_bars_g": 21.75,
+          "out_at_end_f": 0.0,
+          "out_at_end_g": 0.0
+        },
+        {
+          "i": 2,
+          "tag": "9:11",
+          "start": 400,
+          "end": 416,
+          "first_thin": 415,
+          "bass_swap_f": [
+            403.0,
+            408.0
+          ],
+          "bass_swap_g": [
+            404.0,
+            420.0
+          ],
+          "swap_bar_f": 406,
+          "swap_bar_g": 406,
+          "x_centre_f": 0.481,
+          "x_centre_g": 0.894,
+          "xfader_n_f": 65,
+          "xfader_n_g": 65,
+          "both_full_bars_f": 0.0,
+          "both_full_bars_g": 10.0,
+          "out_at_end_f": 0.0,
+          "out_at_end_g": 1.0
+        },
+        {
+          "i": 3,
+          "tag": "10:51",
+          "start": 464,
+          "end": 480,
+          "first_thin": 479,
+          "bass_swap_f": [
+            469.0,
+            474.0
+          ],
+          "bass_swap_g": [
+            470.0,
+            484.0
+          ],
+          "swap_bar_f": 472,
+          "swap_bar_g": 472,
+          "x_centre_f": 0.485,
+          "x_centre_g": 0.9,
+          "xfader_n_f": 65,
+          "xfader_n_g": 65,
+          "both_full_bars_f": 0.0,
+          "both_full_bars_g": 8.0,
+          "out_at_end_f": 0.0,
+          "out_at_end_g": 1.0
+        },
+        {
+          "i": 12,
+          "tag": "t12 bass gap",
+          "start": 1312,
+          "end": 1344,
+          "first_thin": 1328,
+          "bass_swap_f": [
+            1328.0,
+            1333.0
+          ],
+          "bass_swap_g": [
+            1329.0,
+            1348.0
+          ],
+          "swap_bar_f": 1331,
+          "swap_bar_g": 1331,
+          "x_centre_f": 0.496,
+          "x_centre_g": 0.888,
+          "xfader_n_f": 129,
+          "xfader_n_g": 129,
+          "both_full_bars_f": 0.0,
+          "both_full_bars_g": 13.0,
+          "out_at_end_f": 0.0,
+          "out_at_end_g": 1.0
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "cause": "Incoming lag stayed 0, so incoming lows still rose at the original exit-start swap while outgoing stayed at 1 until the end. Both decks carried full bass for most of the second half (L1, bass_never_doubles).",
+      "evidence": "t1 5:08 both>0.5 for ~20 bars; t3 10:51 is one of 35 L1 hits."
+    },
+    {
+      "rank": 3,
+      "cause": "X1 reads the low-lane movement itself: outgoing often did not reach 0 inside the blend (ramp ended after e), or its mid-point sat at x=1.00 (t1). The xfader curves were present and monotonic; the ride test used bass_swap[1] as the start of the \u201cafter swap\u201d region, which was now at/past e, so ride=0.0 with empty steep list.",
+      "evidence": "guardrails + test_outgoing_fader_tail_is_gradual"
+    },
+    {
+      "rank": 4,
+      "cause": "Not a unit mismatch (mix bars were used consistently) and not \u201cno thin stretch\u201d \u2014 cover_through only fired when last_thin>=0. The wrong predicate was last_thin (hold outgoing to the end) rather than \u201cdoes this handoff overlap the thin region?\u201d Unit tests only checked the lead arithmetic, not X1 or doubled bass on real transitions.",
+      "evidence": "first_thin vs bass_swap on long1f: t1 ends 232, first thin 241; t12 ends 1333, first thin 1328 (the one case that needed an earlier swap)."
+    }
+  ],
+  "fix": "Revert cover_through. swap_before_thin moves the 4-bar outgoing-leads handoff earlier only when it would still be running after first_thin, and only if the new centre stays in X1 0.2-0.65. t12 ends at 1328, x\u22480.46. t1/t2/t3/t0/t6 unchanged. Never move later.",
+  "long1g_x1_n": 14,
+  "cases": [
+    {
+      "i": 1,
+      "tag": "5:08",
+      "start": 224,
+      "end": 256,
+      "first_thin": 241,
+      "bass_swap_f": [
+        227.0,
+        232.0
+      ],
+      "bass_swap_g": [
+        228.0,
+        254.0
+      ],
+      "swap_bar_f": 230,
+      "swap_bar_g": 230,
+      "x_centre_f": 0.475,
+      "x_centre_g": 0.865,
+      "xfader_n_f": 129,
+      "xfader_n_g": 129,
+      "both_full_bars_f": 0.0,
+      "both_full_bars_g": 21.75,
+      "out_at_end_f": 0.0,
+      "out_at_end_g": 0.0
+    },
+    {
+      "i": 2,
+      "tag": "9:11",
+      "start": 400,
+      "end": 416,
+      "first_thin": 415,
+      "bass_swap_f": [
+        403.0,
+        408.0
+      ],
+      "bass_swap_g": [
+        404.0,
+        420.0
+      ],
+      "swap_bar_f": 406,
+      "swap_bar_g": 406,
+      "x_centre_f": 0.481,
+      "x_centre_g": 0.894,
+      "xfader_n_f": 65,
+      "xfader_n_g": 65,
+      "both_full_bars_f": 0.0,
+      "both_full_bars_g": 10.0,
+      "out_at_end_f": 0.0,
+      "out_at_end_g": 1.0
+    },
+    {
+      "i": 3,
+      "tag": "10:51",
+      "start": 464,
+      "end": 480,
+      "first_thin": 479,
+      "bass_swap_f": [
+        469.0,
+        474.0
+      ],
+      "bass_swap_g": [
+        470.0,
+        484.0
+      ],
+      "swap_bar_f": 472,
+      "swap_bar_g": 472,
+      "x_centre_f": 0.485,
+      "x_centre_g": 0.9,
+      "xfader_n_f": 65,
+      "xfader_n_g": 65,
+      "both_full_bars_f": 0.0,
+      "both_full_bars_g": 8.0,
+      "out_at_end_f": 0.0,
+      "out_at_end_g": 1.0
+    },
+    {
+      "i": 12,
+      "tag": "t12 bass gap",
+      "start": 1312,
+      "end": 1344,
+      "first_thin": 1328,
+      "bass_swap_f": [
+        1328.0,
+        1333.0
+      ],
+      "bass_swap_g": [
+        1329.0,
+        1348.0
+      ],
+      "swap_bar_f": 1331,
+      "swap_bar_g": 1331,
+      "x_centre_f": 0.496,
+      "x_centre_g": 0.888,
+      "xfader_n_f": 129,
+      "xfader_n_g": 129,
+      "both_full_bars_f": 0.0,
+      "both_full_bars_g": 13.0,
+      "out_at_end_f": 0.0,
+      "out_at_end_g": 1.0
+    }
+  ]
+}

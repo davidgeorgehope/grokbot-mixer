@@ -207,23 +207,34 @@ def test_last_incoming_thin_bar_on_second_half_crash():
   assert FL.last_incoming_thin_bar(al3,lo3,list(range(32)),32)==-1
 
 
-def test_bass_lead_holds_outgoing_through_thin_second_half():
-  # Mix 08 long1f trans 12: swap centre at exit start (bar 19 of 32), incoming thin through 31
-  lead=FL.bass_lead(1.0,fade='long',cover_through=31,swap_centre=19,swap_w=4)
-  start=19-lead[0]-2
-  assert start>=32-1e-9, start
-  assert lead[1]==0.0  # incoming lag unchanged (do not re-stack two full basses)
-
-
-def test_bass_lead_only_delays_outgoing_as_far_as_needed():
-  lead=FL.bass_lead(1.0,fade='long',cover_through=20,swap_centre=19,swap_w=4)
-  # down-ramp starts at cover_through+1
-  assert abs((19-lead[0]-2)-21)<1e-9
-  assert lead[1]==0.0
-
-
 def test_bass_lead_unchanged_when_no_thin_cover():
   # L1 fix stays: outgoing leaves first when the incoming is strong
   assert FL.bass_lead(1.0,fade='long')==(1.0,0.0)
-  assert FL.bass_lead(1.0,fade='long',cover_through=None,swap_centre=19)==(1.0,0.0)
+  assert FL.bass_lead(1.0,fade='tail')==(0.5,0.5)
+
+
+def test_swap_before_thin_moves_early_when_handoff_overlaps_crash():
+  # Mix 08 long1f trans 12: exit-start pos=19/32, first thin at 16, 4-bar lead (1,0)
+  # handoff would end at 21, inside the crash. Move so it ends at 16 (centre 14, x=0.46).
+  xpos=lambda u: 0.35 + 0.15*min(1.0, max(0.0,(u*32-3)/16))  # plateau 0.35->0.5, x(14/32)~0.45
+  pos=FL.swap_before_thin(32, 19/32, 16, swap_w=4, outgoing_lead=1.0, incoming_lag=0.0, xpos=xpos)
+  assert abs(pos*32 - 14) < 1e-9
+  assert 0.2 <= xpos(pos) <= 0.65
+  # handoff ends at first thin
+  assert abs((pos*32 + 2) - 16) < 1e-9
+
+
+def test_swap_before_thin_leaves_pos_when_handoff_already_ends_first():
+  # Mix 08 long1f trans 1: swap ends at 8 of 32, first thin at 17. Do not move (and never later).
+  pos=FL.swap_before_thin(32, 6/32, 17, swap_w=4, outgoing_lead=1.0, incoming_lag=0.0, xpos=lambda u: 0.5)
+  assert abs(pos*32 - 6) < 1e-9
+  # no thin
+  assert FL.swap_before_thin(32, 19/32, -1, swap_w=4, outgoing_lead=1.0, incoming_lag=0.0) == 19/32
+
+
+def test_swap_before_thin_refuses_a_centre_outside_x1():
+  # first thin so late that the early centre would sit at x>0.65: leave pos (do not park at x=1)
+  xpos=lambda u: 0.9  # always illegal
+  pos=FL.swap_before_thin(16, 8/16, 15, swap_w=4, outgoing_lead=1.0, incoming_lag=0.0, xpos=xpos)
+  assert abs(pos - 8/16) < 1e-9
 

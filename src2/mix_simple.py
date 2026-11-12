@@ -343,7 +343,17 @@ for i,d in enumerate(decks):
       if t['a'] in PIN or f"{t['a']}>{t['b']}" in LEADOFF:return (0.0,0.0)
       # FADE=long: outgoing lows leave first, even when the swap is at POS (exit start), so the
       # mid-cross is not two equal plateau faders (Mix 08 long1e L1). Phrase-snapped unchanged.
-      return _FL.bass_lead(BLEAD,phrase=bool(t.get('swap_phrase')),fade=t.get('fade',FADE))
+      # If cap_solo is covering a thin incoming stretch, also hold outgoing lows through it
+      # (Mix 08 long1f trans 12: swap at the exit start had already dropped Ember's bass).
+      kw=dict(blead=BLEAD,phrase=bool(t.get('swap_phrase')),fade=t.get('fade',FADE))
+      if t.get('fade',FADE)=='long':
+        i=trans.index(t);dB=decks[i+1];s,e=int(t['start_bar']),int(t['end_bar']);Xw=e-s
+        fm,ds=dB['full_map'],dB['start_bar']
+        wb=[fm[int(b-ds)][0] if 0<=int(b-ds)<len(fm) else -1 for b in range(s,e)]
+        g=track(t['b'])['g']['bar']
+        last=_FL.last_incoming_thin_bar(np.array(g['all'],float),np.array(g.get('low',g['all']),float),wb,Xw)
+        if last>=0:kw.update(cover_through=s+last,swap_centre=at(t),swap_w=t['swap_w'])
+      return _FL.bass_lead(**kw)
     if i>0:lo+=ramp(at(trans[i-1])+lead(trans[i-1])[1],True,trans[i-1]['swap_w'])
     if i<len(decks)-1:lo+=ramp(at(trans[i])-lead(trans[i])[0],False,trans[i]['swap_w'])
     d['auto']['low']=lo
@@ -354,8 +364,10 @@ for i,d in enumerate(decks):
 if SW0>0 or PIN:  # trans['bass_swap'] = the low lanes as rendered (2026-11-11 RCA: it reported POS*X, 213.5-216.5, while the lanes ran 225.5-229.5)
   for t in trans:
     if t['swap_w']>0:
-      _c=t['swap_bar']+t.get('swap_ofs',t['swap_w']/2 if t['swap_phrase'] else 0);_l=lead(t)
-      t['bass_swap']=[round(_c-_l[0]-t['swap_w']/2,3),round(_c+_l[1]+t['swap_w']/2,3)]
+      _c=t['swap_bar']+t.get('swap_ofs',t['swap_w']/2 if t['swap_phrase'] else 0);_l=lead(t);_w=t['swap_w']
+      _a, _b = _c-_l[0]-_w/2, _c-_l[0]+_w/2  # outgoing down-ramp
+      _c0,_c1 = _c+_l[1]-_w/2, _c+_l[1]+_w/2  # incoming up-ramp
+      t['bass_swap']=[round(min(_a,_c0),3),round(max(_b,_c1),3)]
 for t in trans:
   t['vocal_data']={t['a']:t['a'] not in VOCOFF,t['b']:t['b'] not in VOCOFF}
   if t['a'] in VOCOFF or t['b'] in VOCOFF:t['notes']=list(t['notes'])+['vocal overlap not checked: no vocal data for '+', '.join(x for x in (t['a'],t['b']) if x in VOCOFF)]

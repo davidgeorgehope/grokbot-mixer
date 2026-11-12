@@ -1,0 +1,3876 @@
+{
+  "code_path": {
+    "struct_solo": 16.0,
+    "cap_solo_incoming": 0.0,
+    "hold": 0.0,
+    "vocal_exit_solo": 16.0,
+    "vocal_exit_exit_": 8.0,
+    "exit_start_bars_into": 8.0,
+    "exit_end_bars_into": 16.0,
+    "swap_pos": 0.25,
+    "swap_centre_mix": 1320.0,
+    "bass_lead": [
+      1.0,
+      0.0
+    ],
+    "predicted_bass_swap": [
+      1317.0,
+      1322.0
+    ],
+    "predicted_swap_bar": 1320,
+    "xf_gone_pred": 1328.0,
+    "incoming_first_half_median_all": -15.945,
+    "incoming_thin_all_mixbars": [
+      1328,
+      1329,
+      1330,
+      1331,
+      1332,
+      1333,
+      1334,
+      1335,
+      1336,
+      1337,
+      1338,
+      1339,
+      1340,
+      1341,
+      1342,
+      1343
+    ],
+    "incoming_first_half_median_low": -17.865000000000002,
+    "incoming_thin_low_mixbars": [
+      1328,
+      1329,
+      1330,
+      1331,
+      1332,
+      1333,
+      1334,
+      1335,
+      1336,
+      1337,
+      1338,
+      1339,
+      1340,
+      1341,
+      1342,
+      1343
+    ],
+    "incoming_low_in_window": {
+      "1312": -18.36,
+      "1313": -18.21,
+      "1314": -17.71,
+      "1315": -17.86,
+      "1316": -17.4,
+      "1317": -17.52,
+      "1318": -17.67,
+      "1319": -17.87,
+      "1320": -18.35,
+      "1321": -18.22,
+      "1322": -17.71,
+      "1323": -17.88,
+      "1324": -17.39,
+      "1325": -17.45,
+      "1326": -19.88,
+      "1327": -23.43,
+      "1328": -31.61,
+      "1329": -33.58,
+      "1330": -41.97,
+      "1331": -40.06,
+      "1332": -39.44,
+      "1333": -34.21,
+      "1334": -36.38,
+      "1335": -27.13,
+      "1336": -27.9,
+      "1337": -32.49,
+      "1338": -27.4,
+      "1339": -32.09,
+      "1340": -27.29,
+      "1341": -28.57,
+      "1342": -29.48,
+      "1343": -26.67
+    },
+    "incoming_all_in_window": {
+      "1312": -16.29,
+      "1313": -16.22,
+      "1314": -15.82,
+      "1315": -15.93,
+      "1316": -15.58,
+      "1317": -15.63,
+      "1318": -15.69,
+      "1319": -15.96,
+      "1320": -16.39,
+      "1321": -16.22,
+      "1322": -15.89,
+      "1323": -15.99,
+      "1324": -15.63,
+      "1325": -15.72,
+      "1326": -17.43,
+      "1327": -20.6,
+      "1328": -28.27,
+      "1329": -28.65,
+      "1330": -31.34,
+      "1331": -35.84,
+      "1332": -34.08,
+      "1333": -28.83,
+      "1334": -29.45,
+      "1335": -25.23,
+      "1336": -23.07,
+      "1337": -21.68,
+      "1338": -22.82,
+      "1339": -26.33,
+      "1340": -22.41,
+      "1341": -21.14,
+      "1342": -23.59,
+      "1343": -22.22
+    },
+    "srcA_at_gap": [
+      195,
+      196
+    ],
+    "srcB_at_gap": [
+      99,
+      100
+    ],
+    "recorded": {
+      "bass_swap": [
+        1328.0,
+        1333.0
+      ],
+      "swap_bar": 1331,
+      "high_bar": 1336,
+      "end_bar": 1344,
+      "swap_phrase": false,
+      "swap_w": 4.0
+    }
+  },
+  "bassgap_t12": {
+    "i": 12,
+    "s": 1312,
+    "e": 1344,
+    "mark_bars": [
+      1331,
+      1332
+    ],
+    "md_long": {
+      "1308": -12.77,
+      "1309": -12.44,
+      "1310": -13.88,
+      "1311": -17.3,
+      "1312": -12.48,
+      "1313": -15.94,
+      "1314": -13.2,
+      "1315": -19.29,
+      "1316": -14.66,
+      "1317": -16.82,
+      "1318": -13.99,
+      "1319": -18.88,
+      "1320": -13.19,
+      "1321": -16.65,
+      "1322": -13.32,
+      "1323": -19.4,
+      "1324": -12.38,
+      "1325": -11.71,
+      "1326": -12.52,
+      "1327": -16.04,
+      "1328": -18.54,
+      "1329": -18.73,
+      "1330": -21.67,
+      "1331": -32.08,
+      "1332": -32.13,
+      "1333": -27.6,
+      "1334": -28.95,
+      "1335": -20.37,
+      "1336": -21.14,
+      "1337": -26.03,
+      "1338": -20.53,
+      "1339": -24.77,
+      "1340": -20.53,
+      "1341": -22.1,
+      "1342": -22.7,
+      "1343": -20.02,
+      "1344": -21.86,
+      "1345": -23.79,
+      "1346": -20.36,
+      "1347": -20.43
+    },
+    "md_long1e": {
+      "1308": -12.77,
+      "1309": -12.44,
+      "1310": -13.88,
+      "1311": -17.3,
+      "1312": -12.48,
+      "1313": -15.94,
+      "1314": -13.2,
+      "1315": -19.29,
+      "1316": -14.66,
+      "1317": -16.82,
+      "1318": -13.98,
+      "1319": -18.87,
+      "1320": -13.18,
+      "1321": -16.63,
+      "1322": -13.29,
+      "1323": -19.37,
+      "1324": -12.23,
+      "1325": -11.5,
+      "1326": -12.39,
+      "1327": -15.65,
+      "1328": -18.07,
+      "1329": -16.35,
+      "1330": -15.46,
+      "1331": -24.42,
+      "1332": -26.02,
+      "1333": -28.2,
+      "1334": -28.87,
+      "1335": -20.19,
+      "1336": -21.02,
+      "1337": -25.95,
+      "1338": -20.45,
+      "1339": -24.72,
+      "1340": -20.46,
+      "1341": -22.04,
+      "1342": -22.68,
+      "1343": -20.01,
+      "1344": -21.86,
+      "1345": -23.79,
+      "1346": -20.36,
+      "1347": -20.43
+    },
+    "md_v2": {
+      "1308": -12.77,
+      "1309": -12.44,
+      "1310": -13.88,
+      "1311": -17.3,
+      "1312": -12.43,
+      "1313": -15.8,
+      "1314": -12.55,
+      "1315": -18.8,
+      "1316": -14.03,
+      "1317": -16.05,
+      "1318": -13.35,
+      "1319": -18.26,
+      "1320": -12.76,
+      "1321": -16.15,
+      "1322": -13.03,
+      "1323": -19.94,
+      "1324": -21.26,
+      "1325": -16.37,
+      "1326": -17.06,
+      "1327": -20.99,
+      "1328": -26.39,
+      "1329": -27.62,
+      "1330": -33.3,
+      "1331": -32.07,
+      "1332": -31.91,
+      "1333": -27.2,
+      "1334": -28.82,
+      "1335": -20.33,
+      "1336": -21.13,
+      "1337": -26.04,
+      "1338": -20.54,
+      "1339": -24.78,
+      "1340": -20.54,
+      "1341": -22.11,
+      "1342": -22.71,
+      "1343": -20.03,
+      "1344": -21.86,
+      "1345": -23.79,
+      "1346": -20.36,
+      "1347": -20.43
+    },
+    "srcA": {
+      "1308": -17.3,
+      "1309": -17.3,
+      "1310": -19.18,
+      "1311": -22.76,
+      "1312": -17.13,
+      "1313": -20.81,
+      "1314": -17.17,
+      "1315": -23.55,
+      "1316": -18.46,
+      "1317": -21.13,
+      "1318": -17.61,
+      "1319": -23.08,
+      "1320": -16.73,
+      "1321": -20.92,
+      "1322": -17.08,
+      "1323": -23.29,
+      "1324": -15.91,
+      "1325": -15.4,
+      "1326": -16.96,
+      "1327": -20.78,
+      "1328": -21.41,
+      "1329": -20.62,
+      "1330": -18.65,
+      "1331": -22.41,
+      "1332": -16.41,
+      "1333": -20.25,
+      "1334": -16.01,
+      "1335": -19.1,
+      "1336": -21.37,
+      "1337": -20.69,
+      "1338": -19.12,
+      "1339": -21.69,
+      "1340": -16.73,
+      "1341": -20.66,
+      "1342": -15.86,
+      "1343": -24.29
+    },
+    "srcB": {
+      "1312": -19.84,
+      "1313": -19.7,
+      "1314": -19.19,
+      "1315": -19.34,
+      "1316": -18.88,
+      "1317": -19.0,
+      "1318": -19.15,
+      "1319": -19.35,
+      "1320": -19.83,
+      "1321": -19.7,
+      "1322": -19.19,
+      "1323": -19.36,
+      "1324": -18.87,
+      "1325": -18.93,
+      "1326": -21.36,
+      "1327": -24.9,
+      "1328": -33.09,
+      "1329": -35.07,
+      "1330": -43.52,
+      "1331": -41.54,
+      "1332": -40.92,
+      "1333": -35.69,
+      "1334": -37.87,
+      "1335": -28.62,
+      "1336": -29.39,
+      "1337": -34.0,
+      "1338": -28.9,
+      "1339": -33.59,
+      "1340": -28.81,
+      "1341": -30.05,
+      "1342": -31.04,
+      "1343": -28.17,
+      "1344": -30.01,
+      "1345": -32.14,
+      "1346": -28.99,
+      "1347": -28.97
+    },
+    "off_long": {
+      "1312": 169.8,
+      "1313": 100.1,
+      "1314": 103.0,
+      "1315": 24.7,
+      "1316": 24.7,
+      "1317": 156.7,
+      "1318": 156.7,
+      "1319": 56.6,
+      "1320": 105.9,
+      "1321": -153.8,
+      "1322": 139.3,
+      "1323": 129.2,
+      "1324": -117.6,
+      "1325": 11.6,
+      "1326": 23.2,
+      "1327": -149.5,
+      "1328": 85.6,
+      "1329": 142.2,
+      "1330": 34.8,
+      "1331": -139.3,
+      "1332": -110.3,
+      "1333": -33.4,
+      "1334": 84.2,
+      "1335": -156.7,
+      "1336": 21.8,
+      "1337": 91.4,
+      "1338": -14.5,
+      "1339": -132.1,
+      "1340": -132.1,
+      "1341": 95.8,
+      "1342": 95.8,
+      "1343": -91.4
+    },
+    "off_v2": {
+      "1312": -171.2,
+      "1313": 100.1,
+      "1314": 103.0,
+      "1315": 117.6,
+      "1316": 164.0,
+      "1317": 156.7,
+      "1318": 156.7,
+      "1319": 56.6,
+      "1320": 105.9,
+      "1321": 139.3,
+      "1322": 139.3,
+      "1323": 39.2,
+      "1324": -121.9,
+      "1325": -82.7,
+      "1326": -47.9,
+      "1327": 164.0,
+      "1328": 40.6,
+      "1329": 40.6,
+      "1330": 53.7,
+      "1331": -139.3,
+      "1332": -110.3,
+      "1333": -33.4,
+      "1334": 84.2,
+      "1335": -156.7,
+      "1336": 21.8,
+      "1337": 91.4,
+      "1338": -14.5,
+      "1339": -132.1,
+      "1340": -132.1,
+      "1341": 95.8,
+      "1342": 95.8,
+      "1343": -91.4
+    },
+    "hb": {
+      "r0": 0.731,
+      "rh": 0.441,
+      "lag_ms": 0.0,
+      "bars": 16,
+      "phase_fail": false,
+      "lag_fail": false,
+      "fail": false,
+      "phase_a": 0.0,
+      "phase_b": -0.125,
+      "dphase_beats": 0.125,
+      "dphase_ms": 43.1,
+      "strength": 3.66,
+      "basis": "drum-phase+lag"
+    },
+    "bass_swap_long": [
+      1328.0,
+      1333.0
+    ],
+    "bass_swap_v2": [
+      1322.0,
+      1324.0
+    ],
+    "bass_swap_long1e": [
+      1329.5,
+      1334.5
+    ]
+  },
+  "bassgap_depths_long1f": [
+    {
+      "bar": 1324,
+      "db": -12.38,
+      "neigh": -14.68,
+      "depth": -2.3,
+      "flag": false
+    },
+    {
+      "bar": 1325,
+      "db": -11.71,
+      "neigh": -16.34,
+      "depth": -4.63,
+      "flag": false
+    },
+    {
+      "bar": 1326,
+      "db": -12.52,
+      "neigh": -17.29,
+      "depth": -4.77,
+      "flag": false
+    },
+    {
+      "bar": 1327,
+      "db": -16.04,
+      "neigh": -18.64,
+      "depth": -2.6,
+      "flag": false
+    },
+    {
+      "bar": 1328,
+      "db": -18.54,
+      "neigh": -17.39,
+      "depth": 1.16,
+      "flag": false
+    },
+    {
+      "bar": 1329,
+      "db": -18.73,
+      "neigh": -20.1,
+      "depth": -1.37,
+      "flag": false
+    },
+    {
+      "bar": 1330,
+      "db": -21.67,
+      "neigh": -23.17,
+      "depth": -1.5,
+      "flag": false
+    },
+    {
+      "bar": 1331,
+      "db": -32.08,
+      "neigh": -21.02,
+      "depth": 11.06,
+      "flag": true
+    },
+    {
+      "bar": 1332,
+      "db": -32.13,
+      "neigh": -21.41,
+      "depth": 10.73,
+      "flag": true
+    },
+    {
+      "bar": 1333,
+      "db": -27.6,
+      "neigh": -23.85,
+      "depth": 3.75,
+      "flag": false
+    },
+    {
+      "bar": 1334,
+      "db": -28.95,
+      "neigh": -23.85,
+      "depth": 5.1,
+      "flag": false
+    },
+    {
+      "bar": 1335,
+      "db": -20.37,
+      "neigh": -26.82,
+      "depth": -6.45,
+      "flag": false
+    },
+    {
+      "bar": 1336,
+      "db": -21.14,
+      "neigh": -25.4,
+      "depth": -4.26,
+      "flag": false
+    },
+    {
+      "bar": 1337,
+      "db": -26.03,
+      "neigh": -21.62,
+      "depth": 4.41,
+      "flag": false
+    },
+    {
+      "bar": 1338,
+      "db": -20.53,
+      "neigh": -22.4,
+      "depth": -1.87,
+      "flag": false
+    }
+  ],
+  "bassgap_depths_long1e": [
+    {
+      "bar": 1324,
+      "db": -12.23,
+      "neigh": -14.47,
+      "depth": -2.24,
+      "flag": false
+    },
+    {
+      "bar": 1325,
+      "db": -11.5,
+      "neigh": -16.0,
+      "depth": -4.5,
+      "flag": false
+    },
+    {
+      "bar": 1326,
+      "db": -12.39,
+      "neigh": -15.55,
+      "depth": -3.16,
+      "flag": false
+    },
+    {
+      "bar": 1327,
+      "db": -15.65,
+      "neigh": -15.9,
+      "depth": -0.25,
+      "flag": false
+    },
+    {
+      "bar": 1328,
+      "db": -18.07,
+      "neigh": -15.55,
+      "depth": 2.51,
+      "flag": false
+    },
+    {
+      "bar": 1329,
+      "db": -16.35,
+      "neigh": -16.86,
+      "depth": -0.51,
+      "flag": false
+    },
+    {
+      "bar": 1330,
+      "db": -15.46,
+      "neigh": -21.25,
+      "depth": -5.79,
+      "flag": false
+    },
+    {
+      "bar": 1331,
+      "db": -24.42,
+      "neigh": -19.13,
+      "depth": 5.29,
+      "flag": false
+    },
+    {
+      "bar": 1332,
+      "db": -26.02,
+      "neigh": -20.61,
+      "depth": 5.41,
+      "flag": false
+    },
+    {
+      "bar": 1333,
+      "db": -28.2,
+      "neigh": -22.72,
+      "depth": 5.48,
+      "flag": false
+    },
+    {
+      "bar": 1334,
+      "db": -28.87,
+      "neigh": -22.72,
+      "depth": 6.15,
+      "flag": false
+    },
+    {
+      "bar": 1335,
+      "db": -20.19,
+      "neigh": -25.33,
+      "depth": -5.14,
+      "flag": false
+    },
+    {
+      "bar": 1336,
+      "db": -21.02,
+      "neigh": -25.33,
+      "depth": -4.31,
+      "flag": false
+    },
+    {
+      "bar": 1337,
+      "db": -25.95,
+      "neigh": -21.53,
+      "depth": 4.41,
+      "flag": false
+    },
+    {
+      "bar": 1338,
+      "db": -20.45,
+      "neigh": -22.36,
+      "depth": -1.91,
+      "flag": false
+    }
+  ],
+  "bassgap_depths_v2": [
+    {
+      "bar": 1324,
+      "db": -21.26,
+      "neigh": -16.72,
+      "depth": 4.54,
+      "flag": false
+    },
+    {
+      "bar": 1325,
+      "db": -16.37,
+      "neigh": -20.46,
+      "depth": -4.09,
+      "flag": false
+    },
+    {
+      "bar": 1326,
+      "db": -17.06,
+      "neigh": -21.12,
+      "depth": -4.07,
+      "flag": false
+    },
+    {
+      "bar": 1327,
+      "db": -20.99,
+      "neigh": -23.83,
+      "depth": -2.84,
+      "flag": false
+    },
+    {
+      "bar": 1328,
+      "db": -26.39,
+      "neigh": -24.44,
+      "depth": 1.95,
+      "flag": false
+    },
+    {
+      "bar": 1329,
+      "db": -27.62,
+      "neigh": -26.8,
+      "depth": 0.83,
+      "flag": false
+    },
+    {
+      "bar": 1330,
+      "db": -33.3,
+      "neigh": -27.41,
+      "depth": 5.89,
+      "flag": false
+    },
+    {
+      "bar": 1331,
+      "db": -32.07,
+      "neigh": -27.41,
+      "depth": 4.66,
+      "flag": false
+    },
+    {
+      "bar": 1332,
+      "db": -31.91,
+      "neigh": -27.41,
+      "depth": 4.5,
+      "flag": false
+    },
+    {
+      "bar": 1333,
+      "db": -27.2,
+      "neigh": -28.22,
+      "depth": -1.03,
+      "flag": false
+    },
+    {
+      "bar": 1334,
+      "db": -28.82,
+      "neigh": -26.62,
+      "depth": 2.2,
+      "flag": false
+    },
+    {
+      "bar": 1335,
+      "db": -20.33,
+      "neigh": -26.62,
+      "depth": -6.29,
+      "flag": false
+    },
+    {
+      "bar": 1336,
+      "db": -21.13,
+      "neigh": -25.41,
+      "depth": -4.28,
+      "flag": false
+    },
+    {
+      "bar": 1337,
+      "db": -26.04,
+      "neigh": -21.62,
+      "depth": 4.42,
+      "flag": false
+    },
+    {
+      "bar": 1338,
+      "db": -20.54,
+      "neigh": -22.41,
+      "depth": -1.87,
+      "flag": false
+    }
+  ],
+  "meta_cmp": {
+    "long1f": {
+      "swap_bar": 1331,
+      "bass_swap": [
+        1328.0,
+        1333.0
+      ],
+      "high_bar": 1336,
+      "fade": "long",
+      "swap_w": 4.0,
+      "swap_phrase": false
+    },
+    "long1e": {
+      "swap_bar": 1332,
+      "bass_swap": [
+        1329.5,
+        1334.5
+      ],
+      "high_bar": 1324,
+      "fade": "long",
+      "swap_w": 4.0,
+      "swap_phrase": false
+    },
+    "v2": {
+      "swap_bar": 1324,
+      "bass_swap": [
+        1322.0,
+        1324.0
+      ],
+      "high_bar": 1336,
+      "fade": "tail",
+      "swap_w": 2.0,
+      "swap_phrase": true
+    }
+  },
+  "scan_long1f": [
+    {
+      "i": 1,
+      "a": "1WOi5IRuO7Y",
+      "b": "hNV8hn33JUU",
+      "start_bar": 224,
+      "end_bar": 256,
+      "bass_swap": [
+        227.0,
+        232.0
+      ],
+      "swap_bar": 230,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 249,
+          "bars": 1,
+          "max_depth": 8.76,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 249,
+          "db": -33.86,
+          "neigh": -25.09,
+          "depth": 8.76
+        }
+      ]
+    },
+    {
+      "i": 2,
+      "a": "hNV8hn33JUU",
+      "b": "KdtDm5cBsFo",
+      "start_bar": 400,
+      "end_bar": 416,
+      "bass_swap": [
+        403.0,
+        408.0
+      ],
+      "swap_bar": 406,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 415,
+          "bars": 1,
+          "max_depth": 9.88,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 415,
+          "db": -22.22,
+          "neigh": -12.33,
+          "depth": 9.88
+        }
+      ]
+    },
+    {
+      "i": 3,
+      "a": "KdtDm5cBsFo",
+      "b": "uMDP4VTzlBI",
+      "start_bar": 464,
+      "end_bar": 480,
+      "bass_swap": [
+        469.0,
+        474.0
+      ],
+      "swap_bar": 472,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 463,
+          "bars": 1,
+          "max_depth": 13.98,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 463,
+          "db": -27.31,
+          "neigh": -13.33,
+          "depth": 13.98
+        }
+      ]
+    },
+    {
+      "i": 4,
+      "a": "uMDP4VTzlBI",
+      "b": "5gFutO20uKA",
+      "start_bar": 544,
+      "end_bar": 560,
+      "bass_swap": [
+        547.0,
+        552.0
+      ],
+      "swap_bar": 550,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 560,
+          "bars": 2,
+          "max_depth": 11.65,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 560,
+          "db": -36.41,
+          "neigh": -27.75,
+          "depth": 8.65
+        },
+        {
+          "bar": 561,
+          "db": -39.43,
+          "neigh": -27.78,
+          "depth": 11.65
+        }
+      ]
+    },
+    {
+      "i": 5,
+      "a": "5gFutO20uKA",
+      "b": "VdyXzg3nxfU",
+      "start_bar": 592,
+      "end_bar": 624,
+      "bass_swap": [
+        597.0,
+        602.0
+      ],
+      "swap_bar": 600,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 623,
+          "bars": 1,
+          "max_depth": 12.11,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 623,
+          "db": -29.92,
+          "neigh": -17.81,
+          "depth": 12.11
+        }
+      ]
+    },
+    {
+      "i": 7,
+      "a": "6JmrdpH1B5M",
+      "b": "OPuVVhbkicU",
+      "start_bar": 816,
+      "end_bar": 832,
+      "bass_swap": [
+        819.0,
+        824.0
+      ],
+      "swap_bar": 822,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 829,
+          "bars": 1,
+          "max_depth": 14.58,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 829,
+          "db": -27.78,
+          "neigh": -13.21,
+          "depth": 14.58
+        }
+      ]
+    },
+    {
+      "i": 8,
+      "a": "OPuVVhbkicU",
+      "b": "NaY3x3GRDF4",
+      "start_bar": 912,
+      "end_bar": 928,
+      "bass_swap": [
+        915.0,
+        920.0
+      ],
+      "swap_bar": 918,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 927,
+          "bars": 1,
+          "max_depth": 8.18,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 927,
+          "db": -24.28,
+          "neigh": -16.11,
+          "depth": 8.18
+        }
+      ]
+    },
+    {
+      "i": 9,
+      "a": "NaY3x3GRDF4",
+      "b": "sObzaBqaBRQ",
+      "start_bar": 1008,
+      "end_bar": 1040,
+      "bass_swap": [
+        1011.0,
+        1016.0
+      ],
+      "swap_bar": 1014,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1006,
+          "bars": 2,
+          "max_depth": 10.81,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        },
+        {
+          "start_bar": 1020,
+          "bars": 4,
+          "max_depth": 14.84,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": true,
+          "would_fail": false,
+          "near_miss": true,
+          "one_bar_near": false
+        },
+        {
+          "start_bar": 1036,
+          "bars": 2,
+          "max_depth": 14.92,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": true,
+          "would_fail": false,
+          "near_miss": true,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1006,
+          "db": -24.41,
+          "neigh": -14.26,
+          "depth": 10.15
+        },
+        {
+          "bar": 1007,
+          "db": -24.2,
+          "neigh": -13.39,
+          "depth": 10.81
+        },
+        {
+          "bar": 1020,
+          "db": -25.59,
+          "neigh": -14.73,
+          "depth": 10.86
+        },
+        {
+          "bar": 1021,
+          "db": -26.34,
+          "neigh": -14.59,
+          "depth": 11.75
+        },
+        {
+          "bar": 1022,
+          "db": -27.83,
+          "neigh": -14.42,
+          "depth": 13.42
+        },
+        {
+          "bar": 1023,
+          "db": -28.52,
+          "neigh": -13.68,
+          "depth": 14.84
+        },
+        {
+          "bar": 1036,
+          "db": -31.19,
+          "neigh": -16.27,
+          "depth": 14.92
+        },
+        {
+          "bar": 1037,
+          "db": -30.99,
+          "neigh": -22.3,
+          "depth": 8.69
+        }
+      ]
+    },
+    {
+      "i": 10,
+      "a": "sObzaBqaBRQ",
+      "b": "N-j7tIeGm1E",
+      "start_bar": 1104,
+      "end_bar": 1120,
+      "bass_swap": [
+        1109.0,
+        1114.0
+      ],
+      "swap_bar": 1112,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1103,
+          "bars": 1,
+          "max_depth": 15.12,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1103,
+          "db": -29.43,
+          "neigh": -14.31,
+          "depth": 15.12
+        }
+      ]
+    },
+    {
+      "i": 12,
+      "a": "6YDKymmWe9o",
+      "b": "nT25guf4DRU",
+      "start_bar": 1312,
+      "end_bar": 1344,
+      "bass_swap": [
+        1328.0,
+        1333.0
+      ],
+      "swap_bar": 1331,
+      "fade": "long",
+      "official": [
+        {
+          "start_bar": 1331,
+          "bars": 2,
+          "max_depth": 11.06,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": false,
+          "would_fail": true,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "near": [],
+      "deep_bars": [
+        {
+          "bar": 1331,
+          "db": -32.08,
+          "neigh": -21.02,
+          "depth": 11.06
+        },
+        {
+          "bar": 1332,
+          "db": -32.13,
+          "neigh": -21.41,
+          "depth": 10.73
+        }
+      ]
+    },
+    {
+      "i": 13,
+      "a": "nT25guf4DRU",
+      "b": "FYpf8-UvCUk",
+      "start_bar": 1392,
+      "end_bar": 1408,
+      "bass_swap": [
+        1397.0,
+        1402.0
+      ],
+      "swap_bar": 1400,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1405,
+          "bars": 1,
+          "max_depth": 13.92,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 1407,
+          "bars": 1,
+          "max_depth": 12.55,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1405,
+          "db": -28.46,
+          "neigh": -14.54,
+          "depth": 13.92
+        },
+        {
+          "bar": 1407,
+          "db": -26.28,
+          "neigh": -13.74,
+          "depth": 12.55
+        }
+      ]
+    },
+    {
+      "i": 14,
+      "a": "FYpf8-UvCUk",
+      "b": "rJuyd8koFAU",
+      "start_bar": 1456,
+      "end_bar": 1472,
+      "bass_swap": [
+        1461.0,
+        1466.0
+      ],
+      "swap_bar": 1464,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1455,
+          "bars": 1,
+          "max_depth": 7.89,
+          "official_depth_over": false,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1455,
+          "db": -22.96,
+          "neigh": -15.07,
+          "depth": 7.89
+        }
+      ]
+    },
+    {
+      "i": 15,
+      "a": "rJuyd8koFAU",
+      "b": "kKu3fIOTiHk",
+      "start_bar": 1504,
+      "end_bar": 1536,
+      "bass_swap": [
+        1507.0,
+        1512.0
+      ],
+      "swap_bar": 1510,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1502,
+          "bars": 1,
+          "max_depth": 9.27,
+          "official_depth_over": false,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1502,
+          "db": -41.15,
+          "neigh": -31.88,
+          "depth": 9.27
+        }
+      ]
+    },
+    {
+      "i": 16,
+      "a": "kKu3fIOTiHk",
+      "b": "OYzCe1T_Gpg",
+      "start_bar": 1600,
+      "end_bar": 1632,
+      "bass_swap": [
+        1603.0,
+        1608.0
+      ],
+      "swap_bar": 1606,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1615,
+          "bars": 1,
+          "max_depth": 10.78,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 1631,
+          "bars": 1,
+          "max_depth": 13.1,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1615,
+          "db": -33.3,
+          "neigh": -22.52,
+          "depth": 10.78
+        },
+        {
+          "bar": 1631,
+          "db": -32.72,
+          "neigh": -19.62,
+          "depth": 13.1
+        }
+      ]
+    },
+    {
+      "i": 17,
+      "a": "OYzCe1T_Gpg",
+      "b": "EiZVTuiqo0w",
+      "start_bar": 1728,
+      "end_bar": 1744,
+      "bass_swap": [
+        1733.0,
+        1738.0
+      ],
+      "swap_bar": 1736,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1743,
+          "bars": 1,
+          "max_depth": 8.59,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1743,
+          "db": -31.88,
+          "neigh": -23.29,
+          "depth": 8.59
+        }
+      ]
+    },
+    {
+      "i": 18,
+      "a": "EiZVTuiqo0w",
+      "b": "n1dOiesZS1g",
+      "start_bar": 1872,
+      "end_bar": 1904,
+      "bass_swap": [
+        1890.0,
+        1895.0
+      ],
+      "swap_bar": 1893,
+      "fade": "long",
+      "official": [
+        {
+          "start_bar": 1902,
+          "bars": 2,
+          "max_depth": 13.09,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": false,
+          "would_fail": true,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "near": [
+        {
+          "start_bar": 1870,
+          "bars": 1,
+          "max_depth": 11.33,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1870,
+          "db": -28.05,
+          "neigh": -16.72,
+          "depth": 11.33
+        },
+        {
+          "bar": 1902,
+          "db": -46.65,
+          "neigh": -33.55,
+          "depth": 13.09
+        },
+        {
+          "bar": 1903,
+          "db": -36.32,
+          "neigh": -27.67,
+          "depth": 8.65
+        }
+      ]
+    },
+    {
+      "i": 21,
+      "a": "xENmcMSvZFI",
+      "b": "j9AuFRpLk7U",
+      "start_bar": 2272,
+      "end_bar": 2288,
+      "bass_swap": [
+        2277.0,
+        2282.0
+      ],
+      "swap_bar": 2280,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2278,
+          "bars": 1,
+          "max_depth": 7.86,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2278,
+          "db": -21.26,
+          "neigh": -13.4,
+          "depth": 7.86
+        }
+      ]
+    },
+    {
+      "i": 22,
+      "a": "j9AuFRpLk7U",
+      "b": "-n50uo8so4U",
+      "start_bar": 2352,
+      "end_bar": 2384,
+      "bass_swap": [
+        2357.0,
+        2362.0
+      ],
+      "swap_bar": 2360,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2374,
+          "bars": 1,
+          "max_depth": 11.68,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 2379,
+          "bars": 1,
+          "max_depth": 15.52,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 2381,
+          "bars": 3,
+          "max_depth": 30.76,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": true,
+          "would_fail": false,
+          "near_miss": true,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2374,
+          "db": -31.4,
+          "neigh": -19.72,
+          "depth": 11.68
+        },
+        {
+          "bar": 2379,
+          "db": -36.9,
+          "neigh": -21.38,
+          "depth": 15.52
+        },
+        {
+          "bar": 2381,
+          "db": -33.44,
+          "neigh": -21.12,
+          "depth": 12.33
+        },
+        {
+          "bar": 2382,
+          "db": -51.87,
+          "neigh": -21.12,
+          "depth": 30.76
+        },
+        {
+          "bar": 2383,
+          "db": -34.88,
+          "neigh": -16.8,
+          "depth": 18.09
+        }
+      ]
+    },
+    {
+      "i": 23,
+      "a": "-n50uo8so4U",
+      "b": "cxS6yd0UAxw",
+      "start_bar": 2448,
+      "end_bar": 2464,
+      "bass_swap": [
+        2451.0,
+        2456.0
+      ],
+      "swap_bar": 2454,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2445,
+          "bars": 3,
+          "max_depth": 27.41,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        },
+        {
+          "start_bar": 2454,
+          "bars": 2,
+          "max_depth": 8.69,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": true,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2445,
+          "db": -52.72,
+          "neigh": -35.87,
+          "depth": 16.85
+        },
+        {
+          "bar": 2446,
+          "db": -51.91,
+          "neigh": -24.5,
+          "depth": 27.41
+        },
+        {
+          "bar": 2447,
+          "db": -35.87,
+          "neigh": -14.45,
+          "depth": 21.42
+        },
+        {
+          "bar": 2454,
+          "db": -30.82,
+          "neigh": -22.14,
+          "depth": 8.69
+        },
+        {
+          "bar": 2455,
+          "db": -30.22,
+          "neigh": -22.14,
+          "depth": 8.09
+        }
+      ]
+    },
+    {
+      "i": 24,
+      "a": "cxS6yd0UAxw",
+      "b": "AC3eEHeLd8A",
+      "start_bar": 2576,
+      "end_bar": 2608,
+      "bass_swap": [
+        2581.0,
+        2586.0
+      ],
+      "swap_bar": 2584,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2611,
+          "bars": 1,
+          "max_depth": 10.36,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2611,
+          "db": -21.1,
+          "neigh": -10.75,
+          "depth": 10.36
+        }
+      ]
+    }
+  ],
+  "scan_long1e_same_windows": [
+    {
+      "i": 1,
+      "a": "1WOi5IRuO7Y",
+      "b": "hNV8hn33JUU",
+      "start_bar": 224,
+      "end_bar": 256,
+      "bass_swap": [
+        229.5,
+        234.5
+      ],
+      "swap_bar": 232,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 249,
+          "bars": 1,
+          "max_depth": 8.75,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 249,
+          "db": -33.83,
+          "neigh": -25.07,
+          "depth": 8.75
+        }
+      ]
+    },
+    {
+      "i": 2,
+      "a": "hNV8hn33JUU",
+      "b": "KdtDm5cBsFo",
+      "start_bar": 400,
+      "end_bar": 416,
+      "bass_swap": [
+        405.5,
+        410.5
+      ],
+      "swap_bar": 408,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 415,
+          "bars": 1,
+          "max_depth": 9.92,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 415,
+          "db": -22.25,
+          "neigh": -12.32,
+          "depth": 9.92
+        }
+      ]
+    },
+    {
+      "i": 3,
+      "a": "KdtDm5cBsFo",
+      "b": "uMDP4VTzlBI",
+      "start_bar": 464,
+      "end_bar": 480,
+      "bass_swap": [
+        469.5,
+        474.5
+      ],
+      "swap_bar": 472,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 463,
+          "bars": 1,
+          "max_depth": 13.98,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 463,
+          "db": -27.31,
+          "neigh": -13.33,
+          "depth": 13.98
+        }
+      ]
+    },
+    {
+      "i": 4,
+      "a": "uMDP4VTzlBI",
+      "b": "5gFutO20uKA",
+      "start_bar": 544,
+      "end_bar": 560,
+      "bass_swap": [
+        549.5,
+        554.5
+      ],
+      "swap_bar": 552,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 560,
+          "bars": 2,
+          "max_depth": 11.65,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 560,
+          "db": -36.41,
+          "neigh": -27.75,
+          "depth": 8.65
+        },
+        {
+          "bar": 561,
+          "db": -39.43,
+          "neigh": -27.78,
+          "depth": 11.65
+        }
+      ]
+    },
+    {
+      "i": 5,
+      "a": "5gFutO20uKA",
+      "b": "VdyXzg3nxfU",
+      "start_bar": 592,
+      "end_bar": 624,
+      "bass_swap": [
+        597.5,
+        602.5
+      ],
+      "swap_bar": 600,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 623,
+          "bars": 1,
+          "max_depth": 12.11,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 623,
+          "db": -29.92,
+          "neigh": -17.81,
+          "depth": 12.11
+        }
+      ]
+    },
+    {
+      "i": 7,
+      "a": "6JmrdpH1B5M",
+      "b": "OPuVVhbkicU",
+      "start_bar": 816,
+      "end_bar": 832,
+      "bass_swap": [
+        821.5,
+        826.5
+      ],
+      "swap_bar": 824,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 829,
+          "bars": 1,
+          "max_depth": 13.95,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 829,
+          "db": -27.75,
+          "neigh": -13.8,
+          "depth": 13.95
+        }
+      ]
+    },
+    {
+      "i": 8,
+      "a": "OPuVVhbkicU",
+      "b": "NaY3x3GRDF4",
+      "start_bar": 912,
+      "end_bar": 928,
+      "bass_swap": [
+        917.5,
+        922.5
+      ],
+      "swap_bar": 920,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 921,
+          "bars": 1,
+          "max_depth": 8.27,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 927,
+          "bars": 1,
+          "max_depth": 8.14,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 921,
+          "db": -29.32,
+          "neigh": -21.05,
+          "depth": 8.27
+        },
+        {
+          "bar": 927,
+          "db": -24.29,
+          "neigh": -16.15,
+          "depth": 8.14
+        }
+      ]
+    },
+    {
+      "i": 9,
+      "a": "NaY3x3GRDF4",
+      "b": "sObzaBqaBRQ",
+      "start_bar": 1008,
+      "end_bar": 1040,
+      "bass_swap": [
+        1013.5,
+        1018.5
+      ],
+      "swap_bar": 1016,
+      "fade": "long",
+      "official": [
+        {
+          "start_bar": 1020,
+          "bars": 4,
+          "max_depth": 15.63,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": true,
+          "near_miss": false,
+          "one_bar_near": false
+        },
+        {
+          "start_bar": 1036,
+          "bars": 2,
+          "max_depth": 14.93,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": true,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "near": [
+        {
+          "start_bar": 1006,
+          "bars": 2,
+          "max_depth": 11.27,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1006,
+          "db": -24.41,
+          "neigh": -14.24,
+          "depth": 10.17
+        },
+        {
+          "bar": 1007,
+          "db": -24.2,
+          "neigh": -12.93,
+          "depth": 11.27
+        },
+        {
+          "bar": 1020,
+          "db": -25.64,
+          "neigh": -17.5,
+          "depth": 8.14
+        },
+        {
+          "bar": 1021,
+          "db": -26.2,
+          "neigh": -14.85,
+          "depth": 11.35
+        },
+        {
+          "bar": 1022,
+          "db": -27.59,
+          "neigh": -13.95,
+          "depth": 13.64
+        },
+        {
+          "bar": 1023,
+          "db": -28.99,
+          "neigh": -13.36,
+          "depth": 15.63
+        },
+        {
+          "bar": 1036,
+          "db": -31.18,
+          "neigh": -16.25,
+          "depth": 14.93
+        },
+        {
+          "bar": 1037,
+          "db": -30.94,
+          "neigh": -22.3,
+          "depth": 8.64
+        }
+      ]
+    },
+    {
+      "i": 10,
+      "a": "sObzaBqaBRQ",
+      "b": "N-j7tIeGm1E",
+      "start_bar": 1104,
+      "end_bar": 1120,
+      "bass_swap": [
+        1109.5,
+        1114.5
+      ],
+      "swap_bar": 1112,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1103,
+          "bars": 1,
+          "max_depth": 15.12,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1103,
+          "db": -29.43,
+          "neigh": -14.31,
+          "depth": 15.12
+        }
+      ]
+    },
+    {
+      "i": 13,
+      "a": "nT25guf4DRU",
+      "b": "FYpf8-UvCUk",
+      "start_bar": 1392,
+      "end_bar": 1408,
+      "bass_swap": [
+        1397.5,
+        1402.5
+      ],
+      "swap_bar": 1400,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1405,
+          "bars": 1,
+          "max_depth": 13.74,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 1407,
+          "bars": 1,
+          "max_depth": 12.55,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1405,
+          "db": -28.46,
+          "neigh": -14.72,
+          "depth": 13.74
+        },
+        {
+          "bar": 1407,
+          "db": -26.28,
+          "neigh": -13.74,
+          "depth": 12.55
+        }
+      ]
+    },
+    {
+      "i": 14,
+      "a": "FYpf8-UvCUk",
+      "b": "rJuyd8koFAU",
+      "start_bar": 1456,
+      "end_bar": 1472,
+      "bass_swap": [
+        1461.5,
+        1466.5
+      ],
+      "swap_bar": 1464,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1455,
+          "bars": 1,
+          "max_depth": 7.89,
+          "official_depth_over": false,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1455,
+          "db": -22.96,
+          "neigh": -15.07,
+          "depth": 7.89
+        }
+      ]
+    },
+    {
+      "i": 15,
+      "a": "rJuyd8koFAU",
+      "b": "kKu3fIOTiHk",
+      "start_bar": 1504,
+      "end_bar": 1536,
+      "bass_swap": [
+        1509.5,
+        1514.5
+      ],
+      "swap_bar": 1512,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1502,
+          "bars": 1,
+          "max_depth": 9.26,
+          "official_depth_over": false,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1502,
+          "db": -41.15,
+          "neigh": -31.89,
+          "depth": 9.26
+        }
+      ]
+    },
+    {
+      "i": 16,
+      "a": "kKu3fIOTiHk",
+      "b": "OYzCe1T_Gpg",
+      "start_bar": 1600,
+      "end_bar": 1632,
+      "bass_swap": [
+        1605.5,
+        1610.5
+      ],
+      "swap_bar": 1608,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1615,
+          "bars": 1,
+          "max_depth": 11.08,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 1631,
+          "bars": 1,
+          "max_depth": 13.11,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1615,
+          "db": -33.33,
+          "neigh": -22.25,
+          "depth": 11.08
+        },
+        {
+          "bar": 1631,
+          "db": -32.72,
+          "neigh": -19.61,
+          "depth": 13.11
+        }
+      ]
+    },
+    {
+      "i": 17,
+      "a": "OYzCe1T_Gpg",
+      "b": "EiZVTuiqo0w",
+      "start_bar": 1728,
+      "end_bar": 1744,
+      "bass_swap": [
+        1733.5,
+        1738.5
+      ],
+      "swap_bar": 1736,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1743,
+          "bars": 1,
+          "max_depth": 8.59,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1743,
+          "db": -31.88,
+          "neigh": -23.29,
+          "depth": 8.59
+        }
+      ]
+    },
+    {
+      "i": 18,
+      "a": "EiZVTuiqo0w",
+      "b": "n1dOiesZS1g",
+      "start_bar": 1872,
+      "end_bar": 1904,
+      "bass_swap": [
+        1889.5,
+        1894.5
+      ],
+      "swap_bar": 1892,
+      "fade": "long",
+      "official": [
+        {
+          "start_bar": 1901,
+          "bars": 3,
+          "max_depth": 16.91,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": true,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "near": [
+        {
+          "start_bar": 1870,
+          "bars": 1,
+          "max_depth": 11.33,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1870,
+          "db": -28.05,
+          "neigh": -16.73,
+          "depth": 11.33
+        },
+        {
+          "bar": 1901,
+          "db": -45.66,
+          "neigh": -35.42,
+          "depth": 10.24
+        },
+        {
+          "bar": 1902,
+          "db": -50.52,
+          "neigh": -33.62,
+          "depth": 16.91
+        },
+        {
+          "bar": 1903,
+          "db": -36.38,
+          "neigh": -28.28,
+          "depth": 8.1
+        }
+      ]
+    },
+    {
+      "i": 21,
+      "a": "xENmcMSvZFI",
+      "b": "j9AuFRpLk7U",
+      "start_bar": 2272,
+      "end_bar": 2288,
+      "bass_swap": [
+        2277.5,
+        2282.5
+      ],
+      "swap_bar": 2280,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2279,
+          "bars": 1,
+          "max_depth": 9.17,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2279,
+          "db": -22.45,
+          "neigh": -13.28,
+          "depth": 9.17
+        }
+      ]
+    },
+    {
+      "i": 22,
+      "a": "j9AuFRpLk7U",
+      "b": "-n50uo8so4U",
+      "start_bar": 2352,
+      "end_bar": 2384,
+      "bass_swap": [
+        2357.5,
+        2362.5
+      ],
+      "swap_bar": 2360,
+      "fade": "long",
+      "official": [
+        {
+          "start_bar": 2381,
+          "bars": 3,
+          "max_depth": 31.42,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": true,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "near": [
+        {
+          "start_bar": 2374,
+          "bars": 1,
+          "max_depth": 11.64,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 2379,
+          "bars": 1,
+          "max_depth": 15.57,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2374,
+          "db": -31.31,
+          "neigh": -19.67,
+          "depth": 11.64
+        },
+        {
+          "bar": 2379,
+          "db": -36.89,
+          "neigh": -21.33,
+          "depth": 15.57
+        },
+        {
+          "bar": 2381,
+          "db": -33.43,
+          "neigh": -21.08,
+          "depth": 12.35
+        },
+        {
+          "bar": 2382,
+          "db": -52.5,
+          "neigh": -21.08,
+          "depth": 31.42
+        },
+        {
+          "bar": 2383,
+          "db": -34.89,
+          "neigh": -16.78,
+          "depth": 18.11
+        }
+      ]
+    },
+    {
+      "i": 23,
+      "a": "-n50uo8so4U",
+      "b": "cxS6yd0UAxw",
+      "start_bar": 2448,
+      "end_bar": 2464,
+      "bass_swap": [
+        2453.5,
+        2458.5
+      ],
+      "swap_bar": 2456,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2445,
+          "bars": 3,
+          "max_depth": 27.41,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2445,
+          "db": -52.72,
+          "neigh": -35.87,
+          "depth": 16.85
+        },
+        {
+          "bar": 2446,
+          "db": -51.91,
+          "neigh": -24.5,
+          "depth": 27.41
+        },
+        {
+          "bar": 2447,
+          "db": -35.87,
+          "neigh": -14.12,
+          "depth": 21.75
+        }
+      ]
+    },
+    {
+      "i": 24,
+      "a": "cxS6yd0UAxw",
+      "b": "AC3eEHeLd8A",
+      "start_bar": 2576,
+      "end_bar": 2608,
+      "bass_swap": [
+        2581.5,
+        2586.5
+      ],
+      "swap_bar": 2584,
+      "fade": "long",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2611,
+          "bars": 1,
+          "max_depth": 10.36,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2611,
+          "db": -21.1,
+          "neigh": -10.75,
+          "depth": 10.36
+        }
+      ]
+    }
+  ],
+  "scan_v2_same_windows": [
+    {
+      "i": 0,
+      "a": "gbD9mt0T10g",
+      "b": "1WOi5IRuO7Y",
+      "start_bar": 112,
+      "end_bar": 144,
+      "bass_swap": [
+        122.0,
+        124.0
+      ],
+      "swap_bar": 128,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 119,
+          "bars": 1,
+          "max_depth": 13.07,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 119,
+          "db": -34.22,
+          "neigh": -21.14,
+          "depth": 13.07
+        }
+      ]
+    },
+    {
+      "i": 1,
+      "a": "1WOi5IRuO7Y",
+      "b": "hNV8hn33JUU",
+      "start_bar": 224,
+      "end_bar": 256,
+      "bass_swap": [
+        234.0,
+        236.0
+      ],
+      "swap_bar": 239,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 249,
+          "bars": 1,
+          "max_depth": 8.74,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 249,
+          "db": -33.95,
+          "neigh": -25.21,
+          "depth": 8.74
+        }
+      ]
+    },
+    {
+      "i": 2,
+      "a": "hNV8hn33JUU",
+      "b": "KdtDm5cBsFo",
+      "start_bar": 400,
+      "end_bar": 416,
+      "bass_swap": [
+        405.0,
+        407.0
+      ],
+      "swap_bar": 404,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 404,
+          "bars": 1,
+          "max_depth": 8.96,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 415,
+          "bars": 1,
+          "max_depth": 10.15,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 404,
+          "db": -23.5,
+          "neigh": -14.54,
+          "depth": 8.96
+        },
+        {
+          "bar": 415,
+          "db": -22.25,
+          "neigh": -12.1,
+          "depth": 10.15
+        }
+      ]
+    },
+    {
+      "i": 3,
+      "a": "KdtDm5cBsFo",
+      "b": "uMDP4VTzlBI",
+      "start_bar": 464,
+      "end_bar": 480,
+      "bass_swap": [
+        469.0,
+        471.0
+      ],
+      "swap_bar": 468,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 463,
+          "bars": 1,
+          "max_depth": 13.98,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 463,
+          "db": -27.31,
+          "neigh": -13.33,
+          "depth": 13.98
+        }
+      ]
+    },
+    {
+      "i": 4,
+      "a": "uMDP4VTzlBI",
+      "b": "5gFutO20uKA",
+      "start_bar": 544,
+      "end_bar": 560,
+      "bass_swap": [
+        549.0,
+        551.0
+      ],
+      "swap_bar": 548,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 548,
+          "bars": 1,
+          "max_depth": 8.65,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 560,
+          "bars": 2,
+          "max_depth": 11.64,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 548,
+          "db": -23.26,
+          "neigh": -14.61,
+          "depth": 8.65
+        },
+        {
+          "bar": 560,
+          "db": -36.41,
+          "neigh": -27.76,
+          "depth": 8.65
+        },
+        {
+          "bar": 561,
+          "db": -39.43,
+          "neigh": -27.78,
+          "depth": 11.64
+        }
+      ]
+    },
+    {
+      "i": 5,
+      "a": "5gFutO20uKA",
+      "b": "VdyXzg3nxfU",
+      "start_bar": 592,
+      "end_bar": 624,
+      "bass_swap": [
+        602.0,
+        604.0
+      ],
+      "swap_bar": 608,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 623,
+          "bars": 1,
+          "max_depth": 12.06,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 623,
+          "db": -29.9,
+          "neigh": -17.83,
+          "depth": 12.06
+        }
+      ]
+    },
+    {
+      "i": 7,
+      "a": "6JmrdpH1B5M",
+      "b": "OPuVVhbkicU",
+      "start_bar": 816,
+      "end_bar": 832,
+      "bass_swap": [
+        821.0,
+        823.0
+      ],
+      "swap_bar": 820,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 820,
+          "bars": 1,
+          "max_depth": 9.28,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 829,
+          "bars": 1,
+          "max_depth": 14.67,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 820,
+          "db": -23.58,
+          "neigh": -14.3,
+          "depth": 9.28
+        },
+        {
+          "bar": 829,
+          "db": -27.58,
+          "neigh": -12.91,
+          "depth": 14.67
+        }
+      ]
+    },
+    {
+      "i": 8,
+      "a": "OPuVVhbkicU",
+      "b": "NaY3x3GRDF4",
+      "start_bar": 912,
+      "end_bar": 928,
+      "bass_swap": [
+        917.0,
+        919.0
+      ],
+      "swap_bar": 919,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 920,
+          "bars": 1,
+          "max_depth": 9.58,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 927,
+          "bars": 1,
+          "max_depth": 8.09,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 920,
+          "db": -29.76,
+          "neigh": -20.18,
+          "depth": 9.58
+        },
+        {
+          "bar": 927,
+          "db": -24.3,
+          "neigh": -16.21,
+          "depth": 8.09
+        }
+      ]
+    },
+    {
+      "i": 9,
+      "a": "NaY3x3GRDF4",
+      "b": "sObzaBqaBRQ",
+      "start_bar": 1008,
+      "end_bar": 1040,
+      "bass_swap": [
+        1018.0,
+        1020.0
+      ],
+      "swap_bar": 1024,
+      "fade": "tail",
+      "official": [
+        {
+          "start_bar": 1036,
+          "bars": 2,
+          "max_depth": 14.9,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": true,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "near": [
+        {
+          "start_bar": 1006,
+          "bars": 2,
+          "max_depth": 12.57,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        },
+        {
+          "start_bar": 1024,
+          "bars": 1,
+          "max_depth": 8.26,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1006,
+          "db": -24.41,
+          "neigh": -13.6,
+          "depth": 10.81
+        },
+        {
+          "bar": 1007,
+          "db": -24.19,
+          "neigh": -11.62,
+          "depth": 12.57
+        },
+        {
+          "bar": 1024,
+          "db": -22.39,
+          "neigh": -14.14,
+          "depth": 8.26
+        },
+        {
+          "bar": 1036,
+          "db": -31.22,
+          "neigh": -16.31,
+          "depth": 14.9
+        },
+        {
+          "bar": 1037,
+          "db": -31.02,
+          "neigh": -22.3,
+          "depth": 8.72
+        }
+      ]
+    },
+    {
+      "i": 10,
+      "a": "sObzaBqaBRQ",
+      "b": "N-j7tIeGm1E",
+      "start_bar": 1104,
+      "end_bar": 1120,
+      "bass_swap": [
+        1109.0,
+        1111.0
+      ],
+      "swap_bar": 1108,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1102,
+          "bars": 2,
+          "max_depth": 14.93,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        },
+        {
+          "start_bar": 1108,
+          "bars": 1,
+          "max_depth": 8.64,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1102,
+          "db": -27.48,
+          "neigh": -19.48,
+          "depth": 8.0
+        },
+        {
+          "bar": 1103,
+          "db": -29.42,
+          "neigh": -14.49,
+          "depth": 14.93
+        },
+        {
+          "bar": 1108,
+          "db": -23.79,
+          "neigh": -15.16,
+          "depth": 8.64
+        }
+      ]
+    },
+    {
+      "i": 11,
+      "a": "N-j7tIeGm1E",
+      "b": "6YDKymmWe9o",
+      "start_bar": 1136,
+      "end_bar": 1168,
+      "bass_swap": [
+        1146.0,
+        1148.0
+      ],
+      "swap_bar": 1147,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1139,
+          "bars": 1,
+          "max_depth": 10.87,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1139,
+          "db": -41.85,
+          "neigh": -30.98,
+          "depth": 10.87
+        }
+      ]
+    },
+    {
+      "i": 13,
+      "a": "nT25guf4DRU",
+      "b": "FYpf8-UvCUk",
+      "start_bar": 1392,
+      "end_bar": 1408,
+      "bass_swap": [
+        1397.0,
+        1399.0
+      ],
+      "swap_bar": 1396,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1405,
+          "bars": 1,
+          "max_depth": 14.12,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 1407,
+          "bars": 1,
+          "max_depth": 12.68,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1405,
+          "db": -28.3,
+          "neigh": -14.18,
+          "depth": 14.12
+        },
+        {
+          "bar": 1407,
+          "db": -26.29,
+          "neigh": -13.61,
+          "depth": 12.68
+        }
+      ]
+    },
+    {
+      "i": 14,
+      "a": "FYpf8-UvCUk",
+      "b": "rJuyd8koFAU",
+      "start_bar": 1456,
+      "end_bar": 1472,
+      "bass_swap": [
+        1461.0,
+        1463.0
+      ],
+      "swap_bar": 1460,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1460,
+          "bars": 1,
+          "max_depth": 9.34,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1460,
+          "db": -23.08,
+          "neigh": -13.74,
+          "depth": 9.34
+        }
+      ]
+    },
+    {
+      "i": 15,
+      "a": "rJuyd8koFAU",
+      "b": "kKu3fIOTiHk",
+      "start_bar": 1504,
+      "end_bar": 1536,
+      "bass_swap": [
+        1514.0,
+        1516.0
+      ],
+      "swap_bar": 1515,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1502,
+          "bars": 1,
+          "max_depth": 9.45,
+          "official_depth_over": false,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1502,
+          "db": -41.15,
+          "neigh": -31.7,
+          "depth": 9.45
+        }
+      ]
+    },
+    {
+      "i": 16,
+      "a": "kKu3fIOTiHk",
+      "b": "OYzCe1T_Gpg",
+      "start_bar": 1600,
+      "end_bar": 1632,
+      "bass_swap": [
+        1610.0,
+        1612.0
+      ],
+      "swap_bar": 1611,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1614,
+          "bars": 2,
+          "max_depth": 9.69,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": true,
+          "one_bar_near": false
+        },
+        {
+          "start_bar": 1631,
+          "bars": 1,
+          "max_depth": 13.07,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1614,
+          "db": -32.79,
+          "neigh": -23.98,
+          "depth": 8.82
+        },
+        {
+          "bar": 1615,
+          "db": -33.6,
+          "neigh": -23.91,
+          "depth": 9.69
+        },
+        {
+          "bar": 1631,
+          "db": -32.71,
+          "neigh": -19.64,
+          "depth": 13.07
+        }
+      ]
+    },
+    {
+      "i": 17,
+      "a": "OYzCe1T_Gpg",
+      "b": "EiZVTuiqo0w",
+      "start_bar": 1728,
+      "end_bar": 1744,
+      "bass_swap": [
+        1733.0,
+        1735.0
+      ],
+      "swap_bar": 1735,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 1736,
+          "bars": 1,
+          "max_depth": 7.9,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 1743,
+          "bars": 1,
+          "max_depth": 8.6,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1736,
+          "db": -29.41,
+          "neigh": -21.51,
+          "depth": 7.9
+        },
+        {
+          "bar": 1743,
+          "db": -31.9,
+          "neigh": -23.3,
+          "depth": 8.6
+        }
+      ]
+    },
+    {
+      "i": 18,
+      "a": "EiZVTuiqo0w",
+      "b": "n1dOiesZS1g",
+      "start_bar": 1872,
+      "end_bar": 1904,
+      "bass_swap": [
+        1882.0,
+        1884.0
+      ],
+      "swap_bar": 1888,
+      "fade": "tail",
+      "official": [
+        {
+          "start_bar": 1902,
+          "bars": 2,
+          "max_depth": 12.71,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": true,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "near": [
+        {
+          "start_bar": 1870,
+          "bars": 2,
+          "max_depth": 11.74,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 1870,
+          "db": -28.05,
+          "neigh": -16.31,
+          "depth": 11.74
+        },
+        {
+          "bar": 1871,
+          "db": -20.31,
+          "neigh": -12.32,
+          "depth": 7.99
+        },
+        {
+          "bar": 1902,
+          "db": -46.27,
+          "neigh": -33.56,
+          "depth": 12.71
+        },
+        {
+          "bar": 1903,
+          "db": -36.33,
+          "neigh": -27.79,
+          "depth": 8.53
+        }
+      ]
+    },
+    {
+      "i": 20,
+      "a": "NJ74qcCzTWw",
+      "b": "xENmcMSvZFI",
+      "start_bar": 2192,
+      "end_bar": 2208,
+      "bass_swap": [
+        2197.0,
+        2199.0
+      ],
+      "swap_bar": 2198,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2197,
+          "bars": 1,
+          "max_depth": 8.98,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2197,
+          "db": -32.77,
+          "neigh": -23.79,
+          "depth": 8.98
+        }
+      ]
+    },
+    {
+      "i": 21,
+      "a": "xENmcMSvZFI",
+      "b": "j9AuFRpLk7U",
+      "start_bar": 2272,
+      "end_bar": 2288,
+      "bass_swap": [
+        2277.0,
+        2279.0
+      ],
+      "swap_bar": 2276,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2276,
+          "bars": 1,
+          "max_depth": 8.98,
+          "official_depth_over": false,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2276,
+          "db": -22.02,
+          "neigh": -13.04,
+          "depth": 8.98
+        }
+      ]
+    },
+    {
+      "i": 22,
+      "a": "j9AuFRpLk7U",
+      "b": "-n50uo8so4U",
+      "start_bar": 2352,
+      "end_bar": 2384,
+      "bass_swap": [
+        2362.0,
+        2364.0
+      ],
+      "swap_bar": 2367,
+      "fade": "tail",
+      "official": [
+        {
+          "start_bar": 2381,
+          "bars": 3,
+          "max_depth": 30.33,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": true,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "near": [
+        {
+          "start_bar": 2374,
+          "bars": 1,
+          "max_depth": 11.53,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        },
+        {
+          "start_bar": 2379,
+          "bars": 1,
+          "max_depth": 15.37,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2374,
+          "db": -31.64,
+          "neigh": -20.11,
+          "depth": 11.53
+        },
+        {
+          "bar": 2379,
+          "db": -36.88,
+          "neigh": -21.51,
+          "depth": 15.37
+        },
+        {
+          "bar": 2381,
+          "db": -33.46,
+          "neigh": -21.18,
+          "depth": 12.29
+        },
+        {
+          "bar": 2382,
+          "db": -51.51,
+          "neigh": -21.18,
+          "depth": 30.33
+        },
+        {
+          "bar": 2383,
+          "db": -34.88,
+          "neigh": -16.81,
+          "depth": 18.07
+        }
+      ]
+    },
+    {
+      "i": 23,
+      "a": "-n50uo8so4U",
+      "b": "cxS6yd0UAxw",
+      "start_bar": 2448,
+      "end_bar": 2464,
+      "bass_swap": [
+        2453.0,
+        2455.0
+      ],
+      "swap_bar": 2455,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2445,
+          "bars": 3,
+          "max_depth": 27.37,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": true,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        },
+        {
+          "start_bar": 2456,
+          "bars": 1,
+          "max_depth": 10.12,
+          "official_depth_over": true,
+          "in_overlap": true,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": true
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2445,
+          "db": -52.73,
+          "neigh": -35.87,
+          "depth": 16.86
+        },
+        {
+          "bar": 2446,
+          "db": -51.89,
+          "neigh": -24.53,
+          "depth": 27.37
+        },
+        {
+          "bar": 2447,
+          "db": -35.87,
+          "neigh": -14.22,
+          "depth": 21.65
+        },
+        {
+          "bar": 2456,
+          "db": -29.81,
+          "neigh": -19.7,
+          "depth": 10.12
+        }
+      ]
+    },
+    {
+      "i": 24,
+      "a": "cxS6yd0UAxw",
+      "b": "AC3eEHeLd8A",
+      "start_bar": 2576,
+      "end_bar": 2608,
+      "bass_swap": [
+        2586.0,
+        2588.0
+      ],
+      "swap_bar": 2591,
+      "fade": "tail",
+      "official": [],
+      "near": [
+        {
+          "start_bar": 2611,
+          "bars": 1,
+          "max_depth": 10.35,
+          "official_depth_over": true,
+          "in_overlap": false,
+          "over_1_bar": false,
+          "both_sources_dip": null,
+          "would_fail": false,
+          "near_miss": false,
+          "one_bar_near": false
+        }
+      ],
+      "deep_bars": [
+        {
+          "bar": 2611,
+          "db": -21.1,
+          "neigh": -10.75,
+          "depth": 10.35
+        }
+      ]
+    }
+  ],
+  "code_path_corrected": {
+    "struct_solo": 16.0,
+    "cap_solo_incoming": 0.0,
+    "hold": 0.0,
+    "vocal_exit_solo": 0.0,
+    "vocal_exit_exit_": 13.0,
+    "exit_start_bars_into": 19.0,
+    "exit_end_bars_into": 32.0,
+    "swap_pos": 0.59375,
+    "swap_centre_mix": 1331.0,
+    "bass_lead_recorded": [
+      1.0,
+      0.0
+    ],
+    "predicted_bass_swap_recorded": [
+      1328.0,
+      1333.0
+    ],
+    "xf_gone": 1344.0,
+    "late_vocal_hits_mix": [
+      1336,
+      1337,
+      1338,
+      1340,
+      1341,
+      1342,
+      1343
+    ],
+    "incoming_thin_low_mixbars": [
+      1328,
+      1329,
+      1330,
+      1331,
+      1332,
+      1333,
+      1334,
+      1335,
+      1336,
+      1337,
+      1338,
+      1339,
+      1340,
+      1341,
+      1342,
+      1343
+    ],
+    "srcA_at_gap_Ember": [
+      195,
+      196
+    ],
+    "srcB_at_gap_BadToMe": [
+      99,
+      100
+    ],
+    "note": "Earlier reconstruct passed struct_solo=16 into vocal_exit_params; mix_simple passes the post-cap solo (0). This is the replay that matches the recorded meta."
+  },
+  "ranked_causes": [
+    {
+      "rank": 1,
+      "cause": "LONG_SWAP=exit centred the 4-bar bass handoff on the lengthened-exit start (mix 1331), and the long1f outgoing-leads change (BASS_LEAD,0) dropped Ember's lows first, starting at 1328 and gone by 1332. Bad To Me is in a crash there (src bars 99-100, lows -40 dB). Ember still has body lows (-21.7 / -15.7 dB). Mixdown fell to -32 dB, depths 11.06 and 10.73 over GAP_DB=9.84. Not a both-source exemption.",
+      "evidence": "long1e (symmetric 0.5+0.5 lead, swap 1 bar later at 1332, bass_swap 1329.5-1334.5) was only -24/-26 dB at 1331-32, depths 5.29/5.41. v2 swapped at 1322-1324 so neighbours were already down and depths were 4.66/4.50 even though the absolute level was also ~-32 dB."
+    },
+    {
+      "rank": 2,
+      "cause": "cap_solo_incoming correctly set solo=0 because Bad To Me's entire second half (mix 1328-1343) is >=4 dB under its first-half median, so the xfader exit ends at the window end (1344) and covers the crash in level. The bass swap did not honour that cover: it still sat at the exit START. vocal_exit_params then lengthened exit_ 8->13 for late incoming vocals (1336+), which pulled the exit start (and therefore the bass swap) to bar 19 (1331), right into the crash.",
+      "evidence": "corrected code path: struct=16, cap=0, hold=0, solo=0, exit_=13, exit_start=19, xf_gone=1344, bass_lead=(1,0)."
+    },
+    {
+      "rank": 3,
+      "cause": "Beat alignment is not the issue.",
+      "evidence": "half-beat check on blend 12 passed (r0=0.731, rh=0.441, lag=0, 16 bars, phase_fail/lag_fail false)."
+    }
+  ],
+  "official_bg_check": {
+    "long1f": [
+      [
+        12,
+        1331,
+        2
+      ]
+    ],
+    "note": "t18 bar 1902 is 13.09 dB but only 1 bar (1901=7.62, 1903=8.65); not official. t23 2454-55 depths 8.69/8.09 are a 2-bar near-miss 1.15 dB under threshold, quiet incoming intro, not a second-half crash; this fix does not retarget that shape."
+  },
+  "near_miss_class": {
+    "official_fail": [
+      "t12 1331-32 depth 11.06/10.73"
+    ],
+    "watched_2bar_in_overlap_under_or_near_threshold": [
+      "t18 1902 1-bar 13.09 (neighbours 7.62 and 8.65); same thin-incoming class, now also covered (outgoing held through 1904)",
+      "t23 2454-55 depth 8.69/8.09; incoming intro already quiet in the first half, last_incoming_thin_bar=-1, lead unchanged"
+    ],
+    "exempt_both_sources_dip": [
+      "t9 1020/4 and 1036/2",
+      "t22 2381/3"
+    ]
+  },
+  "fix": {
+    "what": "fade_long.bass_lead(..., cover_through, swap_centre, swap_w) shrinks outgoing_lead so the outgoing down-ramp does not start before last_incoming_thin_bar+1. Incoming lag stays 0. mix_simple.lead() passes that when FADE=long and a thin stretch exists. L1 transitions t0 and t6 have no thin incoming and keep (1.0, 0.0).",
+    "t12_predicted_outgoing_ramp_start": 1344,
+    "unit_tests": "src/tests/test_fade_long.py: 65 passed"
+  }
+}

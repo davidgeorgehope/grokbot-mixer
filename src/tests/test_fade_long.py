@@ -195,3 +195,35 @@ def test_long_swap_centre_still_in_x1_with_outgoing_lead():
   ex0=FL.exit_start(X,solo=16)
   x1=FL.xlong((ex0+1)/X,X,solo=16)
   assert x1<=0.65+1e-9
+
+def test_last_incoming_thin_bar_on_second_half_crash():
+  # same fixture as test_cap_solo_incoming_zero_when_second_half_crashes
+  al=np.r_[np.zeros(16),np.full(16,-12.)]; lo=al.copy(); wb=list(range(32))
+  assert FL.last_incoming_thin_bar(al,lo,wb,32)==31
+  al2=np.full(64,-7.); lo2=al2.copy(); wb2=list(range(32))
+  assert FL.last_incoming_thin_bar(al2,lo2,wb2,32)==-1
+  # ready at bar 16 (second half at body): no thin
+  al3=np.r_[np.full(16,-40.),np.zeros(80)]; lo3=al3.copy()
+  assert FL.last_incoming_thin_bar(al3,lo3,list(range(32)),32)==-1
+
+
+def test_bass_lead_holds_outgoing_through_thin_second_half():
+  # Mix 08 long1f trans 12: swap centre at exit start (bar 19 of 32), incoming thin through 31
+  lead=FL.bass_lead(1.0,fade='long',cover_through=31,swap_centre=19,swap_w=4)
+  start=19-lead[0]-2
+  assert start>=32-1e-9, start
+  assert lead[1]==0.0  # incoming lag unchanged (do not re-stack two full basses)
+
+
+def test_bass_lead_only_delays_outgoing_as_far_as_needed():
+  lead=FL.bass_lead(1.0,fade='long',cover_through=20,swap_centre=19,swap_w=4)
+  # down-ramp starts at cover_through+1
+  assert abs((19-lead[0]-2)-21)<1e-9
+  assert lead[1]==0.0
+
+
+def test_bass_lead_unchanged_when_no_thin_cover():
+  # L1 fix stays: outgoing leaves first when the incoming is strong
+  assert FL.bass_lead(1.0,fade='long')==(1.0,0.0)
+  assert FL.bass_lead(1.0,fade='long',cover_through=None,swap_centre=19)==(1.0,0.0)
+

@@ -1,0 +1,552 @@
+[
+ {
+  "a": "gbD9mt0T10g",
+  "b": "1WOi5IRuO7Y",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "2:34",
+  "grid_phase_dev_ms": 9.0,
+  "drift_ms": 4,
+  "drift_windows": 13,
+  "downbeat_A": {
+   "lag_ms": -3,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -3,
+   "corr": 0.99
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "10B->11B",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "1WOi5IRuO7Y",
+  "b": "hNV8hn33JUU",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "5:08",
+  "grid_phase_dev_ms": 5.0,
+  "drift_ms": 2,
+  "drift_windows": 11,
+  "downbeat_A": {
+   "lag_ms": -5,
+   "corr": 0.98
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "11B->10B",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "hNV8hn33JUU",
+  "b": "KdtDm5cBsFo",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "9:11",
+  "grid_phase_dev_ms": 5.0,
+  "drift_ms": 6,
+  "drift_windows": 11,
+  "downbeat_A": {
+   "lag_ms": -5,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "10B->10A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "KdtDm5cBsFo",
+  "b": "uMDP4VTzlBI",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "10:40",
+  "grid_phase_dev_ms": 5.0,
+  "drift_ms": 4,
+  "drift_windows": 11,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.98
+  },
+  "downbeat_B": {
+   "lag_ms": -1,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "10A->9A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "uMDP4VTzlBI",
+  "b": "5gFutO20uKA",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "12:30",
+  "grid_phase_dev_ms": 4.0,
+  "drift_ms": 6,
+  "drift_windows": 11,
+  "downbeat_A": {
+   "lag_ms": -3,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "9A->8A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "5gFutO20uKA",
+  "b": "VdyXzg3nxfU",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "13:36",
+  "grid_phase_dev_ms": 4.0,
+  "drift_ms": 5,
+  "drift_windows": 16,
+  "downbeat_A": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "8A->7A",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "VdyXzg3nxfU",
+  "b": "6JmrdpH1B5M",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "15:48",
+  "grid_phase_dev_ms": 4.0,
+  "drift_ms": 3,
+  "drift_windows": 10,
+  "downbeat_A": {
+   "lag_ms": -3,
+   "corr": 0.98
+  },
+  "downbeat_B": {
+   "lag_ms": -3,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "7A->8A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "6JmrdpH1B5M",
+  "b": "OPuVVhbkicU",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "18:45",
+  "grid_phase_dev_ms": 3.0,
+  "drift_ms": 5,
+  "drift_windows": 11,
+  "downbeat_A": {
+   "lag_ms": -3,
+   "corr": 0.98
+  },
+  "downbeat_B": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "8A->7A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "OPuVVhbkicU",
+  "b": "NaY3x3GRDF4",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+  "t": "20:57",
+  "grid_phase_dev_ms": 4.0,
+  "drift_ms": 4,
+  "drift_windows": 11,
+  "downbeat_A": {
+   "lag_ms": -3,
+   "corr": 0.97
+  },
+  "downbeat_B": {
+   "lag_ms": -3,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "7A->7B",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "NaY3x3GRDF4",
+  "b": "sObzaBqaBRQ",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "23:10",
+  "grid_phase_dev_ms": 6.0,
+  "drift_ms": 4,
+  "drift_windows": 16,
+  "downbeat_A": {
+   "lag_ms": -7,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -3,
+   "corr": 0.99
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "7B->6B",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "sObzaBqaBRQ",
+  "b": "N-j7tIeGm1E",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "25:22",
+  "grid_phase_dev_ms": 3.0,
+  "drift_ms": 5,
+  "drift_windows": 10,
+  "downbeat_A": {
+   "lag_ms": -3,
+   "corr": 0.98
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 1.0
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "6B->6A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "N-j7tIeGm1E",
+  "b": "6YDKymmWe9o",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "26:06",
+  "grid_phase_dev_ms": 7.0,
+  "drift_ms": 4,
+  "drift_windows": 11,
+  "downbeat_A": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": 0,
+   "corr": 0.98
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "6A->5A",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "6YDKymmWe9o",
+  "b": "nT25guf4DRU",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "30:09",
+  "grid_phase_dev_ms": 7.0,
+  "drift_ms": 4,
+  "drift_windows": 12,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.95
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "5A->5A",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "nT25guf4DRU",
+  "b": "FYpf8-UvCUk",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "32:00",
+  "grid_phase_dev_ms": 4.0,
+  "drift_ms": 4,
+  "drift_windows": 10,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "5A->4A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "FYpf8-UvCUk",
+  "b": "rJuyd8koFAU",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "33:28",
+  "grid_phase_dev_ms": 7.0,
+  "drift_ms": 6,
+  "drift_windows": 9,
+  "downbeat_A": {
+   "lag_ms": -6,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -1,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "4A->3A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "rJuyd8koFAU",
+  "b": "kKu3fIOTiHk",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "34:34",
+  "grid_phase_dev_ms": 3.0,
+  "drift_ms": 3,
+  "drift_windows": 12,
+  "downbeat_A": {
+   "lag_ms": -1,
+   "corr": 0.55
+  },
+  "downbeat_B": {
+   "lag_ms": -1,
+   "corr": 0.99
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "3A->4A",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "kKu3fIOTiHk",
+  "b": "OYzCe1T_Gpg",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "36:46",
+  "grid_phase_dev_ms": 3.0,
+  "drift_ms": 4,
+  "drift_windows": 12,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.98
+  },
+  "downbeat_B": {
+   "lag_ms": -3,
+   "corr": 0.97
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "4A->3A",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "OYzCe1T_Gpg",
+  "b": "EiZVTuiqo0w",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "39:43",
+  "grid_phase_dev_ms": 11.0,
+  "drift_ms": 4,
+  "drift_windows": 7,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.95
+  },
+  "downbeat_B": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "3A->3B",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "EiZVTuiqo0w",
+  "b": "n1dOiesZS1g",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "43:02",
+  "grid_phase_dev_ms": 6.0,
+  "drift_ms": 4,
+  "drift_windows": 14,
+  "downbeat_A": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -4,
+   "corr": 0.98
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "3B->2B",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "n1dOiesZS1g",
+  "b": "NJ74qcCzTWw",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "47:26",
+  "grid_phase_dev_ms": 5.0,
+  "drift_ms": 8,
+  "drift_windows": 10,
+  "downbeat_A": {
+   "lag_ms": -3,
+   "corr": 0.97
+  },
+  "downbeat_B": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "2B->2A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "NJ74qcCzTWw",
+  "b": "xENmcMSvZFI",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "50:23",
+  "grid_phase_dev_ms": 6.0,
+  "drift_ms": 5,
+  "drift_windows": 8,
+  "downbeat_A": {
+   "lag_ms": -1,
+   "corr": 0.84
+  },
+  "downbeat_B": {
+   "lag_ms": -2,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "2A->1A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "xENmcMSvZFI",
+  "b": "j9AuFRpLk7U",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff + 1-bar delay-tail exit",
+  "t": "52:13",
+  "grid_phase_dev_ms": 3.0,
+  "drift_ms": 6,
+  "drift_windows": 11,
+  "downbeat_A": {
+   "lag_ms": -5,
+   "corr": 0.96
+  },
+  "downbeat_B": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "1A->1A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "j9AuFRpLk7U",
+  "b": "-n50uo8so4U",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "54:04",
+  "grid_phase_dev_ms": 6.0,
+  "drift_ms": 7,
+  "drift_windows": 15,
+  "downbeat_A": {
+   "lag_ms": -1,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -1,
+   "corr": 0.99
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "1A->2A",
+  "key_ok": true,
+  "harm_overlap": 32
+ },
+ {
+  "a": "-n50uo8so4U",
+  "b": "cxS6yd0UAxw",
+  "tech": "16-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "56:16",
+  "grid_phase_dev_ms": 12.0,
+  "drift_ms": 4,
+  "drift_windows": 7,
+  "downbeat_A": {
+   "lag_ms": -3,
+   "corr": 0.99
+  },
+  "downbeat_B": {
+   "lag_ms": -4,
+   "corr": 0.99
+  },
+  "overlap_bars": 16,
+  "echo": false,
+  "keys": "2A->2A",
+  "key_ok": true,
+  "harm_overlap": 16
+ },
+ {
+  "a": "cxS6yd0UAxw",
+  "b": "AC3eEHeLd8A",
+  "tech": "32-bar crossfader blend (equal-power, single control) + 4-bar bass handoff",
+  "t": "59:13",
+  "grid_phase_dev_ms": 4.0,
+  "drift_ms": 4,
+  "drift_windows": 11,
+  "downbeat_A": {
+   "lag_ms": -4,
+   "corr": 0.97
+  },
+  "downbeat_B": {
+   "lag_ms": -1,
+   "corr": 0.96
+  },
+  "overlap_bars": 32,
+  "echo": false,
+  "keys": "2A->2B",
+  "key_ok": true,
+  "harm_overlap": 32
+ }
+]

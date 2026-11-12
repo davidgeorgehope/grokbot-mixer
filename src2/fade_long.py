@@ -77,6 +77,35 @@ def struct_solo(al, wa, X, rise=2.0, exit_=8.0, solo=0.0, **_):
     return float(solo)
 
 
+def last_incoming_thin_bar(al, lo, wb, X, db=4):
+    """Last 0-based window bar where the incoming is thin, or -1.
+
+    Same rule as cap_solo_incoming: a second-half bar >= db under the incoming's own
+    first-half median, all-band or low. Used so the bass swap can keep outgoing lows
+    up through that stretch (Mix 08 long1f trans 12: cap_solo held the xfader over
+    Bad To Me's crash, but LONG_SWAP=exit plus outgoing-leads dropped Ember's bass
+    onto it and opened a 2-bar hole)."""
+    def series(arr):
+        arr = np.asarray(arr, float)
+        out = []
+        for j in range(int(X)):
+            k = wb[j] if j < len(wb) and 0 <= wb[j] < len(arr) else None
+            out.append(arr[k] if k is not None else np.nan)
+        return np.array(out, float)
+    def last_thin(arr):
+        s_ = series(arr)
+        half = max(4, int(X) // 2)
+        if np.isfinite(s_[:half]).sum() < 2:
+            return -1
+        ref = float(np.nanmedian(s_[:half]))
+        thin = np.where((np.arange(int(X)) >= half) & (s_ < ref - db))[0]
+        return int(thin[-1]) if len(thin) else -1
+    last = last_thin(al)
+    if lo is not None:
+        last = max(last, last_thin(lo))
+    return last
+
+
 def cap_solo_incoming(al, lo, wb, X, rise=2.0, exit_=8.0, solo=0.0, **_):
     """Cap solo so the outgoing's exit does not finish into a later thin stretch of the incoming.
 
@@ -85,22 +114,7 @@ def cap_solo_incoming(al, lo, wb, X, rise=2.0, exit_=8.0, solo=0.0, **_):
     treating that as 'never ready' delayed the exit on Mix 08 long1c trans 0 and layered vocals).
     A mid-window crash (Bad To Me bars 16-31, E1 at 30:35; Solitude's pre-drop lows) still caps
     solo so the outgoing covers it. If the second half is as strong as the first, solo is unchanged."""
-    def series(arr):
-        arr = np.asarray(arr, float)
-        out = []
-        for j in range(int(X)):
-            k = wb[j] if j < len(wb) and 0 <= wb[j] < len(arr) else None
-            out.append(arr[k] if k is not None else np.nan)
-        return np.array(out, float)
-    def last_thin(arr, db=4):
-        s_ = series(arr)
-        half = max(4, int(X) // 2)
-        if np.isfinite(s_[:half]).sum() < 2:
-            return -1
-        ref = float(np.nanmedian(s_[:half]))
-        thin = np.where((np.arange(int(X)) >= half) & (s_ < ref - db))[0]
-        return int(thin[-1]) if len(thin) else -1
-    last = max(last_thin(al), last_thin(lo) if lo is not None else -1)
+    last = last_incoming_thin_bar(al, lo, wb, X)
     if last < 0:
         return solo_bars(X, rise, exit_, solo)
     return solo_bars(X, rise, exit_, min(float(solo), max(0.0, X - (last + 1))))
@@ -121,7 +135,7 @@ def vocal_hold(vA, rvA, wa, vB, rvB, wb, X, early=8):
     return int(early_hits[-1] + 1)
 
 
-def bass_lead(blead=1.0, phrase=False, fade='tail'):
+def bass_lead(blead=1.0, phrase=False, fade='tail', cover_through=None, swap_centre=None, swap_w=4.0):
     """(outgoing_lead, incoming_lag) in bars for the low lanes.
 
     Phrase-snapped swaps already lead the outgoing by BASS_LEAD and land the incoming on the 1.
@@ -130,11 +144,27 @@ def bass_lead(blead=1.0, phrase=False, fade='tail'):
     over the louder deck (Mix 08 long1e L1 at 2:45 and 16:00). Outgoing-leads keeps width and
     centre unchanged (X1 and the 4-bar abrupt-tail reason stay). A 2-bar swap starting on this
     exit is the long1 Ember shape that failed the 6 dB/bar rendered-tail cap, so we do not go back
-    to it."""
+    to it.
+
+    cover_through + swap_centre (same unit, typically mix bars) + swap_w: if the incoming is
+    thin through cover_through (last_incoming_thin_bar, inclusive), shrink outgoing_lead
+    (even negative) so the outgoing down-ramp does not start before cover_through+1. Incoming
+    lag is unchanged, so a first-half handoff still does not stack two full basses (the L1
+    cases). Mix 08 long1f trans 12: cap_solo kept the xfader over Bad To Me's crash at bars
+    1328-1343, but the bass swap at the exit start (1331, lead 1+0) dropped Ember's still-present
+    lows and opened a 2-bar 11 dB hole. long1e (symmetric 0.5+0.5, swap 1 bar later) stayed
+    5 dB; v2 had swapped earlier so the neighbour median was already down and depth was 4.5."""
     blead = float(blead)
     if fade == 'long' or phrase:
-        return (blead, 0.0)
-    return (blead / 2, blead / 2)
+        out_lead, in_lag = (blead, 0.0)
+    else:
+        out_lead, in_lag = (blead / 2, blead / 2)
+    if cover_through is not None and swap_centre is not None:
+        # outgoing down-ramp starts at swap_centre - out_lead - swap_w/2
+        max_lead = float(swap_centre) - (float(cover_through) + 1) - float(swap_w) / 2
+        if max_lead < out_lead:
+            out_lead = max_lead
+    return (out_lead, in_lag)
 
 
 def vocal_exit_params(vB, rvB, wb, X, rise=2.0, exit_=8.0, solo=0.0, hold=0.0,

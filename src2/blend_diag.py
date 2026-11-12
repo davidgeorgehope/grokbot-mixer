@@ -6,7 +6,9 @@ clash zone (both decks within 6 dB) shaded; (2) the rendered decks' measured low
 half-beat verdict from halfbeat.py); (4) one bar of drum hits per deck averaged over the overlap (kick 30-150 Hz, snare
 150-1500 Hz; x = beats in the bar of the mix grid). With a pro clip (daily protrans A/B) a pro panel is added: per-deck
 full-band and low-band gains fitted from the stretched sources (NNLS on spectra, diagnose_gap.band_gains) and the pro's deck
-lock vs ours (score.beat_identity). Generate-only: it never fails a build (the half-beat gate lives in mix_simple.py and
+lock vs ours (score.beat_identity). An optional last lane shows the diagnostic spectral collision / continuity penalties
+(spectral_score.py, Manabe 2026); it is generate-only too and never fails a build.
+Generate-only: it never fails a build (the half-beat gate lives in mix_simple.py and
 src/build_qa/test_release_halfbeat.py).
 
 usage (cwd src2):
@@ -154,7 +156,14 @@ def figure(M, i, out_png, title=None, pro=None, src_a=None, src_b=None, ours=Non
             yp, yo, _, _ = S.align_ours_to_pro(S._load(pro), S._load(ours)); lock = S.beat_identity(yp, yo, src_a, src_b)[1]
         except Exception as ex:
             lock = dict(error=str(ex)[-120:])
-    rows = 5 if pp else 4
+    sp = None
+    try:
+        import spectral_score as SS
+        sp = SS.score_decks(A, B, sr=44100, bar_s=BAR, start_s=(s - s0) * BAR, end_s=(e - s0) * BAR,
+                            pre_s=PRE * BAR, post_s=POST * BAR, already_gained=True)
+    except Exception as ex:
+        sp = dict(error=str(ex)[-160:])
+    rows = (5 if pp else 4) + (1 if sp and 'collision_bar' in sp else 0)
     fig, ax = plt.subplots(rows, 1, figsize=(11, 3.1 * rows))
     k = 0
     a = ax[k]; k += 1
@@ -188,6 +197,10 @@ def figure(M, i, out_png, title=None, pro=None, src_a=None, src_b=None, ours=Non
     a.plot(xx, fA[0], color='tab:blue', label='A kick'); a.plot(xx, fA[1], '--', color='tab:blue', label='A snare band')
     a.plot(xx, fB[0], color='tab:red', label='B kick'); a.plot(xx, fB[1], '--', color='tab:red', label='B snare band')
     a.set_xticks([0, 1, 2, 3, 4]); a.set_xlabel('beats in bar (mix grid)'); a.set_title(f'one bar of drum hits per deck, averaged over {len(bl)} overlap bars', fontsize=9); a.legend(fontsize=7); a.grid(alpha=.3)
+    if sp and 'collision_bar' in sp:
+        a = ax[k]; k += 1
+        import spectral_score as SS
+        SS.add_diag_lane(a, sp, x0_bar=s0)
     for a in ax[:-1]:
         a.set_xlabel('mix bar')
     fig.tight_layout(); os.makedirs(os.path.dirname(out_png) or '.', exist_ok=True); fig.savefig(out_png, dpi=90); plt.close(fig)
@@ -195,6 +208,13 @@ def figure(M, i, out_png, title=None, pro=None, src_a=None, src_b=None, ours=Non
                 offset_ms_median=None if not len(offs) or np.all(np.isnan(offs)) else round(float(np.nanmedian(offs)), 1),
                 offset_bars=len(bl), clash_bars=round(float(clash.sum() / 16), 2), sum_lows_dip_db=round(dip, 1),
                 bass_swap=t.get('bass_swap'), phrase_cut=t.get('phrase_cut'))
+    if sp and 'collision_bar' in sp:
+        import spectral_score as SS
+        summ['spectral'] = {k: SS.compact(sp)[k] for k in
+                            ('diagnostic_only', 'pcol', 'pcty', 'Scol', 'Scty', 'banger_clash_rate',
+                             'start_s', 'end_s', 'continuity_fallback')}
+    elif sp and sp.get('error'):
+        summ['spectral'] = dict(diagnostic_only=True, error=sp['error'])
     json.dump(summ, open(out_png[:-4] + '.json', 'w'), indent=1, default=float)
     return summ
 

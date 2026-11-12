@@ -9,7 +9,7 @@
   "LOOP32": 0,
   "hint_weight": 0.15,
   "near_hint_bars": 32,
-  "length_pref": 32,
+  "length_pref": 16,
   "family_prior_w": 0.3,
   "prefer_family": null,
   "loop_fam_pen": 1.0,

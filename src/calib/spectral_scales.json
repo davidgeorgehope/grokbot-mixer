@@ -1,0 +1,13 @@
+{
+ "s_col": 0.15282262,
+ "s_cty": 7.69548589,
+ "target": 0.7,
+ "n_pro": 33,
+ "note": "s such that a penalty equal to the admitted-pro median maps to score 0.70. Diagnostic only.",
+ "at": "2026-11-12T12:14:11-05:00",
+ "pro_median_pcol": 0.054508,
+ "pro_median_pcty": 2.744787,
+ "pro_p95_pcol": 0.1084314,
+ "pro_p95_pcty": 6.1426166,
+ "diagnostic_only": true
+}

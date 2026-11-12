@@ -1,0 +1,110 @@
+{
+ "blend": 0,
+ "a": "suPgRyRLVC4",
+ "b": "J3oTRY7AdE4",
+ "start_bar": 208.0,
+ "end_bar": 224.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-12.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": 0.3253,
+   "rate": 1.0064,
+   "r_a": 0.788,
+   "r_b": 0.775
+  },
+  "ours": {
+   "phase_beats": 0.3547,
+   "rate": 1.0,
+   "r_a": 0.835,
+   "r_b": 0.925
+  },
+  "diff_beats": 0.0294,
+  "diff_ms": 10.1
+ },
+ "offset_ms_median": -45.0,
+ "offset_bars": 9,
+ "clash_bars": 7.69,
+ "sum_lows_dip_db": 44.5,
+ "bass_swap": [
+  212.0,
+  217.0
+ ],
+ "phrase_cut": null,
+ "pick_id": "hybrid_minds_ukf__08",
+ "fam": "nat_short",
+ "win": [
+  "n",
+  224,
+  null,
+  32,
+  16
+ ],
+ "score": 43.1,
+ "score_v2": 42.55,
+ "breakdown": {
+  "stem_curves": 57.68,
+  "deck_curves": 40.65,
+  "beat_align": 62.95,
+  "bass_swap": 20.77,
+  "outgoing_cut": 26.67,
+  "blend_length": 26.67,
+  "stems": {
+   "drums": 66.24,
+   "bass": 77.44,
+   "vocals": 40.85,
+   "melody": 46.18
+  },
+  "beat_off_ms": 2.9,
+  "beat_align_v2": 59.24,
+  "beat_identity": 66.66,
+  "beat_lock": {
+   "pro": {
+    "phase_beats": 0.3253,
+    "rate": 1.0064,
+    "r_a": 0.788,
+    "r_b": 0.775
+   },
+   "ours": {
+    "phase_beats": 0.3547,
+    "rate": 1.0,
+    "r_a": 0.835,
+    "r_b": 0.925
+   },
+   "diff_beats": 0.0294,
+   "diff_ms": 10.1
+  },
+  "events_pro": {
+   "bass_swap": 3,
+   "outgoing_cut": 18,
+   "blend_length": 18
+  },
+  "events_ours": {
+   "bass_swap": 8,
+   "outgoing_cut": 22,
+   "blend_length": 10
+  },
+  "stem_kind": [
+   "bands",
+   "bands"
+  ],
+  "deck": {
+   "per_stem_deck": 40.65
+  },
+  "align": {
+   "lag_samples": -200192,
+   "lag_ms": -9079.0,
+   "peak": 0.3229,
+   "win_sec": 35.059
+  }
+ },
+ "ours": "/tmp/protrans_bench/diag2963648.mp3"
+}

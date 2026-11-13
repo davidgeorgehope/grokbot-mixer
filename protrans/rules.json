@@ -15,5 +15,6 @@
   "loop_fam_pen": 1.0,
   "LONG_SOLO": 16,
   "LONG_SWAP": "exit",
-  "LONG_SOLO_STRUCT": 1
+  "LONG_SOLO_STRUCT": 1,
+  "linger_pen_w": 0.15
 }

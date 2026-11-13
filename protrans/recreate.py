@@ -8,7 +8,7 @@ def load_rules(path=None):
     return json.load(open(path or paths.RULES))
 
 # Defaults from the nightly protrans hill-climb (kept 2026-11-09: 2-bar bass swap, held-out 25.19 -> 26.58).
-DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'exit', 'LONG_SOLO_STRUCT': 1}  # LONG_*: 2026-11-11 long-blend RCA, only act with FADE=long (rules.json; held-out 30.09 -> 30.75, the listener 'best one yet'); HIGH_OFS 8: nightly hill-climb 2026-11-10, held-out 27.97 -> 28.47; BASS_SWAP_BARS 3: nightly 2026-11-11, held-out 28.47 -> 29.51
+DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'exit', 'LONG_SOLO_STRUCT': 1, 'linger_pen_w': 0.15}  # linger_pen_w 0.15: nightly hill-climb 2026-11-13, held-out 32.24 -> 33.84 (soft cost for windows that leave the outgoing track lingering past its phrase);  # LONG_*: 2026-11-11 long-blend RCA, only act with FADE=long (rules.json; held-out 30.09 -> 30.75, the listener 'best one yet'); HIGH_OFS 8: nightly hill-climb 2026-11-10, held-out 27.97 -> 28.47; BASS_SWAP_BARS 3: nightly 2026-11-11, held-out 28.47 -> 29.51
 
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}

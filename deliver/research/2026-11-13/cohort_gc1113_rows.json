@@ -1,0 +1,497 @@
+[
+ {
+  "id": "wilkinson_boomtown2026__33",
+  "split": "test",
+  "dj": "Wilkinson",
+  "score": 32.12,
+  "error": null,
+  "fam": "nat_long",
+  "win": [
+   "n",
+   96,
+   null,
+   0,
+   32
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__01",
+  "split": "train",
+  "dj": "Joe Syntax",
+  "score": 27.0,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__08",
+  "split": "train",
+  "dj": "Joe Syntax",
+  "score": 44.6,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   240,
+   null,
+   40,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__08",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 39.61,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   224,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__11",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 36.3,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   208,
+   null,
+   64,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__12",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 20.28,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   304,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__19",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 26.88,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__25",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 21.23,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   192,
+   null,
+   0,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__45",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 44.76,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   128,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__02",
+  "split": "test",
+  "dj": "Netsky",
+  "score": 47.66,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   176,
+   null,
+   0,
+   16
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__06",
+  "split": "test",
+  "dj": "Netsky",
+  "score": 24.11,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   320,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__17",
+  "split": "test",
+  "dj": "Netsky",
+  "score": 29.05,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__11",
+  "split": "train",
+  "dj": "Joe Syntax",
+  "score": 53.67,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   240,
+   null,
+   24,
+   16
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__12",
+  "split": "train",
+  "dj": "Joe Syntax",
+  "score": 35.6,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   224,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__13",
+  "split": "train",
+  "dj": "Joe Syntax",
+  "score": 28.54,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   256,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__00",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 40.64,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   224,
+   null,
+   8,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__09",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 34.89,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   208,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__10",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 35.63,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__28",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 34.9,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   240,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__40",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 37.14,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   272,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__00",
+  "split": "train",
+  "dj": "Joe Syntax",
+  "score": 24.45,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   96,
+   null,
+   0,
+   16
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__09",
+  "split": "train",
+  "dj": "Joe Syntax",
+  "score": 29.09,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__14",
+  "split": "train",
+  "dj": "Joe Syntax",
+  "score": 27.57,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__13",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 43.92,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__23",
+  "split": "train",
+  "dj": "Hybrid Minds",
+  "score": 32.43,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__15",
+  "split": "test",
+  "dj": "Netsky",
+  "score": 38.82,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   240,
+   null,
+   0,
+   16
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__23",
+  "split": "test",
+  "dj": "Netsky",
+  "score": 26.64,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "maduk_liquicity_lunar2025__02",
+  "split": "test",
+  "dj": "Maduk",
+  "score": 27.55,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   112,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "maduk_liquicity_lunar2025__03",
+  "split": "test",
+  "dj": "Maduk",
+  "score": 27.19,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "maduk_liquicity_lunar2025__05",
+  "split": "test",
+  "dj": "Maduk",
+  "score": 25.18,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   240,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "pola_bryson_puzzlewood__00",
+  "split": "test",
+  "dj": "Pola & Bryson",
+  "score": 59.15,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "pola_bryson_puzzlewood__02",
+  "split": "test",
+  "dj": "Pola & Bryson",
+  "score": 22.32,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "pola_bryson_puzzlewood__04",
+  "split": "test",
+  "dj": "Pola & Bryson",
+  "score": 32.18,
+  "error": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   224,
+   null,
+   40,
+   16
+  ]
+ }
+]

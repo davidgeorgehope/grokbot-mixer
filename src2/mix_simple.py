@@ -108,7 +108,7 @@ def swap_at(a,b,wa,wb):
   # FADE=long already places the handoff in x-space (LONG_SWAP=exit: fade_long.swap_pos, centre at the
   # exit start, x=xp2=0.5). The tail planner's 4-bar phrase snap assumes x≈u, and with a 4-bar swap
   # plus a vocal hold or a short plateau it can have zero candidates (Mix 08 long1b, ValueError).
-  if FADE=='long':return POS*X
+  if _longish():return POS*X
   if not(SNAP and SW>0):return POS*X
   bA,bB=F(a)[4],F(b)[4]
   lA,lB=F(a)[1],F(b)[1];bodA,bodB=np.percentile(lA,75),np.percentile(lB,75)
@@ -131,6 +131,9 @@ def swap_at(a,b,wa,wb):
   return min((c for c in range(4,X,4) if 0.2<=_xpos((c+SW/2)/X)<=0.65),key=lambda c:(bad(c),abs(c-POS*X)))
 FADE=os.environ.get('FADE','tail');FADE0=FADE;FDB=float(os.environ.get('FADE_DB',22))  # 'tail' (default 2026-10-31): blend of the linear position and a -FDB*u^1.5 dB outgoing tail, weighted by u; 'lin' = old linear position (outgoing gone ~10 bars after the swap, -7..-11 dB/bar in Mix 05)
 # FADE=long (2026-11-11 long-blend RCA): early-in plateau + decisive outgoing exit on a phrase (fade_long.py). Same single crossfader.
+# FADE=graphcut (2026-11-13, off by default): per-band min-cut handover (fade_graphcut.py). Plans like FADE=long; does not change the default or rules.json.
+GC=os.environ.get('GRAPH_CUT','0')=='1' or FADE0=='graphcut'
+def _longish():return FADE in ('long','graphcut')
 import fade_long as _FL
 LG=dict(rise=float(os.environ.get('LONG_RISE',2)),xp=float(os.environ.get('LONG_XP',0.35)),xp2=float(os.environ.get('LONG_XP2',0.5)),
         exit_=float(os.environ.get('LONG_EXIT',8)),solo=float(os.environ.get('LONG_SOLO',0)))
@@ -138,7 +141,7 @@ LG0=dict(LG);LGST=int(os.environ.get('LONG_SOLO_STRUCT',0))  # 1: exit ends wher
 LGSW=os.environ.get('LONG_SWAP','')  # 'exit': under FADE=long the bass swap centres on the exit start (fade_long.swap_pos), opt-in
 def _xpos(u):  # shared by score() and the render. Pure -30*u^1.5 tail failed X1 (incoming +4.5 dB/beat early) and C2 (outgoing -10.6 dB at mid-blend) on the Mix 06 render;
   # (u, u**1.5, D24 still gave X1 3.1 dB/beat on 16-bar blends in render c)
-  if FADE=='long':return _FL.xlong(u,X,**LG)
+  if _longish():return _FL.xlong(u,X,**LG)
   if FADE=='lin' or u>=1:return u
   w=u**1.4;return float((1-w)*u+w*2/np.pi*np.arccos(10**(-FDB*u**1.7/20)))  # tuned at guardrail resolution (1/16 bar): X=16 incoming <=2.9 dB/beat, outgoing <=2.9 dB/bar, -4.2 dB mid-blend
 PIN={p['id']:p for p in plan if 'fade' in p or 'swap_bars' in p or 'swap_pos' in p}  # per-outgoing overrides: a pinned blend keeps its fader / bass swap / swap centre
@@ -146,14 +149,14 @@ def _ctx(a,wa=None,b=None,wb=None):
   global FADE,SW,POS;q=PIN.get(a,{}) if a else {};FADE=q.get('fade',FADE0);SW=float(q.get('swap_bars',SW0));POS=float(q.get('swap_pos',POS0))
   # FADE=long + a 2-bar bass handoff stacked on the exit took 6.4 dB off Ember in one bar (Mix 08 long test).
   # 4-bar swaps have been the default since 2026-10-31 for this reason; PIN can still force 2.
-  if FADE=='long' and 'swap_bars' not in q and SW<4:SW=4.0
+  if _longish() and 'swap_bars' not in q and SW<4:SW=4.0
   LG['solo']=LG0['solo'];LG['hold']=0.0;LG['exit_']=LG0['exit_']
-  if a and wa is not None and FADE=='long' and LGST:
+  if a and wa is not None and _longish() and LGST:
     LG['solo']=_FL.struct_solo(np.array(track(a)['g']['bar']['all'],float),list(wa),X,**LG0)
     if b and wb is not None:
       g=track(b)['g']['bar']
       LG['solo']=_FL.cap_solo_incoming(np.array(g['all'],float),np.array(g.get('low',g['all']),float),list(wb),X,**{**LG0,'solo':LG['solo']})
-  if a and wa is not None and b and wb is not None and FADE=='long':
+  if a and wa is not None and b and wb is not None and _longish():
     *_u,vA,rvA,_ba=F(a);*_u,vB,rvB,_bb=F(b)
     LG['hold']=float(_FL.vocal_hold(vA,rvA,list(wa),vB,rvB,list(wb),X))
     # After a delayed exit to cover a thin incoming, keep the outgoing under 0.3 before the
@@ -163,7 +166,7 @@ def _ctx(a,wa=None,b=None,wb=None):
     cap=LG['solo']
     LG['solo'],ex=_FL.vocal_exit_params(vB,rvB,list(wb),X,**{**LG0,'solo':LG['solo'],'hold':LG['hold'],'cap_solo':cap})
     LG['exit_']=ex
-  if a and FADE=='long' and LGSW=='exit' and 'swap_pos' not in q:
+  if a and _longish() and LGSW=='exit' and 'swap_pos' not in q:
     POS=_FL.swap_pos(X,**LG)
     if b and wb is not None:
       g=track(b)['g']['bar']
@@ -351,7 +354,7 @@ for i,d in enumerate(decks):
       # mid-cross is not two equal plateau faders (Mix 08 long1e L1). Phrase-snapped unchanged.
       # A thin incoming stretch is handled by moving the swap earlier (swap_before_thin in _ctx),
       # not by delaying the outgoing down-ramp (that was Mix 08 long1g's X1/L1 regression).
-      return _FL.bass_lead(BLEAD,phrase=bool(t.get('swap_phrase')),fade=t.get('fade',FADE))
+      return _FL.bass_lead(BLEAD,phrase=bool(t.get('swap_phrase')),fade='long' if (t.get('fade',FADE) in ('long','graphcut') or _longish()) else t.get('fade',FADE))
     if i>0:lo+=ramp(at(trans[i-1])+lead(trans[i-1])[1],True,trans[i-1]['swap_w'])
     if i<len(decks)-1:lo+=ramp(at(trans[i])-lead(trans[i])[0],False,trans[i]['swap_w'])
     d['auto']['low']=lo
@@ -376,6 +379,9 @@ for i in range(len(trans)):
   if f:
     try:_BMX.apply(_BMM,i,f)
     except ValueError as ex:print('bm_fix skipped',trans[i]['a'],'>',trans[i]['b'],ex,file=sys.stderr)
+if GC:
+  import fade_graphcut as _GC
+  _GC.apply(decks,trans)
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])
   print('len min',round((decks[-1]['end_bar'])*BAR/60,2))

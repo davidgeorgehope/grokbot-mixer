@@ -1,0 +1,50 @@
+{
+ "blend": 0,
+ "a": "suPgRyRLVC4",
+ "b": "J3oTRY7AdE4",
+ "start_bar": 208.0,
+ "end_bar": 224.0,
+ "png": "/workspace/mixes/deliver/research/2026-11-13/diag_graphcut.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": 0.3253,
+   "rate": 1.0064,
+   "r_a": 0.788,
+   "r_b": 0.775
+  },
+  "ours": {
+   "phase_beats": 0.3547,
+   "rate": 1.0,
+   "r_a": 0.934,
+   "r_b": 0.9
+  },
+  "diff_beats": 0.0294,
+  "diff_ms": 10.1
+ },
+ "offset_ms_median": 30.5,
+ "offset_bars": 2,
+ "clash_bars": 7.69,
+ "sum_lows_dip_db": 28.9,
+ "bass_swap": null,
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.013277,
+  "pcty": 4.016632,
+  "Scol": 0.9168,
+  "Scty": 0.5934,
+  "banger_clash_rate": 0.001,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

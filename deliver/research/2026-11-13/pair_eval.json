@@ -1,0 +1,548 @@
+{
+  "pick": "hybrid_minds_ukf__08",
+  "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
+  "win": [
+    "n",
+    224,
+    null,
+    32,
+    16
+  ],
+  "bar_sec": 1.3793103448275863,
+  "blend_start_s": 11.03448275862069,
+  "default": {
+    "score": {
+      "score": 43.1,
+      "score_v2": 42.55,
+      "scorer_version": "gain-events-v3-beatid",
+      "breakdown": {
+        "stem_curves": 57.68,
+        "deck_curves": 40.65,
+        "beat_align": 62.95,
+        "bass_swap": 20.77,
+        "outgoing_cut": 26.67,
+        "blend_length": 26.67,
+        "stems": {
+          "drums": 66.24,
+          "bass": 77.44,
+          "vocals": 40.85,
+          "melody": 46.18
+        },
+        "beat_off_ms": 2.9,
+        "beat_align_v2": 59.24,
+        "beat_identity": 66.66,
+        "beat_lock": {
+          "pro": {
+            "phase_beats": 0.3253,
+            "rate": 1.0064,
+            "r_a": 0.788,
+            "r_b": 0.775
+          },
+          "ours": {
+            "phase_beats": 0.3547,
+            "rate": 1.0,
+            "r_a": 0.835,
+            "r_b": 0.925
+          },
+          "diff_beats": 0.0294,
+          "diff_ms": 10.1
+        },
+        "events_pro": {
+          "bass_swap": 3,
+          "outgoing_cut": 18,
+          "blend_length": 18
+        },
+        "events_ours": {
+          "bass_swap": 8,
+          "outgoing_cut": 22,
+          "blend_length": 10
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 40.65
+        },
+        "align": {
+          "lag_samples": -200192,
+          "lag_ms": -9079.0,
+          "peak": 0.3229,
+          "win_sec": 35.059
+        }
+      },
+      "weights": {
+        "stem_curves": 0.28,
+        "deck_curves": 0.22,
+        "beat_align": 0.15,
+        "bass_swap": 0.13,
+        "outgoing_cut": 0.12,
+        "blend_length": 0.1
+      },
+      "pro": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__08/pro.wav",
+      "ours": "/workspace/mixes/deliver/research/2026-11-13/gcdef.mp3"
+    },
+    "diag": {
+      "blend": 0,
+      "a": "suPgRyRLVC4",
+      "b": "J3oTRY7AdE4",
+      "start_bar": 208.0,
+      "end_bar": 224.0,
+      "png": "/workspace/mixes/deliver/research/2026-11-13/diag_default.png",
+      "halfbeat": {
+        "r0": 1.0,
+        "rh": 0.0,
+        "lag_ms": 0.0,
+        "bars": 0,
+        "fail": false,
+        "basis": "drum-phase+lag",
+        "note": "< 4 drum-on-drum bars"
+      },
+      "pro_lock": {
+        "pro": {
+          "phase_beats": 0.3253,
+          "rate": 1.0064,
+          "r_a": 0.788,
+          "r_b": 0.775
+        },
+        "ours": {
+          "phase_beats": 0.3547,
+          "rate": 1.0,
+          "r_a": 0.835,
+          "r_b": 0.925
+        },
+        "diff_beats": 0.0294,
+        "diff_ms": 10.1
+      },
+      "offset_ms_median": -45.0,
+      "offset_bars": 9,
+      "clash_bars": 7.69,
+      "sum_lows_dip_db": 44.5,
+      "bass_swap": [
+        212.0,
+        217.0
+      ],
+      "phrase_cut": null,
+      "spectral": {
+        "diagnostic_only": true,
+        "pcol": 0.056252,
+        "pcty": 4.186792,
+        "Scol": 0.6921,
+        "Scty": 0.5804,
+        "banger_clash_rate": 0.0522,
+        "start_s": 11.034,
+        "end_s": 33.103,
+        "continuity_fallback": false
+      }
+    },
+    "tests": {
+      "X1": {
+        "pass_": true,
+        "failures": []
+      },
+      "bass_gap": {
+        "pass_": true,
+        "failures": [],
+        "GAP_DB": 9.84
+      },
+      "V1": {
+        "pass_": true,
+        "failures": []
+      },
+      "outgoing_fader_tail": {
+        "pass_": true,
+        "failures": [],
+        "RIDE_FRAC": 0.15
+      },
+      "L1": {
+        "pass_": true,
+        "failures": [],
+        "L1_db": 3.0
+      },
+      "bass_never_doubles": {
+        "pass_": true,
+        "doubled_bars": 0,
+        "max_ok": 2
+      },
+      "N1": {
+        "pass_": true,
+        "failures": [],
+        "N1_ms": 10.0,
+        "halfbeat": {
+          "r0": 1.0,
+          "rh": 0.0,
+          "lag_ms": 0.0,
+          "bars": 0,
+          "fail": false,
+          "basis": "drum-phase+lag",
+          "note": "< 4 drum-on-drum bars"
+        }
+      },
+      "all_pass": true
+    },
+    "env": {
+      "FADE": "long",
+      "BASS_SWAP_BARS": "3",
+      "SWAP_POS": "0.21",
+      "HIGH_SWAP": "1",
+      "HIGH_OFS": "8",
+      "STRUCT": "1",
+      "LOOP32": "0",
+      "LONG_SOLO": "16",
+      "LONG_SWAP": "exit",
+      "LONG_SOLO_STRUCT": "1"
+    },
+    "win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+    ],
+    "ours": "/workspace/mixes/deliver/research/2026-11-13/gcdef.mp3",
+    "meta": "/workspace/mixes/deliver/research/2026-11-13/gcdef_meta.json",
+    "fam": "reused"
+  },
+  "graphcut": {
+    "score": {
+      "score": 39.61,
+      "score_v2": 38.89,
+      "scorer_version": "gain-events-v3-beatid",
+      "breakdown": {
+        "stem_curves": 53.29,
+        "deck_curves": 40.6,
+        "beat_align": 61.91,
+        "bass_swap": 15.54,
+        "outgoing_cut": 25.62,
+        "blend_length": 13.71,
+        "stems": {
+          "drums": 59.23,
+          "bass": 72.04,
+          "vocals": 37.74,
+          "melody": 44.15
+        },
+        "beat_off_ms": 2.9,
+        "beat_align_v2": 57.16,
+        "beat_identity": 66.66,
+        "beat_lock": {
+          "pro": {
+            "phase_beats": 0.3253,
+            "rate": 1.0064,
+            "r_a": 0.788,
+            "r_b": 0.775
+          },
+          "ours": {
+            "phase_beats": 0.3547,
+            "rate": 1.0,
+            "r_a": 0.934,
+            "r_b": 0.9
+          },
+          "diff_beats": 0.0294,
+          "diff_ms": 10.1
+        },
+        "events_pro": {
+          "bass_swap": 3,
+          "outgoing_cut": 18,
+          "blend_length": 18
+        },
+        "events_ours": {
+          "bass_swap": 9,
+          "outgoing_cut": 22,
+          "blend_length": 5
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 40.6
+        },
+        "align": {
+          "lag_samples": -200192,
+          "lag_ms": -9079.0,
+          "peak": 0.3028,
+          "win_sec": 35.059
+        }
+      },
+      "weights": {
+        "stem_curves": 0.28,
+        "deck_curves": 0.22,
+        "beat_align": 0.15,
+        "bass_swap": 0.13,
+        "outgoing_cut": 0.12,
+        "blend_length": 0.1
+      },
+      "pro": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__08/pro.wav",
+      "ours": "/workspace/mixes/deliver/research/2026-11-13/gcgc.mp3"
+    },
+    "diag": {
+      "blend": 0,
+      "a": "suPgRyRLVC4",
+      "b": "J3oTRY7AdE4",
+      "start_bar": 208.0,
+      "end_bar": 224.0,
+      "png": "/workspace/mixes/deliver/research/2026-11-13/diag_graphcut.png",
+      "halfbeat": {
+        "r0": 1.0,
+        "rh": 0.0,
+        "lag_ms": 0.0,
+        "bars": 0,
+        "fail": false,
+        "basis": "drum-phase+lag",
+        "note": "< 4 drum-on-drum bars"
+      },
+      "pro_lock": {
+        "pro": {
+          "phase_beats": 0.3253,
+          "rate": 1.0064,
+          "r_a": 0.788,
+          "r_b": 0.775
+        },
+        "ours": {
+          "phase_beats": 0.3547,
+          "rate": 1.0,
+          "r_a": 0.934,
+          "r_b": 0.9
+        },
+        "diff_beats": 0.0294,
+        "diff_ms": 10.1
+      },
+      "offset_ms_median": 30.5,
+      "offset_bars": 2,
+      "clash_bars": 7.69,
+      "sum_lows_dip_db": 28.9,
+      "bass_swap": null,
+      "phrase_cut": null,
+      "spectral": {
+        "diagnostic_only": true,
+        "pcol": 0.013277,
+        "pcty": 4.016632,
+        "Scol": 0.9168,
+        "Scty": 0.5934,
+        "banger_clash_rate": 0.001,
+        "start_s": 11.034,
+        "end_s": 33.103,
+        "continuity_fallback": false
+      }
+    },
+    "tests": {
+      "X1": {
+        "pass_": true,
+        "failures": []
+      },
+      "bass_gap": {
+        "pass_": true,
+        "failures": [],
+        "GAP_DB": 9.84
+      },
+      "V1": {
+        "pass_": true,
+        "failures": []
+      },
+      "outgoing_fader_tail": {
+        "pass_": true,
+        "failures": [],
+        "RIDE_FRAC": 0.15
+      },
+      "L1": {
+        "pass_": true,
+        "failures": [],
+        "L1_db": 3.0
+      },
+      "bass_never_doubles": {
+        "pass_": true,
+        "doubled_bars": 0,
+        "max_ok": 2
+      },
+      "N1": {
+        "pass_": true,
+        "failures": [],
+        "N1_ms": 10.0,
+        "halfbeat": {
+          "r0": 1.0,
+          "rh": 0.0,
+          "lag_ms": 0.0,
+          "bars": 0,
+          "fail": false,
+          "basis": "drum-phase+lag",
+          "note": "< 4 drum-on-drum bars"
+        }
+      },
+      "all_pass": true
+    },
+    "env": {
+      "FADE": "graphcut",
+      "BASS_SWAP_BARS": "3",
+      "SWAP_POS": "0.21",
+      "HIGH_SWAP": "1",
+      "HIGH_OFS": "8",
+      "STRUCT": "1",
+      "LOOP32": "0",
+      "LONG_SOLO": "16",
+      "LONG_SWAP": "exit",
+      "LONG_SOLO_STRUCT": "1",
+      "GRAPH_CUT": "1"
+    },
+    "win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+    ],
+    "ours": "/workspace/mixes/deliver/research/2026-11-13/gcgc.mp3",
+    "meta": "/workspace/mixes/deliver/research/2026-11-13/gcgc_meta.json",
+    "seams": {
+      "seams": [
+        9,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "cut_value": 1048.201029443281,
+      "clash_frac": [
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.5625,
+        0.1875
+      ],
+      "bass_centre": 216.5,
+      "high_centre": 217.0,
+      "incoming_covers_bass": false,
+      "bass_follow_fader": true,
+      "bands": [
+        {
+          "band": 0,
+          "edges": [
+            20.0,
+            80.0
+          ],
+          "seam": 9,
+          "centre": 216.5,
+          "width": 16.0,
+          "clash": 0.0
+        },
+        {
+          "band": 1,
+          "edges": [
+            80.0,
+            250.0
+          ],
+          "seam": 9,
+          "centre": 216.5,
+          "width": 16.0,
+          "clash": 1.0
+        },
+        {
+          "band": 2,
+          "edges": [
+            250.0,
+            800.0
+          ],
+          "seam": 9,
+          "centre": 217.0,
+          "width": 2.0,
+          "clash": 1.0
+        },
+        {
+          "band": 3,
+          "edges": [
+            800.0,
+            2500.0
+          ],
+          "seam": 9,
+          "centre": 217.0,
+          "width": 2.0,
+          "clash": 1.0
+        },
+        {
+          "band": 4,
+          "edges": [
+            2500.0,
+            7000.0
+          ],
+          "seam": 9,
+          "centre": 217.0,
+          "width": 2.0,
+          "clash": 0.5625
+        },
+        {
+          "band": 5,
+          "edges": [
+            7000.0,
+            20000.0
+          ],
+          "seam": 9,
+          "centre": 217.0,
+          "width": 2.0,
+          "clash": 0.1875
+        }
+      ]
+    }
+  },
+  "figure": "/workspace/mixes/deliver/research/2026-11-13/lows_default_vs_graphcut.png",
+  "baselines": {
+    "v3_train": 30.97,
+    "v3_test": 30.09,
+    "current_heldout": 33.84,
+    "current_train": 33.12
+  },
+  "verdict": "loses",
+  "why": "pro-similarity dropped 43.1 -> 39.61. The summed-lows dip did shrink (44.5 -> 28.9 dB) but that was not enough to count as a win.",
+  "writeup": "/workspace/mixes/docs/GRAPHCUT_2026-11-13.md",
+  "cohort": {
+    "variant": "gc1113",
+    "v3": {
+      "train": 34.24,
+      "test": 32.66,
+      "n": 33,
+      "n_fail": 0
+    },
+    "v2": {
+      "train": 33.99,
+      "test": 31.52
+    },
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 34.51,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 33.81,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 26.64,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 33.26,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 37.88,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 32.12,
+        "split": "test"
+      }
+    },
+    "baseline_v3": {
+      "train": 30.97,
+      "test": 30.09
+    },
+    "current_heldout": 33.84,
+    "current_train": 33.12
+  }
+}

@@ -2,7 +2,7 @@
 A deck is a list of source bars (full_map) plus one 'gain' curve that comes only from the crossfader.
 The only EQ is an optional bass-handoff lane d['auto']['low'] (0..1 on the <XO Hz band, zero-phase split so
 low+rest == original exactly): one smooth monotonic swap per blend; plus, with HIGH_SWAP, the same kind of lane
-d['auto']['high'] on the >HIGH_XO Hz band; plus the optional delay-tail exit d['echo_out'] (echo_tail). No ducking or other filters; the only stem use is the beat-only (drums+bass) source of a synthetic outro ('lx'), switched in before the blend."""
+d['auto']['high'] on the >HIGH_XO Hz band; plus the optional delay-tail exit d['echo_out'] (echo_tail). No ducking or other filters; the only stem use is the beat-only (drums+bass) source of a synthetic outro ('lx'), switched in before the blend. FADE=graphcut (off by default) replaces these lanes with a 6-band STFT handover on d['graphcut']."""
 import numpy as np,soundfile as sf,json,os,pyloudnorm as pyln
 from scipy.signal import butter,sosfiltfilt
 XO=float(os.environ.get('BASS_XO',150));HXO=float(os.environ.get('HIGH_XO',2000))
@@ -54,19 +54,25 @@ def render_deck(d):
   if ds and 'beat' not in src:  # drum swap: outgoing drums+bass stem out over ds['xf'] bars from mix bar ds['bar']; melody keeps the crossfader tail
     yb=_bars(tr,m,tr['st']['beat'],n);w=np.clip((np.arange(n)/BS+d['start_bar']-ds['bar'])/max(ds['xf'],1e-9),0,1).astype(np.float32)
     y=y-yb*w[:,None]
-  for lane,kind,fc in (('low','low',XO),('high','high',HXO)):
-    lp=d['auto'].get(lane) or []
-    if not lp:continue
-    t=np.arange(n)/BS+d['start_bar'];gl=np.interp(t,[p[0] for p in lp],[p[1] for p in lp]).astype(np.float32)
-    nz=np.where(gl<0.9999)[0]
-    if len(nz):
-      a0,a1=max(0,nz[0]-SR),min(n,nz[-1]+SR);seg=y[a0:a1]
-      band=sosfiltfilt(butter(4,fc,kind,fs=SR,output='sos'),seg,axis=0).astype(np.float32)
-      y[a0:a1]=seg-band*(1-gl[a0:a1,None])
+  gc=d.get('graphcut')
+  if gc:
+    import fade_graphcut as _GC
+    y=_GC.render_bands(y,gc,d['start_bar'],n,BS,SR)
+  else:
+    for lane,kind,fc in (('low','low',XO),('high','high',HXO)):
+      lp=d['auto'].get(lane) or []
+      if not lp:continue
+      t=np.arange(n)/BS+d['start_bar'];gl=np.interp(t,[p[0] for p in lp],[p[1] for p in lp]).astype(np.float32)
+      nz=np.where(gl<0.9999)[0]
+      if len(nz):
+        a0,a1=max(0,nz[0]-SR),min(n,nz[-1]+SR);seg=y[a0:a1]
+        band=sosfiltfilt(butter(4,fc,kind,fs=SR,output='sos'),seg,axis=0).astype(np.float32)
+        y[a0:a1]=seg-band*(1-gl[a0:a1,None])
   eo=d.get('echo_out');src=y[-int(round(eo['bars']*BS)):].copy() if eo else None  # pre-fader final bars feed the delay
-  pts=d['auto'].get('gain') or []
-  if pts:
-    t=np.arange(n)/BS+d['start_bar'];g=np.interp(t,[p[0] for p in pts],[p[1] for p in pts]).astype(np.float32);y*=g[:,None]
+  if not gc:
+    pts=d['auto'].get('gain') or []
+    if pts:
+      t=np.arange(n)/BS+d['start_bar'];g=np.interp(t,[p[0] for p in pts],[p[1] for p in pts]).astype(np.float32);y*=g[:,None]
   return np.concatenate([y,echo_tail(src,eo)]) if eo else y
 def _ib_layer(tr,d,m,n,y):
   """'ib' (2026-11-02, listener: beats into a melody-only intro go mushy, 'it's ok to loop into beats'): the incoming's drums+bass stem

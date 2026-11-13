@@ -16,6 +16,8 @@ def apply_rules(rules):
     for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
+    if env.get('FADE')=='graphcut':
+        env['GRAPH_CUT']='1'
     return env
 
 
@@ -200,6 +202,10 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
         # rules env first, then the family's own params on top (2026-11-11 RCA: the old update() let rules
         # overwrite swap_early/swap_late's SWAP_POS, so those families rendered exactly like nat_long)
         pick['env'] = {**env, **dict(pick.get('env') or {})}
+        # FADE=graphcut is a renderer flag: keep it on top of any family FADE so a cohort
+        # eval compares the same windows under a different handover, not a different family.
+        if str((rules or {}).get('FADE'))=='graphcut' or env.get('GRAPH_CUT')=='1':
+            pick['env']['FADE']='graphcut'; pick['env']['GRAPH_CUT']='1'
         dk, M = BB.render(pick, a, b, tag)
         ours = pick.get('mp3')
         meta_path = os.path.join('/tmp/protrans_bench', f'{tag}_{a}_{b}_meta.json')   # for blend_diag (daily diagnostics)

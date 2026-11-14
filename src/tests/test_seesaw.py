@@ -23,8 +23,9 @@ def _restore_stems(ids):
   import os,subprocess;st='/workspace/mixes/src2/st';miss=[i for i in ids if not os.path.exists(f'{st}/{i}.wav')]
   if miss:subprocess.run([sys.executable,'restore_audio.py',*miss],cwd='/workspace/mixes/src2',check=True,capture_output=True)
   return [f'{st}/{i}.wav' for i in miss]
-def test_loop_fill_is_soft_penalty():
+def test_loop_fill_is_soft_penalty(monkeypatch):
   """the listener 2026-11-01 (no hard 'never' rules): a loop over a fill (Remedy 160-175, fill 172-175) is still a candidate, just scored worse"""
+  monkeypatch.setenv('LX','1')  # unit test of the engine default; a build env (Mix 09 sets LX=0) must not leak into it
   import os;f=_rq_plan();cw=os.getcwd();made=_restore_stems([d['id'] for d in json.load(open(f))])
   try:
     ns=_scorer(f);os.chdir('/workspace/mixes/src2')

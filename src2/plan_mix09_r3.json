@@ -1,0 +1,363 @@
+[
+ {
+  "id": "zEvLsOVhg0I",
+  "tech": "first",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "I9QGpHScGug",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "la",
+   112,
+   96,
+   32,
+   16
+  ]
+ },
+ {
+  "id": "YFMvngI33oE",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "lb",
+   128,
+   null,
+   48,
+   32
+  ]
+ },
+ {
+  "id": "SqzxwPEa-DI",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   224,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "l4XZ-wqc4vQ",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   160,
+   null,
+   80,
+   32
+  ]
+ },
+ {
+  "id": "KDRPfuZfNYw",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   192,
+   null,
+   64,
+   16
+  ]
+ },
+ {
+  "id": "4WY9J_yXj8M",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   176,
+   null,
+   0,
+   32
+  ]
+ },
+ {
+  "id": "zGBn-IJ1isg",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   144,
+   null,
+   0,
+   16
+  ]
+ },
+ {
+  "id": "rpIpJQ7ujzc",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "la",
+   160,
+   144,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "5196v8VY1LI",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   160,
+   null,
+   0,
+   32
+  ]
+ },
+ {
+  "id": "MoYkYkoeb84",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "la",
+   128,
+   112,
+   64,
+   16
+  ]
+ },
+ {
+  "id": "q_cZZY0BehE",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   192,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "PVa_LRlOqBE",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   176,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "EpHrodtTiK0",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   160,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "LJJ4cJzpjKk",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   144,
+   null,
+   32,
+   32
+  ]
+ },
+ {
+  "id": "AC3eEHeLd8A",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   144,
+   null,
+   48,
+   16
+  ]
+ },
+ {
+  "id": "n1dOiesZS1g",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "F1NCnCxyhqc",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   144,
+   null,
+   64,
+   16
+  ]
+ },
+ {
+  "id": "j9AuFRpLk7U",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   176,
+   null,
+   64,
+   32
+  ]
+ },
+ {
+  "id": "cxS6yd0UAxw",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "nAV4i1YIwQI",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   176,
+   null,
+   64,
+   16
+  ]
+ },
+ {
+  "id": "kKu3fIOTiHk",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false,
+  "out_win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ]
+ },
+ {
+  "id": "7Itbo72XEz4",
+  "tech": "blend",
+  "kw": {
+   "pre": 16,
+   "build": true
+  },
+  "anchor": false
+ }
+]

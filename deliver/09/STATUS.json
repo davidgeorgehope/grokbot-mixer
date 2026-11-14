@@ -1,0 +1,18 @@
+{
+ "mix": "09",
+ "name": "mix09_r5b",
+ "stage": "audio_delivered",
+ "tested": true,
+ "delivered": true,
+ "n_fail_guard": 0,
+ "pytest": "242 passed / 0 failed",
+ "min": 62.57,
+ "lufs": -10.3,
+ "true_peak_dbtp": -1.3,
+ "updated_et": "2026-11-14 04:08 ET",
+ "drive": "https://drive.google.com/file/d/1era7vzSZfsbTThpQiymj3sBG1Ub_-PLO/view",
+ "icloud": "DJ Mixes / DJ Grok Bot \u2013 Mix 09.mp3 (+ Tracklist.txt)",
+ "youtube": null,
+ "visuals": "twin-turntable 1080p30 rendering on Runpod (job turntable-mix09, SPEND_LOG jobs/runpod-spend-mix09.log)",
+ "notes": "r5b = repair round 1 at master gain 8.0 (true-peak RCA: Sinking Sand HF overshoot in the 320k encode). Swaps vs search plan: Afterglow -> Southby Coming Home (bassgap x3), Not Alone -> Hybrid Minds Inside (beat-aligned bar), When My Love -> Wilkinson Out Of Control (N1). Mix 08 128k moved to Drive trash."
+}

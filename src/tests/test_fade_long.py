@@ -64,7 +64,10 @@ def test_lin_is_unchanged_when_fade_is_not_long():
     """FADE=lin/tail code path untouched: _xpos only branches to fade_long for FADE=long"""
     src = open(os.path.join(ROOT, 'src2', 'mix_simple.py')).read()
     body = src[src.index('def _xpos(u):'):].split('\ndef ', 1)[0]
-    assert "if FADE=='long':return _FL.xlong(u,X,**LG)" in body and "if FADE=='lin' or u>=1:return u" in body
+    # 2026-11-13 graph-cut prototype routed FADE=graphcut through the same long-fader branch via _longish(); FADE=tail/lin must still skip it.
+    assert ("if FADE=='long':return _FL.xlong(u,X,**LG)" in body or "if _longish():return _FL.xlong(u,X,**LG)" in body) and "if FADE=='lin' or u>=1:return u" in body
+    if '_longish()' in body:
+        assert "def _longish():return FADE in ('long','graphcut')" in src, '_longish must only be true for the long-fader modes'
 
 
 def test_struct_solo_ends_exit_on_the_outgoing_energy_drop():

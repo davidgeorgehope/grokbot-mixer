@@ -1,0 +1,44 @@
+{
+ "blend": 0,
+ "a": "zEvLsOVhg0I",
+ "b": "hNV8hn33JUU",
+ "start_bar": 192.0,
+ "end_bar": 208.0,
+ "png": "/workspace/mixes/deliver/mix09_r4/diagnostics/blend00_zEvLsOVhg0I_hNV8hn33JUU.png",
+ "halfbeat": {
+  "r0": 0.739,
+  "rh": 0.634,
+  "lag_ms": 0.0,
+  "bars": 9,
+  "phase_fail": false,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": 0.0,
+  "phase_b": 0.0,
+  "dphase_beats": 0.0,
+  "dphase_ms": 0.0,
+  "strength": 2.225,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": null,
+ "offset_ms_median": 42.1,
+ "offset_bars": 9,
+ "clash_bars": 5.62,
+ "sum_lows_dip_db": 26.2,
+ "bass_swap": [
+  195.0,
+  199.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.039728,
+  "pcty": 2.258542,
+  "Scol": 0.7711,
+  "Scty": 0.7457,
+  "banger_clash_rate": 0.0778,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

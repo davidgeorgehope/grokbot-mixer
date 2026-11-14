@@ -133,7 +133,8 @@ def windows(kind,e,p,ib,X,b_out=None):
   wa=[p+((LX_PRE+k)%LXL(b_out,p)) for k in range(X)] if kind=='lx' else [p+(k%16) for k in range(X)] if kind in('la','ab') else list(range(e-X,e))
   wb=[ib+(k%16) for k in range(X)] if kind in('lb','ab') else list(range(ib,ib+X));return wa,wb
 def crate():
-  K=C.keys();return sorted(b for b in (os.path.basename(f)[:-5] for f in glob.glob('st/*.json')) if b in K and glob.glob(f'st/{b}*.wav'))
+  K=C.keys();cf=os.environ.get('CRATE_FILE');pin=set(open(cf).read().split()) if cf else None  # 2026-11-13 Mix 09: optional pinned crate so another job restoring stems can't widen it mid-build
+  return sorted(b for b in (os.path.basename(f)[:-5] for f in glob.glob('st/*.json')) if b in K and glob.glob(f'st/{b}*.wav') and (pin is None or b in pin))
 def table_key(base):
   h=[os.environ.get(k) for k in SCORER_ENV]+[os.path.getmtime(f) for f in('mix_simple.py','cue_model.json','pair_feats.py','plan_search.py')]+[os.environ.get('TABLE_K','40')]
   return json.dumps([h,[(p['id'],p.get('anchor'),p.get('anchor_in'),p.get('out_max')) for p in json.load(open(base))],crate()],default=str)

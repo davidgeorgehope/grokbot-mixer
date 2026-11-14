@@ -53,7 +53,11 @@ SSH_PUB=${SSH_PUB:-$HOME/.ssh/id_ed25519.pub}
 SSH_PRIV=${SSH_PRIV:-$HOME/.ssh/id_ed25519}
 STAGING=${STAGING:-/tmp/tt_runpod_$$}
 ACTIVE_PODS=${ACTIVE_PODS:-/workspace/mixes/jobs/runpod-active.pods}
-SPEND_LOG=${SPEND_LOG:-/workspace/mixes/jobs/runpod-spend.log}
+# Per-mix spend ledger. Later mixes must not inherit Mix 08's total from the
+# legacy shared jobs/runpod-spend.log. Override with SPEND_LOG= or MIX_KEY=.
+# Cap is per ledger; default $5, raise via env (e.g. MAX_SPEND_USD=7).
+MIX_KEY=${MIX_KEY:-$(python3 "$HERE/mix_key.py" "${OUT:-}" "${MIX:-}")}
+SPEND_LOG=${SPEND_LOG:-/workspace/mixes/jobs/runpod-spend-${MIX_KEY}.log}
 MAX_SPEND_USD=${MAX_SPEND_USD:-5}
 # Skip any pod whose hourly rate is above this (terminated right after create, before upload).
 MAX_RATE_USD=${MAX_RATE_USD:-0.90}
@@ -74,6 +78,7 @@ DENIED_DCS=""
 SPENT_SESSION=0
 
 log() { printf '[runpod_render] %s\n' "$*"; }
+log "spend ledger=$SPEND_LOG cap=\$${MAX_SPEND_USD} key=${MIX_KEY}"
 # shellcheck disable=SC1091
 . "$HERE/ckpt_sync.sh"
 auth() { printf 'Authorization: Bearer %s' "$RUNPOD_API_KEY"; }

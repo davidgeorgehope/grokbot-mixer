@@ -67,12 +67,12 @@ def main(pick_id, base_variant, cands):
 
 if __name__ == '__main__':
     CANDS = [
-        ('swap_pos_050', {'SWAP_POS': 0.50}),
-        ('swap_1bar', {'BASS_SWAP_BARS': 1}),
-        ('length_pref_16', {'length_pref': 16}),
-        ('hint_stronger', {'hint_weight': 0.4}),
-        ('near_hint_64', {'near_hint_bars': 64}),
-        ('high_swap_off', {'HIGH_SWAP': 0}),
-        ('loop32_on', {'LOOP32': 1}),
+        ('tail_exit_6', {'TAIL_EXIT': 6}),
+        ('xp2_060', {'LONG_XP2': 0.6}),
+        ('xp2_040', {'LONG_XP2': 0.4}),
+        ('xp_045', {'LONG_XP': 0.45}),
+        ('long_exit_12', {'LONG_EXIT': 12}),
+        ('swap_4bar', {'BASS_SWAP_BARS': 4}),
+        ('solo_struct_off', {'LONG_SOLO_STRUCT': 0}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

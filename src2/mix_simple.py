@@ -370,6 +370,14 @@ if SW0>0 or PIN:  # trans['bass_swap'] = the low lanes as rendered (2026-11-11 R
 for t in trans:
   t['vocal_data']={t['a']:t['a'] not in VOCOFF,t['b']:t['b'] not in VOCOFF}
   if t['a'] in VOCOFF or t['b'] in VOCOFF:t['notes']=list(t['notes'])+['vocal overlap not checked: no vocal data for '+', '.join(x for x in (t['a'],t['b']) if x in VOCOFF)]
+TE=float(os.environ.get('TAIL_EXIT',0) or 0)  # 2026-11-15 research, off by default: outgoing gone N bars after the bass swap (tail_exit.py)
+if TE>0 and not GC:
+  import tail_exit as _TE
+  _TE.apply(decks,trans,TE,rate=float(os.environ.get('TAIL_RATE',2.75)),skip=set(PIN))
+TS=float(os.environ.get('TAIL_SHALLOW',0) or 0)  # 2026-11-15 research, off by default: max outgoing fall (dB/bar) after the exit starts; residual extends past the window (tail_shape.py)
+if TS>0 and not GC:
+  import tail_shape as _TS
+  _TS.apply(decks,trans,TS,skip=set(PIN))
 # beats -> melody-only fixes (beatmelody.py, 2026-11-02): plan step 'bm_fix' ('dswap' | 'dswap_beat' | 'ib' | 'ib+dswap'), or env BM_FIX on every BM1 blend
 import beatmelody as _BMX
 _BMM=dict(decks=decks,trans=trans,bar_sec=BAR);_bmenv=os.environ.get('BM_FIX','')

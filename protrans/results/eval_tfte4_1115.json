@@ -1,0 +1,48 @@
+{
+  "variant": "tfte4_1115",
+  "v3": {
+    "train": 33.65,
+    "test": 33.39,
+    "n": 33,
+    "n_fail": 0
+  },
+  "v2": {
+    "train": 33.62,
+    "test": 32.14
+  },
+  "fams": {
+    "nat_short": 33
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 32.99,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 34.73,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 28.88,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 34.32,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 40.08,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 22.18,
+      "split": "test"
+    }
+  }
+}

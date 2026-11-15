@@ -1,0 +1,99 @@
+{
+ "blend": 0,
+ "a": "9oBXWTlTPMw",
+ "b": "3f-XOhfDhxk",
+ "start_bar": 176.0,
+ "end_bar": 192.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-15.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": null,
+  "ours": null,
+  "why": "deck not located (onset r < 0.2)"
+ },
+ "offset_ms_median": -82.0,
+ "offset_bars": 10,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 27.5,
+ "bass_swap": [
+  181.0,
+  186.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.036042,
+  "pcty": 2.090599,
+  "Scol": 0.7899,
+  "Scty": 0.7621,
+  "banger_clash_rate": 0.1496,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ },
+ "pick_id": "hybrid_minds_ukf__25",
+ "fam": "nat_short",
+ "win": [
+  "n",
+  192,
+  null,
+  0,
+  16
+ ],
+ "score": 26.37,
+ "score_v2": 26.37,
+ "breakdown": {
+  "stem_curves": 14.62,
+  "deck_curves": 36.29,
+  "beat_align": 29.61,
+  "bass_swap": 16.37,
+  "outgoing_cut": 44.5,
+  "blend_length": 23.82,
+  "stems": {
+   "drums": 14.16,
+   "bass": 9.78,
+   "vocals": 18.6,
+   "melody": 15.95
+  },
+  "beat_off_ms": 5.8,
+  "beat_align_v2": 29.61,
+  "beat_identity": null,
+  "beat_lock": {
+   "pro": null,
+   "ours": null,
+   "why": "deck not located (onset r < 0.2)"
+  },
+  "events_pro": {
+   "bass_swap": 6,
+   "outgoing_cut": null,
+   "blend_length": 10
+  },
+  "events_ours": {
+   "bass_swap": 2,
+   "outgoing_cut": null,
+   "blend_length": 5
+  },
+  "stem_kind": [
+   "bands",
+   "bands"
+  ],
+  "deck": {
+   "per_stem_deck": 36.29
+  },
+  "align": {
+   "lag_samples": -436736,
+   "lag_ms": -19806.62,
+   "peak": 0.1647,
+   "win_sec": 24.331
+  }
+ },
+ "ours": "/tmp/protrans_bench/diag367740.mp3"
+}

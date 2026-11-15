@@ -69,3 +69,21 @@ bash jobs/runjob.sh corpus-v2 python3 protrans/run_corpus_v2.py all
 Resumable pieces: `discover`, `ingest`, `split`, `train`. Progress is
 `protrans/corpus_v2/progress.json`; the compact manifest is
 `protrans/corpus_v2/manifest.json`.
+
+## Tracklist parsing (15 November 2026)
+
+The first corpus-v2 pass ingested YouTube *chapters* whenever there were
+four or more of them. On Hospital Podcasts those chapters are often
+talk-segment labels ("Politics", "Cmon Cookies", "Etherwood and chat
+debate"), not "Artist - Title" lines, while the official tracklist sat
+in the description without timestamps. The resolver then searched those
+junk or partial strings and almost every candidate failed with "no
+confident search hit." Alignment quality gates were not the cause and
+were not loosened.
+
+The parser now keeps a line only when it has a timestamp and an
+"Artist - Title" shape. It prefers a description or an official
+Tracklist: block over chapters, and may bind official titles to chapter
+*times* when they clearly line up. A mix needs at least eight such
+lines. Source search uses the full "Artist - Title" string. Rejects
+continue to be logged.

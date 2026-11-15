@@ -28,6 +28,7 @@ import real_blend
 import structure as S
 import talkover
 import version_match
+import tracklist_parse as TP
 
 ROOT = os.path.join(paths.ROOT, 'corpus_v2')
 WORK = os.path.join(ROOT, 'work')
@@ -455,7 +456,7 @@ def discover(max_list=120, max_meta=400, search_n=25, seeds_only=False):
             continue
         if not duration_ok(meta.get('duration')):
             continue
-        tracks = fetch.parse_tracklist(meta.get('description') or '', meta.get('chapters'))
+        tracks = TP.tracks_for_mix(meta.get('description') or '', meta.get('chapters'), min_tracks=8)
         if len(tracks) < 8:
             continue
         if vid in LEGACY_VIDEO_IDS:
@@ -498,7 +499,8 @@ def discover(max_list=120, max_meta=400, search_n=25, seeds_only=False):
 
 def load_tracks_for(mix):
     meta = cached_meta(mix['url'])
-    return fetch.parse_tracklist(meta.get('description') or '', meta.get('chapters')), meta
+    tracks = TP.tracks_for_mix(meta.get('description') or '', meta.get('chapters'), min_tracks=8)
+    return tracks, meta
 
 
 def ensure_source_v2(yt):
@@ -872,6 +874,8 @@ def ingest_mix(mix, snap):
             print('skip already logged', c['id'], flush=True)
             continue
         try:
+            if not TP.is_artist_title(c['a']['title']) or not TP.is_artist_title(c['b']['title']):
+                raise RuntimeError(f"not Artist - Title: {c['a']['title']!r} / {c['b']['title']!r}")
             c['a']['yt'] = admit.resolve_yt(c['a']['title'], c['a'].get('yt'))
             c['b']['yt'] = admit.resolve_yt(c['b']['title'], c['b'].get('yt'))
         except Exception as e:
@@ -932,6 +936,48 @@ def ingest_mix(mix, snap):
                 pass
     assert_protected(snap, where='after '+mix['mix_id'])
     return mix
+
+
+
+def refresh_queue():
+    """Re-parse cached metas with the official Artist - Title rules.
+
+    Mixes that only had podcast-segment chapters are marked no_goldilocks
+    and will not be downloaded again. Mixes that now have >= 8 official
+    timed titles are re-queued (including the first-run 'done' seeds).
+    """
+    _mkdirs()
+    queue = json.load(open(QUEUE)) if os.path.exists(QUEUE) else dict(mixes=[])
+    mixes = queue.get('mixes') or []
+    n_q = n_skip = 0
+    for m in mixes:
+        if m.get('status') == 'legacy_skip' or m.get('video_id') in LEGACY_VIDEO_IDS:
+            m['status'] = 'legacy_skip'
+            continue
+        cache = os.path.join(META_CACHE, (m.get('video_id') or '') + '.json')
+        if not os.path.exists(cache):
+            continue
+        meta = json.load(open(cache))
+        tracks = TP.tracks_for_mix(meta.get('description') or '', meta.get('chapters'), min_tracks=8)
+        gold = goldilocks_pairs(tracks, m['mix_id'], m.get('dj'), m.get('url'), m.get('video_id'))
+        m['n_official_tracks'] = len(tracks)
+        m['n_goldilocks'] = len(gold)
+        m['n_admit'] = 0
+        m['n_reject'] = 0
+        if len(tracks) < 8 or not gold:
+            m['status'] = 'no_goldilocks'
+            n_skip += 1
+        else:
+            m['status'] = 'queued'
+            n_q += 1
+    queued = [m for m in mixes if m.get('status') == 'queued']
+    gold = sum(m.get('n_goldilocks') or 0 for m in queued)
+    out = dict(mixes=mixes, ts=time.strftime('%Y-%m-%d %H:%M:%S %Z'),
+               n=len(mixes), n_queued=len(queued), goldilocks_queued=gold,
+               parser='official_artist_title_v2')
+    _atomic_json(QUEUE, out)
+    print(f'refresh_queue queued={len(queued)} goldilocks={gold} skipped={n_skip}', flush=True)
+    return out
 
 
 def ingest_all(limit=None):
@@ -1209,14 +1255,15 @@ def run_all(discover_first=True, ingest_limit=None, max_meta=400):
     snap = snapshot_protected()
     save_progress(dict(phase='discover', accepted=0, rejected=0))
     if discover_first:
-        print('discover seeds first', flush=True)
-        discover(max_meta=max_meta, seeds_only=True)
-        assert_protected(snap, 'after seed discover')
-        save_progress(dict(phase='ingest_seeds', accepted=len(load_jsonl(ACCEPTED)),
+        print('refresh queue with official Artist - Title parser', flush=True)
+        refresh_queue()
+        assert_protected(snap, 'after refresh')
+        save_progress(dict(phase='ingest', accepted=len(load_jsonl(ACCEPTED)),
                            rejected=len(load_jsonl(REJECTED))))
         ingest_all(limit=ingest_limit)
         print('discover remaining lists and searches', flush=True)
         discover(max_meta=max_meta, seeds_only=False)
+        refresh_queue()
     assert_protected(snap, 'after discover')
     save_progress(dict(phase='ingest', accepted=len(load_jsonl(ACCEPTED)),
                        rejected=len(load_jsonl(REJECTED))))

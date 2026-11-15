@@ -229,6 +229,12 @@ def pair_cands(i,ia0):
       SA,SB=sections.get(a),sections.get(b);es=min(e_max,(SA['music_end']//8)*8);ibs=SB['drop1']-X
       if ibs>=0 and es-X>=ia+16 and ibs+X<nb:cands.append(('n',es,ibs));STRK.add(('n',a,b,es,ibs,X))
       if SB['drop1']-16>=16 and es-X>=ia+16:cands.append(('lb',es,SB['drop1']-16));STRK.add(('lb',a,b,es,SB['drop1']-16,X))  # gold (the listener 5/5, Mix 05 55:10 -> Just Hold On): incoming loops its last intro phrase, drop lands as the outgoing's music ends
+    if __import__('window_planner').flag_on(os.environ.get('WINDOW_PLANNER')):  # 2026-11-15 research, off by default: mid-track section windows (breakdown into drop, end of first drop)
+      import window_planner as _WP, sections as _SEC
+      have=set(cands)
+      for kind,e,ib in _WP.engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia):
+        if (kind,e,ib) not in have:
+          cands.append((kind,e,ib)); have.add((kind,e,ib))
     eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
     for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
       for p in [e-16] if e-16>=max(ia,16) else []:  # a fill/level drop inside the loop is penalised (DIPPEN), not refused

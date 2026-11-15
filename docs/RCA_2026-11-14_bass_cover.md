@@ -47,11 +47,16 @@ Clip: `deliver/protrans/rca_2026-11-14_bass_cover.mp3`, 44.1 s, −14 LUFS, shor
 
 ## Cohort (like-for-like, flag on, defaults not changed)
 
-Current default held-out is 34.05 (`d1115_xp_045`, train 32.26, n=33, 0 fails). Variant `rca14_bcover` = the same rules plus `BASS_COVER=1`.
+Current default held-out is 34.05 (`d1115_xp_045`, train 32.26, n=33, 0 fails). Variant `rca14_bcover` = the same rules plus `BASS_COVER=1`. Job `rca14-bcover` finished 10:31 AM ET, n_fail=0.
 
-COHORT_PLACEHOLDER
+| | train | held-out |
+| --- | --- | --- |
+| default (`d1115_xp_045`) | 32.26 | **34.05** |
+| `BASS_COVER=1` | 33.18 (+0.92) | **32.51 (−1.54)** |
 
-The flag stays off. A held-out drop, or a mixed picture, is a reason to keep it opt-in and to treat it as cover for thin-intro windows, not a replacement for nominating the right section (`hint_family`). No threshold was loosened. X1 is unchanged.
+Like-for-like: 7 pairs up, 13 down, 13 flat. Train swings were large in both directions (joe_syntax_hospital__14 +11.35, hybrid_minds_ukf__40 +8.10, hybrid_minds_ukf__12 +6.74; hybrid_minds_ukf__25 −5.39). Held-out losses were led by maduk_liquicity_lunar2025__03 (−11.85), with smaller drops on Pola & Bryson and Netsky 06. Wilkinson was unchanged at 30.20. This pair: 28.01 → 27.81.
+
+The flag stays off. The held-out drop is a reason to keep it opt-in and to treat it as cover for thin-intro windows, not a replacement for nominating the right section (`hint_family`). No threshold was loosened. X1 is unchanged.
 
 ## What was not done
 

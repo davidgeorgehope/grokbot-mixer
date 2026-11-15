@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','SNAP_IN','SNAP_IN_DB','BASS_COVER','BASS_COVER_DB'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','SNAP_IN','SNAP_IN_DB','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     if env.get('FADE')=='graphcut':
@@ -134,7 +134,8 @@ def _phase_pick_cost(a_yt, b_yt, win, phase_pref_w, linger_pen_w, breakdown_pen_
 # 'family_cost' ({fam: cost}) like any other general rule. nat_long stays the cheapest default (held-out baseline).
 FAMILY_COST = {'nat_long': 0.0, 'nat_short': 0.01, 'out_loop': 0.02, 'in_loop': 0.03, 'lx_beat': 0.04,
                'cue_early': 0.05, 'cue_late': 0.06, 'phrase_cut': 0.07, 'swap_early': 0.08, 'swap_late': 0.09,
-               'sneak_in': 0.10, 'rated': 0.0, 'hint_long': 0.0, 'hint_short': 0.01}  # hint_*: 2026-11-14 RCA, same costs as nat_*; only offered when hint_family is on
+               'sneak_in': 0.10, 'rated': 0.0, 'hint_long': 0.0, 'hint_short': 0.01,
+               'plan_breakdown_drop': 0.01, 'plan_drop1_end': 0.01}  # plan_*: 2026-11-15 window planner, same costs as nat_short; only offered when window_planner is on
 
 def family_cost(fam, rules=None):
     over = (rules or {}).get('family_cost') or {}
@@ -281,6 +282,17 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             pass
         fams = add_hint_families(fams, cs, hb, nb, enabled=_flag_on(rules.get('hint_family')),
                                  lo_a=_bar_low(a), lo_b=_bar_low(b), gap=gap)
+        # window_planner is off by default: nominates mid-track section windows
+        # and chooses per pair from track features (2026-11-15). Not a blanket swap.
+        planner_choice = None
+        if _flag_on(rules.get('window_planner')):
+            import window_planner as _WP
+            import sections as _SEC
+            _sa, _sb = _SEC.get(a), _SEC.get(b)
+            _loa, _lob = _bar_low(a), _bar_low(b)
+            _def = next((c['win'] for c in fams if c.get('fam') in ('nat_short', 'nat_long')), fams[0]['win'])
+            fams = _WP.add_families(fams, cs, _sa, _sb, lo_a=_loa, lo_b=_lob, enabled=True, gap=gap)
+            planner_choice = _WP.select(_def, _sa, _sb, _loa, _lob, gap=gap)
         lp = int(rules.get('length_pref') or 0)
         pref = rules.get('prefer_family')
         scored = []
@@ -311,9 +323,15 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             scored.append((cost, c))
         scored.sort(key=lambda x: x[0])
         pick = scored[0][1]
+        if planner_choice and planner_choice.get('type') not in (None, 'outro_intro') and planner_choice.get('win'):
+            hit = next((c for _, c in scored if tuple(c['win']) == tuple(planner_choice['win'])), None)
+            if hit is not None:
+                pick = hit
+                pick['planner'] = dict(type=planner_choice['type'], reason=planner_choice.get('reason'),
+                                       fade_env=planner_choice.get('fade_env') or {})
         # rules env first, then the family's own params on top (2026-11-11 RCA: the old update() let rules
         # overwrite swap_early/swap_late's SWAP_POS, so those families rendered exactly like nat_long)
-        pick['env'] = {**env, **dict(pick.get('env') or {})}
+        pick['env'] = {**env, **dict(pick.get('env') or {}), **dict((planner_choice or {}).get('fade_env') or {})}
         # FADE=graphcut is a renderer flag: keep it on top of any family FADE so a cohort
         # eval compares the same windows under a different handover, not a different family.
         if str((rules or {}).get('FADE'))=='graphcut' or env.get('GRAPH_CUT')=='1':
@@ -328,7 +346,8 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
         info = dict(meta_path=meta_path, a=a, b=b, fam=pick['fam'], win=pick['win'], env=pick['env'],
                     hint_a_played_sec=hint_a_played_sec, ours=ours, created=created,
                     n_cands=len(fams), phase_cost_errors=list(PHASE_COST_ERRORS),
-                    halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'))
+                    halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'),
+                    planner=(planner_choice if planner_choice else pick.get('planner')))
         return info
     finally:
         os.chdir(oldcwd)

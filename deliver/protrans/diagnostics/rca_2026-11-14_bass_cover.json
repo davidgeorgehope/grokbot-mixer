@@ -1,0 +1,50 @@
+{
+ "blend": 0,
+ "a": "HP7Q0vDU9vI",
+ "b": "5YG-HKjtiHM",
+ "start_bar": 160.0,
+ "end_bar": 176.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-14_fix.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": 0.3754,
+   "rate": 1.0052,
+   "r_a": 0.68,
+   "r_b": 0.773
+  },
+  "ours": {
+   "phase_beats": 0.3883,
+   "rate": 1.0,
+   "r_a": 0.853,
+   "r_b": 0.521
+  },
+  "diff_beats": 0.0129,
+  "diff_ms": 4.4
+ },
+ "offset_ms_median": 100.1,
+ "offset_bars": 13,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 18.3,
+ "bass_swap": null,
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.017818,
+  "pcty": 1.894217,
+  "Scol": 0.8899,
+  "Scty": 0.7818,
+  "banger_clash_rate": 0.186,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

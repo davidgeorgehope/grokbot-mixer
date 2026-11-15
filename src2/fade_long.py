@@ -113,6 +113,39 @@ def last_incoming_thin_bar(al, lo, wb, X, db=4):
     return int(idx[-1]) if len(idx) else -1
 
 
+def incoming_no_bass(lo, wb, X, db=6.0, slack=0):
+    """True if the incoming has no body-level bass in the overlap.
+
+    Body is the 75th percentile of the track's own per-bar lows (same reference
+    as thin() / SWAP_THIN). A bar is thin when it sits >= db under that body
+    (default 6, the existing thin line, not a loosened guardrail). `slack`
+    allows this many overlap bars to reach body (a drop on the last bar);
+    default 0 means every overlap bar is thin.
+
+    Distinct from incoming_thin_bars, which only compares the second half to
+    the first-half median and so cannot see a window that is thin all the way
+    through (Demons bars 32-47 vs its drop at 48). BASS_COVER uses this to
+    skip the mid-window bass handoff and leave lows on the outgoing.
+    """
+    lo = np.asarray(lo, float)
+    if lo.size < 4 or int(X) <= 0:
+        return False
+    finite = lo[np.isfinite(lo)]
+    if finite.size < 4:
+        return False
+    body = float(np.percentile(finite, 75))
+    vals = []
+    for j in range(int(X)):
+        k = wb[j] if j < len(wb) and 0 <= wb[j] < len(lo) else None
+        if k is None or not np.isfinite(lo[k]):
+            continue
+        vals.append(float(lo[k]))
+    if len(vals) < max(4, int(X) // 2):
+        return False
+    thin = sum(v < body - float(db) for v in vals)
+    return thin >= len(vals) - int(slack)
+
+
 def cap_solo_incoming(al, lo, wb, X, rise=2.0, exit_=8.0, solo=0.0, **_):
     """Cap solo so the outgoing's exit does not finish into a later thin stretch of the incoming.
 

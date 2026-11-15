@@ -150,6 +150,15 @@ def _ctx(a,wa=None,b=None,wb=None):
   # FADE=long + a 2-bar bass handoff stacked on the exit took 6.4 dB off Ember in one bar (Mix 08 long test).
   # 4-bar swaps have been the default since 2026-10-31 for this reason; PIN can still force 2.
   if _longish() and 'swap_bars' not in q and SW<4:SW=4.0
+  # BASS_COVER (2026-11-14 RCA, off by default): if the incoming has no body-level
+  # bass in the overlap, skip the mid-window handoff and leave lows on the outgoing
+  # (they fade with the fader). Same 6 dB thin line as SWAP_THIN. Does not move the
+  # crossfader (not SNAP_IN / TAIL_SHALLOW). A PIN swap_bars still wins. X1 is
+  # honoured: no low-lane move means no swap-centre check.
+  if a and b and wb is not None and 'swap_bars' not in q and int(os.environ.get('BASS_COVER',0) or 0):
+    g=track(b)['g']['bar']
+    if _FL.incoming_no_bass(np.array(g.get('low',g['all']),float),list(wb),X,db=float(os.environ.get('BASS_COVER_DB',6) or 6)):
+      SW=0.0
   LG['solo']=LG0['solo'];LG['hold']=0.0;LG['exit_']=LG0['exit_']
   if a and wa is not None and _longish() and LGST:
     LG['solo']=_FL.struct_solo(np.array(track(a)['g']['bar']['all'],float),list(wa),X,**LG0)
@@ -168,7 +177,7 @@ def _ctx(a,wa=None,b=None,wb=None):
     LG['exit_']=ex
   if a and _longish() and LGSW=='exit' and 'swap_pos' not in q:
     POS=_FL.swap_pos(X,**LG)
-    if b and wb is not None:
+    if b and wb is not None and SW>0:
       g=track(b)['g']['bar']
       first=_FL.first_incoming_thin_bar(np.array(g['all'],float),np.array(g.get('low',g['all']),float),list(wb),X)
       _ol,_il=_FL.bass_lead(float(os.environ.get('BASS_LEAD',1)),phrase=False,fade='long')
@@ -341,25 +350,25 @@ for i,d in enumerate(decks):
   if i>0:g+=[[p[0],gB(p[1])] for p in trans[i-1]['xfader']]
   if i<len(decks)-1:g+=[[p[0],gA(p[1])] for p in trans[i]['xfader']]
   d['auto']={'gain':g}
-  if SW>0:
-    lo=[]
-    def ramp(c,up,w=SW):
-      return [[c-w/2+w*j/16,round(float((1-np.cos(np.pi*j/16))/2 if up else (1+np.cos(np.pi*j/16))/2),5)] for j in range(17)]
-    def at(t):return t['swap_bar']+t.get('swap_ofs',t['swap_w']/2 if t['swap_phrase'] else 0)  # 2026-11-01 v6r3: any non-POS pick (phrase OR SWAP_THIN) is a swap START, as score()/hole() assume (ce=c+SW/2); off-phrase picks were centred 2 bars early -> 24:48/40:38 holes  # phrase-snapped swaps start ON the boundary (incoming bass lands on the 1, not a bar early)
-    # BASS_LEAD (2026-11-01, Mix 05 v2 i18 L1 x3): the two lows used to ramp on the SAME raised cosine, so mid-swap both sat at
-    # -6 dB ('both decks carry full bass'). Outgoing low now leads by LEAD bars (same 4-bar shape, still monotonic): they cross ~-10 dB.
-    def lead(t):
-      if t['a'] in PIN or f"{t['a']}>{t['b']}" in LEADOFF:return (0.0,0.0)
-      # FADE=long: outgoing lows leave first, even when the swap is at POS (exit start), so the
-      # mid-cross is not two equal plateau faders (Mix 08 long1e L1). Phrase-snapped unchanged.
-      # A thin incoming stretch is handled by moving the swap earlier (swap_before_thin in _ctx),
-      # not by delaying the outgoing down-ramp (that was Mix 08 long1g's X1/L1 regression).
-      return _FL.bass_lead(BLEAD,phrase=bool(t.get('swap_phrase')),fade='long' if (t.get('fade',FADE) in ('long','graphcut') or _longish()) else t.get('fade',FADE))
-    if i>0:lo+=ramp(at(trans[i-1])+lead(trans[i-1])[1],True,trans[i-1]['swap_w'])
-    if i<len(decks)-1:lo+=ramp(at(trans[i])-lead(trans[i])[0],False,trans[i]['swap_w'])
-    d['auto']['low']=lo
-    hi=([] if i==0 or trans[i-1]['high_bar'] is None else ramp(trans[i-1]['high_bar']+1,True,2))+([] if i==len(decks)-1 or trans[i]['high_bar'] is None else ramp(trans[i]['high_bar']+1,False,2))
-    if hi:d['auto']['high']=hi
+  def ramp(c,up,w=4.0):
+    return [[c-w/2+w*j/16,round(float((1-np.cos(np.pi*j/16))/2 if up else (1+np.cos(np.pi*j/16))/2),5)] for j in range(17)]
+  def at(t):return t['swap_bar']+t.get('swap_ofs',t['swap_w']/2 if t['swap_phrase'] else 0)  # 2026-11-01 v6r3: any non-POS pick (phrase OR SWAP_THIN) is a swap START, as score()/hole() assume (ce=c+SW/2); off-phrase picks were centred 2 bars early -> 24:48/40:38 holes  # phrase-snapped swaps start ON the boundary (incoming bass lands on the 1, not a bar early)
+  # BASS_LEAD (2026-11-01, Mix 05 v2 i18 L1 x3): the two lows used to ramp on the SAME raised cosine, so mid-swap both sat at
+  # -6 dB ('both decks carry full bass'). Outgoing low now leads by LEAD bars (same 4-bar shape, still monotonic): they cross ~-10 dB.
+  def lead(t):
+    if t['a'] in PIN or f"{t['a']}>{t['b']}" in LEADOFF:return (0.0,0.0)
+    # FADE=long: outgoing lows leave first, even when the swap is at POS (exit start), so the
+    # mid-cross is not two equal plateau faders (Mix 08 long1e L1). Phrase-snapped unchanged.
+    # A thin incoming stretch is handled by moving the swap earlier (swap_before_thin in _ctx),
+    # not by delaying the outgoing down-ramp (that was Mix 08 long1g's X1/L1 regression).
+    return _FL.bass_lead(BLEAD,phrase=bool(t.get('swap_phrase')),fade='long' if (t.get('fade',FADE) in ('long','graphcut') or _longish()) else t.get('fade',FADE))
+  # Low lanes follow each blend's own swap_w (BASS_COVER may set swap_w=0 after _ctx resets the global SW).
+  lo=[]
+  if i>0 and trans[i-1]['swap_w']>0:lo+=ramp(at(trans[i-1])+lead(trans[i-1])[1],True,trans[i-1]['swap_w'])
+  if i<len(decks)-1 and trans[i]['swap_w']>0:lo+=ramp(at(trans[i])-lead(trans[i])[0],False,trans[i]['swap_w'])
+  if lo:d['auto']['low']=lo
+  hi=([] if i==0 or trans[i-1]['high_bar'] is None else ramp(trans[i-1]['high_bar']+1,True,2))+([] if i==len(decks)-1 or trans[i]['high_bar'] is None else ramp(trans[i]['high_bar']+1,False,2))
+  if hi:d['auto']['high']=hi
   if i in EOS:d['echo_out']=dict(EOUT)
   d['end_bar']=d['start_bar']+len(d['full_map']);d['echo']=False;d['label']='';d['map']=d['full_map'][:1]+d['full_map'][-1:];d['acap']=False;d['drop_bar']=None
 if SW0>0 or PIN:  # trans['bass_swap'] = the low lanes as rendered (2026-11-11 RCA: it reported POS*X, 213.5-216.5, while the lanes ran 225.5-229.5)
@@ -378,6 +387,12 @@ TS=float(os.environ.get('TAIL_SHALLOW',0) or 0)  # 2026-11-15 research, off by d
 if TS>0 and not GC:
   import tail_shape as _TS
   _TS.apply(decks,trans,TS,skip=set(PIN))
+SI=float(os.environ.get('SNAP_IN',0) or 0)  # 2026-11-15 research, off by default: late legal incoming snap + shallow outgoing hold (snap_in.py)
+if SI>0 and not GC:
+  import snap_in as _SI
+  _si_hold=float(os.environ.get('SNAP_IN_DB',12) or 12)
+  _si_rate=float(os.environ.get('TAIL_SHALLOW',0) or 0) or _SI.RATE
+  _SI.apply(decks,trans,hold_db=_si_hold,rate=_si_rate,skip=set(PIN))
 # beats -> melody-only fixes (beatmelody.py, 2026-11-02): plan step 'bm_fix' ('dswap' | 'dswap_beat' | 'ib' | 'ib+dswap'), or env BM_FIX on every BM1 blend
 import beatmelody as _BMX
 _BMM=dict(decks=decks,trans=trans,bar_sec=BAR);_bmenv=os.environ.get('BM_FIX','')

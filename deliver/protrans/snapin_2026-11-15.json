@@ -1,0 +1,43 @@
+{
+  "ours_src": "/tmp/protrans_bench/snapclip.mp3",
+  "fam": "nat_short",
+  "win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+  ],
+  "snap_in": {
+    "hold_db": -12.0,
+    "rise": 2.95,
+    "rate": 2.75,
+    "t_rise0": 180.95,
+    "t_exit0": 192.0,
+    "G": 196.364,
+    "x_hold": 0.8384,
+    "old_exit_bar": 192.0,
+    "exit_bar": 196.364,
+    "extended_by": 4.364,
+    "clamped_by": null,
+    "changed": true
+  },
+  "bass_swap": [
+    181.0,
+    186.0
+  ],
+  "start_bar": 176,
+  "end_bar": 196.36364,
+  "designed_blend_start_s": 11.03,
+  "tick_s": 13.29,
+  "tick_timestamp": "0:13",
+  "duration_s": 44.173,
+  "lufs": -14.2,
+  "true_peak": -4.1,
+  "window_same_as_daily": true,
+  "snap_rise_s": 17.86,
+  "bass_swap_start_s": 17.93,
+  "hold_until_s": 33.1,
+  "residual_end_s": 39.12,
+  "gain_db_applied": -2.4
+}

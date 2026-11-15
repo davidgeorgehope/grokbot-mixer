@@ -1,0 +1,2703 @@
+{
+  "n": 32,
+  "skipped": [
+    [
+      "wilkinson_boomtown2026__33",
+      "locate missing inc=False out=False"
+    ]
+  ],
+  "baseline": {
+    "is_snap": {
+      "k": 17,
+      "n": 32,
+      "rate": 0.531
+    },
+    "is_shallow": {
+      "k": 23,
+      "n": 32,
+      "rate": 0.719
+    },
+    "is_combo": {
+      "k": 10,
+      "n": 32,
+      "rate": 0.312
+    }
+  },
+  "tables": {
+    "incoming_section": {
+      "breakdown": {
+        "n": 1,
+        "is_snap": {
+          "k": 0,
+          "n": 1,
+          "rate": 0.0
+        },
+        "is_shallow": {
+          "k": 1,
+          "n": 1,
+          "rate": 1.0
+        },
+        "is_combo": {
+          "k": 0,
+          "n": 1,
+          "rate": 0.0
+        }
+      },
+      "drop": {
+        "n": 19,
+        "is_snap": {
+          "k": 11,
+          "n": 19,
+          "rate": 0.579
+        },
+        "is_shallow": {
+          "k": 15,
+          "n": 19,
+          "rate": 0.789
+        },
+        "is_combo": {
+          "k": 9,
+          "n": 19,
+          "rate": 0.474
+        }
+      },
+      "intro": {
+        "n": 12,
+        "is_snap": {
+          "k": 6,
+          "n": 12,
+          "rate": 0.5
+        },
+        "is_shallow": {
+          "k": 7,
+          "n": 12,
+          "rate": 0.583
+        },
+        "is_combo": {
+          "k": 1,
+          "n": 12,
+          "rate": 0.083
+        }
+      }
+    },
+    "outgoing_section": {
+      "breakdown": {
+        "n": 11,
+        "is_snap": {
+          "k": 8,
+          "n": 11,
+          "rate": 0.727
+        },
+        "is_shallow": {
+          "k": 9,
+          "n": 11,
+          "rate": 0.818
+        },
+        "is_combo": {
+          "k": 6,
+          "n": 11,
+          "rate": 0.545
+        }
+      },
+      "drop": {
+        "n": 19,
+        "is_snap": {
+          "k": 8,
+          "n": 19,
+          "rate": 0.421
+        },
+        "is_shallow": {
+          "k": 14,
+          "n": 19,
+          "rate": 0.737
+        },
+        "is_combo": {
+          "k": 4,
+          "n": 19,
+          "rate": 0.211
+        }
+      },
+      "outro": {
+        "n": 2,
+        "is_snap": {
+          "k": 1,
+          "n": 2,
+          "rate": 0.5
+        },
+        "is_shallow": {
+          "k": 0,
+          "n": 2,
+          "rate": 0.0
+        },
+        "is_combo": {
+          "k": 0,
+          "n": 2,
+          "rate": 0.0
+        }
+      }
+    },
+    "section_shape": {
+      "breakdown>drop": {
+        "n": 11,
+        "is_snap": {
+          "k": 8,
+          "n": 11,
+          "rate": 0.727
+        },
+        "is_shallow": {
+          "k": 9,
+          "n": 11,
+          "rate": 0.818
+        },
+        "is_combo": {
+          "k": 6,
+          "n": 11,
+          "rate": 0.545
+        }
+      },
+      "drop>breakdown": {
+        "n": 1,
+        "is_snap": {
+          "k": 0,
+          "n": 1,
+          "rate": 0.0
+        },
+        "is_shallow": {
+          "k": 1,
+          "n": 1,
+          "rate": 1.0
+        },
+        "is_combo": {
+          "k": 0,
+          "n": 1,
+          "rate": 0.0
+        }
+      },
+      "drop>drop": {
+        "n": 7,
+        "is_snap": {
+          "k": 3,
+          "n": 7,
+          "rate": 0.429
+        },
+        "is_shallow": {
+          "k": 6,
+          "n": 7,
+          "rate": 0.857
+        },
+        "is_combo": {
+          "k": 3,
+          "n": 7,
+          "rate": 0.429
+        }
+      },
+      "drop>intro": {
+        "n": 11,
+        "is_snap": {
+          "k": 5,
+          "n": 11,
+          "rate": 0.455
+        },
+        "is_shallow": {
+          "k": 7,
+          "n": 11,
+          "rate": 0.636
+        },
+        "is_combo": {
+          "k": 1,
+          "n": 11,
+          "rate": 0.091
+        }
+      },
+      "outro>drop": {
+        "n": 1,
+        "is_snap": {
+          "k": 0,
+          "n": 1,
+          "rate": 0.0
+        },
+        "is_shallow": {
+          "k": 0,
+          "n": 1,
+          "rate": 0.0
+        },
+        "is_combo": {
+          "k": 0,
+          "n": 1,
+          "rate": 0.0
+        }
+      },
+      "outro>intro": {
+        "n": 1,
+        "is_snap": {
+          "k": 1,
+          "n": 1,
+          "rate": 1.0
+        },
+        "is_shallow": {
+          "k": 0,
+          "n": 1,
+          "rate": 0.0
+        },
+        "is_combo": {
+          "k": 0,
+          "n": 1,
+          "rate": 0.0
+        }
+      }
+    },
+    "inc_in_intro": {
+      "False": {
+        "n": 20,
+        "is_snap": {
+          "k": 11,
+          "n": 20,
+          "rate": 0.55
+        },
+        "is_shallow": {
+          "k": 16,
+          "n": 20,
+          "rate": 0.8
+        },
+        "is_combo": {
+          "k": 9,
+          "n": 20,
+          "rate": 0.45
+        }
+      },
+      "True": {
+        "n": 12,
+        "is_snap": {
+          "k": 6,
+          "n": 12,
+          "rate": 0.5
+        },
+        "is_shallow": {
+          "k": 7,
+          "n": 12,
+          "rate": 0.583
+        },
+        "is_combo": {
+          "k": 1,
+          "n": 12,
+          "rate": 0.083
+        }
+      }
+    },
+    "inc_in_drop": {
+      "False": {
+        "n": 13,
+        "is_snap": {
+          "k": 6,
+          "n": 13,
+          "rate": 0.462
+        },
+        "is_shallow": {
+          "k": 8,
+          "n": 13,
+          "rate": 0.615
+        },
+        "is_combo": {
+          "k": 1,
+          "n": 13,
+          "rate": 0.077
+        }
+      },
+      "True": {
+        "n": 19,
+        "is_snap": {
+          "k": 11,
+          "n": 19,
+          "rate": 0.579
+        },
+        "is_shallow": {
+          "k": 15,
+          "n": 19,
+          "rate": 0.789
+        },
+        "is_combo": {
+          "k": 9,
+          "n": 19,
+          "rate": 0.474
+        }
+      }
+    },
+    "both_loud": {
+      "False": {
+        "n": 14,
+        "is_snap": {
+          "k": 9,
+          "n": 14,
+          "rate": 0.643
+        },
+        "is_shallow": {
+          "k": 11,
+          "n": 14,
+          "rate": 0.786
+        },
+        "is_combo": {
+          "k": 6,
+          "n": 14,
+          "rate": 0.429
+        }
+      },
+      "True": {
+        "n": 18,
+        "is_snap": {
+          "k": 8,
+          "n": 18,
+          "rate": 0.444
+        },
+        "is_shallow": {
+          "k": 12,
+          "n": 18,
+          "rate": 0.667
+        },
+        "is_combo": {
+          "k": 4,
+          "n": 18,
+          "rate": 0.222
+        }
+      }
+    },
+    "both_bass": {
+      "False": {
+        "n": 25,
+        "is_snap": {
+          "k": 14,
+          "n": 25,
+          "rate": 0.56
+        },
+        "is_shallow": {
+          "k": 19,
+          "n": 25,
+          "rate": 0.76
+        },
+        "is_combo": {
+          "k": 8,
+          "n": 25,
+          "rate": 0.32
+        }
+      },
+      "True": {
+        "n": 7,
+        "is_snap": {
+          "k": 3,
+          "n": 7,
+          "rate": 0.429
+        },
+        "is_shallow": {
+          "k": 4,
+          "n": 7,
+          "rate": 0.571
+        },
+        "is_combo": {
+          "k": 2,
+          "n": 7,
+          "rate": 0.286
+        }
+      }
+    },
+    "both_tops": {
+      "False": {
+        "n": 19,
+        "is_snap": {
+          "k": 11,
+          "n": 19,
+          "rate": 0.579
+        },
+        "is_shallow": {
+          "k": 13,
+          "n": 19,
+          "rate": 0.684
+        },
+        "is_combo": {
+          "k": 5,
+          "n": 19,
+          "rate": 0.263
+        }
+      },
+      "True": {
+        "n": 13,
+        "is_snap": {
+          "k": 6,
+          "n": 13,
+          "rate": 0.462
+        },
+        "is_shallow": {
+          "k": 10,
+          "n": 13,
+          "rate": 0.769
+        },
+        "is_combo": {
+          "k": 5,
+          "n": 13,
+          "rate": 0.385
+        }
+      }
+    }
+  },
+  "numeric": {
+    "incoming intro length (bars)": {
+      "median": 48.0,
+      "n": 32,
+      "shorter_intro": {
+        "n": 25,
+        "feat": {
+          "n": 25,
+          "median": 40.0,
+          "mean": 37.12,
+          "q1": 32.0,
+          "q3": 48.0
+        },
+        "is_snap": {
+          "k": 16,
+          "n": 25,
+          "rate": 0.64
+        },
+        "is_shallow": {
+          "k": 16,
+          "n": 25,
+          "rate": 0.64
+        },
+        "is_combo": {
+          "k": 9,
+          "n": 25,
+          "rate": 0.36
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": 48.0,
+            "mean": 41.88,
+            "q1": 32.0,
+            "q3": 48.0
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": 48.0,
+            "mean": 45.57,
+            "q1": 32.0,
+            "q3": 56.0
+          },
+          "is_combo": {
+            "n": 10,
+            "median": 48.0,
+            "mean": 41.6,
+            "q1": 32.0,
+            "q3": 48.0
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": 48.0,
+            "mean": 44.27,
+            "q1": 32.0,
+            "q3": 60.0
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": 40.0,
+            "mean": 36.44,
+            "q1": 32.0,
+            "q3": 48.0
+          },
+          "is_combo": {
+            "n": 22,
+            "median": 48.0,
+            "mean": 43.64,
+            "q1": 32.0,
+            "q3": 54.0
+          }
+        }
+      },
+      "longer_intro": {
+        "n": 7,
+        "feat": {
+          "n": 7,
+          "median": 64.0,
+          "mean": 64.0,
+          "q1": 60.0,
+          "q3": 64.0
+        },
+        "is_snap": {
+          "k": 1,
+          "n": 7,
+          "rate": 0.143
+        },
+        "is_shallow": {
+          "k": 7,
+          "n": 7,
+          "rate": 1.0
+        },
+        "is_combo": {
+          "k": 1,
+          "n": 7,
+          "rate": 0.143
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": 48.0,
+            "mean": 41.88,
+            "q1": 32.0,
+            "q3": 48.0
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": 48.0,
+            "mean": 45.57,
+            "q1": 32.0,
+            "q3": 56.0
+          },
+          "is_combo": {
+            "n": 10,
+            "median": 48.0,
+            "mean": 41.6,
+            "q1": 32.0,
+            "q3": 48.0
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": 48.0,
+            "mean": 44.27,
+            "q1": 32.0,
+            "q3": 60.0
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": 40.0,
+            "mean": 36.44,
+            "q1": 32.0,
+            "q3": 48.0
+          },
+          "is_combo": {
+            "n": 22,
+            "median": 48.0,
+            "mean": 43.64,
+            "q1": 32.0,
+            "q3": 54.0
+          }
+        }
+      },
+      "if_true": {
+        "is_snap": {
+          "n": 17,
+          "median": 48.0,
+          "mean": 41.88,
+          "q1": 32.0,
+          "q3": 48.0
+        },
+        "is_shallow": {
+          "n": 23,
+          "median": 48.0,
+          "mean": 45.57,
+          "q1": 32.0,
+          "q3": 56.0
+        },
+        "is_combo": {
+          "n": 10,
+          "median": 48.0,
+          "mean": 41.6,
+          "q1": 32.0,
+          "q3": 48.0
+        }
+      },
+      "if_false": {
+        "is_snap": {
+          "n": 15,
+          "median": 48.0,
+          "mean": 44.27,
+          "q1": 32.0,
+          "q3": 60.0
+        },
+        "is_shallow": {
+          "n": 9,
+          "median": 40.0,
+          "mean": 36.44,
+          "q1": 32.0,
+          "q3": 48.0
+        },
+        "is_combo": {
+          "n": 22,
+          "median": 48.0,
+          "mean": 43.64,
+          "q1": 32.0,
+          "q3": 54.0
+        }
+      }
+    },
+    "incoming energy vs its body (dB)": {
+      "median": -3.39,
+      "n": 32,
+      "quieter_than_body": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": -5.77,
+          "mean": -6.03,
+          "q1": -6.63,
+          "q3": -4.68
+        },
+        "is_snap": {
+          "k": 8,
+          "n": 16,
+          "rate": 0.5
+        },
+        "is_shallow": {
+          "k": 12,
+          "n": 16,
+          "rate": 0.75
+        },
+        "is_combo": {
+          "k": 4,
+          "n": 16,
+          "rate": 0.25
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": -3.33,
+            "mean": -3.04,
+            "q1": -5.86,
+            "q3": 0.08
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": -3.45,
+            "mean": -3.26,
+            "q1": -5.77,
+            "q3": -0.01
+          },
+          "is_combo": {
+            "n": 10,
+            "median": -1.23,
+            "mean": -2.34,
+            "q1": -5.26,
+            "q3": 0.15
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": -3.47,
+            "mean": -3.69,
+            "q1": -5.32,
+            "q3": -0.28
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": -3.33,
+            "mean": -3.54,
+            "q1": -5.14,
+            "q3": -0.41
+          },
+          "is_combo": {
+            "n": 22,
+            "median": -3.49,
+            "mean": -3.8,
+            "q1": -5.54,
+            "q3": -0.22
+          }
+        }
+      },
+      "closer_to_body": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": -0.01,
+          "mean": -0.66,
+          "q1": -0.92,
+          "q3": 0.22
+        },
+        "is_snap": {
+          "k": 9,
+          "n": 16,
+          "rate": 0.562
+        },
+        "is_shallow": {
+          "k": 11,
+          "n": 16,
+          "rate": 0.688
+        },
+        "is_combo": {
+          "k": 6,
+          "n": 16,
+          "rate": 0.375
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": -3.33,
+            "mean": -3.04,
+            "q1": -5.86,
+            "q3": 0.08
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": -3.45,
+            "mean": -3.26,
+            "q1": -5.77,
+            "q3": -0.01
+          },
+          "is_combo": {
+            "n": 10,
+            "median": -1.23,
+            "mean": -2.34,
+            "q1": -5.26,
+            "q3": 0.15
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": -3.47,
+            "mean": -3.69,
+            "q1": -5.32,
+            "q3": -0.28
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": -3.33,
+            "mean": -3.54,
+            "q1": -5.14,
+            "q3": -0.41
+          },
+          "is_combo": {
+            "n": 22,
+            "median": -3.49,
+            "mean": -3.8,
+            "q1": -5.54,
+            "q3": -0.22
+          }
+        }
+      },
+      "if_true": {
+        "is_snap": {
+          "n": 17,
+          "median": -3.33,
+          "mean": -3.04,
+          "q1": -5.86,
+          "q3": 0.08
+        },
+        "is_shallow": {
+          "n": 23,
+          "median": -3.45,
+          "mean": -3.26,
+          "q1": -5.77,
+          "q3": -0.01
+        },
+        "is_combo": {
+          "n": 10,
+          "median": -1.23,
+          "mean": -2.34,
+          "q1": -5.26,
+          "q3": 0.15
+        }
+      },
+      "if_false": {
+        "is_snap": {
+          "n": 15,
+          "median": -3.47,
+          "mean": -3.69,
+          "q1": -5.32,
+          "q3": -0.28
+        },
+        "is_shallow": {
+          "n": 9,
+          "median": -3.33,
+          "mean": -3.54,
+          "q1": -5.14,
+          "q3": -0.41
+        },
+        "is_combo": {
+          "n": 22,
+          "median": -3.49,
+          "mean": -3.8,
+          "q1": -5.54,
+          "q3": -0.22
+        }
+      }
+    },
+    "incoming energy vs its intro (dB)": {
+      "median": 7.11,
+      "n": 32,
+      "near_intro_level": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": 1.95,
+          "mean": 2.37,
+          "q1": 0.82,
+          "q3": 3.14
+        },
+        "is_snap": {
+          "k": 8,
+          "n": 16,
+          "rate": 0.5
+        },
+        "is_shallow": {
+          "k": 11,
+          "n": 16,
+          "rate": 0.688
+        },
+        "is_combo": {
+          "k": 3,
+          "n": 16,
+          "rate": 0.188
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": 7.31,
+            "mean": 6.99,
+            "q1": 3.11,
+            "q3": 10.72
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": 7.31,
+            "mean": 6.64,
+            "q1": 2.25,
+            "q3": 9.68
+          },
+          "is_combo": {
+            "n": 10,
+            "median": 8.21,
+            "mean": 8.4,
+            "q1": 4.85,
+            "q3": 11.96
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": 6.9,
+            "mean": 5.8,
+            "q1": 1.76,
+            "q3": 9.4
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": 5.47,
+            "mean": 5.89,
+            "q1": 1.73,
+            "q3": 9.52
+          },
+          "is_combo": {
+            "n": 22,
+            "median": 4.29,
+            "mean": 5.54,
+            "q1": 1.45,
+            "q3": 9.46
+          }
+        }
+      },
+      "louder_than_intro": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": 9.68,
+          "mean": 10.5,
+          "q1": 9.16,
+          "q3": 12.19
+        },
+        "is_snap": {
+          "k": 9,
+          "n": 16,
+          "rate": 0.562
+        },
+        "is_shallow": {
+          "k": 12,
+          "n": 16,
+          "rate": 0.75
+        },
+        "is_combo": {
+          "k": 7,
+          "n": 16,
+          "rate": 0.438
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": 7.31,
+            "mean": 6.99,
+            "q1": 3.11,
+            "q3": 10.72
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": 7.31,
+            "mean": 6.64,
+            "q1": 2.25,
+            "q3": 9.68
+          },
+          "is_combo": {
+            "n": 10,
+            "median": 8.21,
+            "mean": 8.4,
+            "q1": 4.85,
+            "q3": 11.96
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": 6.9,
+            "mean": 5.8,
+            "q1": 1.76,
+            "q3": 9.4
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": 5.47,
+            "mean": 5.89,
+            "q1": 1.73,
+            "q3": 9.52
+          },
+          "is_combo": {
+            "n": 22,
+            "median": 4.29,
+            "mean": 5.54,
+            "q1": 1.45,
+            "q3": 9.46
+          }
+        }
+      },
+      "if_true": {
+        "is_snap": {
+          "n": 17,
+          "median": 7.31,
+          "mean": 6.99,
+          "q1": 3.11,
+          "q3": 10.72
+        },
+        "is_shallow": {
+          "n": 23,
+          "median": 7.31,
+          "mean": 6.64,
+          "q1": 2.25,
+          "q3": 9.68
+        },
+        "is_combo": {
+          "n": 10,
+          "median": 8.21,
+          "mean": 8.4,
+          "q1": 4.85,
+          "q3": 11.96
+        }
+      },
+      "if_false": {
+        "is_snap": {
+          "n": 15,
+          "median": 6.9,
+          "mean": 5.8,
+          "q1": 1.76,
+          "q3": 9.4
+        },
+        "is_shallow": {
+          "n": 9,
+          "median": 5.47,
+          "mean": 5.89,
+          "q1": 1.73,
+          "q3": 9.52
+        },
+        "is_combo": {
+          "n": 22,
+          "median": 4.29,
+          "mean": 5.54,
+          "q1": 1.45,
+          "q3": 9.46
+        }
+      }
+    },
+    "incoming bass vs its body (dB)": {
+      "median": -5.86,
+      "n": 32,
+      "bass_not_yet": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": -16.21,
+          "mean": -14.98,
+          "q1": -19.66,
+          "q3": -9.16
+        },
+        "is_snap": {
+          "k": 8,
+          "n": 16,
+          "rate": 0.5
+        },
+        "is_shallow": {
+          "k": 12,
+          "n": 16,
+          "rate": 0.75
+        },
+        "is_combo": {
+          "k": 4,
+          "n": 16,
+          "rate": 0.25
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": -5.64,
+            "mean": -6.44,
+            "q1": -9.21,
+            "q3": 0.07
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": -6.58,
+            "mean": -8.12,
+            "q1": -16.21,
+            "q3": -0.23
+          },
+          "is_combo": {
+            "n": 10,
+            "median": -1.8,
+            "mean": -4.46,
+            "q1": -6.97,
+            "q3": 0.06
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": -9.01,
+            "mean": -9.74,
+            "q1": -19.25,
+            "q3": -0.41
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": -5.64,
+            "mean": -7.66,
+            "q1": -9.21,
+            "q3": 0.21
+          },
+          "is_combo": {
+            "n": 22,
+            "median": -7.54,
+            "mean": -9.59,
+            "q1": -18.68,
+            "q3": -0.41
+          }
+        }
+      },
+      "bass_already_in": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": -0.04,
+          "mean": -0.99,
+          "q1": -1.18,
+          "q3": 0.28
+        },
+        "is_snap": {
+          "k": 9,
+          "n": 16,
+          "rate": 0.562
+        },
+        "is_shallow": {
+          "k": 11,
+          "n": 16,
+          "rate": 0.688
+        },
+        "is_combo": {
+          "k": 6,
+          "n": 16,
+          "rate": 0.375
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": -5.64,
+            "mean": -6.44,
+            "q1": -9.21,
+            "q3": 0.07
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": -6.58,
+            "mean": -8.12,
+            "q1": -16.21,
+            "q3": -0.23
+          },
+          "is_combo": {
+            "n": 10,
+            "median": -1.8,
+            "mean": -4.46,
+            "q1": -6.97,
+            "q3": 0.06
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": -9.01,
+            "mean": -9.74,
+            "q1": -19.25,
+            "q3": -0.41
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": -5.64,
+            "mean": -7.66,
+            "q1": -9.21,
+            "q3": 0.21
+          },
+          "is_combo": {
+            "n": 22,
+            "median": -7.54,
+            "mean": -9.59,
+            "q1": -18.68,
+            "q3": -0.41
+          }
+        }
+      },
+      "if_true": {
+        "is_snap": {
+          "n": 17,
+          "median": -5.64,
+          "mean": -6.44,
+          "q1": -9.21,
+          "q3": 0.07
+        },
+        "is_shallow": {
+          "n": 23,
+          "median": -6.58,
+          "mean": -8.12,
+          "q1": -16.21,
+          "q3": -0.23
+        },
+        "is_combo": {
+          "n": 10,
+          "median": -1.8,
+          "mean": -4.46,
+          "q1": -6.97,
+          "q3": 0.06
+        }
+      },
+      "if_false": {
+        "is_snap": {
+          "n": 15,
+          "median": -9.01,
+          "mean": -9.74,
+          "q1": -19.25,
+          "q3": -0.41
+        },
+        "is_shallow": {
+          "n": 9,
+          "median": -5.64,
+          "mean": -7.66,
+          "q1": -9.21,
+          "q3": 0.21
+        },
+        "is_combo": {
+          "n": 22,
+          "median": -7.54,
+          "mean": -9.59,
+          "q1": -18.68,
+          "q3": -0.41
+        }
+      }
+    },
+    "outgoing energy vs its body (dB)": {
+      "median": -1.33,
+      "n": 32,
+      "outgoing_already_down": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": -6.24,
+          "mean": -6.57,
+          "q1": -8.17,
+          "q3": -4.36
+        },
+        "is_snap": {
+          "k": 11,
+          "n": 16,
+          "rate": 0.688
+        },
+        "is_shallow": {
+          "k": 11,
+          "n": 16,
+          "rate": 0.688
+        },
+        "is_combo": {
+          "k": 6,
+          "n": 16,
+          "rate": 0.375
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": -4.61,
+            "mean": -4.49,
+            "q1": -6.51,
+            "q3": -0.26
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": -1.3,
+            "mean": -3.51,
+            "q1": -6.67,
+            "q3": -0.22
+          },
+          "is_combo": {
+            "n": 10,
+            "median": -5.0,
+            "mean": -4.92,
+            "q1": -6.75,
+            "q3": -0.42
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": -0.46,
+            "mean": -2.15,
+            "q1": -2.49,
+            "q3": -0.1
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": -2.7,
+            "mean": -3.1,
+            "q1": -5.55,
+            "q3": 0.04
+          },
+          "is_combo": {
+            "n": 22,
+            "median": -1.02,
+            "mean": -2.7,
+            "q1": -5.06,
+            "q3": -0.07
+          }
+        }
+      },
+      "outgoing_still_full": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": -0.18,
+          "mean": -0.22,
+          "q1": -0.31,
+          "q3": 0.1
+        },
+        "is_snap": {
+          "k": 6,
+          "n": 16,
+          "rate": 0.375
+        },
+        "is_shallow": {
+          "k": 12,
+          "n": 16,
+          "rate": 0.75
+        },
+        "is_combo": {
+          "k": 4,
+          "n": 16,
+          "rate": 0.25
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": -4.61,
+            "mean": -4.49,
+            "q1": -6.51,
+            "q3": -0.26
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": -1.3,
+            "mean": -3.51,
+            "q1": -6.67,
+            "q3": -0.22
+          },
+          "is_combo": {
+            "n": 10,
+            "median": -5.0,
+            "mean": -4.92,
+            "q1": -6.75,
+            "q3": -0.42
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": -0.46,
+            "mean": -2.15,
+            "q1": -2.49,
+            "q3": -0.1
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": -2.7,
+            "mean": -3.1,
+            "q1": -5.55,
+            "q3": 0.04
+          },
+          "is_combo": {
+            "n": 22,
+            "median": -1.02,
+            "mean": -2.7,
+            "q1": -5.06,
+            "q3": -0.07
+          }
+        }
+      },
+      "if_true": {
+        "is_snap": {
+          "n": 17,
+          "median": -4.61,
+          "mean": -4.49,
+          "q1": -6.51,
+          "q3": -0.26
+        },
+        "is_shallow": {
+          "n": 23,
+          "median": -1.3,
+          "mean": -3.51,
+          "q1": -6.67,
+          "q3": -0.22
+        },
+        "is_combo": {
+          "n": 10,
+          "median": -5.0,
+          "mean": -4.92,
+          "q1": -6.75,
+          "q3": -0.42
+        }
+      },
+      "if_false": {
+        "is_snap": {
+          "n": 15,
+          "median": -0.46,
+          "mean": -2.15,
+          "q1": -2.49,
+          "q3": -0.1
+        },
+        "is_shallow": {
+          "n": 9,
+          "median": -2.7,
+          "mean": -3.1,
+          "q1": -5.55,
+          "q3": 0.04
+        },
+        "is_combo": {
+          "n": 22,
+          "median": -1.02,
+          "mean": -2.7,
+          "q1": -5.06,
+          "q3": -0.07
+        }
+      }
+    },
+    "outgoing bass vs its body (dB)": {
+      "median": -1.33,
+      "n": 32,
+      "outgoing_bass_down": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": -15.19,
+          "mean": -14.36,
+          "q1": -20.39,
+          "q3": -8.44
+        },
+        "is_snap": {
+          "k": 11,
+          "n": 16,
+          "rate": 0.688
+        },
+        "is_shallow": {
+          "k": 11,
+          "n": 16,
+          "rate": 0.688
+        },
+        "is_combo": {
+          "k": 6,
+          "n": 16,
+          "rate": 0.375
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": -9.1,
+            "mean": -10.27,
+            "q1": -17.76,
+            "q3": -0.42
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": -1.26,
+            "mean": -7.93,
+            "q1": -16.91,
+            "q3": -0.15
+          },
+          "is_combo": {
+            "n": 10,
+            "median": -13.43,
+            "mean": -12.48,
+            "q1": -23.01,
+            "q3": -0.56
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": -0.62,
+            "mean": -3.91,
+            "q1": -3.92,
+            "q3": -0.01
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": -3.32,
+            "mean": -5.65,
+            "q1": -10.95,
+            "q3": 0.05
+          },
+          "is_combo": {
+            "n": 22,
+            "median": -1.18,
+            "mean": -4.93,
+            "q1": -9.82,
+            "q3": -0.01
+          }
+        }
+      },
+      "outgoing_bass_full": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": -0.02,
+          "mean": -0.22,
+          "q1": -0.47,
+          "q3": 0.15
+        },
+        "is_snap": {
+          "k": 6,
+          "n": 16,
+          "rate": 0.375
+        },
+        "is_shallow": {
+          "k": 12,
+          "n": 16,
+          "rate": 0.75
+        },
+        "is_combo": {
+          "k": 4,
+          "n": 16,
+          "rate": 0.25
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": -9.1,
+            "mean": -10.27,
+            "q1": -17.76,
+            "q3": -0.42
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": -1.26,
+            "mean": -7.93,
+            "q1": -16.91,
+            "q3": -0.15
+          },
+          "is_combo": {
+            "n": 10,
+            "median": -13.43,
+            "mean": -12.48,
+            "q1": -23.01,
+            "q3": -0.56
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": -0.62,
+            "mean": -3.91,
+            "q1": -3.92,
+            "q3": -0.01
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": -3.32,
+            "mean": -5.65,
+            "q1": -10.95,
+            "q3": 0.05
+          },
+          "is_combo": {
+            "n": 22,
+            "median": -1.18,
+            "mean": -4.93,
+            "q1": -9.82,
+            "q3": -0.01
+          }
+        }
+      },
+      "if_true": {
+        "is_snap": {
+          "n": 17,
+          "median": -9.1,
+          "mean": -10.27,
+          "q1": -17.76,
+          "q3": -0.42
+        },
+        "is_shallow": {
+          "n": 23,
+          "median": -1.26,
+          "mean": -7.93,
+          "q1": -16.91,
+          "q3": -0.15
+        },
+        "is_combo": {
+          "n": 10,
+          "median": -13.43,
+          "mean": -12.48,
+          "q1": -23.01,
+          "q3": -0.56
+        }
+      },
+      "if_false": {
+        "is_snap": {
+          "n": 15,
+          "median": -0.62,
+          "mean": -3.91,
+          "q1": -3.92,
+          "q3": -0.01
+        },
+        "is_shallow": {
+          "n": 9,
+          "median": -3.32,
+          "mean": -5.65,
+          "q1": -10.95,
+          "q3": 0.05
+        },
+        "is_combo": {
+          "n": 22,
+          "median": -1.18,
+          "mean": -4.93,
+          "q1": -9.82,
+          "q3": -0.01
+        }
+      }
+    },
+    "outgoing bars left in the track": {
+      "median": 94.0,
+      "n": 32,
+      "near_the_end": {
+        "n": 17,
+        "feat": {
+          "n": 17,
+          "median": 68.0,
+          "mean": 65.29,
+          "q1": 54.0,
+          "q3": 87.0
+        },
+        "is_snap": {
+          "k": 11,
+          "n": 17,
+          "rate": 0.647
+        },
+        "is_shallow": {
+          "k": 11,
+          "n": 17,
+          "rate": 0.647
+        },
+        "is_combo": {
+          "k": 6,
+          "n": 17,
+          "rate": 0.353
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": 92.0,
+            "mean": 86.53,
+            "q1": 67.0,
+            "q3": 100.0
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": 97.0,
+            "mean": 105.04,
+            "q1": 84.0,
+            "q3": 130.0
+          },
+          "is_combo": {
+            "n": 10,
+            "median": 93.5,
+            "mean": 92.1,
+            "q1": 86.75,
+            "q3": 99.75
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": 113.0,
+            "mean": 110.8,
+            "q1": 75.5,
+            "q3": 142.5
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": 78.0,
+            "mean": 79.67,
+            "q1": 30.0,
+            "q3": 140.0
+          },
+          "is_combo": {
+            "n": 22,
+            "median": 95.5,
+            "mean": 100.55,
+            "q1": 67.25,
+            "q3": 140.75
+          }
+        }
+      },
+      "plenty_left": {
+        "n": 15,
+        "feat": {
+          "n": 15,
+          "median": 134.0,
+          "mean": 134.87,
+          "q1": 108.5,
+          "q3": 146.0
+        },
+        "is_snap": {
+          "k": 6,
+          "n": 15,
+          "rate": 0.4
+        },
+        "is_shallow": {
+          "k": 12,
+          "n": 15,
+          "rate": 0.8
+        },
+        "is_combo": {
+          "k": 4,
+          "n": 15,
+          "rate": 0.267
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": 92.0,
+            "mean": 86.53,
+            "q1": 67.0,
+            "q3": 100.0
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": 97.0,
+            "mean": 105.04,
+            "q1": 84.0,
+            "q3": 130.0
+          },
+          "is_combo": {
+            "n": 10,
+            "median": 93.5,
+            "mean": 92.1,
+            "q1": 86.75,
+            "q3": 99.75
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": 113.0,
+            "mean": 110.8,
+            "q1": 75.5,
+            "q3": 142.5
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": 78.0,
+            "mean": 79.67,
+            "q1": 30.0,
+            "q3": 140.0
+          },
+          "is_combo": {
+            "n": 22,
+            "median": 95.5,
+            "mean": 100.55,
+            "q1": 67.25,
+            "q3": 140.75
+          }
+        }
+      },
+      "if_true": {
+        "is_snap": {
+          "n": 17,
+          "median": 92.0,
+          "mean": 86.53,
+          "q1": 67.0,
+          "q3": 100.0
+        },
+        "is_shallow": {
+          "n": 23,
+          "median": 97.0,
+          "mean": 105.04,
+          "q1": 84.0,
+          "q3": 130.0
+        },
+        "is_combo": {
+          "n": 10,
+          "median": 93.5,
+          "mean": 92.1,
+          "q1": 86.75,
+          "q3": 99.75
+        }
+      },
+      "if_false": {
+        "is_snap": {
+          "n": 15,
+          "median": 113.0,
+          "mean": 110.8,
+          "q1": 75.5,
+          "q3": 142.5
+        },
+        "is_shallow": {
+          "n": 9,
+          "median": 78.0,
+          "mean": 79.67,
+          "q1": 30.0,
+          "q3": 140.0
+        },
+        "is_combo": {
+          "n": 22,
+          "median": 95.5,
+          "mean": 100.55,
+          "q1": 67.25,
+          "q3": 140.75
+        }
+      }
+    },
+    "outgoing bars to the outro": {
+      "median": 88.5,
+      "n": 32,
+      "near_outro": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": 65.5,
+          "mean": 58.62,
+          "q1": 47.5,
+          "q3": 79.5
+        },
+        "is_snap": {
+          "k": 11,
+          "n": 16,
+          "rate": 0.688
+        },
+        "is_shallow": {
+          "k": 10,
+          "n": 16,
+          "rate": 0.625
+        },
+        "is_combo": {
+          "k": 6,
+          "n": 16,
+          "rate": 0.375
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": 83.0,
+            "mean": 81.12,
+            "q1": 64.0,
+            "q3": 96.0
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": 89.0,
+            "mean": 99.96,
+            "q1": 76.0,
+            "q3": 126.5
+          },
+          "is_combo": {
+            "n": 10,
+            "median": 86.0,
+            "mean": 86.3,
+            "q1": 80.0,
+            "q3": 94.25
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": 103.0,
+            "mean": 106.4,
+            "q1": 70.0,
+            "q3": 141.0
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": 68.0,
+            "mean": 75.11,
+            "q1": 28.0,
+            "q3": 137.0
+          },
+          "is_combo": {
+            "n": 22,
+            "median": 89.5,
+            "mean": 96.0,
+            "q1": 64.75,
+            "q3": 139.25
+          }
+        }
+      },
+      "far_from_outro": {
+        "n": 16,
+        "feat": {
+          "n": 16,
+          "median": 129.0,
+          "mean": 127.31,
+          "q1": 98.25,
+          "q3": 142.0
+        },
+        "is_snap": {
+          "k": 6,
+          "n": 16,
+          "rate": 0.375
+        },
+        "is_shallow": {
+          "k": 13,
+          "n": 16,
+          "rate": 0.812
+        },
+        "is_combo": {
+          "k": 4,
+          "n": 16,
+          "rate": 0.25
+        },
+        "feat_if": {
+          "is_snap": {
+            "n": 17,
+            "median": 83.0,
+            "mean": 81.12,
+            "q1": 64.0,
+            "q3": 96.0
+          },
+          "is_shallow": {
+            "n": 23,
+            "median": 89.0,
+            "mean": 99.96,
+            "q1": 76.0,
+            "q3": 126.5
+          },
+          "is_combo": {
+            "n": 10,
+            "median": 86.0,
+            "mean": 86.3,
+            "q1": 80.0,
+            "q3": 94.25
+          }
+        },
+        "feat_if_not": {
+          "is_snap": {
+            "n": 15,
+            "median": 103.0,
+            "mean": 106.4,
+            "q1": 70.0,
+            "q3": 141.0
+          },
+          "is_shallow": {
+            "n": 9,
+            "median": 68.0,
+            "mean": 75.11,
+            "q1": 28.0,
+            "q3": 137.0
+          },
+          "is_combo": {
+            "n": 22,
+            "median": 89.5,
+            "mean": 96.0,
+            "q1": 64.75,
+            "q3": 139.25
+          }
+        }
+      },
+      "if_true": {
+        "is_snap": {
+          "n": 17,
+          "median": 83.0,
+          "mean": 81.12,
+          "q1": 64.0,
+          "q3": 96.0
+        },
+        "is_shallow": {
+          "n": 23,
+          "median": 89.0,
+          "mean": 99.96,
+          "q1": 76.0,
+          "q3": 126.5
+        },
+        "is_combo": {
+          "n": 10,
+          "median": 86.0,
+          "mean": 86.3,
+          "q1": 80.0,
+          "q3": 94.25
+        }
+      },
+      "if_false": {
+        "is_snap": {
+          "n": 15,
+          "median": 103.0,
+          "mean": 106.4,
+          "q1": 70.0,
+          "q3": 141.0
+        },
+        "is_shallow": {
+          "n": 9,
+          "median": 68.0,
+          "mean": 75.11,
+          "q1": 28.0,
+          "q3": 137.0
+        },
+        "is_combo": {
+          "n": 22,
+          "median": 89.5,
+          "mean": 96.0,
+          "q1": 64.75,
+          "q3": 139.25
+        }
+      }
+    }
+  },
+  "today": {
+    "id": "hybrid_minds_ukf__25",
+    "split": "train",
+    "dj": "Hybrid Minds",
+    "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+    "cls": {
+      "snap": {
+        "bars": 2,
+        "start_bar": 15,
+        "end_bar": 17,
+        "rise": 21.26
+      },
+      "audible_after": 26,
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "swap": 18
+    },
+    "feat": {
+      "inc": {
+        "bar": 191.1,
+        "t": 263.59,
+        "n_bars": 263,
+        "dur": 362.4634920634921,
+        "section": "drop",
+        "section_hits": [
+          "drop3"
+        ],
+        "intro_len": 16,
+        "all": -24.74,
+        "low": -34.25,
+        "bass": -34.25,
+        "drums": -33.84,
+        "hat": -44.25,
+        "body_p75": -18.88,
+        "vs_body": -5.86,
+        "vs_intro": 7.31,
+        "bass_vs_body": -13.93,
+        "hat_vs_body": -12.09,
+        "in_intro": false,
+        "in_drop": true,
+        "bars_into_track": 191,
+        "frac": 0.726,
+        "bars_to_end": 72,
+        "bars_to_outro": 65
+      },
+      "out": {
+        "bar": 121.61,
+        "t": 167.74,
+        "n_bars": 215,
+        "dur": 295.55532879818594,
+        "section": "breakdown",
+        "section_hits": [
+          "breakdown"
+        ],
+        "intro_len": 48,
+        "all": -23.25,
+        "low": -44.97,
+        "bass": -44.97,
+        "drums": -39.22,
+        "hat": -40.56,
+        "body_p75": -16.74,
+        "vs_body": -6.51,
+        "vs_intro": 4.72,
+        "bass_vs_body": -26.67,
+        "hat_vs_body": -7.69,
+        "in_intro": false,
+        "in_drop": false,
+        "bars_into_track": 121,
+        "frac": 0.563,
+        "bars_to_end": 94,
+        "bars_to_outro": 84
+      },
+      "shape": "breakdown>drop",
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "inc_intro_len": 16,
+      "inc_in_intro": false,
+      "inc_in_drop": true,
+      "inc_vs_body": -5.86,
+      "inc_vs_intro": 7.31,
+      "inc_bass_vs_body": -13.93,
+      "out_vs_body": -6.51,
+      "out_bass_vs_body": -26.67,
+      "out_bars_to_end": 94,
+      "out_bars_to_outro": 84
+    }
+  },
+  "ids": {
+    "is_snap": [
+      "hybrid_minds_ukf__08",
+      "hybrid_minds_ukf__11",
+      "hybrid_minds_ukf__12",
+      "hybrid_minds_ukf__13",
+      "hybrid_minds_ukf__19",
+      "hybrid_minds_ukf__25",
+      "hybrid_minds_ukf__28",
+      "hybrid_minds_ukf__45",
+      "joe_syntax_hospital__01",
+      "joe_syntax_hospital__09",
+      "joe_syntax_hospital__11",
+      "maduk_liquicity_lunar2025__05",
+      "netsky_hospital_classics__02",
+      "netsky_hospital_classics__17",
+      "netsky_hospital_classics__23",
+      "pola_bryson_puzzlewood__00",
+      "pola_bryson_puzzlewood__02"
+    ],
+    "is_shallow": [
+      "hybrid_minds_ukf__00",
+      "hybrid_minds_ukf__08",
+      "hybrid_minds_ukf__09",
+      "hybrid_minds_ukf__10",
+      "hybrid_minds_ukf__11",
+      "hybrid_minds_ukf__13",
+      "hybrid_minds_ukf__19",
+      "hybrid_minds_ukf__23",
+      "hybrid_minds_ukf__25",
+      "hybrid_minds_ukf__28",
+      "hybrid_minds_ukf__40",
+      "joe_syntax_hospital__01",
+      "joe_syntax_hospital__08",
+      "joe_syntax_hospital__12",
+      "joe_syntax_hospital__13",
+      "joe_syntax_hospital__14",
+      "maduk_liquicity_lunar2025__02",
+      "maduk_liquicity_lunar2025__03",
+      "maduk_liquicity_lunar2025__05",
+      "netsky_hospital_classics__02",
+      "netsky_hospital_classics__06",
+      "pola_bryson_puzzlewood__02",
+      "pola_bryson_puzzlewood__04"
+    ],
+    "is_combo": [
+      "hybrid_minds_ukf__08",
+      "hybrid_minds_ukf__11",
+      "hybrid_minds_ukf__13",
+      "hybrid_minds_ukf__19",
+      "hybrid_minds_ukf__25",
+      "hybrid_minds_ukf__28",
+      "joe_syntax_hospital__01",
+      "maduk_liquicity_lunar2025__05",
+      "netsky_hospital_classics__02",
+      "pola_bryson_puzzlewood__02"
+    ]
+  },
+  "pairs": [
+    {
+      "id": "joe_syntax_hospital__01",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "drop>drop",
+      "inc_intro_len": 48,
+      "inc_vs_body": -3.45,
+      "inc_bass_vs_body": -3.51,
+      "out_vs_body": -0.22,
+      "out_bass_vs_body": -0.26,
+      "both_loud": true,
+      "both_bass": true,
+      "both_tops": true,
+      "audible_after": 12
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 56,
+      "inc_vs_body": -3.47,
+      "inc_bass_vs_body": -4.0,
+      "out_vs_body": 0.13,
+      "out_bass_vs_body": -0.01,
+      "both_loud": true,
+      "both_bass": true,
+      "both_tops": true,
+      "audible_after": 9
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 48,
+      "inc_vs_body": 0.01,
+      "inc_bass_vs_body": 0.07,
+      "out_vs_body": -9.77,
+      "out_bass_vs_body": -22.89,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": true,
+      "audible_after": 23
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 80,
+      "inc_vs_body": 0.44,
+      "inc_bass_vs_body": 0.43,
+      "out_vs_body": -6.83,
+      "out_bass_vs_body": -23.05,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 11
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": true,
+      "is_shallow": false,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 48,
+      "inc_vs_body": -4.36,
+      "inc_bass_vs_body": -17.98,
+      "out_vs_body": 0.09,
+      "out_bass_vs_body": 0.27,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 5
+    },
+    {
+      "id": "hybrid_minds_ukf__19",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "drop>drop",
+      "inc_intro_len": 48,
+      "inc_vs_body": 0.28,
+      "inc_bass_vs_body": 0.85,
+      "out_vs_body": -0.26,
+      "out_bass_vs_body": -0.42,
+      "both_loud": true,
+      "both_bass": true,
+      "both_tops": true,
+      "audible_after": 16
+    },
+    {
+      "id": "hybrid_minds_ukf__25",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 16,
+      "inc_vs_body": -5.86,
+      "inc_bass_vs_body": -13.93,
+      "out_vs_body": -6.51,
+      "out_bass_vs_body": -26.67,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 26
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": true,
+      "is_shallow": false,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 48,
+      "inc_vs_body": -9.96,
+      "inc_bass_vs_body": -26.72,
+      "out_vs_body": -3.52,
+      "out_bass_vs_body": -4.2,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 3
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "split": "test",
+      "dj": "Netsky",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "drop>drop",
+      "inc_intro_len": 16,
+      "inc_vs_body": -6.48,
+      "inc_bass_vs_body": -7.1,
+      "out_vs_body": 0.35,
+      "out_bass_vs_body": 0.44,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 17
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "split": "test",
+      "dj": "Netsky",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 64,
+      "inc_vs_body": -3.5,
+      "inc_bass_vs_body": -9.01,
+      "out_vs_body": 0.25,
+      "out_bass_vs_body": 0.36,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": true,
+      "audible_after": 24
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "split": "test",
+      "dj": "Netsky",
+      "is_snap": true,
+      "is_shallow": false,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 48,
+      "inc_vs_body": -6.09,
+      "inc_bass_vs_body": -9.21,
+      "out_vs_body": -5.97,
+      "out_bass_vs_body": -14.3,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 2
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "is_snap": true,
+      "is_shallow": false,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 40,
+      "inc_vs_body": -5.14,
+      "inc_bass_vs_body": -5.64,
+      "out_vs_body": 0.13,
+      "out_bass_vs_body": 0.17,
+      "both_loud": true,
+      "both_bass": true,
+      "both_tops": false,
+      "audible_after": 3
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>breakdown",
+      "inc_intro_len": 64,
+      "inc_vs_body": -7.08,
+      "inc_bass_vs_body": -19.59,
+      "out_vs_body": -0.15,
+      "out_bass_vs_body": -0.03,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 9
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 64,
+      "inc_vs_body": -4.79,
+      "inc_bass_vs_body": -9.31,
+      "out_vs_body": -0.22,
+      "out_bass_vs_body": -0.01,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": true,
+      "audible_after": 28
+    },
+    {
+      "id": "hybrid_minds_ukf__00",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>drop",
+      "inc_intro_len": 24,
+      "inc_vs_body": 0.44,
+      "inc_bass_vs_body": 0.54,
+      "out_vs_body": -7.68,
+      "out_bass_vs_body": -16.07,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 27
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 64,
+      "inc_vs_body": -0.16,
+      "inc_bass_vs_body": -0.37,
+      "out_vs_body": -7.87,
+      "out_bass_vs_body": -19.55,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 27
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 48,
+      "inc_vs_body": -0.03,
+      "inc_bass_vs_body": -0.41,
+      "out_vs_body": -3.61,
+      "out_bass_vs_body": -6.44,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": true,
+      "audible_after": 14
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 32,
+      "inc_vs_body": -2.46,
+      "inc_bass_vs_body": -6.58,
+      "out_vs_body": -15.07,
+      "out_bass_vs_body": -24.09,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 26
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 48,
+      "inc_vs_body": -7.57,
+      "inc_bass_vs_body": -21.4,
+      "out_vs_body": -1.3,
+      "out_bass_vs_body": -1.26,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 11
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "is_snap": false,
+      "is_shallow": false,
+      "is_combo": false,
+      "shape": "outro>drop",
+      "inc_intro_len": 16,
+      "inc_vs_body": -3.22,
+      "inc_bass_vs_body": -4.24,
+      "out_vs_body": 0.04,
+      "out_bass_vs_body": 0.05,
+      "both_loud": true,
+      "both_bass": true,
+      "both_tops": true,
+      "audible_after": 4
+    },
+    {
+      "id": "joe_syntax_hospital__09",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "is_snap": true,
+      "is_shallow": false,
+      "is_combo": false,
+      "shape": "outro>intro",
+      "inc_intro_len": 32,
+      "inc_vs_body": -3.33,
+      "inc_bass_vs_body": -6.07,
+      "out_vs_body": -2.7,
+      "out_bass_vs_body": -3.32,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": true,
+      "audible_after": 1
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>drop",
+      "inc_intro_len": 32,
+      "inc_vs_body": -2.87,
+      "inc_bass_vs_body": -18.91,
+      "out_vs_body": -1.37,
+      "out_bass_vs_body": -1.4,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 16
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 48,
+      "inc_vs_body": 0.2,
+      "inc_bass_vs_body": -0.09,
+      "out_vs_body": -5.39,
+      "out_bass_vs_body": -17.76,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": true,
+      "audible_after": 22
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 32,
+      "inc_vs_body": -12.0,
+      "inc_bass_vs_body": -19.85,
+      "out_vs_body": -9.07,
+      "out_bass_vs_body": -12.42,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 19
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "split": "test",
+      "dj": "Netsky",
+      "is_snap": false,
+      "is_shallow": false,
+      "is_combo": false,
+      "shape": "drop>drop",
+      "inc_intro_len": 16,
+      "inc_vs_body": -0.41,
+      "inc_bass_vs_body": 0.23,
+      "out_vs_body": -0.75,
+      "out_bass_vs_body": -1.1,
+      "both_loud": true,
+      "both_bass": true,
+      "both_tops": true,
+      "audible_after": 7
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "split": "test",
+      "dj": "Netsky",
+      "is_snap": true,
+      "is_shallow": false,
+      "is_combo": false,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 32,
+      "inc_vs_body": 0.08,
+      "inc_bass_vs_body": 0.21,
+      "out_vs_body": -5.55,
+      "out_bass_vs_body": -10.95,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 5
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__02",
+      "split": "test",
+      "dj": "Maduk",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>drop",
+      "inc_intro_len": 48,
+      "inc_vs_body": -0.02,
+      "inc_bass_vs_body": -0.41,
+      "out_vs_body": -0.04,
+      "out_bass_vs_body": 0.14,
+      "both_loud": true,
+      "both_bass": true,
+      "both_tops": true,
+      "audible_after": 20
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__03",
+      "split": "test",
+      "dj": "Maduk",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 32,
+      "inc_vs_body": -4.96,
+      "inc_bass_vs_body": -17.71,
+      "out_vs_body": -0.22,
+      "out_bass_vs_body": -0.31,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 18
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__05",
+      "split": "test",
+      "dj": "Maduk",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "drop>intro",
+      "inc_intro_len": 48,
+      "inc_vs_body": -6.05,
+      "inc_bass_vs_body": -14.71,
+      "out_vs_body": -0.88,
+      "out_bass_vs_body": -0.98,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": true,
+      "audible_after": 19
+    },
+    {
+      "id": "pola_bryson_puzzlewood__00",
+      "split": "test",
+      "dj": "Pola & Bryson",
+      "is_snap": true,
+      "is_shallow": false,
+      "is_combo": false,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 48,
+      "inc_vs_body": 0.53,
+      "inc_bass_vs_body": 0.5,
+      "out_vs_body": -9.66,
+      "out_bass_vs_body": -17.49,
+      "both_loud": false,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 4
+    },
+    {
+      "id": "pola_bryson_puzzlewood__02",
+      "split": "test",
+      "dj": "Pola & Bryson",
+      "is_snap": true,
+      "is_shallow": true,
+      "is_combo": true,
+      "shape": "breakdown>drop",
+      "inc_intro_len": 32,
+      "inc_vs_body": 0.0,
+      "inc_bass_vs_body": 0.01,
+      "out_vs_body": -4.61,
+      "out_bass_vs_body": -9.1,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 19
+    },
+    {
+      "id": "pola_bryson_puzzlewood__04",
+      "split": "test",
+      "dj": "Pola & Bryson",
+      "is_snap": false,
+      "is_shallow": true,
+      "is_combo": false,
+      "shape": "drop>intro",
+      "inc_intro_len": 56,
+      "inc_vs_body": -5.68,
+      "inc_bass_vs_body": -21.66,
+      "out_vs_body": -0.46,
+      "out_bass_vs_body": -0.62,
+      "both_loud": true,
+      "both_bass": false,
+      "both_tops": false,
+      "audible_after": 10
+    }
+  ]
+}

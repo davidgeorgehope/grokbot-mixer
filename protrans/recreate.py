@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','SNAP_IN','SNAP_IN_DB','BASS_COVER','BASS_COVER_DB'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     if env.get('FADE')=='graphcut':
@@ -134,7 +134,7 @@ def _phase_pick_cost(a_yt, b_yt, win, phase_pref_w, linger_pen_w, breakdown_pen_
 # 'family_cost' ({fam: cost}) like any other general rule. nat_long stays the cheapest default (held-out baseline).
 FAMILY_COST = {'nat_long': 0.0, 'nat_short': 0.01, 'out_loop': 0.02, 'in_loop': 0.03, 'lx_beat': 0.04,
                'cue_early': 0.05, 'cue_late': 0.06, 'phrase_cut': 0.07, 'swap_early': 0.08, 'swap_late': 0.09,
-               'sneak_in': 0.10, 'rated': 0.0}
+               'sneak_in': 0.10, 'rated': 0.0, 'hint_long': 0.0, 'hint_short': 0.01}  # hint_*: 2026-11-14 RCA, same costs as nat_*; only offered when hint_family is on
 
 def family_cost(fam, rules=None):
     over = (rules or {}).get('family_cost') or {}
@@ -143,6 +143,106 @@ def family_cost(fam, rules=None):
 def _hint_bar(hint_sec, bar_sec=240/174):
     if hint_sec is None: return None
     return hint_sec / bar_sec
+
+def _flag_on(v):
+    return str(v).strip().lower() not in ('', '0', 'false', 'none', 'no')
+
+def hint_families(cs, hint_bar, near_bars=32):
+    """Natural windows whose outgoing end is near the tracklist time hint.
+
+    families() picks the lowest engine-cost window per family. STRUCT's 300-point
+    bonus makes that the outro-over-intro window on almost every pair, so the
+    hint never competes. Off by default (rules hint_family); 2026-11-14 RCA.
+    """
+    if hint_bar is None or not cs:
+        return []
+    out = []
+    near_bars = max(float(near_bars), 1.0)
+    for fam, pred in (('hint_short', lambda w: w[0] == 'n' and w[4] == 16),
+                      ('hint_long', lambda w: w[0] == 'n' and w[4] >= 32)):
+        pool = [c for c in cs if pred(c['win'])]
+        if not pool:
+            continue
+        near = [c for c in pool if abs(float(c['win'][1]) - hint_bar) <= near_bars]
+        if near:
+            best = min(near, key=lambda c: c['cost'])
+        else:
+            best = min(pool, key=lambda c: (abs(float(c['win'][1]) - hint_bar), c['cost']))
+        out.append(dict(fam=fam, win=list(best['win']), env={}))
+    return out
+
+def _body(lo):
+    import numpy as np
+    lo = np.asarray(lo, float)
+    return float(np.percentile(lo, 75)) if len(lo) else -20.0
+
+def incoming_hole_bars(win, lo_a, lo_b, gap=9.84):
+    """Bars where the incoming is thin (>gap under its body) while the outgoing still
+    has bass (within gap/2 of its body). gap defaults to bassgap.GAP_DB, the pro p95.
+    Counts an engine hole, not a breakdown both records already have. 2026-11-14 RCA.
+    """
+    if not win or lo_a is None or lo_b is None:
+        return 0
+    kind, e, _p, ib, X = win[0], int(win[1]), win[2], win[3], int(win[4])
+    if kind != 'n' or ib is None:
+        return 0
+    ib = int(ib)
+    import numpy as np
+    lo_a = np.asarray(lo_a, float); lo_b = np.asarray(lo_b, float)
+    body_a, body_b = _body(lo_a), _body(lo_b)
+    n = 0
+    for k in range(X):
+        ia, ibk = e - X + k, ib + k
+        oa = float(lo_a[ia]) if 0 <= ia < len(lo_a) else -120.0
+        ob = float(lo_b[ibk]) if 0 <= ibk < len(lo_b) else -120.0
+        if ob < body_b - gap and oa >= body_a - gap / 2.0:
+            n += 1
+    return n
+
+def _bar_low(yt):
+    p = os.path.join(paths.SRC2, 'st', f'{yt}.json')
+    if not os.path.exists(p):
+        return None
+    try:
+        lo = (json.load(open(p)).get('bar') or {}).get('low')
+        return lo
+    except Exception:
+        return None
+
+def add_hint_families(fams, cs, hint_bar, near_bars=32, enabled=False,
+                      lo_a=None, lo_b=None, gap=9.84):
+    """Append hint_short / hint_long when enabled, skipping windows already nominated.
+
+    When source lows are given, this is a per-pair choice, not a blanket swap:
+    mid-track windows are only added if the default natural window has an engine
+    bass hole (>1 bar) and the hint window has strictly fewer hole bars.
+    the listener, 2026-11-15: blend technique depends on the tracks, not a fixed rule.
+    """
+    if not enabled:
+        return list(fams)
+    fams = list(fams)
+    def_holes = None
+    if lo_a is not None and lo_b is not None:
+        def_win = None
+        for name in ('nat_short', 'nat_long'):
+            hit = next((c for c in fams if c.get('fam') == name), None)
+            if hit is not None:
+                def_win = hit['win']
+                break
+        if def_win is None:
+            return fams
+        def_holes = incoming_hole_bars(def_win, lo_a, lo_b, gap)
+        if def_holes <= 1:
+            return fams
+    have = {tuple(c['win']) for c in fams}
+    for c in hint_families(cs, hint_bar, near_bars):
+        if def_holes is not None and incoming_hole_bars(c['win'], lo_a, lo_b, gap) >= def_holes:
+            continue
+        key = tuple(c['win'])
+        if key not in have:
+            fams.append(c)
+            have.add(key)
+    return fams
 
 def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='pt'):
     """Pick a window/family from general rules + hint, render a snippet. Returns paths + pick info."""
@@ -169,6 +269,18 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
         hb = _hint_bar(hint_a_played_sec)
         hw = float(rules.get('hint_weight') or 0)
         nb = float(rules.get('near_hint_bars') or 32)
+        # hint_family is off by default: STRUCT's bonus otherwise hides every
+        # mid-track window from this shortlist (2026-11-14 RCA).
+        # Per-pair: only nominate a mid-track window when the default one has an
+        # engine bass hole (outgoing still has body, incoming thin). Off by default.
+        gap = 9.84
+        try:
+            import bassgap as _bg
+            gap = float(_bg.GAP_DB)
+        except Exception:
+            pass
+        fams = add_hint_families(fams, cs, hb, nb, enabled=_flag_on(rules.get('hint_family')),
+                                 lo_a=_bar_low(a), lo_b=_bar_low(b), gap=gap)
         lp = int(rules.get('length_pref') or 0)
         pref = rules.get('prefer_family')
         scored = []

@@ -1,0 +1,566 @@
+{
+  "variant": "rca1114_hintfam",
+  "rules_delta": {
+    "hint_family": 1
+  },
+  "v3": {
+    "train": 26.88,
+    "test": 29.05,
+    "n": 33,
+    "n_fail": 0
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 24.68,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 30.47,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 24.69,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 31.75,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 32.23,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 19.05,
+      "split": "test"
+    }
+  },
+  "base_d1115_xp_045": {
+    "train": 32.26,
+    "test": 34.05,
+    "n": 33
+  },
+  "fams": {
+    "hint_short": 30,
+    "nat_short": 1,
+    "hint_long": 2
+  },
+  "rows": [
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "split": "test",
+      "dj": "Wilkinson",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        80,
+        null,
+        16,
+        16
+      ],
+      "score": 19.05,
+      "error": null
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        96,
+        null,
+        32,
+        16
+      ],
+      "score": 37.21,
+      "error": null
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "score": 37.81,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "score": 18.74,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        112,
+        null,
+        0,
+        16
+      ],
+      "score": 25.88,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        160,
+        null,
+        48,
+        16
+      ],
+      "score": 13.6,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__19",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "score": 29.7,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__25",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        96,
+        null,
+        64,
+        16
+      ],
+      "score": 20.45,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        96,
+        null,
+        16,
+        16
+      ],
+      "score": 39.9,
+      "error": null
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "split": "test",
+      "dj": "Netsky",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        0,
+        16
+      ],
+      "score": 29.29,
+      "error": null
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "split": "test",
+      "dj": "Netsky",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        160,
+        null,
+        16,
+        16
+      ],
+      "score": 44.12,
+      "error": null
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "split": "test",
+      "dj": "Netsky",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "score": 32.21,
+      "error": null
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        160,
+        null,
+        0,
+        16
+      ],
+      "score": 13.74,
+      "error": null
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        176,
+        null,
+        16,
+        16
+      ],
+      "score": 48.13,
+      "error": null
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "score": 25.26,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__00",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "score": 31.14,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        112,
+        null,
+        16,
+        16
+      ],
+      "score": 14.71,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "score": 23.88,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        32,
+        16
+      ],
+      "score": 28.75,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        144,
+        null,
+        48,
+        16
+      ],
+      "score": 22.8,
+      "error": null
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "fam": "nat_short",
+      "win": [
+        "n",
+        96,
+        null,
+        0,
+        16
+      ],
+      "score": 29.36,
+      "error": null
+    },
+    {
+      "id": "joe_syntax_hospital__09",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        96,
+        null,
+        16,
+        16
+      ],
+      "score": 29.66,
+      "error": null
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "fam": "hint_long",
+      "win": [
+        "n",
+        144,
+        null,
+        0,
+        32
+      ],
+      "score": 22.59,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_long",
+      "win": [
+        "n",
+        128,
+        null,
+        16,
+        32
+      ],
+      "score": 22.62,
+      "error": null
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        32,
+        16
+      ],
+      "score": 28.64,
+      "error": null
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "split": "test",
+      "dj": "Netsky",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "score": 20.34,
+      "error": null
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "split": "test",
+      "dj": "Netsky",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        96,
+        null,
+        32,
+        16
+      ],
+      "score": 32.78,
+      "error": null
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__02",
+      "split": "test",
+      "dj": "Maduk",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        64,
+        null,
+        32,
+        16
+      ],
+      "score": 31.8,
+      "error": null
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__03",
+      "split": "test",
+      "dj": "Maduk",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        96,
+        null,
+        48,
+        16
+      ],
+      "score": 22.29,
+      "error": null
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__05",
+      "split": "test",
+      "dj": "Maduk",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "score": 19.99,
+      "error": null
+    },
+    {
+      "id": "pola_bryson_puzzlewood__00",
+      "split": "test",
+      "dj": "Pola & Bryson",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        112,
+        null,
+        16,
+        16
+      ],
+      "score": 33.37,
+      "error": null
+    },
+    {
+      "id": "pola_bryson_puzzlewood__02",
+      "split": "test",
+      "dj": "Pola & Bryson",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "score": 38.03,
+      "error": null
+    },
+    {
+      "id": "pola_bryson_puzzlewood__04",
+      "split": "test",
+      "dj": "Pola & Bryson",
+      "fam": "hint_short",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "score": 25.29,
+      "error": null
+    }
+  ],
+  "pick": {
+    "id": "hybrid_minds_ukf__19",
+    "split": "train",
+    "dj": "Hybrid Minds",
+    "fam": "hint_short",
+    "win": [
+      "n",
+      112,
+      null,
+      48,
+      16
+    ],
+    "score": 29.7,
+    "error": null
+  }
+}

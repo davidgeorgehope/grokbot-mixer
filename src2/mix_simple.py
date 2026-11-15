@@ -212,9 +212,12 @@ if CUEW>0:
     return 1-cue.pctl(CM,'out',_CX[a],ea)
 import sections;STRUCT=int(os.environ.get('STRUCT',1));STRUCTW=float(os.environ.get('STRUCTW',300));STRK=set()
 XT={};inn={ids[0]:0};outs={};loops={};notes={};info_={}
+PLANNER_EXTRA_WINS=set()  # windows only added by window_planner.engine_cands (past bar-80 / before emin)
 def pair_cands(i,ia0):
   """all scored windows for blend i given where track i starts (ia0); sorted best first"""
   global X
+  global PLANNER_EXTRA_WINS
+  PLANNER_EXTRA_WINS=set()
   a,b=ids[i],ids[i+1];ta,ala,ba,va,na=A_(a);tb,alb,bb,vb,nb=A_(b)
   ia=ia0[1]+16 if isinstance(ia0,tuple) else ia0;res=[]
   e_max=min(tail0(ala,ba),na,OUTMAX.get(a,na));e_max-=e_max%16
@@ -235,6 +238,8 @@ def pair_cands(i,ia0):
       for kind,e,ib in _WP.engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia):
         if (kind,e,ib) not in have:
           cands.append((kind,e,ib)); have.add((kind,e,ib))
+          # win_key form for kind 'n': [kind, e, None, ib, X]
+          PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
     eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
     for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
       for p in [e-16] if e-16>=max(ia,16) else []:  # a fill/level drop inside the loop is penalised (DIPPEN), not refused
@@ -283,7 +288,7 @@ LOOK=int(os.environ.get("LOOKAHEAD",8))
 KIND={};LXD=set()
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];cs=pair_cands(i,inn[a])
-  if os.environ.get("DUMP_CANDS"):json.dump([dict(win=win_key(c),cost=float(c[0][0]),pen=float(c[4]['pen'])) for c in cs],open(os.environ["DUMP_CANDS"],'w'));sys.exit()  # blend_bench.py: all scored windows of the first pair
+  if os.environ.get("DUMP_CANDS"):json.dump([dict(win=win_key(c),cost=float(c[0][0]),pen=float(c[4]['pen']),planner_extra=tuple(win_key(c)) in PLANNER_EXTRA_WINS) for c in cs],open(os.environ["DUMP_CANDS"],'w'));sys.exit()  # blend_bench.py: all scored windows of the first pair
   if os.environ.get("DBG_PAIR")==f"{a}>{b}":[print("DBG",round(c[0][0],1),c[1],c[2],c[3],c[5],round(c[4]["pen"],1),file=sys.stderr) for c in cs[:8]]
   W=plan[i].get('out_win')  # opt-in: the window plan_search.py chose for this blend (renders exactly what was planned)
   if W:

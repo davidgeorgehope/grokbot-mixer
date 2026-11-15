@@ -22,7 +22,7 @@ from recreate import incoming_hole_bars
 
 FEAT = os.path.join(paths.RESULTS, 'snapin_features_2026-11-15.json')
 BASE = 'd1115_xp_045'
-VARIANT = 'wp1115v2'
+VARIANT = 'wp1115v3'
 
 
 def _lows(yt):
@@ -105,7 +105,9 @@ def main():
     recs = T.load_recs()
     scored = T.run_set_checkpointed(recs, trial, VARIANT, 'wp')
     sm = T.summarize(scored)
-    keep = (sm['test_mean'] is not None and sm['test_mean'] + 1e-9 >= 34.05 and sm['n_fail'] == 0)
+    keep = (sm['test_mean'] is not None and sm['test_mean'] + 1e-9 >= 34.05
+            and sm['train_mean'] is not None and sm['train_mean'] + 1e-9 >= 32.26
+            and sm['n_fail'] == 0)
     cohort = dict(variant=VARIANT, summary=sm, keep=keep,
                   floor=dict(train=32.26, test=34.05, n=33, n_fail=0))
     cdest = os.path.join(paths.RESULTS, f'eval_{VARIANT}.json')

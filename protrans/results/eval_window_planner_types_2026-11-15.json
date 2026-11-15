@@ -323,8 +323,7 @@
         16
       ],
       "fade": {
-        "SNAP_IN": "1",
-        "SNAP_IN_HOLD": "16"
+        "SNAP_IN": "1"
       },
       "reason": "short_intro_bd",
       "exact": true,
@@ -735,8 +734,7 @@
         16
       ],
       "fade": {
-        "SNAP_IN": "1",
-        "SNAP_IN_HOLD": "16"
+        "SNAP_IN": "1"
       },
       "reason": "short_intro_bd",
       "exact": false,
@@ -912,8 +910,7 @@
         16
       ],
       "fade": {
-        "SNAP_IN": "1",
-        "SNAP_IN_HOLD": "16"
+        "SNAP_IN": "1"
       },
       "reason": "short_intro_bd",
       "exact": true,

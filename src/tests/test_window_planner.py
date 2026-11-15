@@ -266,3 +266,51 @@ def test_apply_rules_maps_window_planner_flag():
     # later-drop body cue must be a legal engine cand (past the bar-80 cap)
     got = WP.engine_cands(CIN, TOG, 16, e_max=200, ia=0)
     assert ('n', 128, 192) in got
+
+
+def test_snap_in_hold_only_on_three_plus_drops():
+    """SNAP_IN_HOLD is only for breakdown_drop when the incoming has 3+ drops
+    and the outgoing still has runway. Other breakdowns get SNAP_IN alone.
+    """
+    feat3 = dict(n_in_drops=3, out_left=77, to_outro=56)
+    assert WP.fade_env('breakdown_drop', feat3) == {'SNAP_IN': '1', 'SNAP_IN_HOLD': '16'}
+    feat1 = dict(n_in_drops=1, out_left=77, to_outro=56)
+    assert WP.fade_env('breakdown_drop', feat1) == {'SNAP_IN': '1'}
+    feat2 = dict(n_in_drops=2, out_left=77, to_outro=56)
+    assert WP.fade_env('breakdown_drop', feat2) == {'SNAP_IN': '1'}
+    short = dict(n_in_drops=3, out_left=10, to_outro=10)
+    assert WP.fade_env('breakdown_drop', short) == {'SNAP_IN': '1'}
+    assert WP.fade_env('drop1_end', feat3) == {}
+
+
+def test_apply_choice_skips_windows_only_legal_via_alias():
+    """drop1_end / 2-drop windows that only entered cs past emin or bar 80
+    stay on the default (v1 behaviour). The 3+ last-drop cue may use them.
+    """
+    default = ['n', 320, None, 48, 16]
+    mid = ['n', 184, None, 64, 16]
+    scored = [
+        (0.4, dict(fam='nat_short', win=default, env={})),
+        (0.1, dict(fam=WP.FAM_DROP1, win=mid, env={})),
+    ]
+    ch = dict(type='drop1_end', win=mid, fade_env={}, reason='drop1_end',
+              features=dict(n_in_drops=2))
+    pick = WP.apply_choice(scored, ch, default, base_wins={tuple(default)})
+    assert pick['fam'] == 'nat_short' and pick['win'] == default
+    # in the default shortlist: still applied
+    pick_ok = WP.apply_choice(scored, ch, default, base_wins={tuple(default), tuple(mid)})
+    assert pick_ok['win'] == mid
+    # ukf__25 last-drop body cue may sit past bar 80
+    mid25 = ['n', 128, None, 192, 16]
+    default25 = ['n', 192, None, 0, 16]
+    scored25 = [
+        (0.4, dict(fam='nat_short', win=default25, env={})),
+        (0.01, dict(fam=WP.FAM_BREAKDOWN, win=mid25, env={'SNAP_IN': '1'})),
+    ]
+    ch25 = dict(type='breakdown_drop', win=mid25,
+                fade_env={'SNAP_IN': '1', 'SNAP_IN_HOLD': '16'},
+                reason='short_intro_bd',
+                features=dict(n_in_drops=3, in_drop=3))
+    assert WP.is_extended_ok(ch25)
+    pick25 = WP.apply_choice(scored25, ch25, default25, base_wins={tuple(default25)})
+    assert pick25['win'] == mid25

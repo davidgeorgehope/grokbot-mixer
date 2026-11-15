@@ -330,9 +330,11 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             _loa, _lob = _bar_low(a), _bar_low(b)
             _def = pick['win']
             planner_choice = _WP.select(_def, _sa, _sb, _loa, _lob, gap=gap)
+            base_wins = {tuple(c.get('win') or []) for c in cs if not c.get('planner_extra')}
             if planner_choice and planner_choice.get('type') not in (None, 'outro_intro') and planner_choice.get('win'):
                 want = tuple(planner_choice['win'])
-                if any(tuple(c.get('win') or []) == want for c in cs):
+                allow = want in base_wins or _WP.is_extended_ok(planner_choice)
+                if allow and any(tuple(c.get('win') or []) == want for c in cs):
                     extra = _WP.add_families([], [c for c in cs if tuple(c.get('win') or []) == want],
                                              _sa, _sb, lo_a=_loa, lo_b=_lob, enabled=True, gap=gap)
                     for c in extra:
@@ -352,7 +354,7 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                             cost += _phase_pick_cost(a, b, win, pw, lw, bw)
                         cost += family_cost(c['fam'], rules)
                         scored.append((cost, c))
-            pick = _WP.apply_choice(scored, planner_choice, _def)
+            pick = _WP.apply_choice(scored, planner_choice, _def, base_wins=base_wins)
         # rules env first, then the family's own params on top (2026-11-11 RCA: the old update() let rules
         # overwrite swap_early/swap_late's SWAP_POS, so those families rendered exactly like nat_long)
         # Only fold the planner's fade onto a mid-track pick that was actually

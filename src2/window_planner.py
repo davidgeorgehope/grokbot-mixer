@@ -31,10 +31,12 @@ On breakdown-into-drop, when the incoming track has three or more
 drops, the selector prefers the last drop, and a phrase 32 bars into
 that drop (the body, not the downbeat) when one is legal. That is the
 11-15 listening gap: the pro cues Together at bar 191 (third drop
-body), not drop 2's start. When the outgoing still has plenty of
-runway, SNAP_IN also holds the outgoing at -12 dB for 16 extra bars
-past the window (then the usual residual), still under X1 and the
-2.75 dB/bar outgoing cap.
+body), not drop 2's start. SNAP_IN_HOLD (16 extra bars at -12 dB,
+then the usual residual) is also only for that 3+ drop case, still
+under X1 and the 2.75 dB/bar outgoing cap. Mid-track windows that
+only become legal through the WINDOW_PLANNER env alias (incoming
+start past bar 80, or an end before emin) are applied only for that
+same 3+ drop cue; other pairs keep the v1 shortlist behaviour.
 
 Off by default: rules['window_planner'] / WINDOW_PLANNER. X1 is never
 loosened. the listener rated the 11-14 drop1_end clip "really nice" and the
@@ -294,18 +296,36 @@ def fade_env(typ, feat=None):
     """SNAP_IN (late legal rise + shallow outgoing hold) for breakdown into drop.
     Default fade for outro-intro and for drop1_end (the 11-14 fix the listener liked).
 
-    When the outgoing still has runway (out_left and to_outro), also set
-    SNAP_IN_HOLD so the -12 dB hold continues past the window. X1 and the
-    outgoing rate cap are unchanged; the extra is a longer plateau.
+    SNAP_IN_HOLD (16 extra bars at -12 dB, then the usual residual) is only
+    for the 3+ incoming-drop case, and only when the outgoing still has
+    runway. That is the 11-15 shape (Together's third drop). Other
+    breakdown_drop picks get SNAP_IN without the long hold. X1 and the
+    outgoing rate cap are unchanged.
     """
     if typ != 'breakdown_drop':
         return {}
     env = {'SNAP_IN': '1'}
     feat = feat or {}
-    if (int(feat.get('out_left') or 0) >= HOLD_OUT_LEFT
+    if (int(feat.get('n_in_drops') or 0) >= N_DROPS_LAST
+            and int(feat.get('out_left') or 0) >= HOLD_OUT_LEFT
             and int(feat.get('to_outro') or 0) >= HOLD_TO_OUTRO):
         env['SNAP_IN_HOLD'] = str(HOLD_EXTRA)
     return env
+
+
+def is_extended_ok(choice):
+    """True when a mid-track pick may use a pair_cands window that only
+    exists because WINDOW_PLANNER lifted the bar-80 / emin caps.
+
+    That exemption is the last-drop cue on an incoming track with 3+
+    drops (ukf__25: Together bar 192). Every other mid-track pick must
+    already have been a default pair_cands window (v1 behaviour), so
+    netsky__06 / pola__04 stay on their defaults.
+    """
+    if not choice or choice.get('type') not in ('breakdown_drop',):
+        return False
+    f = choice.get('features') or {}
+    return int(f.get('n_in_drops') or 0) >= N_DROPS_LAST
 
 
 def _is_plus32(f):
@@ -448,7 +468,7 @@ def classify_pro_shape(shape, near_drop1_end=False, pair_id=None):
     return 'unknown'
 
 
-def apply_choice(scored_fams, planner_choice, default_win):
+def apply_choice(scored_fams, planner_choice, default_win, base_wins=None):
     """Pick the family to render after the selector has run.
 
     Mid-track: that window, if it is on the shortlist; otherwise the default.
@@ -475,6 +495,12 @@ def apply_choice(scored_fams, planner_choice, default_win):
     if not planner_choice or planner_choice.get('type') in (None, 'outro_intro') or not planner_choice.get('win'):
         return fallback
     want = tuple(planner_choice['win'])
+    # Windows that only entered cs through the WINDOW_PLANNER env alias
+    # (incoming start past 80, or an end before emin) are not applied unless
+    # this is the 3+ drop last-drop cue.
+    if (base_wins is not None and want not in base_wins
+            and not is_extended_ok(planner_choice)):
+        return fallback
     hit = next((c for c in fams if tuple(c.get('win') or []) == want), None)
     if hit is None:
         return fallback

@@ -1,0 +1,1044 @@
+{
+  "gap_db": 9.84,
+  "hole_min_16": 8,
+  "short_intro": 40,
+  "baseline": "d1115_xp_045",
+  "held_out_floor": 34.05,
+  "summary": {
+    "all": {
+      "n": 33,
+      "exact": 13,
+      "exact_rate": 0.394,
+      "mid_ok": 18,
+      "mid_ok_rate": 0.545,
+      "switched": 9,
+      "false_mid": 3,
+      "missed_mid": 12
+    },
+    "train": {
+      "n": 21,
+      "exact": 10,
+      "exact_rate": 0.476,
+      "mid_ok": 14,
+      "mid_ok_rate": 0.667,
+      "switched": 5,
+      "false_mid": 0,
+      "missed_mid": 7
+    },
+    "test": {
+      "n": 12,
+      "exact": 3,
+      "exact_rate": 0.25,
+      "mid_ok": 4,
+      "mid_ok_rate": 0.333,
+      "switched": 4,
+      "false_mid": 3,
+      "missed_mid": 5
+    }
+  },
+  "targets": {
+    "hybrid_minds_ukf__19": {
+      "pred": "drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "fade": {},
+      "reason": "drop1_end"
+    },
+    "hybrid_minds_ukf__25": {
+      "pred": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "fade": {
+        "SNAP_IN": "1"
+      },
+      "reason": "short_intro_bd"
+    }
+  },
+  "rows": [
+    {
+      "id": "hybrid_minds_ukf__00",
+      "split": "train",
+      "score": 29.45,
+      "default": [
+        "n",
+        224,
+        null,
+        8,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 24,
+      "pro_shape": "drop>drop",
+      "gold": "drop_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        224,
+        null,
+        8,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "split": "train",
+      "score": 43.16,
+      "default": [
+        "n",
+        224,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 48,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        224,
+        null,
+        32,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "split": "train",
+      "score": 32.58,
+      "default": [
+        "n",
+        208,
+        null,
+        48,
+        16
+      ],
+      "default_holes": 16,
+      "outro_holes": 8,
+      "intro": 64,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        208,
+        null,
+        48,
+        16
+      ],
+      "fade": {
+        "BASS_COVER": "1"
+      },
+      "reason": "outro_ok_and_intro_not_short+bass_cover",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "split": "train",
+      "score": 36.32,
+      "default": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 48,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "split": "train",
+      "score": 34.15,
+      "default": [
+        "n",
+        208,
+        null,
+        64,
+        16
+      ],
+      "default_holes": 14,
+      "outro_holes": 10,
+      "intro": 80,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "fade": {},
+      "reason": "drop1_end",
+      "exact": false,
+      "mid_ok": true
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "split": "train",
+      "score": 12.09,
+      "default": [
+        "n",
+        304,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 12,
+      "outro_holes": 12,
+      "intro": 48,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        304,
+        null,
+        32,
+        16
+      ],
+      "fade": {
+        "BASS_COVER": "1"
+      },
+      "reason": "no_canonical_mid+bass_cover",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "split": "train",
+      "score": 33.72,
+      "default": [
+        "n",
+        192,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 16,
+      "outro_holes": 16,
+      "intro": 48,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "fade": {},
+      "reason": "drop1_end",
+      "exact": false,
+      "mid_ok": true
+    },
+    {
+      "id": "hybrid_minds_ukf__19",
+      "split": "train",
+      "score": 28.01,
+      "default": [
+        "n",
+        176,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 14,
+      "outro_holes": 13,
+      "intro": 48,
+      "pro_shape": "drop>drop",
+      "gold": "drop1_end",
+      "pred": "drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "fade": {},
+      "reason": "drop1_end",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "split": "train",
+      "score": 31.79,
+      "default": [
+        "n",
+        224,
+        null,
+        16,
+        16
+      ],
+      "default_holes": 16,
+      "outro_holes": 16,
+      "intro": 32,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        32,
+        16
+      ],
+      "fade": {
+        "SNAP_IN": "1"
+      },
+      "reason": "short_intro_bd",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "hybrid_minds_ukf__25",
+      "split": "train",
+      "score": 26.37,
+      "default": [
+        "n",
+        192,
+        null,
+        0,
+        16
+      ],
+      "default_holes": 12,
+      "outro_holes": 6,
+      "intro": 16,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "fade": {
+        "SNAP_IN": "1"
+      },
+      "reason": "short_intro_bd",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "split": "train",
+      "score": 40.68,
+      "default": [
+        "n",
+        240,
+        null,
+        16,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 32,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        240,
+        null,
+        16,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "split": "train",
+      "score": 31.03,
+      "default": [
+        "n",
+        272,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 14,
+      "outro_holes": 6,
+      "intro": 48,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        272,
+        null,
+        32,
+        16
+      ],
+      "fade": {
+        "BASS_COVER": "1"
+      },
+      "reason": "outro_ok_and_intro_not_short+bass_cover",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "split": "train",
+      "score": 41.6,
+      "default": [
+        "n",
+        128,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 48,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        128,
+        null,
+        32,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "split": "train",
+      "score": 29.36,
+      "default": [
+        "n",
+        96,
+        null,
+        0,
+        16
+      ],
+      "default_holes": 13,
+      "outro_holes": 13,
+      "intro": 16,
+      "pro_shape": "outro>drop",
+      "gold": "other",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        96,
+        null,
+        0,
+        16
+      ],
+      "fade": {
+        "BASS_COVER": "1"
+      },
+      "reason": "no_canonical_mid+bass_cover",
+      "exact": false,
+      "mid_ok": true
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "split": "train",
+      "score": 30.24,
+      "default": [
+        "n",
+        160,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 48,
+      "pro_shape": "drop>drop",
+      "gold": "drop_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        160,
+        null,
+        32,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "split": "train",
+      "score": 30.08,
+      "default": [
+        "n",
+        240,
+        null,
+        40,
+        16
+      ],
+      "default_holes": 3,
+      "outro_holes": 0,
+      "intro": 56,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        240,
+        null,
+        40,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "joe_syntax_hospital__09",
+      "split": "train",
+      "score": 28.36,
+      "default": [
+        "n",
+        192,
+        null,
+        16,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 32,
+      "pro_shape": "outro>intro",
+      "gold": "outro_intro",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        192,
+        null,
+        16,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "split": "train",
+      "score": 55.65,
+      "default": [
+        "n",
+        240,
+        null,
+        24,
+        16
+      ],
+      "default_holes": 5,
+      "outro_holes": 5,
+      "intro": 40,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        240,
+        null,
+        24,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "split": "train",
+      "score": 34.17,
+      "default": [
+        "n",
+        224,
+        null,
+        48,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 64,
+      "pro_shape": "drop>breakdown",
+      "gold": "other",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        224,
+        null,
+        48,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": true
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "split": "train",
+      "score": 19.81,
+      "default": [
+        "n",
+        256,
+        null,
+        48,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 64,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        256,
+        null,
+        48,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "split": "train",
+      "score": 28.87,
+      "default": [
+        "n",
+        224,
+        null,
+        16,
+        16
+      ],
+      "default_holes": 1,
+      "outro_holes": 1,
+      "intro": 32,
+      "pro_shape": "drop>drop",
+      "gold": "drop_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        224,
+        null,
+        16,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__02",
+      "split": "test",
+      "score": 27.78,
+      "default": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 9,
+      "outro_holes": 7,
+      "intro": 48,
+      "pro_shape": "drop>drop",
+      "gold": "drop_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "fade": {},
+      "reason": "outro_ok_and_intro_not_short",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__03",
+      "split": "test",
+      "score": 39.32,
+      "default": [
+        "n",
+        176,
+        null,
+        16,
+        16
+      ],
+      "default_holes": 16,
+      "outro_holes": 16,
+      "intro": 32,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "fade": {
+        "SNAP_IN": "1"
+      },
+      "reason": "short_intro_bd",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__05",
+      "split": "test",
+      "score": 23.58,
+      "default": [
+        "n",
+        240,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 4,
+      "outro_holes": 4,
+      "intro": 48,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        240,
+        null,
+        32,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "split": "test",
+      "score": 43.75,
+      "default": [
+        "n",
+        176,
+        null,
+        0,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 16,
+      "pro_shape": "drop>drop",
+      "gold": "drop_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        176,
+        null,
+        0,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "split": "test",
+      "score": 27.58,
+      "default": [
+        "n",
+        320,
+        null,
+        48,
+        16
+      ],
+      "default_holes": 10,
+      "outro_holes": 10,
+      "intro": 64,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "drop1_end",
+      "win": [
+        "n",
+        184,
+        null,
+        64,
+        16
+      ],
+      "fade": {},
+      "reason": "drop1_end",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "split": "test",
+      "score": 40.9,
+      "default": [
+        "n",
+        240,
+        null,
+        0,
+        16
+      ],
+      "default_holes": 5,
+      "outro_holes": 5,
+      "intro": 16,
+      "pro_shape": "drop>drop",
+      "gold": "drop_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        240,
+        null,
+        0,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "split": "test",
+      "score": 33.35,
+      "default": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 48,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "split": "test",
+      "score": 28.47,
+      "default": [
+        "n",
+        192,
+        null,
+        16,
+        16
+      ],
+      "default_holes": 16,
+      "outro_holes": 16,
+      "intro": 32,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "fade": {
+        "SNAP_IN": "1"
+      },
+      "reason": "short_intro_bd",
+      "exact": true,
+      "mid_ok": true
+    },
+    {
+      "id": "pola_bryson_puzzlewood__00",
+      "split": "test",
+      "score": 59.06,
+      "default": [
+        "n",
+        176,
+        null,
+        32,
+        16
+      ],
+      "default_holes": 15,
+      "outro_holes": 7,
+      "intro": 48,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        176,
+        null,
+        32,
+        16
+      ],
+      "fade": {
+        "BASS_COVER": "1"
+      },
+      "reason": "outro_ok_and_intro_not_short+bass_cover",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "pola_bryson_puzzlewood__02",
+      "split": "test",
+      "score": 20.54,
+      "default": [
+        "n",
+        208,
+        null,
+        16,
+        16
+      ],
+      "default_holes": 0,
+      "outro_holes": 0,
+      "intro": 32,
+      "pro_shape": "breakdown>drop",
+      "gold": "breakdown_drop",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        208,
+        null,
+        16,
+        16
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "pola_bryson_puzzlewood__04",
+      "split": "test",
+      "score": 34.12,
+      "default": [
+        "n",
+        224,
+        null,
+        40,
+        16
+      ],
+      "default_holes": 16,
+      "outro_holes": 16,
+      "intro": 56,
+      "pro_shape": "drop>intro",
+      "gold": "outro_intro",
+      "pred": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        56,
+        16
+      ],
+      "fade": {},
+      "reason": "drop1_end",
+      "exact": false,
+      "mid_ok": false
+    },
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "split": "test",
+      "score": 30.2,
+      "default": [
+        "n",
+        96,
+        null,
+        0,
+        32
+      ],
+      "default_holes": 14,
+      "outro_holes": 14,
+      "intro": 24,
+      "pro_shape": null,
+      "gold": "unknown",
+      "pred": "outro_intro",
+      "win": [
+        "n",
+        96,
+        null,
+        0,
+        32
+      ],
+      "fade": {},
+      "reason": "default_clean",
+      "exact": false,
+      "mid_ok": true
+    }
+  ]
+}

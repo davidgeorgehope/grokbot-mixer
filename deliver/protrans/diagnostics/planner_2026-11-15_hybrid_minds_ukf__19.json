@@ -1,0 +1,59 @@
+{
+ "blend": 0,
+ "a": "HP7Q0vDU9vI",
+ "b": "5YG-HKjtiHM",
+ "start_bar": 96.0,
+ "end_bar": 112.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/planner_2026-11-15_hybrid_minds_ukf__19.png",
+ "halfbeat": {
+  "r0": 0.59,
+  "rh": 0.53,
+  "lag_ms": 0.0,
+  "bars": 16,
+  "phase_fail": false,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": 0.0,
+  "phase_b": 0.0,
+  "dphase_beats": 0.0,
+  "dphase_ms": 0.0,
+  "strength": 0.723,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": 0.3754,
+   "rate": 1.0054,
+   "r_a": 0.679,
+   "r_b": 0.76
+  },
+  "ours": {
+   "phase_beats": 0.389,
+   "rate": 1.0,
+   "r_a": 0.799,
+   "r_b": 0.605
+  },
+  "diff_beats": 0.0136,
+  "diff_ms": 4.7
+ },
+ "offset_ms_median": 14.5,
+ "offset_bars": 9,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 11.9,
+ "bass_swap": [
+  101.0,
+  106.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.024497,
+  "pcty": 1.742086,
+  "Scol": 0.8519,
+  "Scty": 0.7974,
+  "banger_clash_rate": 0.125,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

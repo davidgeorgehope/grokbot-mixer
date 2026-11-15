@@ -284,15 +284,10 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                                  lo_a=_bar_low(a), lo_b=_bar_low(b), gap=gap)
         # window_planner is off by default: nominates mid-track section windows
         # and chooses per pair from track features (2026-11-15). Not a blanket swap.
+        # The default window is whatever this cost loop already picks (usually
+        # nat_short under length_pref=16), not the first nat_* in families().
         planner_choice = None
-        if _flag_on(rules.get('window_planner')):
-            import window_planner as _WP
-            import sections as _SEC
-            _sa, _sb = _SEC.get(a), _SEC.get(b)
-            _loa, _lob = _bar_low(a), _bar_low(b)
-            _def = next((c['win'] for c in fams if c.get('fam') in ('nat_short', 'nat_long')), fams[0]['win'])
-            fams = _WP.add_families(fams, cs, _sa, _sb, lo_a=_loa, lo_b=_lob, enabled=True, gap=gap)
-            planner_choice = _WP.select(_def, _sa, _sb, _loa, _lob, gap=gap)
+        planner_on = _flag_on(rules.get('window_planner'))
         lp = int(rules.get('length_pref') or 0)
         pref = rules.get('prefer_family')
         scored = []
@@ -323,12 +318,36 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             scored.append((cost, c))
         scored.sort(key=lambda x: x[0])
         pick = scored[0][1]
-        if planner_choice and planner_choice.get('type') not in (None, 'outro_intro') and planner_choice.get('win'):
-            hit = next((c for _, c in scored if tuple(c['win']) == tuple(planner_choice['win'])), None)
-            if hit is not None:
-                pick = hit
-                pick['planner'] = dict(type=planner_choice['type'], reason=planner_choice.get('reason'),
-                                       fade_env=planner_choice.get('fade_env') or {})
+        if planner_on:
+            import window_planner as _WP
+            import sections as _SEC
+            _sa, _sb = _SEC.get(a), _SEC.get(b)
+            _loa, _lob = _bar_low(a), _bar_low(b)
+            _def = pick['win']
+            planner_choice = _WP.select(_def, _sa, _sb, _loa, _lob, gap=gap)
+            if planner_choice and planner_choice.get('type') not in (None, 'outro_intro') and planner_choice.get('win'):
+                want = tuple(planner_choice['win'])
+                if any(tuple(c.get('win') or []) == want for c in cs):
+                    extra = _WP.add_families([], [c for c in cs if tuple(c.get('win') or []) == want],
+                                             _sa, _sb, lo_a=_loa, lo_b=_lob, enabled=True, gap=gap)
+                    for c in extra:
+                        # same cost terms as the loop above, so apply_choice can see the family
+                        win = c['win']; cost = 0.0
+                        if hw and hb is not None:
+                            cost += hw * abs(float(win[1]) - hb) / max(nb, 1)
+                        if lp and win[4] != lp:
+                            cost += 0.15
+                        kind = win[0] if win else ''
+                        if kind in ('la', 'lb', 'ab', 'lx'):
+                            cost += float(rules.get('loop_fam_pen') or 0)
+                        pw = float(rules.get('phase_pref_w') or 0)
+                        lw = float(rules.get('linger_pen_w') or 0)
+                        bw = float(rules.get('breakdown_pen_w') or 0)
+                        if pw or lw or bw:
+                            cost += _phase_pick_cost(a, b, win, pw, lw, bw)
+                        cost += family_cost(c['fam'], rules)
+                        scored.append((cost, c))
+            pick = _WP.apply_choice(scored, planner_choice, _def)
         # rules env first, then the family's own params on top (2026-11-11 RCA: the old update() let rules
         # overwrite swap_early/swap_late's SWAP_POS, so those families rendered exactly like nat_long)
         pick['env'] = {**env, **dict(pick.get('env') or {}), **dict((planner_choice or {}).get('fade_env') or {})}

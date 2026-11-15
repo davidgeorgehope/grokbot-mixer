@@ -21,6 +21,17 @@ the usual 48). Among mid-track options, a short intro prefers breakdown
 into drop (with SNAP_IN's shallow hold); otherwise the end of the first
 drop (default fade). That is the 11-15 vs 11-14 shape.
 
+When the selector still keeps an outro-over-intro window whose incoming
+overlap is fully thin (every bar >= 6 dB under the incoming body, the
+existing SWAP_THIN line) and the default already has a majority engine
+hole, it also turns on BASS_COVER: leave lows on the outgoing so we do
+not hand the bass into a bass-less intro. That is a fallback, not a
+section pick; a global BASS_COVER drop held-out 34.05 -> 32.51, so it
+is only set on those stays, never on mid-track picks and never as a
+default. The official bass-gap test is blind to holes wider than its
++-4-bar neighbourhood; that line itself is a later pro-p95 calibration,
+not something this planner loosens.
+
 Off by default: rules['window_planner'] / WINDOW_PLANNER. X1 is never
 loosened. the listener listened to rca_2026-11-14_fix.mp3 (drop1_end on
 Prime Expansion -> Demons) and snapin_2026-11-15.mp3 (SNAP_IN on Cinnamon
@@ -87,6 +98,20 @@ def hole_bars(win, lo_a, lo_b, gap=None):
         if ob < body_b - gap and oa >= body_a - gap / 2.0:
             n += 1
     return n
+
+
+def incoming_all_thin(win, lo_b, db=6.0):
+    """True when every incoming overlap bar is >= db under that track's body.
+
+    This is fade_long.incoming_no_bass (the BASS_COVER / SWAP_THIN 6 dB line,
+    never loosened). Distinct from hole_bars, which also requires the outgoing
+    to still be at body and uses GAP_DB.
+    """
+    if not win or lo_b is None or win[0] != 'n' or win[3] is None:
+        return False
+    ib, X = int(win[3]), int(win[4])
+    import fade_long as FL
+    return bool(FL.incoming_no_bass(lo_b, list(range(ib, ib + X)), X, db=float(db)))
 
 
 def section_at(s, bar):
@@ -279,7 +304,22 @@ def select(default_win, sa, sb, lo_a, lo_b, gap=None, cands=None, X=None):
     outro_c = [f for f in feats if f['type'] == 'outro_intro']
     outro_h = min((f['holes'] for f in outro_c), default=def_h)
     stay = dict(type='outro_intro', win=list(default_win), fade_env={},
-                features=None, default_holes=def_h, outro_holes=outro_h)
+                features=None, default_holes=def_h, outro_holes=outro_h,
+                bass_cover=False)
+
+    def _maybe_cover(st, reason):
+        # Fallback only: we kept outro-intro, the incoming overlap is fully
+        # thin, and the default is already a majority engine hole. Mid-track
+        # picks never get this (they have incoming bass in a drop).
+        if incoming_all_thin(default_win, lo_b) and def_h > hm:
+            st = dict(st)
+            st['fade_env'] = {'BASS_COVER': '1'}
+            st['bass_cover'] = True
+            st['reason'] = reason + '+bass_cover'
+        else:
+            st = dict(st)
+            st['reason'] = reason
+        return st
 
     def mid(typ, f, reason):
         return dict(type=typ, win=list(f['win']), fade_env=fade_env(typ),
@@ -292,20 +332,17 @@ def select(default_win, sa, sb, lo_a, lo_b, gap=None, cands=None, X=None):
           and f['holes'] < def_h and f['inc_bass_ok'] and f['in_sec'] == 'drop']
 
     if def_h <= hm:
-        stay['reason'] = 'default_clean'
-        return stay
+        return _maybe_cover(stay, 'default_clean')
     short = intro < SHORT_INTRO
     if not (outro_h > hm or short):
-        stay['reason'] = 'outro_ok_and_intro_not_short'
-        return stay
+        return _maybe_cover(stay, 'outro_ok_and_intro_not_short')
     if short and bd:
         return mid('breakdown_drop', _best(bd, prefer_first_drop=False), 'short_intro_bd')
     if d1:
         return mid('drop1_end', _best(d1, prefer_first_drop=True), 'drop1_end')
     if bd:
         return mid('breakdown_drop', _best(bd, prefer_first_drop=False), 'fallback_bd')
-    stay['reason'] = 'no_canonical_mid'
-    return stay
+    return _maybe_cover(stay, 'no_canonical_mid')
 
 
 def engine_cands(sa, sb, X, e_max=None, ia=0, na=None, nb=None):
@@ -336,9 +373,7 @@ def add_families(fams, cs, sa, sb, lo_a=None, lo_b=None, enabled=False, gap=None
         return list(fams)
     fams = list(fams)
     have = {tuple(c['win']) for c in fams}
-    # windows already scored by the engine, plus nominated ones (render still
-    # requires the win to appear in pair_cands, which the flag guarantees)
-    scored = {tuple(c['win']): c for c in (cs or [])}
+    legal = {tuple(c['win']) for c in cs} if cs is not None else None
     for typ, fam in (('breakdown_drop', FAM_BREAKDOWN), ('drop1_end', FAM_DROP1)):
         for c in nominate(sa, sb, X=X):
             if c['type'] != typ:
@@ -346,7 +381,10 @@ def add_families(fams, cs, sa, sb, lo_a=None, lo_b=None, enabled=False, gap=None
             key = tuple(c['win'])
             if key in have:
                 continue
-            # prefer a candidate the engine already scored, but still nominate
+            # only windows pair_cands already scored: otherwise mix_simple
+            # rejects the out_win (Wilkinson 2026-11-15).
+            if legal is not None and key not in legal:
+                continue
             fams.append(dict(fam=fam, win=list(c['win']), env=fade_env(typ)))
             have.add(key)
     return fams
@@ -365,3 +403,39 @@ def classify_pro_shape(shape, near_drop1_end=False, pair_id=None):
     if shape:
         return 'other'
     return 'unknown'
+
+
+def apply_choice(scored_fams, planner_choice, default_win):
+    """Pick the family to render after the selector has run.
+
+    Mid-track: that window, if it is on the shortlist; otherwise the default.
+    Stay (outro_intro or no choice): the default window, never a plan_*
+    family that only won on hint cost. That bug surfaced on Wilkinson
+    (['n', 88, None, 24, 16] is not even a legal pair_cands window).
+    """
+    def as_fam(item):
+        return item[1] if isinstance(item, (tuple, list)) and len(item) == 2 and isinstance(item[1], dict) else item
+    fams = [as_fam(x) for x in (scored_fams or [])]
+
+    def nat_default():
+        if default_win is None:
+            return next((c for c in fams if c.get('fam') in ('nat_short', 'nat_long')), fams[0] if fams else None)
+        want = tuple(default_win)
+        for name in ('nat_short', 'nat_long'):
+            hit = next((c for c in fams if c.get('fam') == name and tuple(c.get('win') or []) == want), None)
+            if hit is not None:
+                return hit
+        return next((c for c in fams if tuple(c.get('win') or []) == want and c.get('fam') not in
+                     ('sneak_in', 'swap_early', 'swap_late', 'phrase_cut')), None) or (fams[0] if fams else None)
+
+    fallback = nat_default()
+    if not planner_choice or planner_choice.get('type') in (None, 'outro_intro') or not planner_choice.get('win'):
+        return fallback
+    want = tuple(planner_choice['win'])
+    hit = next((c for c in fams if tuple(c.get('win') or []) == want), None)
+    if hit is None:
+        return fallback
+    hit = dict(hit)
+    hit['planner'] = dict(type=planner_choice.get('type'), reason=planner_choice.get('reason'),
+                          fade_env=planner_choice.get('fade_env') or {})
+    return hit

@@ -5,3 +5,5 @@
 - pair table building (nohup, /workspace/plan/table.log).
 - 21:20 table built: 50 tracks, 2450 ordered pairs, 432 key-compatible with top-40 windows, 197 s. validate: E4 predicted 12/12 renders; dry(plan_60k21)==mixLen21b meta 20/20 decks 19/19 blends. search running (/workspace/plan/search.log).
 - 21:55 search v1: table-predicted per-blend drum runs, coverage, length == dry exactly; E4 missed a blend dip -> table now stores per-bar blend levels, search checks lulls across blends too. Rebuilding table + search.
+- 2026-11-15: src2/window_planner.py (off by default). Nominates mid-track section windows and chooses per pair from track features, with SNAP_IN only for breakdown-into-drop. See docs/PLANNER_2026-11-15.md.
+- 2026-11-15 later: wp1115 cohort finished, 0 fails, train 32.65 / held-out 34.03 vs floor 34.05. Flag stays off. Both 11-14 and 11-15 targets hit their planned windows. Clips in deliver/protrans/planner_2026-11-15_*.mp3.

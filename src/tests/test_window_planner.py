@@ -155,7 +155,7 @@ def test_off_by_default_and_add_families_respects_the_flag():
     fams = [dict(fam='nat_short', win=['n', 176, None, 32, 16], env={})]
     off = WP.add_families(fams, [], PE, DEMONS, enabled=False)
     assert off == fams
-    on = WP.add_families(fams, [], PE, DEMONS, enabled=True)
+    on = WP.add_families(fams, None, PE, DEMONS, enabled=True)
     names = [c['fam'] for c in on]
     assert 'nat_short' in names
     assert WP.FAM_DROP1 in names and WP.FAM_BREAKDOWN in names
@@ -180,3 +180,84 @@ def test_hint_family_and_snap_in_still_off_in_rules():
     rules = json.load(open(os.path.join(ROOT, 'protrans', 'rules.json')))
     assert not R._flag_on(rules.get('hint_family'))
     assert 'SNAP_IN' not in rules
+
+
+def test_bass_cover_fallback_only_on_thin_intro_stays():
+    """When we keep outro-intro and the incoming overlap is fully thin with a
+    majority engine hole, set BASS_COVER. Mid-track picks and clean defaults
+    do not get it. Uses the existing 6 dB thin line, not a loosened gap.
+    """
+    import fade_long as FL
+    # outgoing has no breakdown, so no canonical mid-track window
+    sa = dict(n_bars=120, intro_end=16, drop1=16, breakdown=None, drop2=None,
+              outro_start=88, music_end=104, drops=[[16, 104]])
+    sb = dict(n_bars=96, intro_end=48, drop1=48, breakdown=None, drop2=None,
+              outro_start=80, music_end=96, drops=[[48, 96]])
+    lo_a = np.full(120, -17.5)
+    lo_b = np.full(96, -19.0)
+    lo_b[:48] = -33.0  # fully thin intro
+    default = ['n', 96, None, 32, 16]  # last 16 of outgoing drop over incoming intro
+    assert WP.incoming_all_thin(default, lo_b, db=6.0)
+    assert FL.incoming_no_bass(lo_b, list(range(32, 48)), 16, db=6.0)
+    assert WP.hole_bars(default, lo_a, lo_b) > WP.hole_min(16)
+    ch = WP.select(default, sa, sb, lo_a, lo_b)
+    assert ch['type'] == 'outro_intro' and ch['win'] == default
+    assert ch['fade_env'] == {'BASS_COVER': '1'}
+    assert ch['bass_cover'] is True
+    assert ch['reason'].endswith('+bass_cover')
+    # a clean default (outgoing also already down) is not an engine hole: no cover
+    lo_a2 = lo_a.copy(); lo_a2[80:104] = -40.0
+    ch2 = WP.select(default, sa, sb, lo_a2, lo_b)
+    assert ch2['type'] == 'outro_intro' and not ch2.get('bass_cover')
+    assert ch2['fade_env'] == {}
+    # mid-track pick on the 11-14 pair is the section change, not BASS_COVER
+    lo_pe, lo_de = _lows_pe_demons()
+    ch3 = WP.select(['n', 176, None, 32, 16], PE, DEMONS, lo_pe, lo_de)
+    assert ch3['type'] == 'drop1_end'
+    assert 'BASS_COVER' not in (ch3.get('fade_env') or {})
+
+
+def test_bass_cover_still_off_in_rules_and_thin_line_unloosened():
+    rules = json.load(open(os.path.join(ROOT, 'protrans', 'rules.json')))
+    assert 'BASS_COVER' not in rules and 'BASS_COVER_DB' not in rules
+    import fade_long as FL
+    src = open(os.path.join(ROOT, 'src2', 'fade_long.py')).read()
+    assert 'db=6.0' in src or 'db=6' in src
+    # incoming_all_thin default is the same 6 dB line
+    import inspect
+    assert WP.incoming_all_thin.__defaults__ == (6.0,)
+
+
+def test_apply_choice_stay_keeps_default():
+    """A mid-track family that only won on hint cost must not replace a stay.
+    sneak_in / swap_* share the default window and must not win the stay either.
+    """
+    default = ['n', 96, None, 0, 32]
+    mid = ['n', 88, None, 24, 16]
+    scored = [
+        (0.0, dict(fam='sneak_in', win=default, env={})),
+        (0.1, dict(fam=WP.FAM_DROP1, win=mid, env={})),
+        (0.4, dict(fam='nat_long', win=default, env={})),
+    ]
+    stay = dict(type='outro_intro', win=default, fade_env={'BASS_COVER': '1'}, reason='default_clean')
+    pick = WP.apply_choice(scored, stay, default)
+    assert pick['fam'] == 'nat_long' and pick['win'] == default
+    mid_ch = dict(type='drop1_end', win=mid, fade_env={}, reason='drop1_end')
+    pick2 = WP.apply_choice(scored, mid_ch, default)
+    assert pick2['win'] == mid and pick2['planner']['type'] == 'drop1_end'
+    # chosen mid-track window missing from the shortlist -> default
+    other = dict(type='drop1_end', win=['n', 112, None, 48, 16], fade_env={}, reason='drop1_end')
+    pick3 = WP.apply_choice(scored, other, default)
+    assert pick3['win'] == default
+
+
+def test_add_families_skips_windows_not_in_cs():
+    fams = [dict(fam='nat_short', win=['n', 176, None, 32, 16], env={})]
+    # empty cs: nothing extra is legal
+    on = WP.add_families(fams, [], PE, DEMONS, enabled=True)
+    assert [c['fam'] for c in on] == ['nat_short']
+    # a legal drop1_end in cs is added
+    cs = [dict(win=['n', 112, None, 48, 16], cost=10)]
+    on2 = WP.add_families(fams, cs, PE, DEMONS, enabled=True)
+    wins = [c['win'] for c in on2]
+    assert ['n', 112, None, 48, 16] in wins

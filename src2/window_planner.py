@@ -21,21 +21,25 @@ the usual 48). Among mid-track options, a short intro prefers breakdown
 into drop (with SNAP_IN's shallow hold); otherwise the end of the first
 drop (default fade). That is the 11-15 vs 11-14 shape.
 
-When the selector still keeps an outro-over-intro window whose incoming
-overlap is fully thin (every bar >= 6 dB under the incoming body, the
-existing SWAP_THIN line) and the default already has a majority engine
-hole, it also turns on BASS_COVER: leave lows on the outgoing so we do
-not hand the bass into a bass-less intro. That is a fallback, not a
-section pick; a global BASS_COVER drop held-out 34.05 -> 32.51, so it
-is only set on those stays, never on mid-track picks and never as a
-default. The official bass-gap test is blind to holes wider than its
-+-4-bar neighbourhood; that line itself is a later pro-p95 calibration,
-not something this planner loosens.
+A BASS_COVER fallback on thin-intro stays was tried and dropped: it
+pulled held-out under the 34.05 floor (pola_bryson_puzzlewood__00
+59.06 -> 56.33) and is not used here. The official bass-gap test is
+still blind to holes wider than its +-4-bar neighbourhood; that line
+is a later pro-p95 calibration, not something this planner loosens.
+
+On breakdown-into-drop, when the incoming track has three or more
+drops, the selector prefers the last drop, and a phrase 32 bars into
+that drop (the body, not the downbeat) when one is legal. That is the
+11-15 listening gap: the pro cues Together at bar 191 (third drop
+body), not drop 2's start. When the outgoing still has plenty of
+runway, SNAP_IN also holds the outgoing at -12 dB for 16 extra bars
+past the window (then the usual residual), still under X1 and the
+2.75 dB/bar outgoing cap.
 
 Off by default: rules['window_planner'] / WINDOW_PLANNER. X1 is never
-loosened. the listener listened to rca_2026-11-14_fix.mp3 (drop1_end on
-Prime Expansion -> Demons) and snapin_2026-11-15.mp3 (SNAP_IN on Cinnamon
--> Together) and said both seemed decent; those are the per-pair targets.
+loosened. the listener rated the 11-14 drop1_end clip "really nice" and the
+first 11-15 breakdown_drop + SNAP_IN clip 3.5/5, closer but not up to
+par with the pro.
 """
 from __future__ import annotations
 
@@ -51,6 +55,13 @@ except Exception:
 
 # Majority of a 16-bar blend. hole_min(X) = X//2, never a looser GAP_DB.
 SHORT_INTRO = 40  # shorter than the usual 48-bar intro (SNAP_IN notes)
+# Extra SNAP_IN hold (bars past the window, before the residual) when the
+# outgoing still has runway. Pro on the 11-15 pair stays audible ~26 bars
+# after entry; the default residual only adds ~4.
+HOLD_EXTRA = 16
+HOLD_OUT_LEFT = 32
+HOLD_TO_OUTRO = 24
+N_DROPS_LAST = 3  # prefer the last incoming drop when the track has this many
 
 FAM_BREAKDOWN = 'plan_breakdown_drop'
 FAM_DROP1 = 'plan_drop1_end'
@@ -175,15 +186,32 @@ def legal(e, ib, X, sa, sb, min_in_left=48, min_out_left=None):
 
 
 def _drop_ibs(drops, min_in_left, sb, X):
-    """Incoming cue bars: the start of each drop, plus the mid phrase of a long drop."""
+    """Incoming cue bars: the start of each drop, every +32 phrase still
+    inside a long drop, and the mid phrase of a long drop.
+
+    The +32 body phrase is what lets breakdown_drop land in the third
+    drop's body (Together bar 192, one bar from the pro's 191) instead
+    of only the drop downbeat or the midpoint.
+    """
     ibs = []
+    seen = set()
     for i, (a, b) in enumerate(drops):
         start = phrase(a)
-        ibs.append((start, i + 1, True))
+
+        def add(ib, is_start):
+            ib = phrase(ib)
+            if ib in seen or not (a <= ib < b):
+                return
+            seen.add(ib)
+            ibs.append((ib, i + 1, is_start, start))
+
+        add(start, True)
+        k = start + 32
+        while k < b:
+            add(k, False)
+            k += 32
         if b - a >= 48:
-            mid = phrase((a + b) // 2)
-            if mid != start and a <= mid < b:
-                ibs.append((mid, i + 1, False))
+            add(phrase((a + b) // 2), False)
     return ibs
 
 
@@ -209,10 +237,10 @@ def nominate(sa, sb, X=16, min_in_left=48):
     ibs = _drop_ibs(drops_b, min_in_left, sb, X)
     if bd is not None:
         e1 = phrase(bd)
-        for ib, di, is_start in ibs:
+        for ib, di, is_start, dstart in ibs:
             if legal(e1, ib, X, sa, sb, min_in_left=min_in_left):
                 cands.append(dict(type='drop1_end', win=['n', e1, None, ib, X],
-                                  in_drop=di, ib_is_start=is_start))
+                                  in_drop=di, ib_is_start=is_start, drop_start=dstart))
         next_drop = drops_a[1][0] if len(drops_a) > 1 else None
         hi = int(next_drop) if next_drop is not None else int(sa.get('outro_start') or na)
         e_opts = sorted({phrase(bd + X), phrase(min(hi, bd + X)), phrase(hi)})
@@ -220,10 +248,10 @@ def nominate(sa, sb, X=16, min_in_left=48):
             ov = max(0, min(e_bd, hi) - max(e_bd - X, bd))
             if ov < 8:
                 continue
-            for ib, di, is_start in ibs:
+            for ib, di, is_start, dstart in ibs:
                 if legal(e_bd, ib, X, sa, sb, min_in_left=min_in_left):
                     cands.append(dict(type='breakdown_drop', win=['n', e_bd, None, ib, X],
-                                      in_drop=di, ib_is_start=is_start, ov=ov))
+                                      in_drop=di, ib_is_start=is_start, drop_start=dstart, ov=ov))
 
     seen, out = set(), []
     for c in cands:
@@ -257,22 +285,50 @@ def features(c, sa, sb, lo_a, lo_b, gap=None):
         out_left=end_a - e,
         to_outro=(int(outro) - e) if outro is not None else end_a - e,
         in_drop=c.get('in_drop'), ib_is_start=c.get('ib_is_start', True),
+        n_in_drops=len([list(map(int, d)) for d in (sb.get('drops') or [])]),
+        drop_start=c.get('drop_start'),
     )
 
 
-def fade_env(typ):
+def fade_env(typ, feat=None):
     """SNAP_IN (late legal rise + shallow outgoing hold) for breakdown into drop.
     Default fade for outro-intro and for drop1_end (the 11-14 fix the listener liked).
+
+    When the outgoing still has runway (out_left and to_outro), also set
+    SNAP_IN_HOLD so the -12 dB hold continues past the window. X1 and the
+    outgoing rate cap are unchanged; the extra is a longer plateau.
     """
-    if typ == 'breakdown_drop':
-        return {'SNAP_IN': '1'}
-    return {}
+    if typ != 'breakdown_drop':
+        return {}
+    env = {'SNAP_IN': '1'}
+    feat = feat or {}
+    if (int(feat.get('out_left') or 0) >= HOLD_OUT_LEFT
+            and int(feat.get('to_outro') or 0) >= HOLD_TO_OUTRO):
+        env['SNAP_IN_HOLD'] = str(HOLD_EXTRA)
+    return env
 
 
-def _best(arr, prefer_first_drop=False):
+def _is_plus32(f):
+    ds = f.get('drop_start')
+    if ds is None:
+        return False
+    return int(f['win'][3]) == phrase(ds) + 32
+
+
+def _best(arr, prefer_first_drop=False, prefer_last_drop=False):
     def key(f):
-        # fewer holes, first incoming drop (for drop1_end), drop-start over mid,
-        # louder incoming, earlier ib as a last tie-break
+        # fewer holes; then either first drop (drop1_end) or last drop
+        # (breakdown_drop when the incoming has 3+ drops); body +32 phrase
+        # of a long last drop; start over mid otherwise; louder incoming;
+        # earlier ib as a last tie-break
+        if prefer_last_drop:
+            return (
+                f['holes'],
+                -int(f.get('in_drop') or 0),
+                0 if _is_plus32(f) else (1 if not f.get('ib_is_start') else 2),
+                -float(f['in_vs_body']),
+                int(f['win'][3]),
+            )
         return (
             f['holes'],
             0 if (prefer_first_drop and f.get('in_drop') == 1) else 1,
@@ -304,25 +360,10 @@ def select(default_win, sa, sb, lo_a, lo_b, gap=None, cands=None, X=None):
     outro_c = [f for f in feats if f['type'] == 'outro_intro']
     outro_h = min((f['holes'] for f in outro_c), default=def_h)
     stay = dict(type='outro_intro', win=list(default_win), fade_env={},
-                features=None, default_holes=def_h, outro_holes=outro_h,
-                bass_cover=False)
-
-    def _maybe_cover(st, reason):
-        # Fallback only: we kept outro-intro, the incoming overlap is fully
-        # thin, and the default is already a majority engine hole. Mid-track
-        # picks never get this (they have incoming bass in a drop).
-        if incoming_all_thin(default_win, lo_b) and def_h > hm:
-            st = dict(st)
-            st['fade_env'] = {'BASS_COVER': '1'}
-            st['bass_cover'] = True
-            st['reason'] = reason + '+bass_cover'
-        else:
-            st = dict(st)
-            st['reason'] = reason
-        return st
+                features=None, default_holes=def_h, outro_holes=outro_h)
 
     def mid(typ, f, reason):
-        return dict(type=typ, win=list(f['win']), fade_env=fade_env(typ),
+        return dict(type=typ, win=list(f['win']), fade_env=fade_env(typ, f),
                     reason=reason, features=f, default_holes=def_h, outro_holes=outro_h)
 
     bd = [f for f in feats if f['type'] == 'breakdown_drop'
@@ -331,18 +372,20 @@ def select(default_win, sa, sb, lo_a, lo_b, gap=None, cands=None, X=None):
     d1 = [f for f in feats if f['type'] == 'drop1_end'
           and f['holes'] < def_h and f['inc_bass_ok'] and f['in_sec'] == 'drop']
 
+    n_drops = int((bd or d1 or [{'n_in_drops': 0}])[0].get('n_in_drops') or 0)
+    last = n_drops >= N_DROPS_LAST
     if def_h <= hm:
-        return _maybe_cover(stay, 'default_clean')
+        return dict(stay, reason='default_clean')
     short = intro < SHORT_INTRO
     if not (outro_h > hm or short):
-        return _maybe_cover(stay, 'outro_ok_and_intro_not_short')
+        return dict(stay, reason='outro_ok_and_intro_not_short')
     if short and bd:
-        return mid('breakdown_drop', _best(bd, prefer_first_drop=False), 'short_intro_bd')
+        return mid('breakdown_drop', _best(bd, prefer_last_drop=last), 'short_intro_bd')
     if d1:
         return mid('drop1_end', _best(d1, prefer_first_drop=True), 'drop1_end')
     if bd:
-        return mid('breakdown_drop', _best(bd, prefer_first_drop=False), 'fallback_bd')
-    return _maybe_cover(stay, 'no_canonical_mid')
+        return mid('breakdown_drop', _best(bd, prefer_last_drop=last), 'fallback_bd')
+    return dict(stay, reason='no_canonical_mid')
 
 
 def engine_cands(sa, sb, X, e_max=None, ia=0, na=None, nb=None):

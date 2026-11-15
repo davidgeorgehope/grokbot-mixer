@@ -1,0 +1,109 @@
+{
+  "id": "hybrid_minds_ukf__25",
+  "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+  "fam": "plan_breakdown_drop",
+  "win": [
+    "n",
+    128,
+    null,
+    192,
+    16
+  ],
+  "env": {
+    "FADE": "long",
+    "BASS_SWAP_BARS": "3",
+    "SWAP_POS": "0.21",
+    "HIGH_SWAP": "1",
+    "HIGH_OFS": "8",
+    "STRUCT": "1",
+    "LOOP32": "0",
+    "LONG_XP": "0.45",
+    "LONG_SOLO": "16",
+    "LONG_SWAP": "exit",
+    "LONG_SOLO_STRUCT": "1",
+    "WINDOW_PLANNER": "1",
+    "SNAP_IN": "1",
+    "SNAP_IN_HOLD": "16"
+  },
+  "planner": {
+    "type": "breakdown_drop",
+    "win": [
+      "n",
+      128,
+      null,
+      192,
+      16
+    ],
+    "fade_env": {
+      "SNAP_IN": "1",
+      "SNAP_IN_HOLD": "16"
+    },
+    "reason": "short_intro_bd",
+    "features": {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        192,
+        16
+      ],
+      "holes": 0,
+      "out_sec": "breakdown",
+      "out_hit": "breakdown",
+      "in_sec": "drop",
+      "in_hit": "drop3",
+      "near_drop1_end": false,
+      "intro_len": 16,
+      "out_vs_body": -22.39,
+      "in_vs_body": 0.01,
+      "inc_bass_ok": true,
+      "out_down": true,
+      "both_loud": false,
+      "out_left": 77,
+      "to_outro": 56,
+      "in_drop": 3,
+      "ib_is_start": false,
+      "n_in_drops": 3,
+      "drop_start": 160
+    },
+    "default_holes": 12,
+    "outro_holes": 6
+  },
+  "src": "/tmp/protrans_bench/wpclip_ukf25v2.mp3",
+  "mp3": "/workspace/mixes/deliver/protrans/planner_2026-11-15_ukf25_v2.mp3",
+  "png": "/workspace/mixes/deliver/protrans/planner_2026-11-15_ukf25_v2.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/planner_2026-11-15_ukf25_v2.png",
+  "duration_s": 49.655,
+  "lufs": -14.0,
+  "measured_lufs_before": -13.97,
+  "gain_db_applied": -0.03,
+  "tick_s": 11.034,
+  "tick_timestamp": "0:11",
+  "designed_blend_start_s": 11.034,
+  "start_bar": 112,
+  "end_bar": 148.36364,
+  "bass_swap": [
+    117.0,
+    122.0
+  ],
+  "snap_in": {
+    "hold_db": -12.0,
+    "rise": 2.95,
+    "rate": 2.75,
+    "t_rise0": 116.95,
+    "t_exit0": 144.0,
+    "G": 148.364,
+    "x_hold": 0.8384,
+    "old_exit_bar": 128.0,
+    "hold_extra": 16.0,
+    "exit_bar": 148.364,
+    "extended_by": 20.364,
+    "clamped_by": null,
+    "changed": true
+  },
+  "bar_sec": 1.3793103448275863,
+  "true_peak": -4.01,
+  "clip_bars": 36,
+  "clip_note": "Trimmed to 36 bars (49.655 s) for the 44-50 s listening convention; designed SNAP_IN_HOLD extends past this. Tick remains at the 8-bar pre-roll (11.034 s)."
+}

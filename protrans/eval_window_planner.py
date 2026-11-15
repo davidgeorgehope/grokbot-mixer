@@ -22,7 +22,7 @@ from recreate import incoming_hole_bars
 
 FEAT = os.path.join(paths.RESULTS, 'snapin_features_2026-11-15.json')
 BASE = 'd1115_xp_045'
-VARIANT = 'wp1115'
+VARIANT = 'wp1115v2'
 
 
 def _lows(yt):

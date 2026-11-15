@@ -92,7 +92,7 @@ def _advance(x, dt, rise, rate, x_cap, x_hold, floor):
     return min(max(x, min(x_in, x_out)), x_cap, x_hold, 1.0)
 
 
-def _build(t, hold_db, rise, rate, ext_cap, floor):
+def _build(t, hold_db, rise, rate, ext_cap, floor, hold_extra=0):
     """Return xfader list and an info dict (no guards yet)."""
     s, e0 = float(t['start_bar']), float(t['end_bar'])
     xs0 = [list(p) for p in t['xfader']]
@@ -121,11 +121,21 @@ def _build(t, hold_db, rise, rate, ext_cap, floor):
         (0.0 - hold_db) / max(rate, 1e-9)))
 
     exit_len = (hold_db - floor) / max(rate, 1e-9)
+    hold_extra = max(0.0, float(hold_extra or 0))
+    # 32-bar FADE=long solos keep their early exit and are not extended
     if old_exit >= e0 - 2.0 - 1e-9:
-        G = min(e0 + exit_len, e0 + ext_cap)
-        t_exit0 = G - exit_len
+        # Plateau at hold_db until e0+hold_extra (default 0, so the residual
+        # still starts near the window end), then the usual rate-limited exit.
+        # ext_cap still bounds a zero-extra residual; a requested plateau may
+        # run longer than ext_cap but never loosens the dB/beat or dB/bar caps.
+        max_ext = max(float(ext_cap), hold_extra + exit_len)
+        t_exit0 = max(t_hold_ready, e0 + hold_extra)
+        G = t_exit0 + exit_len
+        if G > e0 + max_ext:
+            G = e0 + max_ext
+            t_exit0 = G - exit_len
         if t_exit0 < t_hold_ready:
-            G = min(t_hold_ready + exit_len, e0 + ext_cap)
+            G = min(t_hold_ready + exit_len, e0 + max_ext)
             t_exit0 = G - exit_len
     else:
         G = old_exit
@@ -178,13 +188,14 @@ def _build(t, hold_db, rise, rate, ext_cap, floor):
                 t_rise0=round(float(t_rise0), 3), t_exit0=round(float(t_exit0), 3),
                 G=round(float(G), 3), x_hold=round(float(x_hold), 4),
                 old_exit_bar=round(float(old_exit), 3),
+                hold_extra=round(float(hold_extra), 3),
                 exit_bar=round(TE.exit_bar(xs, floor), 3),
                 extended_by=round(float(max(0.0, G - e0)), 3))
     return xs, info
 
 
 def apply_one(t, hold_db=HOLD_DB, rise=RISE, rate=RATE, ext_cap=EXT_CAP,
-              floor=FLOOR, ride_frac=0.15, margin=0.5):
+              floor=FLOOR, ride_frac=0.15, margin=0.5, hold_extra=0):
     if hold_db is None or hold_db == 0 or not t.get('xfader'):
         return None
     hold_db = -abs(float(hold_db))
@@ -194,7 +205,7 @@ def apply_one(t, hold_db=HOLD_DB, rise=RISE, rate=RATE, ext_cap=EXT_CAP,
     rise = min(float(rise), 3.0)
     xs0 = [list(p) for p in t['xfader']]
     e0 = float(t['end_bar'])
-    xs, info = _build(t, hold_db, rise, rate, ext_cap, floor)
+    xs, info = _build(t, hold_db, rise, rate, ext_cap, floor, hold_extra=hold_extra)
     inside = [p for p in xs if p[0] <= e0 + 1e-9] or xs
     why = TE._ok(t, inside, ride_frac, margin)
     # also check the residual, if any, for incoming X1 + outgoing rate
@@ -232,11 +243,11 @@ def _extend_outgoing(decks, trans):
 
 
 def apply(decks, trans, hold_db=HOLD_DB, rise=RISE, rate=RATE, ext_cap=EXT_CAP,
-          floor=FLOOR, ride_frac=0.15, skip=()):
+          floor=FLOOR, ride_frac=0.15, skip=(), hold_extra=0):
     for i, t in enumerate(trans):
         if t['a'] in skip:
             continue
-        apply_one(t, hold_db, rise, rate, ext_cap, floor, ride_frac)
+        apply_one(t, hold_db, rise, rate, ext_cap, floor, ride_frac, hold_extra=hold_extra)
         if i + 1 < len(trans) and t['end_bar'] > trans[i + 1]['start_bar']:
             nxt = trans[i + 1]['start_bar']
             t['xfader'] = [p for p in t['xfader'] if p[0] <= nxt + 1e-9]

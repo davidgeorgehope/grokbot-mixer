@@ -105,3 +105,33 @@ def test_off_by_default():
     rules = json.load(open(os.path.join(HERE, '..', '..', 'protrans', 'rules.json')))
     assert 'SNAP_IN' not in rules and 'SNAP_IN_DB' not in rules
     assert 'TAIL_SHALLOW' not in rules and 'TAIL_EXIT' not in rules
+
+
+def test_hold_extra_extends_plateau_without_loosening_x1():
+    """SNAP_IN_HOLD keeps the -12 dB plateau past the window, then the usual
+    residual. Default (hold_extra=0) is unchanged. X1 is not loosened.
+    """
+    import math
+    # same 16-bar FADE=long case the other tests use
+    name, X, f, sw = next(c for c in E._cases() if c[0] == 'long' and c[1] == 16)
+    t0 = E._trans(X, f, sw)
+    info0 = SI.apply_one(t0, hold_db=12, hold_extra=0)
+    t1 = E._trans(X, f, sw)
+    info1 = SI.apply_one(t1, hold_db=12, hold_extra=16)
+    assert info0.get('clamped_by') is None and info1.get('clamped_by') is None
+    # default residual still sits near ext_cap (about 4-8 bars past e0)
+    assert info0['extended_by'] <= 8.0 + 1e-6
+    # 16-bar plateau plus residual is clearly longer
+    assert info1['extended_by'] >= 16.0
+    assert info1['extended_by'] <= 16.0 + 8.0 + 1e-6
+    e0 = 16.0
+    # still at hold around e0+8 (mid-plateau), gone after residual
+    def out_db(xs, bar):
+        import numpy as np
+        xs = np.array(xs, float)
+        x = float(np.interp(bar, xs[:, 0], xs[:, 1]))
+        return 20 * math.log10(max(math.cos(x * math.pi / 2), 1e-9))
+    assert out_db(t1['xfader'], e0 + 8) > -15.0
+    assert out_db(t1['xfader'], e0 + 8) < -8.0
+    # incoming rise still respects the 3.0 dB/beat cap
+    assert SI.RISE <= 3.0

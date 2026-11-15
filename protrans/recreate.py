@@ -13,9 +13,14 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','SNAP_IN','SNAP_IN_DB','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
+    # rules.json / cohort trials use lowercase window_planner; mix_simple
+    # pair_cands reads WINDOW_PLANNER. Without this alias, mid-track incoming
+    # starts past bar 80 never entered cs (ukf__25 v2 stayed on the intro).
+    if 'WINDOW_PLANNER' not in env and rules.get('window_planner') is not None:
+        env['WINDOW_PLANNER'] = str(rules['window_planner'])
     if env.get('FADE')=='graphcut':
         env['GRAPH_CUT']='1'
     return env
@@ -350,7 +355,14 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             pick = _WP.apply_choice(scored, planner_choice, _def)
         # rules env first, then the family's own params on top (2026-11-11 RCA: the old update() let rules
         # overwrite swap_early/swap_late's SWAP_POS, so those families rendered exactly like nat_long)
-        pick['env'] = {**env, **dict(pick.get('env') or {}), **dict((planner_choice or {}).get('fade_env') or {})}
+        # Only fold the planner's fade onto a mid-track pick that was actually
+        # applied. Merging SNAP_IN onto a fallback outro-intro stay was the
+        # ukf__25 v2 hook bug (intro window + SNAP_IN scored 16.10).
+        fade = {}
+        if (planner_choice and pick and pick.get('planner')
+                and planner_choice.get('type') not in (None, 'outro_intro')):
+            fade = dict(planner_choice.get('fade_env') or {})
+        pick['env'] = {**env, **dict(pick.get('env') or {}), **fade}
         # FADE=graphcut is a renderer flag: keep it on top of any family FADE so a cohort
         # eval compares the same windows under a different handover, not a different family.
         if str((rules or {}).get('FADE'))=='graphcut' or env.get('GRAPH_CUT')=='1':

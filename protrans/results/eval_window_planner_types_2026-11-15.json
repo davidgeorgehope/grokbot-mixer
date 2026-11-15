@@ -55,11 +55,12 @@
         "n",
         128,
         null,
-        64,
+        192,
         16
       ],
       "fade": {
-        "SNAP_IN": "1"
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "16"
       },
       "reason": "short_intro_bd"
     }
@@ -147,10 +148,8 @@
         48,
         16
       ],
-      "fade": {
-        "BASS_COVER": "1"
-      },
-      "reason": "outro_ok_and_intro_not_short+bass_cover",
+      "fade": {},
+      "reason": "outro_ok_and_intro_not_short",
       "exact": false,
       "mid_ok": false
     },
@@ -236,10 +235,8 @@
         32,
         16
       ],
-      "fade": {
-        "BASS_COVER": "1"
-      },
-      "reason": "no_canonical_mid+bass_cover",
+      "fade": {},
+      "reason": "no_canonical_mid",
       "exact": true,
       "mid_ok": true
     },
@@ -326,7 +323,8 @@
         16
       ],
       "fade": {
-        "SNAP_IN": "1"
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "16"
       },
       "reason": "short_intro_bd",
       "exact": true,
@@ -353,11 +351,12 @@
         "n",
         128,
         null,
-        64,
+        192,
         16
       ],
       "fade": {
-        "SNAP_IN": "1"
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "16"
       },
       "reason": "short_intro_bd",
       "exact": true,
@@ -416,10 +415,8 @@
         32,
         16
       ],
-      "fade": {
-        "BASS_COVER": "1"
-      },
-      "reason": "outro_ok_and_intro_not_short+bass_cover",
+      "fade": {},
+      "reason": "outro_ok_and_intro_not_short",
       "exact": true,
       "mid_ok": true
     },
@@ -476,10 +473,8 @@
         0,
         16
       ],
-      "fade": {
-        "BASS_COVER": "1"
-      },
-      "reason": "no_canonical_mid+bass_cover",
+      "fade": {},
+      "reason": "no_canonical_mid",
       "exact": false,
       "mid_ok": true
     },
@@ -740,7 +735,8 @@
         16
       ],
       "fade": {
-        "SNAP_IN": "1"
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "16"
       },
       "reason": "short_intro_bd",
       "exact": false,
@@ -916,7 +912,8 @@
         16
       ],
       "fade": {
-        "SNAP_IN": "1"
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "16"
       },
       "reason": "short_intro_bd",
       "exact": true,
@@ -946,10 +943,8 @@
         32,
         16
       ],
-      "fade": {
-        "BASS_COVER": "1"
-      },
-      "reason": "outro_ok_and_intro_not_short+bass_cover",
+      "fade": {},
+      "reason": "outro_ok_and_intro_not_short",
       "exact": false,
       "mid_ok": false
     },

@@ -69,7 +69,7 @@ def _to_mp3(wav, mp3):
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', wav, '-codec:a', 'libmp3lame', '-q:a', '2', mp3], check=True)
 
 
-def render_one(rec, rules, tag):
+def render_one(rec, rules, tag, stem_name=None):
     sa = os.path.join(paths.LIB, rec['a']['yt'] + '.m4a')
     sb = os.path.join(paths.LIB, rec['b']['yt'] + '.m4a')
     info = recreate.recreate(rec['a']['yt'], rec['b']['yt'], sa, sb,
@@ -96,14 +96,15 @@ def render_one(rec, rules, tag):
     y2 = _tick(y, sr, tick_s)
     y2, meas, gain = _loudness_match(y2, sr, TARGET_LUFS)
     dur = len(y2) / float(sr)
-    stem = os.path.join(OUT_DIR, f"planner_2026-11-15_{rec['id']}")
+    stem = os.path.join(OUT_DIR, stem_name or f"planner_2026-11-15_{rec['id']}")
     wav_out = stem + '.wav'
     mp3_out = stem + '.mp3'
     sf.write(wav_out, y2, sr)
     _to_mp3(wav_out, mp3_out)
     # diagnostic figure
     os.makedirs(DIAG_DIR, exist_ok=True)
-    png = os.path.join(DIAG_DIR, f"planner_2026-11-15_{rec['id']}.png")
+    png_name = os.path.basename(stem) + ".png"
+    png = os.path.join(DIAG_DIR, png_name)
     # also a copy next to the mp3, as the brief asked for planner_2026-11-15_*.png
     png2 = stem + '.png'
     sys.path.insert(0, paths.SRC2)
@@ -140,18 +141,30 @@ def render_one(rec, rules, tag):
     except Exception:
         pass
     json.dump(meta, open(stem + '.json', 'w'), indent=2, default=str)
-    json.dump(summ, open(os.path.join(DIAG_DIR, f"planner_2026-11-15_{rec['id']}.json"), 'w'), indent=1, default=str)
+    json.dump(summ, open(os.path.splitext(png)[0] + ".json", "w"), indent=1, default=str)
     cleanup.drop_our_src2(info.get('created') or [])
     return meta
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--ukf25-v2', action='store_true',
+                    help='render only the 11-15 pair to planner_2026-11-15_ukf25_v2.mp3')
+    args = ap.parse_args()
     recs = {r['id']: r for r in T.load_recs()}
     rules = json.load(open(paths.RULES))
     trial = copy.deepcopy(rules)
     trial['window_planner'] = 1
     os.makedirs(OUT_DIR, exist_ok=True)
     out = []
+    if args.ukf25_v2:
+        meta = render_one(recs['hybrid_minds_ukf__25'], trial, 'wpclip_ukf25v2',
+                          stem_name='planner_2026-11-15_ukf25_v2')
+        out.append(meta)
+        print('CLIP', json.dumps({k: meta[k] for k in ('id', 'fam', 'win', 'mp3', 'png', 'duration_s', 'lufs', 'tick_timestamp', 'planner') if k in meta}, default=str), flush=True)
+        json.dump(out, open(os.path.join(OUT_DIR, 'planner_2026-11-15_ukf25_v2_clip.json'), 'w'), indent=2, default=str)
+        return
     for i, pid in enumerate(PICKS):
         meta = render_one(recs[pid], trial, f'wpclip{i}')
         out.append(meta)

@@ -89,6 +89,8 @@ def test_nominates_drop1_end_and_breakdown_drop_and_lifts_bar80_cap():
     ibs = [c['win'][3] for c in c25 if c['type'] == 'breakdown_drop']
     assert any(ib >= 160 for ib in ibs), ibs
     assert any(c['win'] == ['n', 128, None, 64, 16] for c in c25 if c['type'] == 'breakdown_drop')
+    # +32 body phrase of drop 3 (pro cues Together at bar 191)
+    assert any(c['win'] == ['n', 128, None, 192, 16] for c in c25 if c['type'] == 'breakdown_drop')
 
 
 def test_hole_bars_matches_recreate_and_ignores_shared_breakdown():
@@ -118,11 +120,10 @@ def test_selects_breakdown_drop_with_snap_in_on_the_11_15_shape():
     default = ['n', 192, None, 0, 16]
     ch = WP.select(default, CIN, TOG, lo_a, lo_b)
     assert ch['type'] == 'breakdown_drop'
-    assert ch['win'][0] == 'n' and ch['win'][1] == 128
-    assert ch['win'][3] in (16, 64, 104, 160, 176, 192)  # an incoming drop
-    assert ch['fade_env'] == {'SNAP_IN': '1'}
-    # prefer a loud later drop over the short first drop when intro is short
-    assert ch['win'][3] != 0
+    assert ch['win'] == ['n', 128, None, 192, 16]
+    assert ch['fade_env'] == {'SNAP_IN': '1', 'SNAP_IN_HOLD': '16'}
+    # last of 3 drops, 32 bars into the body (pro is bar 191)
+    assert ch['features']['in_hit'] == 'drop3'
 
 
 def test_stays_on_a_clean_default_and_on_a_mild_hole():
@@ -182,13 +183,12 @@ def test_hint_family_and_snap_in_still_off_in_rules():
     assert 'SNAP_IN' not in rules
 
 
-def test_bass_cover_fallback_only_on_thin_intro_stays():
-    """When we keep outro-intro and the incoming overlap is fully thin with a
-    majority engine hole, set BASS_COVER. Mid-track picks and clean defaults
-    do not get it. Uses the existing 6 dB thin line, not a loosened gap.
+def test_bass_cover_fallback_is_not_used():
+    """Thin-intro stays no longer get BASS_COVER. That fallback pulled
+    held-out under the 34.05 floor and was dropped. The 6 dB thin line
+    itself is unchanged.
     """
     import fade_long as FL
-    # outgoing has no breakdown, so no canonical mid-track window
     sa = dict(n_bars=120, intro_end=16, drop1=16, breakdown=None, drop2=None,
               outro_start=88, music_end=104, drops=[[16, 104]])
     sb = dict(n_bars=96, intro_end=48, drop1=48, breakdown=None, drop2=None,
@@ -196,21 +196,14 @@ def test_bass_cover_fallback_only_on_thin_intro_stays():
     lo_a = np.full(120, -17.5)
     lo_b = np.full(96, -19.0)
     lo_b[:48] = -33.0  # fully thin intro
-    default = ['n', 96, None, 32, 16]  # last 16 of outgoing drop over incoming intro
+    default = ['n', 96, None, 32, 16]
     assert WP.incoming_all_thin(default, lo_b, db=6.0)
     assert FL.incoming_no_bass(lo_b, list(range(32, 48)), 16, db=6.0)
     assert WP.hole_bars(default, lo_a, lo_b) > WP.hole_min(16)
     ch = WP.select(default, sa, sb, lo_a, lo_b)
     assert ch['type'] == 'outro_intro' and ch['win'] == default
-    assert ch['fade_env'] == {'BASS_COVER': '1'}
-    assert ch['bass_cover'] is True
-    assert ch['reason'].endswith('+bass_cover')
-    # a clean default (outgoing also already down) is not an engine hole: no cover
-    lo_a2 = lo_a.copy(); lo_a2[80:104] = -40.0
-    ch2 = WP.select(default, sa, sb, lo_a2, lo_b)
-    assert ch2['type'] == 'outro_intro' and not ch2.get('bass_cover')
-    assert ch2['fade_env'] == {}
-    # mid-track pick on the 11-14 pair is the section change, not BASS_COVER
+    assert 'BASS_COVER' not in (ch.get('fade_env') or {})
+    assert not ch.get('bass_cover')
     lo_pe, lo_de = _lows_pe_demons()
     ch3 = WP.select(['n', 176, None, 32, 16], PE, DEMONS, lo_pe, lo_de)
     assert ch3['type'] == 'drop1_end'
@@ -239,7 +232,7 @@ def test_apply_choice_stay_keeps_default():
         (0.1, dict(fam=WP.FAM_DROP1, win=mid, env={})),
         (0.4, dict(fam='nat_long', win=default, env={})),
     ]
-    stay = dict(type='outro_intro', win=default, fade_env={'BASS_COVER': '1'}, reason='default_clean')
+    stay = dict(type='outro_intro', win=default, fade_env={}, reason='default_clean')
     pick = WP.apply_choice(scored, stay, default)
     assert pick['fam'] == 'nat_long' and pick['win'] == default
     mid_ch = dict(type='drop1_end', win=mid, fade_env={}, reason='drop1_end')
@@ -261,3 +254,15 @@ def test_add_families_skips_windows_not_in_cs():
     on2 = WP.add_families(fams, cs, PE, DEMONS, enabled=True)
     wins = [c['win'] for c in on2]
     assert ['n', 112, None, 48, 16] in wins
+
+
+def test_apply_rules_maps_window_planner_flag():
+    """Cohort trials set rules['window_planner']; mix_simple reads WINDOW_PLANNER."""
+    env = R.apply_rules({'window_planner': 1, 'FADE': 'long'})
+    assert str(env.get('WINDOW_PLANNER')) not in ('', '0', 'None', 'None')
+    assert R._flag_on(env.get('WINDOW_PLANNER'))
+    env0 = R.apply_rules({'FADE': 'long'})
+    assert not R._flag_on(env0.get('WINDOW_PLANNER'))
+    # later-drop body cue must be a legal engine cand (past the bar-80 cap)
+    got = WP.engine_cands(CIN, TOG, 16, e_max=200, ia=0)
+    assert ('n', 128, 192) in got

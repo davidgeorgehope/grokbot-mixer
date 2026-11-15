@@ -398,7 +398,8 @@ if SI>0 and not GC:
   import snap_in as _SI
   _si_hold=float(os.environ.get('SNAP_IN_DB',12) or 12)
   _si_rate=float(os.environ.get('TAIL_SHALLOW',0) or 0) or _SI.RATE
-  _SI.apply(decks,trans,hold_db=_si_hold,rate=_si_rate,skip=set(PIN))
+  _si_extra=float(os.environ.get('SNAP_IN_HOLD',0) or 0)
+  _SI.apply(decks,trans,hold_db=_si_hold,rate=_si_rate,skip=set(PIN),hold_extra=_si_extra)
 # beats -> melody-only fixes (beatmelody.py, 2026-11-02): plan step 'bm_fix' ('dswap' | 'dswap_beat' | 'ib' | 'ib+dswap'), or env BM_FIX on every BM1 blend
 import beatmelody as _BMX
 _BMM=dict(decks=decks,trans=trans,bar_sec=BAR);_bmenv=os.environ.get('BM_FIX','')

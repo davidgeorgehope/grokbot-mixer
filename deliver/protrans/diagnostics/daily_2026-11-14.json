@@ -1,0 +1,121 @@
+{
+ "blend": 0,
+ "a": "HP7Q0vDU9vI",
+ "b": "5YG-HKjtiHM",
+ "start_bar": 160.0,
+ "end_bar": 176.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-14.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": 0.3754,
+   "rate": 1.0052,
+   "r_a": 0.68,
+   "r_b": 0.773
+  },
+  "ours": {
+   "phase_beats": 0.3884,
+   "rate": 1.0,
+   "r_a": 0.731,
+   "r_b": 0.646
+  },
+  "diff_beats": 0.013,
+  "diff_ms": 4.5
+ },
+ "offset_ms_median": -2.9,
+ "offset_bars": 11,
+ "clash_bars": 8.62,
+ "sum_lows_dip_db": 22.5,
+ "bass_swap": [
+  164.0,
+  169.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.026402,
+  "pcty": 2.740183,
+  "Scol": 0.8413,
+  "Scty": 0.7004,
+  "banger_clash_rate": 0.1476,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ },
+ "pick_id": "hybrid_minds_ukf__19",
+ "fam": "nat_short",
+ "win": [
+  "n",
+  176,
+  null,
+  32,
+  16
+ ],
+ "score": 27.94,
+ "score_v2": 24.27,
+ "breakdown": {
+  "stem_curves": 37.42,
+  "deck_curves": 23.94,
+  "beat_align": 59.17,
+  "bass_swap": 0.85,
+  "outgoing_cut": 17.0,
+  "blend_length": 11.68,
+  "stems": {
+   "drums": 48.26,
+   "bass": 42.74,
+   "vocals": 23.54,
+   "melody": 35.13
+  },
+  "beat_off_ms": 8.71,
+  "beat_align_v2": 34.75,
+  "beat_identity": 83.58,
+  "beat_lock": {
+   "pro": {
+    "phase_beats": 0.3754,
+    "rate": 1.0052,
+    "r_a": 0.68,
+    "r_b": 0.773
+   },
+   "ours": {
+    "phase_beats": 0.3884,
+    "rate": 1.0,
+    "r_a": 0.731,
+    "r_b": 0.646
+   },
+   "diff_beats": 0.013,
+   "diff_ms": 4.5
+  },
+  "events_pro": {
+   "bass_swap": 1,
+   "outgoing_cut": 21,
+   "blend_length": 18
+  },
+  "events_ours": {
+   "bass_swap": 18,
+   "outgoing_cut": 26,
+   "blend_length": 5
+  },
+  "stem_kind": [
+   "bands",
+   "bands"
+  ],
+  "deck": {
+   "per_stem_deck": 23.94
+  },
+  "align": {
+   "lag_samples": 60928,
+   "lag_ms": 2763.17,
+   "peak": 0.285,
+   "win_sec": 44.138
+  }
+ },
+ "ours": "/tmp/protrans_bench/diag912563.mp3"
+}

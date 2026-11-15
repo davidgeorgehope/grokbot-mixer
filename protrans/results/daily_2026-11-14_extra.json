@@ -1,0 +1,100 @@
+{
+  "xp2_060": {
+    "delta": {
+      "LONG_XP2": 0.6
+    },
+    "summary": {
+      "n": 33,
+      "n_fail": 0,
+      "train_n": 21,
+      "test_n": 12,
+      "train_mean": 32.03,
+      "test_mean": 34.08,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 32.08,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 31.95,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 30.57,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 34.86,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 37.97,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 29.0,
+          "split": "test"
+        }
+      },
+      "stem_kind": "bands"
+    },
+    "pick": 27.91,
+    "ok": true,
+    "why": "held-out held 33.84 -> 34.08"
+  },
+  "long_exit_7": {
+    "delta": {
+      "LONG_EXIT": 7
+    },
+    "summary": {
+      "n": 33,
+      "n_fail": 0,
+      "train_n": 21,
+      "test_n": 12,
+      "train_mean": 32.28,
+      "test_mean": 32.54,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 32.26,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 32.3,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 28.54,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 33.99,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 37.55,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 22.31,
+          "split": "test"
+        }
+      },
+      "stem_kind": "bands"
+    },
+    "pick": 27.77,
+    "ok": false,
+    "why": "overfit: held-out dropped 33.84 -> 32.54"
+  }
+}

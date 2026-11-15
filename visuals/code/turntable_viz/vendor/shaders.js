@@ -128,6 +128,7 @@ float lut(float r) {
 void main() {
   float r = length(vQ), phi = atan(vQ.y, vQ.x), ph = phi / 6.28318531;
   vec3 N = normalize(vN), V = normalize(uEye - vP);
+  if (!gl_FrontFacing) N = -N;                          // underside during the record-swap flip
   vec3 Tw = normalize(mat3(uM) * vec3(-sin(phi), cos(phi), 0.0));
   float px = fwidth(vQ.x) + fwidth(vQ.y), sh = shadow(vP, N), key = sh * pool(vP);
   vec3 c;

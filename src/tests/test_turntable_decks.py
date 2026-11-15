@@ -80,3 +80,17 @@ def test_mix08_plan_with_fix(tmp_path):
     assert len(tims) == 25
     assert ds.walk_segments(tims) == []
     assert [t['out_deck'] for t in tims] == [i % 2 for i in range(25)]
+
+
+def test_record_shader_is_twosided_for_swap_flip():
+    """The disc is a single-sided annulus; FX_RECORD_SWAP's spin-in does a full Rx flip, so the
+    back faces the camera mid-flight. Without two-sided lighting the face flashes silver then
+    vanishes (only the 1.3 mm rim remains). REC_FS must flip N on back faces, and render.js must
+    draw the underside at z = -1.3 mm."""
+    rec_fs = open(os.path.join(TT, 'vendor', 'shaders.js')).read()
+    assert 'if (!gl_FrontFacing) N = -N' in rec_fs
+    rnd = open(os.path.join(TT, 'vendor', 'render.js')).read()
+    assert 'G.S(1, 1, -1)' in rnd and 'backM' in rnd
+    assert 'export const S' in open(os.path.join(TT, 'vendor', 'gl-util.js')).read()
+    scene = open(os.path.join(TT, 'scene.js')).read()
+    assert 'const fat' in scene and 'G.S(1, 1, 1 + 8' in scene

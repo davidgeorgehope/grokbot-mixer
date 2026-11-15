@@ -116,17 +116,20 @@ function recPose(i, fs) {
   if (!D.opts.fxSwap) return null;
   const mb = fs.mb, out = i === 0 ? -1 : 1;                 // fly outward, away from the mixer
   const fo = D.fx.fly_off, si = D.fx.spin_in;
+  // A 1.3 mm shell is ~2 px when edge-on to the 40° camera, so the record looks like it vanishes
+  // mid-flip. Fatten along the disc axis while it's in the air (1 at both ends, ~12 mm at the mid).
+  const fat = (k) => G.S(1, 1, 1 + 8 * k);
   if (fo && fo.deck === i && mb >= fo.start_bar) {
     const u = Math.min(1, (mb - fo.start_bar) / (fo.end_bar - fo.start_bar));
     if (u >= 1) return { hide: true };
     const e = u * u, lift = 0.22 * ease(Math.min(1, u * 1.6));
-    const M = G.chain(G.T(out * 0.55 * e, 0.35 * e, lift + 0.0001), Rx(out * 2.2 * e * Math.PI), G.Rz(-8 * e * TAU));
+    const M = G.chain(G.T(out * 0.55 * e, 0.35 * e, lift + 0.0001), Rx(out * 2.2 * e * Math.PI), G.Rz(-8 * e * TAU), fat(Math.sin(Math.PI * u)));
     return { M };
   }
   if (si && si.deck === i && mb < si.end_bar) {
     const u = Math.max(0, (mb - si.start_bar) / (si.end_bar - si.start_bar));
     const r = 1 - ease(u), r2 = r * r;                     // r: 1 = far away, 0 = seated
-    const M = G.chain(G.T(out * 0.45 * r2, 0.30 * r2, 0.20 * ease(Math.min(1, r * 1.4)) + 0.0001), Rx(-out * 2 * Math.PI * r), G.Rz(6 * r * TAU));
+    const M = G.chain(G.T(out * 0.45 * r2, 0.30 * r2, 0.20 * ease(Math.min(1, r * 1.4)) + 0.0001), Rx(-out * 2 * Math.PI * r), G.Rz(6 * r * TAU), fat(Math.sin(Math.PI * r)));
     return { M };
   }
   return null;

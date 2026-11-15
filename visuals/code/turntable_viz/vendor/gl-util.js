@@ -12,6 +12,7 @@ export const ident = () => new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
 export const T = (x, y, z) => { const m = ident(); m[12] = x; m[13] = y; m[14] = z; return m; };
 export const Rz = (a) => { const m = ident(), c = Math.cos(a), s = Math.sin(a); m[0] = c; m[1] = s; m[4] = -s; m[5] = c; return m; };
 export const Ry = (a) => { const m = ident(), c = Math.cos(a), s = Math.sin(a); m[0] = c; m[2] = -s; m[8] = s; m[10] = c; return m; };
+export const S = (x, y, z) => { const m = ident(); m[0] = x; m[5] = y; m[10] = z; return m; };
 export function perspective(fovy, aspect, near, far) {
   const f = 1 / Math.tan(fovy / 2), m = new Float32Array(16);
   m[0] = f / aspect; m[5] = f; m[10] = (far + near) / (near - far); m[11] = -1; m[14] = 2 * far * near / (near - far);

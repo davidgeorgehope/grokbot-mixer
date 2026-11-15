@@ -208,5 +208,11 @@ export class Renderer {
       gl.activeTexture(gl.TEXTURE0 + i); gl.bindTexture(gl.TEXTURE_2D, tex); gl.uniform1i(u[name], i);
     });
     gl.bindVertexArray(m.disc.vao); gl.drawArrays(gl.TRIANGLES, 0, m.disc.count);
+    // underside of the vinyl (z = -1.3 mm, matches the rim). The disc mesh is a single-sided
+    // annulus; without this — and the gl_FrontFacing normal flip in REC_FS — the face vanishes
+    // or flashes silver when the record-swap flip presents the back to the camera.
+    const backM = G.chain(discM, G.T(0, 0, -0.0013), G.S(1, 1, -1));
+    gl.uniformMatrix4fv(u.uM, false, backM);
+    gl.drawArrays(gl.TRIANGLES, 0, m.disc.count);
   }
 }

@@ -673,11 +673,24 @@
       "n_tracks": 57,
       "n_chapters": 57,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 8,
-      "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 55
+      "n_admit": 3,
+      "n_reject": 5,
+      "n_official_tracks": 55,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/liquicity_nYOcD3qTdg0/nYOcD3qTdg0.m4a",
+        "sources": [
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/EIWyuA1eFd4.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/Vr2uO3SsA-A.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/gOpAr0UiT6Q.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/locvYM1fQO0.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/qo5BnP7kfVg.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/y98ZcPMr_qI.m4a"
+        ],
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/liquicity_nYOcD3qTdg0"
+      },
+      "archived": true
     },
     {
       "mix_id": "shogun_audio_8c3SoB2F0B0",
@@ -4181,6 +4194,6 @@
       "n_official_tracks": 0
     }
   ],
-  "ts": "2026-11-16 19:55:08 EST",
+  "ts": "2026-11-16 20:10:17 EST",
   "n": 240
 }

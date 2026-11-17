@@ -1,0 +1,25 @@
+{
+  "id": "alpha_rhythm_AU0V19j8oKM__10",
+  "mix_id": "alpha_rhythm_AU0V19j8oKM",
+  "dj": "Alpha Rhythm",
+  "a": {
+    "title": "Alibi - Life Goes On [Liquid V]",
+    "yt": "QDjlVcI3-fI",
+    "t": 2581.0
+  },
+  "b": {
+    "title": "Seba - So Beautiful [Spearhead]",
+    "yt": "ofwaZZbsDKs",
+    "t": 2792.0
+  },
+  "window": {
+    "mix_t_a": 2581.0,
+    "mix_t_b": 2792.0,
+    "mix_t_next": 3111.0,
+    "hint_a_played_sec": 211.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/corpus_v2/work/clips/alpha_rhythm_AU0V19j8oKM/alpha_rhythm_AU0V19j8oKM__10/pro.wav",
+  "pro_clip_start": 2768.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/corpus_v2/work/clips/alpha_rhythm_AU0V19j8oKM/alpha_rhythm_AU0V19j8oKM__10"
+}

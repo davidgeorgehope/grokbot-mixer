@@ -1,0 +1,73 @@
+{
+  "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+  "mix_id": "ukf_drum_bass_LeMk0yiSoq4",
+  "dj": "UKF Drum & Bass",
+  "pair": "IMANU x Droeloe - Catalyst -> Harriet Jaxxon - Story Of Women",
+  "video_id": "LeMk0yiSoq4",
+  "cue": {
+    "incoming_bar": 15.43,
+    "incoming_section": null,
+    "outgoing_bar": 74.49,
+    "outgoing_section": null,
+    "blend_list_s": 115.0,
+    "locate_a": {
+      "z": 6.678,
+      "cc": 0.3139,
+      "mix_t": 8.127,
+      "track_t": 86.866,
+      "n": 68
+    },
+    "locate_b": {
+      "z": 8.615,
+      "cc": 0.7321,
+      "mix_t": 44.652,
+      "track_t": 41.935,
+      "n": 52
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.049,
+      "hold_db": -6.3,
+      "tail_bars": 16.31,
+      "out_p90": -4.55,
+      "in_p90": 1.96
+    },
+    "bass": {
+      "rise_db_per_beat": -0.104,
+      "hold_db": -5.52,
+      "tail_bars": 17.4,
+      "out_p90": -4.3,
+      "in_p90": 2.39
+    },
+    "highs": {
+      "rise_db_per_beat": 0.438,
+      "hold_db": -6.57,
+      "tail_bars": 16.49,
+      "out_p90": -5.0,
+      "in_p90": 9.54
+    },
+    "mids": {
+      "rise_db_per_beat": -0.238,
+      "hold_db": -5.73,
+      "tail_bars": 17.76,
+      "out_p90": -5.02,
+      "in_p90": 1.76
+    }
+  },
+  "overlap_bars": 11.236,
+  "track_a": {
+    "sections": {},
+    "bpm": 176.381,
+    "yt": "-qFw9qljQf4",
+    "title": "IMANU x Droeloe - Catalyst"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 173.979,
+    "yt": "wjXsXmJoT5k",
+    "title": "Harriet Jaxxon - Story Of Women"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

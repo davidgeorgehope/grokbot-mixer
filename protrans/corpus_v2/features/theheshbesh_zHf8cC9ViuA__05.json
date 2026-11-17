@@ -1,0 +1,73 @@
+{
+  "id": "theheshbesh_zHf8cC9ViuA__05",
+  "mix_id": "theheshbesh_zHf8cC9ViuA",
+  "dj": "TheHeshBesh",
+  "pair": "Nu:Tone - Beatnik -> Logistics - Signs (feat Changing Faces)",
+  "video_id": "zHf8cC9ViuA",
+  "cue": {
+    "incoming_bar": 16.31,
+    "incoming_section": null,
+    "outgoing_bar": 129.69,
+    "outgoing_section": null,
+    "blend_list_s": 162.0,
+    "locate_a": {
+      "z": 8.905,
+      "cc": 0.6799,
+      "mix_t": 21.85,
+      "track_t": 176.727,
+      "n": 103
+    },
+    "locate_b": {
+      "z": 7.233,
+      "cc": 0.7572,
+      "mix_t": 43.445,
+      "track_t": 41.935,
+      "n": 94
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.385,
+      "hold_db": -4.51,
+      "tail_bars": 44.76,
+      "out_p90": -2.28,
+      "in_p90": -2.75
+    },
+    "bass": {
+      "rise_db_per_beat": 0.0,
+      "hold_db": -4.94,
+      "tail_bars": 46.21,
+      "out_p90": 1.66,
+      "in_p90": 7.6
+    },
+    "highs": {
+      "rise_db_per_beat": 0.159,
+      "hold_db": -5.26,
+      "tail_bars": 45.13,
+      "out_p90": -2.85,
+      "in_p90": 7.21
+    },
+    "mids": {
+      "rise_db_per_beat": -0.972,
+      "hold_db": -4.03,
+      "tail_bars": 46.21,
+      "out_p90": -1.37,
+      "in_p90": -2.94
+    }
+  },
+  "overlap_bars": 33.347,
+  "track_a": {
+    "sections": {},
+    "bpm": 173.986,
+    "yt": "4FeueKEmxU0",
+    "title": "Nu:Tone - Beatnik"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 174.004,
+    "yt": "JUnsLBoOp_Q",
+    "title": "Logistics - Signs (feat Changing Faces)"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

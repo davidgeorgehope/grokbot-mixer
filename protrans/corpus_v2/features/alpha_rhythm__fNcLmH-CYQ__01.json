@@ -1,0 +1,73 @@
+{
+  "id": "alpha_rhythm__fNcLmH-CYQ__01",
+  "mix_id": "alpha_rhythm__fNcLmH-CYQ",
+  "dj": "Alpha Rhythm",
+  "pair": "Unknown Artist - Everybody Loves Sunshine \u201923 [Fokuz] -> Decon - New Perspective [Jazzsticks]",
+  "video_id": "_fNcLmH-CYQ",
+  "cue": {
+    "incoming_bar": 31.81,
+    "incoming_section": null,
+    "outgoing_bar": 207.85,
+    "outgoing_section": null,
+    "blend_list_s": 243.0,
+    "locate_a": {
+      "z": 7.308,
+      "cc": 0.7697,
+      "mix_t": 0.906,
+      "track_t": 263.593,
+      "n": 103
+    },
+    "locate_b": {
+      "z": 8.023,
+      "cc": 0.8086,
+      "mix_t": 43.027,
+      "track_t": 62.903,
+      "n": 89
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.201,
+      "hold_db": -5.18,
+      "tail_bars": 17.94,
+      "out_p90": -4.95,
+      "in_p90": -4.34
+    },
+    "bass": {
+      "rise_db_per_beat": -0.025,
+      "hold_db": -5.77,
+      "tail_bars": 35.34,
+      "out_p90": -3.39,
+      "in_p90": -4.27
+    },
+    "highs": {
+      "rise_db_per_beat": 0.051,
+      "hold_db": -6.75,
+      "tail_bars": 35.16,
+      "out_p90": -5.95,
+      "in_p90": -5.31
+    },
+    "mids": {
+      "rise_db_per_beat": 0.239,
+      "hold_db": -5.19,
+      "tail_bars": 36.25,
+      "out_p90": -3.91,
+      "in_p90": -4.4
+    }
+  },
+  "overlap_bars": 11.236,
+  "track_a": {
+    "sections": {},
+    "bpm": 174.013,
+    "yt": "I8Fw4ZYk6kM",
+    "title": "Unknown Artist - Everybody Loves Sunshine \u201923 [Fokuz]"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 173.99,
+    "yt": "uEK_-VgyWZs",
+    "title": "Decon - New Perspective [Jazzsticks]"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

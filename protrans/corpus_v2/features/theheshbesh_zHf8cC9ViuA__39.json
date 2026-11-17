@@ -1,0 +1,73 @@
+{
+  "id": "theheshbesh_zHf8cC9ViuA__39",
+  "mix_id": "theheshbesh_zHf8cC9ViuA",
+  "dj": "TheHeshBesh",
+  "pair": "Nu:Tone - Cannibals (feat Dynamite MC) -> Nu:Tone - Broken (feat Kyan)",
+  "video_id": "zHf8cC9ViuA",
+  "cue": {
+    "incoming_bar": 9.59,
+    "incoming_section": null,
+    "outgoing_bar": 73.22,
+    "outgoing_section": null,
+    "blend_list_s": 95.0,
+    "locate_a": {
+      "z": 6.727,
+      "cc": 0.6106,
+      "mix_t": 12.864,
+      "track_t": 89.861,
+      "n": 82
+    },
+    "locate_b": {
+      "z": 8.516,
+      "cc": 0.5883,
+      "mix_t": 55.705,
+      "track_t": 44.931,
+      "n": 65
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.277,
+      "hold_db": -7.87,
+      "tail_bars": 37.7,
+      "out_p90": -5.28,
+      "in_p90": 1.62
+    },
+    "bass": {
+      "rise_db_per_beat": 0.238,
+      "hold_db": -7.8,
+      "tail_bars": 39.51,
+      "out_p90": -0.4,
+      "in_p90": 6.45
+    },
+    "highs": {
+      "rise_db_per_beat": 0.209,
+      "hold_db": -6.03,
+      "tail_bars": 38.24,
+      "out_p90": -3.13,
+      "in_p90": 3.39
+    },
+    "mids": {
+      "rise_db_per_beat": -0.057,
+      "hold_db": -6.43,
+      "tail_bars": 39.51,
+      "out_p90": -2.51,
+      "in_p90": 1.05
+    }
+  },
+  "overlap_bars": 37.334,
+  "track_a": {
+    "sections": {},
+    "bpm": 173.991,
+    "yt": "QH5RlUJU_Ns",
+    "title": "Nu:Tone - Cannibals (feat Dynamite MC)"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 175.014,
+    "yt": "9VKToiRnrIc",
+    "title": "Nu:Tone - Broken (feat Kyan)"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

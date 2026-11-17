@@ -1,0 +1,49 @@
+{
+  "variant": "tcbase_1116",
+  "v3": {
+    "train": 32.26,
+    "test": 34.05,
+    "n": 33,
+    "n_fail": 0
+  },
+  "v2": {
+    "train": 32.35,
+    "test": 32.73
+  },
+  "fams": {
+    "nat_long": 1,
+    "nat_short": 32
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 32.38,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 32.07,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 30.23,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 34.81,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 37.91,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 30.2,
+      "split": "test"
+    }
+  }
+}

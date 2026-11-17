@@ -1,0 +1,73 @@
+{
+  "id": "hospital_records_Lm2VlTogWvY__00",
+  "mix_id": "hospital_records_Lm2VlTogWvY",
+  "dj": "Hospital Records",
+  "pair": "Ninjaman - Murder Dem (Danny Byrd Remix) -> Unglued - Born In \u201894 ft. MC Conrad",
+  "video_id": "Lm2VlTogWvY",
+  "cue": {
+    "incoming_bar": 2.67,
+    "incoming_section": null,
+    "outgoing_bar": 178.59,
+    "outgoing_section": null,
+    "blend_list_s": 245.0,
+    "locate_a": {
+      "z": 7.81,
+      "cc": 0.8147,
+      "mix_t": 11.308,
+      "track_t": 233.639,
+      "n": 83
+    },
+    "locate_b": {
+      "z": 6.86,
+      "cc": 0.7392,
+      "mix_t": 41.285,
+      "track_t": 20.968,
+      "n": 72
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.044,
+      "hold_db": -11.71,
+      "tail_bars": 7.97,
+      "out_p90": -1.69,
+      "in_p90": -1.18
+    },
+    "bass": {
+      "rise_db_per_beat": 0.294,
+      "hold_db": -7.15,
+      "tail_bars": 10.87,
+      "out_p90": 4.29,
+      "in_p90": 8.85
+    },
+    "highs": {
+      "rise_db_per_beat": 0.239,
+      "hold_db": -7.65,
+      "tail_bars": 7.97,
+      "out_p90": 6.19,
+      "in_p90": 1.7
+    },
+    "mids": {
+      "rise_db_per_beat": -0.058,
+      "hold_db": -1.61,
+      "tail_bars": 10.87,
+      "out_p90": 7.22,
+      "in_p90": -1.17
+    }
+  },
+  "overlap_bars": 4.712,
+  "track_a": {
+    "sections": {},
+    "bpm": 174.004,
+    "yt": "b5feU0Dv1zI",
+    "title": "Ninjaman - Murder Dem (Danny Byrd Remix)"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 171.979,
+    "yt": "4yyryWaOEmw",
+    "title": "Unglued - Born In \u201894 ft. MC Conrad"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

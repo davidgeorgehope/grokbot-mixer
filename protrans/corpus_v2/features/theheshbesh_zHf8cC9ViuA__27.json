@@ -1,0 +1,73 @@
+{
+  "id": "theheshbesh_zHf8cC9ViuA__27",
+  "mix_id": "theheshbesh_zHf8cC9ViuA",
+  "dj": "TheHeshBesh",
+  "pair": "Logistics - Jungle Music -> Logistics - Cosmonaut",
+  "video_id": "zHf8cC9ViuA",
+  "cue": {
+    "incoming_bar": 16.1,
+    "incoming_section": null,
+    "outgoing_bar": 80.66,
+    "outgoing_section": null,
+    "blend_list_s": 108.0,
+    "locate_a": {
+      "z": 6.887,
+      "cc": 0.5208,
+      "mix_t": 23.568,
+      "track_t": 110.829,
+      "n": 82
+    },
+    "locate_b": {
+      "z": 7.284,
+      "cc": 0.5618,
+      "mix_t": 55.705,
+      "track_t": 53.917,
+      "n": 97
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.111,
+      "hold_db": -6.05,
+      "tail_bars": 44.76,
+      "out_p90": -2.1,
+      "in_p90": -0.88
+    },
+    "bass": {
+      "rise_db_per_beat": -0.177,
+      "hold_db": -4.21,
+      "tail_bars": 46.21,
+      "out_p90": 2.9,
+      "in_p90": 4.63
+    },
+    "highs": {
+      "rise_db_per_beat": -0.267,
+      "hold_db": -7.09,
+      "tail_bars": 45.31,
+      "out_p90": -4.28,
+      "in_p90": 3.53
+    },
+    "mids": {
+      "rise_db_per_beat": -0.592,
+      "hold_db": -5.72,
+      "tail_bars": 46.21,
+      "out_p90": -1.44,
+      "in_p90": -0.73
+    }
+  },
+  "overlap_bars": 37.878,
+  "track_a": {
+    "sections": {},
+    "bpm": 171.999,
+    "yt": "jnIZ4649fQg",
+    "title": "Logistics - Jungle Music"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 173.99,
+    "yt": "0Yk1IZRUWCc",
+    "title": "Logistics - Cosmonaut"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

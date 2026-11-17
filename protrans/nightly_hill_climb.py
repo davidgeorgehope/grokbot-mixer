@@ -18,14 +18,14 @@ def candidates():
     # n1110 list, re-tested on the STRUCT=1 + 2-bar-swap base (n1109 kept bass_swap_2bar,
     # phase_pref 0.4/0.8 rejected; d1109 kept STRUCT=1)
     return [
-        # n1113 list on the length_pref 16 base (d1112 kept length_pref 16; n1112 validated
-        # linger 0.15 at held-out 32.24 but never wrote it, so it is re-tested first).
-        ('linger_015', {'linger_pen_w': 0.15}),
+        # n1117 list on the current base (linger 0.15 + LONG_XP 0.45, held-out ~34.05).
+        # n1114-n1116 never completed, so these are the n1113 leftovers plus a hint probe.
         ('break_03', {'breakdown_pen_w': 0.3}),
         ('length_pref_20', {'length_pref': 20}),
         ('swap_pos_035', {'SWAP_POS': 0.35}),
-        ('long_solo_12', {'LONG_SOLO': 12}),
         ('high_ofs_4', {'HIGH_OFS': 4}),
+        ('long_solo_12', {'LONG_SOLO': 12}),
+        ('hint_025', {'hint_weight': 0.25}),
 ][:MAX_CANDS]
 
 def main():

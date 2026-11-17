@@ -1,0 +1,73 @@
+{
+  "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+  "mix_id": "ukf_drum_bass_LeMk0yiSoq4",
+  "dj": "UKF Drum & Bass",
+  "pair": "Synergy - Reload -> Bugwell - Dystopia",
+  "video_id": "LeMk0yiSoq4",
+  "cue": {
+    "incoming_bar": 32.48,
+    "incoming_section": null,
+    "outgoing_bar": 112.48,
+    "outgoing_section": null,
+    "blend_list_s": 101.0,
+    "locate_a": {
+      "z": 7.033,
+      "cc": 0.6403,
+      "mix_t": 0.65,
+      "track_t": 131.796,
+      "n": 77
+    },
+    "locate_b": {
+      "z": 14.101,
+      "cc": 0.9017,
+      "mix_t": 54.079,
+      "track_t": 74.884,
+      "n": 82
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.027,
+      "hold_db": -5.02,
+      "tail_bars": 32.98,
+      "out_p90": -4.83,
+      "in_p90": -4.56
+    },
+    "bass": {
+      "rise_db_per_beat": 0.265,
+      "hold_db": -4.69,
+      "tail_bars": 20.48,
+      "out_p90": -4.4,
+      "in_p90": -4.39
+    },
+    "highs": {
+      "rise_db_per_beat": 0.114,
+      "hold_db": -6.85,
+      "tail_bars": 33.17,
+      "out_p90": -5.97,
+      "in_p90": -4.8
+    },
+    "mids": {
+      "rise_db_per_beat": 0.017,
+      "hold_db": -5.0,
+      "tail_bars": 32.98,
+      "out_p90": -4.93,
+      "in_p90": -5.06
+    }
+  },
+  "overlap_bars": 27.366,
+  "track_a": {
+    "sections": {},
+    "bpm": 174.0,
+    "yt": "-lFAvfq2gwk",
+    "title": "Synergy - Reload"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 173.999,
+    "yt": "FVhU9dLiGQ4",
+    "title": "Bugwell - Dystopia"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

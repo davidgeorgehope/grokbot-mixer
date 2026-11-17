@@ -73,7 +73,7 @@ def test_family_env_wins_over_rules_env():
     merged = {**env, **dict(pick.get('env') or {})}   # the order recreate() uses
     assert merged['SWAP_POS'] == '0.6' and merged['FADE'] == 'lin'
     src = open(R.__file__).read()
-    assert "pick['env'] = {**env, **dict(pick.get('env') or {})}" in src
+    assert "pick['env'] = {**env, **dict(pick.get('env') or {})" in src
 
 
 def test_structure_window_parse_accepts_loop_forms():

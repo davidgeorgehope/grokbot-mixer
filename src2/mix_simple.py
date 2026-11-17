@@ -397,7 +397,9 @@ if TE>0 and not GC:
 TS=float(os.environ.get('TAIL_SHALLOW',0) or 0)  # 2026-11-15 research, off by default: max outgoing fall (dB/bar) after the exit starts; residual extends past the window (tail_shape.py)
 if TS>0 and not GC:
   import tail_shape as _TS
-  _TS.apply(decks,trans,TS,skip=set(PIN))
+  _ts_cap=float(os.environ.get('TAIL_SHALLOW_CAP',0) or 0) or None  # 2026-11-16 research, off by default: residual gone by window end + N bars
+  _ts_gate=os.environ.get('TAIL_SHALLOW_GATE','') or None  # 2026-11-16 research, off by default: 'end' = only blends whose exit already sits at the window end
+  _TS.apply(decks,trans,TS,skip=set(PIN),cap=_ts_cap,gate=_ts_gate)
 SI=float(os.environ.get('SNAP_IN',0) or 0)  # 2026-11-15 research, off by default: late legal incoming snap + shallow outgoing hold (snap_in.py)
 if SI>0 and not GC:
   import snap_in as _SI

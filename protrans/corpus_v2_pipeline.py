@@ -44,6 +44,7 @@ FEATURES = os.path.join(ROOT, 'features')
 PROGRESS = os.path.join(ROOT, 'progress.json')
 SPLIT = os.path.join(ROOT, 'split.json')
 MANIFEST = os.path.join(ROOT, 'manifest.json')
+RESOLVE_RETRY = os.path.join(ROOT, 'resolve_retry.json')
 LEGACY = os.path.join(ROOT, 'legacy_33.jsonl')
 SUMMARY = os.path.join(ROOT, 'summary.json')
 MODEL_DIR = os.path.join(ROOT, 'models')
@@ -517,38 +518,51 @@ def load_tracks_for(mix):
     return tracks, meta
 
 
-def ensure_source_v2(yt):
-    dest = os.path.join(LIB, f'{yt}.m4a')
+def ensure_source_v2(track, min_duration=None):
+    key = fetch.media_key(track)
+    dest = os.path.join(LIB, f'{key}.m4a')
     if os.path.exists(dest) and os.path.getsize(dest) > 1000:
+        admit._reject_short_file(dest, min_duration)
         return dest
     os.makedirs(LIB, exist_ok=True)
-    retry(lambda: fetch.ytdlp_remote(f'https://youtu.be/{yt}', dest),
-          times=3, wait=12, what=f'source {yt}')
+    retry(lambda: fetch.ytdlp_remote(fetch.media_url(track), dest),
+          times=3, wait=12, what=f'source {key}')
+    admit._reject_short_file(dest, min_duration)
     return dest
 
 
-def prefetch_sources(yts, workers=2):
+def prefetch_sources(tracks, workers=2):
     """Download unique studio sources, two at a time. Alignment stays serial."""
-    yts = [y for y in dict.fromkeys(yts) if y]
-    if not yts:
+    uniq = []
+    seen = set()
+    for t in tracks or []:
+        if not t:
+            continue
+        key = fetch.media_key(t)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        uniq.append(t)
+    if not uniq:
         return {}
-    def one(yt):
+    def one(track):
+        key = fetch.media_key(track)
         try:
-            return yt, ensure_source_v2(yt), None
+            return key, ensure_source_v2(track, min_duration=track.get('min_duration') if isinstance(track, dict) else None), None
         except Exception as e:
-            return yt, None, e
+            return key, None, e
     out = {}
-    n = min(max(1, int(workers)), len(yts))
+    n = min(max(1, int(workers)), len(uniq))
     if n == 1:
-        results = [one(y) for y in yts]
+        results = [one(y) for y in uniq]
     else:
         with concurrent.futures.ThreadPoolExecutor(max_workers=n) as ex:
-            results = list(ex.map(one, yts))
-    for yt, dest, err in results:
+            results = list(ex.map(one, uniq))
+    for key, dest, err in results:
         if err:
-            print('prefetch fail', yt, type(err).__name__, str(err)[:200], flush=True)
+            print('prefetch fail', key, type(err).__name__, str(err)[:200], flush=True)
         else:
-            out[yt] = dest
+            out[key] = dest
     return out
 
 
@@ -557,25 +571,49 @@ def cut_clip_v2(rec, mix_audio):
     return extract.extract_one(rec, mix_audio, dest_dir=dest_dir)
 
 
+def _track_fields(side):
+    """Persist id, source and url for one side of a pair (source defaults to youtube)."""
+    side = side or {}
+    src = side.get('source') or ('youtube' if side.get('yt') and not (side.get('url') or '').startswith('http') else side.get('source'))
+    if not src:
+        url = (side.get('url') or '')
+        if 'soundcloud.com' in url:
+            src = 'soundcloud'
+        elif 'bandcamp.com' in url:
+            src = 'bandcamp'
+        else:
+            src = 'youtube'
+    out = dict(title=side.get('title'), yt=side.get('yt'), source=src)
+    if side.get('url'):
+        out['url'] = side['url']
+    if side.get('duration') not in (None, ''):
+        out['duration'] = side['duration']
+    return out
+
+
 def process_pair_v2(c, mix_audio):
     rec = dict(
         id=c['id'], mix_id=c['mix_id'], dj=c['dj'],
-        a=dict(title=c['a']['title'], yt=c['a']['yt'], t=c['t_a']),
-        b=dict(title=c['b']['title'], yt=c['b']['yt'], t=c['t_b']),
+        a=dict(title=c['a']['title'], yt=c['a']['yt'], t=c['t_a'],
+               source=c['a'].get('source'), url=c['a'].get('url')),
+        b=dict(title=c['b']['title'], yt=c['b']['yt'], t=c['t_b'],
+               source=c['b'].get('source'), url=c['b'].get('url')),
         window=dict(mix_t_a=c['t_a'], mix_t_b=c['t_b'],
                     mix_t_next=c.get('t_next', c['t_b'] + 90),
                     hint_a_played_sec=c['t_b'] - c['t_a']),
     )
     rec = cut_clip_v2(rec, mix_audio)
-    sa = ensure_source_v2(rec['a']['yt'])
-    sb = ensure_source_v2(rec['b']['yt'])
+    min_a = admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'a')
+    min_b = admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'b')
+    sa = ensure_source_v2(c['a'], min_duration=min_a)
+    sb = ensure_source_v2(c['b'], min_duration=min_b)
     gate = version_match.match_pair(rec['pro_clip'], sa, sb, incoming_off=extract.PRE)
     row = dict(
         id=rec['id'], dj=c['dj'], mix_id=c['mix_id'], video_id=c.get('video_id'),
         mix_url=c.get('mix_url'), pair=f"{c['a']['title']} -> {c['b']['title']}",
         t_a=c['t_a'], t_b=c['t_b'],
-        a=dict(title=c['a']['title'], yt=c['a']['yt']),
-        b=dict(title=c['b']['title'], yt=c['b']['yt']),
+        a=_track_fields(c['a']),
+        b=_track_fields(c['b']),
         gate=gate, pro_clip=rec['pro_clip'],
         verdict='admit' if gate.get('passed') else 'reject',
         reason='; '.join(gate.get('reasons') or []) or None,
@@ -856,10 +894,10 @@ def archive_mix(mix, admitted_rows):
         print('archived+deleted mix', mix['mix_id'], flush=True)
     used = set()
     for r in admitted_rows:
-        if r.get('a', {}).get('yt'):
-            used.add(r['a']['yt'])
-        if r.get('b', {}).get('yt'):
-            used.add(r['b']['yt'])
+        for side in (r.get('a') or {}, r.get('b') or {}):
+            key = fetch.media_key(side) if (side.get('yt') or side.get('url') or side.get('id')) else ''
+            if key:
+                used.add(key)
     for yt in sorted(used):
         src = os.path.join(LIB, yt + '.m4a')
         if os.path.exists(src):
@@ -884,6 +922,18 @@ def archive_mix(mix, admitted_rows):
 
 def already_ids():
     return {r['id'] for r in load_jsonl(ACCEPTED)} | {r['id'] for r in load_jsonl(REJECTED)}
+
+
+
+def apply_resolved(side, title, preset=None, min_duration=None):
+    """Fill yt / source / url / duration on a pair side from resolve_track."""
+    hit = admit.resolve_track(title, preset=preset, min_duration=min_duration)
+    side['yt'] = fetch.media_key(hit)
+    side['source'] = hit.get('source') or 'youtube'
+    side['url'] = hit.get('url') or fetch.media_url(hit)
+    if hit.get('duration') not in (None, ''):
+        side['duration'] = hit['duration']
+    return side
 
 
 def ingest_mix(mix, snap):
@@ -916,8 +966,10 @@ def ingest_mix(mix, snap):
         try:
             if not TP.is_artist_title(c['a']['title']) or not TP.is_artist_title(c['b']['title']):
                 raise RuntimeError(f"not Artist - Title: {c['a']['title']!r} / {c['b']['title']!r}")
-            c['a']['yt'] = admit.resolve_yt(c['a']['title'], c['a'].get('yt'))
-            c['b']['yt'] = admit.resolve_yt(c['b']['title'], c['b'].get('yt'))
+            apply_resolved(c['a'], c['a']['title'], c['a'].get('yt') or c['a'].get('url'),
+                           admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'a'))
+            apply_resolved(c['b'], c['b']['title'], c['b'].get('yt') or c['b'].get('url'),
+                           admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'b'))
             pending.append(c)
         except Exception as e:
             row = dict(id=c['id'], dj=c.get('dj'), mix_id=c['mix_id'], video_id=c.get('video_id'),
@@ -926,13 +978,17 @@ def ingest_mix(mix, snap):
             append_jsonl(REJECTED, row)
             n_rej += 1
             print('reject', row['id'], row['reason'], flush=True)
-    yts = []
+    tracks = []
     for c in pending:
-        yts.append(c['a'].get('yt'))
-        yts.append(c['b'].get('yt'))
+        if isinstance(c['a'], dict):
+            c['a']['min_duration'] = admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'a')
+            tracks.append(c['a'])
+        if isinstance(c['b'], dict):
+            c['b']['min_duration'] = admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'b')
+            tracks.append(c['b'])
     if pending:
-        print(f"prefetch {len(set(y for y in yts if y))} sources for {len(pending)} pairs", flush=True)
-        prefetch_sources(yts, workers=2)
+        print(f"prefetch {len({fetch.media_key(t) for t in tracks if t})} sources for {len(pending)} pairs", flush=True)
+        prefetch_sources(tracks, workers=2)
     for c in pending:
         try:
             row, rec, sa, sb = process_pair_v2(c, dest)
@@ -1424,13 +1480,189 @@ def retry_slash_rejects(archive=True):
     return out
 
 
-def resume():
-    """Continue from the queue checkpoint: retry slash rejects, then ingest."""
+
+def _is_resolve_reason(reason):
+    reason = reason or ''
+    if reason.startswith('resolve:'):
+        return True
+    if reason.startswith('retry:') and (
+        'no confident search hit' in reason or 'search failed' in reason
+        or 'preview too short' in reason or 'empty title' in reason
+    ):
+        return True
+    return False
+
+
+def resolve_reject_rows(skip_tried=True):
+    """Unique earlier resolve misses, optionally skipping ids already retried with new sources."""
+    accepted = {r['id'] for r in load_jsonl(ACCEPTED)}
+    tried = set()
+    if skip_tried and os.path.exists(RESOLVE_RETRY):
+        try:
+            prev = json.load(open(RESOLVE_RETRY))
+            tried.update(prev.get('tried_ids') or [])
+        except (ValueError, OSError):
+            pass
+    if skip_tried:
+        for r in load_jsonl(REJECTED):
+            if r.get('retried_sources'):
+                tried.add(r.get('id'))
+    out, seen = [], set()
+    for r in load_jsonl(REJECTED):
+        rid = r.get('id')
+        if not rid or rid in accepted or rid in seen:
+            continue
+        if skip_tried and rid in tried:
+            continue
+        if r.get('verdict') != 'reject':
+            continue
+        if not _is_resolve_reason(r.get('reason') or ''):
+            continue
+        seen.add(rid)
+        out.append(r)
+    return out
+
+
+def retry_resolve_rejects(archive=True, limit=None):
+    """Re-try resolve misses with SoundCloud / Bandcamp fallbacks. Same confidence gate."""
     _mkdirs()
     _limit_cpu()
     snap = snapshot_protected()
-    retry_slash_rejects(archive=True)
-    assert_protected(snap, 'after slash retry')
+    rows = resolve_reject_rows(skip_tried=True)
+    if limit:
+        rows = rows[:int(limit)]
+    print(f'resolve-source retries: {len(rows)}', flush=True)
+    prev = {}
+    if os.path.exists(RESOLVE_RETRY):
+        try:
+            prev = json.load(open(RESOLVE_RETRY)) or {}
+        except (ValueError, OSError):
+            prev = {}
+    tried_ids = list(prev.get('tried_ids') or [])
+    if not rows:
+        out = dict(candidates=0, recovered=0, still_reject=0, recovered_ids=[],
+                   tried_ids=tried_ids, sources=list(fetch.SOURCE_ORDER))
+        _atomic_json(RESOLVE_RETRY, out)
+        return out
+    queue = json.load(open(QUEUE)) if os.path.exists(QUEUE) else dict(mixes=[])
+    by_id = {m['mix_id']: m for m in queue.get('mixes') or []}
+    by_vid = {m.get('video_id'): m for m in queue.get('mixes') or []}
+    accepted_ids = {r['id'] for r in load_jsonl(ACCEPTED)}
+    recovered = still = 0
+    recovered_rows = []
+    groups = {}
+    for r in rows:
+        if r['id'] in accepted_ids:
+            continue
+        groups.setdefault(r.get('mix_id') or r.get('video_id'), []).append(r)
+    for mid, group in groups.items():
+        mix = by_id.get(mid) or by_vid.get(group[0].get('video_id'))
+        if not mix:
+            print('retry skip, unknown mix', mid, flush=True)
+            still += len(group)
+            tried_ids.extend(r['id'] for r in group)
+            continue
+        try:
+            dest = _mix_audio_for(mix)
+        except Exception as e:
+            print('retry mix download failed', mid, e, flush=True)
+            still += len(group)
+            tried_ids.extend(r['id'] for r in group)
+            continue
+        admitted_rows = []
+        pending = []
+        for r in group:
+            a_title = fetch.normalize_track_title((r.get('a') or {}).get('title') or r.get('pair', '').split(' -> ')[0])
+            b_title = fetch.normalize_track_title((r.get('b') or {}).get('title') or (r.get('pair', '').split(' -> ')[-1]))
+            c = dict(
+                id=r['id'], mix_id=r.get('mix_id') or mix['mix_id'], dj=r.get('dj') or mix.get('dj'),
+                mix_url=r.get('mix_url') or mix.get('url'), video_id=r.get('video_id') or mix.get('video_id'),
+                t_a=r.get('t_a'), t_b=r.get('t_b'), t_next=(r.get('t_b') or 0) + 90,
+                a=dict(title=a_title, yt=None),
+                b=dict(title=b_title, yt=None),
+            )
+            try:
+                apply_resolved(c['a'], c['a']['title'], None,
+                               admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'a'))
+                apply_resolved(c['b'], c['b']['title'], None,
+                               admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'b'))
+                pending.append(c)
+            except Exception as e:
+                row = dict(id=c['id'], dj=c.get('dj'), mix_id=c['mix_id'], video_id=c.get('video_id'),
+                           pair=f"{c['a']['title']} -> {c['b']['title']}", t_a=c['t_a'], t_b=c['t_b'],
+                           verdict='reject', reason=f'retry: {e}'[:300], retried_sources=True)
+                append_jsonl(REJECTED, row)
+                still += 1
+                tried_ids.append(c['id'])
+                print('retry still reject', c['id'], row['reason'], flush=True)
+        tracks = []
+        for c in pending:
+            c['a']['min_duration'] = admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'a')
+            c['b']['min_duration'] = admit.needed_source_duration(c['t_a'], c['t_b'], c.get('t_next'), 'b')
+            tracks.extend([c['a'], c['b']])
+        if pending:
+            prefetch_sources(tracks, workers=2)
+        for c in pending:
+            try:
+                row, rec, sa, sb = process_pair_v2(c, dest)
+            except Exception as e:
+                row = dict(id=c['id'], dj=c.get('dj'), mix_id=c['mix_id'], video_id=c.get('video_id'),
+                           pair=f"{c['a']['title']} -> {c['b']['title']}", t_a=c['t_a'], t_b=c['t_b'],
+                           verdict='reject', reason=f'retry: {e}'[:300], retried_sources=True)
+                append_jsonl(REJECTED, row)
+                still += 1
+                tried_ids.append(c['id'])
+                print('retry still reject', c['id'], row['reason'], flush=True)
+                shutil.rmtree(os.path.join(CLIPS, c['mix_id'], c['id']), ignore_errors=True)
+                continue
+            row['retried_sources'] = True
+            tried_ids.append(c['id'])
+            if row['verdict'] == 'admit':
+                try:
+                    feat = extract_features(row, rec, sa, sb)
+                    row['feature_path'] = os.path.join('features', row['id'] + '.json')
+                    row['cue'] = feat.get('cue')
+                except Exception as e:
+                    row['feature_error'] = str(e)[:200]
+                append_jsonl(ACCEPTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+                admitted_rows.append(row)
+                recovered_rows.append(row)
+                recovered += 1
+                print('retry admit', row['id'], row.get('pair'),
+                      row.get('a', {}).get('source'), '->', row.get('b', {}).get('source'), flush=True)
+            else:
+                append_jsonl(REJECTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+                still += 1
+                print('retry still reject', row['id'], row.get('reason'), flush=True)
+                if row.get('pro_clip'):
+                    shutil.rmtree(os.path.dirname(row['pro_clip']), ignore_errors=True)
+            assert_protected(snap, where='retry '+c['id'])
+        if archive and admitted_rows:
+            try:
+                archive_mix(mix, admitted_rows)
+            except Exception as e:
+                print('retry archive warning', mid, e, flush=True)
+        assert_protected(snap, where='retry mix '+mid)
+    # unique tried ids, preserve order
+    seen, uniq = set(), []
+    for i in tried_ids:
+        if i and i not in seen:
+            seen.add(i); uniq.append(i)
+    out = dict(candidates=len(rows), recovered=recovered, still_reject=still,
+               recovered_ids=[r['id'] for r in recovered_rows],
+               tried_ids=uniq, sources=list(fetch.SOURCE_ORDER))
+    _atomic_json(RESOLVE_RETRY, out)
+    print('RESOLVE_RETRY', json.dumps(out), flush=True)
+    return out
+
+
+def resume():
+    """Continue from the queue checkpoint: retry resolve misses, then ingest."""
+    _mkdirs()
+    _limit_cpu()
+    snap = snapshot_protected()
+    retry_resolve_rejects(archive=True)
+    assert_protected(snap, 'after resolve retry')
     save_progress(dict(phase='ingest', accepted=len(load_jsonl(ACCEPTED)),
                        rejected=len(load_jsonl(REJECTED))))
     ingest_all()
@@ -1454,7 +1686,7 @@ def resume():
     try:
         for name in ('manifest.json', 'queue.json', 'split.json', 'accepted.jsonl',
                      'rejected.jsonl', 'progress.json', 'summary.json', 'legacy_33.jsonl',
-                     'slash_retry.json'):
+                     'slash_retry.json', 'resolve_retry.json'):
             pth = os.path.join(ROOT, name)
             if os.path.exists(pth):
                 archive_and_verify(pth, f'meta/{name}')
@@ -1547,6 +1779,9 @@ if __name__ == '__main__':
         print(json.dumps(train_ranker(split), indent=2))
     elif cmd[0] == 'retry-slash':
         print(json.dumps(retry_slash_rejects(), indent=2))
+    elif cmd[0] == 'retry-resolve':
+        lim = int(cmd[1]) if len(cmd) > 1 else None
+        print(json.dumps(retry_resolve_rejects(limit=lim), indent=2))
     elif cmd[0] == 'resume':
         resume()
     else:

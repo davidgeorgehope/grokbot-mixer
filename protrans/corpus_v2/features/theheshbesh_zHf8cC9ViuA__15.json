@@ -1,0 +1,73 @@
+{
+  "id": "theheshbesh_zHf8cC9ViuA__15",
+  "mix_id": "theheshbesh_zHf8cC9ViuA",
+  "dj": "TheHeshBesh",
+  "pair": "Logistics - In Your Eyes -> Nu:Tone - \u2018Til Dawn",
+  "video_id": "zHf8cC9ViuA",
+  "cue": {
+    "incoming_bar": 72.73,
+    "incoming_section": null,
+    "outgoing_bar": 111.05,
+    "outgoing_section": null,
+    "blend_list_s": 102.0,
+    "locate_a": {
+      "z": 7.759,
+      "cc": 0.5428,
+      "mix_t": 17.601,
+      "track_t": 146.773,
+      "n": 93
+    },
+    "locate_b": {
+      "z": 7.833,
+      "cc": 0.4001,
+      "mix_t": 49.482,
+      "track_t": 125.806,
+      "n": 63
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.022,
+      "hold_db": -5.94,
+      "tail_bars": 37.33,
+      "out_p90": -3.9,
+      "in_p90": -4.09
+    },
+    "bass": {
+      "rise_db_per_beat": -0.431,
+      "hold_db": -3.58,
+      "tail_bars": 44.22,
+      "out_p90": 3.04,
+      "in_p90": 0.06
+    },
+    "highs": {
+      "rise_db_per_beat": -0.049,
+      "hold_db": -7.71,
+      "tail_bars": 46.21,
+      "out_p90": 8.34,
+      "in_p90": -0.51
+    },
+    "mids": {
+      "rise_db_per_beat": -0.105,
+      "hold_db": -6.31,
+      "tail_bars": 45.67,
+      "out_p90": -4.29,
+      "in_p90": -3.49
+    }
+  },
+  "overlap_bars": 23.017,
+  "track_a": {
+    "sections": {},
+    "bpm": 174.001,
+    "yt": "04459SswOpM",
+    "title": "Logistics - In Your Eyes"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 170.002,
+    "yt": "NOwkxPVB6iE",
+    "title": "Nu:Tone - \u2018Til Dawn"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

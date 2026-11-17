@@ -1,0 +1,73 @@
+{
+  "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+  "mix_id": "ukf_drum_bass_LeMk0yiSoq4",
+  "dj": "UKF Drum & Bass",
+  "pair": "Halogenix, Liam Bailey - Satisfy My Soul -> Mollie Collins & Ruth Royall - Remedies (Vibe Chemistry Remix)",
+  "video_id": "LeMk0yiSoq4",
+  "cue": {
+    "incoming_bar": 15.4,
+    "incoming_section": null,
+    "outgoing_bar": 112.46,
+    "outgoing_section": null,
+    "blend_list_s": 104.0,
+    "locate_a": {
+      "z": 10.073,
+      "cc": 0.6548,
+      "mix_t": 9.66,
+      "track_t": 140.783,
+      "n": 118
+    },
+    "locate_b": {
+      "z": 11.233,
+      "cc": 0.9191,
+      "mix_t": 38.708,
+      "track_t": 35.944,
+      "n": 69
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.142,
+      "hold_db": -7.06,
+      "tail_bars": 14.14,
+      "out_p90": -6.0,
+      "in_p90": 0.52
+    },
+    "bass": {
+      "rise_db_per_beat": -0.119,
+      "hold_db": -7.53,
+      "tail_bars": 15.22,
+      "out_p90": -5.72,
+      "in_p90": 0.85
+    },
+    "highs": {
+      "rise_db_per_beat": 0.438,
+      "hold_db": -5.53,
+      "tail_bars": 28.82,
+      "out_p90": -4.78,
+      "in_p90": 9.54
+    },
+    "mids": {
+      "rise_db_per_beat": -0.073,
+      "hold_db": -6.66,
+      "tail_bars": 16.13,
+      "out_p90": -5.49,
+      "in_p90": 0.5
+    }
+  },
+  "overlap_bars": 11.236,
+  "track_a": {
+    "sections": {},
+    "bpm": 171.997,
+    "yt": "0I_sTbK0e5k",
+    "title": "Halogenix, Liam Bailey - Satisfy My Soul"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 173.999,
+    "yt": "g2f727L7JWk",
+    "title": "Mollie Collins & Ruth Royall - Remedies (Vibe Chemistry Remix)"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

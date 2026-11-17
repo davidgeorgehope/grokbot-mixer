@@ -91,3 +91,34 @@ continue to be logged.
 ## Title normalizer and throughput (16 November 2026)
 
 Track names from chapters often carry a leading `//`, bullet, list number, or leftover timestamp. Those tokens made source search miss (score -25 on a clean DC Breaks title). `fetch.normalize_track_title` now strips that junk before search, while leaving cue timestamps intact for the line parser and leaving artist names like `1991 - Nine Clouds` alone. Copies off the download host retry the copy only, without re-encoding, and subsequent ingest prefetches two studio sources at a time. Alignment and the quality gates are unchanged. A slash-resolve retry walks earlier rejects whose reason was a resolve miss with a `//` prefix.
+
+## Studio-track sources (17 November 2026)
+
+Source search still starts on YouTube (`ytsearch` on the download host),
+with the same title/artist/duration scoring and the same confidence
+floor (score ≥ 2). When YouTube has no confident hit, the resolver
+tries, in order:
+
+1. YouTube (`ytsearch`) — unchanged first source
+2. SoundCloud (`yt-dlp scsearch` on the download host)
+3. Bandcamp (Bandcamp's public track search, also run on the download
+   host, then fetched with yt-dlp)
+
+Tracklist label tags such as `[Forthcoming Fokuz]` or `[Celsius]` are
+stripped before search and scoring only (stored titles stay as written).
+Version tags like `[VIP]` or `[Remix]` are kept, because the scorer
+uses them. The confidence floor is still score ≥ 2.
+
+A later source is used only if every earlier source missed or returned
+only clips shorter than the blend window. SoundCloud and Bandcamp often
+serve 30–60 s previews of forthcoming tunes; those are rejected when
+they are shorter than the analysis clip (`extract.PRE` + `extract.POST`,
+64 s) or the listed slot for that track (outgoing 90–280 s, incoming
+until the next cue). Duration is checked again after the download, so
+a preview that advertises a full-track length still gets dropped.
+
+Accepted rows record `source` and `url` on each side (`a` / `b`),
+alongside the existing `yt` id (a filename key; YouTube video ids are
+unchanged). Previously rejected "no confident search hit" transitions
+are retried once with the new sources (`retry-resolve` / `resume`).
+Quality gates (locate, BPM, talkover, real-blend) are unchanged.

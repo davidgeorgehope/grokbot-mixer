@@ -720,11 +720,16 @@
       "n_tracks": 18,
       "n_chapters": 18,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 12,
       "n_admit": 0,
       "n_reject": 0,
-      "n_official_tracks": 18
+      "n_official_tracks": 18,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/alpha_rhythm_AU0V19j8oKM/AU0V19j8oKM.m4a",
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/alpha_rhythm_AU0V19j8oKM"
+      },
+      "archived": true
     },
     {
       "mix_id": "alpha_rhythm_V0BMNeOy_t4",
@@ -737,11 +742,15 @@
       "n_tracks": 15,
       "n_chapters": 15,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 8,
       "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 10
+      "n_reject": 8,
+      "n_official_tracks": 10,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/alpha_rhythm_V0BMNeOy_t4/V0BMNeOy_t4.m4a"
+      },
+      "archived": true
     },
     {
       "mix_id": "alpha_rhythm_Vp6Lmqh7opA",
@@ -805,11 +814,22 @@
       "n_tracks": 12,
       "n_chapters": 12,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 6,
-      "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 10
+      "n_admit": 3,
+      "n_reject": 3,
+      "n_official_tracks": 10,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/alpha_rhythm__fNcLmH-CYQ/_fNcLmH-CYQ.m4a",
+        "sources": [
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/I8Fw4ZYk6kM.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/mIIYJ7xy1BQ.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/uEK_-VgyWZs.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/ykoQfht9AuI.m4a"
+        ],
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/alpha_rhythm__fNcLmH-CYQ"
+      },
+      "archived": true
     },
     {
       "mix_id": "alpha_rhythm_f6ZI5y33EyU",
@@ -839,11 +859,15 @@
       "n_tracks": 19,
       "n_chapters": 19,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 15,
       "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 19
+      "n_reject": 15,
+      "n_official_tracks": 19,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/alpha_rhythm_imZjEt78YXs/imZjEt78YXs.m4a"
+      },
+      "archived": true
     },
     {
       "mix_id": "alpha_rhythm_TnnrrqVRZIM",
@@ -856,11 +880,20 @@
       "n_tracks": 17,
       "n_chapters": 17,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 12,
-      "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 17
+      "n_admit": 1,
+      "n_reject": 11,
+      "n_official_tracks": 17,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/alpha_rhythm_TnnrrqVRZIM/TnnrrqVRZIM.m4a",
+        "sources": [
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/dtanv7Vk6SQ.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/hZGC1iwJJWM.m4a"
+        ],
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/alpha_rhythm_TnnrrqVRZIM"
+      },
+      "archived": true
     },
     {
       "mix_id": "alpha_rhythm_o_DpdMg0JnI",
@@ -890,11 +923,16 @@
       "n_tracks": 17,
       "n_chapters": 17,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 13,
       "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 17
+      "n_reject": 13,
+      "n_official_tracks": 17,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/alpha_rhythm_hb7PvukS-Pk/hb7PvukS-Pk.m4a",
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/alpha_rhythm_hb7PvukS-Pk"
+      },
+      "archived": true
     },
     {
       "mix_id": "rich_roll_vrDihiGNubI",
@@ -1026,11 +1064,20 @@
       "n_tracks": 16,
       "n_chapters": 16,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 5,
-      "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 9
+      "n_admit": 1,
+      "n_reject": 4,
+      "n_official_tracks": 9,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/hospital_records_Lm2VlTogWvY/Lm2VlTogWvY.m4a",
+        "sources": [
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/4yyryWaOEmw.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/b5feU0Dv1zI.m4a"
+        ],
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/hospital_records_Lm2VlTogWvY"
+      },
+      "archived": true
     },
     {
       "mix_id": "hospital_records_W1qNqe03_cs",
@@ -1094,11 +1141,16 @@
       "n_tracks": 36,
       "n_chapters": 36,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 24,
       "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 35
+      "n_reject": 24,
+      "n_official_tracks": 35,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/fishrsa_NY14ejIoQBM/NY14ejIoQBM.m4a",
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/fishrsa_NY14ejIoQBM"
+      },
+      "archived": true
     },
     {
       "mix_id": "hospital_records_8uotoGc8_xI",
@@ -1536,11 +1588,32 @@
       "n_tracks": 42,
       "n_chapters": 42,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 34,
-      "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 42
+      "n_admit": 8,
+      "n_reject": 26,
+      "n_official_tracks": 42,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/theheshbesh_zHf8cC9ViuA/zHf8cC9ViuA.m4a",
+        "sources": [
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/04459SswOpM.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/0Yk1IZRUWCc.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/3cOEsXf-ic0.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/4FeueKEmxU0.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/4zEmbwH8SQE.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/9VKToiRnrIc.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/B8diXfhUkjI.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/GSzweUBnRYM.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/GgG1Cd9zITE.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/JUnsLBoOp_Q.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/ND-apQbCyrQ.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/NOwkxPVB6iE.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/QH5RlUJU_Ns.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/jnIZ4649fQg.m4a"
+        ],
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/theheshbesh_zHf8cC9ViuA"
+      },
+      "archived": true
     },
     {
       "mix_id": "ukf_drum_bass_Ea4ngKLPNMQ",
@@ -1569,11 +1642,22 @@
       "n_tracks": 55,
       "n_chapters": 55,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 11,
-      "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 55
+      "n_admit": 2,
+      "n_reject": 9,
+      "n_official_tracks": 55,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/ukf_drum_bass_abhfer_BNoQ/abhfer_BNoQ.m4a",
+        "sources": [
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/1RkIOB29NdI.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/3jgKybi_WzI.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/W8pOSdPvtus.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/eDru6Ih-rsA.m4a"
+        ],
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/ukf_drum_bass_abhfer_BNoQ"
+      },
+      "archived": true
     },
     {
       "mix_id": "ukf_drum_bass_LeMk0yiSoq4",
@@ -1586,11 +1670,32 @@
       "n_tracks": 61,
       "n_chapters": 61,
       "tracklist_source": "chapters",
-      "status": "queued",
+      "status": "done",
       "n_goldilocks": 13,
-      "n_admit": 0,
-      "n_reject": 0,
-      "n_official_tracks": 59
+      "n_admit": 8,
+      "n_reject": 5,
+      "n_official_tracks": 59,
+      "drive": {
+        "mix": "gdrive:DJ Mixes Archive/protrans/corpus_v2/mixes/ukf_drum_bass_LeMk0yiSoq4/LeMk0yiSoq4.m4a",
+        "sources": [
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/-lFAvfq2gwk.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/-qFw9qljQf4.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/0I_sTbK0e5k.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/1b-Q-OCiF9E.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/A6Hp-INSRhw.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/FVhU9dLiGQ4.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/QwGqIdW_R5o.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/Tj69AojQyoI.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/cMQhks29fCA.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/g2f727L7JWk.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/jwF4GRkogv0.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/nTmMjeSO0RY.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/wjXsXmJoT5k.m4a",
+          "gdrive:DJ Mixes Archive/protrans/corpus_v2/sources/xDdtOpRyXhI.m4a"
+        ],
+        "clips": "gdrive:DJ Mixes Archive/protrans/corpus_v2/clips/ukf_drum_bass_LeMk0yiSoq4"
+      },
+      "archived": true
     },
     {
       "mix_id": "ukf_drum_bass_cCtoa1U_1DE",
@@ -4194,6 +4299,6 @@
       "n_official_tracks": 0
     }
   ],
-  "ts": "2026-11-16 20:10:17 EST",
+  "ts": "2026-11-17 06:26:21 PST",
   "n": 240
 }

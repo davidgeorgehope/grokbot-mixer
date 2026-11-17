@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple

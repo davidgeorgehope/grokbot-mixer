@@ -1,0 +1,73 @@
+{
+  "id": "ukf_drum_bass_abhfer_BNoQ__25",
+  "mix_id": "ukf_drum_bass_abhfer_BNoQ",
+  "dj": "UKF Drum & Bass",
+  "pair": "Jolliffe & Liam Bailey - Let the Sunshine -> Umbra & Sydney Bryce - I Can Feel You Again",
+  "video_id": "abhfer_BNoQ",
+  "cue": {
+    "incoming_bar": 24.32,
+    "incoming_section": null,
+    "outgoing_bar": 188.08,
+    "outgoing_section": null,
+    "blend_list_s": 100.0,
+    "locate_a": {
+      "z": 7.98,
+      "cc": 0.48,
+      "mix_t": 13.189,
+      "track_t": 248.616,
+      "n": 93
+    },
+    "locate_b": {
+      "z": 6.868,
+      "cc": 0.8246,
+      "mix_t": 41.378,
+      "track_t": 50.921,
+      "n": 86
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.236,
+      "hold_db": -8.99,
+      "tail_bars": 32.8,
+      "out_p90": -3.04,
+      "in_p90": -4.02
+    },
+    "bass": {
+      "rise_db_per_beat": 0.317,
+      "hold_db": -9.29,
+      "tail_bars": 34.07,
+      "out_p90": 5.29,
+      "in_p90": 6.92
+    },
+    "highs": {
+      "rise_db_per_beat": -0.238,
+      "hold_db": -7.05,
+      "tail_bars": 32.8,
+      "out_p90": 9.54,
+      "in_p90": 3.53
+    },
+    "mids": {
+      "rise_db_per_beat": 0.246,
+      "hold_db": -9.86,
+      "tail_bars": 34.07,
+      "out_p90": -1.21,
+      "in_p90": -2.84
+    }
+  },
+  "overlap_bars": 11.418,
+  "track_a": {
+    "sections": {},
+    "bpm": 169.99,
+    "yt": "W8pOSdPvtus",
+    "title": "Jolliffe & Liam Bailey - Let the Sunshine"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 172.014,
+    "yt": "3jgKybi_WzI",
+    "title": "Umbra & Sydney Bryce - I Can Feel You Again"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

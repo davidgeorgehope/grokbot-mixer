@@ -1,0 +1,73 @@
+{
+  "id": "alpha_rhythm__fNcLmH-CYQ__00",
+  "mix_id": "alpha_rhythm__fNcLmH-CYQ",
+  "dj": "Alpha Rhythm",
+  "pair": "Cnof & Liquid Waves - Drop The Beat [Fokuz] -> Unknown Artist - Everybody Loves Sunshine \u201923 [Fokuz]",
+  "video_id": "_fNcLmH-CYQ",
+  "cue": {
+    "incoming_bar": 31.68,
+    "incoming_section": null,
+    "outgoing_bar": 193.79,
+    "outgoing_section": null,
+    "blend_list_s": 198.0,
+    "locate_a": {
+      "z": 6.624,
+      "cc": 0.6993,
+      "mix_t": 2.322,
+      "track_t": 245.621,
+      "n": 90
+    },
+    "locate_b": {
+      "z": 6.968,
+      "cc": 0.6773,
+      "mix_t": 22.245,
+      "track_t": 41.935,
+      "n": 103
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.258,
+      "hold_db": -6.19,
+      "tail_bars": 21.57,
+      "out_p90": -4.08,
+      "in_p90": -4.19
+    },
+    "bass": {
+      "rise_db_per_beat": -0.489,
+      "hold_db": -4.5,
+      "tail_bars": 23.2,
+      "out_p90": 1.19,
+      "in_p90": -2.5
+    },
+    "highs": {
+      "rise_db_per_beat": -0.063,
+      "hold_db": -7.86,
+      "tail_bars": 21.93,
+      "out_p90": -4.77,
+      "in_p90": -4.67
+    },
+    "mids": {
+      "rise_db_per_beat": -0.419,
+      "hold_db": -5.99,
+      "tail_bars": 23.2,
+      "out_p90": -1.7,
+      "in_p90": -4.21
+    }
+  },
+  "overlap_bars": 13.411,
+  "track_a": {
+    "sections": {},
+    "bpm": 171.992,
+    "yt": "mIIYJ7xy1BQ",
+    "title": "Cnof & Liquid Waves - Drop The Beat [Fokuz]"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 174.013,
+    "yt": "I8Fw4ZYk6kM",
+    "title": "Unknown Artist - Everybody Loves Sunshine \u201923 [Fokuz]"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

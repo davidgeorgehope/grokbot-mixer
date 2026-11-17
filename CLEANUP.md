@@ -159,3 +159,4 @@
 - 2026-11-13 03:20 ET daily cleanup: nothing removed or archived. Kept mix08_long1h raw/master WAVs (2.6G; build waiting on the listener's rating of the long-blend A/B clips) and all guard_mix* (plan_search bad-window history). No other mix*_raw/master WAVs in src2, no /tmp/*.wav. Free 45G.
 - 2026-11-14 03:20 ET daily cleanup: archived mix08_long1h_master.wav (1.3G) to gdrive:DJ Mixes Archive/src2/ (rclone check ok); deleted it and mix08_long1h_raw.wav (long-blend adopted 2026-11-11). Kept mix09_r4/r5 raw/master WAVs (<3h, weekly build running) and all guard_mix*. No /tmp WAVs. Free 34G.
 - 2026-11-15 03:20 ET daily cleanup: nothing removed or archived. No mix*_raw/master WAVs in src2, no /tmp/*.wav. Kept all guard_mix* (plan_search bad-window history; latest delivered Mix 09 = r5b). Free 61G.
+- 2026-11-17 03:2x ET daily cleanup: nothing removed or archived. No mix*_raw/master WAVs in src2, no /tmp/*.wav. Kept all guard_mix*. Free 62G.

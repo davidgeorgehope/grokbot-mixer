@@ -13,6 +13,17 @@ starts, and extends the outgoing deck past the window until the line reaches FLO
 of snapping to silence at end_bar. Still one monotonic equal-power control. Never moves the window,
 the bass swap or the high swap. Guards (ride, 3 dB/bar, X1, swap-x) are honoured, never loosened.
 Each touched blend gets t['tail_shape'] = dict(rate, floor, old_exit_bar, exit_bar, extended_by, changed).
+
+TAIL_SHALLOW_CAP=N / TAIL_SHALLOW_GATE=end (2026-11-16 research, off by default; only act with TAIL_SHALLOW=R):
+the uncapped residual overfit (R=1 train +2.13 / held-out -1.36; the long ~13-bar extension helped pairs whose
+pro stays in and hurt pairs whose pro already cut). CAP bounds the residual to N bars past the planned window end:
+the outgoing target is the louder-is-not-allowed min of (a) the shallow R dB/bar line from the exit start and
+(b) a deadline line that falls CAP_RATE (2.75 dB/bar, under the 3 dB/bar gradual rule) and reaches FLOOR exactly
+at end_bar + N. So the mid-fade is lifted, then the residual still leaves gradually and is gone by end + N.
+The outgoing is only ever lifted (x = min(x_old, x_target)); upper envelope of two <=3 dB/bar curves stays <=3.
+GATE=end: only touch blends whose designed exit (outgoing at FLOOR) already sits within GATE_TOL bars of the
+window end (the typical 16-bar case); FADE=long 32-bar solos (exit LONG_SOLO bars before the end) are left alone.
+Info adds cap, gate, gated_out.
 """
 import numpy as np
 import tail_exit as TE
@@ -20,6 +31,8 @@ import tail_exit as TE
 FLOOR = -24.0
 STEP = 0.25
 EXT_CAP = 16.0  # bars past the original window end
+CAP_RATE = 2.75  # dB/bar for the capped residual's final leave (TAIL_SHALLOW_CAP)
+GATE_TOL = 2.0   # bars: TAIL_SHALLOW_GATE=end needs the designed exit within this of end_bar
 
 
 def _extend_points(xs, G, rate, start_b, start_db):
@@ -81,12 +94,68 @@ def reshape(xs, rate, floor=FLOOR):
     return out, extended
 
 
-def apply_one(t, rate, floor=FLOOR, ride_frac=0.15, margin=0.5):
+def _target_db(b, b0, db0, rate, G, cap_rate):
+    return min(db0 - float(rate) * (b - b0), FLOOR + float(cap_rate) * (G - b))
+
+
+def reshape_capped(xs, rate, end_bar, cap, floor=FLOOR, cap_rate=CAP_RATE):
+    """shallow R line from the exit start, but the residual must reach `floor` by end_bar + cap
+    (final leave at <= cap_rate dB/bar). Only ever lifts the outgoing inside the window."""
+    xs = [list(p) for p in xs]
+    if not xs:
+        return xs, 0.0
+    bars = np.array([p[0] for p in xs], float)
+    g = TE._db(np.array([p[1] for p in xs], float))
+    plat = np.flatnonzero(g >= -3.5)
+    i0 = int(plat[-1]) if len(plat) else 0
+    b0, db0 = float(bars[i0]), float(g[i0])
+    G = float(end_bar) + float(cap)
+
+    def xt(b):
+        db = _target_db(b, b0, db0, rate, G, cap_rate)
+        return 0.0 if db >= 0 else (1.0 if db <= floor + 1e-9 else TE._x(db))
+    out = []
+    for b, x in xs:
+        b, x = float(b), float(x)
+        out.append([b, x] if b <= b0 + 1e-9 else [b, round(min(x, xt(b)), 5)])
+    last_b = out[-1][0]
+    extended = 0.0
+    if out[-1][1] < 1 - 1e-9:
+        b = last_b + STEP
+        while b < G - 1e-9:
+            x = round(xt(b), 5)
+            out.append([round(b, 5), x])
+            if x >= 1 - 1e-9:
+                break
+            b += STEP
+        if out[-1][1] < 1 - 1e-9:
+            out.append([round(G, 5), 1.0])
+        extended = round(out[-1][0] - last_b, 3)
+    for i in range(1, len(out)):
+        out[i][1] = max(out[i][1], out[i - 1][1])
+    return out, extended
+
+
+def gate_end(t, floor=FLOOR, tol=GATE_TOL):
+    """True when the designed exit (outgoing at floor) already sits at the window end."""
+    return (float(t['end_bar']) - TE.exit_bar(t['xfader'], floor)) <= tol + 1e-9
+
+
+def apply_one(t, rate, floor=FLOOR, ride_frac=0.15, margin=0.5, cap=None, gate=None):
     if rate is None or rate <= 0 or not t.get('xfader'):
         return None
     xs0 = [list(p) for p in t['xfader']]
     old_exit = TE.exit_bar(xs0, floor)
-    xs, extended = reshape(xs0, rate, floor)
+    if gate == 'end' and not gate_end(t, floor):
+        info = dict(rate=float(rate), floor=float(floor), old_exit_bar=round(old_exit, 3),
+                    exit_bar=round(old_exit, 3), extended_by=0.0, clamped_by=None, changed=False,
+                    cap=cap, gate=gate, gated_out=True)
+        t['tail_shape'] = info
+        return info
+    if cap is not None and cap > 0:
+        xs, extended = reshape_capped(xs0, rate, t['end_bar'], cap, floor)
+    else:
+        xs, extended = reshape(xs0, rate, floor)
     # guards are checked on the original window only (end_bar is unchanged)
     inside = [p for p in xs if p[0] <= t['end_bar'] + 1e-9] or xs
     why = TE._ok(t, inside, ride_frac, margin)
@@ -102,6 +171,8 @@ def apply_one(t, rate, floor=FLOOR, ride_frac=0.15, margin=0.5):
                 old_exit_bar=round(old_exit, 3),
                 exit_bar=round(TE.exit_bar(xs, floor), 3),
                 extended_by=extended, clamped_by=why, changed=bool(changed))
+    if cap is not None or gate is not None:
+        info.update(cap=cap, gate=gate, gated_out=False)
     t['tail_shape'] = info
     return info
 
@@ -122,11 +193,11 @@ def _extend_outgoing(decks, trans):
         d['map'] = fm[:1] + fm[-1:]
 
 
-def apply(decks, trans, rate, floor=FLOOR, ride_frac=0.15, skip=()):
+def apply(decks, trans, rate, floor=FLOOR, ride_frac=0.15, skip=(), cap=None, gate=None):
     for i, t in enumerate(trans):
         if t['a'] in skip:
             continue
-        apply_one(t, rate, floor, ride_frac)
+        apply_one(t, rate, floor, ride_frac, cap=cap, gate=gate)
         # do not run a residual into the next blend
         if i + 1 < len(trans) and t['end_bar'] > trans[i + 1]['start_bar']:
             nxt = trans[i + 1]['start_bar']

@@ -1,0 +1,49 @@
+{
+  "variant": "tcap8n_1116",
+  "v3": {
+    "train": 33.63,
+    "test": 32.35,
+    "n": 33,
+    "n_fail": 0
+  },
+  "v2": {
+    "train": 32.5,
+    "test": 31.0
+  },
+  "fams": {
+    "nat_long": 1,
+    "nat_short": 32
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 32.74,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 35.08,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 26.01,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 33.81,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 37.08,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 29.83,
+      "split": "test"
+    }
+  }
+}

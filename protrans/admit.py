@@ -56,6 +56,9 @@ def pick_search(title, results):
 
 def resolve_yt(title, preset=None):
     if preset: return preset
+    title = fetch.normalize_track_title(title)
+    if not title:
+        raise RuntimeError('empty title after normalize')
     cache_p = os.path.join(paths.LOGS, 'yt_search_cache.json')
     cache = json.load(open(cache_p)) if os.path.exists(cache_p) else {}
     if title in cache: return cache[title]

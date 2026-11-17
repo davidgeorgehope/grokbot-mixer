@@ -1,0 +1,73 @@
+{
+  "id": "fryett_ltdJ6GFixfs__52",
+  "mix_id": "fryett_ltdJ6GFixfs",
+  "dj": "Fryett",
+  "pair": "// Polygon - Coming Home -> // Tantrum Desire - Reach (The Prototypes Remix)",
+  "video_id": "ltdJ6GFixfs",
+  "cue": {
+    "incoming_bar": 16.14,
+    "incoming_section": null,
+    "outgoing_bar": 97.13,
+    "outgoing_section": null,
+    "blend_list_s": 130.0,
+    "locate_a": {
+      "z": 9.138,
+      "cc": 0.4275,
+      "mix_t": 15.836,
+      "track_t": 125.806,
+      "n": 95
+    },
+    "locate_b": {
+      "z": 12.574,
+      "cc": 0.7324,
+      "mix_t": 46.672,
+      "track_t": 44.931,
+      "n": 88
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.245,
+      "hold_db": -14.51,
+      "tail_bars": 45.49,
+      "out_p90": -12.79,
+      "in_p90": -8.53
+    },
+    "bass": {
+      "rise_db_per_beat": -0.019,
+      "hold_db": -16.4,
+      "tail_bars": 46.21,
+      "out_p90": -12.89,
+      "in_p90": 3.7
+    },
+    "highs": {
+      "rise_db_per_beat": 0.521,
+      "hold_db": -8.64,
+      "tail_bars": 45.31,
+      "out_p90": -0.63,
+      "in_p90": 9.54
+    },
+    "mids": {
+      "rise_db_per_beat": -0.165,
+      "hold_db": -12.54,
+      "tail_bars": 46.21,
+      "out_p90": -10.91,
+      "in_p90": -8.91
+    }
+  },
+  "overlap_bars": 32.622,
+  "track_a": {
+    "sections": {},
+    "bpm": 173.998,
+    "yt": "dFXfSRWI3LY",
+    "title": "// Polygon - Coming Home"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 175.044,
+    "yt": "RGkXpofMKbs",
+    "title": "// Tantrum Desire - Reach (The Prototypes Remix)"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

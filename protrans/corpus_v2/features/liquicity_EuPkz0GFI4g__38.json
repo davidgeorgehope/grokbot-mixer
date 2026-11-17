@@ -1,0 +1,73 @@
+{
+  "id": "liquicity_EuPkz0GFI4g__38",
+  "mix_id": "liquicity_EuPkz0GFI4g",
+  "dj": "Liquicity",
+  "pair": "Hybrid Minds - Lost VIP -> Telomic - Dayfall feat Emily Makis",
+  "video_id": "EuPkz0GFI4g",
+  "cue": {
+    "incoming_bar": 20.6,
+    "incoming_section": null,
+    "outgoing_bar": 115.44,
+    "outgoing_section": null,
+    "blend_list_s": 115.0,
+    "locate_a": {
+      "z": 6.977,
+      "cc": 0.8214,
+      "mix_t": 5.55,
+      "track_t": 140.783,
+      "n": 104
+    },
+    "locate_b": {
+      "z": 9.192,
+      "cc": 0.7495,
+      "mix_t": 52.5,
+      "track_t": 56.912,
+      "n": 82
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.609,
+      "hold_db": -2.86,
+      "tail_bars": 46.03,
+      "out_p90": -1.98,
+      "in_p90": -4.1
+    },
+    "bass": {
+      "rise_db_per_beat": -0.101,
+      "hold_db": -0.98,
+      "tail_bars": 46.21,
+      "out_p90": 5.04,
+      "in_p90": 0.6
+    },
+    "highs": {
+      "rise_db_per_beat": -0.287,
+      "hold_db": -5.29,
+      "tail_bars": 46.21,
+      "out_p90": 7.84,
+      "in_p90": 4.35
+    },
+    "mids": {
+      "rise_db_per_beat": -0.18,
+      "hold_db": -5.61,
+      "tail_bars": 46.21,
+      "out_p90": -3.53,
+      "in_p90": -6.04
+    }
+  },
+  "overlap_bars": 8.699,
+  "track_a": {
+    "sections": {},
+    "bpm": 174.993,
+    "yt": "23LOJfrCWfE",
+    "title": "Hybrid Minds - Lost VIP"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 173.995,
+    "yt": "loHQx-TgeOc",
+    "title": "Telomic - Dayfall feat Emily Makis"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

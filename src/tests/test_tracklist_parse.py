@@ -139,3 +139,17 @@ def test_leading_timestamp_in_title_is_stripped():
     row = TP.parse_artist_title_line('[0:00] Logistics - Watching The World Go By')
     assert row['artist'] == 'Logistics'
     assert row['title'] == 'Logistics - Watching The World Go By'
+
+
+def test_leading_slash_slash_and_bullets_are_stripped():
+    import tracklist_parse as TP
+    raw = "// DC Breaks - Never Stop (XV Remaster)"
+    assert TP.is_artist_title(raw)
+    row = TP.parse_artist_title_line(raw)
+    assert row["title"] == "DC Breaks - Never Stop (XV Remaster)"
+    assert row["artist"] == "DC Breaks"
+    assert "Never Stop" in row["track"]
+    assert TP.parse_artist_title_line("• Logistics - Together")["title"] == "Logistics - Together"
+    assert TP.parse_artist_title_line("01. Hybrid Minds - Demons")["title"] == "Hybrid Minds - Demons"
+    timed = TP.parse_artist_title_line("0:00 // ShockOne - A Dark Machine")
+    assert timed["t"] == 0 and timed["title"] == "ShockOne - A Dark Machine"

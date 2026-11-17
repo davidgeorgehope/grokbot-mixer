@@ -17,6 +17,7 @@ import shutil
 import subprocess
 import time
 import traceback
+import concurrent.futures
 
 import numpy as np
 
@@ -125,6 +126,19 @@ SEED_LISTS = [
     'https://www.youtube.com/@ShogunAudio/videos',
     'https://www.youtube.com/@MedSchoolMusic/videos',
 ]
+
+
+def _limit_cpu():
+    """Keep alignment/talkover from hogging the box while other evals run."""
+    os.environ.setdefault('OMP_NUM_THREADS', '2')
+    os.environ.setdefault('MKL_NUM_THREADS', '2')
+    os.environ.setdefault('OPENBLAS_NUM_THREADS', '2')
+    os.environ.setdefault('TALK_THREADS', '2')
+    try:
+        import torch
+        torch.set_num_threads(2)
+    except Exception:
+        pass
 
 
 def _mkdirs():
@@ -322,7 +336,7 @@ def goldilocks_pairs(tracks, mix_id, dj, mix_url, video_id):
     out = []
     for i in range(len(items) - 1):
         ta, tb = items[i][0], items[i + 1][0]
-        a, b = items[i][1], items[i + 1][1]
+        a, b = fetch.normalize_track_title(items[i][1]), fetch.normalize_track_title(items[i + 1][1])
         slot = tb - ta
         if not (SLOT_LO <= slot <= SLOT_HI):
             continue
@@ -511,6 +525,31 @@ def ensure_source_v2(yt):
     retry(lambda: fetch.ytdlp_remote(f'https://youtu.be/{yt}', dest),
           times=3, wait=12, what=f'source {yt}')
     return dest
+
+
+def prefetch_sources(yts, workers=2):
+    """Download unique studio sources, two at a time. Alignment stays serial."""
+    yts = [y for y in dict.fromkeys(yts) if y]
+    if not yts:
+        return {}
+    def one(yt):
+        try:
+            return yt, ensure_source_v2(yt), None
+        except Exception as e:
+            return yt, None, e
+    out = {}
+    n = min(max(1, int(workers)), len(yts))
+    if n == 1:
+        results = [one(y) for y in yts]
+    else:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=n) as ex:
+            results = list(ex.map(one, yts))
+    for yt, dest, err in results:
+        if err:
+            print('prefetch fail', yt, type(err).__name__, str(err)[:200], flush=True)
+        else:
+            out[yt] = dest
+    return out
 
 
 def cut_clip_v2(rec, mix_audio):
@@ -869,6 +908,7 @@ def ingest_mix(mix, snap):
     have = already_ids()
     admitted_rows = []
     n_admit = n_rej = 0
+    pending = []
     for c in cands:
         if c['id'] in have:
             print('skip already logged', c['id'], flush=True)
@@ -878,6 +918,7 @@ def ingest_mix(mix, snap):
                 raise RuntimeError(f"not Artist - Title: {c['a']['title']!r} / {c['b']['title']!r}")
             c['a']['yt'] = admit.resolve_yt(c['a']['title'], c['a'].get('yt'))
             c['b']['yt'] = admit.resolve_yt(c['b']['title'], c['b'].get('yt'))
+            pending.append(c)
         except Exception as e:
             row = dict(id=c['id'], dj=c.get('dj'), mix_id=c['mix_id'], video_id=c.get('video_id'),
                        pair=f"{c['a']['title']} -> {c['b']['title']}", t_a=c['t_a'], t_b=c['t_b'],
@@ -885,7 +926,14 @@ def ingest_mix(mix, snap):
             append_jsonl(REJECTED, row)
             n_rej += 1
             print('reject', row['id'], row['reason'], flush=True)
-            continue
+    yts = []
+    for c in pending:
+        yts.append(c['a'].get('yt'))
+        yts.append(c['b'].get('yt'))
+    if pending:
+        print(f"prefetch {len(set(y for y in yts if y))} sources for {len(pending)} pairs", flush=True)
+        prefetch_sources(yts, workers=2)
+    for c in pending:
         try:
             row, rec, sa, sb = process_pair_v2(c, dest)
         except Exception as e:
@@ -982,6 +1030,7 @@ def refresh_queue():
 
 def ingest_all(limit=None):
     _mkdirs()
+    _limit_cpu()
     snap = snapshot_protected()
     queue = json.load(open(QUEUE)) if os.path.exists(QUEUE) else dict(mixes=[])
     mixes = queue.get('mixes') or []
@@ -1250,8 +1299,185 @@ def eval_ranker_on_33(report):
                 note='Scorer eval is a separate flagged run; defaults unchanged.')
 
 
+
+def _slash_resolve_rejects():
+    """Earlier resolve misses whose search title still had a '//' prefix."""
+    out = []
+    for r in load_jsonl(REJECTED):
+        if r.get('verdict') != 'reject':
+            continue
+        reason = r.get('reason') or ''
+        if 'resolve:' not in reason and not reason.startswith('resolve'):
+            continue
+        blob = ' '.join([reason, r.get('pair') or '',
+                         (r.get('a') or {}).get('title') or '',
+                         (r.get('b') or {}).get('title') or ''])
+        if '//' not in blob:
+            continue
+        out.append(r)
+    return out
+
+
+def _mix_audio_for(mix):
+    vid = mix['video_id']
+    dest = os.path.join(MIXES_DIR, vid + '.m4a')
+    if os.path.exists(dest) and os.path.getsize(dest) > 1_000_000:
+        return dest
+    remote = f"{DRIVE}/mixes/{mix['mix_id']}/{vid}.m4a"
+    try:
+        rclone('copy', remote, MIXES_DIR, check=False)
+        if os.path.exists(dest) and os.path.getsize(dest) > 1_000_000:
+            print('restored mix from Drive', dest, flush=True)
+            return dest
+    except Exception as e:
+        print('Drive restore miss', mix['mix_id'], e, flush=True)
+    print('download mix', mix.get('url'), flush=True)
+    retry(lambda: fetch.ytdlp_remote(mix['url'], dest), times=3, wait=15, what=f"mix {vid}")
+    return dest
+
+
+def retry_slash_rejects(archive=True):
+    """Re-try only resolve misses caused by a leading '//' (or similar) prefix."""
+    _mkdirs()
+    _limit_cpu()
+    snap = snapshot_protected()
+    rows = _slash_resolve_rejects()
+    print(f'slash-resolve retries: {len(rows)}', flush=True)
+    if not rows:
+        return dict(candidates=0, recovered=0, still_reject=0, recovered_ids=[])
+    queue = json.load(open(QUEUE)) if os.path.exists(QUEUE) else dict(mixes=[])
+    by_id = {m['mix_id']: m for m in queue.get('mixes') or []}
+    by_vid = {m.get('video_id'): m for m in queue.get('mixes') or []}
+    accepted_ids = {r['id'] for r in load_jsonl(ACCEPTED)}
+    recovered = still = 0
+    recovered_rows = []
+    groups = {}
+    for r in rows:
+        if r['id'] in accepted_ids:
+            continue
+        groups.setdefault(r.get('mix_id') or r.get('video_id'), []).append(r)
+    for mid, group in groups.items():
+        mix = by_id.get(mid) or by_vid.get(group[0].get('video_id'))
+        if not mix:
+            print('retry skip, unknown mix', mid, flush=True)
+            still += len(group)
+            continue
+        try:
+            dest = _mix_audio_for(mix)
+        except Exception as e:
+            print('retry mix download failed', mid, e, flush=True)
+            still += len(group)
+            continue
+        admitted_rows = []
+        for r in group:
+            a_title = fetch.normalize_track_title((r.get('a') or {}).get('title') or r.get('pair', '').split(' -> ')[0])
+            b_title = fetch.normalize_track_title((r.get('b') or {}).get('title') or (r.get('pair', '').split(' -> ')[-1]))
+            c = dict(
+                id=r['id'], mix_id=r.get('mix_id') or mix['mix_id'], dj=r.get('dj') or mix.get('dj'),
+                mix_url=r.get('mix_url') or mix.get('url'), video_id=r.get('video_id') or mix.get('video_id'),
+                t_a=r.get('t_a'), t_b=r.get('t_b'), t_next=(r.get('t_b') or 0) + 90,
+                a=dict(title=a_title, yt=None),
+                b=dict(title=b_title, yt=None),
+            )
+            try:
+                c['a']['yt'] = admit.resolve_yt(c['a']['title'])
+                c['b']['yt'] = admit.resolve_yt(c['b']['title'])
+                row, rec, sa, sb = process_pair_v2(c, dest)
+            except Exception as e:
+                row = dict(id=c['id'], dj=c.get('dj'), mix_id=c['mix_id'], video_id=c.get('video_id'),
+                           pair=f"{c['a']['title']} -> {c['b']['title']}", t_a=c['t_a'], t_b=c['t_b'],
+                           verdict='reject', reason=f'retry: {e}'[:300], retried_slash=True)
+                append_jsonl(REJECTED, row)
+                still += 1
+                print('retry still reject', c['id'], row['reason'], flush=True)
+                continue
+            row['retried_slash'] = True
+            if row['verdict'] == 'admit':
+                try:
+                    feat = extract_features(row, rec, sa, sb)
+                    row['feature_path'] = os.path.join('features', row['id'] + '.json')
+                    row['cue'] = feat.get('cue')
+                except Exception as e:
+                    row['feature_error'] = str(e)[:200]
+                append_jsonl(ACCEPTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+                admitted_rows.append(row)
+                recovered_rows.append(row)
+                recovered += 1
+                print('retry admit', row['id'], row.get('pair'), flush=True)
+            else:
+                append_jsonl(REJECTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+                still += 1
+                print('retry still reject', row['id'], row.get('reason'), flush=True)
+                if row.get('pro_clip'):
+                    shutil.rmtree(os.path.dirname(row['pro_clip']), ignore_errors=True)
+            assert_protected(snap, where='retry '+c['id'])
+        if archive and admitted_rows:
+            try:
+                archive_mix(mix, admitted_rows)
+            except Exception as e:
+                print('retry archive warning', mid, e, flush=True)
+        assert_protected(snap, where='retry mix '+mid)
+    out = dict(candidates=len(rows), recovered=recovered, still_reject=still,
+               recovered_ids=[r['id'] for r in recovered_rows])
+    _atomic_json(os.path.join(ROOT, 'slash_retry.json'), out)
+    print('SLASH_RETRY', json.dumps(out), flush=True)
+    return out
+
+
+def resume():
+    """Continue from the queue checkpoint: retry slash rejects, then ingest."""
+    _mkdirs()
+    _limit_cpu()
+    snap = snapshot_protected()
+    retry_slash_rejects(archive=True)
+    assert_protected(snap, 'after slash retry')
+    save_progress(dict(phase='ingest', accepted=len(load_jsonl(ACCEPTED)),
+                       rejected=len(load_jsonl(REJECTED))))
+    ingest_all()
+    queue = json.load(open(QUEUE)) if os.path.exists(QUEUE) else dict(mixes=[])
+    n_queued = sum(1 for m in queue.get('mixes') or [] if m.get('status') == 'queued')
+    if n_queued < 20:
+        print('discover remaining lists and searches', flush=True)
+        discover(max_meta=400, seeds_only=False)
+        ingest_all()
+    assert_protected(snap, 'after ingest')
+    split = assign_split()
+    counts = counts_by_source()
+    model = None
+    if counts['accepted'] >= TRAIN_MIN:
+        print(f"accepted {counts['accepted']} >= {TRAIN_MIN}; training ranker", flush=True)
+        save_progress(dict(phase='train', **counts))
+        model = train_ranker(split)
+        model['scorer_33'] = eval_ranker_on_33(model)
+    import_legacy_33()
+    write_manifest(split, model)
+    try:
+        for name in ('manifest.json', 'queue.json', 'split.json', 'accepted.jsonl',
+                     'rejected.jsonl', 'progress.json', 'summary.json', 'legacy_33.jsonl',
+                     'slash_retry.json'):
+            pth = os.path.join(ROOT, name)
+            if os.path.exists(pth):
+                archive_and_verify(pth, f'meta/{name}')
+        if os.path.isdir(FEATURES):
+            archive_and_verify(FEATURES, 'meta/features')
+        if os.path.isdir(MODEL_DIR) and os.listdir(MODEL_DIR):
+            archive_and_verify(MODEL_DIR, 'meta/models')
+    except Exception as e:
+        print('meta archive warning', e, flush=True)
+    summary = dict(counts=counts, split=split, model=model, drive=DRIVE,
+                   ts=time.strftime('%Y-%m-%d %H:%M:%S %Z'),
+                   official_protected=snapshot_protected() == snap)
+    _atomic_json(SUMMARY, summary)
+    save_progress(dict(phase='done', **counts))
+    assert_protected(snap, 'final')
+    print(json.dumps(summary, indent=2, default=str), flush=True)
+    return summary
+
+
+
 def run_all(discover_first=True, ingest_limit=None, max_meta=400):
     _mkdirs()
+    _limit_cpu()
     snap = snapshot_protected()
     save_progress(dict(phase='discover', accepted=0, rejected=0))
     if discover_first:
@@ -1319,5 +1545,9 @@ if __name__ == '__main__':
     elif cmd[0] == 'train':
         split = json.load(open(SPLIT)) if os.path.exists(SPLIT) else assign_split()
         print(json.dumps(train_ranker(split), indent=2))
+    elif cmd[0] == 'retry-slash':
+        print(json.dumps(retry_slash_rejects(), indent=2))
+    elif cmd[0] == 'resume':
+        resume()
     else:
         run_all()

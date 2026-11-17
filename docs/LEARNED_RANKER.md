@@ -87,3 +87,7 @@ Tracklist: block over chapters, and may bind official titles to chapter
 *times* when they clearly line up. A mix needs at least eight such
 lines. Source search uses the full "Artist - Title" string. Rejects
 continue to be logged.
+
+## Title normalizer and throughput (16 November 2026)
+
+Track names from chapters often carry a leading `//`, bullet, list number, or leftover timestamp. Those tokens made source search miss (score -25 on a clean DC Breaks title). `fetch.normalize_track_title` now strips that junk before search, while leaving cue timestamps intact for the line parser and leaving artist names like `1991 - Nine Clouds` alone. Copies off the download host retry the copy only, without re-encoding, and subsequent ingest prefetches two studio sources at a time. Alignment and the quality gates are unchanged. A slash-resolve retry walks earlier rejects whose reason was a resolve miss with a `//` prefix.

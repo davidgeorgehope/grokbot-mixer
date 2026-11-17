@@ -4,7 +4,7 @@ Reads HOST from mixes/config.env. Does not hardcode a hostname. Copies the
 file back into protrans/cache. Never prints cookie values or credentials.
 """
 from __future__ import annotations
-import os, subprocess, shlex, json
+import os, subprocess, shlex, json, time, re
 import paths
 
 def _safe_url(url):
@@ -51,6 +51,35 @@ if [ -z "$YTDLP" ]; then
 fi
 """
 
+def normalize_track_title(title, strip_timestamps=True):
+    """Strip leading list junk so source search sees the real track name.
+
+    Chapters and descriptions often prefix titles with '//', bullets, a
+    list number, or a leftover timestamp. Those tokens poison yt search
+    (for example '// DC Breaks - Never Stop' scores -25). Artist names
+    like '1991 - Nine Clouds' are left alone.
+
+    strip_timestamps should stay True for search/resolve. Line parsers that
+    still need the leading MM:SS for the cue time should pass False.
+    """
+    s = (title or '').strip()
+    if not s:
+        return s
+    while True:
+        prev = s
+        s = re.sub(r'^(?://|\\)+\s*', '', s)
+        s = re.sub(r'^[-–—•·▪●*]+\s*', '', s)
+        if strip_timestamps:
+            s = re.sub(r'^\d{1,2}:\d{2}(?::\d{2})?\s+[-–—.]?\s*', '', s)
+        s = re.sub(r'^(?:#\s*)?\d{1,2}[.)]\s+', '', s)
+        s = re.sub(r'^\[\s*\d{1,2}\s*\]\s+', '', s)
+        s = re.sub(r'^\d{1,2}\s+[-–—]\s+', '', s)
+        s = s.strip()
+        if s == prev:
+            break
+    return s
+
+
 def ytdlp_remote(url, dest, kind='audio'):
     """Download url on HOST and copy to dest. Returns dest or raises."""
     host = _host()
@@ -63,6 +92,12 @@ export PATH=/opt/homebrew/bin:$HOME/.ytdlp-nightly/bin:$PATH
 SCRIPT_YTDLP_PLACEHOLDER
 URL="$1"; DEST="$2"
 mkdir -p "$(dirname "$DEST")"
+# Reuse a file left by a previous attempt so a flaky copy does not re-encode.
+if [ -s "$DEST" ]; then
+  echo "$DEST"
+  ls -l "$DEST" | awk '{print $5}'
+  exit 0
+fi
 ok=0
 for jar in safari chrome; do
   if $YTDLP --no-update --cookies-from-browser "$jar" -f "ba[ext=m4a]/bestaudio/140" -o "$DEST" --no-progress --no-warnings "$URL"; then
@@ -86,8 +121,30 @@ ls -l "$DEST" | awk '{print $5}'
             remote_path = line.strip()
     if not remote_path:
         raise RuntimeError(f'download succeeded but no remote path printed for {url}: {(r.stdout or "")[-200:]}')
-    subprocess.run(['scp','-o','BatchMode=yes', f'{host}:{remote_path}', dest], check=True, capture_output=True)
+    scp_from_host(host, remote_path, dest)
     return dest
+
+
+def scp_from_host(host, remote_path, dest, attempts=4):
+    """Copy one file off the download host, retrying the copy only (no re-encode)."""
+    os.makedirs(os.path.dirname(dest) or '.', exist_ok=True)
+    last = None
+    for i in range(attempts):
+        r = subprocess.run(
+            ['scp', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=30',
+             '-o', 'ConnectionAttempts=3', f'{host}:{remote_path}', dest],
+            capture_output=True, text=True)
+        if r.returncode == 0 and os.path.exists(dest) and os.path.getsize(dest) > 1000:
+            return dest
+        last = r
+        try:
+            if os.path.exists(dest) and os.path.getsize(dest) < 1000:
+                os.remove(dest)
+        except OSError:
+            pass
+        time.sleep(2 * (i + 1))
+    err = (last.stderr or last.stdout or '')[-300:] if last else ''
+    raise RuntimeError(f'copy from download host failed for {remote_path}: {err}')
 
 def meta_remote(url):
     """Return {id,title,channel,duration,chapters,description} from HOST (no download)."""
@@ -128,7 +185,7 @@ def parse_tracklist(description, chapters=None):
     if chapters:
         for c in chapters:
             if c.get('start') is None: continue
-            items.append(dict(t=float(c['start']), title=c.get('title') or ''))
+            items.append(dict(t=float(c['start']), title=normalize_track_title(c.get('title') or '')))
         if len(items) >= 4:
             return items
     rx = re.compile(r'^\s*(?:[#\-]?\s*)?(?:(\d{1,2}):(\d{2})(?::(\d{2}))?)\s+[-–.]?\s*(.+?)\s*$')
@@ -141,7 +198,7 @@ def parse_tracklist(description, chapters=None):
         else:
             t = int(a)*3600 + int(b)*60 + int(c)
         if title.lower() in ('tracklist','timestamps'): continue
-        items.append(dict(t=float(t), title=title))
+        items.append(dict(t=float(t), title=normalize_track_title(title)))
     # unique increasing times
     seen=set(); out=[]
     for it in items:

@@ -1,0 +1,73 @@
+{
+  "id": "fryett_ltdJ6GFixfs__09",
+  "mix_id": "fryett_ltdJ6GFixfs",
+  "dj": "Fryett",
+  "pair": "// ShockOne - A Dark Machine (feat. Reija Lee) -> // Document One x Levela - In My Mind",
+  "video_id": "ltdJ6GFixfs",
+  "cue": {
+    "incoming_bar": 16.09,
+    "incoming_section": null,
+    "outgoing_bar": 110.97,
+    "outgoing_section": null,
+    "blend_list_s": 129.0,
+    "locate_a": {
+      "z": 13.264,
+      "cc": 0.6891,
+      "mix_t": 17.717,
+      "track_t": 146.773,
+      "n": 75
+    },
+    "locate_b": {
+      "z": 8.984,
+      "cc": 0.446,
+      "mix_t": 52.733,
+      "track_t": 50.921,
+      "n": 68
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.053,
+      "hold_db": -7.29,
+      "tail_bars": 44.22,
+      "out_p90": -6.02,
+      "in_p90": -7.06
+    },
+    "bass": {
+      "rise_db_per_beat": 0.072,
+      "hold_db": -5.85,
+      "tail_bars": 46.21,
+      "out_p90": -4.45,
+      "in_p90": -3.49
+    },
+    "highs": {
+      "rise_db_per_beat": 0.044,
+      "hold_db": -8.01,
+      "tail_bars": 45.31,
+      "out_p90": -6.5,
+      "in_p90": 1.45
+    },
+    "mids": {
+      "rise_db_per_beat": 0.034,
+      "hold_db": -7.6,
+      "tail_bars": 46.21,
+      "out_p90": -5.98,
+      "in_p90": -3.87
+    }
+  },
+  "overlap_bars": 20.661,
+  "track_a": {
+    "sections": {},
+    "bpm": 175.003,
+    "yt": "yPaXJg-lGm0",
+    "title": "// ShockOne - A Dark Machine (feat. Reija Lee)"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 174.001,
+    "yt": "hQrU3jbd7ww",
+    "title": "// Document One x Levela - In My Mind"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

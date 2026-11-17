@@ -1,0 +1,73 @@
+{
+  "id": "liquicity_EuPkz0GFI4g__48",
+  "mix_id": "liquicity_EuPkz0GFI4g",
+  "dj": "Liquicity",
+  "pair": "Alix Perez - Blips -> Deadline - Bitter",
+  "video_id": "EuPkz0GFI4g",
+  "cue": {
+    "incoming_bar": 100.34,
+    "incoming_section": null,
+    "outgoing_bar": 83.74,
+    "outgoing_section": null,
+    "blend_list_s": 90.0,
+    "locate_a": {
+      "z": 6.891,
+      "cc": 0.7058,
+      "mix_t": 16.324,
+      "track_t": 107.833,
+      "n": 76
+    },
+    "locate_b": {
+      "z": 7.468,
+      "cc": 0.5104,
+      "mix_t": 38.359,
+      "track_t": 152.764,
+      "n": 84
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.232,
+      "hold_db": -9.07,
+      "tail_bars": 45.31,
+      "out_p90": -4.73,
+      "in_p90": -6.06
+    },
+    "bass": {
+      "rise_db_per_beat": -0.888,
+      "hold_db": -3.27,
+      "tail_bars": 45.67,
+      "out_p90": 3.2,
+      "in_p90": -1.42
+    },
+    "highs": {
+      "rise_db_per_beat": -0.583,
+      "hold_db": -9.07,
+      "tail_bars": 46.21,
+      "out_p90": -5.99,
+      "in_p90": -1.18
+    },
+    "mids": {
+      "rise_db_per_beat": -0.545,
+      "hold_db": -8.3,
+      "tail_bars": 46.21,
+      "out_p90": -5.34,
+      "in_p90": -2.97
+    }
+  },
+  "overlap_bars": 26.279,
+  "track_a": {
+    "sections": {},
+    "bpm": 172.004,
+    "yt": "L-xKPmP6cT4",
+    "title": "Alix Perez - Blips"
+  },
+  "track_b": {
+    "sections": {},
+    "bpm": 172.009,
+    "yt": "amjCsFTG-yA",
+    "title": "Deadline - Bitter"
+  },
+  "error": "features_bar: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()",
+  "candidates": []
+}

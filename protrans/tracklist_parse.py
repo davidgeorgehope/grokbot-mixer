@@ -65,12 +65,14 @@ def _letters(s):
 
 def is_artist_title(text):
     """True when text is an 'Artist - Title' (optionally numbered / timestamped)."""
+    import fetch
+    text = fetch.normalize_track_title(text, strip_timestamps=False)
     if not text or _BAD_LINE.search(text):
         return False
     m = _LINE.match(text.strip())
     if not m:
         return False
-    body = m.group('body') or ''
+    body = fetch.normalize_track_title(m.group('body') or '')
     parts = _SPLIT.split(body, maxsplit=1)
     if len(parts) != 2:
         return False
@@ -96,10 +98,13 @@ def is_artist_title(text):
 
 def parse_artist_title_line(text):
     """Return {t, title} if the line is Artist - Title. t is None when untimed."""
+    import fetch
+    raw = text
+    text = fetch.normalize_track_title(text, strip_timestamps=False)
     if not is_artist_title(text):
         return None
     m = _LINE.match(text.strip())
-    body = m.group('body')
+    body = fetch.normalize_track_title(m.group('body') or '')
     parts = _SPLIT.split(body, maxsplit=1)
     artist, title = parts[0].strip(), parts[1].strip()
     artist = re.sub(r'^\[\d{1,2}:\d{2}(?::\d{2})?\]\s*', '', artist)
@@ -114,7 +119,7 @@ def parse_artist_title_line(text):
             t = float(h * 60 + mm)
         else:
             t = float(h * 3600 + mm * 60 + int(m.group('s')))
-    return dict(t=t, title=full, artist=artist, track=title, raw=text.strip())
+    return dict(t=t, title=full, artist=artist, track=title, raw=(raw or text).strip())
 
 
 def parse_description_titles(description):

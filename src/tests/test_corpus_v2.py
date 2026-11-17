@@ -112,3 +112,53 @@ def test_official_files_currently_untouched():
     assert sha(rules) == 'fc727b3c734b363ebd7c99e2e56d8df019b5ec2dff7b069bd5c5d8e0caff7109'
     rows = json.load(open(admitted))
     assert len(rows) == 33
+
+
+def test_normalize_track_title_junk_prefixes():
+    import fetch
+    N = fetch.normalize_track_title
+    assert N("// DC Breaks - Never Stop (XV Remaster)") == "DC Breaks - Never Stop (XV Remaster)"
+    assert N("//  Dimension - Pull Me Under (Instrumental)") == "Dimension - Pull Me Under (Instrumental)"
+    assert N("- Artist - Title") == "Artist - Title"
+    assert N("– Artist - Title") == "Artist - Title"
+    assert N("— Artist - Title") == "Artist - Title"
+    assert N("• Artist - Title") == "Artist - Title"
+    assert N("· Artist - Title") == "Artist - Title"
+    assert N("01. Artist - Title") == "Artist - Title"
+    assert N("1) Artist - Title") == "Artist - Title"
+    assert N("1. Artist - Title") == "Artist - Title"
+    assert N("#12. Artist - Title") == "Artist - Title"
+    assert N("[03] Artist - Title") == "Artist - Title"
+    assert N("01 - Artist - Title") == "Artist - Title"
+    assert N("7 - Artist - Title") == "Artist - Title"
+    assert N("0:00 Artist - Title") == "Artist - Title"
+    assert N("1:23:45 Artist - Title") == "Artist - Title"
+    assert N("12. // Artist - Title") == "Artist - Title"
+    assert N("// // Artist - Title") == "Artist - Title"
+    # Artist names that look like years must not be stripped
+    assert N("1991 - Nine Clouds") == "1991 - Nine Clouds"
+    assert N("Dimension - Pull Me Under") == "Dimension - Pull Me Under"
+    assert N("LSB - The Optimist") == "LSB - The Optimist"
+
+
+def test_parse_tracklist_strips_chapter_and_description_junk():
+    import fetch
+    chapters = fetch.parse_tracklist('', chapters=[
+        dict(start=0, title="// DC Breaks - Never Stop (XV Remaster)"),
+        dict(start=120, title="01. Artist - Title"),
+        dict(start=240, title="1991 - Nine Clouds"),
+        dict(start=360, title="• Logistics - Together"),
+    ])
+    assert [c["title"] for c in chapters] == [
+        "DC Breaks - Never Stop (XV Remaster)",
+        "Artist - Title",
+        "1991 - Nine Clouds",
+        "Logistics - Together",
+    ]
+    desc = "0:00 // ShockOne - A Dark Machine\n2:10 01. Fox Stevenson - Take You Down\n4:00 1991 - Nine Clouds\n"
+    rows = fetch.parse_tracklist(desc)
+    assert [r["title"] for r in rows] == [
+        "ShockOne - A Dark Machine",
+        "Fox Stevenson - Take You Down",
+        "1991 - Nine Clouds",
+    ]

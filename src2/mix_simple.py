@@ -231,6 +231,12 @@ def pair_cands(i,ia0):
     if STRUCT:  # outro-over-intro (default 2026-10-31): outgoing plays its whole outro to its music end; incoming starts so its drop lands there
       SA,SB=sections.get(a),sections.get(b);es=min(e_max,(SA['music_end']//8)*8);ibs=SB['drop1']-X
       if ibs>=0 and es-X>=ia+16 and ibs+X<nb:cands.append(('n',es,ibs));STRK.add(('n',a,b,es,ibs,X))
+      if __import__('drop_swap').flag_on() and ibs>=0 and es-X>=ia+16:  # DROP_SWAP (2026-11-18 research, off by default): incoming intro has no bass -> also try the cue whose drop lands on the bass swap
+        import drop_swap as _DS;_wa=list(range(es-X,es));_wb=list(range(ibs,ibs+X));_ctx(a,_wa,b,_wb)
+        try:_c=swap_at(a,b,_wa,_wb);_sw=SW
+        finally:_ctx(None)
+        _gb=track(b)['g']['bar'];_ibd=_DS.recue(np.array(_gb.get('low',_gb['all']),float),SB['drop1'],X,ibs,_c,_sw,nb)
+        if _ibd is not None:cands.append(('n',es,_ibd));STRK.add(('n',a,b,es,_ibd,X));print('DROP_SWAP',a,b,'X',X,'cue',ibs,'->',_ibd,'swap',round(_c,2),file=sys.stderr)
       if SB['drop1']-16>=16 and es-X>=ia+16:cands.append(('lb',es,SB['drop1']-16));STRK.add(('lb',a,b,es,SB['drop1']-16,X))  # gold (the listener 5/5, Mix 05 55:10 -> Just Hold On): incoming loops its last intro phrase, drop lands as the outgoing's music ends
     if __import__('window_planner').flag_on(os.environ.get('WINDOW_PLANNER')) or __import__('learned_ranker').flag_on(os.environ.get('RANKER')):  # mid-track section windows: planner or RANKER=1 (both off by default)
       import window_planner as _WP, sections as _SEC

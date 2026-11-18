@@ -1,0 +1,121 @@
+{
+ "blend": 0,
+ "a": "zEvLsOVhg0I",
+ "b": "W77cCOreg_0",
+ "start_bar": 176.0,
+ "end_bar": 192.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-18.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": 0.067,
+   "rate": 1.006,
+   "r_a": 0.666,
+   "r_b": 0.807
+  },
+  "ours": {
+   "phase_beats": 0.0819,
+   "rate": 1.0,
+   "r_a": 0.458,
+   "r_b": 0.927
+  },
+  "diff_beats": 0.0149,
+  "diff_ms": 5.1
+ },
+ "offset_ms_median": -70.4,
+ "offset_bars": 10,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 24.5,
+ "bass_swap": [
+  181.0,
+  186.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.041324,
+  "pcty": 2.576939,
+  "Scol": 0.7631,
+  "Scty": 0.7154,
+  "banger_clash_rate": 0.0699,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ },
+ "pick_id": "hybrid_minds_ukf__13",
+ "fam": "nat_short",
+ "win": [
+  "n",
+  192,
+  null,
+  32,
+  16
+ ],
+ "score": 33.72,
+ "score_v2": 32.66,
+ "breakdown": {
+  "stem_curves": 41.47,
+  "deck_curves": 25.16,
+  "beat_align": 74.39,
+  "bass_swap": 8.38,
+  "outgoing_cut": 8.38,
+  "blend_length": 33.16,
+  "stems": {
+   "drums": 65.03,
+   "bass": 62.1,
+   "vocals": 13.49,
+   "melody": 25.26
+  },
+  "beat_off_ms": 0.0,
+  "beat_align_v2": 67.36,
+  "beat_identity": 81.42,
+  "beat_lock": {
+   "pro": {
+    "phase_beats": 0.067,
+    "rate": 1.006,
+    "r_a": 0.666,
+    "r_b": 0.807
+   },
+   "ours": {
+    "phase_beats": 0.0819,
+    "rate": 1.0,
+    "r_a": 0.458,
+    "r_b": 0.927
+   },
+   "diff_beats": 0.0149,
+   "diff_ms": 5.1
+  },
+  "events_pro": {
+   "bass_swap": 17,
+   "outgoing_cut": 18,
+   "blend_length": 1
+  },
+  "events_ours": {
+   "bass_swap": 9,
+   "outgoing_cut": 10,
+   "blend_length": 6
+  },
+  "stem_kind": [
+   "bands",
+   "bands"
+  ],
+  "deck": {
+   "per_stem_deck": 25.16
+  },
+  "align": {
+   "lag_samples": -196096,
+   "lag_ms": -8893.24,
+   "peak": 0.2667,
+   "win_sec": 35.245
+  }
+ },
+ "ours": "/tmp/protrans_bench/diag279101.mp3"
+}

@@ -18,14 +18,19 @@ def candidates():
     # n1110 list, re-tested on the STRUCT=1 + 2-bar-swap base (n1109 kept bass_swap_2bar,
     # phase_pref 0.4/0.8 rejected; d1109 kept STRUCT=1)
     return [
-        # n1117 list on the current base (linger 0.15 + LONG_XP 0.45, held-out ~34.05).
-        # n1114-n1116 never completed, so these are the n1113 leftovers plus a hint probe.
-        ('break_03', {'breakdown_pen_w': 0.3}),
-        ('length_pref_20', {'length_pref': 20}),
-        ('swap_pos_035', {'SWAP_POS': 0.35}),
-        ('high_ofs_4', {'HIGH_OFS': 4}),
-        ('long_solo_12', {'LONG_SOLO': 12}),
-        ('hint_025', {'hint_weight': 0.25}),
+        # n1118 list (base: rules.json incl. TAIL_EXIT 6 + BLEND_LOCK 1, held-out ~34.07).
+        # Verified against recreate.py/mix_simple.py before running:
+        #  - BASS_SWAP_BARS 4 would be a no-op: under FADE=long mix_simple._ctx clamps SW<4 up to 4,
+        #    so the current 3 already renders as 4. Tested 6 bars instead (same EQ-swap area).
+        #  - length_pref 18 would be a no-op/repeat: windows only come in X=32 or 16, so any value
+        #    other than 16/32 penalises every window equally (== length_pref 0 == n1117's
+        #    length_pref_20). Tested 32 instead (prefer the long natural window).
+        ('phase_pref_02', {'phase_pref_w': 0.2}),
+        ('bass_swap_6bar', {'BASS_SWAP_BARS': 6}),
+        ('long_xp_035', {'LONG_XP': 0.35}),
+        ('length_pref_32', {'length_pref': 32}),
+        ('linger_025', {'linger_pen_w': 0.25}),
+        ('break_015', {'breakdown_pen_w': 0.15}),
 ][:MAX_CANDS]
 
 def main():

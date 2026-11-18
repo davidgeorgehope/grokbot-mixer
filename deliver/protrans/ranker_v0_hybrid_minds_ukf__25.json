@@ -1,0 +1,142 @@
+{
+  "id": "hybrid_minds_ukf__25",
+  "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+  "tick_s": 11.034,
+  "bar_sec": 1.3793103448275863,
+  "A": {
+    "mp3": "/workspace/mixes/deliver/protrans/ranker_v0_hybrid_minds_ukf__25_A_default.mp3",
+    "duration_s": 44.138,
+    "measured_lufs_before": -11.64,
+    "gain_db_applied": -2.36,
+    "lufs": -14.0,
+    "fam": "nat_short",
+    "win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+    ],
+    "env": {
+      "FADE": "long",
+      "BASS_SWAP_BARS": "3",
+      "SWAP_POS": "0.21",
+      "HIGH_SWAP": "1",
+      "HIGH_OFS": "8",
+      "STRUCT": "1",
+      "LOOP32": "0",
+      "LONG_XP": "0.45",
+      "LONG_SOLO": "16",
+      "LONG_SWAP": "exit",
+      "LONG_SOLO_STRUCT": "1",
+      "TAIL_EXIT": "6",
+      "BLEND_LOCK": "1"
+    },
+    "planner": null
+  },
+  "B": {
+    "mp3": "/workspace/mixes/deliver/protrans/ranker_v0_hybrid_minds_ukf__25_B_ranker.mp3",
+    "duration_s": 44.138,
+    "measured_lufs_before": -9.8,
+    "gain_db_applied": -4.2,
+    "lufs": -14.0,
+    "fam": "ranker_drop1_end",
+    "win": [
+      "n",
+      112,
+      null,
+      160,
+      16
+    ],
+    "env": {
+      "FADE": "long",
+      "BASS_SWAP_BARS": "3",
+      "SWAP_POS": "0.21",
+      "HIGH_SWAP": "1",
+      "HIGH_OFS": "8",
+      "STRUCT": "1",
+      "LOOP32": "0",
+      "LONG_XP": "0.45",
+      "LONG_SOLO": "16",
+      "LONG_SWAP": "exit",
+      "LONG_SOLO_STRUCT": "1",
+      "TAIL_EXIT": "6",
+      "RANKER": "1",
+      "BLEND_LOCK": "1",
+      "SNAP_IN": "0",
+      "SNAP_IN_HOLD": "0"
+    },
+    "ranker": {
+      "kind": "lightgbm",
+      "n_options": 72,
+      "best_score": 0.5191,
+      "best_type": "drop1_end",
+      "best_win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "best_fade": {
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0",
+        "TAIL_EXIT": "6",
+        "FADE": "long"
+      },
+      "top3": [
+        {
+          "type": "drop1_end",
+          "win": [
+            "n",
+            112,
+            null,
+            160,
+            16
+          ],
+          "snap_in": true,
+          "snap_in_hold": 0,
+          "tail_exit": 6,
+          "score": 0.5191
+        },
+        {
+          "type": "drop1_end",
+          "win": [
+            "n",
+            112,
+            null,
+            160,
+            16
+          ],
+          "snap_in": false,
+          "snap_in_hold": 0,
+          "tail_exit": 6,
+          "score": 0.5191
+        },
+        {
+          "type": "drop1_end",
+          "win": [
+            "n",
+            112,
+            null,
+            160,
+            16
+          ],
+          "snap_in": false,
+          "snap_in_hold": 0,
+          "tail_exit": 0,
+          "score": 0.321
+        }
+      ]
+    }
+  },
+  "AB": {
+    "mp3": "/workspace/mixes/deliver/protrans/ranker_v0_hybrid_minds_ukf__25_AB.mp3",
+    "duration_s": 89.026,
+    "measured_lufs_before": null,
+    "gain_db_applied": 0.0,
+    "lufs": -14.0
+  },
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/ranker_v0_hybrid_minds_ukf__25.png",
+  "png_default": "/workspace/mixes/deliver/protrans/diagnostics/ranker_v0_hybrid_minds_ukf__25_default.png"
+}

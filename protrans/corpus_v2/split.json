@@ -1,0 +1,39 @@
+{
+  "seed": 20261115,
+  "by": "mix",
+  "held_out_frac": 0.2,
+  "n_mixes": 16,
+  "n_train_mixes": 12,
+  "n_heldout_mixes": 4,
+  "train_mixes": [
+    "alpha_rhythm__fNcLmH-CYQ",
+    "ukf_drum_bass_LeMk0yiSoq4",
+    "alpha_rhythm_TnnrrqVRZIM",
+    "alpha_rhythm_imZjEt78YXs",
+    "alpha_rhythm_V0BMNeOy_t4",
+    "ukf_drum_bass_cCtoa1U_1DE",
+    "liquicity_nYOcD3qTdg0",
+    "theheshbesh_zHf8cC9ViuA",
+    "suicidesheeep_R8MWKsheHxk",
+    "hospital_records_Lm2VlTogWvY",
+    "alpha_rhythm_AU0V19j8oKM",
+    "liquicity_EuPkz0GFI4g"
+  ],
+  "heldout_mixes": [
+    "alpha_rhythm_hb7PvukS-Pk",
+    "ukf_drum_bass_abhfer_BNoQ",
+    "hospital_records_zYANUM_lubI",
+    "fryett_ltdJ6GFixfs"
+  ],
+  "n_train_transitions": 61,
+  "n_heldout_transitions": 17,
+  "legacy_video_ids": [
+    "0yIOFIW4Eow",
+    "Ea4ngKLPNMQ",
+    "PZ6aQYEIqm0",
+    "ifOtJV-xZ-U",
+    "nNpy62IMI-A",
+    "zgKc7vQNrrE"
+  ],
+  "note": "Legacy 33-pair mixes are never in this split; they stay eval-only."
+}

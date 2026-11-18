@@ -1,0 +1,59 @@
+{
+ "blend": 0,
+ "a": "9oBXWTlTPMw",
+ "b": "3f-XOhfDhxk",
+ "start_bar": 96.0,
+ "end_bar": 112.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/ranker_v0_hybrid_minds_ukf__25.png",
+ "halfbeat": {
+  "r0": 0.82,
+  "rh": 0.552,
+  "lag_ms": 0.0,
+  "bars": 14,
+  "phase_fail": false,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": 0.0,
+  "phase_b": 0.0,
+  "dphase_beats": 0.0,
+  "dphase_ms": 0.0,
+  "strength": 8.937,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": -0.0817,
+   "rate": 1.0058,
+   "r_a": 0.655,
+   "r_b": 0.793
+  },
+  "ours": {
+   "phase_beats": -0.0685,
+   "rate": 1.0,
+   "r_a": 0.393,
+   "r_b": 0.697
+  },
+  "diff_beats": 0.0132,
+  "diff_ms": 4.6
+ },
+ "offset_ms_median": 84.2,
+ "offset_bars": 11,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 24.2,
+ "bass_swap": [
+  101.0,
+  106.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.030568,
+  "pcty": 1.810862,
+  "Scol": 0.8187,
+  "Scty": 0.7903,
+  "banger_clash_rate": 0.1309,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

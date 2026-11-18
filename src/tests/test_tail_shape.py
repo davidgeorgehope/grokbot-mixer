@@ -58,4 +58,4 @@ def test_off_by_default():
     assert "TS=float(os.environ.get('TAIL_SHALLOW',0) or 0)" in src
     import json
     rules = json.load(open(os.path.join(HERE, '..', '..', 'protrans', 'rules.json')))
-    assert 'TAIL_SHALLOW' not in rules and 'TAIL_EXIT' not in rules
+    assert 'TAIL_SHALLOW' not in rules  # TAIL_EXIT 6 was kept 2026-11-17; TAIL_SHALLOW stays off

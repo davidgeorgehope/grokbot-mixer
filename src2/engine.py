@@ -24,12 +24,21 @@ def track(b):
   info=dict(id=b,g=g,st=LazySt(b),d0=g['downs'][0],nb=len(g['downs']),vact=voc>np.percentile(voc,95)-14)
   _cache[b]=info;return info
 _NF=os.environ.get('NUDGE','nudge.json');NUDGE=json.load(open(_NF)) if os.path.exists(_NF) else {}  # per-source-bar warp nudges (ms)
-def nudge(tr,k):return NUDGE.get(tr['id'],{}).get(str(k),0)
+_LOCK={}  # incoming deck id -> constant ms (BLEND_LOCK, 2026-11-17 RCA); same sign as nudge
+def nudge(tr,k):
+  v=NUDGE.get(tr['id'],{}).get(str(k),0)
+  import finephase  # 2026-11-17 RCA: per-phrase grid phase, off unless FINE_PHASE is on
+  if finephase.flag_on():
+    v=v+finephase.nudge_ms(tr['id'],k)
+  v=v+_LOCK.get(tr['id'],0)
+  return v
 SEAM=int(round(BEAT*SR))
 def render_deck(d):
   """Render deck d (meta dict) alone: source bars from full_map, 1-beat linear overlap-add at loop seams,
   times the crossfader gain curve d['auto']['gain'] ([[mix_bar, gain], ...])."""
   tr=track(d['id']);m=[s for s,_ in d['full_map']];n=int(round(len(m)*BS))
+  if d.get('blend_lock_ms'):  # 2026-11-17 RCA: constant incoming lock, same sign as nudge (delay +)
+    _LOCK[d['id']]=float(_LOCK.get(d['id'],0))+float(d['blend_lock_ms'])
   src=[c for _,c in d['full_map']];y=_bars(tr,m,tr['st']['mix'],n)
   if 'beat' in src:  # synthetic beat-only outro ('lx'): the same bar map from the drums+bass stem, faded in over LX_XF bars that END
     k0=src.index('beat');xf=int(d.get('lx_xf',2))  # where the beat-only bars start (before the blend; the stems are phase-identical to the mix)
@@ -73,7 +82,11 @@ def render_deck(d):
     pts=d['auto'].get('gain') or []
     if pts:
       t=np.arange(n)/BS+d['start_bar'];g=np.interp(t,[p[0] for p in pts],[p[1] for p in pts]).astype(np.float32);y*=g[:,None]
-  return np.concatenate([y,echo_tail(src,eo)]) if eo else y
+  try:
+    return np.concatenate([y,echo_tail(src,eo)]) if eo else y
+  finally:
+    if d.get('blend_lock_ms'):
+      _LOCK.pop(d['id'],None)
 def _ib_layer(tr,d,m,n,y):
   """'ib' (2026-11-02, listener: beats into a melody-only intro go mushy, 'it's ok to loop into beats'): the incoming's drums+bass stem
   from its later clean phrase p..p+L, looped on its own grid over deck bars k0..k1 (beatless intro), handing over at k1 (real drums).

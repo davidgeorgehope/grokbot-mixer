@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -21,6 +21,10 @@ def apply_rules(rules):
     # starts past bar 80 never entered cs (ukf__25 v2 stayed on the intro).
     if 'WINDOW_PLANNER' not in env and rules.get('window_planner') is not None:
         env['WINDOW_PLANNER'] = str(rules['window_planner'])
+    if 'RANKER' not in env and rules.get('ranker') is not None:
+        env['RANKER'] = str(rules['ranker'])
+    if 'RANKER' not in env and rules.get('RANKER') is not None:
+        env['RANKER'] = str(rules['RANKER'])
     if env.get('FADE')=='graphcut':
         env['GRAPH_CUT']='1'
     return env
@@ -269,7 +273,11 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
     try:
         os.chdir(paths.SRC2)
         cs = BB.cands_for(a, b, tag)
-        fams = BB.families(cs, None)
+        # When RANKER=1, pair_cands also adds mid-track windows (planner_extra).
+        # Keep the default family shortlist on the non-extra windows so the
+        # baseline pick matches RANKER=0.
+        ranker_preview = _flag_on(env.get('RANKER') or (rules or {}).get('RANKER') or (rules or {}).get('ranker'))
+        fams = BB.families([c for c in cs if not c.get('planner_extra')] if ranker_preview else cs, None)
         if not fams:
             raise RuntimeError(f'no candidate windows for {a}>{b}')
         hb = _hint_bar(hint_a_played_sec)
@@ -364,6 +372,46 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
         if (planner_choice and pick and pick.get('planner')
                 and planner_choice.get('type') not in (None, 'outro_intro')):
             fade = dict(planner_choice.get('fade_env') or {})
+        # RANKER=1 (off by default): score engine candidate windows + SNAP_IN /
+        # hold / tail options and pick one per pair. Does not change defaults.
+        ranker_info = None
+        ranker_on = _flag_on(env.get('RANKER') or rules.get('RANKER') or rules.get('ranker'))
+        if ranker_on:
+            import learned_ranker as _LR
+            import window_planner as _WP
+            import sections as _SEC
+            _sa, _sb = _SEC.get(a), _SEC.get(b)
+            _loa, _lob = _bar_low(a), _bar_low(b)
+            default_tail = int(float((pick.get('env') or {}).get('TAIL_EXIT') or env.get('TAIL_EXIT') or rules.get('TAIL_EXIT') or 6))
+            default_fade = str((pick.get('env') or {}).get('FADE') or env.get('FADE') or rules.get('FADE') or 'long')
+            nom = []
+            try:
+                nom = _WP.nominate(_sa, _sb, X=int((pick.get('win') or [None,0,None,0,16])[4] or 16))
+            except Exception:
+                nom = []
+            # Keep default window in the option set even if nominate missed it.
+            if pick.get('win'):
+                nom = [dict(type='outro_intro', win=list(pick['win']))] + [c for c in nom if list(c.get('win') or []) != list(pick['win'])]
+            options = _LR.enumerate_options(nom, default_tail=default_tail, default_fade=default_fade)
+            best, _scores, ranker_info = _LR.choose(_sa, _sb, options, _loa, _lob, gap=gap)
+            if best and best.get('win'):
+                want = tuple(best['win'])
+                # Prefer an already-scored family with this window; otherwise add one.
+                hit = next((c for _, c in scored if tuple(c.get('win') or []) == want), None)
+                if hit is None:
+                    hit = dict(fam='ranker_' + str(best.get('type') or 'pick'), win=list(best['win']), env={})
+                    # Only render windows the engine already scored (in cs), so
+                    # mix_simple --plan will accept them. Mid-track extras are in
+                    # cs when RANKER=1 (pair_cands engine_cands hook).
+                    if any(tuple(c.get('win') or []) == want for c in cs):
+                        scored.append((0.0, hit))
+                    else:
+                        ranker_info = dict(ranker_info or {}, applied=False, reason='win_not_in_cs')
+                        hit = None
+                if hit is not None:
+                    pick = dict(hit)
+                    fade = dict(_LR.fade_env(best))
+                    pick['ranker'] = dict(ranker_info or {}, type=best.get('type'), applied=True)
         pick['env'] = {**env, **dict(pick.get('env') or {}), **fade}
         # FADE=graphcut is a renderer flag: keep it on top of any family FADE so a cohort
         # eval compares the same windows under a different handover, not a different family.
@@ -380,7 +428,8 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     hint_a_played_sec=hint_a_played_sec, ours=ours, created=created,
                     n_cands=len(fams), phase_cost_errors=list(PHASE_COST_ERRORS),
                     halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'),
-                    planner=(planner_choice if planner_choice else pick.get('planner')))
+                    planner=(planner_choice if planner_choice else pick.get('planner')),
+                    ranker=(ranker_info if ranker_on else None))
         return info
     finally:
         os.chdir(oldcwd)

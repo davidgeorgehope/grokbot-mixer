@@ -232,7 +232,7 @@ def pair_cands(i,ia0):
       SA,SB=sections.get(a),sections.get(b);es=min(e_max,(SA['music_end']//8)*8);ibs=SB['drop1']-X
       if ibs>=0 and es-X>=ia+16 and ibs+X<nb:cands.append(('n',es,ibs));STRK.add(('n',a,b,es,ibs,X))
       if SB['drop1']-16>=16 and es-X>=ia+16:cands.append(('lb',es,SB['drop1']-16));STRK.add(('lb',a,b,es,SB['drop1']-16,X))  # gold (the listener 5/5, Mix 05 55:10 -> Just Hold On): incoming loops its last intro phrase, drop lands as the outgoing's music ends
-    if __import__('window_planner').flag_on(os.environ.get('WINDOW_PLANNER')):  # 2026-11-15 research, off by default: mid-track section windows (breakdown into drop, end of first drop)
+    if __import__('window_planner').flag_on(os.environ.get('WINDOW_PLANNER')) or __import__('learned_ranker').flag_on(os.environ.get('RANKER')):  # mid-track section windows: planner or RANKER=1 (both off by default)
       import window_planner as _WP, sections as _SEC
       have=set(cands)
       for kind,e,ib in _WP.engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia):
@@ -419,6 +419,13 @@ for i in range(len(trans)):
 if GC:
   import fade_graphcut as _GC
   _GC.apply(decks,trans)
+# BLEND_LOCK must run before --dry exits: blend_bench.render (official recreate/eval)
+# always plans with --dry and then engine.render_deck. If the lock is only applied
+# on the full-mix path, dry_meta never gets blend_lock_ms and the official clip
+# is a no-op (2026-11-17 RCA, We Are One -> Ghetto Blaster stayed 123 ms apart).
+import finephase as _FP
+if _FP.lock_flag_on():
+  _FP.lock_decks(decks,trans)
 if '--dry' in sys.argv:
   for t in trans:print(round(t['start_bar']*BAR/60,2),t['a'],'->',t['b'],t['vocal_clash_bars'],t['notes'])
   print('len min',round((decks[-1]['end_bar'])*BAR/60,2))

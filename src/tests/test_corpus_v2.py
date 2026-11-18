@@ -109,7 +109,7 @@ def test_official_files_currently_untouched():
         h.update(open(p, 'rb').read())
         return h.hexdigest()
     assert sha(admitted) == '4097926166a808eb5c0ab245b4a0fca8decaa62a6d9b44790889cce823971d8e'
-    assert sha(rules) == 'fc727b3c734b363ebd7c99e2e56d8df019b5ec2dff7b069bd5c5d8e0caff7109'
+    assert sha(rules) == 'ab435c6af95499056936978adc9fcea1d4e3bfb4c5af00795ff396dd5cccfef8'  # 2026-11-17: TAIL_EXIT 6 + BLEND_LOCK 1
     rows = json.load(open(admitted))
     assert len(rows) == 33
 

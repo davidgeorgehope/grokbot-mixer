@@ -1,0 +1,42 @@
+{
+ "blend": 0,
+ "a": "9oBXWTlTPMw",
+ "b": "3f-XOhfDhxk",
+ "start_bar": 176.0,
+ "end_bar": 192.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/ranker_v0_hybrid_minds_ukf__25_default.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": null,
+  "ours": null,
+  "why": "deck not located (onset r < 0.2)"
+ },
+ "offset_ms_median": -82.0,
+ "offset_bars": 10,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 27.5,
+ "bass_swap": [
+  181.0,
+  186.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.036042,
+  "pcty": 2.090599,
+  "Scol": 0.7899,
+  "Scty": 0.7621,
+  "banger_clash_rate": 0.1496,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

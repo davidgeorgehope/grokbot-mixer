@@ -104,7 +104,7 @@ def test_off_by_default():
     import json
     rules = json.load(open(os.path.join(HERE, '..', '..', 'protrans', 'rules.json')))
     assert 'SNAP_IN' not in rules and 'SNAP_IN_DB' not in rules
-    assert 'TAIL_SHALLOW' not in rules and 'TAIL_EXIT' not in rules
+    assert 'TAIL_SHALLOW' not in rules  # TAIL_EXIT 6 was kept 2026-11-17; not a SNAP_IN default
 
 
 def test_hold_extra_extends_plateau_without_loosening_x1():

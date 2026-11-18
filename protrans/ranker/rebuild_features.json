@@ -1,0 +1,632 @@
+{
+  "status": {
+    "ok": 75,
+    "error": 3
+  },
+  "rows": [
+    {
+      "id": "hospital_records_zYANUM_lubI__01",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "hospital_records_zYANUM_lubI__00",
+      "status": "ok",
+      "error": null,
+      "n_cands": 6,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "hospital_records_zYANUM_lubI__02",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "hospital_records_zYANUM_lubI__09",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "liquicity_EuPkz0GFI4g__01",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "breakdown",
+      "out_sec": "drop"
+    },
+    {
+      "id": "liquicity_EuPkz0GFI4g__38",
+      "status": "ok",
+      "error": null,
+      "n_cands": 13,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "liquicity_EuPkz0GFI4g__48",
+      "status": "ok",
+      "error": null,
+      "n_cands": 17,
+      "in_sec": "breakdown",
+      "out_sec": "breakdown"
+    },
+    {
+      "id": "liquicity_EuPkz0GFI4g__50",
+      "status": "ok",
+      "error": null,
+      "n_cands": 25,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "fryett_ltdJ6GFixfs__09",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "build",
+      "out_sec": "build"
+    },
+    {
+      "id": "fryett_ltdJ6GFixfs__25",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "breakdown",
+      "out_sec": "drop"
+    },
+    {
+      "id": "fryett_ltdJ6GFixfs__26",
+      "status": "error",
+      "error": "features_bar: Command '['ffmpeg', '-v', 'error', '-i', '/workspace/mixes/protrans/corpus_v2/feat_lib/2WR5O5s8YWs.m4a.__bar.wav', '-ac', '1', '-ar', '44100', '-f', 'f32le', '-']' returned non-zero exit",
+      "n_cands": 0,
+      "in_sec": null,
+      "out_sec": null
+    },
+    {
+      "id": "fryett_ltdJ6GFixfs__46",
+      "status": "ok",
+      "error": null,
+      "n_cands": 22,
+      "in_sec": "intro",
+      "out_sec": "breakdown"
+    },
+    {
+      "id": "fryett_ltdJ6GFixfs__52",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "build",
+      "out_sec": "build"
+    },
+    {
+      "id": "liquicity_nYOcD3qTdg0__16",
+      "status": "ok",
+      "error": null,
+      "n_cands": 9,
+      "in_sec": "drop",
+      "out_sec": "drop"
+    },
+    {
+      "id": "liquicity_nYOcD3qTdg0__11",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "drop",
+      "out_sec": "drop"
+    },
+    {
+      "id": "liquicity_nYOcD3qTdg0__34",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "drop",
+      "out_sec": "drop"
+    },
+    {
+      "id": "alpha_rhythm__fNcLmH-CYQ__00",
+      "status": "ok",
+      "error": null,
+      "n_cands": 29,
+      "in_sec": "build",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm__fNcLmH-CYQ__01",
+      "status": "error",
+      "error": "features_bar: Command '['ffmpeg', '-v', 'error', '-i', '/workspace/mixes/protrans/corpus_v2/feat_lib/I8Fw4ZYk6kM.m4a.__bar.wav', '-ac', '1', '-ar', '44100', '-f', 'f32le', '-']' returned non-zero exit",
+      "n_cands": 0,
+      "in_sec": null,
+      "out_sec": null
+    },
+    {
+      "id": "alpha_rhythm__fNcLmH-CYQ__02",
+      "status": "ok",
+      "error": null,
+      "n_cands": 15,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "alpha_rhythm_TnnrrqVRZIM__15",
+      "status": "ok",
+      "error": null,
+      "n_cands": 43,
+      "in_sec": "drop",
+      "out_sec": "outro"
+    },
+    {
+      "id": "hospital_records_Lm2VlTogWvY__00",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "intro",
+      "out_sec": "outro"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__05",
+      "status": "ok",
+      "error": null,
+      "n_cands": 22,
+      "in_sec": "build",
+      "out_sec": "breakdown"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__06",
+      "status": "ok",
+      "error": null,
+      "n_cands": 22,
+      "in_sec": "intro",
+      "out_sec": "breakdown"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__07",
+      "status": "ok",
+      "error": null,
+      "n_cands": 17,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__10",
+      "status": "ok",
+      "error": null,
+      "n_cands": 9,
+      "in_sec": "build",
+      "out_sec": "breakdown"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__13",
+      "status": "ok",
+      "error": null,
+      "n_cands": 21,
+      "in_sec": "intro",
+      "out_sec": "build"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__15",
+      "status": "ok",
+      "error": null,
+      "n_cands": 15,
+      "in_sec": "breakdown",
+      "out_sec": "breakdown"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__27",
+      "status": "ok",
+      "error": null,
+      "n_cands": 17,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__39",
+      "status": "ok",
+      "error": null,
+      "n_cands": 4,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "ukf_drum_bass_abhfer_BNoQ__16",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "intro",
+      "out_sec": "outro"
+    },
+    {
+      "id": "ukf_drum_bass_abhfer_BNoQ__25",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "outro",
+      "out_sec": "outro"
+    },
+    {
+      "id": "ukf_drum_bass_LeMk0yiSoq4__18",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "build",
+      "out_sec": "build"
+    },
+    {
+      "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+      "status": "ok",
+      "error": null,
+      "n_cands": 3,
+      "in_sec": "drop",
+      "out_sec": "build"
+    },
+    {
+      "id": "ukf_drum_bass_LeMk0yiSoq4__22",
+      "status": "ok",
+      "error": null,
+      "n_cands": 9,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+      "status": "ok",
+      "error": null,
+      "n_cands": 8,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+      "status": "ok",
+      "error": null,
+      "n_cands": 29,
+      "in_sec": "build",
+      "out_sec": "build"
+    },
+    {
+      "id": "ukf_drum_bass_LeMk0yiSoq4__43",
+      "status": "ok",
+      "error": null,
+      "n_cands": 8,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+      "status": "ok",
+      "error": null,
+      "n_cands": 43,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+      "status": "ok",
+      "error": null,
+      "n_cands": 4,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "hospital_records_zYANUM_lubI__03",
+      "status": "ok",
+      "error": null,
+      "n_cands": 17,
+      "in_sec": "intro",
+      "out_sec": "outro"
+    },
+    {
+      "id": "hospital_records_zYANUM_lubI__04",
+      "status": "ok",
+      "error": null,
+      "n_cands": 29,
+      "in_sec": "drop",
+      "out_sec": "drop"
+    },
+    {
+      "id": "alpha_rhythm_AU0V19j8oKM__12",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "build",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm_AU0V19j8oKM__16",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "outro",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm_V0BMNeOy_t4__05",
+      "status": "ok",
+      "error": null,
+      "n_cands": 9,
+      "in_sec": "drop",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm_V0BMNeOy_t4__07",
+      "status": "ok",
+      "error": null,
+      "n_cands": 5,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "alpha_rhythm_V0BMNeOy_t4__06",
+      "status": "ok",
+      "error": null,
+      "n_cands": 29,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "alpha_rhythm_V0BMNeOy_t4__08",
+      "status": "ok",
+      "error": null,
+      "n_cands": 29,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "alpha_rhythm_imZjEt78YXs__03",
+      "status": "ok",
+      "error": null,
+      "n_cands": 25,
+      "in_sec": "breakdown",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm_imZjEt78YXs__07",
+      "status": "ok",
+      "error": null,
+      "n_cands": 43,
+      "in_sec": "breakdown",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm_imZjEt78YXs__09",
+      "status": "ok",
+      "error": null,
+      "n_cands": 5,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "alpha_rhythm_imZjEt78YXs__10",
+      "status": "ok",
+      "error": null,
+      "n_cands": 43,
+      "in_sec": "intro",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm_imZjEt78YXs__15",
+      "status": "error",
+      "error": "features_bar: Command '['ffmpeg', '-v', 'error', '-i', '/workspace/mixes/protrans/corpus_v2/feat_lib/rPnVkk1LYlA.m4a.__bar.wav', '-ac', '1', '-ar', '44100', '-f', 'f32le', '-']' returned non-zero exit",
+      "n_cands": 0,
+      "in_sec": null,
+      "out_sec": null
+    },
+    {
+      "id": "alpha_rhythm_imZjEt78YXs__16",
+      "status": "ok",
+      "error": null,
+      "n_cands": 29,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "alpha_rhythm_TnnrrqVRZIM__06",
+      "status": "ok",
+      "error": null,
+      "n_cands": 21,
+      "in_sec": "intro",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm_TnnrrqVRZIM__13",
+      "status": "ok",
+      "error": null,
+      "n_cands": 9,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "alpha_rhythm_TnnrrqVRZIM__14",
+      "status": "ok",
+      "error": null,
+      "n_cands": 29,
+      "in_sec": "breakdown",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm_hb7PvukS-Pk__07",
+      "status": "ok",
+      "error": null,
+      "n_cands": 57,
+      "in_sec": "build",
+      "out_sec": "outro"
+    },
+    {
+      "id": "alpha_rhythm_hb7PvukS-Pk__11",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "drop",
+      "out_sec": "outro"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__03",
+      "status": "ok",
+      "error": null,
+      "n_cands": 21,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "theheshbesh_zHf8cC9ViuA__09",
+      "status": "ok",
+      "error": null,
+      "n_cands": 13,
+      "in_sec": "breakdown",
+      "out_sec": "build"
+    },
+    {
+      "id": "ukf_drum_bass_abhfer_BNoQ__05",
+      "status": "ok",
+      "error": null,
+      "n_cands": 15,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "ukf_drum_bass_abhfer_BNoQ__29",
+      "status": "ok",
+      "error": null,
+      "n_cands": 8,
+      "in_sec": "intro",
+      "out_sec": "outro"
+    },
+    {
+      "id": "ukf_drum_bass_cCtoa1U_1DE__11",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "ukf_drum_bass_cCtoa1U_1DE__17",
+      "status": "ok",
+      "error": null,
+      "n_cands": 2,
+      "in_sec": "intro",
+      "out_sec": "build"
+    },
+    {
+      "id": "ukf_drum_bass_cCtoa1U_1DE__21",
+      "status": "ok",
+      "error": null,
+      "n_cands": 1,
+      "in_sec": "intro",
+      "out_sec": "build"
+    },
+    {
+      "id": "ukf_drum_bass_cCtoa1U_1DE__35",
+      "status": "ok",
+      "error": null,
+      "n_cands": 29,
+      "in_sec": "build",
+      "out_sec": "build"
+    },
+    {
+      "id": "ukf_drum_bass_cCtoa1U_1DE__40",
+      "status": "ok",
+      "error": null,
+      "n_cands": 2,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__07",
+      "status": "ok",
+      "error": null,
+      "n_cands": 9,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__09",
+      "status": "ok",
+      "error": null,
+      "n_cands": 43,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__10",
+      "status": "ok",
+      "error": null,
+      "n_cands": 36,
+      "in_sec": "intro",
+      "out_sec": "drop"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__14",
+      "status": "ok",
+      "error": null,
+      "n_cands": 9,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__15",
+      "status": "ok",
+      "error": null,
+      "n_cands": 36,
+      "in_sec": "drop",
+      "out_sec": "drop"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__18",
+      "status": "ok",
+      "error": null,
+      "n_cands": 50,
+      "in_sec": "drop",
+      "out_sec": "drop"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__22",
+      "status": "ok",
+      "error": null,
+      "n_cands": 43,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__25",
+      "status": "ok",
+      "error": null,
+      "n_cands": 29,
+      "in_sec": "build",
+      "out_sec": "drop"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__27",
+      "status": "ok",
+      "error": null,
+      "n_cands": 9,
+      "in_sec": "drop",
+      "out_sec": "build"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__30",
+      "status": "ok",
+      "error": null,
+      "n_cands": 50,
+      "in_sec": "intro",
+      "out_sec": "breakdown"
+    },
+    {
+      "id": "suicidesheeep_R8MWKsheHxk__46",
+      "status": "ok",
+      "error": null,
+      "n_cands": 57,
+      "in_sec": "drop",
+      "out_sec": "drop"
+    }
+  ]
+}

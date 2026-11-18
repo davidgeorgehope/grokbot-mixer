@@ -1,0 +1,920 @@
+{
+  "trained": true,
+  "kind": "lightgbm",
+  "model_path": "/workspace/mixes/protrans/ranker/ranker_v0.txt",
+  "seed": 20261115,
+  "held_out_by": "mix",
+  "held_out_frac": 0.2,
+  "n_train_candidates": 3056,
+  "n_train_transitions": 82,
+  "n_corpus_train": 61,
+  "n_corpus_heldout": 17,
+  "n_legacy_train": 21,
+  "n_train_mixes": 12,
+  "n_heldout_mixes": 4,
+  "heldout_mixes": [
+    "alpha_rhythm_hb7PvukS-Pk",
+    "ukf_drum_bass_abhfer_BNoQ",
+    "hospital_records_zYANUM_lubI",
+    "fryett_ltdJ6GFixfs"
+  ],
+  "train_mixes": [
+    "alpha_rhythm__fNcLmH-CYQ",
+    "ukf_drum_bass_LeMk0yiSoq4",
+    "alpha_rhythm_TnnrrqVRZIM",
+    "alpha_rhythm_imZjEt78YXs",
+    "alpha_rhythm_V0BMNeOy_t4",
+    "ukf_drum_bass_cCtoa1U_1DE",
+    "liquicity_nYOcD3qTdg0",
+    "theheshbesh_zHf8cC9ViuA",
+    "suicidesheeep_R8MWKsheHxk",
+    "hospital_records_Lm2VlTogWvY",
+    "alpha_rhythm_AU0V19j8oKM",
+    "liquicity_EuPkz0GFI4g"
+  ],
+  "corpus_heldout": {
+    "n": 17,
+    "top1_section_match": 0.4118,
+    "top1_within_8bars": 0.3529
+  },
+  "corpus_train": {
+    "n": 61,
+    "top1_section_match": 0.377,
+    "top1_within_8bars": 0.6557
+  },
+  "n_diff_from_default": 59,
+  "n_scored_for_diff": 99,
+  "example_diffs": [
+    {
+      "id": "fryett_ltdJ6GFixfs__46",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          192,
+          null,
+          0,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "drop1_end",
+        "win": [
+          "n",
+          96,
+          null,
+          8,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "hospital_records_zYANUM_lubI__03",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          160,
+          null,
+          48,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "drop1_end",
+        "win": [
+          "n",
+          80,
+          null,
+          64,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "hospital_records_zYANUM_lubI__04",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          240,
+          null,
+          0,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "breakdown_drop",
+        "win": [
+          "n",
+          40,
+          null,
+          32,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "alpha_rhythm_hb7PvukS-Pk__07",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          232,
+          null,
+          16,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "drop1_end",
+        "win": [
+          "n",
+          112,
+          null,
+          32,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "ukf_drum_bass_abhfer_BNoQ__05",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          152,
+          null,
+          8,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "drop1_end",
+        "win": [
+          "n",
+          80,
+          null,
+          24,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "liquicity_EuPkz0GFI4g__01",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          160,
+          null,
+          32,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          160,
+          null,
+          32,
+          16
+        ],
+        "snap_in": true,
+        "hold": 16,
+        "tail": 6
+      }
+    },
+    {
+      "id": "liquicity_EuPkz0GFI4g__48",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          160,
+          null,
+          16,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "drop1_end",
+        "win": [
+          "n",
+          80,
+          null,
+          32,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "liquicity_nYOcD3qTdg0__16",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          144,
+          null,
+          8,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "drop1_end",
+        "win": [
+          "n",
+          32,
+          null,
+          24,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "alpha_rhythm__fNcLmH-CYQ__00",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          192,
+          null,
+          16,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "drop1_end",
+        "win": [
+          "n",
+          32,
+          null,
+          32,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "alpha_rhythm__fNcLmH-CYQ__01",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          224,
+          null,
+          16,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "drop1_end",
+        "win": [
+          "n",
+          96,
+          null,
+          32,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "alpha_rhythm__fNcLmH-CYQ__02",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          192,
+          null,
+          16,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "breakdown_drop",
+        "win": [
+          "n",
+          192,
+          null,
+          32,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    },
+    {
+      "id": "alpha_rhythm_TnnrrqVRZIM__15",
+      "source": "corpus_v2",
+      "default": {
+        "type": "outro_intro",
+        "win": [
+          "n",
+          176,
+          null,
+          16,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      },
+      "pick": {
+        "type": "drop1_end",
+        "win": [
+          "n",
+          40,
+          null,
+          32,
+          16
+        ],
+        "snap_in": false,
+        "hold": 0,
+        "tail": 6
+      }
+    }
+  ],
+  "feature_importance": [
+    {
+      "name": "in_rel",
+      "gain": 587
+    },
+    {
+      "name": "out_rel",
+      "gain": 262
+    },
+    {
+      "name": "in_begin",
+      "gain": 253
+    },
+    {
+      "name": "n_bars_b",
+      "gain": 142
+    },
+    {
+      "name": "out_vs_body",
+      "gain": 141
+    },
+    {
+      "name": "intro_len_b",
+      "gain": 139
+    },
+    {
+      "name": "in_drop_idx",
+      "gain": 116
+    },
+    {
+      "name": "n_bars_a",
+      "gain": 102
+    },
+    {
+      "name": "in_vs_body",
+      "gain": 85
+    },
+    {
+      "name": "to_outro",
+      "gain": 81
+    },
+    {
+      "name": "ib_is_start",
+      "gain": 72
+    },
+    {
+      "name": "snap_in",
+      "gain": 69
+    }
+  ],
+  "flag": "RANKER",
+  "flag_default": 0,
+  "floor": {
+    "held_out": 34.07,
+    "train": 32.4,
+    "n_fail": 0
+  },
+  "note": "v0 trained before the 150-accepted target. Official 33-pair held-out mixes were not used as labels.",
+  "eval_33": {
+    "v3": {
+      "train": 27.94,
+      "test": 30.28,
+      "n": 33,
+      "n_fail": 0
+    },
+    "floor": {
+      "held_out": 34.07,
+      "train": 32.4,
+      "n_fail": 0
+    },
+    "floors_held": false,
+    "defaults_changed": false,
+    "n_pairs_diff_fam": 19,
+    "n_improved": 10,
+    "n_regressed": 17
+  },
+  "eval_33_pairs": [
+    {
+      "id": "maduk_liquicity_lunar2025__02",
+      "split": "test",
+      "baseline": 27.78,
+      "ranker": 27.78,
+      "delta": 0.0,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__03",
+      "split": "test",
+      "baseline": 39.32,
+      "ranker": 39.32,
+      "delta": 0.0,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__05",
+      "split": "test",
+      "baseline": 23.58,
+      "ranker": 23.58,
+      "delta": 0.0,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "split": "test",
+      "baseline": 43.75,
+      "ranker": 26.25,
+      "delta": -17.5,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "split": "test",
+      "baseline": 27.58,
+      "ranker": 19.76,
+      "delta": -7.82,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "split": "test",
+      "baseline": 40.9,
+      "ranker": 38.97,
+      "delta": -1.93,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "split": "test",
+      "baseline": 33.35,
+      "ranker": 22.97,
+      "delta": -10.38,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "split": "test",
+      "baseline": 28.45,
+      "ranker": 32.78,
+      "delta": 4.33,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "pola_bryson_puzzlewood__00",
+      "split": "test",
+      "baseline": 59.25,
+      "ranker": 49.36,
+      "delta": -9.89,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "pola_bryson_puzzlewood__02",
+      "split": "test",
+      "baseline": 20.54,
+      "ranker": 31.63,
+      "delta": 11.09,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "pola_bryson_puzzlewood__04",
+      "split": "test",
+      "baseline": 34.12,
+      "ranker": 33.6,
+      "delta": -0.52,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "split": "test",
+      "baseline": 30.2,
+      "ranker": 17.3,
+      "delta": -12.9,
+      "base_fam": "nat_long",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "hybrid_minds_ukf__00",
+      "split": "train",
+      "baseline": 29.45,
+      "ranker": 27.9,
+      "delta": -1.55,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "split": "train",
+      "baseline": 42.98,
+      "ranker": 18.74,
+      "delta": -24.24,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "split": "train",
+      "baseline": 32.58,
+      "ranker": 28.11,
+      "delta": -4.47,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "split": "train",
+      "baseline": 36.67,
+      "ranker": 40.63,
+      "delta": 3.96,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "split": "train",
+      "baseline": 34.15,
+      "ranker": 23.61,
+      "delta": -10.54,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "split": "train",
+      "baseline": 12.03,
+      "ranker": 12.09,
+      "delta": 0.06,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "split": "train",
+      "baseline": 33.72,
+      "ranker": 20.66,
+      "delta": -13.06,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "hybrid_minds_ukf__19",
+      "split": "train",
+      "baseline": 27.92,
+      "ranker": 31.54,
+      "delta": 3.62,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "split": "train",
+      "baseline": 31.79,
+      "ranker": 28.64,
+      "delta": -3.15,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "hybrid_minds_ukf__25",
+      "split": "train",
+      "baseline": 26.37,
+      "ranker": 28.71,
+      "delta": 2.34,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "split": "train",
+      "baseline": 40.68,
+      "ranker": 20.09,
+      "delta": -20.59,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "split": "train",
+      "baseline": 31.0,
+      "ranker": 24.52,
+      "delta": -6.48,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "split": "train",
+      "baseline": 41.6,
+      "ranker": 35.89,
+      "delta": -5.71,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "split": "train",
+      "baseline": 29.36,
+      "ranker": 34.96,
+      "delta": 5.6,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "split": "train",
+      "baseline": 30.24,
+      "ranker": 39.04,
+      "delta": 8.8,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "split": "train",
+      "baseline": 30.08,
+      "ranker": 30.08,
+      "delta": 0.0,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "joe_syntax_hospital__09",
+      "split": "train",
+      "baseline": 28.36,
+      "ranker": 28.59,
+      "delta": 0.23,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "split": "train",
+      "baseline": 60.51,
+      "ranker": 24.89,
+      "delta": -35.62,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "split": "train",
+      "baseline": 32.29,
+      "ranker": 32.29,
+      "delta": 0.0,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "split": "train",
+      "baseline": 19.81,
+      "ranker": 26.79,
+      "delta": 6.98,
+      "base_fam": "nat_short",
+      "ranker_fam": "ranker_drop1_end",
+      "differs": true
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "split": "train",
+      "baseline": 28.87,
+      "ranker": 28.87,
+      "delta": 0.0,
+      "base_fam": "nat_short",
+      "ranker_fam": "nat_short",
+      "differs": false
+    }
+  ],
+  "clip": {
+    "id": "hybrid_minds_ukf__25",
+    "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+    "tick_s": 11.034,
+    "A": {
+      "mp3": "/workspace/mixes/deliver/protrans/ranker_v0_hybrid_minds_ukf__25_A_default.mp3",
+      "duration_s": 44.138,
+      "lufs": -14.0,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        192,
+        null,
+        0,
+        16
+      ]
+    },
+    "B": {
+      "mp3": "/workspace/mixes/deliver/protrans/ranker_v0_hybrid_minds_ukf__25_B_ranker.mp3",
+      "duration_s": 44.138,
+      "lufs": -14.0,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "ranker": {
+        "kind": "lightgbm",
+        "n_options": 72,
+        "best_score": 0.5191,
+        "best_type": "drop1_end",
+        "best_win": [
+          "n",
+          112,
+          null,
+          160,
+          16
+        ],
+        "best_fade": {
+          "SNAP_IN": "0",
+          "SNAP_IN_HOLD": "0",
+          "TAIL_EXIT": "6",
+          "FADE": "long"
+        },
+        "top3": [
+          {
+            "type": "drop1_end",
+            "win": [
+              "n",
+              112,
+              null,
+              160,
+              16
+            ],
+            "snap_in": true,
+            "snap_in_hold": 0,
+            "tail_exit": 6,
+            "score": 0.5191
+          },
+          {
+            "type": "drop1_end",
+            "win": [
+              "n",
+              112,
+              null,
+              160,
+              16
+            ],
+            "snap_in": false,
+            "snap_in_hold": 0,
+            "tail_exit": 6,
+            "score": 0.5191
+          },
+          {
+            "type": "drop1_end",
+            "win": [
+              "n",
+              112,
+              null,
+              160,
+              16
+            ],
+            "snap_in": false,
+            "snap_in_hold": 0,
+            "tail_exit": 0,
+            "score": 0.321
+          }
+        ]
+      }
+    },
+    "AB": {
+      "mp3": "/workspace/mixes/deliver/protrans/ranker_v0_hybrid_minds_ukf__25_AB.mp3",
+      "duration_s": 89.026,
+      "measured_lufs_before": null,
+      "gain_db_applied": 0.0,
+      "lufs": -14.0
+    },
+    "png": "/workspace/mixes/deliver/protrans/diagnostics/ranker_v0_hybrid_minds_ukf__25.png",
+    "png_default": "/workspace/mixes/deliver/protrans/diagnostics/ranker_v0_hybrid_minds_ukf__25_default.png"
+  }
+}

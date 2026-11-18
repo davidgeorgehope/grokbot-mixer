@@ -80,20 +80,40 @@ def _flux(m, lo, hi, hop=64, sr=44100):
     return np.maximum(np.diff(e, prepend=e[:1]), 0.0)
 
 
-def bar_offsets(a, b, bars, bs, beat, hop=64, sr=44100):
-    """signed per-bar lag (ms, + = A late) of max xcorr of kick+snare onsets over +-half a beat, 2-bar windows"""
+def bar_offsets(a, b, bars, bs, beat, hop=64, sr=44100, win_bars=2, prefer_interior=False):
+    """signed per-bar lag (ms, + = A late) of max xcorr of kick+snare onsets over +-half a beat.
+
+    Default is a 2-bar window (unchanged). win_bars=1 avoids the next (often fading) bar
+    stealing the peak. prefer_interior: if the argmax is near +-half a beat and a peak
+    inside +-40 ms has relative strength >= 0.75, take that peak instead (2-bar windows
+    at a fade often hop to a wrap even when the true residual is 0)."""
     ma, mb = a.mean(1), b.mean(1)
     ea = _flux(ma, 30, 150) + _flux(ma, 150, 1500); eb = _flux(mb, 30, 150) + _flux(mb, 150, 1500)
     fr = sr / hop; L = int(beat / 2 * fr); out = []
+    half_ms = beat / 2 * 1000
     for k in bars:
-        i0, i1 = int(k * bs / hop), int((k + 2) * bs / hop)
+        i0, i1 = int(k * bs / hop), int((k + win_bars) * bs / hop)
         x, y = ea[i0:i1] - ea[i0:i1].mean(), eb[i0:i1] - eb[i0:i1].mean()
         n = min(len(x), len(y))
         if n < 4 * L:
             out.append(np.nan); continue
         x, y = x[:n], y[:n]
-        xc = [np.dot(x[max(0, j):n + min(0, j)], y[max(0, -j):n - max(0, j)]) for j in range(-L, L + 1)]
-        out.append((int(np.argmax(xc)) - L) * 1000 / fr)
+        xc = np.array([np.dot(x[max(0, j):n + min(0, j)], y[max(0, -j):n - max(0, j)]) for j in range(-L, L + 1)])
+        i = int(np.argmax(xc))
+        if prefer_interior:
+            lag = (i - L) * 1000 / fr
+            peak = float(xc[i]) or 1e-12
+            if abs(lag) >= 0.4 * half_ms * 2:  # >= ~137 ms, near the search edge
+                best = i
+                best_abs = abs(lag)
+                for j, v in enumerate(xc):
+                    if v / peak < 0.75:
+                        continue
+                    ms = (j - L) * 1000 / fr
+                    if abs(ms) <= 40 and abs(ms) < best_abs:
+                        best, best_abs = j, abs(ms)
+                i = best
+        out.append((i - L) * 1000 / fr)
     return np.array(out)
 
 

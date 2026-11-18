@@ -1,0 +1,244 @@
+{
+ "pick_id": "joe_syntax_hospital__11",
+ "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+ "before": {
+  "score": 58.04,
+  "score_v2": 63.03,
+  "breakdown": {
+   "stem_curves": 75.83,
+   "deck_curves": 59.67,
+   "beat_align": 34.51,
+   "bass_swap": 51.12,
+   "outgoing_cut": 65.65,
+   "blend_length": 39.82,
+   "stems": {
+    "drums": 77.44,
+    "bass": 76.96,
+    "vocals": 69.36,
+    "melody": 79.57
+   },
+   "beat_off_ms": 0.0,
+   "beat_align_v2": 67.77,
+   "beat_identity": 1.26,
+   "beat_lock": {
+    "pro": {
+     "phase_beats": -0.1701,
+     "rate": 1.0,
+     "r_a": 0.764,
+     "r_b": 0.756
+    },
+    "ours": {
+     "phase_beats": -0.4874,
+     "rate": 1.0,
+     "r_a": 0.798,
+     "r_b": 0.878
+    },
+    "diff_beats": -0.3173,
+    "diff_ms": 109.4
+   },
+   "events_pro": {
+    "bass_swap": 15,
+    "outgoing_cut": 16,
+    "blend_length": 10
+   },
+   "events_ours": {
+    "bass_swap": 13,
+    "outgoing_cut": 15,
+    "blend_length": 4
+   },
+   "stem_kind": [
+    "bands",
+    "bands"
+   ],
+   "deck": {
+    "per_stem_deck": 59.67
+   },
+   "align": {
+    "lag_samples": 44544,
+    "lag_ms": 2020.14,
+    "peak": 0.3721,
+    "win_sec": 44.138
+   }
+  },
+  "offset_ms_median": -78.4,
+  "offset_ms": [
+   -110.3,
+   -110.3,
+   130.6,
+   123.4,
+   30.5,
+   121.9,
+   -100.1,
+   -104.5,
+   -78.4
+  ],
+  "offset_bars": [
+   225.0,
+   226.0,
+   227.0,
+   228.0,
+   229.0,
+   230.0,
+   231.0,
+   232.0,
+   233.0
+  ],
+  "loud_lag_ms": 123.4,
+  "loud_bars": [
+   227,
+   228,
+   229,
+   230
+  ],
+  "loud_offs": [
+   130.6,
+   123.4,
+   123.4,
+   -50.8
+  ],
+  "blend_lock_ms": null,
+  "blend_lock_report": null,
+  "fam": "nat_short",
+  "win": [
+   "n",
+   240,
+   null,
+   24,
+   16
+  ]
+ },
+ "after": {
+  "score": 60.51,
+  "score_v2": 59.31,
+  "breakdown": {
+   "stem_curves": 77.9,
+   "deck_curves": 60.91,
+   "beat_align": 47.59,
+   "bass_swap": 66.69,
+   "outgoing_cut": 66.69,
+   "blend_length": 14.88,
+   "stems": {
+    "drums": 78.78,
+    "bass": 78.7,
+    "vocals": 72.48,
+    "melody": 81.63
+   },
+   "beat_off_ms": 8.71,
+   "beat_align_v2": 39.61,
+   "beat_identity": 55.57,
+   "beat_lock": {
+    "pro": {
+     "phase_beats": -0.1701,
+     "rate": 1.0,
+     "r_a": 0.763,
+     "r_b": 0.756
+    },
+    "ours": {
+     "phase_beats": -0.1275,
+     "rate": 1.0,
+     "r_a": 0.738,
+     "r_b": 0.888
+    },
+    "diff_beats": 0.0426,
+    "diff_ms": 14.7
+   },
+   "events_pro": {
+    "bass_swap": 15,
+    "outgoing_cut": 16,
+    "blend_length": 16
+   },
+   "events_ours": {
+    "bass_swap": 14,
+    "outgoing_cut": 17,
+    "blend_length": 2
+   },
+   "stem_kind": [
+    "bands",
+    "bands"
+   ],
+   "deck": {
+    "per_stem_deck": 60.91
+   },
+   "align": {
+    "lag_samples": 41984,
+    "lag_ms": 1904.04,
+    "peak": 0.3457,
+    "win_sec": 44.138
+   }
+  },
+  "offset_ms_median": 1.5,
+  "offset_ms": [
+   1.5,
+   5.8,
+   7.3,
+   0.0,
+   0.0,
+   -1.5,
+   149.5,
+   55.1,
+   -155.3
+  ],
+  "offset_bars": [
+   225.0,
+   226.0,
+   227.0,
+   228.0,
+   229.0,
+   230.0,
+   231.0,
+   232.0,
+   233.0
+  ],
+  "loud_lag_ms": 0.0,
+  "loud_bars": [
+   228,
+   229,
+   230
+  ],
+  "loud_offs": [
+   0.0,
+   164.0,
+   149.5
+  ],
+  "blend_lock_ms": 123.4,
+  "blend_lock_report": {
+   "lag_ms": 123.4,
+   "n": 4,
+   "n_loud": 5,
+   "bars": [
+    227,
+    228,
+    229,
+    230
+   ],
+   "offs": [
+    130.6,
+    123.4,
+    30.5,
+    121.9
+   ],
+   "applied": true,
+   "blend_lock_ms": 123.4
+  },
+  "fam": "nat_short",
+  "win": [
+   "n",
+   240,
+   null,
+   24,
+   16
+  ]
+ },
+ "clip": {
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-17_fix.mp3",
+  "duration_s": 44.138,
+  "tick_s": 11.034,
+  "tick_hz": 2000.0,
+  "lufs_wav": -14.0,
+  "lufs_mp3": -14.0,
+  "measured_before_norm": -9.81,
+  "gain_db": -4.19
+ },
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-17.png",
+ "note": "BLEND_LOCK=1 on this pair only for the after render; FINE_PHASE off; rules.json not changed in this script."
+}

@@ -114,4 +114,6 @@ def test_off_by_default():
     assert "TE=float(os.environ.get('TAIL_EXIT',0) or 0)" in src and 'if TE>0 and not GC:' in src
     import json
     rules = json.load(open(os.path.join(HERE, '..', '..', 'protrans', 'rules.json')))
-    assert 'TAIL_EXIT' not in rules
+    # Code still defaults to 0 when the env is unset. rules.json sets TAIL_EXIT 6
+    # (kept 2026-11-17 daily) so official recreates enable it via apply_rules.
+    assert int(rules.get('TAIL_EXIT') or 0) == 6

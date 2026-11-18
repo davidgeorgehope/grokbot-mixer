@@ -1,0 +1,431 @@
+{
+  "tag": "d1117",
+  "pick_id": "joe_syntax_hospital__11",
+  "base_variant": "d1115_xp_045",
+  "base": {
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 32.26,
+    "test_mean": 34.05,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 32.38,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 32.07,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 30.23,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 34.81,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 37.91,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 30.2,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "pick_before": 55.65,
+  "base_pick_row": {
+    "id": "joe_syntax_hospital__11",
+    "split": "train",
+    "dj": "Joe Syntax",
+    "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+    "pick": {
+      "fam": "nat_short",
+      "win": [
+        "n",
+        240,
+        null,
+        24,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1"
+      }
+    },
+    "score": {
+      "score": 55.65,
+      "score_v2": 60.63,
+      "scorer_version": "gain-events-v3-beatid",
+      "breakdown": {
+        "stem_curves": 70.43,
+        "deck_curves": 58.86,
+        "beat_align": 34.53,
+        "bass_swap": 49.0,
+        "outgoing_cut": 49.0,
+        "blend_length": 55.52,
+        "stems": {
+          "drums": 71.44,
+          "bass": 75.69,
+          "vocals": 63.98,
+          "melody": 70.61
+        },
+        "beat_off_ms": 0.0,
+        "beat_align_v2": 67.75,
+        "beat_identity": 1.31,
+        "beat_lock": {
+          "pro": {
+            "phase_beats": -0.1701,
+            "rate": 1.0,
+            "r_a": 0.764,
+            "r_b": 0.756
+          },
+          "ours": {
+            "phase_beats": -0.4845,
+            "rate": 1.0,
+            "r_a": 0.798,
+            "r_b": 0.895
+          },
+          "diff_beats": -0.3144,
+          "diff_ms": 108.4
+        },
+        "events_pro": {
+          "bass_swap": 15,
+          "outgoing_cut": 16,
+          "blend_length": 10
+        },
+        "events_ours": {
+          "bass_swap": 13,
+          "outgoing_cut": 18,
+          "blend_length": 7
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 58.86
+        },
+        "align": {
+          "lag_samples": 44544,
+          "lag_ms": 2020.14,
+          "peak": 0.3717,
+          "win_sec": 44.138
+        }
+      },
+      "weights": {
+        "stem_curves": 0.28,
+        "deck_curves": 0.22,
+        "beat_align": 0.15,
+        "bass_swap": 0.13,
+        "outgoing_cut": 0.12,
+        "blend_length": 0.1
+      },
+      "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__11/pro.wav",
+      "ours": "/tmp/protrans_bench/d1115fxp_0412.mp3"
+    },
+    "ours": "/tmp/protrans_bench/d1115fxp_0412.mp3",
+    "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__11/pro.wav",
+    "created": [],
+    "ts": "2026-11-15 09:20:17 EST"
+  },
+  "tried": [
+    {
+      "name": "tail_exit_6",
+      "delta": {
+        "TAIL_EXIT": 6
+      },
+      "pick_score": 58.04,
+      "pick_fam": "nat_short",
+      "kept": true,
+      "train_mean": 32.37,
+      "test_mean": 34.07,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 32.38,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 32.37,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 30.23,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 34.81,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 37.97,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 30.2,
+          "split": "test"
+        }
+      },
+      "why": "held-out held 34.05 -> 34.07"
+    },
+    {
+      "name": "xp2_060",
+      "delta": {
+        "LONG_XP2": 0.6
+      },
+      "pick_score": 56.31,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "not the best pick improver (no full-cohort run)"
+    },
+    {
+      "name": "xp2_040",
+      "delta": {
+        "LONG_XP2": 0.4
+      },
+      "pick_score": 54.53,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "xp_045",
+      "delta": {
+        "LONG_XP": 0.45
+      },
+      "pick_score": 55.65,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "long_exit_12",
+      "delta": {
+        "LONG_EXIT": 12
+      },
+      "pick_score": 54.6,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "swap_4bar",
+      "delta": {
+        "BASS_SWAP_BARS": 4
+      },
+      "pick_score": 55.65,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "solo_struct_off",
+      "delta": {
+        "LONG_SOLO_STRUCT": 0
+      },
+      "pick_score": 55.65,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    }
+  ],
+  "kept": {
+    "name": "tail_exit_6",
+    "delta": {
+      "TAIL_EXIT": 6
+    },
+    "summary": {
+      "n": 33,
+      "n_fail": 0,
+      "train_n": 21,
+      "test_n": 12,
+      "train_mean": 32.37,
+      "test_mean": 34.07,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 32.38,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 32.37,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 30.23,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 34.81,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 37.97,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 30.2,
+          "split": "test"
+        }
+      },
+      "stem_kind": "bands"
+    },
+    "pick_row": {
+      "id": "joe_syntax_hospital__11",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+      "pick": {
+        "fam": "nat_short",
+        "win": [
+          "n",
+          240,
+          null,
+          24,
+          16
+        ],
+        "env": {
+          "FADE": "long",
+          "BASS_SWAP_BARS": "3",
+          "SWAP_POS": "0.21",
+          "HIGH_SWAP": "1",
+          "HIGH_OFS": "8",
+          "STRUCT": "1",
+          "LOOP32": "0",
+          "LONG_XP": "0.45",
+          "LONG_SOLO": "16",
+          "LONG_SWAP": "exit",
+          "LONG_SOLO_STRUCT": "1",
+          "TAIL_EXIT": "6"
+        }
+      },
+      "score": {
+        "score": 58.04,
+        "score_v2": 63.03,
+        "scorer_version": "gain-events-v3-beatid",
+        "breakdown": {
+          "stem_curves": 75.83,
+          "deck_curves": 59.67,
+          "beat_align": 34.51,
+          "bass_swap": 51.12,
+          "outgoing_cut": 65.65,
+          "blend_length": 39.82,
+          "stems": {
+            "drums": 77.44,
+            "bass": 76.96,
+            "vocals": 69.36,
+            "melody": 79.57
+          },
+          "beat_off_ms": 0.0,
+          "beat_align_v2": 67.77,
+          "beat_identity": 1.26,
+          "beat_lock": {
+            "pro": {
+              "phase_beats": -0.1701,
+              "rate": 1.0,
+              "r_a": 0.764,
+              "r_b": 0.756
+            },
+            "ours": {
+              "phase_beats": -0.4874,
+              "rate": 1.0,
+              "r_a": 0.798,
+              "r_b": 0.878
+            },
+            "diff_beats": -0.3173,
+            "diff_ms": 109.4
+          },
+          "events_pro": {
+            "bass_swap": 15,
+            "outgoing_cut": 16,
+            "blend_length": 10
+          },
+          "events_ours": {
+            "bass_swap": 13,
+            "outgoing_cut": 15,
+            "blend_length": 4
+          },
+          "stem_kind": [
+            "bands",
+            "bands"
+          ],
+          "deck": {
+            "per_stem_deck": 59.67
+          },
+          "align": {
+            "lag_samples": 44544,
+            "lag_ms": 2020.14,
+            "peak": 0.3721,
+            "win_sec": 44.138
+          }
+        },
+        "weights": {
+          "stem_curves": 0.28,
+          "deck_curves": 0.22,
+          "beat_align": 0.15,
+          "bass_swap": 0.13,
+          "outgoing_cut": 0.12,
+          "blend_length": 0.1
+        },
+        "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__11/pro.wav",
+        "ours": "/tmp/protrans_bench/d1117ftail_12.mp3"
+      },
+      "ours": "/tmp/protrans_bench/d1117ftail_12.mp3",
+      "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__11/pro.wav",
+      "created": [],
+      "ts": "2026-11-17 09:28:09 EST"
+    }
+  },
+  "rules_after": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp.",
+    "FADE": "long",
+    "BASS_SWAP_BARS": 3,
+    "SWAP_POS": 0.21,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 8,
+    "STRUCT": 1,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 16,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0,
+    "LONG_SOLO": 16,
+    "LONG_SWAP": "exit",
+    "LONG_SOLO_STRUCT": 1,
+    "linger_pen_w": 0.15,
+    "LONG_XP": 0.45,
+    "TAIL_EXIT": 6
+  }
+}

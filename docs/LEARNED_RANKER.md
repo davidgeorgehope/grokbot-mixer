@@ -54,9 +54,41 @@ SNAP_IN or not, and the long hold — by similarity to what the pro did.
 It is behind a flag with defaults unchanged. We report how often the
 top pick matches the pro's incoming cue section on the held-out mixes,
 and (when that flagged scorer run is done) held-out 33-pair scores
-against 34.05. The flag stays off unless that evaluation clears the
-floor with no failures; this document will name the flag and the scores
-when that run exists.
+against the current floor. The flag stays off unless that evaluation
+clears the floor with no failures.
+
+## v0 ranker (17 November 2026)
+
+the listener asked to hear a per-pair predictor sooner than 150 accepted
+transitions, so a first model was trained on what was already in hand:
+78 corpus_v2 accepted blends (mix-level hold-out, seed 20261115, 20%
+of mixes) plus the official 33-pair TRAIN split only (21 pairs). The
+official held-out mixes were not used as labels. The sixth official
+scoring mixes stay eval-only.
+
+The flag is `RANKER=1` (also `rules['RANKER']` / `rules['ranker']`).
+It is off by default. When it is on, the model scores the engine's
+candidate windows plus SNAP_IN, hold and tail-length options and plays
+the top one for that pair. `rules.json` was not changed.
+
+- LightGBM LambdaMART, CPU only. Model: `protrans/ranker/ranker_v0.txt`.
+- Training rows: 82 transitions, 3056 candidate options.
+- Corpus held-out (17 transitions / 4 mixes): top-1 incoming section
+  match 0.4118, incoming cue within 8 bars 0.3529.
+- Corpus train cue-within-8 0.6557 (some overfitting, as expected at
+  this size).
+- Top features (gain): incoming position in the track (`in_rel`,
+  `in_begin`), outgoing position (`out_rel`), incoming track length,
+  outgoing bass vs its body, incoming intro length, which drop the
+  cue sits in, then `snap_in`.
+- 33-pair eval with `BLEND_LOCK` on: held-out **30.28**, train **27.94**,
+  0 fails. Floor is held-out 34.07 / train 32.40 / 0 fails. The flag
+  stays off. About 40–80 labelled blends is too few for this to beat
+  the current rules: mid-track `drop1_end` picks helped a few pairs
+  (Joe Syntax 01 30.24 → 39.04, Pola & Bryson 02 20.54 → 31.63,
+  Cinnamon → Together 26.37 → 28.71) and hurt others hard
+  (We Are One → Ghetto Blaster 60.51 → 24.89, ukf 08 42.98 → 18.74).
+- Retrain when corpus_v2 reaches 150 accepted.
 
 ## Commands
 

@@ -1,0 +1,1467 @@
+{
+ "rows": {
+  "hybrid_minds_ukf__00": {
+   "meta": "/tmp/protrans_bench/tcap8g15_dry_meta.json",
+   "dip": 31.4,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.027632,
+    "pcty": 2.785767,
+    "Scol": 0.8346,
+    "Scty": 0.6963,
+    "banger_clash_rate": 0.0653,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.819,
+    "rh": 0.571,
+    "lag_ms": 0.0,
+    "bars": 2,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 35.33
+  },
+  "hybrid_minds_ukf__08": {
+   "meta": "/tmp/protrans_bench/tcap8g3_dry_meta.json",
+   "dip": 38.2,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.045514,
+    "pcty": 3.483176,
+    "Scol": 0.7424,
+    "Scty": 0.636,
+    "banger_clash_rate": 0.0605,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 15.0,
+   "split": "train",
+   "score": 42.99
+  },
+  "hybrid_minds_ukf__09": {
+   "meta": "/tmp/protrans_bench/tcap8g16_dry_meta.json",
+   "dip": 20.8,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.026317,
+    "pcty": 2.385195,
+    "Scol": 0.8418,
+    "Scty": 0.7335,
+    "banger_clash_rate": 0.055,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": false,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "L1": [
+     {
+      "bar": 200,
+      "kind": "sum",
+      "over": 3.35
+     }
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 32.34
+  },
+  "hybrid_minds_ukf__10": {
+   "meta": "/tmp/protrans_bench/tcap8g17_ksVDZt9_0J4_Vwb-3pAvOVk_meta.json",
+   "dip": 37.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.048386,
+    "pcty": 4.115898,
+    "Scol": 0.7286,
+    "Scty": 0.5858,
+    "banger_clash_rate": 0.0299,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 16.0,
+   "split": "train",
+   "score": 39.59
+  },
+  "hybrid_minds_ukf__11": {
+   "meta": "/tmp/protrans_bench/tcap8g4_Vwb-3pAvOVk_M4UU1xn_K4s_meta.json",
+   "dip": 27.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.041108,
+    "pcty": 2.449935,
+    "Scol": 0.7642,
+    "Scty": 0.7273,
+    "banger_clash_rate": 0.0605,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 24.85
+  },
+  "hybrid_minds_ukf__12": {
+   "meta": "/tmp/protrans_bench/tcap8g5_dry_meta.json",
+   "dip": 36.5,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.020441,
+    "pcty": 2.858462,
+    "Scol": 0.8748,
+    "Scty": 0.6897,
+    "banger_clash_rate": 0.1006,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 15.0,
+   "split": "train",
+   "score": 17.47
+  },
+  "hybrid_minds_ukf__13": {
+   "meta": "/tmp/protrans_bench/tcap8g23_dry_meta.json",
+   "dip": 24.7,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.039027,
+    "pcty": 2.238047,
+    "Scol": 0.7746,
+    "Scty": 0.7476,
+    "banger_clash_rate": 0.081,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 29.67
+  },
+  "hybrid_minds_ukf__19": {
+   "meta": "/tmp/protrans_bench/tcap8g6_HP7Q0vDU9vI_5YG-HKjtiHM_meta.json",
+   "dip": 23.0,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.029464,
+    "pcty": 2.314639,
+    "Scol": 0.8246,
+    "Scty": 0.7402,
+    "banger_clash_rate": 0.173,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 15.0,
+   "split": "train",
+   "score": 28.09
+  },
+  "hybrid_minds_ukf__23": {
+   "meta": "/tmp/protrans_bench/tcap8g24_dry_meta.json",
+   "dip": 28.1,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.023645,
+    "pcty": 2.467178,
+    "Scol": 0.8567,
+    "Scty": 0.7257,
+    "banger_clash_rate": 0.1101,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 44.35
+  },
+  "hybrid_minds_ukf__25": {
+   "meta": "/tmp/protrans_bench/tcap8g7_9oBXWTlTPMw_3f-XOhfDhxk_meta.json",
+   "dip": 27.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.031415,
+    "pcty": 2.123657,
+    "Scol": 0.8142,
+    "Scty": 0.7588,
+    "banger_clash_rate": 0.1525,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 18.71
+  },
+  "hybrid_minds_ukf__28": {
+   "meta": "/tmp/protrans_bench/tcap8g18_bnRTUL2jnk0_Op886B0sd4Q_meta.json",
+   "dip": 27.9,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.039136,
+    "pcty": 2.991353,
+    "Scol": 0.7741,
+    "Scty": 0.6779,
+    "banger_clash_rate": 0.103,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 45.58
+  },
+  "hybrid_minds_ukf__40": {
+   "meta": "/tmp/protrans_bench/tcap8g19_pqqjaLUk-MY_oySqE3z99AE_meta.json",
+   "dip": 29.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.033473,
+    "pcty": 2.815144,
+    "Scol": 0.8033,
+    "Scty": 0.6936,
+    "banger_clash_rate": 0.0786,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 15.0,
+   "split": "train",
+   "score": 25.14
+  },
+  "hybrid_minds_ukf__45": {
+   "meta": "/tmp/protrans_bench/tcap8g8_xv0Qw1QZT8I_0oxJBc__U0c_meta.json",
+   "dip": 27.4,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.030862,
+    "pcty": 4.499501,
+    "Scol": 0.8171,
+    "Scty": 0.5573,
+    "banger_clash_rate": 0.0369,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 41.48
+  },
+  "joe_syntax_hospital__00": {
+   "meta": "/tmp/protrans_bench/tcap8g20_dry_meta.json",
+   "dip": 15.6,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.032746,
+    "pcty": 1.61176,
+    "Scol": 0.8071,
+    "Scty": 0.811,
+    "banger_clash_rate": 0.1596,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.62,
+    "rh": 0.531,
+    "lag_ms": 0.0,
+    "bars": 1,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 28.86
+  },
+  "joe_syntax_hospital__01": {
+   "meta": "/tmp/protrans_bench/tcap8g1_dry_meta.json",
+   "dip": 26.5,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.038394,
+    "pcty": 2.296061,
+    "Scol": 0.7778,
+    "Scty": 0.742,
+    "banger_clash_rate": 0.0912,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 38.28
+  },
+  "joe_syntax_hospital__08": {
+   "meta": "/tmp/protrans_bench/tcap8g2_dry_meta.json",
+   "dip": 13.1,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.013107,
+    "pcty": 1.597365,
+    "Scol": 0.9178,
+    "Scty": 0.8126,
+    "banger_clash_rate": 0.0983,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.324,
+    "rh": 0.451,
+    "lag_ms": -150.93,
+    "bars": 11,
+    "phase_fail": false,
+    "lag_fail": true,
+    "fail": false,
+    "phase_a": 0.062,
+    "phase_b": -0.125,
+    "dphase_beats": 0.188,
+    "dphase_ms": 64.7,
+    "strength": 1.716,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": false,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "N1": [
+     {
+      "kind": "halfbeat_lag_ms",
+      "lag_ms": -150.93,
+      "limit": 10.0
+     }
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 32.55
+  },
+  "joe_syntax_hospital__09": {
+   "meta": "/tmp/protrans_bench/tcap8g21_dry_meta.json",
+   "dip": 2.9,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.020949,
+    "pcty": 1.872709,
+    "Scol": 0.8719,
+    "Scty": 0.784,
+    "banger_clash_rate": 0.1061,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.506,
+    "rh": 0.372,
+    "lag_ms": 0.0,
+    "bars": 16,
+    "phase_fail": false,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": -0.188,
+    "phase_b": -0.062,
+    "dphase_beats": -0.125,
+    "dphase_ms": -43.1,
+    "strength": 3.81,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 30.51
+  },
+  "joe_syntax_hospital__11": {
+   "meta": "/tmp/protrans_bench/tcap8g12_wUVt_GsvMzw_tCyYwek-o28_meta.json",
+   "dip": 11.2,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.030644,
+    "pcty": 2.196268,
+    "Scol": 0.8183,
+    "Scty": 0.7517,
+    "banger_clash_rate": 0.1627,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.184,
+    "rh": 0.27,
+    "lag_ms": 127.71,
+    "bars": 5,
+    "phase_fail": true,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": -0.188,
+    "phase_b": -0.438,
+    "dphase_beats": 0.25,
+    "dphase_ms": 86.2,
+    "strength": 1.819,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": false,
+    "bass_never_doubles": true,
+    "N1": false,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "L1": [
+     {
+      "bar": 229,
+      "kind": "sum",
+      "over": 3.22
+     }
+    ],
+    "N1": [
+     {
+      "kind": "halfbeat_lag_ms",
+      "lag_ms": 127.71,
+      "limit": 10.0
+     }
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": null,
+   "designed_tail24": 16.0,
+   "split": "train",
+   "score": 50.29
+  },
+  "joe_syntax_hospital__12": {
+   "meta": "/tmp/protrans_bench/tcap8g13_tCyYwek-o28_u6cggHmZEAs_meta.json",
+   "dip": 6.7,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.049803,
+    "pcty": 2.411336,
+    "Scol": 0.7219,
+    "Scty": 0.731,
+    "banger_clash_rate": 0.261,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 38.19
+  },
+  "joe_syntax_hospital__13": {
+   "meta": "/tmp/protrans_bench/tcap8g14_dry_meta.json",
+   "dip": 8.8,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.051777,
+    "pcty": 1.740028,
+    "Scol": 0.7126,
+    "Scty": 0.7976,
+    "banger_clash_rate": 0.1903,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.771,
+    "rh": 0.671,
+    "lag_ms": 0.0,
+    "bars": 1,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 17.53
+  },
+  "joe_syntax_hospital__14": {
+   "meta": "/tmp/protrans_bench/tcap8g22_SqzxwPEa-DI_q3WVxTT01dY_meta.json",
+   "dip": 18.2,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.037124,
+    "pcty": 2.182614,
+    "Scol": 0.7843,
+    "Scty": 0.7531,
+    "banger_clash_rate": 0.25,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.632,
+    "rh": 0.545,
+    "lag_ms": 0.0,
+    "bars": 6,
+    "phase_fail": false,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": -0.062,
+    "phase_b": 0.0,
+    "dphase_beats": -0.062,
+    "dphase_ms": -21.6,
+    "strength": 4.538,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "train",
+   "score": 44.44
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "meta": "/tmp/protrans_bench/tcap8g27_U1VSQ7SRtX0_smXG7OvMrFI_meta.json",
+   "dip": 7.5,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.029878,
+    "pcty": 1.800778,
+    "Scol": 0.8224,
+    "Scty": 0.7914,
+    "banger_clash_rate": 0.1572,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.81,
+    "rh": 0.588,
+    "lag_ms": 0.0,
+    "bars": 4,
+    "phase_fail": false,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": 0.0,
+    "phase_b": 0.0,
+    "dphase_beats": 0.0,
+    "dphase_ms": 0.0,
+    "strength": 1.676,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "test",
+   "score": 27.65
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "meta": "/tmp/protrans_bench/tcap8g28_smXG7OvMrFI_11SJZqMmzQ0_meta.json",
+   "dip": 21.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.036633,
+    "pcty": 1.954322,
+    "Scol": 0.7869,
+    "Scty": 0.7757,
+    "banger_clash_rate": 0.1588,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "test",
+   "score": 27.42
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "meta": "/tmp/protrans_bench/tcap8g29_cG7cRDcPY3k_EpHrodtTiK0_meta.json",
+   "dip": 8.9,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.032045,
+    "pcty": 1.745544,
+    "Scol": 0.8108,
+    "Scty": 0.7971,
+    "banger_clash_rate": 0.1722,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.313,
+    "rh": 0.335,
+    "lag_ms": -174.15,
+    "bars": 4,
+    "phase_fail": true,
+    "lag_fail": true,
+    "fail": true,
+    "phase_a": 0.0,
+    "phase_b": -0.5,
+    "dphase_beats": -0.5,
+    "dphase_ms": -172.4,
+    "strength": 4.301,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": false,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "N1": [
+     {
+      "kind": "halfbeat_lag_ms",
+      "lag_ms": -174.15,
+      "limit": 10.0
+     }
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "test",
+   "score": 22.95
+  },
+  "netsky_hospital_classics__02": {
+   "meta": "/tmp/protrans_bench/tcap8g9_dry_meta.json",
+   "dip": 12.1,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.018672,
+    "pcty": 1.907037,
+    "Scol": 0.885,
+    "Scty": 0.7805,
+    "banger_clash_rate": 0.0794,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.685,
+    "rh": 0.61,
+    "lag_ms": 0.0,
+    "bars": 6,
+    "phase_fail": true,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": -0.5,
+    "phase_b": -0.125,
+    "dphase_beats": -0.375,
+    "dphase_ms": -129.3,
+    "strength": 0.716,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "test",
+   "score": 31.12
+  },
+  "netsky_hospital_classics__06": {
+   "meta": "/tmp/protrans_bench/tcap8g10_dry_meta.json",
+   "dip": 22.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.024844,
+    "pcty": 2.471675,
+    "Scol": 0.85,
+    "Scty": 0.7253,
+    "banger_clash_rate": 0.1093,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "test",
+   "score": 26.5
+  },
+  "netsky_hospital_classics__15": {
+   "meta": "/tmp/protrans_bench/tcap8g25_dry_meta.json",
+   "dip": 2.6,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.032452,
+    "pcty": 1.679061,
+    "Scol": 0.8087,
+    "Scty": 0.804,
+    "banger_clash_rate": 0.1226,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.687,
+    "rh": 0.522,
+    "lag_ms": 0.0,
+    "bars": 3,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "test",
+   "score": 40.5
+  },
+  "netsky_hospital_classics__17": {
+   "meta": "/tmp/protrans_bench/tcap8g11_dry_meta.json",
+   "dip": 23.6,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.031932,
+    "pcty": 1.531863,
+    "Scol": 0.8114,
+    "Scty": 0.8195,
+    "banger_clash_rate": 0.1171,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "test",
+   "score": 34.8
+  },
+  "netsky_hospital_classics__23": {
+   "meta": "/tmp/protrans_bench/tcap8g26_gCkKc2LuCuM_KP8jwoWF44Y_meta.json",
+   "dip": 40.7,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.031469,
+    "pcty": 2.583961,
+    "Scol": 0.8139,
+    "Scty": 0.7148,
+    "banger_clash_rate": 0.1439,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 15.0,
+   "split": "test",
+   "score": 36.15
+  },
+  "pola_bryson_puzzlewood__00": {
+   "meta": "/tmp/protrans_bench/tcap8g30_dry_meta.json",
+   "dip": 36.1,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.042253,
+    "pcty": 2.953884,
+    "Scol": 0.7584,
+    "Scty": 0.6812,
+    "banger_clash_rate": 0.1164,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 15.0,
+   "split": "test",
+   "score": 49.57
+  },
+  "pola_bryson_puzzlewood__02": {
+   "meta": "/tmp/protrans_bench/tcap8g31_dry_meta.json",
+   "dip": 23.4,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.045589,
+    "pcty": 2.611472,
+    "Scol": 0.7421,
+    "Scty": 0.7122,
+    "banger_clash_rate": 0.1077,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "test",
+   "score": 24.3
+  },
+  "pola_bryson_puzzlewood__04": {
+   "meta": "/tmp/protrans_bench/tcap8g32_dry_meta.json",
+   "dip": 28.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.032149,
+    "pcty": 2.418225,
+    "Scol": 0.8103,
+    "Scty": 0.7303,
+    "banger_clash_rate": 0.092,
+    "start_s": 11.034,
+    "end_s": 44.138,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 14.0,
+   "split": "test",
+   "score": 37.37
+  },
+  "wilkinson_boomtown2026__33": {
+   "meta": "/tmp/protrans_bench/tcap8g0_dry_meta.json",
+   "dip": 27.6,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.020147,
+    "pcty": 2.167854,
+    "Scol": 0.8765,
+    "Scty": 0.7545,
+    "banger_clash_rate": 0.0825,
+    "start_s": 11.034,
+    "end_s": 55.172,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.601,
+    "rh": 0.463,
+    "lag_ms": 0.0,
+    "bars": 8,
+    "phase_fail": false,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": 0.0,
+    "phase_b": -0.125,
+    "dphase_beats": 0.125,
+    "dphase_ms": 43.1,
+    "strength": 0.546,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": true,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": true
+   },
+   "test_fail_detail": {},
+   "all_pass": true,
+   "tail_exit": null,
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 30.2
+  }
+ },
+ "summary": {
+  "train": {
+   "n": 21,
+   "all_pass": 18,
+   "fails": {
+    "X1": 0,
+    "bass_gap": 0,
+    "V1": 0,
+    "outgoing_fader_tail": 0,
+    "L1": 2,
+    "bass_never_doubles": 0,
+    "N1": 2
+   },
+   "dip_med": 26.5,
+   "pcol_med": 0.0327,
+   "pcty_med": 2.3852,
+   "banger_med": 0.1006,
+   "designed_tail24_med": 14.0
+  },
+  "test": {
+   "n": 12,
+   "all_pass": 11,
+   "fails": {
+    "X1": 0,
+    "bass_gap": 0,
+    "V1": 0,
+    "outgoing_fader_tail": 0,
+    "L1": 0,
+    "bass_never_doubles": 0,
+    "N1": 1
+   },
+   "dip_med": 22.85,
+   "pcol_med": 0.032,
+   "pcty_med": 2.0611,
+   "banger_med": 0.1167,
+   "designed_tail24_med": 14.0
+  },
+  "all": {
+   "n": 33,
+   "all_pass": 29,
+   "fails": {
+    "X1": 0,
+    "bass_gap": 0,
+    "V1": 0,
+    "outgoing_fader_tail": 0,
+    "L1": 2,
+    "bass_never_doubles": 0,
+    "N1": 3
+   },
+   "dip_med": 23.6,
+   "pcol_med": 0.032,
+   "pcty_med": 2.3146,
+   "banger_med": 0.1077,
+   "designed_tail24_med": 14.0
+  }
+ }
+}

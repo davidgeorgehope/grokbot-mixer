@@ -689,11 +689,13 @@ def _curve_summary(gains, times, hop, D):
 
 
 def bar_from_audio(path, bpm=174.0):
-    wav = path + '.__bar.wav'
+    import tempfile
     here = os.path.dirname(os.path.abspath(__file__))
     if here not in __import__('sys').path:
         __import__('sys').path.insert(0, here)
     from analyze_pro_phases import compute_bar_from_wav
+    fd, wav = tempfile.mkstemp(prefix='bar_', suffix='.wav')
+    os.close(fd)
     try:
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', path, '-ac', '1', '-ar', '44100', wav],
                        check=True, capture_output=True)
@@ -713,9 +715,12 @@ def sections_from_bar(bar):
     brks = [(int(s), int(e)) for name, s, e in spans if name == 'breakdown']
     outro = next((s for name, s, e in spans if name == 'outro'), None)
     intro_end = first_drop
-    n = int(bar.get('n') or len(bar.get('drums') or []))
-    bass = np.asarray(bar.get('bass') or [], float)
-    drums = np.asarray(bar.get('drums') or [], float)
+    drums_raw = bar.get('drums')
+    bass_raw = bar.get('bass')
+    drums = np.asarray([] if drums_raw is None else drums_raw, float)
+    bass = np.asarray([] if bass_raw is None else bass_raw, float)
+    n_raw = bar.get('n')
+    n = int(n_raw) if n_raw is not None else len(drums)
 
     def mean_band(seg):
         s, e = seg

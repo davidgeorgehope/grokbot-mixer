@@ -1,0 +1,1106 @@
+{
+  "variant": "ranker_v0",
+  "v3": {
+    "train": 27.94,
+    "test": 30.28,
+    "n": 33,
+    "n_fail": 0
+  },
+  "v2": {
+    "train": 27.21,
+    "test": 29.56
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 26.24,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 30.69,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 30.23,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 28.15,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 38.2,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 17.3,
+      "split": "test"
+    }
+  },
+  "floor": {
+    "held_out": 34.07,
+    "train": 32.4,
+    "n_fail": 0
+  },
+  "floors_held": false,
+  "defaults_changed": false,
+  "flag": "RANKER",
+  "flag_default": 0,
+  "pairs": [
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "split": "test",
+      "score": 17.3,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        88,
+        null,
+        24,
+        32
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "split": "train",
+      "score": 39.04,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        48,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "split": "train",
+      "score": 30.08,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        240,
+        null,
+        40,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "split": "train",
+      "score": 18.74,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "split": "train",
+      "score": 23.61,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        112,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "split": "train",
+      "score": 12.09,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        304,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__19",
+      "split": "train",
+      "score": 31.54,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        176,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__25",
+      "split": "train",
+      "score": 28.71,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "split": "train",
+      "score": 35.89,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        128,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "split": "test",
+      "score": 26.25,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        16,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "split": "test",
+      "score": 19.76,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        184,
+        null,
+        64,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "split": "test",
+      "score": 22.97,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        48,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "split": "train",
+      "score": 24.89,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        40,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "split": "train",
+      "score": 32.29,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        224,
+        null,
+        48,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1"
+      },
+      "ranker": null
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "split": "train",
+      "score": 26.79,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__00",
+      "split": "train",
+      "score": 27.9,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        88,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "split": "train",
+      "score": 28.11,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "split": "train",
+      "score": 40.63,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "split": "train",
+      "score": 20.09,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "split": "train",
+      "score": 24.52,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        272,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "split": "train",
+      "score": 34.96,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        96,
+        null,
+        0,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "joe_syntax_hospital__09",
+      "split": "train",
+      "score": 28.59,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "split": "train",
+      "score": 28.87,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        224,
+        null,
+        16,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "split": "train",
+      "score": 20.66,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "split": "train",
+      "score": 28.64,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "split": "test",
+      "score": 38.97,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        16,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "split": "test",
+      "score": 32.78,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__02",
+      "split": "test",
+      "score": 27.78,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1"
+      },
+      "ranker": null
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__03",
+      "split": "test",
+      "score": 39.32,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        176,
+        null,
+        16,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__05",
+      "split": "test",
+      "score": 23.58,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        240,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "pola_bryson_puzzlewood__00",
+      "split": "test",
+      "score": 49.36,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        176,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "pola_bryson_puzzlewood__02",
+      "split": "test",
+      "score": 31.63,
+      "fam": "ranker_drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "0",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "0",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    },
+    {
+      "id": "pola_bryson_puzzlewood__04",
+      "split": "test",
+      "score": 33.6,
+      "fam": "nat_short",
+      "win": [
+        "n",
+        224,
+        null,
+        40,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "RANKER": "1",
+        "BLEND_LOCK": "1",
+        "SNAP_IN": "1",
+        "SNAP_IN_HOLD": "0"
+      },
+      "ranker": null
+    }
+  ]
+}

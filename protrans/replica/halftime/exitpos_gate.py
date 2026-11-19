@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """2026-11-19 EXITPOS_GATE (research, flag EXITPOS_GATE=1, requires EXITPOS=1): keep the outro-over-intro window as the
-safe default. Take an EXITPOS alternative only when (1) it exits earlier, (2) the outgoing's last drop has played to its
-end, (3) the incoming's first drop lands inside the blend, and (4) a leave-one-DJ-out logistic, fitted on pro placement,
+safe default. Take an EXITPOS alternative only when (1) it exits earlier, (2) the outgoing's last drop has fully played
+before the blend starts, (3) the incoming's first drop lands inside the blend, and (4) a leave-one-DJ-out logistic, fitted on pro placement,
 says the alternative is closer to a good blend than the default. Off by default. Weights in exitpos_gate_w.json."""
 import os, json, numpy as np
 W_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'exitpos_gate_w.json')
@@ -45,11 +45,14 @@ def drop1_in(ib, X, sb):
     return d1 is not None and ib <= d1 <= ib + X
 
 def hard_ok(alt, default, sa, sb):
-    """alt, default are (exit, cue, X). Earlier exit, last drop played, incoming drop1 inside the blend."""
+    """alt, default are (exit, cue, X). Earlier exit, last drop fully played *before the blend
+    starts* (ae - X >= last_drop_end; listener: never cut the last drop), incoming drop1 inside the blend.
+    The first epg2 hard check only required ae >= last_drop_end, so the blend ate the last 16 bars
+    of a still-hot drop and EXITPOS then preferred exactly that earliest point."""
     ae, ac, aX = alt; be, bc, bX = default
     if ae >= be: return False
     ld = last_drop_end(sa)
-    if ld is not None and ae < ld: return False
+    if ld is not None and ae - aX < ld: return False
     if not drop1_in(ac, aX, sb): return False
     return True
 

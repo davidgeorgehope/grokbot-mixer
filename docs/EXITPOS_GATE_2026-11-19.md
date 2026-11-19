@@ -48,3 +48,19 @@ Live decisions for the 33 admitted pairs are in `protrans/replica/epg_decisions_
 The "almost only nat_short" pattern is the default's own behaviour (`length_pref=16`
 in `rules.json`): 32 of 33 floor windows are already nat_short, and only
 `wilkinson_boomtown2026__33` is nat_long. The gate does not change that preference.
+
+## epg2 result and the last-drop tightening (epg3)
+
+`epg2-1119` (cost rewrite live): EPG and EPGS both 33.91 held-out vs the 34.07 floor;
+train 31.79 (EPG) / 32.48 (EPGS). Every taken alternative exited *exactly* at last-drop
+end, so the blend was the last 16 bars of a still-hot drop and the outro was left
+unplayed (median bars left 4 to 13). That is what "ae >= last_drop_end" allowed, and
+what EXITPOS then preferred.
+
+Chosen fix, on train only (leave-one-DJ-out, held-out not used to pick the rule):
+the last drop must have fully played *before the blend starts* (`exit - X >= last_drop_end`).
+A higher model threshold cannot separate train loser hybrid_minds__28 (p=0.8356) from
+winner joe_syntax__13 (p=0.8366). A 16-bar cap alone still allows the 16-bar last-drop
+cuts. On train, the tighter hard check is predicted to score 33.19 (only
+joe_syntax_hospital__12 still moves, 224 to 208, the earlier-outro +16.49 window).
+Rerun is `epg3-1119`.

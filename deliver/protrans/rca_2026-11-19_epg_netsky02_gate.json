@@ -1,0 +1,50 @@
+{
+  "id": "netsky_hospital_classics__02",
+  "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+  "fam": "nat_short",
+  "win": [
+    "n",
+    160,
+    null,
+    0,
+    16
+  ],
+  "env": {
+    "FADE": "long",
+    "BASS_SWAP_BARS": "3",
+    "SWAP_POS": "0.21",
+    "HIGH_SWAP": "1",
+    "HIGH_OFS": "8",
+    "STRUCT": "1",
+    "LOOP32": "0",
+    "LONG_XP": "0.45",
+    "LONG_SOLO": "16",
+    "LONG_SWAP": "exit",
+    "LONG_SOLO_STRUCT": "1",
+    "TAIL_EXIT": "6",
+    "BLEND_LOCK": "1",
+    "EXITPOS": "1",
+    "EXITPOS_GATE": "1"
+  },
+  "planner": null,
+  "src": "/tmp/protrans_bench/epg2c_19_epg_netsky02_gate.mp3",
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_gate.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_gate.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epg_netsky02_gate.png",
+  "duration_s": 44.138,
+  "lufs": -14.0,
+  "measured_lufs_before": -10.53,
+  "gain_db_applied": -3.47,
+  "tick_s": 11.034,
+  "tick_timestamp": "0:11",
+  "designed_blend_start_s": 11.034,
+  "start_bar": 144,
+  "end_bar": 160,
+  "bass_swap": [
+    149.0,
+    154.0
+  ],
+  "snap_in": null,
+  "bar_sec": 1.3793103448275863,
+  "true_peak": -3.25
+}

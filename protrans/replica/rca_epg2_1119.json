@@ -1,0 +1,513 @@
+{
+ "floor": {
+  "held_out": 34.07,
+  "train": 32.4
+ },
+ "epg2": {
+  "held_out": 33.91,
+  "train_EPG": 31.79,
+  "train_EPGS": 32.48,
+  "bars_left_median": [
+   4,
+   13
+  ]
+ },
+ "fix_choice": {
+  "rule": "last drop must have fully played before the blend starts (exit - X >= last_drop_end)",
+  "chosen_on": "train only, leave-one-DJ-out; held-out not used to pick the rule",
+  "rejected": {
+   "higher_threshold": "Cannot separate train loser hybrid_minds__28 (p=0.8356) from winner joe_syntax__13 (p=0.8366). Also does not fix the structural last-16-of-drop cut.",
+   "cap16_alone": "Train would be 32.90, still takes the 16-bar last-drop cuts (including hybrid_minds__45 -6.44). Inferior to full-before.",
+   "full_before_plus_cap16": "Identical to full-before alone on this cohort (the one remaining take, JS12 224 to 208, is already 16 bars)."
+  },
+  "train_predicted_mean": 33.19,
+  "train_remaining_take": "joe_syntax_hospital__12 only, window 224/48/16 -> 208/48/16 (the +16.49 outro-to-earlier-outro move, last drop finished before the blend).",
+  "held_out_confirmation_not_used_to_choose": "Predicted 34.07 (back to the floor): recovers netsky__02 -9.60 and netsky__17 -0.86, gives back pola__02 +8.53."
+ },
+ "losers": [
+  {
+   "id": "netsky_hospital_classics__02",
+   "split": "test",
+   "dj": "Netsky",
+   "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+   "ya": "0fjPvcfMJWk",
+   "yb": "XUX0ebuFh7Y",
+   "bar_sec": 1.3793,
+   "A": {
+    "title": "Netsky - I See The Future In Your Eyes",
+    "drops": [
+     [
+      32,
+      48
+     ],
+     [
+      64,
+      96
+     ],
+     [
+      128,
+      160
+     ]
+    ],
+    "outro_start": 160,
+    "music_end": 180
+   },
+   "B": {
+    "title": "Camo & Krooked - In The Future",
+    "drops": [
+     [
+      16,
+      32
+     ],
+     [
+      48,
+      112
+     ],
+     [
+      144,
+      208
+     ]
+    ],
+    "drop1": 16,
+    "outro_start": 200,
+    "music_end": 223
+   },
+   "pro": {
+    "A": [
+     92.9,
+     127.9
+    ],
+    "B": [
+     12.5,
+     47.5
+    ],
+    "X": 35,
+    "A_time": [
+     "2:08.14",
+     "2:56.41"
+    ],
+    "B_time": [
+     "0:17.24",
+     "1:05.52"
+    ],
+    "last_drop": [
+     128,
+     160
+    ],
+    "exit_vs_ld_end": -32.1,
+    "played_last_drop_to_end": false
+   },
+   "default": {
+    "name": "default",
+    "win": [
+     "n",
+     176,
+     null,
+     0,
+     16
+    ],
+    "score": 43.75,
+    "breakdown": {
+     "stem_curves": 51.1,
+     "deck_curves": 28.7,
+     "beat_align": 61.9,
+     "bass_swap": 41.4,
+     "outgoing_cut": 13.7,
+     "blend_length": 68.2
+    },
+    "A": [
+     160,
+     176
+    ],
+    "B": [
+     0,
+     16
+    ],
+    "A_time": [
+     "3:40.69",
+     "4:02.76"
+    ],
+    "B_time": [
+     "0:00.00",
+     "0:22.07"
+    ],
+    "last_drop": [
+     128,
+     160
+    ],
+    "exit_vs_ld_end": 16,
+    "blend_starts_vs_ld_end": 0,
+    "bars_left": 4,
+    "B_drop1_in": true
+   },
+   "gate": {
+    "name": "gate",
+    "win": [
+     "n",
+     160,
+     null,
+     0,
+     16
+    ],
+    "score": 34.15,
+    "breakdown": {
+     "stem_curves": 28.5,
+     "deck_curves": 28.8,
+     "beat_align": 62.8,
+     "bass_swap": 32.5,
+     "outgoing_cut": 7.2,
+     "blend_length": 53.5
+    },
+    "A": [
+     144,
+     160
+    ],
+    "B": [
+     0,
+     16
+    ],
+    "A_time": [
+     "3:18.62",
+     "3:40.69"
+    ],
+    "B_time": [
+     "0:00.00",
+     "0:22.07"
+    ],
+    "last_drop": [
+     128,
+     160
+    ],
+    "exit_vs_ld_end": 0,
+    "blend_starts_vs_ld_end": -16,
+    "bars_left": 20,
+    "B_drop1_in": true
+   },
+   "d": -9.6,
+   "verdict": "not_before_a_pro_payoff",
+   "note": "Pro left at the start of drop 3 (2:56), never playing the last drop. Gate exits at the end of drop 3 (3:41), fading the last 16 bars of a still-full-energy drop (body level) over the intro; default blends the quieter 16-bar outro (~8 dB down) 3:41\u20134:03. The gate did not leave before a payoff the pro kept \u2014 the pro left 32 bars earlier. The -9.6 is mostly stem_curves (51 to 29): mixing out of a still-hot drop is a real musical change, not just a scorer nit. Neither default nor gate matches the pro's long mid-track blend."
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+   "ya": "bnRTUL2jnk0",
+   "yb": "Op886B0sd4Q",
+   "bar_sec": 1.3793,
+   "A": {
+    "title": "Nu:Tone - Balaclava",
+    "drops": [
+     [
+      48,
+      112
+     ],
+     [
+      144,
+      208
+     ]
+    ],
+    "outro_start": 208,
+    "music_end": 240
+   },
+   "B": {
+    "title": "SpectraSoul & Alix Perez - The Need",
+    "drops": [
+     [
+      32,
+      96
+     ],
+     [
+      120,
+      184
+     ]
+    ],
+    "drop1": 32,
+    "outro_start": 168,
+    "music_end": 185
+   },
+   "pro": {
+    "A": [
+     126.3,
+     172.3
+    ],
+    "B": [
+     15.0,
+     61.0
+    ],
+    "X": 46,
+    "A_time": [
+     "2:54.21",
+     "3:57.66"
+    ],
+    "B_time": [
+     "0:20.69",
+     "1:24.14"
+    ],
+    "last_drop": [
+     144,
+     208
+    ],
+    "exit_vs_ld_end": -35.7,
+    "played_last_drop_to_end": false
+   },
+   "default": {
+    "name": "default",
+    "win": [
+     "n",
+     240,
+     null,
+     16,
+     16
+    ],
+    "score": 40.68,
+    "breakdown": {
+     "stem_curves": 46.2,
+     "deck_curves": 37.4,
+     "beat_align": 44.9,
+     "bass_swap": 1.5,
+     "outgoing_cut": 50.7,
+     "blend_length": 65.0
+    },
+    "A": [
+     224,
+     240
+    ],
+    "B": [
+     16,
+     32
+    ],
+    "A_time": [
+     "5:08.97",
+     "5:31.03"
+    ],
+    "B_time": [
+     "0:22.07",
+     "0:44.14"
+    ],
+    "last_drop": [
+     144,
+     208
+    ],
+    "exit_vs_ld_end": 32,
+    "blend_starts_vs_ld_end": 16,
+    "bars_left": 0,
+    "B_drop1_in": true
+   },
+   "gate": {
+    "name": "gate",
+    "win": [
+     "n",
+     208,
+     null,
+     16,
+     16
+    ],
+    "score": 25.67,
+    "breakdown": {
+     "stem_curves": 23.4,
+     "deck_curves": 39.0,
+     "beat_align": 28.1,
+     "bass_swap": 18.5,
+     "outgoing_cut": 4.1,
+     "blend_length": 34.5
+    },
+    "A": [
+     192,
+     208
+    ],
+    "B": [
+     16,
+     32
+    ],
+    "A_time": [
+     "4:24.83",
+     "4:46.90"
+    ],
+    "B_time": [
+     "0:22.07",
+     "0:44.14"
+    ],
+    "last_drop": [
+     144,
+     208
+    ],
+    "exit_vs_ld_end": 0,
+    "blend_starts_vs_ld_end": -16,
+    "bars_left": 32,
+    "B_drop1_in": true
+   },
+   "d": -15.01,
+   "verdict": "not_before_a_pro_payoff_but_cuts_hot_drop_and_skips_long_outro",
+   "note": "Pro left mid last drop at 3:58, 36 bars before that drop ended. Gate plays the whole last drop and exits at its end (4:47), fading the last 16 of a full-energy drop and leaving a 32-bar outro unplayed (already 5 dB down, later 12 dB down and thin). Default plays through that outro to 5:31. The gate did not leave before a mid-drop payoff the pro kept \u2014 it keeps more of the last drop than the pro \u2014 but the 32-bar jump, fading a still-hot drop, is a real change (outgoing_cut 51 to 4, stem 46 to 23), not just a placement-metric nit."
+  },
+  {
+   "id": "hybrid_minds_ukf__45",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+   "ya": "xv0Qw1QZT8I",
+   "yb": "0oxJBc__U0c",
+   "bar_sec": 1.3793,
+   "A": {
+    "title": "Alix Perez - Contradictions",
+    "drops": [
+     [
+      32,
+      112
+     ]
+    ],
+    "outro_start": 112,
+    "music_end": 128
+   },
+   "B": {
+    "title": "BCee - Lost & Found (Hybrid Minds Remix)",
+    "drops": [
+     [
+      48,
+      128
+     ],
+     [
+      176,
+      240
+     ]
+    ],
+    "drop1": 48,
+    "outro_start": 224,
+    "music_end": 241
+   },
+   "pro": {
+    "A": [
+     96.4,
+     133.4
+    ],
+    "B": [
+     14.8,
+     51.8
+    ],
+    "X": 37,
+    "A_time": [
+     "2:12.97",
+     "3:04.00"
+    ],
+    "B_time": [
+     "0:20.41",
+     "1:11.45"
+    ],
+    "last_drop": [
+     32,
+     112
+    ],
+    "exit_vs_ld_end": 21.4,
+    "played_last_drop_to_end": true
+   },
+   "default": {
+    "name": "default",
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ],
+    "score": 41.6,
+    "breakdown": {
+     "stem_curves": 54.3,
+     "deck_curves": 32.7,
+     "beat_align": 72.0,
+     "bass_swap": 9.5,
+     "outgoing_cut": 14.1,
+     "blend_length": 54.8
+    },
+    "A": [
+     112,
+     128
+    ],
+    "B": [
+     32,
+     48
+    ],
+    "A_time": [
+     "2:34.48",
+     "2:56.55"
+    ],
+    "B_time": [
+     "0:44.14",
+     "1:06.21"
+    ],
+    "last_drop": [
+     32,
+     112
+    ],
+    "exit_vs_ld_end": 16,
+    "blend_starts_vs_ld_end": 0,
+    "bars_left": 0,
+    "B_drop1_in": true
+   },
+   "gate": {
+    "name": "gate",
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "score": 35.16,
+    "breakdown": {
+     "stem_curves": 33.6,
+     "deck_curves": 41.8,
+     "beat_align": 65.1,
+     "bass_swap": 7.7,
+     "outgoing_cut": 11.4,
+     "blend_length": 44.3
+    },
+    "A": [
+     96,
+     112
+    ],
+    "B": [
+     32,
+     48
+    ],
+    "A_time": [
+     "2:12.41",
+     "2:34.48"
+    ],
+    "B_time": [
+     "0:44.14",
+     "1:06.21"
+    ],
+    "last_drop": [
+     32,
+     112
+    ],
+    "exit_vs_ld_end": 0,
+    "blend_starts_vs_ld_end": -16,
+    "bars_left": 16,
+    "B_drop1_in": true
+   },
+   "d": -6.44,
+   "verdict": "left_before_a_payoff_the_pro_kept",
+   "note": "Yes. The pro blended the outro (entry 16 bars before the only drop ended, exit 5 bars past the end of the track at 3:04). Default does that same 16-bar outro (2:34\u20132:57), already 11 dB down. Gate exits at the end of the drop (2:34), fading the last 16 bars of full-energy drop and never playing the outro the pro used as the blend."
+  }
+ ],
+ "clips": {
+  "netsky_hospital_classics__02": {
+   "default_mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_default.mp3",
+   "default_png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_default.png",
+   "gate_mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_gate.mp3",
+   "gate_png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_gate.png",
+   "tick": "0:11",
+   "duration_s": 44.138
+  },
+  "pola_bryson_puzzlewood__02": {
+   "default_mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_pola02_default.mp3",
+   "default_png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_pola02_default.png",
+   "gate_mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_pola02_gate.mp3",
+   "gate_png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_pola02_gate.png",
+   "tick": "0:11",
+   "duration_s": 44.138
+  }
+ }
+}

@@ -1,0 +1,70 @@
+[
+ {
+  "id": "netsky_hospital_classics__02",
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_default.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_default.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epg_netsky02_default.png",
+  "win": [
+   "n",
+   176,
+   null,
+   0,
+   16
+  ],
+  "fam": "nat_short",
+  "tick_timestamp": "0:11",
+  "duration_s": 44.138,
+  "lufs": -14.0
+ },
+ {
+  "id": "netsky_hospital_classics__02",
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_gate.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_netsky02_gate.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epg_netsky02_gate.png",
+  "win": [
+   "n",
+   160,
+   null,
+   0,
+   16
+  ],
+  "fam": "nat_short",
+  "tick_timestamp": "0:11",
+  "duration_s": 44.138,
+  "lufs": -14.0
+ },
+ {
+  "id": "pola_bryson_puzzlewood__02",
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_pola02_default.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_pola02_default.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epg_pola02_default.png",
+  "win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short",
+  "tick_timestamp": "0:11",
+  "duration_s": 44.138,
+  "lufs": -14.0
+ },
+ {
+  "id": "pola_bryson_puzzlewood__02",
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_pola02_gate.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_pola02_gate.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epg_pola02_gate.png",
+  "win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short",
+  "tick_timestamp": "0:11",
+  "duration_s": 44.138,
+  "lufs": -14.0
+ }
+]

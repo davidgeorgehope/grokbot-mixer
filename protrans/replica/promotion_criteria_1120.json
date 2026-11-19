@@ -1,0 +1,26 @@
+{
+ "written": "2026-11-19 4:40 PM ET, before the 2026-11-20 1 AM nightly. Frozen here so tonight can be at most night 1 of 2.",
+ "candidate_frozen": "EPG (EXITPOS_GATE strict): flags EXITPOS=1 and EXITPOS_GATE=1, off by default. The gate keeps the outro-over-intro default and takes an earlier exit only when the last drop has fully played *before the blend starts* (exit - X >= last_drop_end), incoming drop 1 lands in the blend, and the leave-one-DJ-out model or a weird-outro override agrees. Fit and hard checks: protrans/replica/halftime/exitpos_gate.py. Day eval: epg3-1119 / epg3_eval_1119.json.",
+ "already_scored_today": {
+  "held_out": 34.07,
+  "train": 33.19,
+  "floor_held_out": 34.07,
+  "floor_train": 32.4,
+  "dev_changed_pairs": [
+   "alpha_rhythm_imZjEt78YXs__03",
+   "joe_syntax_hospital__12",
+   "theheshbesh_zHf8cC9ViuA__05"
+  ],
+  "hard_fails_on_changed_dev": "2 to 0 (default beat-clash on alpha_rhythm_imZjEt78YXs__03 and theheshbesh_zHf8cC9ViuA__05; EPG clears both). joe_syntax_hospital__12 is the train +16.49 earlier-outro move."
+ },
+ "keep_as_flag_tonight_only_if_all": [
+  "held-out mean not worse than the 34.07 floor (already 34.07 today)",
+  "train mean not worse than the 32.40 floor (already 33.19 today)",
+  "hard checks: no more hard-fail pairs than default on rendered changed pairs (already 2 to 0 on the 3 changed dev pairs)",
+  "fresh mix queued in fresh_mixes.json for_night 2026-11-20 (Sirenity ofcHup56lME, a DJ not in the 9-DJ dev set and not previously spent): once ingested, not worse than default on that mix"
+ ],
+ "promote_to_default_only_if": "the same frozen candidate passes on two consecutive nights AND fresh not worse AND tests pass; tonight is at most night 1. Do not write rules.json.",
+ "nightly_reads": "protrans/replica/nightly_candidates.json (also read by nightly_hill_climb.py) and this file",
+ "note": "Similarity, Grok judge and the listener's A/B are diagnostics only. rules.json is never edited by the nightly. Do not reuse a spent fresh mix. Do not reopen the locked Liquicity/Hospital holdout to rescue a miss.",
+ "locked_holdout": "already opened once on 2026-11-19 (see promotion_criteria.json locked_holdout_opens). Not required to reopen for this flag candidate, whose official bar is the existing 33-pair held-out floor of 34.07."
+}

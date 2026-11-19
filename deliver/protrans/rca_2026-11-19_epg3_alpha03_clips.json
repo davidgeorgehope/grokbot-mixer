@@ -1,0 +1,44 @@
+[
+ {
+  "id": "alpha_rhythm_imZjEt78YXs__03",
+  "pair": "Larigold - Project Horizon [Celsius] -> SMP - Brighter Days on the Surface ft. Matt Freeman [Fokuz]",
+  "win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short",
+  "hard_fail": true,
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_alpha03_default.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_alpha03_default.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epg_alpha03_default.png",
+  "duration_s": 44.138,
+  "lufs": -14.0,
+  "tick_timestamp": "0:11",
+  "tick_s": 11.034,
+  "src": "/tmp/protrans_bench/gdefa46.mp3"
+ },
+ {
+  "id": "alpha_rhythm_imZjEt78YXs__03",
+  "pair": "Larigold - Project Horizon [Celsius] -> SMP - Brighter Days on the Surface ft. Matt Freeman [Fokuz]",
+  "win": [
+   "n",
+   240,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short",
+  "hard_fail": false,
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_alpha03_gate.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epg_alpha03_gate.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epg_alpha03_gate.png",
+  "duration_s": 44.138,
+  "lufs": -14.0,
+  "tick_timestamp": "0:11",
+  "tick_s": 11.034,
+  "src": "/tmp/protrans_bench/gepg31.mp3"
+ }
+]

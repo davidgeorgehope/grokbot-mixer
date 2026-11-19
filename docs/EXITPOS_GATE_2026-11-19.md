@@ -64,3 +64,11 @@ winner joe_syntax__13 (p=0.8366). A 16-bar cap alone still allows the 16-bar las
 cuts. On train, the tighter hard check is predicted to score 33.19 (only
 joe_syntax_hospital__12 still moves, 224 to 208, the earlier-outro +16.49 window).
 Rerun is `epg3-1119`.
+
+## Registered for the 2026-11-20 1 AM nightly (n1120)
+
+EPG (EXITPOS_GATE strict) is the promotion candidate, so it can start earning two consecutive
+wins. The nightly reads `protrans/replica/nightly_candidates.json` (and
+`promotion_criteria_1120.json`). Defaults and `rules.json` stay unchanged; a night-1 win is
+not an auto-adopt. Fresh mix queued in `fresh_mixes.json` for_night 2026-11-20:
+Sirenity `ofcHup56lME` (new DJ, not in dev, not spent).

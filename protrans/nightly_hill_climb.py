@@ -12,19 +12,21 @@ import paths, tune, score, cleanup
 import run_admitted_tune as T
 
 MAX_CANDS = 6
+CANDS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica', 'nightly_candidates.json')
+
+def load_candidate_spec():
+    """What the nightly reads for candidates. If the file is present, it is the list;
+    otherwise fall back to a generic search list. A promotion candidate is not an auto-adopt keep."""
+    if os.path.exists(CANDS_FILE):
+        return json.load(open(CANDS_FILE))
+    return None
 
 def candidates():
-    # priority: phase-aware picking, EQ swap >=2 bars, outgoing shape, length, then phase extras
-    # n1110 list, re-tested on the STRUCT=1 + 2-bar-swap base (n1109 kept bass_swap_2bar,
-    # phase_pref 0.4/0.8 rejected; d1109 kept STRUCT=1)
+    spec = load_candidate_spec()
+    if spec and spec.get('candidates'):
+        return [(c['name'], c['delta']) for c in spec['candidates']][:MAX_CANDS]
+    # fallback generic list (used when no nightly_candidates.json is registered)
     return [
-        # n1118 list (base: rules.json incl. TAIL_EXIT 6 + BLEND_LOCK 1, held-out ~34.07).
-        # Verified against recreate.py/mix_simple.py before running:
-        #  - BASS_SWAP_BARS 4 would be a no-op: under FADE=long mix_simple._ctx clamps SW<4 up to 4,
-        #    so the current 3 already renders as 4. Tested 6 bars instead (same EQ-swap area).
-        #  - length_pref 18 would be a no-op/repeat: windows only come in X=32 or 16, so any value
-        #    other than 16/32 penalises every window equally (== length_pref 0 == n1117's
-        #    length_pref_20). Tested 32 instead (prefer the long natural window).
         ('phase_pref_02', {'phase_pref_w': 0.2}),
         ('bass_swap_6bar', {'BASS_SWAP_BARS': 6}),
         ('long_xp_035', {'LONG_XP': 0.35}),
@@ -41,31 +43,60 @@ def main():
     rows = T.run_set_checkpointed(recs, base_rules, f'{tag}_base', f'{tag}b')
     base = T.summarize(rows)
     print(f'BASELINE train={base["train_mean"]} test={base["test_mean"]} n_fail={base["n_fail"]}', flush=True)
-    tried = []; kept = None
+    tried = []; kept = None; night_wins = []
+    spec = load_candidate_spec() or {}
+    byname = {c['name']: c for c in spec.get('candidates') or []}
+    adopt = bool(spec.get('adopt_to_defaults'))
     for name, delta in candidates():
         trial = copy.deepcopy(base_rules); trial.update(delta)
         r = T.run_set_checkpointed(recs, trial, f'{tag}_{name}', f'{tag}{name[:6]}')
         sm = T.summarize(r)
-        ok = (sm['test_mean'] is not None and base['test_mean'] is not None
-              and sm['test_mean'] > base['test_mean'] + 1e-9 and sm['n_fail'] <= base['n_fail'])
-        why = (f'held-out improved {base["test_mean"]} -> {sm["test_mean"]}' if ok
-               else f'held-out did not improve ({base["test_mean"]} -> {sm["test_mean"]})')
-        print(f'  {name} {delta}: train={sm["train_mean"]} test={sm["test_mean"]} fails={sm["n_fail"]} -> {"KEEP?" if ok else "reject"}', flush=True)
+        meta = byname.get(name) or {}
+        if meta.get('promotion'):
+            # Night-win for a promotion candidate: held-out and train not worse, hard-fails not worse.
+            # This is not an auto-adopt keep; defaults stay unchanged until consecutive wins are earned.
+            ok = (sm['test_mean'] is not None and base['test_mean'] is not None
+                  and sm['train_mean'] is not None and base['train_mean'] is not None
+                  and sm['test_mean'] + 1e-9 >= base['test_mean']
+                  and sm['train_mean'] + 1e-9 >= base['train_mean']
+                  and sm['n_fail'] <= base['n_fail'])
+            why = (f'promotion night-win: held-out {base["test_mean"]} -> {sm["test_mean"]}, train {base["train_mean"]} -> {sm["train_mean"]}'
+                   if ok else f'promotion night lost (held-out {base["test_mean"]} -> {sm["test_mean"]}, train {base["train_mean"]} -> {sm["train_mean"]})')
+            label = 'NIGHT-WIN' if ok else 'reject'
+        else:
+            ok = (sm['test_mean'] is not None and base['test_mean'] is not None
+                  and sm['test_mean'] > base['test_mean'] + 1e-9 and sm['n_fail'] <= base['n_fail'])
+            why = (f'held-out improved {base["test_mean"]} -> {sm["test_mean"]}' if ok
+                   else f'held-out did not improve ({base["test_mean"]} -> {sm["test_mean"]})')
+            label = 'KEEP?' if ok else 'reject'
+        print(f'  {name} {delta}: train={sm["train_mean"]} test={sm["test_mean"]} fails={sm["n_fail"]} -> {label}', flush=True)
         row = dict(name=f'{tag}_{name}', delta=delta, train_mean=sm['train_mean'], test_mean=sm['test_mean'],
-                   by_dj=sm['by_dj'], kept=ok, floor_test=base['test_mean'], why=why,
+                   by_dj=sm['by_dj'], kept=bool(ok and (not meta.get('promotion') or adopt)),
+                   promotion=bool(meta.get('promotion')), night_win=bool(ok and meta.get('promotion')),
+                   floor_test=base['test_mean'], why=why,
                    scorer_version=score.SCORER_VERSION, nightly=tag)
         tune.log_row(row); tried.append(row)
-        if ok:
+        if ok and meta.get('promotion'):
+            night_wins.append(dict(name=name, delta=delta, summary=sm, why=why))
+            if not adopt:
+                break
+        elif ok and not meta.get('promotion'):
             kept = dict(name=name, delta=delta, rules=trial, summary=sm); break
     out = dict(tag=tag, baseline=base, base_rules=base_rules, tried=tried, kept=kept,
+               night_wins=night_wins, promoted=False, rules_json_changed=False,
                ts=time.strftime('%Y-%m-%d %H:%M %Z'))
     json.dump(out, open(os.path.join(paths.RESULTS, f'hill_climb_{tag}.json'), 'w'), indent=2, default=str)
+    nw = night_wins[0] if night_wins else None
     with open(os.path.join(paths.RESULTS, 'hill_climb_nights.jsonl'), 'a') as f:
         f.write(json.dumps(dict(tag=tag, kept=bool(kept), base_test=base['test_mean'],
-                                new_test=kept['summary']['test_mean'] if kept else None,
-                                kept_name=kept['name'] if kept else None, n_tried=len(tried))) + '\n')
-    print('RESULT ' + json.dumps(dict(kept=kept and kept['name'], base=base['test_mean'],
-                                      new=kept and kept['summary']['test_mean'])), flush=True)
+                                new_test=(kept['summary']['test_mean'] if kept else (nw['summary']['test_mean'] if nw else None)),
+                                kept_name=kept['name'] if kept else None,
+                                night_win=bool(night_wins),
+                                night_win_name=nw['name'] if nw else None,
+                                n_tried=len(tried))) + chr(10))
+    print('RESULT ' + json.dumps(dict(kept=kept and kept['name'], night_win=nw['name'] if nw else None,
+                                      base=base['test_mean'],
+                                      new=(kept and kept['summary']['test_mean']) or (nw and nw['summary']['test_mean']))), flush=True)
     try: cleanup.drop_stems()
     except Exception as e: print('cleanup warn', e)
 

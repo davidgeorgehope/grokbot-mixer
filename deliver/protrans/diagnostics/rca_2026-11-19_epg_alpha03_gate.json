@@ -1,0 +1,38 @@
+{
+ "blend": 0,
+ "a": "OYVnBH2kaE4",
+ "b": "sUa4H7HaJ9Q",
+ "start_bar": 224.0,
+ "end_bar": 240.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epg_alpha03_gate.png",
+ "halfbeat": {
+  "r0": 0.827,
+  "rh": 0.58,
+  "lag_ms": 0.0,
+  "bars": 2,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": null,
+ "offset_ms_median": 103.0,
+ "offset_bars": 11,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 30.1,
+ "bass_swap": [
+  229.0,
+  234.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.049897,
+  "pcty": 3.728936,
+  "Scol": 0.7214,
+  "Scty": 0.616,
+  "banger_clash_rate": 0.0787,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "written": "2026-11-19 4:40 PM ET, for the 2026-11-20 1 AM ET nightly (tag n1120)",
+ "note": "The nightly reads this file (see protrans/nightly_hill_climb.py). Do not write rules.json. EPG is a promotion candidate earning consecutive wins, not an auto-adopt keep.",
+ "consecutive_wins_required": 2,
+ "adopt_to_defaults": false,
+ "fresh_mix_ledger": "protrans/replica/fresh_mixes.json",
+ "fresh_for_night": "2026-11-20",
+ "candidates": [
+  {
+   "name": "epg_strict",
+   "promotion": true,
+   "delta": {
+    "EXITPOS": 1,
+    "EXITPOS_GATE": 1
+   },
+   "label": "EXITPOS_GATE strict: last drop fully played before the blend starts",
+   "flags_off_by_default": true,
+   "already_scored_2026_11_19": {
+    "held_out": 34.07,
+    "train": 33.19,
+    "floor_held_out": 34.07,
+    "floor_train": 32.4,
+    "dev_changed": [
+     "alpha_rhythm_imZjEt78YXs__03",
+     "joe_syntax_hospital__12",
+     "theheshbesh_zHf8cC9ViuA__05"
+    ],
+    "hard_fails": "2 to 0 on the 3 changed dev pairs (default beat-clash on alpha_rhythm__03 and theheshbesh__05)",
+    "eval": "epg3_eval_1119.json / cs_epg3_1119"
+   },
+   "night_win_if": [
+    "held-out mean not worse than the 34.07 floor",
+    "train mean not worse than the 32.40 floor",
+    "hard-fail count on rendered changed pairs not worse than default (pairs the default already fails are not counted against it)",
+    "fresh mix (for_night 2026-11-20 in fresh_mixes.json), once ingested, not worse than default on that mix"
+   ],
+   "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
+  }
+ ]
+}

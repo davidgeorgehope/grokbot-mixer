@@ -27,5 +27,12 @@
    "result": "raw exit+cue delta -1.62 [-16.29, 12.67]; after hard-check veto +2.67 [-7.06, 15.85] (2 of 9 rendered picks newly hard-failed and reverted); not a pass",
    "note": "First opening of the Liquicity/Hospital locked holdout. Any later look at it is a repeated look: a future candidate must still show CI entirely below 0 there, and the doc must say it is the 2nd+ opening."
   }
- ]
+ ],
+ "current_candidate": {
+  "for_night": "2026-11-20",
+  "name": "EPG (EXITPOS_GATE strict)",
+  "spec": "protrans/replica/promotion_criteria_1120.json",
+  "nightly_candidates": "protrans/replica/nightly_candidates.json",
+  "registered": "2026-11-19 4:40 PM ET"
+ }
 }

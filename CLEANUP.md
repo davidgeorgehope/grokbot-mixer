@@ -161,3 +161,4 @@
 - 2026-11-15 03:20 ET daily cleanup: nothing removed or archived. No mix*_raw/master WAVs in src2, no /tmp/*.wav. Kept all guard_mix* (plan_search bad-window history; latest delivered Mix 09 = r5b). Free 61G.
 - 2026-11-17 03:2x ET daily cleanup: nothing removed or archived. No mix*_raw/master WAVs in src2, no /tmp/*.wav. Kept all guard_mix*. Free 62G.
 - 2026-11-18 03:2x ET daily cleanup: deleted 132 scratch WAVs in /tmp/protrans_bench (hill-climb bench renders, older than 3h). Nothing in src2, no archives needed. Kept all guard_mix*. Free 58G.
+- 2026-11-19 03:2x ET daily cleanup: deleted 952 scratch WAVs in /tmp/protrans_bench (older than 3h). Nothing in src2, no archives needed. Kept all guard_mix*. Free 34G

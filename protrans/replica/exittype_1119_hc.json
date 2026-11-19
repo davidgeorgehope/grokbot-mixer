@@ -1,0 +1,778 @@
+{
+ "two_style_cost": {
+  "counts": {
+   "checked": 87,
+   "pick_HC_A": 19,
+   "def_HC_A": 12,
+   "new_HC_A": 15,
+   "fixed_HC_A": 8,
+   "pick_HC_B": 18,
+   "def_HC_B": 10,
+   "new_HC_B": 13,
+   "fixed_HC_B": 5,
+   "pick_HC_C": 19,
+   "def_HC_C": 12,
+   "new_HC_C": 15,
+   "fixed_HC_C": 8,
+   "unchecked": 47,
+   "no_default_ref": 6
+  },
+  "vetoed": [
+   {
+    "id": "alpha_rhythm_V0BMNeOy_t4__05",
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 169.3,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 14.5
+    }
+   },
+   {
+    "id": "fryett_ltdJ6GFixfs__09",
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 4.9,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 17.4
+    }
+   },
+   {
+    "id": "fryett_ltdJ6GFixfs__26",
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 44.2,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "john_b_RyhRkT6DQTQ__10",
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ],
+    "new_HC_A": false,
+    "new_HC_B": true,
+    "new_HC_C": false,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 133.5
+    }
+   },
+   {
+    "id": "mrmommusic_nodB5gqt_mU__64",
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": false,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "mrmommusic_nodB5gqt_mU__66",
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 21.2,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "sound_territory_p5JM5r2J8r0__05",
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 4.4,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "sound_territory_p5JM5r2J8r0__15",
+    "win": [
+     "n",
+     216,
+     null,
+     32,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 148.4,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "sound_territory_p5JM5r2J8r0__31",
+    "win": [
+     "n",
+     192,
+     null,
+     40,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 5.8
+    }
+   },
+   {
+    "id": "sound_territory_p5JM5r2J8r0__34",
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 5.8
+    }
+   },
+   {
+    "id": "suicidesheeep_R8MWKsheHxk__07",
+    "win": [
+     "n",
+     216,
+     null,
+     32,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "suicidesheeep_R8MWKsheHxk__18",
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 10.3,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 98.7
+    }
+   },
+   {
+    "id": "theheshbesh_zHf8cC9ViuA__06",
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 129.4,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "theheshbesh_zHf8cC9ViuA__39",
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 9.6,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 5.8
+    }
+   },
+   {
+    "id": "ukf_drum_bass_abhfer_BNoQ__16",
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": false,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.5,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 29.0
+    }
+   },
+   {
+    "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+    "win": [
+     "n",
+     104,
+     null,
+     16,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": false,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 29.0
+    }
+   }
+  ],
+  "n_veto": 16,
+  "after_veto": {
+   "mean": 24.59,
+   "default": 37.67,
+   "vs_default": {
+    "delta": -13.08,
+    "ci": [
+     -19.81,
+     -3.31
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "better"
+   },
+   "vs_b1119_style_gated_raw": {
+    "delta": -1.81,
+    "ci": [
+     -4.74,
+     2.2
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "no clear difference"
+   }
+  }
+ },
+ "knob_nostyle_bestpermix": {
+  "counts": {
+   "checked": 78,
+   "pick_HC_A": 17,
+   "def_HC_A": 10,
+   "new_HC_A": 11,
+   "fixed_HC_A": 4,
+   "pick_HC_B": 13,
+   "def_HC_B": 8,
+   "new_HC_B": 8,
+   "fixed_HC_B": 3,
+   "pick_HC_C": 17,
+   "def_HC_C": 10,
+   "new_HC_C": 11,
+   "fixed_HC_C": 4,
+   "unchecked": 47,
+   "no_default_ref": 3
+  },
+  "vetoed": [
+   {
+    "id": "alpha_rhythm_hb7PvukS-Pk__07",
+    "win": [
+     "n",
+     232,
+     null,
+     32,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 75.5
+    }
+   },
+   {
+    "id": "fryett_ltdJ6GFixfs__09",
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 4.9,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 17.4
+    }
+   },
+   {
+    "id": "john_b_RyhRkT6DQTQ__10",
+    "win": [
+     "n",
+     288,
+     null,
+     0,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": false,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 11.6
+    }
+   },
+   {
+    "id": "mrmommusic_nodB5gqt_mU__53",
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 59.7,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 20.3
+    }
+   },
+   {
+    "id": "mrmommusic_nodB5gqt_mU__66",
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 21.2,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "mrmommusic_nodB5gqt_mU__76",
+    "win": [
+     "n",
+     144,
+     null,
+     64,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 7.5,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 23.2
+    }
+   },
+   {
+    "id": "sound_territory_p5JM5r2J8r0__15",
+    "win": [
+     "n",
+     216,
+     null,
+     32,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 148.4,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "suicidesheeep_R8MWKsheHxk__14",
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": false,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "theheshbesh_zHf8cC9ViuA__06",
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 129.6,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+    "win": [
+     "n",
+     120,
+     null,
+     16,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": false,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 121.9
+    }
+   },
+   {
+    "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+    "win": [
+     "n",
+     104,
+     null,
+     0,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 0.0
+    }
+   }
+  ],
+  "n_veto": 11,
+  "after_veto": {
+   "mean": 24.44,
+   "default": 37.67,
+   "vs_default": {
+    "delta": -13.23,
+    "ci": [
+     -18.06,
+     -6.43
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "better"
+   },
+   "vs_b1119_style_gated_raw": {
+    "delta": -1.96,
+    "ci": [
+     -5.01,
+     1.02
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "no clear difference"
+   }
+  }
+ },
+ "b1119_style_gated": {
+  "counts": {
+   "checked": 33,
+   "pick_HC_A": 4,
+   "def_HC_A": 7,
+   "new_HC_A": 2,
+   "fixed_HC_A": 5,
+   "pick_HC_B": 4,
+   "def_HC_B": 4,
+   "new_HC_B": 2,
+   "fixed_HC_B": 2,
+   "pick_HC_C": 4,
+   "def_HC_C": 7,
+   "new_HC_C": 2,
+   "fixed_HC_C": 5,
+   "unchecked": 94,
+   "no_default_ref": 6
+  },
+  "vetoed": [
+   {
+    "id": "fryett_ltdJ6GFixfs__26",
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 44.2,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true,
+     "med_lag": 0.0
+    }
+   },
+   {
+    "id": "suicidesheeep_R8MWKsheHxk__18",
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     32
+    ],
+    "new_HC_A": true,
+    "new_HC_B": true,
+    "new_HC_C": true,
+    "flags": {
+     "hole_score": 10.3,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false,
+     "med_lag": 98.7
+    }
+   }
+  ],
+  "n_veto": 2,
+  "after_veto": {
+   "mean": 26.78,
+   "default": 37.67,
+   "vs_default": {
+    "delta": -10.89,
+    "ci": [
+     -16.04,
+     -3.12
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "better"
+   },
+   "vs_b1119_style_gated_raw": {
+    "delta": 0.37,
+    "ci": [
+     0.0,
+     1.11
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "no clear difference"
+   }
+  }
+ }
+}

@@ -1,0 +1,148 @@
+{
+ "default": {
+  "ec": 37.67,
+  "d_vs_default": null,
+  "chose_mid": 0.0,
+  "off_section": 0.669,
+  "off_phrase": 0.081,
+  "voc_overlap_mean": null,
+  "voc_overlap_ge25": null,
+  "n_voc": 0,
+  "hc_checked": 91,
+  "HC_A_pick": 13,
+  "HC_B_pick": 11,
+  "HC_A_default_same": 13,
+  "HC_B_default_same": 11,
+  "fired": {
+   "hole_v2": 0,
+   "clash_v1": 0,
+   "clash_v2": 1,
+   "pump": 0,
+   "halfbeat": 0
+  }
+ },
+ "structcoin": {
+  "ec": 36.16,
+  "d_vs_default": {
+   "delta": -1.52,
+   "ci": [
+    -8.47,
+    8.41
+   ],
+   "n": 148,
+   "groups": 19,
+   "verdict": "no clear difference"
+  },
+  "chose_mid": 0.568,
+  "off_section": 0.432,
+  "off_phrase": 0.236,
+  "voc_overlap_mean": null,
+  "voc_overlap_ge25": null,
+  "n_voc": 0,
+  "hc_checked": 58,
+  "HC_A_pick": 14,
+  "HC_B_pick": 10,
+  "HC_A_default_same": 9,
+  "HC_B_default_same": 7,
+  "fired": {
+   "hole_v2": 2,
+   "clash_v1": 2,
+   "clash_v2": 1,
+   "pump": 3,
+   "halfbeat": 0
+  }
+ },
+ "fixed_mid": {
+  "ec": 33.36,
+  "d_vs_default": {
+   "delta": -4.32,
+   "ci": [
+    -14.95,
+    11.18
+   ],
+   "n": 148,
+   "groups": 19,
+   "verdict": "no clear difference"
+  },
+  "chose_mid": 1.0,
+  "off_section": 0.291,
+  "off_phrase": 0.23,
+  "voc_overlap_mean": null,
+  "voc_overlap_ge25": null,
+  "n_voc": 0,
+  "hc_checked": 55,
+  "HC_A_pick": 13,
+  "HC_B_pick": 11,
+  "HC_A_default_same": 8,
+  "HC_B_default_same": 6,
+  "fired": {
+   "hole_v2": 2,
+   "clash_v1": 2,
+   "clash_v2": 1,
+   "pump": 5,
+   "halfbeat": 0
+  }
+ },
+ "fixed_late": {
+  "ec": 37.46,
+  "d_vs_default": {
+   "delta": -0.21,
+   "ci": [
+    -2.35,
+    1.46
+   ],
+   "n": 148,
+   "groups": 19,
+   "verdict": "no clear difference"
+  },
+  "chose_mid": 0.0,
+  "off_section": 0.696,
+  "off_phrase": 0.277,
+  "voc_overlap_mean": null,
+  "voc_overlap_ge25": null,
+  "n_voc": 0,
+  "hc_checked": 61,
+  "HC_A_pick": 12,
+  "HC_B_pick": 8,
+  "HC_A_default_same": 10,
+  "HC_B_default_same": 7,
+  "fired": {
+   "hole_v2": 1,
+   "clash_v1": 2,
+   "clash_v2": 1,
+   "pump": 0,
+   "halfbeat": 0
+  }
+ },
+ "b1119_style_gated": {
+  "ec": 26.4,
+  "d_vs_default": {
+   "delta": -11.27,
+   "ci": [
+    -16.27,
+    -3.75
+   ],
+   "n": 148,
+   "groups": 19,
+   "verdict": "better"
+  },
+  "chose_mid": 0.5,
+  "off_section": 0.432,
+  "off_phrase": 0.209,
+  "voc_overlap_mean": null,
+  "voc_overlap_ge25": null,
+  "n_voc": 0,
+  "hc_checked": 81,
+  "HC_A_pick": 15,
+  "HC_B_pick": 14,
+  "HC_A_default_same": 12,
+  "HC_B_default_same": 10,
+  "fired": {
+   "hole_v2": 1,
+   "clash_v1": 2,
+   "clash_v2": 1,
+   "pump": 7,
+   "halfbeat": 0
+  }
+ }
+}

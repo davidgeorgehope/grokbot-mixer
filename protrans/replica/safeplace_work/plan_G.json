@@ -1,0 +1,488 @@
+[
+ {
+  "id": "liquiddnbftw_m6m836_Ic7M__03",
+  "default_win": [
+   "n",
+   224,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.559,
+  "top": [
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.023,
+    "score": 0.185
+   },
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.018,
+    "score": 0.192
+   }
+  ],
+  "keep_default": false,
+  "pro_out": 210.22,
+  "pro_in": 31.66,
+  "dex": 209.0,
+  "dcue": 33.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": false,
+  "is_mid": [
+   true,
+   true
+  ],
+  "payoff_miss": [
+   0.14,
+   0.14
+  ],
+  "default_payoff_miss": 0.0
+ },
+ {
+  "id": "liquiddnbftw_m6m836_Ic7M__04",
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.053,
+  "top": [
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.03,
+    "score": 0.179
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.016,
+    "score": 0.268
+   }
+  ],
+  "keep_default": true,
+  "pro_out": 142.78,
+  "pro_in": 31.99,
+  "dex": 209.0,
+  "dcue": 17.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": false,
+  "is_mid": [
+   true,
+   true
+  ],
+  "payoff_miss": [
+   0.11,
+   0.41
+  ],
+  "default_payoff_miss": 0.0
+ },
+ {
+  "id": "liquiddnbftw_m6m836_Ic7M__05",
+  "default_win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.709,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.023,
+    "score": 0.177
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.04,
+    "score": 0.206
+   }
+  ],
+  "keep_default": false,
+  "pro_out": 129.37,
+  "pro_in": 32.47,
+  "dex": 193.0,
+  "dcue": 17.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": false,
+  "is_mid": [
+   true,
+   true
+  ],
+  "payoff_miss": [
+   0.14,
+   0.14
+  ],
+  "default_payoff_miss": 0.0
+ },
+ {
+  "id": "liquiddnbftw_m6m836_Ic7M__10",
+  "default_win": [
+   "n",
+   272,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.981,
+  "top": [
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.025,
+    "score": 0.178
+   },
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.035,
+    "score": 0.213
+   }
+  ],
+  "keep_default": false,
+  "pro_out": 128.51,
+  "pro_in": 144.74,
+  "dex": 257.0,
+  "dcue": 49.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": true,
+  "is_mid": [
+   true,
+   true
+  ],
+  "payoff_miss": [
+   0.12,
+   0.12
+  ],
+  "default_payoff_miss": 0.0
+ },
+ {
+  "id": "liquiddnbftw_m6m836_Ic7M__14",
+  "default_win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.085,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     20,
+     16
+    ],
+    "risk": 0.008,
+    "score": 0.163
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.01,
+    "score": 0.168
+   }
+  ],
+  "keep_default": true,
+  "pro_out": 210.04,
+  "pro_in": 31.81,
+  "dex": 193.0,
+  "dcue": 17.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": false,
+  "is_mid": [
+   true,
+   true
+  ],
+  "payoff_miss": [
+   0.14,
+   0.14
+  ],
+  "default_payoff_miss": 0.0
+ },
+ {
+  "id": "liquiddnbftw_m6m836_Ic7M__16",
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.216,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.013,
+    "score": 0.155
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.009,
+    "score": 0.167
+   }
+  ],
+  "keep_default": false,
+  "pro_out": 63.51,
+  "pro_in": 143.59,
+  "dex": 209.0,
+  "dcue": 17.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": true,
+  "is_mid": [
+   true,
+   true
+  ],
+  "payoff_miss": [
+   0.1,
+   0.1
+  ],
+  "default_payoff_miss": 0.0
+ },
+ {
+  "id": "liquiddnbftw_m6m836_Ic7M__22",
+  "default_win": [
+   "n",
+   240,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.039,
+  "top": [
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.054,
+    "score": 0.213
+   },
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.058,
+    "score": 0.24
+   }
+  ],
+  "keep_default": true,
+  "pro_out": 127.97,
+  "pro_in": 16.52,
+  "dex": 225.0,
+  "dcue": 33.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": false,
+  "is_mid": [
+   true,
+   true
+  ],
+  "payoff_miss": [
+   0.14,
+   0.14
+  ],
+  "default_payoff_miss": 0.0
+ },
+ {
+  "id": "liquiddnbftw_m6m836_Ic7M__23",
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.005,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.008,
+    "score": 0.219
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.014,
+    "score": 0.222
+   }
+  ],
+  "keep_default": true,
+  "pro_out": 163.64,
+  "pro_in": 48.21,
+  "dex": 177.0,
+  "dcue": 33.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": true,
+  "is_mid": [
+   false,
+   false
+  ],
+  "payoff_miss": [
+   0.27,
+   0.27
+  ],
+  "default_payoff_miss": 0.27
+ },
+ {
+  "id": "liquiddnbftw_m6m836_Ic7M__24",
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.022,
+  "top": [
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.024,
+    "score": 0.185
+   },
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.055,
+    "score": 0.22
+   }
+  ],
+  "keep_default": true,
+  "pro_out": 143.91,
+  "pro_in": 31.83,
+  "dex": 209.0,
+  "dcue": 17.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": false,
+  "is_mid": [
+   true,
+   true
+  ],
+  "payoff_miss": [
+   0.14,
+   0.14
+  ],
+  "default_payoff_miss": 0.0
+ }
+]

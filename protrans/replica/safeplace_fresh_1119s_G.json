@@ -1,0 +1,152 @@
+{
+ "mix": {
+  "mix_id": "liquiddnbftw_m6m836_Ic7M",
+  "dj": "Liquiddnbftw",
+  "url": "https://www.youtube.com/watch?v=m6m836_Ic7M",
+  "title": "Alpha Rhythm Liquid Dnb Guest Mix",
+  "n_admit": 9,
+  "for_night": "2026-11-19-day-safeplace-c"
+ },
+ "n_pairs": 9,
+ "default_fail": 3,
+ "raw_fail": 1,
+ "final_fail": 1,
+ "outcomes": {
+  "kept_default": 5,
+  "r1_pass": 4
+ },
+ "off_phrase_final": 0,
+ "off_section_default": 3,
+ "off_section_pick": 4,
+ "rows": [
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__03",
+   "how": "r1_pass",
+   "default": true,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score",
+    "hole_v2",
+    "v1"
+   ],
+   "fired_raw": [],
+   "applied": "picker"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__04",
+   "how": "kept_default",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score",
+    "med_lag"
+   ],
+   "fired_raw": [
+    "hole_score",
+    "med_lag"
+   ],
+   "applied": null
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__05",
+   "how": "r1_pass",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score"
+   ],
+   "fired_raw": [
+    "hole_score"
+   ],
+   "applied": "picker"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__10",
+   "how": "r1_pass",
+   "default": true,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score",
+    "med_lag",
+    "pump",
+    "v1"
+   ],
+   "fired_raw": [],
+   "applied": "picker"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__14",
+   "how": "kept_default",
+   "default": true,
+   "raw": true,
+   "final": true,
+   "fired_default": [
+    "hole_score",
+    "clash_v1",
+    "v1"
+   ],
+   "fired_raw": [
+    "hole_score",
+    "clash_v1",
+    "v1"
+   ],
+   "applied": null
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__16",
+   "how": "r1_pass",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score"
+   ],
+   "fired_raw": [
+    "med_lag"
+   ],
+   "applied": "picker"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__22",
+   "how": "kept_default",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score"
+   ],
+   "fired_raw": [
+    "hole_score"
+   ],
+   "applied": null
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__23",
+   "how": "kept_default",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score"
+   ],
+   "fired_raw": [
+    "hole_score"
+   ],
+   "applied": null
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__24",
+   "how": "kept_default",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [],
+   "fired_raw": [],
+   "applied": null
+  }
+ ]
+}

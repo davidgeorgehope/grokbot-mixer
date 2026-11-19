@@ -1,0 +1,1140 @@
+{
+  "id": "liquiddnbftw_m6m836_Ic7M__23",
+  "mix_id": "liquiddnbftw_m6m836_Ic7M",
+  "dj": "Liquiddnbftw",
+  "pair": "Alpha Rhythm, Villem & Leo Wood - Venus -> Alpha Rhythm - Tranquility",
+  "video_id": "m6m836_Ic7M",
+  "cue": {
+    "incoming_bar": 48.21,
+    "incoming_section": "drop",
+    "outgoing_bar": 163.64,
+    "outgoing_section": "drop",
+    "blend_list_s": 221.0,
+    "locate_a": {
+      "z": 7.661,
+      "cc": 0.4822,
+      "mix_t": 7.964,
+      "track_t": 209.676,
+      "n": 96
+    },
+    "locate_b": {
+      "z": 8.186,
+      "cc": 0.8936,
+      "mix_t": 23.406,
+      "track_t": 65.898,
+      "n": 92
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.09,
+      "hold_db": -3.28,
+      "tail_bars": 16.49,
+      "out_p90": 0.56,
+      "in_p90": -1.02
+    },
+    "bass": {
+      "rise_db_per_beat": 0.6,
+      "hold_db": -2.67,
+      "tail_bars": 15.22,
+      "out_p90": 5.63,
+      "in_p90": 2.8
+    },
+    "highs": {
+      "rise_db_per_beat": -0.259,
+      "hold_db": 1.41,
+      "tail_bars": 29.72,
+      "out_p90": 2.98,
+      "in_p90": -0.4
+    },
+    "mids": {
+      "rise_db_per_beat": -0.065,
+      "hold_db": -4.32,
+      "tail_bars": 17.58,
+      "out_p90": -1.91,
+      "in_p90": -1.02
+    }
+  },
+  "overlap_bars": 15.224,
+  "track_a": {
+    "sections": {
+      "n_bars": 207,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 113,
+      "drop2": 144,
+      "outro_start": 196,
+      "music_end": 207,
+      "drops": [
+        [
+          48,
+          113
+        ],
+        [
+          144,
+          196
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 5
+        },
+        {
+          "name": "build",
+          "start": 5,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 113
+        },
+        {
+          "name": "breakdown",
+          "start": 113,
+          "end": 144
+        },
+        {
+          "name": "drop",
+          "start": 144,
+          "end": 196
+        },
+        {
+          "name": "outro",
+          "start": 196,
+          "end": 207
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -36.71,
+          "drums": -27.15,
+          "energy": -27.15
+        },
+        "build": {
+          "bass": -31.86,
+          "drums": -20.82,
+          "energy": -20.82
+        },
+        "drop": {
+          "bass": -18.25,
+          "drums": -15.6,
+          "energy": -15.6
+        },
+        "breakdown": {
+          "bass": -43.53,
+          "drums": -21.69,
+          "energy": -21.69
+        },
+        "outro": {
+          "bass": -57.61,
+          "drums": -38.75,
+          "energy": -38.75
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 170.01,
+    "yt": "bHL0CtZIY1o",
+    "title": "Alpha Rhythm, Villem & Leo Wood - Venus"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 245,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 112,
+      "drop2": 144,
+      "outro_start": 208,
+      "music_end": 245,
+      "drops": [
+        [
+          48,
+          111
+        ],
+        [
+          144,
+          208
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 32
+        },
+        {
+          "name": "build",
+          "start": 32,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 111
+        },
+        {
+          "name": "build",
+          "start": 111,
+          "end": 112
+        },
+        {
+          "name": "breakdown",
+          "start": 112,
+          "end": 144
+        },
+        {
+          "name": "drop",
+          "start": 144,
+          "end": 208
+        },
+        {
+          "name": "outro",
+          "start": 208,
+          "end": 245
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -43.12,
+          "drums": -25.22,
+          "energy": -25.22
+        },
+        "build": {
+          "bass": -16.97,
+          "drums": -15.53,
+          "energy": -15.53
+        },
+        "drop": {
+          "bass": -10.46,
+          "drums": -9.25,
+          "energy": -9.25
+        },
+        "breakdown": {
+          "bass": -22.24,
+          "drums": -15.56,
+          "energy": -15.56
+        },
+        "outro": {
+          "bass": -39.03,
+          "drums": -30.74,
+          "energy": -30.74
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 173.994,
+    "yt": "YaDwXxH-b4A",
+    "title": "Alpha Rhythm - Tranquility"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 163.64,
+    "outgoing_section": "drop",
+    "outgoing_bars_into_section": 19.64,
+    "outgoing_bars_left": 43.36,
+    "outgoing_bars_to_outro": 32.36,
+    "incoming_cue_bar": 48.21,
+    "incoming_section": "drop",
+    "incoming_bars_into_section": 0.21,
+    "incoming_rel_drop1": 0.21,
+    "bass_swap_bar": 5.07
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -54.55,
+        -5.16,
+        2.68,
+        2.09,
+        4.23,
+        -2.01,
+        -5.45,
+        -5.04,
+        -5.83,
+        -6.61,
+        0.58,
+        1.28,
+        -1.96,
+        -2.32,
+        -5.7,
+        -4.7,
+        -12.92,
+        -29.73,
+        -29.16,
+        -24.29,
+        -35.5,
+        -34.74,
+        -45.64,
+        -35.84,
+        -41.14,
+        -56.07,
+        -46.63,
+        -39.67,
+        -52.51,
+        -46.57,
+        -43.83,
+        -41.41,
+        -47.05,
+        -38.4,
+        -50.46,
+        -41.81,
+        -45.17,
+        -43.73,
+        -52.89,
+        -44.18,
+        -40.87,
+        -47.93,
+        -51.75,
+        -48.6,
+        -40.72,
+        -48.37
+      ],
+      "b": [
+        -1.73,
+        -0.42,
+        -6.6,
+        -7.0,
+        -9.96,
+        -1.11,
+        -3.42,
+        -0.93,
+        -4.09,
+        -1.37,
+        -7.11,
+        -10.64,
+        -9.46,
+        -2.63,
+        -2.96,
+        -2.66,
+        -0.98,
+        -1.2,
+        -1.12,
+        -1.26,
+        -1.05,
+        -1.1,
+        -1.02,
+        -1.12,
+        -1.07,
+        -1.08,
+        -1.04,
+        -1.09,
+        -1.02,
+        -1.05,
+        -1.07,
+        -1.06,
+        -1.07,
+        -1.08,
+        -1.06,
+        -1.08,
+        -1.1,
+        -1.05,
+        -1.08,
+        -1.06,
+        -1.12,
+        -1.03,
+        -1.08,
+        -1.06,
+        -1.12,
+        -1.06
+      ]
+    },
+    "bass": {
+      "a": [
+        9.54,
+        8.72,
+        6.67,
+        5.11,
+        6.47,
+        -3.31,
+        -5.78,
+        -5.02,
+        -7.89,
+        -8.48,
+        3.7,
+        4.75,
+        0.64,
+        -3.92,
+        -6.35,
+        -5.62,
+        -19.09,
+        -53.32,
+        -37.09,
+        -28.68,
+        -64.0,
+        -44.1,
+        -58.19,
+        -40.65,
+        -63.52,
+        -79.29,
+        -43.92,
+        -30.74,
+        -38.14,
+        -41.57,
+        -48.75,
+        -39.49,
+        -46.41,
+        -36.89,
+        -49.88,
+        -37.85,
+        -34.46,
+        -41.9,
+        -48.66,
+        -41.49,
+        -36.76,
+        -43.08,
+        -49.04,
+        -40.02,
+        -31.44,
+        -51.82
+      ],
+      "b": [
+        -138.18,
+        -8.54,
+        -7.87,
+        -6.31,
+        -4.97,
+        4.4,
+        2.17,
+        4.91,
+        2.49,
+        3.84,
+        -8.32,
+        -9.43,
+        -0.69,
+        4.15,
+        1.17,
+        3.45,
+        -1.19,
+        -2.12,
+        -1.06,
+        -1.18,
+        -1.01,
+        -1.04,
+        -1.01,
+        -1.06,
+        -1.01,
+        -1.05,
+        -1.03,
+        -1.1,
+        -1.02,
+        -1.03,
+        -1.03,
+        -1.04,
+        -1.02,
+        -1.03,
+        -1.02,
+        -1.07,
+        -1.1,
+        -1.01,
+        -1.02,
+        -1.02,
+        -1.06,
+        -0.99,
+        -1.04,
+        -1.06,
+        -1.13,
+        -1.04
+      ]
+    },
+    "mids": {
+      "a": [
+        5.43,
+        -7.74,
+        -5.71,
+        -4.81,
+        -2.56,
+        -0.46,
+        -4.55,
+        -4.42,
+        -3.38,
+        -3.88,
+        -5.72,
+        -6.71,
+        -3.83,
+        0.3,
+        -3.04,
+        -4.19,
+        -9.36,
+        -14.52,
+        -23.13,
+        -22.22,
+        -24.17,
+        -25.43,
+        -32.76,
+        -39.33,
+        -39.02,
+        -38.57,
+        -39.02,
+        -50.37,
+        -48.28,
+        -46.26,
+        -42.96,
+        -44.65,
+        -47.43,
+        -44.08,
+        -39.59,
+        -47.07,
+        -46.12,
+        -45.49,
+        -48.24,
+        -44.94,
+        -44.66,
+        -43.37,
+        -45.1,
+        -48.87,
+        -50.04,
+        -48.51
+      ],
+      "b": [
+        -1.82,
+        0.15,
+        -2.84,
+        -3.72,
+        -6.07,
+        -3.28,
+        -4.13,
+        -3.29,
+        -5.46,
+        -1.74,
+        -2.78,
+        -3.75,
+        -8.24,
+        -4.62,
+        -3.35,
+        -3.09,
+        -1.26,
+        -1.59,
+        -1.02,
+        -1.13,
+        -1.25,
+        -1.28,
+        -1.15,
+        -1.18,
+        -1.18,
+        -1.26,
+        -1.24,
+        -1.24,
+        -1.16,
+        -1.2,
+        -1.22,
+        -1.15,
+        -1.25,
+        -1.2,
+        -1.32,
+        -1.17,
+        -1.28,
+        -1.13,
+        -1.36,
+        -1.14,
+        -1.35,
+        -1.16,
+        -1.31,
+        -1.2,
+        -1.29,
+        -1.26
+      ]
+    },
+    "highs": {
+      "a": [
+        -52.19,
+        4.43,
+        5.01,
+        6.53,
+        3.86,
+        0.81,
+        0.21,
+        -0.83,
+        0.38,
+        0.16,
+        2.58,
+        0.13,
+        2.24,
+        2.79,
+        1.04,
+        -0.67,
+        -9.53,
+        -20.47,
+        -24.47,
+        -27.49,
+        -22.38,
+        -20.92,
+        -21.92,
+        -23.15,
+        -23.66,
+        -22.89,
+        -20.37,
+        -17.25,
+        -16.19,
+        -12.66,
+        -17.46,
+        -22.03,
+        -24.44,
+        -23.8,
+        -23.29,
+        -26.24,
+        -24.43,
+        -21.45,
+        -21.02,
+        -22.38,
+        -18.94,
+        -22.82,
+        -24.21,
+        -22.63,
+        -25.82,
+        -24.67
+      ],
+      "b": [
+        2.31,
+        -0.31,
+        2.33,
+        1.73,
+        -1.32,
+        -2.18,
+        -0.85,
+        -1.07,
+        -0.8,
+        -2.18,
+        -2.55,
+        -1.52,
+        -2.31,
+        -3.91,
+        -2.33,
+        -0.87,
+        -0.4,
+        -1.17,
+        -1.58,
+        -1.28,
+        -1.69,
+        -1.48,
+        -1.64,
+        -1.47,
+        -1.51,
+        -1.44,
+        -1.47,
+        -1.28,
+        -1.48,
+        -1.42,
+        -1.78,
+        -1.49,
+        -1.79,
+        -1.43,
+        -1.69,
+        -1.31,
+        -1.71,
+        -1.39,
+        -1.82,
+        -1.27,
+        -1.69,
+        -1.51,
+        -1.42,
+        -1.59,
+        -1.31,
+        -1.57
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        200,
+        null,
+        32,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.21,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.21,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 95.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        112,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 127.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.21,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.21,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.21,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 31.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 31.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 95.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 95.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 95.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 127.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 127.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 127.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.21,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.21,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.21,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 31.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 31.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 95.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 95.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 95.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 127.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 127.79,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 127.79,
+      "section_match": true,
+      "relevance": 1
+    }
+  ]
+}

@@ -35,6 +35,8 @@ def pairs():
         a, b = f['track_a']['yt'], f['track_b']['yt']; sa, sb = os.path.join(FLIB, a + '.m4a'), os.path.join(FLIB, b + '.m4a')
         if not (os.path.exists(sa) and os.path.exists(sb)):  # fresh-mix sources restored from Drive (never used for fitting)
             sa, sb = os.path.join(H, 'fresh_src', a + '.m4a'), os.path.join(H, 'fresh_src', b + '.m4a')
+        if not (os.path.exists(sa) and os.path.exists(sb)) and os.environ.get('EXTRA_SRC'):  # 2026-11-19 nightly: sources restored from Drive into a scratch dir
+            sa, sb = os.path.join(os.environ['EXTRA_SRC'], a + '.m4a'), os.path.join(os.environ['EXTRA_SRC'], b + '.m4a')
         if not (os.path.exists(sa) and os.path.exists(sb)): continue
         cue = f['cue']; pro = dict(out_bar=cue['outgoing_bar'], in_bar=cue['incoming_bar'], overlap=f.get('overlap_bars'), swap_after_entry=None, curve_a=None, curve_b=None)
         dl = f.get('deck_levels')

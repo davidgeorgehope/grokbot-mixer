@@ -1,0 +1,82 @@
+{
+ "default": {
+  "n": 103,
+  "HC_A": 17,
+  "HC_C": 19,
+  "hole_v2": 1,
+  "hole_v3": 4,
+  "clash_v1": 7,
+  "halfbeat": 1,
+  "pump": 9
+ },
+ "gated": {
+  "n": 103,
+  "HC_A": 30,
+  "HC_C": 30,
+  "hole_v2": 12,
+  "hole_v3": 13,
+  "clash_v1": 8,
+  "halfbeat": 1,
+  "pump": 15
+ },
+ "on": {
+  "n": 103,
+  "HC_A": 31,
+  "HC_C": 31,
+  "hole_v2": 12,
+  "hole_v3": 13,
+  "clash_v1": 8,
+  "halfbeat": 1,
+  "pump": 16
+ },
+ "dropx": {
+  "n": 103,
+  "HC_A": 10,
+  "HC_C": 10,
+  "hole_v2": 0,
+  "hole_v3": 0,
+  "clash_v1": 2,
+  "halfbeat": 2,
+  "pump": 8
+ },
+ "dropc": {
+  "n": 103,
+  "HC_A": 6,
+  "HC_C": 6,
+  "hole_v2": 0,
+  "hole_v3": 0,
+  "clash_v1": 1,
+  "halfbeat": 0,
+  "pump": 5
+ },
+ "kush_default": {
+  "n": 8,
+  "HC_A": 3,
+  "HC_C": 3,
+  "hole_v2": 0,
+  "hole_v3": 0,
+  "clash_v1": 2,
+  "halfbeat": 1,
+  "pump": 1
+ },
+ "kush_dropx": {
+  "n": 8,
+  "HC_A": 1,
+  "HC_C": 1,
+  "hole_v2": 0,
+  "hole_v3": 0,
+  "clash_v1": 0,
+  "halfbeat": 0,
+  "pump": 1
+ },
+ "kush_dropc": {
+  "n": 8,
+  "HC_A": 1,
+  "HC_C": 1,
+  "hole_v2": 0,
+  "hole_v3": 0,
+  "clash_v1": 1,
+  "halfbeat": 0,
+  "pump": 0
+ }
+}

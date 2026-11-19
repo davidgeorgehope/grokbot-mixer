@@ -1,0 +1,1221 @@
+{
+ "pairs": [
+  {
+   "id": "wilkinson_boomtown2026__33",
+   "want": [
+    "n",
+    152,
+    null,
+    0,
+    16
+   ],
+   "got": [
+    "n",
+    152,
+    null,
+    0,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 0.0
+   },
+   "veto": true
+  },
+  {
+   "id": "joe_syntax_hospital__01",
+   "want": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "joe_syntax_hospital__08",
+   "want": [
+    "n",
+    160,
+    null,
+    40,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    40,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 34.8
+   },
+   "veto": true
+  },
+  {
+   "id": "hybrid_minds_ukf__08",
+   "want": [
+    "n",
+    144,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    144,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": true,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": true,
+    "hole_v3": true,
+    "hole_v3_score": 62.6,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": true
+  },
+  {
+   "id": "hybrid_minds_ukf__11",
+   "want": [
+    "n",
+    144,
+    null,
+    64,
+    32
+   ],
+   "got": [
+    "n",
+    144,
+    null,
+    64,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": true,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": true,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 14.8,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 23.2
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__12",
+   "want": [
+    "n",
+    208,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    208,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 10.8,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__19",
+   "want": [
+    "n",
+    136,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    136,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 40.6
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__25",
+   "want": [
+    "n",
+    144,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    144,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__45",
+   "want": [
+    "n",
+    104,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    104,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 20.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 8.7
+   },
+   "veto": false
+  },
+  {
+   "id": "netsky_hospital_classics__02",
+   "want": [
+    "n",
+    128,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    128,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 110.3
+   },
+   "veto": false
+  },
+  {
+   "id": "netsky_hospital_classics__06",
+   "want": [
+    "n",
+    216,
+    null,
+    48,
+    32
+   ],
+   "got": [
+    "n",
+    216,
+    null,
+    48,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": true,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": true
+  },
+  {
+   "id": "netsky_hospital_classics__17",
+   "want": [
+    "n",
+    160,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "want": [
+    "n",
+    160,
+    null,
+    24,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    24,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": true,
+   "new_HC_A": false,
+   "fixed_HC_A": true,
+   "pick_HC_C": false,
+   "def_HC_C": true,
+   "new_HC_C": false,
+   "fixed_HC_C": true,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 81.3
+   },
+   "veto": false
+  },
+  {
+   "id": "joe_syntax_hospital__12",
+   "want": [
+    "n",
+    160,
+    null,
+    48,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    48,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": true,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": true,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": true,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 34.8
+   },
+   "veto": false
+  },
+  {
+   "id": "joe_syntax_hospital__13",
+   "want": [
+    "n",
+    160,
+    null,
+    64,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    64,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 5.8
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__00",
+   "want": [
+    "n",
+    160,
+    null,
+    8,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    8,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": true,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": true,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 11.9,
+    "clash_v1": true,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 40.6
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "want": [
+    "n",
+    152,
+    null,
+    48,
+    32
+   ],
+   "got": [
+    "n",
+    152,
+    null,
+    48,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 17.4
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__10",
+   "want": [
+    "n",
+    160,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 5.8
+   },
+   "veto": true
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "want": [
+    "n",
+    144,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    144,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": true,
+   "new_HC_A": false,
+   "fixed_HC_A": true,
+   "pick_HC_C": false,
+   "def_HC_C": true,
+   "new_HC_C": false,
+   "fixed_HC_C": true,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 15.5,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 5.8
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__40",
+   "want": [
+    "n",
+    192,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    192,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": true,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": true,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": true,
+    "hole_v3_score": 47.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "joe_syntax_hospital__00",
+   "want": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "got": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 8.7
+   },
+   "veto": false
+  },
+  {
+   "id": "joe_syntax_hospital__09",
+   "want": [
+    "n",
+    144,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    144,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 17.4
+   },
+   "veto": false
+  },
+  {
+   "id": "joe_syntax_hospital__14",
+   "want": [
+    "n",
+    168,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    168,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 5.8
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__13",
+   "want": [
+    "n",
+    144,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    144,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "want": [
+    "n",
+    160,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 66.8
+   },
+   "veto": true
+  },
+  {
+   "id": "netsky_hospital_classics__15",
+   "want": [
+    "n",
+    160,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 7.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 5.8
+   },
+   "veto": false
+  },
+  {
+   "id": "netsky_hospital_classics__23",
+   "want": [
+    "n",
+    144,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    144,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 5.8
+   },
+   "veto": true
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__02",
+   "want": [
+    "n",
+    112,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    112,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 20.3
+   },
+   "veto": true
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__03",
+   "want": [
+    "n",
+    128,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    128,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__05",
+   "want": [
+    "n",
+    160,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": true,
+   "new_HC_A": false,
+   "fixed_HC_A": true,
+   "pick_HC_C": false,
+   "def_HC_C": true,
+   "new_HC_C": false,
+   "fixed_HC_C": true,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 5.8
+   },
+   "veto": false
+  },
+  {
+   "id": "pola_bryson_puzzlewood__00",
+   "want": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "got": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": true,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": true,
+    "hole_v3": true,
+    "hole_v3_score": 57.2,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": true
+  },
+  {
+   "id": "pola_bryson_puzzlewood__02",
+   "want": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "got": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "want": [
+    "n",
+    160,
+    null,
+    40,
+    32
+   ],
+   "got": [
+    "n",
+    160,
+    null,
+    40,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": true,
+    "med_lag": 20.3
+   },
+   "veto": true
+  }
+ ],
+ "counts": {
+  "pick_fail_HC_A": 14,
+  "def_fail_HC_A": 7,
+  "new_HC_A": 10,
+  "fixed_HC_A": 3,
+  "pick_fail_HC_C": 14,
+  "def_fail_HC_C": 9,
+  "new_HC_C": 8,
+  "fixed_HC_C": 3,
+  "veto": 10,
+  "checked": 33
+ },
+ "after_veto": {
+  "n": 33,
+  "default_ec": 50.29,
+  "model_ec": 37.93,
+  "delta": {
+   "delta": -12.36,
+   "ci": [
+    -20.58,
+    -0.96
+   ],
+   "n": 33,
+   "groups": 6,
+   "verdict": "better"
+  },
+  "exit_hit16": 0.242,
+  "cue_hit16": 0.333
+ }
+}

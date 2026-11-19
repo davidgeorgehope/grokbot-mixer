@@ -1,0 +1,11 @@
+{"written": "2026-11-19 ~01:30 ET, after dev grouped CV and BEFORE the locked holdout, the protrans-33 eval set or the fresh mix were scored",
+ "candidate_frozen": "picker_1119 model_style_gated: LightGBM LambdaMART over the full rule-generated candidate set (default, outro-intro, DROPCAND drop-exit/drop-cue, dropN exits, replica breakdown exits, 8-bar exit grid x cue phrase/section anchors), X in {16,32} (renderable), online DJ-style features from earlier transitions of the same mix (index < t), margin gate tau chosen by inner leave-one-DJ-out; fit on all 148 dev corpus_v2 transitions; flag PICKER_WIN; off by default",
+ "veto": "hard checks only veto: the rendered pick is replaced by the default window when it fails the hard-check set (reported raw and vetoed)",
+ "keep_as_flag_tonight_only_if_all": [
+   "dev leave-one-DJ-out: grouped-by-mix bootstrap 95% CI of mean exit+cue bar error delta vs default entirely below 0",
+   "locked holdout (Liquicity + Hospital Records): exit+cue delta point estimate < 0 (CI reported; 14 pairs is too few to require CI < 0 tonight)",
+   "protrans-33 eval-only set and the fresh mix: exit+cue delta point estimate <= 0",
+   "no single metric materially worse on dev CV: exit hit@16 and cue hit@16 not down by more than 0.10, blend-length proxy error not up by more than 2 bars",
+   "hard checks (after veto): 0 new hard-fail pairs vs default on rendered dev + protrans + holdout + fresh pairs"],
+ "promote_to_default_only_if": "the same frozen candidate passes on two consecutive nights AND locked-holdout CI entirely below 0 AND fresh not worse AND tests pass (promotion_criteria.json rules still apply); tonight is at most night 1",
+ "note": "Similarity score, Grok judge and the listener's A/B are diagnostics only. rules.json is never edited."}

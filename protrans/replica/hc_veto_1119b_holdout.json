@@ -1,0 +1,380 @@
+{
+ "pairs": [
+  {
+   "id": "hospital_records_zYANUM_lubI__00",
+   "want": [
+    "n",
+    128,
+    null,
+    24,
+    16
+   ],
+   "got": [
+    "n",
+    128,
+    null,
+    24,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 28.4,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "hospital_records_zYANUM_lubI__01",
+   "want": [
+    "n",
+    136,
+    null,
+    32,
+    32
+   ],
+   "got": [
+    "n",
+    136,
+    null,
+    32,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 5.8
+   },
+   "veto": false
+  },
+  {
+   "id": "hospital_records_zYANUM_lubI__02",
+   "want": [
+    "n",
+    168,
+    null,
+    16,
+    16
+   ],
+   "got": [
+    "n",
+    168,
+    null,
+    16,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 5.8
+   },
+   "veto": false
+  },
+  {
+   "id": "liquicity_EuPkz0GFI4g__38",
+   "want": [
+    "n",
+    144,
+    null,
+    16,
+    16
+   ],
+   "got": [
+    "n",
+    144,
+    null,
+    16,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": true,
+    "hole_v3": true,
+    "hole_v3_score": 68.9,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 14.5
+   },
+   "veto": true
+  },
+  {
+   "id": "liquicity_EuPkz0GFI4g__48",
+   "want": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "got": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "liquicity_EuPkz0GFI4g__50",
+   "want": [
+    "n",
+    120,
+    null,
+    32,
+    16
+   ],
+   "got": [
+    "n",
+    120,
+    null,
+    32,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 21.7,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "liquicity_nYOcD3qTdg0__16",
+   "want": [
+    "n",
+    144,
+    null,
+    8,
+    16
+   ],
+   "got": [
+    "n",
+    144,
+    null,
+    8,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "liquicity_nYOcD3qTdg0__34",
+   "want": [
+    "n",
+    120,
+    null,
+    16,
+    32
+   ],
+   "got": [
+    "n",
+    120,
+    null,
+    16,
+    32
+   ],
+   "applied": true,
+   "pick_HC_A": true,
+   "def_HC_A": false,
+   "new_HC_A": true,
+   "fixed_HC_A": false,
+   "pick_HC_C": true,
+   "def_HC_C": false,
+   "new_HC_C": true,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 0.0,
+    "clash_v1": true,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 5.8
+   },
+   "veto": true
+  },
+  {
+   "id": "hospital_records_Lm2VlTogWvY__00",
+   "want": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "got": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "applied": true,
+   "pick_HC_A": false,
+   "def_HC_A": false,
+   "new_HC_A": false,
+   "fixed_HC_A": false,
+   "pick_HC_C": false,
+   "def_HC_C": false,
+   "new_HC_C": false,
+   "fixed_HC_C": false,
+   "flags": {
+    "hole_v2": false,
+    "hole_v3": false,
+    "hole_v3_score": 2.1,
+    "clash_v1": false,
+    "halfbeat": false,
+    "pump": false,
+    "med_lag": 0.0
+   },
+   "veto": false
+  },
+  {
+   "id": "hospital_records_zYANUM_lubI__03",
+   "want": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "status": "not_rendered"
+  },
+  {
+   "id": "hospital_records_zYANUM_lubI__04",
+   "want": [
+    "n",
+    240,
+    null,
+    16,
+    16
+   ],
+   "status": "not_rendered"
+  }
+ ],
+ "counts": {
+  "pick_fail_HC_A": 2,
+  "def_fail_HC_A": 0,
+  "new_HC_A": 2,
+  "fixed_HC_A": 0,
+  "pick_fail_HC_C": 2,
+  "def_fail_HC_C": 0,
+  "new_HC_C": 2,
+  "fixed_HC_C": 0,
+  "veto": 2,
+  "checked": 9,
+  "not_rendered": 2
+ },
+ "after_veto": {
+  "n": 14,
+  "default_ec": 35.3,
+  "model_ec": 37.96,
+  "delta": {
+   "delta": 2.67,
+   "ci": [
+    -7.06,
+    15.85
+   ],
+   "n": 14,
+   "groups": 4,
+   "verdict": "no clear difference"
+  },
+  "exit_hit16": 0.286,
+  "cue_hit16": 0.357
+ }
+}

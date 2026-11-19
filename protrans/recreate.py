@@ -144,7 +144,8 @@ def _phase_pick_cost(a_yt, b_yt, win, phase_pref_w, linger_pen_w, breakdown_pen_
 FAMILY_COST = {'nat_long': 0.0, 'nat_short': 0.01, 'out_loop': 0.02, 'in_loop': 0.03, 'lx_beat': 0.04,
                'cue_early': 0.05, 'cue_late': 0.06, 'phrase_cut': 0.07, 'swap_early': 0.08, 'swap_late': 0.09,
                'sneak_in': 0.10, 'rated': 0.0, 'hint_long': 0.0, 'hint_short': 0.01,
-               'plan_breakdown_drop': 0.01, 'plan_drop1_end': 0.01}  # plan_*: 2026-11-15 window planner, same costs as nat_short; only offered when window_planner is on
+               'plan_breakdown_drop': 0.01, 'plan_drop1_end': 0.01,
+               'cons_cue': 0.05}  # cons_cue: 2026-11-19 CONSONANCE research family (same cost as cue_early); only offered when CONSONANCE=1  # plan_*: 2026-11-15 window planner, same costs as nat_short; only offered when window_planner is on
 
 def family_cost(fam, rules=None):
     over = (rules or {}).get('family_cost') or {}
@@ -329,8 +330,45 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             # tied it on every term and the stable sort always kept nat_long. rules.json 'family_cost' may override.
             cost += family_cost(c['fam'], rules)
             scored.append((cost, c))
+        # CONSONANCE=1 (off by default, 2026-11-19 research): psychoacoustic roughness between the two decks'
+        # mid-band spectral peaks over the blend (src2/consonance.py, after Gebhardt, Davies & Seeber 2016).
+        # Adds W*log(R/R_default) to each family's pick cost and nominates one 'cons_cue' window. Not in rules.json.
+        cons_info = None
+        if _flag_on(env.get('CONSONANCE') or rules.get('CONSONANCE') or os.environ.get('CONSONANCE')):
+            import consonance as _CO
+            _w = _CO.weight(rules.get('CONSONANCE_W', os.environ.get('CONSONANCE_W')))
+            _def = min(scored, key=lambda x: x[0])[1]
+            r_ref = _CO.win_roughness(a, b, _def['win'])
+            cons_info = dict(w=_w, default_fam=_def['fam'], default_win=list(_def['win']), r_default=r_ref, terms={})
+            _cw, _cr = _CO.cons_cue(cs, _def['win'], a, b, pen_slack=float(rules.get('CONS_PEN_SLACK', 15)))
+            if _cw is not None and not any(list(c['win']) == list(_cw) for _, c in scored):
+                _c = dict(fam='cons_cue', win=list(_cw), env={})
+                # exactly the same pick-cost terms as the family loop above (hint, length_pref, prefer_family, loop, phase/linger, family)
+                _cost = 0.0
+                if hw and hb is not None:
+                    _cost += hw * abs(float(_cw[1]) - hb) / max(nb, 1)
+                if lp and _cw[4] != lp:
+                    _cost += 0.15
+                if pref and not str(_c['fam']).startswith(str(pref)):
+                    _cost += float(rules.get('family_prior_w') or 0)
+                if _cw[0] in ('la', 'lb', 'ab', 'lx'):
+                    _cost += float(rules.get('loop_fam_pen') or 0)
+                _pw, _lw, _bw = float(rules.get('phase_pref_w') or 0), float(rules.get('linger_pen_w') or 0), float(rules.get('breakdown_pen_w') or 0)
+                if _pw or _lw or _bw:
+                    _cost += _phase_pick_cost(a, b, _cw, _pw, _lw, _bw)
+                _cost += family_cost('cons_cue', rules)
+                scored.append((_cost, _c)); cons_info['cons_cue'] = dict(win=list(_cw), r=_cr, base_cost=round(_cost, 4))
+            new_scored = []
+            for cost, c in scored:
+                r = _cr if c['fam'] == 'cons_cue' else _CO.win_roughness(a, b, c['win'])
+                t = _CO.cost_term(r, r_ref, _w)
+                cons_info['terms'][c['fam']] = dict(r=r, term=round(t, 4), base=round(cost, 4))
+                new_scored.append((cost + t, c))
+            scored = new_scored
         scored.sort(key=lambda x: x[0])
         pick = scored[0][1]
+        if cons_info is not None:
+            cons_info['pick_fam'] = pick['fam']; cons_info['changed'] = list(pick['win']) != cons_info['default_win'] or pick['fam'] != cons_info['default_fam']
         if planner_on:
             import window_planner as _WP
             import sections as _SEC
@@ -454,6 +492,15 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                 pick = dict(fam='drop_' + _dm, win=list(want), env={}); fade = {}
             else:
                 drop_info['reason'] = 'win_not_in_cs'
+        # PICKER_WIN (off by default, 2026-11-19 nightly): play the learned picker's window for this pair when the engine scored it
+        picker_info = None
+        if os.environ.get('PICKER_WIN'):
+            _pw = json.load(open(os.environ['PICKER_WIN'])).get(f'{a}|{b}')
+            if _pw:
+                hit = next((c for c in cs if list(c.get('win') or []) == [_pw[0], int(_pw[1]), None, int(_pw[3]), int(_pw[4])]), None)
+                picker_info = dict(want=_pw, applied=hit is not None)
+                if hit is not None:
+                    pick = dict(fam='picker', win=list(hit['win']), env={}); fade = {}
         pick['env'] = {**env, **dict(pick.get('env') or {}), **fade}
         # FADE=graphcut is a renderer flag: keep it on top of any family FADE so a cohort
         # eval compares the same windows under a different handover, not a different family.
@@ -471,7 +518,8 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     n_cands=len(fams), phase_cost_errors=list(PHASE_COST_ERRORS),
                     halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'),
                     planner=(planner_choice if planner_choice else pick.get('planner')),
-                    ranker=(ranker_info if ranker_on else None), replica=replica_info, dropcand=drop_info)
+                    ranker=(ranker_info if ranker_on else None), replica=replica_info, dropcand=drop_info, picker=picker_info,
+                    consonance=cons_info)
         return info
     finally:
         os.chdir(oldcwd)

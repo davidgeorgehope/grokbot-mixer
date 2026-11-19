@@ -1,0 +1,436 @@
+{
+ "tag": "n1119",
+ "ts": "2026-11-19 ET",
+ "run": "nightly-protrans-hill-climb started 1:11 AM ET, routine cut off 1:36 AM ET; wrap-up by a separate agent from 2:13 AM ET",
+ "baseline": {
+  "engine_default": "d1115_xp_045 + TAIL_EXIT 6 + BLEND_LOCK 1 (rules.json unchanged)",
+  "similarity_floor": {
+   "test": 34.07,
+   "train": 32.4,
+   "n": 33,
+   "n_fail": 0
+  }
+ },
+ "candidate": "picker_1119b model_style_gated (frozen in protrans/replica/promotion_criteria_1119_v2.json); flag PICKER_WIN, off by default",
+ "superseded": "picker_1119 joint-window ranker: dev LODO -8.95 [-15.22, +0.50] with renderable X, failed its own dev criterion",
+ "dev_lodo": {
+  "n": 148,
+  "mixes": 19,
+  "djs": 9,
+  "variants": {
+   "model_style_gated": {
+    "exit_cue_mean": 26.64,
+    "delta": -10.9,
+    "ci95": [
+     -17.6,
+     -1.49
+    ],
+    "exit_hit16": 0.561,
+    "cue_hit16": 0.574,
+    "abstain": 0.074
+   },
+   "model_style_plain": {
+    "exit_cue_mean": 26.5,
+    "delta": -11.05,
+    "ci95": [
+     -18.22,
+     -0.94
+    ],
+    "exit_hit16": 0.568,
+    "cue_hit16": 0.554,
+    "abstain": 0.034
+   },
+   "model_nostyle_gated": {
+    "exit_cue_mean": 42.47,
+    "delta": 4.93,
+    "ci95": [
+     1.01,
+     9.67
+    ],
+    "exit_hit16": 0.236,
+    "cue_hit16": 0.514,
+    "abstain": 0.223
+   },
+   "model_nostyle_plain": {
+    "exit_cue_mean": 37.33,
+    "delta": -0.22,
+    "ci95": [
+     -5.68,
+     6.85
+    ],
+    "exit_hit16": 0.338,
+    "cue_hit16": 0.486,
+    "abstain": 0.088
+   },
+   "default": {
+    "exit_cue_mean": 37.55,
+    "delta": null,
+    "ci95": null,
+    "exit_hit16": 0.318,
+    "cue_hit16": 0.601,
+    "abstain": 1.0
+   },
+   "rule_drop_exit": {
+    "exit_cue_mean": 46.61,
+    "delta": 9.06,
+    "ci95": [
+     -4.03,
+     28.07
+    ],
+    "exit_hit16": 0.068,
+    "cue_hit16": 0.574,
+    "abstain": 0.115
+   }
+  },
+  "after_veto": {
+   "n": 148,
+   "default_ec": 37.55,
+   "model_ec": 26.92,
+   "delta": {
+    "delta": -10.63,
+    "ci": [
+     -17.38,
+     -1.26
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "better"
+   },
+   "exit_hit16": 0.561,
+   "cue_hit16": 0.581
+  },
+  "veto_counts": {
+   "pick_fail_HC_A": 10,
+   "def_fail_HC_A": 9,
+   "new_HC_A": 6,
+   "fixed_HC_A": 5,
+   "pick_fail_HC_C": 10,
+   "def_fail_HC_C": 9,
+   "new_HC_C": 6,
+   "fixed_HC_C": 5,
+   "veto": 6,
+   "checked": 54,
+   "not_rendered": 70,
+   "no_arrays": 13
+  },
+  "real_default_sensitivity": {
+   "note": "33 proxy defaults replaced by rendered ndef1119 defaults (19 differ), no retraining",
+   "after_veto_delta": -10.76,
+   "ci95": [
+    -16.92,
+    -1.84
+   ]
+  }
+ },
+ "protrans33": {
+  "variants": {
+   "model_style_gated": {
+    "exit_cue_mean": 30.8,
+    "delta": -19.49,
+    "ci95": [
+     -27.42,
+     -5.73
+    ],
+    "exit_hit16": 0.333,
+    "cue_hit16": 0.333,
+    "abstain": 0.0
+   },
+   "model_style_plain": {
+    "exit_cue_mean": 30.49,
+    "delta": -19.8,
+    "ci95": [
+     -27.14,
+     -7.81
+    ],
+    "exit_hit16": 0.333,
+    "cue_hit16": 0.424,
+    "abstain": 0.0
+   },
+   "model_nostyle_gated": {
+    "exit_cue_mean": 35.43,
+    "delta": -14.85,
+    "ci95": [
+     -20.9,
+     -6.69
+    ],
+    "exit_hit16": 0.303,
+    "cue_hit16": 0.364,
+    "abstain": 0.03
+   },
+   "model_nostyle_plain": {
+    "exit_cue_mean": 35.28,
+    "delta": -15.01,
+    "ci95": [
+     -20.57,
+     -6.87
+    ],
+    "exit_hit16": 0.303,
+    "cue_hit16": 0.303,
+    "abstain": 0.0
+   },
+   "default": {
+    "exit_cue_mean": 50.29,
+    "delta": null,
+    "ci95": null,
+    "exit_hit16": 0.03,
+    "cue_hit16": 0.394,
+    "abstain": 1.0
+   },
+   "rule_drop_exit": {
+    "exit_cue_mean": 42.09,
+    "delta": -8.19,
+    "ci95": [
+     -19.35,
+     5.45
+    ],
+    "exit_hit16": 0.212,
+    "cue_hit16": 0.394,
+    "abstain": 0.091
+   }
+  },
+  "after_veto": {
+   "n": 33,
+   "default_ec": 50.29,
+   "model_ec": 37.93,
+   "delta": {
+    "delta": -12.36,
+    "ci": [
+     -20.58,
+     -0.96
+    ],
+    "n": 33,
+    "groups": 6,
+    "verdict": "better"
+   },
+   "exit_hit16": 0.242,
+   "cue_hit16": 0.333
+  },
+  "veto_counts": {
+   "pick_fail_HC_A": 14,
+   "def_fail_HC_A": 7,
+   "new_HC_A": 10,
+   "fixed_HC_A": 3,
+   "pick_fail_HC_C": 14,
+   "def_fail_HC_C": 9,
+   "new_HC_C": 8,
+   "fixed_HC_C": 3,
+   "veto": 10,
+   "checked": 33
+  }
+ },
+ "locked_holdout": {
+  "opened": "first time, 2026-11-19 2:26 AM ET",
+  "n": 14,
+  "mixes": 4,
+  "variants": {
+   "model_style_gated": {
+    "exit_cue_mean": 33.68,
+    "delta": -1.62,
+    "ci95": [
+     -16.29,
+     12.67
+    ],
+    "exit_hit16": 0.429,
+    "cue_hit16": 0.429,
+    "abstain": 0.214
+   },
+   "model_style_plain": {
+    "exit_cue_mean": 31.99,
+    "delta": -3.3,
+    "ci95": [
+     -18.04,
+     11.33
+    ],
+    "exit_hit16": 0.5,
+    "cue_hit16": 0.5,
+    "abstain": 0.143
+   },
+   "model_nostyle_gated": {
+    "exit_cue_mean": 35.03,
+    "delta": -0.26,
+    "ci95": [
+     -5.33,
+     4.05
+    ],
+    "exit_hit16": 0.286,
+    "cue_hit16": 0.286,
+    "abstain": 0.429
+   },
+   "model_nostyle_plain": {
+    "exit_cue_mean": 36.78,
+    "delta": 1.48,
+    "ci95": [
+     -7.0,
+     6.91
+    ],
+    "exit_hit16": 0.214,
+    "cue_hit16": 0.286,
+    "abstain": 0.143
+   },
+   "default": {
+    "exit_cue_mean": 35.3,
+    "delta": null,
+    "ci95": null,
+    "exit_hit16": 0.214,
+    "cue_hit16": 0.286,
+    "abstain": 1.0
+   },
+   "rule_drop_exit": {
+    "exit_cue_mean": 42.55,
+    "delta": 7.25,
+    "ci95": [
+     -5.59,
+     18.22
+    ],
+    "exit_hit16": 0.071,
+    "cue_hit16": 0.286,
+    "abstain": 0.357
+   }
+  },
+  "after_veto": {
+   "n": 14,
+   "default_ec": 35.3,
+   "model_ec": 37.96,
+   "delta": {
+    "delta": 2.67,
+    "ci": [
+     -7.06,
+     15.85
+    ],
+    "n": 14,
+    "groups": 4,
+    "verdict": "no clear difference"
+   },
+   "exit_hit16": 0.286,
+   "cue_hit16": 0.357
+  },
+  "veto_counts": {
+   "pick_fail_HC_A": 2,
+   "def_fail_HC_A": 0,
+   "new_HC_A": 2,
+   "fixed_HC_A": 0,
+   "pick_fail_HC_C": 2,
+   "def_fail_HC_C": 0,
+   "new_HC_C": 2,
+   "fixed_HC_C": 0,
+   "veto": 2,
+   "checked": 9,
+   "not_rendered": 2
+  }
+ },
+ "fresh": {
+  "mix": "offbeatdooter_L0O51m1Ow7I",
+  "n": 20,
+  "note": "scored once, now spent; single mix so CI degenerate; proxy defaults, no renders (sources cleaned after ingest), no hard checks",
+  "variants": {
+   "model_style_gated": {
+    "exit_cue_mean": 39.17,
+    "delta": -15.67,
+    "ci95": [
+     -15.67,
+     -15.67
+    ],
+    "exit_hit16": 0.25,
+    "cue_hit16": 0.55,
+    "abstain": 0.15
+   },
+   "model_style_plain": {
+    "exit_cue_mean": 39.54,
+    "delta": -15.3,
+    "ci95": [
+     -15.3,
+     -15.3
+    ],
+    "exit_hit16": 0.2,
+    "cue_hit16": 0.65,
+    "abstain": 0.05
+   },
+   "model_nostyle_gated": {
+    "exit_cue_mean": 49.24,
+    "delta": -5.6,
+    "ci95": [
+     -5.6,
+     -5.6
+    ],
+    "exit_hit16": 0.15,
+    "cue_hit16": 0.45,
+    "abstain": 0.25
+   },
+   "model_nostyle_plain": {
+    "exit_cue_mean": 31.78,
+    "delta": -23.06,
+    "ci95": [
+     -23.06,
+     -23.06
+    ],
+    "exit_hit16": 0.3,
+    "cue_hit16": 0.6,
+    "abstain": 0.0
+   },
+   "default": {
+    "exit_cue_mean": 54.84,
+    "delta": null,
+    "ci95": null,
+    "exit_hit16": 0.15,
+    "cue_hit16": 0.35,
+    "abstain": 1.0
+   },
+   "rule_drop_exit": {
+    "exit_cue_mean": 47.33,
+    "delta": -7.51,
+    "ci95": [
+     -7.51,
+     -7.51
+    ],
+    "exit_hit16": 0.15,
+    "cue_hit16": 0.35,
+    "abstain": 0.1
+   }
+  }
+ },
+ "criteria_check": {
+  "dev CI < 0": true,
+  "protrans <= 0": true,
+  "fresh <= 0": true,
+  "no metric materially worse (dev)": true,
+  "0 new hard fails after veto": true,
+  "holdout point < 0 (after veto)": false
+ },
+ "clash_detector": {
+  "name": "off-grid onset share (clash_grid_1119.py)",
+  "chosen": {
+   "tol": 18,
+   "form": "p25",
+   "thr": 0.1134,
+   "pro_fa_loo": 0.061,
+   "dev_clean": 0.151,
+   "dev_clash60": 0.178,
+   "dev_clash110": 0.192,
+   "heldout_clean": 0.167,
+   "heldout_clash60": 0.133,
+   "heldout_clash110": 0.2,
+   "median_clean": 0.0456,
+   "median_clash60": 0.0617,
+   "median_clash110": 0.0605,
+   "median_pro": 0.0318
+  },
+  "adopted": false,
+  "reason": "held-out recall 13.3% at 60 ms and 20% at 110 ms, below the 80% bar; held-out clean flag rate 16.7% is above the 60 ms recall, i.e. no separation. Threshold is pro p95 (FA 6.1%), not hand-tuned."
+ },
+ "clash_flam": {
+  "adopted": false,
+  "note": "flam autocorrelation (clash_flam_1119.py): held-out 60 ms 0%, 110 ms 3.3%"
+ },
+ "tried": [
+  "picker_1119 joint ranker",
+  "picker_1119b factored ranker (style/nostyle x gated/plain)",
+  "clash flam",
+  "clash off-grid grid",
+  "hole T0=38 (hole_t0_1119)"
+ ],
+ "kept": [],
+ "night1_win": false,
+ "promoted": false,
+ "rules_json_changed": false,
+ "night1_signal": "promising only, not a night-1 win (locked holdout failed after veto): model_style_gated and model_nostyle_plain. Night 2 needs a dev-CV win plus a NEW fresh mix; the locked holdout is not re-scored to rescue tonight."
+}

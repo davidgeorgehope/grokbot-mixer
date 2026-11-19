@@ -1,0 +1,51 @@
+{
+  "variant": "cw03_1119",
+  "v3": {
+    "train": 30.72,
+    "test": 32.87,
+    "n": 33,
+    "n_fail": 0
+  },
+  "v2": {
+    "train": 30.42,
+    "test": 31.8
+  },
+  "fams": {
+    "nat_long": 1,
+    "cue_early": 2,
+    "nat_short": 25,
+    "cons_cue": 5
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 30.81,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 30.58,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 27.84,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 33.36,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 37.97,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 30.2,
+      "split": "test"
+    }
+  }
+}

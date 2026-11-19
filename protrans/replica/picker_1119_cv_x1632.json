@@ -1,0 +1,5305 @@
+{
+ "n": 148,
+ "n_mixes": 19,
+ "djs": [
+  "Alpha Rhythm",
+  "Fryett",
+  "John B",
+  "KushSessions",
+  "MrMoMMusic",
+  "Sound Territory",
+  "SuicideSheeep",
+  "TheHeshBesh",
+  "UKF Drum & Bass"
+ ],
+ "def_src": {
+  "rendered": 72,
+  "proxy": 76
+ },
+ "n_cands_mean": 317.5,
+ "folds": {
+  "Alpha Rhythm": {
+   "style": {
+    "cfg": 0,
+    "tau": -1000000000.0,
+    "inner_err": 25.88,
+    "used": 18
+   },
+   "nostyle": {
+    "cfg": 0,
+    "tau": 0.5,
+    "inner_err": 38.05,
+    "used": 14
+   },
+   "n": 21,
+   "majority_tag": "replica_bd"
+  },
+  "Fryett": {
+   "style": {
+    "cfg": 0,
+    "tau": -1000000000.0,
+    "inner_err": 28.45,
+    "used": 5
+   },
+   "nostyle": {
+    "cfg": 0,
+    "tau": 1000000000.0,
+    "inner_err": 37.81,
+    "used": 0
+   },
+   "n": 5,
+   "majority_tag": "default"
+  },
+  "John B": {
+   "style": {
+    "cfg": 0,
+    "tau": -1000000000.0,
+    "inner_err": 26.21,
+    "used": 11
+   },
+   "nostyle": {
+    "cfg": 0,
+    "tau": 1000000000.0,
+    "inner_err": 37.3,
+    "used": 0
+   },
+   "n": 11,
+   "majority_tag": "default"
+  },
+  "KushSessions": {
+   "style": {
+    "cfg": 0,
+    "tau": 0.5,
+    "inner_err": 27.54,
+    "used": 5
+   },
+   "nostyle": {
+    "cfg": 0,
+    "tau": 1000000000.0,
+    "inner_err": 38.55,
+    "used": 0
+   },
+   "n": 8,
+   "majority_tag": "default"
+  },
+  "MrMoMMusic": {
+   "style": {
+    "cfg": 1,
+    "tau": 0.5,
+    "inner_err": 29.66,
+    "used": 40
+   },
+   "nostyle": {
+    "cfg": 0,
+    "tau": 1000000000.0,
+    "inner_err": 34.66,
+    "used": 0
+   },
+   "n": 40,
+   "majority_tag": "default"
+  },
+  "Sound Territory": {
+   "style": {
+    "cfg": 0,
+    "tau": -1000000000.0,
+    "inner_err": 25.5,
+    "used": 17
+   },
+   "nostyle": {
+    "cfg": 1,
+    "tau": -1000000000.0,
+    "inner_err": 35.38,
+    "used": 18
+   },
+   "n": 20,
+   "majority_tag": "replica_bd"
+  },
+  "SuicideSheeep": {
+   "style": {
+    "cfg": 0,
+    "tau": -1000000000.0,
+    "inner_err": 26.06,
+    "used": 11
+   },
+   "nostyle": {
+    "cfg": 0,
+    "tau": 1000000000.0,
+    "inner_err": 36.75,
+    "used": 0
+   },
+   "n": 11,
+   "majority_tag": "default"
+  },
+  "TheHeshBesh": {
+   "style": {
+    "cfg": 0,
+    "tau": 0.5,
+    "inner_err": 29.27,
+    "used": 7
+   },
+   "nostyle": {
+    "cfg": 0,
+    "tau": 2.0,
+    "inner_err": 36.81,
+    "used": 0
+   },
+   "n": 10,
+   "majority_tag": "default"
+  },
+  "UKF Drum & Bass": {
+   "style": {
+    "cfg": 1,
+    "tau": -1000000000.0,
+    "inner_err": 29.69,
+    "used": 21
+   },
+   "nostyle": {
+    "cfg": 0,
+    "tau": 1000000000.0,
+    "inner_err": 37.22,
+    "used": 0
+   },
+   "n": 22,
+   "majority_tag": "default"
+  }
+ },
+ "results": {
+  "model_style_gated": {
+   "n": 148,
+   "exit_mean": 35.48,
+   "exit_median": 15.02,
+   "cue_mean": 21.71,
+   "cue_median": 14.9,
+   "exit_cue_mean": 28.6,
+   "exit_cue_median": 16.82,
+   "exit_acc_mean": 34.83,
+   "exit_acc_median": 14.56,
+   "cue_acc_mean": 21.3,
+   "cue_acc_median": 14.82,
+   "exit_hit4": 0.169,
+   "cue_hit4": 0.196,
+   "exit_acc_hit4": 0.196,
+   "cue_acc_hit4": 0.216,
+   "exit_hit8": 0.304,
+   "cue_hit8": 0.304,
+   "exit_acc_hit8": 0.311,
+   "cue_acc_hit8": 0.304,
+   "exit_hit16": 0.541,
+   "cue_hit16": 0.527,
+   "exit_acc_hit16": 0.568,
+   "cue_acc_hit16": 0.547,
+   "blendlen_proxy_err_mean": 8.86,
+   "changed_vs_default": 135,
+   "delta_vs_default": {
+    "exit": {
+     "delta": -16.58,
+     "ci": [
+      -30.33,
+      2.24
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "cue": {
+     "delta": -1.31,
+     "ci": [
+      -6.6,
+      3.02
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "delta": -8.95,
+     "ci": [
+      -15.22,
+      0.5
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "exit_acc": {
+     "delta": -16.42,
+     "ci": [
+      -30.06,
+      2.23
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "cue_acc": {
+     "delta": -1.28,
+     "ci": [
+      -6.56,
+      3.1
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.22,
+    "ci": [
+     0.04,
+     0.37
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "better"
+   }
+  },
+  "model_style_plain": {
+   "n": 148,
+   "exit_mean": 35.48,
+   "exit_median": 15.02,
+   "cue_mean": 21.62,
+   "cue_median": 14.89,
+   "exit_cue_mean": 28.55,
+   "exit_cue_median": 16.88,
+   "exit_acc_mean": 34.83,
+   "exit_acc_median": 14.56,
+   "cue_acc_mean": 21.21,
+   "cue_acc_median": 14.82,
+   "exit_hit4": 0.169,
+   "cue_hit4": 0.196,
+   "exit_acc_hit4": 0.196,
+   "cue_acc_hit4": 0.216,
+   "exit_hit8": 0.304,
+   "cue_hit8": 0.297,
+   "exit_acc_hit8": 0.311,
+   "cue_acc_hit8": 0.297,
+   "exit_hit16": 0.541,
+   "cue_hit16": 0.534,
+   "exit_acc_hit16": 0.568,
+   "cue_acc_hit16": 0.554,
+   "blendlen_proxy_err_mean": 8.86,
+   "changed_vs_default": 141,
+   "delta_vs_default": {
+    "exit": {
+     "delta": -16.58,
+     "ci": [
+      -30.33,
+      2.24
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "cue": {
+     "delta": -1.4,
+     "ci": [
+      -6.8,
+      2.99
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "delta": -8.99,
+     "ci": [
+      -15.18,
+      0.47
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "exit_acc": {
+     "delta": -16.42,
+     "ci": [
+      -30.06,
+      2.23
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "cue_acc": {
+     "delta": -1.37,
+     "ci": [
+      -6.72,
+      3.12
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.22,
+    "ci": [
+     0.04,
+     0.37
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "better"
+   }
+  },
+  "model_nostyle_gated": {
+   "n": 148,
+   "exit_mean": 62.0,
+   "exit_median": 67.53,
+   "cue_mean": 22.38,
+   "cue_median": 14.62,
+   "exit_cue_mean": 42.19,
+   "exit_cue_median": 42.51,
+   "exit_acc_mean": 61.19,
+   "exit_acc_median": 66.81,
+   "cue_acc_mean": 21.93,
+   "cue_acc_median": 14.24,
+   "exit_hit4": 0.061,
+   "cue_hit4": 0.23,
+   "exit_acc_hit4": 0.074,
+   "cue_acc_hit4": 0.236,
+   "exit_hit8": 0.101,
+   "cue_hit8": 0.311,
+   "exit_acc_hit8": 0.101,
+   "cue_acc_hit8": 0.331,
+   "exit_hit16": 0.216,
+   "cue_hit16": 0.595,
+   "exit_acc_hit16": 0.243,
+   "cue_acc_hit16": 0.608,
+   "blendlen_proxy_err_mean": 9.09,
+   "changed_vs_default": 32,
+   "delta_vs_default": {
+    "exit": {
+     "delta": 9.93,
+     "ci": [
+      2.16,
+      21.23
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "worse"
+    },
+    "cue": {
+     "delta": -0.64,
+     "ci": [
+      -2.49,
+      0.98
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "delta": 4.64,
+     "ci": [
+      1.14,
+      9.81
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "worse"
+    },
+    "exit_acc": {
+     "delta": 9.93,
+     "ci": [
+      2.13,
+      21.26
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "worse"
+    },
+    "cue_acc": {
+     "delta": -0.65,
+     "ci": [
+      -2.5,
+      0.96
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": -0.1,
+    "ci": [
+     -0.23,
+     -0.01
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "worse"
+   }
+  },
+  "model_nostyle_plain": {
+   "n": 148,
+   "exit_mean": 56.65,
+   "exit_median": 65.36,
+   "cue_mean": 24.61,
+   "cue_median": 17.28,
+   "exit_cue_mean": 40.63,
+   "exit_cue_median": 44.62,
+   "exit_acc_mean": 55.95,
+   "exit_acc_median": 64.0,
+   "cue_acc_mean": 24.06,
+   "cue_acc_median": 17.0,
+   "exit_hit4": 0.081,
+   "cue_hit4": 0.142,
+   "exit_acc_hit4": 0.095,
+   "cue_acc_hit4": 0.162,
+   "exit_hit8": 0.135,
+   "cue_hit8": 0.203,
+   "exit_acc_hit8": 0.142,
+   "cue_acc_hit8": 0.223,
+   "exit_hit16": 0.264,
+   "cue_hit16": 0.419,
+   "exit_acc_hit16": 0.291,
+   "cue_acc_hit16": 0.439,
+   "blendlen_proxy_err_mean": 9.04,
+   "changed_vs_default": 139,
+   "delta_vs_default": {
+    "exit": {
+     "delta": 4.58,
+     "ci": [
+      -8.11,
+      21.52
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "cue": {
+     "delta": 1.59,
+     "ci": [
+      -3.09,
+      5.43
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "delta": 3.08,
+     "ci": [
+      -2.7,
+      10.14
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "exit_acc": {
+     "delta": 4.69,
+     "ci": [
+      -7.99,
+      21.59
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "cue_acc": {
+     "delta": 1.48,
+     "ci": [
+      -3.02,
+      5.19
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": -0.05,
+    "ci": [
+     -0.23,
+     0.08
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "no clear difference"
+   }
+  },
+  "default": {
+   "n": 148,
+   "exit_mean": 52.07,
+   "exit_median": 49.85,
+   "cue_mean": 23.02,
+   "cue_median": 14.74,
+   "exit_cue_mean": 37.55,
+   "exit_cue_median": 33.91,
+   "exit_acc_mean": 51.26,
+   "exit_acc_median": 49.08,
+   "cue_acc_mean": 22.58,
+   "cue_acc_median": 14.25,
+   "exit_hit4": 0.108,
+   "cue_hit4": 0.23,
+   "exit_acc_hit4": 0.122,
+   "cue_acc_hit4": 0.236,
+   "exit_hit8": 0.142,
+   "cue_hit8": 0.304,
+   "exit_acc_hit8": 0.149,
+   "cue_acc_hit8": 0.318,
+   "exit_hit16": 0.318,
+   "cue_hit16": 0.601,
+   "exit_acc_hit16": 0.345,
+   "cue_acc_hit16": 0.622,
+   "blendlen_proxy_err_mean": 8.99,
+   "changed_vs_default": 0
+  },
+  "rule_drop_exit": {
+   "n": 148,
+   "exit_mean": 62.95,
+   "exit_median": 61.89,
+   "cue_mean": 24.09,
+   "cue_median": 14.79,
+   "exit_cue_mean": 43.52,
+   "exit_cue_median": 43.04,
+   "exit_acc_mean": 62.45,
+   "exit_acc_median": 61.89,
+   "cue_acc_mean": 23.69,
+   "cue_acc_median": 14.56,
+   "exit_hit4": 0.041,
+   "cue_hit4": 0.23,
+   "exit_acc_hit4": 0.041,
+   "cue_acc_hit4": 0.236,
+   "exit_hit8": 0.061,
+   "cue_hit8": 0.297,
+   "exit_acc_hit8": 0.061,
+   "cue_acc_hit8": 0.304,
+   "exit_hit16": 0.291,
+   "cue_hit16": 0.561,
+   "exit_acc_hit16": 0.318,
+   "cue_acc_hit16": 0.574,
+   "blendlen_proxy_err_mean": 8.99,
+   "changed_vs_default": 142,
+   "delta_vs_default": {
+    "exit": {
+     "delta": 10.89,
+     "ci": [
+      -16.12,
+      49.07
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "cue": {
+     "delta": 1.07,
+     "ci": [
+      0.14,
+      3.08
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "worse"
+    },
+    "exit_cue": {
+     "delta": 5.98,
+     "ci": [
+      -7.58,
+      25.3
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "exit_acc": {
+     "delta": 11.19,
+     "ci": [
+      -15.74,
+      49.25
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "cue_acc": {
+     "delta": 1.12,
+     "ci": [
+      0.18,
+      3.15
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "worse"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": -0.03,
+    "ci": [
+     -0.37,
+     0.21
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "no clear difference"
+   }
+  },
+  "majority": {
+   "n": 148,
+   "exit_mean": 74.15,
+   "exit_median": 80.68,
+   "cue_mean": 23.57,
+   "cue_median": 14.74,
+   "exit_cue_mean": 48.86,
+   "exit_cue_median": 48.42,
+   "exit_acc_mean": 73.34,
+   "exit_acc_median": 80.0,
+   "cue_acc_mean": 23.13,
+   "cue_acc_median": 14.34,
+   "exit_hit4": 0.047,
+   "cue_hit4": 0.23,
+   "exit_acc_hit4": 0.061,
+   "cue_acc_hit4": 0.236,
+   "exit_hit8": 0.074,
+   "cue_hit8": 0.304,
+   "exit_acc_hit8": 0.074,
+   "cue_acc_hit8": 0.311,
+   "exit_hit16": 0.155,
+   "cue_hit16": 0.581,
+   "exit_acc_hit16": 0.169,
+   "cue_acc_hit16": 0.601,
+   "blendlen_proxy_err_mean": 8.99,
+   "changed_vs_default": 39,
+   "delta_vs_default": {
+    "exit": {
+     "delta": 22.08,
+     "ci": [
+      5.6,
+      45.82
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "worse"
+    },
+    "cue": {
+     "delta": 0.55,
+     "ci": [
+      0.0,
+      2.03
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "delta": 11.31,
+     "ci": [
+      3.06,
+      23.3
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "worse"
+    },
+    "exit_acc": {
+     "delta": 22.08,
+     "ci": [
+      5.6,
+      45.79
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "worse"
+    },
+    "cue_acc": {
+     "delta": 0.55,
+     "ci": [
+      0.0,
+      2.03
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": -0.16,
+    "ci": [
+     -0.35,
+     -0.03
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "worse"
+   }
+  },
+  "oracle": {
+   "n": 148,
+   "exit_mean": 4.12,
+   "exit_median": 1.81,
+   "cue_mean": 2.91,
+   "cue_median": 1.54,
+   "exit_cue_mean": 3.51,
+   "exit_cue_median": 1.9,
+   "exit_acc_mean": 3.55,
+   "exit_acc_median": 1.38,
+   "cue_acc_mean": 2.69,
+   "cue_acc_median": 1.14,
+   "exit_hit4": 0.791,
+   "cue_hit4": 0.885,
+   "exit_acc_hit4": 0.804,
+   "cue_acc_hit4": 0.899,
+   "exit_hit8": 0.838,
+   "cue_hit8": 0.959,
+   "exit_acc_hit8": 0.838,
+   "cue_acc_hit8": 0.959,
+   "exit_hit16": 0.939,
+   "cue_hit16": 0.973,
+   "exit_acc_hit16": 0.966,
+   "cue_acc_hit16": 0.973,
+   "blendlen_proxy_err_mean": 8.99,
+   "changed_vs_default": 143,
+   "delta_vs_default": {
+    "exit": {
+     "delta": -47.95,
+     "ci": [
+      -61.69,
+      -28.54
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "better"
+    },
+    "cue": {
+     "delta": -20.11,
+     "ci": [
+      -28.12,
+      -14.4
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "better"
+    },
+    "exit_cue": {
+     "delta": -34.03,
+     "ci": [
+      -39.34,
+      -25.44
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "better"
+    },
+    "exit_acc": {
+     "delta": -47.71,
+     "ci": [
+      -61.38,
+      -28.41
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "better"
+    },
+    "cue_acc": {
+     "delta": -19.88,
+     "ci": [
+      -27.83,
+      -14.15
+     ],
+     "n": 148,
+     "groups": 19,
+     "verdict": "better"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.62,
+    "ci": [
+     0.39,
+     0.78
+    ],
+    "n": 148,
+    "groups": 19,
+    "verdict": "better"
+   }
+  }
+ },
+ "per_pair": [
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__00",
+   "dj": "Alpha Rhythm",
+   "pro_out": 193.79,
+   "pro_in": 31.68,
+   "default": {
+    "exit": 16.789999999999992,
+    "cue": 14.68,
+    "exit_cue": 15.734999999999996,
+    "exit_acc": 16.789999999999992,
+    "cue_acc": 14.68,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 80.78999999999999,
+    "cue": 6.68,
+    "exit_cue": 43.735,
+    "exit_acc": 80.78999999999999,
+    "cue_acc": 6.68,
+    "X": 16
+   },
+   "win": [
+    128,
+    24,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__01",
+   "dj": "Alpha Rhythm",
+   "pro_out": 207.85,
+   "pro_in": 31.81,
+   "default": {
+    "exit": 14.849999999999994,
+    "cue": 14.809999999999999,
+    "exit_cue": 14.829999999999997,
+    "exit_acc": 14.849999999999994,
+    "cue_acc": 10.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 14.849999999999994,
+    "cue": 14.809999999999999,
+    "exit_cue": 14.829999999999997,
+    "exit_acc": 14.849999999999994,
+    "cue_acc": 10,
+    "X": 32
+   },
+   "win": [
+    224,
+    16,
+    32
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__02",
+   "dj": "Alpha Rhythm",
+   "pro_out": 192.02,
+   "pro_in": 31.76,
+   "default": {
+    "exit": 15.02000000000001,
+    "cue": 14.760000000000002,
+    "exit_cue": 14.890000000000006,
+    "exit_acc": 15.02000000000001,
+    "cue_acc": 10.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 15.02000000000001,
+    "cue": 14.760000000000002,
+    "exit_cue": 14.890000000000006,
+    "exit_acc": 15.02000000000001,
+    "cue_acc": 10.0,
+    "X": 16
+   },
+   "win": [
+    192,
+    16,
+    16
+   ],
+   "tags": [
+    "default",
+    "drop_exit",
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__15",
+   "dj": "Alpha Rhythm",
+   "pro_out": 177.18,
+   "pro_in": 33.06,
+   "default": {
+    "exit": 32.18000000000001,
+    "cue": 16.060000000000002,
+    "exit_cue": 24.120000000000005,
+    "exit_acc": 32.18000000000001,
+    "cue_acc": 13.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 16.180000000000007,
+    "cue": 0.060000000000002274,
+    "exit_cue": 8.120000000000005,
+    "exit_acc": 16.180000000000007,
+    "cue_acc": 0.060000000000002274,
+    "X": 16
+   },
+   "win": [
+    176,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_AU0V19j8oKM__12",
+   "dj": "Alpha Rhythm",
+   "pro_out": 193.76,
+   "pro_in": 32.18,
+   "default": {
+    "exit": 16.75999999999999,
+    "cue": 15.18,
+    "exit_cue": 15.969999999999995,
+    "exit_acc": 13.0,
+    "cue_acc": 15.18,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 80.75999999999999,
+    "cue": 0.8200000000000003,
+    "exit_cue": 40.78999999999999,
+    "exit_acc": 77,
+    "cue_acc": 0.8200000000000003,
+    "X": 16
+   },
+   "win": [
+    128,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_AU0V19j8oKM__16",
+   "dj": "Alpha Rhythm",
+   "pro_out": -0.01,
+   "pro_in": 32.38,
+   "default": {
+    "exit": 209.01,
+    "cue": 15.380000000000003,
+    "exit_cue": 112.195,
+    "exit_acc": 209.01,
+    "cue_acc": 15.380000000000003,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 209.01,
+    "cue": 0.6199999999999974,
+    "exit_cue": 104.815,
+    "exit_acc": 209.01,
+    "cue_acc": 0.6199999999999974,
+    "X": 16
+   },
+   "win": [
+    224,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__05",
+   "dj": "Alpha Rhythm",
+   "pro_out": 175.85,
+   "pro_in": 39.18,
+   "default": {
+    "exit": 14.849999999999994,
+    "cue": 22.18,
+    "exit_cue": 18.514999999999997,
+    "exit_acc": 14.0,
+    "cue_acc": 18.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 78.85,
+    "cue": 22.18,
+    "exit_cue": 50.515,
+    "exit_acc": 78,
+    "cue_acc": 18,
+    "X": 16
+   },
+   "win": [
+    112,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__06",
+   "dj": "Alpha Rhythm",
+   "pro_out": 193.88,
+   "pro_in": 30.16,
+   "default": {
+    "exit": 16.879999999999995,
+    "cue": 13.16,
+    "exit_cue": 15.019999999999998,
+    "exit_acc": 16.879999999999995,
+    "cue_acc": 13.16,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 8.879999999999995,
+    "cue": 5.16,
+    "exit_cue": 7.019999999999998,
+    "exit_acc": 8.879999999999995,
+    "cue_acc": 5.16,
+    "X": 16
+   },
+   "win": [
+    200,
+    24,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__07",
+   "dj": "Alpha Rhythm",
+   "pro_out": 193.2,
+   "pro_in": 31.91,
+   "default": {
+    "exit": 0.19999999999998863,
+    "cue": 1.0899999999999999,
+    "exit_cue": 0.6449999999999942,
+    "exit_acc": 0.19999999999998863,
+    "cue_acc": 1.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 7.800000000000011,
+    "cue": 17.09,
+    "exit_cue": 12.445000000000006,
+    "exit_acc": 7.800000000000011,
+    "cue_acc": 17,
+    "X": 16
+   },
+   "win": [
+    216,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__08",
+   "dj": "Alpha Rhythm",
+   "pro_out": 175.69,
+   "pro_in": 31.22,
+   "default": {
+    "exit": 14.689999999999998,
+    "cue": 14.219999999999999,
+    "exit_cue": 14.454999999999998,
+    "exit_acc": 14.689999999999998,
+    "cue_acc": 14.219999999999999,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 14.689999999999998,
+    "cue": 14.219999999999999,
+    "exit_cue": 14.454999999999998,
+    "exit_acc": 14.689999999999998,
+    "cue_acc": 14.219999999999999,
+    "X": 16
+   },
+   "win": [
+    176,
+    16,
+    16
+   ],
+   "tags": [
+    "default",
+    "dropN_exit",
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__03",
+   "dj": "Alpha Rhythm",
+   "pro_out": 252.61,
+   "pro_in": 169.5,
+   "default": {
+    "exit": 11.610000000000014,
+    "cue": 136.5,
+    "exit_cue": 74.055,
+    "exit_acc": 11.610000000000014,
+    "cue_acc": 136.5,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 107.61000000000001,
+    "cue": 128.5,
+    "exit_cue": 118.055,
+    "exit_acc": 107.61000000000001,
+    "cue_acc": 128.5,
+    "X": 16
+   },
+   "win": [
+    160,
+    40,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__07",
+   "dj": "Alpha Rhythm",
+   "pro_out": 255.69,
+   "pro_in": 47.77,
+   "default": {
+    "exit": 14.689999999999998,
+    "cue": 14.770000000000003,
+    "exit_cue": 14.73,
+    "exit_acc": 8.0,
+    "cue_acc": 7.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 14.689999999999998,
+    "cue": 17.229999999999997,
+    "exit_cue": 15.959999999999997,
+    "exit_acc": 8,
+    "cue_acc": 17,
+    "X": 16
+   },
+   "win": [
+    256,
+    64,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__09",
+   "dj": "Alpha Rhythm",
+   "pro_out": 207.58,
+   "pro_in": 47.82,
+   "default": {
+    "exit": 14.580000000000013,
+    "cue": 14.82,
+    "exit_cue": 14.700000000000006,
+    "exit_acc": 14.580000000000013,
+    "cue_acc": 14.82,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 14.580000000000013,
+    "cue": 6.82,
+    "exit_cue": 10.700000000000006,
+    "exit_acc": 14.580000000000013,
+    "cue_acc": 6.82,
+    "X": 16
+   },
+   "win": [
+    208,
+    40,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__10",
+   "dj": "Alpha Rhythm",
+   "pro_out": 192.85,
+   "pro_in": 15.72,
+   "default": {
+    "exit": 15.849999999999994,
+    "cue": 14.72,
+    "exit_cue": 15.284999999999997,
+    "exit_acc": 15.849999999999994,
+    "cue_acc": 14.72,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 15.849999999999994,
+    "cue": 33.28,
+    "exit_cue": 24.564999999999998,
+    "exit_acc": 15.849999999999994,
+    "cue_acc": 33,
+    "X": 16
+   },
+   "win": [
+    192,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__15",
+   "dj": "Alpha Rhythm",
+   "pro_out": 223.13,
+   "pro_in": 44.12,
+   "default": {
+    "exit": 30.129999999999995,
+    "cue": 11.119999999999997,
+    "exit_cue": 20.624999999999996,
+    "exit_acc": 26.0,
+    "cue_acc": 11.119999999999997,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 22.129999999999995,
+    "cue": 4.880000000000003,
+    "exit_cue": 13.504999999999999,
+    "exit_acc": 18,
+    "cue_acc": 1,
+    "X": 16
+   },
+   "win": [
+    216,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__16",
+   "dj": "Alpha Rhythm",
+   "pro_out": 174.99,
+   "pro_in": 33.85,
+   "default": {
+    "exit": 13.990000000000009,
+    "cue": 0.8500000000000014,
+    "exit_cue": 7.420000000000005,
+    "exit_acc": 13.990000000000009,
+    "cue_acc": 0.8500000000000014,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 133.99,
+    "cue": 47.15,
+    "exit_cue": 90.57000000000001,
+    "exit_acc": 133.99,
+    "cue_acc": 47.15,
+    "X": 16
+   },
+   "win": [
+    56,
+    80,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__06",
+   "dj": "Alpha Rhythm",
+   "pro_out": 177.82,
+   "pro_in": 15.58,
+   "default": {
+    "exit": 0.8199999999999932,
+    "cue": 1.42,
+    "exit_cue": 1.1199999999999966,
+    "exit_acc": 0.8199999999999932,
+    "cue_acc": 1.42,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 72.82,
+    "cue": 9.42,
+    "exit_cue": 41.12,
+    "exit_acc": 70,
+    "cue_acc": 9.42,
+    "X": 16
+   },
+   "win": [
+    120,
+    24,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__13",
+   "dj": "Alpha Rhythm",
+   "pro_out": 191.62,
+   "pro_in": 32.0,
+   "default": {
+    "exit": 14.620000000000005,
+    "cue": 15.0,
+    "exit_cue": 14.810000000000002,
+    "exit_acc": 14.620000000000005,
+    "cue_acc": 15.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.6200000000000045,
+    "cue": 7.0,
+    "exit_cue": 6.810000000000002,
+    "exit_acc": 6.6200000000000045,
+    "cue_acc": 7.0,
+    "X": 16
+   },
+   "win": [
+    200,
+    24,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__14",
+   "dj": "Alpha Rhythm",
+   "pro_out": 145.63,
+   "pro_in": 47.94,
+   "default": {
+    "exit": 16.629999999999995,
+    "cue": 14.939999999999998,
+    "exit_cue": 15.784999999999997,
+    "exit_acc": 15.0,
+    "cue_acc": 7.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 16.629999999999995,
+    "cue": 22.939999999999998,
+    "exit_cue": 19.784999999999997,
+    "exit_acc": 15,
+    "cue_acc": 15,
+    "X": 16
+   },
+   "win": [
+    144,
+    24,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_hb7PvukS-Pk__07",
+   "dj": "Alpha Rhythm",
+   "pro_out": 226.4,
+   "pro_in": 31.24,
+   "default": {
+    "exit": 17.400000000000006,
+    "cue": 14.239999999999998,
+    "exit_cue": 15.820000000000002,
+    "exit_acc": 17.400000000000006,
+    "cue_acc": 14.239999999999998,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 113.4,
+    "cue": 1.7600000000000016,
+    "exit_cue": 57.580000000000005,
+    "exit_acc": 113.4,
+    "cue_acc": 1,
+    "X": 16
+   },
+   "win": [
+    128,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "alpha_rhythm_hb7PvukS-Pk__11",
+   "dj": "Alpha Rhythm",
+   "pro_out": 192.04,
+   "pro_in": 48.41,
+   "default": {
+    "exit": 15.039999999999992,
+    "cue": 15.409999999999997,
+    "exit_cue": 15.224999999999994,
+    "exit_acc": 12.0,
+    "cue_acc": 15.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 15.039999999999992,
+    "cue": 15.409999999999997,
+    "exit_cue": 15.224999999999994,
+    "exit_acc": 12.0,
+    "cue_acc": 15.0,
+    "X": 16
+   },
+   "win": [
+    192,
+    32,
+    16
+   ],
+   "tags": [
+    "default",
+    "dropN_exit",
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__09",
+   "dj": "Fryett",
+   "pro_out": 110.97,
+   "pro_in": 16.09,
+   "default": {
+    "exit": 34.03,
+    "cue": 0.9100000000000001,
+    "exit_cue": 17.47,
+    "exit_acc": 34.03,
+    "cue_acc": 0.9100000000000001,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 34.03,
+    "cue": 8.91,
+    "exit_cue": 21.47,
+    "exit_acc": 34.03,
+    "cue_acc": 8.91,
+    "X": 16
+   },
+   "win": [
+    160,
+    24,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__25",
+   "dj": "Fryett",
+   "pro_out": 95.98,
+   "pro_in": 34.34,
+   "default": {
+    "exit": 49.019999999999996,
+    "cue": 14.659999999999997,
+    "exit_cue": 31.839999999999996,
+    "exit_acc": 48.0,
+    "cue_acc": 14.659999999999997,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 57.019999999999996,
+    "cue": 22.659999999999997,
+    "exit_cue": 39.839999999999996,
+    "exit_acc": 56,
+    "cue_acc": 22.659999999999997,
+    "X": 16
+   },
+   "win": [
+    168,
+    56,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__26",
+   "dj": "Fryett",
+   "pro_out": 145.61,
+   "pro_in": 16.04,
+   "default": {
+    "exit": 63.389999999999986,
+    "cue": 0.9600000000000009,
+    "exit_cue": 32.175,
+    "exit_acc": 63.389999999999986,
+    "cue_acc": 0.9600000000000009,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 32.610000000000014,
+    "cue": 0.9600000000000009,
+    "exit_cue": 16.785000000000007,
+    "exit_acc": 32.610000000000014,
+    "cue_acc": 0.9600000000000009,
+    "X": 16
+   },
+   "win": [
+    128,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__46",
+   "dj": "Fryett",
+   "pro_out": 97.94,
+   "pro_in": 0.33,
+   "default": {
+    "exit": 15.060000000000002,
+    "cue": 16.67,
+    "exit_cue": 15.865000000000002,
+    "exit_acc": 15.060000000000002,
+    "cue_acc": 9.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.9399999999999977,
+    "cue": 16.67,
+    "exit_cue": 8.805,
+    "exit_acc": 0,
+    "cue_acc": 9,
+    "X": 16
+   },
+   "win": [
+    112,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__52",
+   "dj": "Fryett",
+   "pro_out": 97.13,
+   "pro_in": 16.14,
+   "default": {
+    "exit": 95.87,
+    "cue": 8.86,
+    "exit_cue": 52.365,
+    "exit_acc": 95.87,
+    "cue_acc": 8.86,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.12999999999999545,
+    "cue": 16.86,
+    "exit_cue": 8.494999999999997,
+    "exit_acc": 0,
+    "cue_acc": 16.86,
+    "X": 16
+   },
+   "win": [
+    112,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_frbb5gILfjo__00",
+   "dj": "John B",
+   "pro_out": 143.86,
+   "pro_in": 16.73,
+   "default": {
+    "exit": 14.860000000000014,
+    "cue": 15.73,
+    "exit_cue": 15.295000000000007,
+    "exit_acc": 14.860000000000014,
+    "cue_acc": 15.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.1399999999999864,
+    "cue": 16.27,
+    "exit_cue": 8.704999999999993,
+    "exit_acc": 1,
+    "cue_acc": 16.27,
+    "X": 16
+   },
+   "win": [
+    160,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_frbb5gILfjo__01",
+   "dj": "John B",
+   "pro_out": 112.31,
+   "pro_in": 48.49,
+   "default": {
+    "exit": 80.69,
+    "cue": 15.490000000000002,
+    "exit_cue": 48.09,
+    "exit_acc": 80.69,
+    "cue_acc": 15.490000000000002,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 88.69,
+    "cue": 32.51,
+    "exit_cue": 60.599999999999994,
+    "exit_acc": 88.69,
+    "cue_acc": 32.51,
+    "X": 16
+   },
+   "win": [
+    216,
+    80,
+    16
+   ],
+   "tags": [
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "john_b_frbb5gILfjo__04",
+   "dj": "John B",
+   "pro_out": 80.33,
+   "pro_in": 48.91,
+   "default": {
+    "exit": 80.67,
+    "cue": 47.91,
+    "exit_cue": 64.28999999999999,
+    "exit_acc": 80.67,
+    "cue_acc": 47.91,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 16.67,
+    "cue": 39.91,
+    "exit_cue": 28.29,
+    "exit_acc": 16.67,
+    "cue_acc": 39.91,
+    "X": 16
+   },
+   "win": [
+    112,
+    8,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_frbb5gILfjo__05",
+   "dj": "John B",
+   "pro_out": 194.7,
+   "pro_in": 37.53,
+   "default": {
+    "exit": 30.30000000000001,
+    "cue": 20.53,
+    "exit_cue": 25.415000000000006,
+    "exit_acc": 30.30000000000001,
+    "cue_acc": 16.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 81.69999999999999,
+    "cue": 20.53,
+    "exit_cue": 51.114999999999995,
+    "exit_acc": 81.69999999999999,
+    "cue_acc": 16,
+    "X": 16
+   },
+   "win": [
+    128,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_frbb5gILfjo__06",
+   "dj": "John B",
+   "pro_out": 182.92,
+   "pro_in": 68.88,
+   "default": {
+    "exit": 10.080000000000013,
+    "cue": 12.120000000000005,
+    "exit_cue": 11.100000000000009,
+    "exit_acc": 10.080000000000013,
+    "cue_acc": 12.120000000000005,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 10.080000000000013,
+    "cue": 28.120000000000005,
+    "exit_cue": 19.10000000000001,
+    "exit_acc": 10.080000000000013,
+    "cue_acc": 28.120000000000005,
+    "X": 16
+   },
+   "win": [
+    208,
+    96,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_frbb5gILfjo__14",
+   "dj": "John B",
+   "pro_out": 219.08,
+   "pro_in": 43.19,
+   "default": {
+    "exit": 37.91999999999999,
+    "cue": 42.19,
+    "exit_cue": 40.05499999999999,
+    "exit_acc": 37.91999999999999,
+    "cue_acc": 42.19,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 66.08000000000001,
+    "cue": 26.189999999999998,
+    "exit_cue": 46.135000000000005,
+    "exit_acc": 66.08000000000001,
+    "cue_acc": 26.189999999999998,
+    "X": 16
+   },
+   "win": [
+    168,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__05",
+   "dj": "John B",
+   "pro_out": 155.61,
+   "pro_in": 29.28,
+   "default": {
+    "exit": 5.389999999999986,
+    "cue": 28.28,
+    "exit_cue": 16.834999999999994,
+    "exit_acc": 2,
+    "cue_acc": 28.28,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 5.389999999999986,
+    "cue": 12.280000000000001,
+    "exit_cue": 8.834999999999994,
+    "exit_acc": 2,
+    "cue_acc": 12.280000000000001,
+    "X": 16
+   },
+   "win": [
+    176,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__06",
+   "dj": "John B",
+   "pro_out": 27.0,
+   "pro_in": 76.02,
+   "default": {
+    "exit": 182.0,
+    "cue": 43.019999999999996,
+    "exit_cue": 112.50999999999999,
+    "exit_acc": 182.0,
+    "cue_acc": 43.019999999999996,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 166.0,
+    "cue": 27.019999999999996,
+    "exit_cue": 96.50999999999999,
+    "exit_acc": 166.0,
+    "cue_acc": 27.019999999999996,
+    "X": 16
+   },
+   "win": [
+    208,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__10",
+   "dj": "John B",
+   "pro_out": 283.44,
+   "pro_in": 90.76,
+   "default": {
+    "exit": 10.439999999999998,
+    "cue": 89.76,
+    "exit_cue": 50.1,
+    "exit_acc": 10.439999999999998,
+    "cue_acc": 89.76,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 10.439999999999998,
+    "cue": 57.760000000000005,
+    "exit_cue": 34.1,
+    "exit_acc": 10.439999999999998,
+    "cue_acc": 57.760000000000005,
+    "X": 16
+   },
+   "win": [
+    288,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__15",
+   "dj": "John B",
+   "pro_out": 159.79,
+   "pro_in": 129.21,
+   "default": {
+    "exit": 1.210000000000008,
+    "cue": 96.21000000000001,
+    "exit_cue": 48.71000000000001,
+    "exit_acc": 1.210000000000008,
+    "cue_acc": 95,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.210000000000008,
+    "cue": 64.21000000000001,
+    "exit_cue": 32.71000000000001,
+    "exit_acc": 1.210000000000008,
+    "cue_acc": 63,
+    "X": 16
+   },
+   "win": [
+    176,
+    64,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__31",
+   "dj": "John B",
+   "pro_out": 198.77,
+   "pro_in": 39.02,
+   "default": {
+    "exit": 21.77000000000001,
+    "cue": 6.020000000000003,
+    "exit_cue": 13.895000000000007,
+    "exit_acc": 14,
+    "cue_acc": 6.020000000000003,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 21.77000000000001,
+    "cue": 9.979999999999997,
+    "exit_cue": 15.875000000000004,
+    "exit_acc": 14,
+    "cue_acc": 9.979999999999997,
+    "X": 16
+   },
+   "win": [
+    192,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__04",
+   "dj": "KushSessions",
+   "pro_out": 111.84,
+   "pro_in": 31.89,
+   "default": {
+    "exit": 49.16,
+    "cue": 30.89,
+    "exit_cue": 40.025,
+    "exit_acc": 49.16,
+    "cue_acc": 30.89,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 49.16,
+    "cue": 30.89,
+    "exit_cue": 40.025,
+    "exit_acc": 49.16,
+    "cue_acc": 30.89,
+    "X": 16
+   },
+   "win": [
+    176,
+    0,
+    16
+   ],
+   "tags": [
+    "default",
+    "grid"
+   ]
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__12",
+   "dj": "KushSessions",
+   "pro_out": 195.34,
+   "pro_in": 47.26,
+   "default": {
+    "exit": 18.340000000000003,
+    "cue": 30.259999999999998,
+    "exit_cue": 24.3,
+    "exit_acc": 18.340000000000003,
+    "cue_acc": 30.259999999999998,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 10.340000000000003,
+    "cue": 1.740000000000002,
+    "exit_cue": 6.040000000000003,
+    "exit_acc": 10.340000000000003,
+    "cue_acc": 1.740000000000002,
+    "X": 16
+   },
+   "win": [
+    200,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__18",
+   "dj": "KushSessions",
+   "pro_out": 127.36,
+   "pro_in": 47.57,
+   "default": {
+    "exit": 1.6400000000000006,
+    "cue": 14.57,
+    "exit_cue": 8.105,
+    "exit_acc": 1.6400000000000006,
+    "cue_acc": 14.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 9.64,
+    "cue": 1.4299999999999997,
+    "exit_cue": 5.535,
+    "exit_acc": 9.64,
+    "cue_acc": 1.4299999999999997,
+    "X": 16
+   },
+   "win": [
+    152,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__22",
+   "dj": "KushSessions",
+   "pro_out": 151.69,
+   "pro_in": 31.59,
+   "default": {
+    "exit": 22.689999999999998,
+    "cue": 6.59,
+    "exit_cue": 14.639999999999999,
+    "exit_acc": 18.0,
+    "cue_acc": 6.59,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 22.689999999999998,
+    "cue": 6.59,
+    "exit_cue": 14.639999999999999,
+    "exit_acc": 18.0,
+    "cue_acc": 6.59,
+    "X": 16
+   },
+   "win": [
+    144,
+    24,
+    16
+   ],
+   "tags": [
+    "default",
+    "dropN_exit",
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__25",
+   "dj": "KushSessions",
+   "pro_out": 138.31,
+   "pro_in": 71.32,
+   "default": {
+    "exit": 25.310000000000002,
+    "cue": 30.319999999999993,
+    "exit_cue": 27.814999999999998,
+    "exit_acc": 22.0,
+    "cue_acc": 30.319999999999993,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 17.310000000000002,
+    "cue": 22.319999999999993,
+    "exit_cue": 19.814999999999998,
+    "exit_acc": 14,
+    "cue_acc": 22.319999999999993,
+    "X": 16
+   },
+   "win": [
+    136,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__34",
+   "dj": "KushSessions",
+   "pro_out": 173.71,
+   "pro_in": 46.74,
+   "default": {
+    "exit": 3.289999999999992,
+    "cue": 29.740000000000002,
+    "exit_cue": 16.514999999999997,
+    "exit_acc": 3.289999999999992,
+    "cue_acc": 29.740000000000002,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 3.289999999999992,
+    "cue": 29.740000000000002,
+    "exit_cue": 16.514999999999997,
+    "exit_acc": 3.289999999999992,
+    "cue_acc": 29.740000000000002,
+    "X": 16
+   },
+   "win": [
+    192,
+    16,
+    16
+   ],
+   "tags": [
+    "default",
+    "dropN_exit",
+    "grid"
+   ]
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__36",
+   "dj": "KushSessions",
+   "pro_out": 221.52,
+   "pro_in": 46.19,
+   "default": {
+    "exit": 3.4799999999999898,
+    "cue": 29.189999999999998,
+    "exit_cue": 16.334999999999994,
+    "exit_acc": 1.0,
+    "cue_acc": 29.189999999999998,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 12.52000000000001,
+    "cue": 21.189999999999998,
+    "exit_cue": 16.855000000000004,
+    "exit_acc": 12.52000000000001,
+    "cue_acc": 21.189999999999998,
+    "X": 32
+   },
+   "win": [
+    240,
+    24,
+    32
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__39",
+   "dj": "KushSessions",
+   "pro_out": 103.86,
+   "pro_in": 31.89,
+   "default": {
+    "exit": 22.86,
+    "cue": 1.1099999999999994,
+    "exit_cue": 11.985,
+    "exit_acc": 22.86,
+    "cue_acc": 1.1099999999999994,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 14.86,
+    "cue": 9.11,
+    "exit_cue": 11.985,
+    "exit_acc": 14.86,
+    "cue_acc": 9.11,
+    "X": 16
+   },
+   "win": [
+    104,
+    40,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__01",
+   "dj": "MrMoMMusic",
+   "pro_out": 81.51,
+   "pro_in": 131.91,
+   "default": {
+    "exit": 95.49,
+    "cue": 130.91,
+    "exit_cue": 113.19999999999999,
+    "exit_acc": 95,
+    "cue_acc": 127,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 95.49,
+    "cue": 98.91,
+    "exit_cue": 97.19999999999999,
+    "exit_acc": 95,
+    "cue_acc": 95,
+    "X": 16
+   },
+   "win": [
+    192,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__02",
+   "dj": "MrMoMMusic",
+   "pro_out": 126.49,
+   "pro_in": 12.62,
+   "default": {
+    "exit": 90.51,
+    "cue": 11.62,
+    "exit_cue": 51.065000000000005,
+    "exit_acc": 88,
+    "cue_acc": 11.62,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 21.489999999999995,
+    "cue": 4.380000000000001,
+    "exit_cue": 12.934999999999999,
+    "exit_acc": 21.489999999999995,
+    "cue_acc": 1,
+    "X": 16
+   },
+   "win": [
+    120,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__03",
+   "dj": "MrMoMMusic",
+   "pro_out": 82.21,
+   "pro_in": 16.1,
+   "default": {
+    "exit": 62.790000000000006,
+    "cue": 0.8999999999999986,
+    "exit_cue": 31.845000000000002,
+    "exit_acc": 62.790000000000006,
+    "cue_acc": 0.8999999999999986,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 62.790000000000006,
+    "cue": 16.9,
+    "exit_cue": 39.845,
+    "exit_acc": 62.790000000000006,
+    "cue_acc": 16.9,
+    "X": 16
+   },
+   "win": [
+    160,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__05",
+   "dj": "MrMoMMusic",
+   "pro_out": 114.0,
+   "pro_in": 15.41,
+   "default": {
+    "exit": 63.0,
+    "cue": 14.41,
+    "exit_cue": 38.705,
+    "exit_acc": 58,
+    "cue_acc": 14.41,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 63.0,
+    "cue": 33.59,
+    "exit_cue": 48.295,
+    "exit_acc": 58,
+    "cue_acc": 33,
+    "X": 16
+   },
+   "win": [
+    192,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__06",
+   "dj": "MrMoMMusic",
+   "pro_out": 110.01,
+   "pro_in": 14.56,
+   "default": {
+    "exit": 98.99,
+    "cue": 13.56,
+    "exit_cue": 56.275,
+    "exit_acc": 98.99,
+    "cue_acc": 13.56,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 13.010000000000005,
+    "cue": 18.439999999999998,
+    "exit_cue": 15.725000000000001,
+    "exit_acc": 13,
+    "cue_acc": 18,
+    "X": 16
+   },
+   "win": [
+    112,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__07",
+   "dj": "MrMoMMusic",
+   "pro_out": 95.75,
+   "pro_in": 16.76,
+   "default": {
+    "exit": 65.25,
+    "cue": 7.760000000000002,
+    "exit_cue": 36.505,
+    "exit_acc": 64,
+    "cue_acc": 7.760000000000002,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 65.25,
+    "cue": 32.239999999999995,
+    "exit_cue": 48.745,
+    "exit_acc": 64,
+    "cue_acc": 32.239999999999995,
+    "X": 16
+   },
+   "win": [
+    176,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__10",
+   "dj": "MrMoMMusic",
+   "pro_out": 71.46,
+   "pro_in": 15.19,
+   "default": {
+    "exit": 137.54000000000002,
+    "cue": 1.8100000000000005,
+    "exit_cue": 69.67500000000001,
+    "exit_acc": 137.54000000000002,
+    "cue_acc": 1.8100000000000005,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 121.54,
+    "cue": 33.81,
+    "exit_cue": 77.67500000000001,
+    "exit_acc": 121.54,
+    "cue_acc": 33.81,
+    "X": 16
+   },
+   "win": [
+    208,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__11",
+   "dj": "MrMoMMusic",
+   "pro_out": 93.24,
+   "pro_in": 15.11,
+   "default": {
+    "exit": 67.76,
+    "cue": 17.89,
+    "exit_cue": 42.825,
+    "exit_acc": 65,
+    "cue_acc": 17.89,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 12.239999999999995,
+    "cue": 17.89,
+    "exit_cue": 15.064999999999998,
+    "exit_acc": 12,
+    "cue_acc": 17.89,
+    "X": 16
+   },
+   "win": [
+    96,
+    32,
+    16
+   ],
+   "tags": [
+    "drop_exit",
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__12",
+   "dj": "MrMoMMusic",
+   "pro_out": 94.86,
+   "pro_in": 31.04,
+   "default": {
+    "exit": 98.14,
+    "cue": 1.9600000000000009,
+    "exit_cue": 50.05,
+    "exit_acc": 98,
+    "cue_acc": 1.9600000000000009,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 98.14,
+    "cue": 17.96,
+    "exit_cue": 58.05,
+    "exit_acc": 98,
+    "cue_acc": 17.96,
+    "X": 16
+   },
+   "win": [
+    208,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__15",
+   "dj": "MrMoMMusic",
+   "pro_out": 93.47,
+   "pro_in": 29.57,
+   "default": {
+    "exit": 91.53,
+    "cue": 3.4299999999999997,
+    "exit_cue": 47.480000000000004,
+    "exit_acc": 91,
+    "cue_acc": 3.4299999999999997,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 3.530000000000001,
+    "cue": 11.43,
+    "exit_cue": 7.48,
+    "exit_acc": 3,
+    "cue_acc": 11.43,
+    "X": 16
+   },
+   "win": [
+    112,
+    40,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__16",
+   "dj": "MrMoMMusic",
+   "pro_out": 158.78,
+   "pro_in": 14.81,
+   "default": {
+    "exit": 34.22,
+    "cue": 2.1899999999999995,
+    "exit_cue": 18.205,
+    "exit_acc": 34.22,
+    "cue_acc": 2.1899999999999995,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 61.78,
+    "cue": 2.1899999999999995,
+    "exit_cue": 31.985,
+    "exit_acc": 61.78,
+    "cue_acc": 2.1899999999999995,
+    "X": 16
+   },
+   "win": [
+    112,
+    16,
+    16
+   ],
+   "tags": [
+    "drop_exit",
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__22",
+   "dj": "MrMoMMusic",
+   "pro_out": 96.1,
+   "pro_in": 56.56,
+   "default": {
+    "exit": 96.9,
+    "cue": 7.560000000000002,
+    "exit_cue": 52.230000000000004,
+    "exit_acc": 96,
+    "cue_acc": 7.560000000000002,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.9000000000000057,
+    "cue": 7.560000000000002,
+    "exit_cue": 4.230000000000004,
+    "exit_acc": 0,
+    "cue_acc": 7.560000000000002,
+    "X": 16
+   },
+   "win": [
+    112,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__23",
+   "dj": "MrMoMMusic",
+   "pro_out": 128.93,
+   "pro_in": 16.63,
+   "default": {
+    "exit": 88.07,
+    "cue": 15.629999999999999,
+    "exit_cue": 51.849999999999994,
+    "exit_acc": 88.07,
+    "cue_acc": 15,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.06999999999999318,
+    "cue": 7.629999999999999,
+    "exit_cue": 3.849999999999996,
+    "exit_acc": 0.06999999999999318,
+    "cue_acc": 7,
+    "X": 16
+   },
+   "win": [
+    144,
+    8,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__27",
+   "dj": "MrMoMMusic",
+   "pro_out": 127.53,
+   "pro_in": 15.63,
+   "default": {
+    "exit": 81.47,
+    "cue": 17.369999999999997,
+    "exit_cue": 49.42,
+    "exit_acc": 80,
+    "cue_acc": 17.369999999999997,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 14.530000000000001,
+    "cue": 17.369999999999997,
+    "exit_cue": 15.95,
+    "exit_acc": 14.530000000000001,
+    "cue_acc": 17.369999999999997,
+    "X": 16
+   },
+   "win": [
+    128,
+    32,
+    16
+   ],
+   "tags": [
+    "drop_exit",
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__28",
+   "dj": "MrMoMMusic",
+   "pro_out": 93.93,
+   "pro_in": 13.83,
+   "default": {
+    "exit": 51.06999999999999,
+    "cue": 12.83,
+    "exit_cue": 31.949999999999996,
+    "exit_acc": 49,
+    "cue_acc": 12.83,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 12.930000000000007,
+    "cue": 4.83,
+    "exit_cue": 8.880000000000003,
+    "exit_acc": 12.930000000000007,
+    "cue_acc": 4.83,
+    "X": 16
+   },
+   "win": [
+    96,
+    8,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__29",
+   "dj": "MrMoMMusic",
+   "pro_out": 191.03,
+   "pro_in": 15.45,
+   "default": {
+    "exit": 1.9699999999999989,
+    "cue": 33.55,
+    "exit_cue": 17.759999999999998,
+    "exit_acc": 1,
+    "cue_acc": 33.55,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 94.03,
+    "cue": 33.55,
+    "exit_cue": 63.79,
+    "exit_acc": 94.03,
+    "cue_acc": 33.55,
+    "X": 16
+   },
+   "win": [
+    112,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__30",
+   "dj": "MrMoMMusic",
+   "pro_out": 128.81,
+   "pro_in": 27.4,
+   "default": {
+    "exit": 80.19,
+    "cue": 26.4,
+    "exit_cue": 53.295,
+    "exit_acc": 80,
+    "cue_acc": 26.4,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.18999999999999773,
+    "cue": 18.4,
+    "exit_cue": 9.294999999999998,
+    "exit_acc": 0,
+    "cue_acc": 18.4,
+    "X": 16
+   },
+   "win": [
+    144,
+    8,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__31",
+   "dj": "MrMoMMusic",
+   "pro_out": 115.85,
+   "pro_in": 31.86,
+   "default": {
+    "exit": 53.150000000000006,
+    "cue": 1.1400000000000006,
+    "exit_cue": 27.145000000000003,
+    "exit_acc": 53.150000000000006,
+    "cue_acc": 1.1400000000000006,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 10.849999999999994,
+    "cue": 1.1400000000000006,
+    "exit_cue": 5.994999999999997,
+    "exit_acc": 10.849999999999994,
+    "cue_acc": 1.1400000000000006,
+    "X": 16
+   },
+   "win": [
+    120,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__34",
+   "dj": "MrMoMMusic",
+   "pro_out": 133.86,
+   "pro_in": 31.76,
+   "default": {
+    "exit": 83.13999999999999,
+    "cue": 1.2399999999999984,
+    "exit_cue": 42.18999999999999,
+    "exit_acc": 82,
+    "cue_acc": 1.2399999999999984,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 4.860000000000014,
+    "cue": 1.2399999999999984,
+    "exit_cue": 3.050000000000006,
+    "exit_acc": 4.860000000000014,
+    "cue_acc": 1.2399999999999984,
+    "X": 16
+   },
+   "win": [
+    144,
+    32,
+    16
+   ],
+   "tags": [
+    "grid",
+    "replica_bd"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__35",
+   "dj": "MrMoMMusic",
+   "pro_out": 110.78,
+   "pro_in": 31.22,
+   "default": {
+    "exit": 98.22,
+    "cue": 14.219999999999999,
+    "exit_cue": 56.22,
+    "exit_acc": 97,
+    "cue_acc": 14.219999999999999,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 5.780000000000001,
+    "cue": 14.219999999999999,
+    "exit_cue": 10.0,
+    "exit_acc": 5.780000000000001,
+    "cue_acc": 14.219999999999999,
+    "X": 16
+   },
+   "win": [
+    120,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__39",
+   "dj": "MrMoMMusic",
+   "pro_out": 95.56,
+   "pro_in": 22.77,
+   "default": {
+    "exit": 81.44,
+    "cue": 5.77,
+    "exit_cue": 43.605,
+    "exit_acc": 81,
+    "cue_acc": 5.77,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.560000000000002,
+    "cue": 5.77,
+    "exit_cue": 6.165000000000001,
+    "exit_acc": 6.560000000000002,
+    "cue_acc": 5.77,
+    "X": 16
+   },
+   "win": [
+    104,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__41",
+   "dj": "MrMoMMusic",
+   "pro_out": 175.56,
+   "pro_in": 31.89,
+   "default": {
+    "exit": 6.560000000000002,
+    "cue": 1.1099999999999994,
+    "exit_cue": 3.835000000000001,
+    "exit_acc": 6,
+    "cue_acc": 1.1099999999999994,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 86.56,
+    "cue": 14.89,
+    "exit_cue": 50.725,
+    "exit_acc": 86,
+    "cue_acc": 14.89,
+    "X": 16
+   },
+   "win": [
+    104,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__44",
+   "dj": "MrMoMMusic",
+   "pro_out": 241.11,
+   "pro_in": 30.24,
+   "default": {
+    "exit": 8.110000000000014,
+    "cue": 13.239999999999998,
+    "exit_cue": 10.675000000000006,
+    "exit_acc": 8.110000000000014,
+    "cue_acc": 13.239999999999998,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 104.11000000000001,
+    "cue": 13.239999999999998,
+    "exit_cue": 58.675000000000004,
+    "exit_acc": 104.11000000000001,
+    "cue_acc": 13.239999999999998,
+    "X": 16
+   },
+   "win": [
+    152,
+    16,
+    16
+   ],
+   "tags": [
+    "grid",
+    "replica_bd"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__45",
+   "dj": "MrMoMMusic",
+   "pro_out": 95.14,
+   "pro_in": 17.65,
+   "default": {
+    "exit": 97.86,
+    "cue": 16.65,
+    "exit_cue": 57.254999999999995,
+    "exit_acc": 97,
+    "cue_acc": 16.65,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.8599999999999994,
+    "cue": 0.6499999999999986,
+    "exit_cue": 1.254999999999999,
+    "exit_acc": 1,
+    "cue_acc": 0.6499999999999986,
+    "X": 16
+   },
+   "win": [
+    112,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__46",
+   "dj": "MrMoMMusic",
+   "pro_out": 97.41,
+   "pro_in": 13.29,
+   "default": {
+    "exit": 87.59,
+    "cue": 12.29,
+    "exit_cue": 49.94,
+    "exit_acc": 81,
+    "cue_acc": 12.29,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.4099999999999966,
+    "cue": 4.289999999999999,
+    "exit_cue": 2.349999999999998,
+    "exit_acc": 0.4099999999999966,
+    "cue_acc": 4.289999999999999,
+    "X": 16
+   },
+   "win": [
+    112,
+    8,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__47",
+   "dj": "MrMoMMusic",
+   "pro_out": 79.27,
+   "pro_in": 39.4,
+   "default": {
+    "exit": 73.73,
+    "cue": 6.399999999999999,
+    "exit_cue": 40.065,
+    "exit_acc": 69,
+    "cue_acc": 6.399999999999999,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.269999999999996,
+    "cue": 22.4,
+    "exit_cue": 14.334999999999997,
+    "exit_acc": 6.269999999999996,
+    "cue_acc": 22.4,
+    "X": 16
+   },
+   "win": [
+    88,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__48",
+   "dj": "MrMoMMusic",
+   "pro_out": 95.18,
+   "pro_in": 30.94,
+   "default": {
+    "exit": 97.82,
+    "cue": 2.0599999999999987,
+    "exit_cue": 49.94,
+    "exit_acc": 97.82,
+    "cue_acc": 2.0599999999999987,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 17.819999999999993,
+    "cue": 2.0599999999999987,
+    "exit_cue": 9.939999999999996,
+    "exit_acc": 17.819999999999993,
+    "cue_acc": 2.0599999999999987,
+    "X": 16
+   },
+   "win": [
+    128,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__50",
+   "dj": "MrMoMMusic",
+   "pro_out": 109.69,
+   "pro_in": 77.15,
+   "default": {
+    "exit": 67.31,
+    "cue": 76.15,
+    "exit_cue": 71.73,
+    "exit_acc": 67.31,
+    "cue_acc": 76.15,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 12.689999999999998,
+    "cue": 60.150000000000006,
+    "exit_cue": 36.42,
+    "exit_acc": 12.689999999999998,
+    "cue_acc": 60.150000000000006,
+    "X": 16
+   },
+   "win": [
+    112,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__53",
+   "dj": "MrMoMMusic",
+   "pro_out": 95.83,
+   "pro_in": 95.53,
+   "default": {
+    "exit": 89.17,
+    "cue": 70.53,
+    "exit_cue": 79.85,
+    "exit_acc": 88,
+    "cue_acc": 70.53,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.1700000000000017,
+    "cue": 70.53,
+    "exit_cue": 35.85,
+    "exit_acc": 0,
+    "cue_acc": 70.53,
+    "X": 16
+   },
+   "win": [
+    112,
+    24,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__55",
+   "dj": "MrMoMMusic",
+   "pro_out": 107.52,
+   "pro_in": 27.57,
+   "default": {
+    "exit": 69.48,
+    "cue": 10.57,
+    "exit_cue": 40.025000000000006,
+    "exit_acc": 69.48,
+    "cue_acc": 10.57,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 10.519999999999996,
+    "cue": 10.57,
+    "exit_cue": 10.544999999999998,
+    "exit_acc": 10.519999999999996,
+    "cue_acc": 10.57,
+    "X": 16
+   },
+   "win": [
+    112,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__59",
+   "dj": "MrMoMMusic",
+   "pro_out": 95.48,
+   "pro_in": 31.56,
+   "default": {
+    "exit": 105.52,
+    "cue": 1.4400000000000013,
+    "exit_cue": 53.48,
+    "exit_acc": 105,
+    "cue_acc": 1.4400000000000013,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.480000000000004,
+    "cue": 1.4400000000000013,
+    "exit_cue": 3.9600000000000026,
+    "exit_acc": 6.480000000000004,
+    "cue_acc": 1.4400000000000013,
+    "X": 16
+   },
+   "win": [
+    104,
+    32,
+    16
+   ],
+   "tags": [
+    "grid",
+    "replica_bd"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__60",
+   "dj": "MrMoMMusic",
+   "pro_out": 112.03,
+   "pro_in": 15.97,
+   "default": {
+    "exit": 80.97,
+    "cue": 1.0299999999999994,
+    "exit_cue": 41.0,
+    "exit_acc": 80,
+    "cue_acc": 1.0299999999999994,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 7.030000000000001,
+    "cue": 1.0299999999999994,
+    "exit_cue": 4.03,
+    "exit_acc": 7,
+    "cue_acc": 1.0299999999999994,
+    "X": 16
+   },
+   "win": [
+    120,
+    16,
+    16
+   ],
+   "tags": [
+    "grid",
+    "replica_bd"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__64",
+   "dj": "MrMoMMusic",
+   "pro_out": 107.58,
+   "pro_in": 28.19,
+   "default": {
+    "exit": 69.42,
+    "cue": 11.190000000000001,
+    "exit_cue": 40.305,
+    "exit_acc": 69.42,
+    "cue_acc": 11.190000000000001,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 18.58,
+    "cue": 11.190000000000001,
+    "exit_cue": 14.885,
+    "exit_acc": 18.58,
+    "cue_acc": 11.190000000000001,
+    "X": 16
+   },
+   "win": [
+    104,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__65",
+   "dj": "MrMoMMusic",
+   "pro_out": 111.5,
+   "pro_in": 30.21,
+   "default": {
+    "exit": 89.5,
+    "cue": 2.789999999999999,
+    "exit_cue": 46.144999999999996,
+    "exit_acc": 89,
+    "cue_acc": 2.789999999999999,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 14.5,
+    "cue": 2.789999999999999,
+    "exit_cue": 8.645,
+    "exit_acc": 14.5,
+    "cue_acc": 2.789999999999999,
+    "X": 16
+   },
+   "win": [
+    112,
+    32,
+    16
+   ],
+   "tags": [
+    "drop_exit",
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__66",
+   "dj": "MrMoMMusic",
+   "pro_out": 207.41,
+   "pro_in": 19.44,
+   "default": {
+    "exit": 1.5900000000000034,
+    "cue": 2.4400000000000013,
+    "exit_cue": 2.0150000000000023,
+    "exit_acc": 1,
+    "cue_acc": 2.4400000000000013,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 102.41,
+    "cue": 2.4400000000000013,
+    "exit_cue": 52.425,
+    "exit_acc": 102.41,
+    "cue_acc": 2.4400000000000013,
+    "X": 16
+   },
+   "win": [
+    120,
+    16,
+    16
+   ],
+   "tags": [
+    "grid",
+    "replica_bd"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__70",
+   "dj": "MrMoMMusic",
+   "pro_out": 95.38,
+   "pro_in": 15.41,
+   "default": {
+    "exit": 97.62,
+    "cue": 1.5899999999999999,
+    "exit_cue": 49.605000000000004,
+    "exit_acc": 96,
+    "cue_acc": 1.5899999999999999,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.3799999999999955,
+    "cue": 1.5899999999999999,
+    "exit_cue": 3.9849999999999977,
+    "exit_acc": 6.3799999999999955,
+    "cue_acc": 1.5899999999999999,
+    "X": 16
+   },
+   "win": [
+    104,
+    16,
+    16
+   ],
+   "tags": [
+    "grid",
+    "replica_bd"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__72",
+   "dj": "MrMoMMusic",
+   "pro_out": 95.66,
+   "pro_in": 31.66,
+   "default": {
+    "exit": 81.34,
+    "cue": 30.66,
+    "exit_cue": 56.0,
+    "exit_acc": 81,
+    "cue_acc": 30.66,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 81.34,
+    "cue": 1.3399999999999999,
+    "exit_cue": 41.34,
+    "exit_acc": 81,
+    "cue_acc": 1,
+    "X": 16
+   },
+   "win": [
+    192,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__74",
+   "dj": "MrMoMMusic",
+   "pro_out": 105.38,
+   "pro_in": 29.77,
+   "default": {
+    "exit": 71.62,
+    "cue": 12.77,
+    "exit_cue": 42.195,
+    "exit_acc": 71.62,
+    "cue_acc": 12.77,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 16.379999999999995,
+    "cue": 12.77,
+    "exit_cue": 14.574999999999998,
+    "exit_acc": 12,
+    "cue_acc": 12.77,
+    "X": 16
+   },
+   "win": [
+    104,
+    16,
+    16
+   ],
+   "tags": [
+    "drop_exit",
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__75",
+   "dj": "MrMoMMusic",
+   "pro_out": 95.02,
+   "pro_in": 31.02,
+   "default": {
+    "exit": 89.98,
+    "cue": 1.9800000000000004,
+    "exit_cue": 45.980000000000004,
+    "exit_acc": 89,
+    "cue_acc": 1.9800000000000004,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 14.019999999999996,
+    "cue": 1.9800000000000004,
+    "exit_cue": 7.999999999999998,
+    "exit_acc": 14,
+    "cue_acc": 1.9800000000000004,
+    "X": 16
+   },
+   "win": [
+    96,
+    32,
+    16
+   ],
+   "tags": [
+    "drop_exit",
+    "grid"
+   ]
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__76",
+   "dj": "MrMoMMusic",
+   "pro_out": 126.71,
+   "pro_in": 15.35,
+   "default": {
+    "exit": 90.29,
+    "cue": 14.35,
+    "exit_cue": 52.32,
+    "exit_acc": 90.29,
+    "cue_acc": 14,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 13.709999999999994,
+    "cue": 49.65,
+    "exit_cue": 31.679999999999996,
+    "exit_acc": 13.709999999999994,
+    "cue_acc": 49,
+    "X": 16
+   },
+   "win": [
+    128,
+    64,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__02",
+   "dj": "Sound Territory",
+   "pro_out": 127.53,
+   "pro_in": 63.85,
+   "default": {
+    "exit": 65.47,
+    "cue": 30.85,
+    "exit_cue": 48.16,
+    "exit_acc": 65.47,
+    "cue_acc": 30.85,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 65.47,
+    "cue": 30.85,
+    "exit_cue": 48.16,
+    "exit_acc": 65.47,
+    "cue_acc": 30.85,
+    "X": 16
+   },
+   "win": [
+    208,
+    32,
+    16
+   ],
+   "tags": [
+    "default",
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__04",
+   "dj": "Sound Territory",
+   "pro_out": 175.58,
+   "pro_in": 63.46,
+   "default": {
+    "exit": 9.419999999999987,
+    "cue": 62.46,
+    "exit_cue": 35.94,
+    "exit_acc": 9.419999999999987,
+    "cue_acc": 62.46,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 78.58000000000001,
+    "cue": 46.46,
+    "exit_cue": 62.52000000000001,
+    "exit_acc": 78.58000000000001,
+    "cue_acc": 46.46,
+    "X": 16
+   },
+   "win": [
+    112,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__05",
+   "dj": "Sound Territory",
+   "pro_out": 175.83,
+   "pro_in": 64.1,
+   "default": {
+    "exit": 1.1699999999999875,
+    "cue": 31.099999999999994,
+    "exit_cue": 16.13499999999999,
+    "exit_acc": 1.1699999999999875,
+    "cue_acc": 31.099999999999994,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.1699999999999875,
+    "cue": 23.099999999999994,
+    "exit_cue": 12.134999999999991,
+    "exit_acc": 1.1699999999999875,
+    "cue_acc": 23.099999999999994,
+    "X": 16
+   },
+   "win": [
+    192,
+    40,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__08",
+   "dj": "Sound Territory",
+   "pro_out": 175.93,
+   "pro_in": 63.46,
+   "default": {
+    "exit": 9.069999999999993,
+    "cue": 30.46,
+    "exit_cue": 19.764999999999997,
+    "exit_acc": 9.069999999999993,
+    "cue_acc": 30.46,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 9.069999999999993,
+    "cue": 22.46,
+    "exit_cue": 15.764999999999997,
+    "exit_acc": 9.069999999999993,
+    "cue_acc": 22.46,
+    "X": 16
+   },
+   "win": [
+    200,
+    40,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__09",
+   "dj": "Sound Territory",
+   "pro_out": 174.38,
+   "pro_in": 47.4,
+   "default": {
+    "exit": 2.6200000000000045,
+    "cue": 30.4,
+    "exit_cue": 16.51,
+    "exit_acc": 1,
+    "cue_acc": 30.4,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 2.6200000000000045,
+    "cue": 14.399999999999999,
+    "exit_cue": 8.510000000000002,
+    "exit_acc": 1,
+    "cue_acc": 14.399999999999999,
+    "X": 16
+   },
+   "win": [
+    192,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__10",
+   "dj": "Sound Territory",
+   "pro_out": 159.6,
+   "pro_in": 47.35,
+   "default": {
+    "exit": 1.4000000000000057,
+    "cue": 46.35,
+    "exit_cue": 23.875000000000004,
+    "exit_acc": 1.4000000000000057,
+    "cue_acc": 46.35,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.4000000000000057,
+    "cue": 30.35,
+    "exit_cue": 15.875000000000004,
+    "exit_acc": 1.4000000000000057,
+    "cue_acc": 30.35,
+    "X": 16
+   },
+   "win": [
+    176,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__11",
+   "dj": "Sound Territory",
+   "pro_out": 174.94,
+   "pro_in": 64.12,
+   "default": {
+    "exit": 2.0600000000000023,
+    "cue": 63.120000000000005,
+    "exit_cue": 32.59,
+    "exit_acc": 2.0600000000000023,
+    "cue_acc": 63.120000000000005,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 2.0600000000000023,
+    "cue": 31.120000000000005,
+    "exit_cue": 16.590000000000003,
+    "exit_acc": 2.0600000000000023,
+    "cue_acc": 31.120000000000005,
+    "X": 16
+   },
+   "win": [
+    192,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__12",
+   "dj": "Sound Territory",
+   "pro_out": 95.55,
+   "pro_in": 47.58,
+   "default": {
+    "exit": 97.45,
+    "cue": 30.58,
+    "exit_cue": 64.015,
+    "exit_acc": 97.45,
+    "cue_acc": 30.58,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 97.45,
+    "cue": 14.579999999999998,
+    "exit_cue": 56.015,
+    "exit_acc": 97.45,
+    "cue_acc": 14.579999999999998,
+    "X": 16
+   },
+   "win": [
+    208,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__13",
+   "dj": "Sound Territory",
+   "pro_out": 175.02,
+   "pro_in": 47.26,
+   "default": {
+    "exit": 9.97999999999999,
+    "cue": 46.26,
+    "exit_cue": 28.119999999999994,
+    "exit_acc": 9.97999999999999,
+    "cue_acc": 46.26,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 9.97999999999999,
+    "cue": 30.259999999999998,
+    "exit_cue": 20.119999999999994,
+    "exit_acc": 9.97999999999999,
+    "cue_acc": 30.259999999999998,
+    "X": 16
+   },
+   "win": [
+    200,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__14",
+   "dj": "Sound Territory",
+   "pro_out": 175.41,
+   "pro_in": 65.6,
+   "default": {
+    "exit": 1.5900000000000034,
+    "cue": 64.6,
+    "exit_cue": 33.095,
+    "exit_acc": 1,
+    "cue_acc": 64.6,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.5900000000000034,
+    "cue": 16.599999999999994,
+    "exit_cue": 9.094999999999999,
+    "exit_acc": 1,
+    "cue_acc": 16.599999999999994,
+    "X": 16
+   },
+   "win": [
+    192,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__15",
+   "dj": "Sound Territory",
+   "pro_out": 97.75,
+   "pro_in": 64.77,
+   "default": {
+    "exit": 103.25,
+    "cue": 31.769999999999996,
+    "exit_cue": 67.50999999999999,
+    "exit_acc": 103.25,
+    "cue_acc": 31.769999999999996,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 103.25,
+    "cue": 23.769999999999996,
+    "exit_cue": 63.51,
+    "exit_acc": 103.25,
+    "cue_acc": 23.769999999999996,
+    "X": 16
+   },
+   "win": [
+    216,
+    40,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__18",
+   "dj": "Sound Territory",
+   "pro_out": 175.27,
+   "pro_in": 47.42,
+   "default": {
+    "exit": 17.72999999999999,
+    "cue": 30.42,
+    "exit_cue": 24.074999999999996,
+    "exit_acc": 17.72999999999999,
+    "cue_acc": 30.42,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 17.72999999999999,
+    "cue": 14.420000000000002,
+    "exit_cue": 16.074999999999996,
+    "exit_acc": 17.72999999999999,
+    "cue_acc": 14.420000000000002,
+    "X": 16
+   },
+   "win": [
+    208,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__23",
+   "dj": "Sound Territory",
+   "pro_out": 207.41,
+   "pro_in": 47.75,
+   "default": {
+    "exit": 1.5900000000000034,
+    "cue": 30.75,
+    "exit_cue": 16.17,
+    "exit_acc": 1.5900000000000034,
+    "cue_acc": 30.75,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.5900000000000034,
+    "cue": 14.75,
+    "exit_cue": 8.170000000000002,
+    "exit_acc": 1.5900000000000034,
+    "cue_acc": 14.75,
+    "X": 16
+   },
+   "win": [
+    224,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__26",
+   "dj": "Sound Territory",
+   "pro_out": 159.2,
+   "pro_in": 145.11,
+   "default": {
+    "exit": 1.8000000000000114,
+    "cue": 128.11,
+    "exit_cue": 64.95500000000001,
+    "exit_acc": 1.8000000000000114,
+    "cue_acc": 128.11,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.8000000000000114,
+    "cue": 112.11000000000001,
+    "exit_cue": 56.95500000000001,
+    "exit_acc": 1.8000000000000114,
+    "cue_acc": 112.11000000000001,
+    "X": 16
+   },
+   "win": [
+    176,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__27",
+   "dj": "Sound Territory",
+   "pro_out": 177.34,
+   "pro_in": 63.71,
+   "default": {
+    "exit": 15.659999999999997,
+    "cue": 30.71,
+    "exit_cue": 23.185,
+    "exit_acc": 15.659999999999997,
+    "cue_acc": 30.71,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 15.659999999999997,
+    "cue": 30.71,
+    "exit_cue": 23.185,
+    "exit_acc": 15.659999999999997,
+    "cue_acc": 30.71,
+    "X": 16
+   },
+   "win": [
+    208,
+    32,
+    16
+   ],
+   "tags": [
+    "default",
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__28",
+   "dj": "Sound Territory",
+   "pro_out": 191.13,
+   "pro_in": 63.17,
+   "default": {
+    "exit": 25.870000000000005,
+    "cue": 62.17,
+    "exit_cue": 44.02,
+    "exit_acc": 25,
+    "cue_acc": 62.17,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 25.870000000000005,
+    "cue": 14.170000000000002,
+    "exit_cue": 20.020000000000003,
+    "exit_acc": 25,
+    "cue_acc": 14.170000000000002,
+    "X": 16
+   },
+   "win": [
+    232,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__29",
+   "dj": "Sound Territory",
+   "pro_out": 191.43,
+   "pro_in": 48.8,
+   "default": {
+    "exit": 1.5699999999999932,
+    "cue": 31.799999999999997,
+    "exit_cue": 16.684999999999995,
+    "exit_acc": 1.5699999999999932,
+    "cue_acc": 31.799999999999997,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.430000000000007,
+    "cue": 15.799999999999997,
+    "exit_cue": 11.115000000000002,
+    "exit_acc": 6.430000000000007,
+    "cue_acc": 15.799999999999997,
+    "X": 16
+   },
+   "win": [
+    200,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__30",
+   "dj": "Sound Territory",
+   "pro_out": 80.28,
+   "pro_in": 47.33,
+   "default": {
+    "exit": 96.72,
+    "cue": 30.33,
+    "exit_cue": 63.525,
+    "exit_acc": 96.72,
+    "cue_acc": 30.33,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 96.72,
+    "cue": 14.329999999999998,
+    "exit_cue": 55.525,
+    "exit_acc": 96.72,
+    "cue_acc": 14.329999999999998,
+    "X": 16
+   },
+   "win": [
+    192,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__31",
+   "dj": "Sound Territory",
+   "pro_out": 190.91,
+   "pro_in": 64.01,
+   "default": {
+    "exit": 5.909999999999997,
+    "cue": 31.010000000000005,
+    "exit_cue": 18.46,
+    "exit_acc": 5.909999999999997,
+    "cue_acc": 31.010000000000005,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 5.909999999999997,
+    "cue": 31.010000000000005,
+    "exit_cue": 18.46,
+    "exit_acc": 5.909999999999997,
+    "cue_acc": 31.010000000000005,
+    "X": 16
+   },
+   "win": [
+    200,
+    32,
+    16
+   ],
+   "tags": [
+    "default",
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__34",
+   "dj": "Sound Territory",
+   "pro_out": 191.64,
+   "pro_in": 65.71,
+   "default": {
+    "exit": 9.360000000000014,
+    "cue": 48.709999999999994,
+    "exit_cue": 29.035000000000004,
+    "exit_acc": 9.360000000000014,
+    "cue_acc": 48.709999999999994,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 1.3600000000000136,
+    "cue": 32.709999999999994,
+    "exit_cue": 17.035000000000004,
+    "exit_acc": 1.3600000000000136,
+    "cue_acc": 32.709999999999994,
+    "X": 16
+   },
+   "win": [
+    208,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__07",
+   "dj": "SuicideSheeep",
+   "pro_out": 142.68,
+   "pro_in": 31.2,
+   "default": {
+    "exit": 66.32,
+    "cue": 14.2,
+    "exit_cue": 40.26,
+    "exit_acc": 66.32,
+    "cue_acc": 14.2,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 74.32,
+    "cue": 121.8,
+    "exit_cue": 98.06,
+    "exit_acc": 74.32,
+    "cue_acc": 121,
+    "X": 16
+   },
+   "win": [
+    232,
+    152,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__09",
+   "dj": "SuicideSheeep",
+   "pro_out": 215.02,
+   "pro_in": 63.06,
+   "default": {
+    "exit": 6.02000000000001,
+    "cue": 14.060000000000002,
+    "exit_cue": 10.040000000000006,
+    "exit_acc": 6.02000000000001,
+    "cue_acc": 14.060000000000002,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 94.02000000000001,
+    "cue": 14.060000000000002,
+    "exit_cue": 54.040000000000006,
+    "exit_acc": 94.02000000000001,
+    "cue_acc": 14.060000000000002,
+    "X": 16
+   },
+   "win": [
+    136,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__10",
+   "dj": "SuicideSheeep",
+   "pro_out": 143.14,
+   "pro_in": 25.43,
+   "default": {
+    "exit": 97.86000000000001,
+    "cue": 0.4299999999999997,
+    "exit_cue": 49.14500000000001,
+    "exit_acc": 97.86000000000001,
+    "cue_acc": 0.4299999999999997,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 113.86000000000001,
+    "cue": 15.57,
+    "exit_cue": 64.715,
+    "exit_acc": 113.86000000000001,
+    "cue_acc": 15.57,
+    "X": 16
+   },
+   "win": [
+    272,
+    40,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__14",
+   "dj": "SuicideSheeep",
+   "pro_out": 127.48,
+   "pro_in": 31.78,
+   "default": {
+    "exit": 113.52,
+    "cue": 1.2199999999999989,
+    "exit_cue": 57.37,
+    "exit_acc": 113.0,
+    "cue_acc": 1.2199999999999989,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 121.52,
+    "cue": 17.22,
+    "exit_cue": 69.37,
+    "exit_acc": 121,
+    "cue_acc": 17.22,
+    "X": 16
+   },
+   "win": [
+    264,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__15",
+   "dj": "SuicideSheeep",
+   "pro_out": 159.82,
+   "pro_in": 63.43,
+   "default": {
+    "exit": 113.18,
+    "cue": 14.43,
+    "exit_cue": 63.80500000000001,
+    "exit_acc": 112.0,
+    "cue_acc": 14.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 121.18,
+    "cue": 14.43,
+    "exit_cue": 67.805,
+    "exit_acc": 120,
+    "cue_acc": 14,
+    "X": 16
+   },
+   "win": [
+    296,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__18",
+   "dj": "SuicideSheeep",
+   "pro_out": 126.91,
+   "pro_in": 64.7,
+   "default": {
+    "exit": 98.09,
+    "cue": 15.700000000000003,
+    "exit_cue": 56.895,
+    "exit_acc": 97.0,
+    "cue_acc": 12.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 2.0900000000000034,
+    "cue": 31.700000000000003,
+    "exit_cue": 16.895000000000003,
+    "exit_acc": 1,
+    "cue_acc": 28,
+    "X": 16
+   },
+   "win": [
+    144,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__22",
+   "dj": "SuicideSheeep",
+   "pro_out": 176.05,
+   "pro_in": 63.46,
+   "default": {
+    "exit": 16.94999999999999,
+    "cue": 14.46,
+    "exit_cue": 15.704999999999995,
+    "exit_acc": 16.94999999999999,
+    "cue_acc": 14.46,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 63.05000000000001,
+    "cue": 14.46,
+    "exit_cue": 38.75500000000001,
+    "exit_acc": 63.05000000000001,
+    "cue_acc": 14.46,
+    "X": 16
+   },
+   "win": [
+    128,
+    48,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__25",
+   "dj": "SuicideSheeep",
+   "pro_out": 176.92,
+   "pro_in": 143.52,
+   "default": {
+    "exit": 64.08000000000001,
+    "cue": 142.52,
+    "exit_cue": 103.30000000000001,
+    "exit_acc": 58.0,
+    "cue_acc": 142.52,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 72.08000000000001,
+    "cue": 78.52000000000001,
+    "exit_cue": 75.30000000000001,
+    "exit_acc": 66,
+    "cue_acc": 78.52000000000001,
+    "X": 16
+   },
+   "win": [
+    264,
+    64,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__27",
+   "dj": "SuicideSheeep",
+   "pro_out": 227.63,
+   "pro_in": 31.91,
+   "default": {
+    "exit": 18.629999999999995,
+    "cue": 30.91,
+    "exit_cue": 24.769999999999996,
+    "exit_acc": 16.0,
+    "cue_acc": 30.91,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 13.370000000000005,
+    "cue": 33.09,
+    "exit_cue": 23.230000000000004,
+    "exit_acc": 12,
+    "cue_acc": 33.09,
+    "X": 16
+   },
+   "win": [
+    256,
+    64,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__30",
+   "dj": "SuicideSheeep",
+   "pro_out": 150.02,
+   "pro_in": 24.03,
+   "default": {
+    "exit": 10.97999999999999,
+    "cue": 16.97,
+    "exit_cue": 13.974999999999994,
+    "exit_acc": 10.0,
+    "cue_acc": 16.97,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 10.97999999999999,
+    "cue": 56.97,
+    "exit_cue": 33.974999999999994,
+    "exit_acc": 10,
+    "cue_acc": 56.97,
+    "X": 16
+   },
+   "win": [
+    176,
+    80,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__46",
+   "dj": "SuicideSheeep",
+   "pro_out": 146.12,
+   "pro_in": 32.6,
+   "default": {
+    "exit": 158.88,
+    "cue": 15.600000000000001,
+    "exit_cue": 87.24,
+    "exit_acc": 158.88,
+    "cue_acc": 15.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 150.88,
+    "cue": 0.3999999999999986,
+    "exit_cue": 75.64,
+    "exit_acc": 150.88,
+    "cue_acc": 0.3999999999999986,
+    "X": 16
+   },
+   "win": [
+    312,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__05",
+   "dj": "TheHeshBesh",
+   "pro_out": 129.69,
+   "pro_in": 16.31,
+   "default": {
+    "exit": 79.31,
+    "cue": 0.6900000000000013,
+    "exit_cue": 40.0,
+    "exit_acc": 79.31,
+    "cue_acc": 0.6900000000000013,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 79.31,
+    "cue": 0.6900000000000013,
+    "exit_cue": 40.0,
+    "exit_acc": 79.31,
+    "cue_acc": 0.6900000000000013,
+    "X": 16
+   },
+   "win": [
+    224,
+    16,
+    16
+   ],
+   "tags": [
+    "default",
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__06",
+   "dj": "TheHeshBesh",
+   "pro_out": 105.04,
+   "pro_in": 25.67,
+   "default": {
+    "exit": 71.96,
+    "cue": 7.329999999999998,
+    "exit_cue": 39.644999999999996,
+    "exit_acc": 71.96,
+    "cue_acc": 7.329999999999998,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 71.96,
+    "cue": 7.329999999999998,
+    "exit_cue": 39.644999999999996,
+    "exit_acc": 71.96,
+    "cue_acc": 7.329999999999998,
+    "X": 16
+   },
+   "win": [
+    192,
+    32,
+    16
+   ],
+   "tags": [
+    "default",
+    "dropN_exit",
+    "grid"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__07",
+   "dj": "TheHeshBesh",
+   "pro_out": 110.04,
+   "pro_in": 30.61,
+   "default": {
+    "exit": 66.96,
+    "cue": 2.3900000000000006,
+    "exit_cue": 34.675,
+    "exit_acc": 66.0,
+    "cue_acc": 2.3900000000000006,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 5.040000000000006,
+    "cue": 13.61,
+    "exit_cue": 9.325000000000003,
+    "exit_acc": 5.040000000000006,
+    "cue_acc": 13.61,
+    "X": 16
+   },
+   "win": [
+    120,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__10",
+   "dj": "TheHeshBesh",
+   "pro_out": 94.45,
+   "pro_in": 19.76,
+   "default": {
+    "exit": 50.55,
+    "cue": 2.7600000000000016,
+    "exit_cue": 26.655,
+    "exit_acc": 50.55,
+    "cue_acc": 2.7600000000000016,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 5.450000000000003,
+    "cue": 2.7600000000000016,
+    "exit_cue": 4.105000000000002,
+    "exit_acc": 3,
+    "cue_acc": 2.7600000000000016,
+    "X": 16
+   },
+   "win": [
+    104,
+    16,
+    16
+   ],
+   "tags": [
+    "grid",
+    "replica_bd"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__13",
+   "dj": "TheHeshBesh",
+   "pro_out": 96.96,
+   "pro_in": 15.62,
+   "default": {
+    "exit": 64.04,
+    "cue": 1.3800000000000008,
+    "exit_cue": 32.71,
+    "exit_acc": 64.0,
+    "cue_acc": 1.3800000000000008,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.04000000000000625,
+    "cue": 1.3800000000000008,
+    "exit_cue": 0.7100000000000035,
+    "exit_acc": 0,
+    "cue_acc": 1.3800000000000008,
+    "X": 16
+   },
+   "win": [
+    112,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__15",
+   "dj": "TheHeshBesh",
+   "pro_out": 111.05,
+   "pro_in": 72.73,
+   "default": {
+    "exit": 65.95,
+    "cue": 63.730000000000004,
+    "exit_cue": 64.84,
+    "exit_acc": 65.95,
+    "cue_acc": 61.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.049999999999997,
+    "cue": 55.730000000000004,
+    "exit_cue": 30.89,
+    "exit_acc": 6.049999999999997,
+    "cue_acc": 53,
+    "X": 16
+   },
+   "win": [
+    120,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__27",
+   "dj": "TheHeshBesh",
+   "pro_out": 80.66,
+   "pro_in": 16.1,
+   "default": {
+    "exit": 80.34,
+    "cue": 8.899999999999999,
+    "exit_cue": 44.620000000000005,
+    "exit_acc": 80.34,
+    "cue_acc": 8.899999999999999,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 16.340000000000003,
+    "cue": 16.9,
+    "exit_cue": 16.62,
+    "exit_acc": 16.340000000000003,
+    "cue_acc": 16.9,
+    "X": 16
+   },
+   "win": [
+    112,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__39",
+   "dj": "TheHeshBesh",
+   "pro_out": 73.22,
+   "pro_in": 9.59,
+   "default": {
+    "exit": 87.78,
+    "cue": 23.41,
+    "exit_cue": 55.595,
+    "exit_acc": 87.78,
+    "cue_acc": 23.41,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 31.78,
+    "cue": 23.41,
+    "exit_cue": 27.595,
+    "exit_acc": 31.78,
+    "cue_acc": 23.41,
+    "X": 16
+   },
+   "win": [
+    120,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__03",
+   "dj": "TheHeshBesh",
+   "pro_out": 116.22,
+   "pro_in": 28.39,
+   "default": {
+    "exit": 12.780000000000001,
+    "cue": 20.61,
+    "exit_cue": 16.695,
+    "exit_acc": 10,
+    "cue_acc": 20.61,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 12.780000000000001,
+    "cue": 20.61,
+    "exit_cue": 16.695,
+    "exit_acc": 10,
+    "cue_acc": 20.61,
+    "X": 16
+   },
+   "win": [
+    144,
+    48,
+    16
+   ],
+   "tags": [
+    "default",
+    "dropN_exit",
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__09",
+   "dj": "TheHeshBesh",
+   "pro_out": 111.4,
+   "pro_in": 103.95,
+   "default": {
+    "exit": 113.6,
+    "cue": 86.95,
+    "exit_cue": 100.275,
+    "exit_acc": 113.6,
+    "cue_acc": 86.95,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.400000000000006,
+    "cue": 86.95,
+    "exit_cue": 46.675000000000004,
+    "exit_acc": 6,
+    "cue_acc": 86.95,
+    "X": 32
+   },
+   "win": [
+    136,
+    16,
+    32
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__16",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 160.33,
+   "pro_in": 7.33,
+   "default": {
+    "exit": 15.330000000000013,
+    "cue": 6.33,
+    "exit_cue": 10.830000000000005,
+    "exit_acc": 13.0,
+    "cue_acc": 1.0,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 15.330000000000013,
+    "cue": 1.67,
+    "exit_cue": 8.500000000000007,
+    "exit_acc": 13,
+    "cue_acc": 1.67,
+    "X": 16
+   },
+   "win": [
+    160,
+    8,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__25",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 188.08,
+   "pro_in": 24.32,
+   "default": {
+    "exit": 11.080000000000013,
+    "cue": 7.32,
+    "exit_cue": 9.200000000000006,
+    "exit_acc": 11.080000000000013,
+    "cue_acc": 7.32,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 11.080000000000013,
+    "cue": 7.32,
+    "exit_cue": 9.200000000000006,
+    "exit_acc": 11.080000000000013,
+    "cue_acc": 7.32,
+    "X": 16
+   },
+   "win": [
+    192,
+    16,
+    16
+   ],
+   "tags": [
+    "default",
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__18",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 90.18,
+   "pro_in": 55.02,
+   "default": {
+    "exit": 38.81999999999999,
+    "cue": 6.020000000000003,
+    "exit_cue": 22.419999999999998,
+    "exit_acc": 37.0,
+    "cue_acc": 6.020000000000003,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 38.81999999999999,
+    "cue": 22.020000000000003,
+    "exit_cue": 30.419999999999998,
+    "exit_acc": 37,
+    "cue_acc": 22.020000000000003,
+    "X": 16
+   },
+   "win": [
+    144,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 95.58,
+   "pro_in": 31.61,
+   "default": {
+    "exit": 17.42,
+    "cue": 30.61,
+    "exit_cue": 24.015,
+    "exit_acc": 17.0,
+    "cue_acc": 30.61,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 30.58,
+    "cue": 14.61,
+    "exit_cue": 22.595,
+    "exit_acc": 30.58,
+    "cue_acc": 14.61,
+    "X": 16
+   },
+   "win": [
+    80,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__22",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 31.36,
+   "pro_in": 54.91,
+   "default": {
+    "exit": 113.64,
+    "cue": 29.909999999999997,
+    "exit_cue": 71.775,
+    "exit_acc": 113.64,
+    "cue_acc": 29.909999999999997,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 49.64,
+    "cue": 37.91,
+    "exit_cue": 43.775,
+    "exit_acc": 49.64,
+    "cue_acc": 37.91,
+    "X": 16
+   },
+   "win": [
+    96,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 74.49,
+   "pro_in": 15.43,
+   "default": {
+    "exit": 54.510000000000005,
+    "cue": 14.43,
+    "exit_cue": 34.47,
+    "exit_acc": 54.510000000000005,
+    "cue_acc": 14.43,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 54.510000000000005,
+    "cue": 17.57,
+    "exit_cue": 36.040000000000006,
+    "exit_acc": 54.510000000000005,
+    "cue_acc": 17.57,
+    "X": 16
+   },
+   "win": [
+    144,
+    32,
+    16
+   ],
+   "tags": [
+    "grid",
+    "outro_intro"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 112.48,
+   "pro_in": 32.48,
+   "default": {
+    "exit": 32.519999999999996,
+    "cue": 0.5200000000000031,
+    "exit_cue": 16.52,
+    "exit_acc": 32.519999999999996,
+    "cue_acc": 0.5200000000000031,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 31.480000000000004,
+    "cue": 0.5200000000000031,
+    "exit_cue": 16.000000000000004,
+    "exit_acc": 31.480000000000004,
+    "cue_acc": 0.5200000000000031,
+    "X": 16
+   },
+   "win": [
+    96,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__43",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 107.43,
+   "pro_in": 28.36,
+   "default": {
+    "exit": 85.57,
+    "cue": 11.36,
+    "exit_cue": 48.464999999999996,
+    "exit_acc": 80.0,
+    "cue_acc": 11.36,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 5.569999999999993,
+    "cue": 4.640000000000001,
+    "exit_cue": 5.104999999999997,
+    "exit_acc": 0,
+    "cue_acc": 2,
+    "X": 16
+   },
+   "win": [
+    128,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 83.85,
+   "pro_in": 36.59,
+   "default": {
+    "exit": 93.15,
+    "cue": 3.5900000000000034,
+    "exit_cue": 48.370000000000005,
+    "exit_acc": 93.15,
+    "cue_acc": 3.5900000000000034,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 13.150000000000006,
+    "cue": 3.5900000000000034,
+    "exit_cue": 8.370000000000005,
+    "exit_acc": 13.150000000000006,
+    "cue_acc": 3.5900000000000034,
+    "X": 16
+   },
+   "win": [
+    112,
+    32,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 112.46,
+   "pro_in": 15.4,
+   "default": {
+    "exit": 128.54000000000002,
+    "cue": 1.5999999999999996,
+    "exit_cue": 65.07000000000001,
+    "exit_acc": 128.54000000000002,
+    "cue_acc": 1.5999999999999996,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 16.540000000000006,
+    "cue": 1.5999999999999996,
+    "exit_cue": 9.070000000000004,
+    "exit_acc": 16.540000000000006,
+    "cue_acc": 1.5999999999999996,
+    "X": 32
+   },
+   "win": [
+    160,
+    16,
+    32
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__05",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 152.01,
+   "pro_in": 8.02,
+   "default": {
+    "exit": 15.009999999999991,
+    "cue": 0.9800000000000004,
+    "exit_cue": 7.994999999999996,
+    "exit_acc": 15.009999999999991,
+    "cue_acc": 0.9800000000000004,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 15.009999999999991,
+    "cue": 16.98,
+    "exit_cue": 15.994999999999996,
+    "exit_acc": 15.009999999999991,
+    "cue_acc": 16.98,
+    "X": 16
+   },
+   "win": [
+    152,
+    24,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__29",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 165.43,
+   "pro_in": 7.47,
+   "default": {
+    "exit": 4.430000000000007,
+    "cue": 1.5300000000000002,
+    "exit_cue": 2.9800000000000035,
+    "exit_acc": 3,
+    "cue_acc": 1.5300000000000002,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 4.430000000000007,
+    "cue": 9.530000000000001,
+    "exit_cue": 6.980000000000004,
+    "exit_acc": 3,
+    "cue_acc": 9.530000000000001,
+    "X": 16
+   },
+   "win": [
+    176,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__11",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 84.5,
+   "pro_in": 2.82,
+   "default": {
+    "exit": 60.5,
+    "cue": 6.18,
+    "exit_cue": 33.34,
+    "exit_acc": 60.0,
+    "cue_acc": 6.18,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 20.5,
+    "cue": 14.18,
+    "exit_cue": 17.34,
+    "exit_acc": 20,
+    "cue_acc": 14.18,
+    "X": 32
+   },
+   "win": [
+    136,
+    16,
+    32
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__17",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 72.31,
+   "pro_in": 8.68,
+   "default": {
+    "exit": 40.69,
+    "cue": 16.32,
+    "exit_cue": 28.505,
+    "exit_acc": 40.69,
+    "cue_acc": 16.32,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.6899999999999977,
+    "cue": 8.32,
+    "exit_cue": 4.504999999999999,
+    "exit_acc": 0.6899999999999977,
+    "cue_acc": 8.32,
+    "X": 32
+   },
+   "win": [
+    104,
+    16,
+    32
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__21",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 79.7,
+   "pro_in": 15.26,
+   "default": {
+    "exit": 33.3,
+    "cue": 14.26,
+    "exit_cue": 23.779999999999998,
+    "exit_acc": 33.0,
+    "cue_acc": 14.26,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.700000000000003,
+    "cue": 6.26,
+    "exit_cue": 6.480000000000001,
+    "exit_acc": 6.700000000000003,
+    "cue_acc": 6.26,
+    "X": 16
+   },
+   "win": [
+    88,
+    8,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__35",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 31.27,
+   "pro_in": 127.38,
+   "default": {
+    "exit": 113.73,
+    "cue": 78.38,
+    "exit_cue": 96.055,
+    "exit_acc": 111.0,
+    "cue_acc": 78.38,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 49.730000000000004,
+    "cue": 110.38,
+    "exit_cue": 80.055,
+    "exit_acc": 47,
+    "cue_acc": 110.38,
+    "X": 16
+   },
+   "win": [
+    96,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__40",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 104.13,
+   "pro_in": 15.63,
+   "default": {
+    "exit": 56.870000000000005,
+    "cue": 1.3699999999999992,
+    "exit_cue": 29.12,
+    "exit_acc": 56.870000000000005,
+    "cue_acc": 1.3699999999999992,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 15.129999999999995,
+    "cue": 1.3699999999999992,
+    "exit_cue": 8.249999999999996,
+    "exit_acc": 15,
+    "cue_acc": 1.3699999999999992,
+    "X": 32
+   },
+   "win": [
+    120,
+    16,
+    32
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_CeiP904BMzY__10",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 111.67,
+   "pro_in": 31.91,
+   "default": {
+    "exit": 73.33,
+    "cue": 30.91,
+    "exit_cue": 52.12,
+    "exit_acc": 73,
+    "cue_acc": 30.91,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 65.33,
+    "cue": 14.91,
+    "exit_cue": 40.12,
+    "exit_acc": 65,
+    "cue_acc": 14.91,
+    "X": 16
+   },
+   "win": [
+    192,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_CeiP904BMzY__17",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 96.22,
+   "pro_in": 0.4,
+   "default": {
+    "exit": 112.78,
+    "cue": 16.6,
+    "exit_cue": 64.69,
+    "exit_acc": 112.78,
+    "cue_acc": 16.6,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 96.78,
+    "cue": 48.6,
+    "exit_cue": 72.69,
+    "exit_acc": 96.78,
+    "cue_acc": 48.6,
+    "X": 32
+   },
+   "win": [
+    224,
+    48,
+    32
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_CeiP904BMzY__27",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 136.15,
+   "pro_in": 16.74,
+   "default": {
+    "exit": 96.85,
+    "cue": 15.739999999999998,
+    "exit_cue": 56.294999999999995,
+    "exit_acc": 96,
+    "cue_acc": 15,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.8499999999999943,
+    "cue": 0.26000000000000156,
+    "exit_cue": 0.5549999999999979,
+    "exit_acc": 0,
+    "cue_acc": 0.26000000000000156,
+    "X": 16
+   },
+   "win": [
+    152,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_CeiP904BMzY__28",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 96.66,
+   "pro_in": 0.72,
+   "default": {
+    "exit": 96.34,
+    "cue": 0.28,
+    "exit_cue": 48.31,
+    "exit_acc": 96.34,
+    "cue_acc": 0.28,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 0.3400000000000034,
+    "cue": 16.28,
+    "exit_cue": 8.310000000000002,
+    "exit_acc": 0.3400000000000034,
+    "cue_acc": 16.28,
+    "X": 16
+   },
+   "win": [
+    112,
+    16,
+    16
+   ],
+   "tags": [
+    "grid"
+   ]
+  },
+  {
+   "id": "ukf_drum_bass_m5J1HWZ4csU__02",
+   "dj": "UKF Drum & Bass",
+   "pro_out": 111.12,
+   "pro_in": 80.77,
+   "default": {
+    "exit": 81.88,
+    "cue": 63.769999999999996,
+    "exit_cue": 72.82499999999999,
+    "exit_acc": 81,
+    "cue_acc": 63.769999999999996,
+    "X": 16
+   },
+   "style_gated": {
+    "exit": 6.1200000000000045,
+    "cue": 63.769999999999996,
+    "exit_cue": 34.945,
+    "exit_acc": 6.1200000000000045,
+    "cue_acc": 63.769999999999996,
+    "X": 16
+   },
+   "win": [
+    120,
+    16,
+    16
+   ],
+   "tags": [
+    "grid",
+    "replica_bd"
+   ]
+  }
+ ]
+}

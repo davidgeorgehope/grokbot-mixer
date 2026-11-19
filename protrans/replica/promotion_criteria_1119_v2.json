@@ -1,0 +1,15 @@
+{
+ "written": "2026-11-19 ~01:40 ET. Supersedes promotion_criteria_1119.json for tonight. The joint-window candidate frozen there failed its own dev criterion once restricted to renderable X in {16,32} (dev LODO exit+cue delta -8.95 [-15.22, +0.50]); it had also been scored once on the protrans-33 eval-only set (-15.67 [-24.69, -1.77]). After dev-only iteration the candidate below is frozen BEFORE it is scored on protrans-33, the locked holdout or the fresh mix.",
+ "candidate_frozen": "picker_1119b model_style_gated: factored LightGBM LambdaMART exit ranker + cue ranker (each with its own margin gate vs the default value, tau by inner leave-one-DJ-out) + blend-length classifier (X 16/32), online DJ-style features (index < t), fit on all 148 dev corpus_v2 transitions; window -> PICKER_WIN flag; off by default",
+ "veto": "hard checks only veto: a rendered pick that fails the hard-check set falls back to the default window (reported raw and vetoed)",
+ "keep_as_flag_tonight_only_if_all": [
+  "dev leave-one-DJ-out: grouped-by-mix bootstrap 95% CI of exit+cue delta vs default entirely below 0",
+  "locked holdout (Liquicity + Hospital Records): exit+cue delta point estimate < 0",
+  "protrans-33 eval-only set and the fresh mix: exit+cue delta point estimate <= 0",
+  "no single metric materially worse on dev CV: exit hit@16 and cue hit@16 not down by more than 0.10; blend-length proxy error not up by more than 2 bars",
+  "hard checks after veto: 0 new hard-fail pairs vs default on every rendered pair"
+ ],
+ "promote_to_default_only_if": "same as promotion_criteria_1119.json: two consecutive qualifying nights, locked-holdout CI entirely below 0, fresh not worse, tests pass; tonight is at most night 1",
+ "note": "Similarity, Grok judge and the listener's A/B are diagnostics only. rules.json is never edited.",
+ "tonight_outcome": "2026-11-19 wrap-up: dev and protrans-33 pass; locked holdout opened once (14 pairs) and FAILS after veto (+2.67 [-7.06, 15.85]); not a night-1 win. See docs/NIGHTLY_2026-11-19.md."
+}

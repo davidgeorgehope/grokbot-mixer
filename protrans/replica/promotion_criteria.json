@@ -1,8 +1,31 @@
-{"written": "2026-11-18 ~22:13 ET, before the locked-holdout check",
- "candidates_frozen_from_dev": ["model_conformal (style_setting)", "model_plain (style_setting)", "gate_apriori (REPLICA=gated)"],
+{
+ "written": "2026-11-18 ~22:13 ET, before the locked-holdout check",
+ "candidates_frozen_from_dev": [
+  "model_conformal (style_setting)",
+  "model_plain (style_setting)",
+  "gate_apriori (REPLICA=gated)"
+ ],
  "promote_only_if_all": [
-   "locked holdout (Liquicity + Hospital Records corpus mixes): grouped-bootstrap 95% CI of mean exit+cue bar error delta vs default lies entirely below 0",
-   "fresh-mix test: same delta not worse (point estimate <= 0)",
-   "hard checks: no more hard-fail pairs than default on dev + holdout + fresh (pairs where default already fails are not counted against it)",
-   "style_setting variants additionally need a real per-mix style setting from the listener; until then they stay flags"],
- "note": "Similarity score is diagnostic only. the listener's A/B is an optional low-weight taste signal, not a gate. rules.json is never edited by this workstream."}
+  "locked holdout (Liquicity + Hospital Records corpus mixes): grouped-bootstrap 95% CI of mean exit+cue bar error delta vs default lies entirely below 0",
+  "fresh-mix test: same delta not worse (point estimate <= 0)",
+  "hard checks: no more hard-fail pairs than default on dev + holdout + fresh (pairs where default already fails are not counted against it)",
+  "style_setting variants additionally need a real per-mix style setting from the listener; until then they stay flags"
+ ],
+ "note": "Similarity score is diagnostic only. the listener's A/B is an optional low-weight taste signal, not a gate. rules.json is never edited by this workstream.",
+ "locked_holdout_opens": [
+  {
+   "when": "2026-11-19 2:26 AM ET",
+   "by": "nightly wrap-up (picker1119b-holdout job, picker_1119b.py holdout)",
+   "pairs": 14,
+   "mixes": [
+    "hospital_records_Lm2VlTogWvY",
+    "hospital_records_zYANUM_lubI",
+    "liquicity_EuPkz0GFI4g",
+    "liquicity_nYOcD3qTdg0"
+   ],
+   "candidate": "picker_1119b model_style_gated (frozen in promotion_criteria_1119_v2.json)",
+   "result": "raw exit+cue delta -1.62 [-16.29, 12.67]; after hard-check veto +2.67 [-7.06, 15.85] (2 of 9 rendered picks newly hard-failed and reverted); not a pass",
+   "note": "First opening of the Liquicity/Hospital locked holdout. Any later look at it is a repeated look: a future candidate must still show CI entirely below 0 there, and the doc must say it is the 2nd+ opening."
+  }
+ ]
+}

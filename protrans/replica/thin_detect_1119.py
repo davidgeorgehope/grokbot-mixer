@@ -35,7 +35,7 @@ if __name__ == '__main__':
     todo = [(r['id'], r['ya'], r['yb'], *SRC.get(r['id'], (None, None))) for r in S.dev_rows() if r['id'] in SRC] + [(r['id'], r['a']['yt'], r['b']['yt'], *SRC.get(r['id'], (None, None))) for r in T.load_recs()]
     OUT = os.path.join(H, f'{TAG}_detect_1119.json'); res = json.load(open(OUT)) if os.path.exists(OUT) else {}
     todo = [t for t in todo if t[0] not in res or any(v is None for v in res[t[0]].values())]
-    with Pool(6) as pool:
+    with Pool(int(os.environ.get('TD_POOL', 6))) as pool:
         for i, (pid, o) in enumerate(pool.imap_unordered(job, todo)):
             res[pid] = o
             if i % 10 == 0: json.dump(res, open(OUT, 'w')); print(i, pid, {c: (o[c] or {}).get('nat_short') for c in o}, flush=True)

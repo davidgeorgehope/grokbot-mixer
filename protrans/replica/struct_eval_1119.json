@@ -1,0 +1,1444 @@
+{
+ "changed": {
+  "B0": 102,
+  "B100": 35,
+  "QC": 7,
+  "COND": 33,
+  "SLOW": 12,
+  "QCS": 18,
+  "SLOWB": 39
+ },
+ "dev": {
+  "QC": {
+   "n": 7,
+   "n_window_changed": 3,
+   "base_fail": 3,
+   "arm_fail": 1,
+   "diff": {
+    "delta": -0.286,
+    "ci": [
+     -0.667,
+     0.0
+    ]
+   },
+   "with_gated_d": {
+    "base": 0,
+    "arm": 0,
+    "diff": {
+     "delta": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "lodo_range": [
+    -0.4,
+    0.0
+   ],
+   "play": {
+    "n": 7,
+    "out_bars_left_base_median": 1.0,
+    "out_bars_left_arm_median": 12.0,
+    "out_bars_left_diff": {
+     "delta": 6.857,
+     "ci": [
+      1.778,
+      13.333
+     ]
+    },
+    "in_skip_diff": {
+     "delta": -4.571,
+     "ci": [
+      -16.0,
+      5.333
+     ]
+    },
+    "cut_16plus_more": 3
+   },
+   "rows": [
+    {
+     "id": "alpha_rhythm_AU0V19j8oKM__16",
+     "mix": "alpha_rhythm_AU0V19j8oKM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 16,
+     "arm_skip": 32
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__03",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "hybrid_minds_ukf__45",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      112,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "joe_syntax_hospital__13",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__12",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 12,
+     "arm_left": 12,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__10",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__27",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      24,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 24,
+     "arm_skip": 24
+    }
+   ]
+  },
+  "SLOW": {
+   "n": 12,
+   "n_window_changed": 7,
+   "base_fail": 6,
+   "arm_fail": 4,
+   "diff": {
+    "delta": -0.167,
+    "ci": [
+     -0.556,
+     0.143
+    ]
+   },
+   "with_gated_d": {
+    "base": 4,
+    "arm": 2,
+    "diff": {
+     "delta": -0.167,
+     "ci": [
+      -0.444,
+      0.0
+     ]
+    }
+   },
+   "lodo_range": [
+    -0.3,
+    -0.091
+   ],
+   "play": {
+    "n": 12,
+    "out_bars_left_base_median": 1.0,
+    "out_bars_left_arm_median": 16.5,
+    "out_bars_left_diff": {
+     "delta": 9.333,
+     "ci": [
+      5.323,
+      13.333
+     ]
+    },
+    "in_skip_diff": {
+     "delta": 1.333,
+     "ci": [
+      -2.911,
+      6.154
+     ]
+    },
+    "cut_16plus_more": 7
+   },
+   "rows": [
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__13",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__14",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__03",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__00",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      8,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      8,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 8,
+     "arm_skip": 8
+    },
+    {
+     "id": "joe_syntax_hospital__12",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      48,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 11,
+     "arm_left": 27,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "john_b_frbb5gILfjo__06",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      80,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      80,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 80,
+     "arm_skip": 80
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__22",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "netsky_hospital_classics__17",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__05",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__07",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__22",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 24,
+     "arm_skip": 48
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 16,
+     "arm_skip": 16
+    }
+   ]
+  },
+  "QCS": {
+   "n": 18,
+   "n_window_changed": 9,
+   "base_fail": 8,
+   "arm_fail": 5,
+   "diff": {
+    "delta": -0.167,
+    "ci": [
+     -0.438,
+     0.056
+    ]
+   },
+   "with_gated_d": {
+    "base": 4,
+    "arm": 2,
+    "diff": {
+     "delta": -0.111,
+     "ci": [
+      -0.263,
+      0.0
+     ]
+    }
+   },
+   "lodo_range": [
+    -0.25,
+    -0.071
+   ],
+   "play": {
+    "n": 18,
+    "out_bars_left_base_median": 1.0,
+    "out_bars_left_arm_median": 14.0,
+    "out_bars_left_diff": {
+     "delta": 8.0,
+     "ci": [
+      5.333,
+      11.294
+     ]
+    },
+    "in_skip_diff": {
+     "delta": 0.889,
+     "ci": [
+      -3.048,
+      5.5
+     ]
+    },
+    "cut_16plus_more": 9
+   },
+   "rows": [
+    {
+     "id": "alpha_rhythm_AU0V19j8oKM__16",
+     "mix": "alpha_rhythm_AU0V19j8oKM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 16,
+     "arm_skip": 32
+    },
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__13",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__14",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__03",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__00",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      8,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      8,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 8,
+     "arm_skip": 8
+    },
+    {
+     "id": "hybrid_minds_ukf__45",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      112,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "joe_syntax_hospital__12",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      48,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 11,
+     "arm_left": 27,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "joe_syntax_hospital__13",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "john_b_frbb5gILfjo__06",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      80,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      80,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 80,
+     "arm_skip": 80
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__12",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 12,
+     "arm_left": 12,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__22",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "netsky_hospital_classics__17",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__05",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__07",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__10",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__27",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      24,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 24,
+     "arm_skip": 24
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__22",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 24,
+     "arm_skip": 48
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 16,
+     "arm_skip": 16
+    }
+   ]
+  }
+ },
+ "cohort": {
+  "base": {
+   "test": 34.07,
+   "test_with_d": 34.07,
+   "test_pairs_vs_floor": [],
+   "train": 32.4,
+   "train_with_d": 32.4,
+   "train_pairs_vs_floor": [],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    4.0
+   ]
+  },
+  "QC": {
+   "test": 34.07,
+   "test_with_d": 34.07,
+   "test_pairs_vs_floor": [],
+   "train": 32.06,
+   "train_with_d": 32.15,
+   "train_pairs_vs_floor": [
+    [
+     "hybrid_minds_ukf__45",
+     -7.22
+    ]
+   ],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    4.0
+   ]
+  },
+  "SLOW": {
+   "test": 34.07,
+   "test_with_d": 34.07,
+   "test_pairs_vs_floor": [],
+   "train": 33.19,
+   "train_with_d": 33.28,
+   "train_pairs_vs_floor": [
+    [
+     "joe_syntax_hospital__12",
+     16.49
+    ]
+   ],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    4.0
+   ]
+  },
+  "QCS": {
+   "test": 34.07,
+   "test_with_d": 34.07,
+   "test_pairs_vs_floor": [],
+   "train": 32.84,
+   "train_with_d": 32.93,
+   "train_pairs_vs_floor": [
+    [
+     "hybrid_minds_ukf__45",
+     -7.22
+    ],
+    [
+     "joe_syntax_hospital__12",
+     16.49
+    ]
+   ],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    4.0
+   ]
+  },
+  "B0": {
+   "test": 28.36,
+   "test_with_d": 28.36,
+   "test_pairs_vs_floor": [
+    [
+     "pola_bryson_puzzlewood__00",
+     -27.84
+    ],
+    [
+     "maduk_liquicity_lunar2025__03",
+     -23.68
+    ],
+    [
+     "netsky_hospital_classics__15",
+     -18.19
+    ],
+    [
+     "netsky_hospital_classics__17",
+     -16.87
+    ],
+    [
+     "netsky_hospital_classics__02",
+     -10.19
+    ],
+    [
+     "pola_bryson_puzzlewood__04",
+     -5.5
+    ],
+    [
+     "maduk_liquicity_lunar2025__05",
+     2.46
+    ],
+    [
+     "netsky_hospital_classics__23",
+     3.69
+    ],
+    [
+     "maduk_liquicity_lunar2025__02",
+     4.02
+    ],
+    [
+     "netsky_hospital_classics__06",
+     7.0
+    ],
+    [
+     "pola_bryson_puzzlewood__02",
+     16.65
+    ]
+   ],
+   "train": 27.5,
+   "train_with_d": 27.5,
+   "train_pairs_vs_floor": [
+    [
+     "joe_syntax_hospital__11",
+     -41.68
+    ],
+    [
+     "hybrid_minds_ukf__08",
+     -28.43
+    ],
+    [
+     "hybrid_minds_ukf__28",
+     -16.31
+    ],
+    [
+     "hybrid_minds_ukf__10",
+     -13.55
+    ],
+    [
+     "hybrid_minds_ukf__11",
+     -13.18
+    ],
+    [
+     "hybrid_minds_ukf__40",
+     -10.82
+    ],
+    [
+     "hybrid_minds_ukf__19",
+     -10.64
+    ],
+    [
+     "hybrid_minds_ukf__45",
+     -7.22
+    ],
+    [
+     "joe_syntax_hospital__14",
+     -6.28
+    ],
+    [
+     "joe_syntax_hospital__08",
+     -2.95
+    ],
+    [
+     "joe_syntax_hospital__09",
+     -1.1
+    ],
+    [
+     "hybrid_minds_ukf__23",
+     0.75
+    ],
+    [
+     "hybrid_minds_ukf__00",
+     1.5
+    ],
+    [
+     "joe_syntax_hospital__13",
+     2.27
+    ],
+    [
+     "joe_syntax_hospital__00",
+     3.16
+    ],
+    [
+     "hybrid_minds_ukf__13",
+     5.16
+    ],
+    [
+     "hybrid_minds_ukf__09",
+     5.49
+    ],
+    [
+     "joe_syntax_hospital__01",
+     5.76
+    ],
+    [
+     "hybrid_minds_ukf__25",
+     9.57
+    ],
+    [
+     "joe_syntax_hospital__12",
+     15.84
+    ]
+   ],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    32.0
+   ]
+  },
+  "B100": {
+   "test": 31.7,
+   "test_with_d": 31.7,
+   "test_pairs_vs_floor": [
+    [
+     "netsky_hospital_classics__15",
+     -18.19
+    ],
+    [
+     "netsky_hospital_classics__02",
+     -10.19
+    ]
+   ],
+   "train": 32.67,
+   "train_with_d": 32.67,
+   "train_pairs_vs_floor": [
+    [
+     "hybrid_minds_ukf__45",
+     -7.22
+    ],
+    [
+     "hybrid_minds_ukf__00",
+     1.5
+    ],
+    [
+     "hybrid_minds_ukf__09",
+     5.49
+    ],
+    [
+     "joe_syntax_hospital__01",
+     5.76
+    ]
+   ],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    7.0
+   ]
+  }
+ }
+}

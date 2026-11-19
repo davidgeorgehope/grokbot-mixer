@@ -1,0 +1,636 @@
+{
+ "rep": {
+  "n": 148,
+  "coef_all": {
+   "a_cut": -1.811720478732987,
+   "a_tail": -0.7064528582847296,
+   "a_bkdn": 1.2119274193749734,
+   "a_outro": -1.0437309828217338,
+   "b_drop_in": 0.7867615629880376,
+   "b_drop_after": -0.26150360414767976,
+   "b_in_drop": -1.1249295241064206,
+   "b_in_bkdn": -1.6213269569778144
+  },
+  "scale": 110.03,
+  "lodo_coef_sign_stable": {
+   "a_cut": true,
+   "a_tail": true,
+   "a_bkdn": true,
+   "a_outro": true,
+   "b_drop_in": true,
+   "b_drop_after": true,
+   "b_in_drop": true,
+   "b_in_bkdn": true
+  },
+  "lodo_mean_ll": -5.676,
+  "uniform_mean_ll": -5.92,
+  "lodo_top1_exit_err_bars_median": 61.5,
+  "rigid_exit_err_bars_median": 58.0
+ },
+ "guarded": {
+  "n_pro_within_guards": 29,
+  "share_of_pairs": 0.196,
+  "exit_err_model_median": 5.0,
+  "exit_err_rigid_median": 2.0,
+  "cue_err_model_median": 9.0,
+  "cue_err_rigid_median": 9.0,
+  "pro_rank_pct_median": 0.2
+ },
+ "guarded_rows": [
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__00",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm__fNcLmH-CYQ",
+   "pro": [
+    206,
+    31
+   ],
+   "top": [
+    192,
+    24
+   ],
+   "rig": null,
+   "rank": 3,
+   "n": 16
+  },
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__01",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm__fNcLmH-CYQ",
+   "pro": [
+    218,
+    31
+   ],
+   "top": [
+    224,
+    24
+   ],
+   "rig": null,
+   "rank": 3,
+   "n": 25
+  },
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__02",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm__fNcLmH-CYQ",
+   "pro": [
+    195,
+    31
+   ],
+   "top": [
+    195,
+    0
+   ],
+   "rig": null,
+   "rank": 1,
+   "n": 5
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__16",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_abhfer_BNoQ",
+   "pro": [
+    164,
+    6
+   ],
+   "top": [
+    160,
+    0
+   ],
+   "rig": null,
+   "rank": 3,
+   "n": 5
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__25",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_abhfer_BNoQ",
+   "pro": [
+    198,
+    23
+   ],
+   "top": [
+    192,
+    0
+   ],
+   "rig": [
+    198,
+    23
+   ],
+   "rank": 34,
+   "n": 68
+  },
+  {
+   "id": "alpha_rhythm_AU0V19j8oKM__12",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_AU0V19j8oKM",
+   "pro": [
+    199,
+    31
+   ],
+   "top": [
+    199,
+    112
+   ],
+   "rig": null,
+   "rank": 16,
+   "n": 30
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__06",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_V0BMNeOy_t4",
+   "pro": [
+    203,
+    29
+   ],
+   "top": [
+    200,
+    24
+   ],
+   "rig": null,
+   "rank": 1,
+   "n": 9
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__07",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_V0BMNeOy_t4",
+   "pro": [
+    211,
+    31
+   ],
+   "top": [
+    216,
+    32
+   ],
+   "rig": null,
+   "rank": 8,
+   "n": 14
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__08",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_V0BMNeOy_t4",
+   "pro": [
+    182,
+    30
+   ],
+   "top": [
+    176,
+    24
+   ],
+   "rig": null,
+   "rank": 1,
+   "n": 10
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__07",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "pro": [
+    262,
+    47
+   ],
+   "top": [
+    264,
+    40
+   ],
+   "rig": [
+    264,
+    40
+   ],
+   "rank": 1,
+   "n": 14
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__09",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "pro": [
+    211,
+    47
+   ],
+   "top": [
+    208,
+    0
+   ],
+   "rig": null,
+   "rank": 1,
+   "n": 13
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__10",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "pro": [
+    197,
+    15
+   ],
+   "top": [
+    192,
+    0
+   ],
+   "rig": null,
+   "rank": 1,
+   "n": 12
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__15",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "pro": [
+    226,
+    43
+   ],
+   "top": [
+    216,
+    0
+   ],
+   "rig": [
+    226,
+    43
+   ],
+   "rank": 1,
+   "n": 22
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__16",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "pro": [
+    189,
+    33
+   ],
+   "top": [
+    62,
+    40
+   ],
+   "rig": [
+    189,
+    33
+   ],
+   "rank": 3,
+   "n": 8
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__06",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_TnnrrqVRZIM",
+   "pro": [
+    182,
+    15
+   ],
+   "top": [
+    192,
+    0
+   ],
+   "rig": null,
+   "rank": 13,
+   "n": 20
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__13",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_TnnrrqVRZIM",
+   "pro": [
+    198,
+    31
+   ],
+   "top": [
+    201,
+    24
+   ],
+   "rig": [
+    201,
+    24
+   ],
+   "rank": 1,
+   "n": 9
+  },
+  {
+   "id": "alpha_rhythm_hb7PvukS-Pk__07",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_hb7PvukS-Pk",
+   "pro": [
+    234,
+    30
+   ],
+   "top": [
+    232,
+    24
+   ],
+   "rig": [
+    232,
+    24
+   ],
+   "rank": 1,
+   "n": 19
+  },
+  {
+   "id": "alpha_rhythm_hb7PvukS-Pk__11",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_hb7PvukS-Pk",
+   "pro": [
+    207,
+    47
+   ],
+   "top": [
+    197,
+    40
+   ],
+   "rig": [
+    197,
+    32
+   ],
+   "rank": 2,
+   "n": 15
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__05",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_abhfer_BNoQ",
+   "pro": [
+    157,
+    7
+   ],
+   "top": [
+    154,
+    16
+   ],
+   "rig": null,
+   "rank": 3,
+   "n": 4
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__29",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_abhfer_BNoQ",
+   "pro": [
+    172,
+    6
+   ],
+   "top": [
+    176,
+    16
+   ],
+   "rig": [
+    176,
+    16
+   ],
+   "rank": 3,
+   "n": 7
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__09",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "pro": [
+    246,
+    62
+   ],
+   "top": [
+    228,
+    40
+   ],
+   "rig": [
+    228,
+    32
+   ],
+   "rank": 4,
+   "n": 19
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__29",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "pro": [
+    204,
+    14
+   ],
+   "top": [
+    208,
+    56
+   ],
+   "rig": [
+    208,
+    48
+   ],
+   "rank": 18,
+   "n": 35
+  },
+  {
+   "id": "john_b_frbb5gILfjo__00",
+   "dj": "John B",
+   "mix": "john_b_frbb5gILfjo",
+   "pro": [
+    159,
+    16
+   ],
+   "top": [
+    160,
+    8
+   ],
+   "rig": [
+    160,
+    0
+   ],
+   "rank": 9,
+   "n": 11
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__41",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "pro": [
+    183,
+    31
+   ],
+   "top": [
+    184,
+    40
+   ],
+   "rig": [
+    184,
+    40
+   ],
+   "rank": 6,
+   "n": 12
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__44",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "pro": [
+    264,
+    29
+   ],
+   "top": [
+    248,
+    16
+   ],
+   "rig": [
+    248,
+    8
+   ],
+   "rank": 5,
+   "n": 21
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__66",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "pro": [
+    214,
+    18
+   ],
+   "top": [
+    224,
+    32
+   ],
+   "rig": null,
+   "rank": 17,
+   "n": 20
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__22",
+   "dj": "KushSessions",
+   "mix": "kushsessions_yaWXrFBRYrM",
+   "pro": [
+    155,
+    31
+   ],
+   "top": [
+    144,
+    0
+   ],
+   "rig": null,
+   "rank": 1,
+   "n": 13
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__39",
+   "dj": "KushSessions",
+   "mix": "kushsessions_yaWXrFBRYrM",
+   "pro": [
+    113,
+    31
+   ],
+   "top": [
+    104,
+    40
+   ],
+   "rig": null,
+   "rank": 1,
+   "n": 15
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__31",
+   "dj": "John B",
+   "mix": "john_b_RyhRkT6DQTQ",
+   "pro": [
+    205,
+    38
+   ],
+   "top": [
+    192,
+    40
+   ],
+   "rig": null,
+   "rank": 1,
+   "n": 15
+  }
+ ],
+ "lodo": {
+  "Alpha Rhythm": {
+   "a_cut": -1.201517065470238,
+   "a_tail": -0.25399387758521674,
+   "a_bkdn": 1.258678705425795,
+   "a_outro": -0.7034836187940947,
+   "b_drop_in": 0.4828819484533258,
+   "b_drop_after": -0.06091328034433792,
+   "b_in_drop": -1.1077615477158822,
+   "b_in_bkdn": -1.6127691830217947
+  },
+  "Fryett": {
+   "a_cut": -1.8763458949857046,
+   "a_tail": -0.7081770259412757,
+   "a_bkdn": 1.2369515583169277,
+   "a_outro": -1.060573062316327,
+   "b_drop_in": 0.8877305472547463,
+   "b_drop_after": -0.19912311998392535,
+   "b_in_drop": -1.045259716710931,
+   "b_in_bkdn": -1.5678080934924383
+  },
+  "John B": {
+   "a_cut": -1.6553789897603224,
+   "a_tail": -0.6073322325740662,
+   "a_bkdn": 1.220426536849375,
+   "a_outro": -0.8877509112363241,
+   "b_drop_in": 0.9320560565154666,
+   "b_drop_after": -0.27137797009693004,
+   "b_in_drop": -1.2209253148448846,
+   "b_in_bkdn": -1.6271735929712023
+  },
+  "KushSessions": {
+   "a_cut": -1.6557963556128161,
+   "a_tail": -0.568410913044193,
+   "a_bkdn": 1.246579400564937,
+   "a_outro": -0.945159741258779,
+   "b_drop_in": 0.7371928251396179,
+   "b_drop_after": -0.3965328418823657,
+   "b_in_drop": -1.2275414901114265,
+   "b_in_bkdn": -1.6239887940723157
+  },
+  "MrMoMMusic": {
+   "a_cut": -1.9397974796459632,
+   "a_tail": -0.6903867582875094,
+   "a_bkdn": 0.24216026314263123,
+   "a_outro": -0.996143139758878,
+   "b_drop_in": 1.0347005609350357,
+   "b_drop_after": -0.054307815670618965,
+   "b_in_drop": -0.6605519421886299,
+   "b_in_bkdn": -1.3311882321058706
+  },
+  "Sound Territory": {
+   "a_cut": -1.7867347712138941,
+   "a_tail": -1.1128589773328759,
+   "a_bkdn": 1.3048959483868712,
+   "a_outro": -1.2212135107143323,
+   "b_drop_in": 0.6039480975343965,
+   "b_drop_after": -0.41562979944605305,
+   "b_in_drop": -1.6406239948932757,
+   "b_in_bkdn": -1.6091574048605382
+  },
+  "SuicideSheeep": {
+   "a_cut": -1.818855298645948,
+   "a_tail": -0.6768442769249745,
+   "a_bkdn": 1.2945634898656986,
+   "a_outro": -1.0162753841004837,
+   "b_drop_in": 0.7272645417396175,
+   "b_drop_after": -0.281046230888249,
+   "b_in_drop": -1.1419424158690978,
+   "b_in_bkdn": -1.6802346668479162
+  },
+  "TheHeshBesh": {
+   "a_cut": -2.0269995570367256,
+   "a_tail": -0.7676829889495286,
+   "a_bkdn": 1.373971978512633,
+   "a_outro": -0.9923257262716644,
+   "b_drop_in": 0.7866769783996249,
+   "b_drop_after": -0.28061304418305255,
+   "b_in_drop": -1.0464402319308643,
+   "b_in_bkdn": -1.7126911011288648
+  },
+  "UKF Drum & Bass": {
+   "a_cut": -1.953845979614945,
+   "a_tail": -0.7189017919880477,
+   "a_bkdn": 1.186006096029726,
+   "a_outro": -0.9530458597570655,
+   "b_drop_in": 0.8414002840571609,
+   "b_drop_after": -0.39040303199089527,
+   "b_in_drop": -0.9229495563672099,
+   "b_in_bkdn": -1.4404363556276676
+  }
+ }
+}

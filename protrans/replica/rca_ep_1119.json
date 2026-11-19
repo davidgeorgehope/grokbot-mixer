@@ -1,0 +1,1080 @@
+{
+ "pairs": [
+  {
+   "id": "pola_bryson_puzzlewood__00",
+   "kind": "loser",
+   "dj": "Pola & Bryson",
+   "split": "test",
+   "pair": "Pola & Bryson feat. Hugh Hardie - Vetur -> Pola & Bryson & Ko-Jo - Closer to Home",
+   "titles": [
+    "Pola & Bryson feat. Hugh Hardie - Vetur",
+    "Pola & Bryson & Ko-Jo - Closer to Home"
+   ],
+   "ya": "_IgqP6Hv3fs",
+   "yb": "wyl3hVnB1dQ",
+   "bar_sec": 1.3793,
+   "A": {
+    "drops": [
+     [
+      64,
+      112
+     ],
+     [
+      128,
+      176
+     ]
+    ],
+    "drop1": 64,
+    "music_end": 185,
+    "slow": [
+     [
+      1,
+      64,
+      "intro"
+     ],
+     [
+      113,
+      126,
+      "breakdown"
+     ],
+     [
+      177,
+      186,
+      "outro"
+     ]
+    ]
+   },
+   "B": {
+    "drops": [
+     [
+      48,
+      96
+     ],
+     [
+      128,
+      168
+     ]
+    ],
+    "drop1": 48,
+    "music_end": 171,
+    "slow": [
+     [
+      0,
+      16,
+      "intro"
+     ],
+     [
+      33,
+      47,
+      "intro"
+     ],
+     [
+      97,
+      128,
+      "breakdown"
+     ],
+     [
+      158,
+      171,
+      "breakdown"
+     ]
+    ]
+   },
+   "pro": {
+    "name": "pro",
+    "A": [
+     116.4,
+     126.4
+    ],
+    "B": [
+     36.4,
+     46.4
+    ],
+    "exit": 126.4,
+    "cue": 36.4,
+    "X": 10,
+    "swapA": 125.4,
+    "A_time": [
+     "2:40.55",
+     "2:54.34"
+    ],
+    "B_time": [
+     "0:50.21",
+     "1:04.00"
+    ],
+    "last_drop_played": false,
+    "B_drop_in": false,
+    "A_at": [
+     "4 bars after drop 1 ended at 112",
+     "in a breakdown slowdown [113-126)",
+     "| exit:",
+     "2 bars before drop 2 at 128",
+     "breakdown slowdown ended 0 bars ago"
+    ],
+    "B_at": [
+     "in a intro slowdown [33-47)",
+     "| end:",
+     "2 bars before drop 1 at 48",
+     "in a intro slowdown [33-47)"
+    ]
+   },
+   "default": {
+    "name": "default",
+    "exit": 176,
+    "cue": 32,
+    "X": 16,
+    "A": [
+     160,
+     176
+    ],
+    "B": [
+     32,
+     48
+    ],
+    "score": 59.25,
+    "A_time": [
+     "3:40.69",
+     "4:02.76"
+    ],
+    "B_time": [
+     "0:44.14",
+     "1:06.21"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "inside drop 2 [128-176)",
+     "| exit:",
+     "end of drop 2 (176)",
+     "9 bars before music end (185)",
+     "outro slowdown starts in 1 bars"
+    ],
+    "B_at": [
+     "intro slowdown starts in 1 bars",
+     "| end:",
+     "drop1 (48)",
+     "inside drop 1 [48-96)",
+     "intro slowdown ended 1 bars ago"
+    ]
+   },
+   "EP": {
+    "name": "EP",
+    "exit": 176,
+    "cue": 16,
+    "X": 16,
+    "A": [
+     160,
+     176
+    ],
+    "B": [
+     16,
+     32
+    ],
+    "score": 31.41,
+    "A_time": [
+     "3:40.69",
+     "4:02.76"
+    ],
+    "B_time": [
+     "0:22.07",
+     "0:44.14"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": false,
+    "A_at": [
+     "inside drop 2 [128-176)",
+     "| exit:",
+     "end of drop 2 (176)",
+     "9 bars before music end (185)",
+     "outro slowdown starts in 1 bars"
+    ],
+    "B_at": [
+     "| end:",
+     "intro slowdown starts in 1 bars"
+    ]
+   },
+   "EPS": {
+    "name": "EPS",
+    "exit": 176,
+    "cue": 16,
+    "X": 16,
+    "A": [
+     160,
+     176
+    ],
+    "B": [
+     16,
+     32
+    ],
+    "score": 31.41,
+    "A_time": [
+     "3:40.69",
+     "4:02.76"
+    ],
+    "B_time": [
+     "0:22.07",
+     "0:44.14"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": false,
+    "A_at": [
+     "inside drop 2 [128-176)",
+     "| exit:",
+     "end of drop 2 (176)",
+     "9 bars before music end (185)",
+     "outro slowdown starts in 1 bars"
+    ],
+    "B_at": [
+     "| end:",
+     "intro slowdown starts in 1 bars"
+    ]
+   },
+   "d_EP": -27.84,
+   "d_EPS": -27.84,
+   "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_pola_bryson_puzzlewood__00.png"
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "kind": "loser",
+   "dj": "Hybrid Minds",
+   "split": "train",
+   "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+   "titles": [
+    "Nu:Tone - Balaclava",
+    "SpectraSoul & Alix Perez - The Need"
+   ],
+   "ya": "bnRTUL2jnk0",
+   "yb": "Op886B0sd4Q",
+   "bar_sec": 1.3793,
+   "A": {
+    "drops": [
+     [
+      48,
+      112
+     ],
+     [
+      144,
+      208
+     ]
+    ],
+    "drop1": 48,
+    "music_end": 240,
+    "slow": [
+     [
+      0,
+      16,
+      "intro"
+     ],
+     [
+      107,
+      144,
+      "breakdown"
+     ]
+    ]
+   },
+   "B": {
+    "drops": [
+     [
+      32,
+      96
+     ],
+     [
+      120,
+      184
+     ]
+    ],
+    "drop1": 32,
+    "music_end": 185,
+    "slow": [
+     [
+      94,
+      105,
+      "breakdown"
+     ],
+     [
+      115,
+      127,
+      "breakdown"
+     ],
+     [
+      174,
+      185,
+      "breakdown"
+     ]
+    ]
+   },
+   "pro": {
+    "name": "pro",
+    "A": [
+     126.3,
+     172.3
+    ],
+    "B": [
+     15.0,
+     61.0
+    ],
+    "exit": 172.3,
+    "cue": 15.0,
+    "X": 46,
+    "swapA": 126.3,
+    "A_time": [
+     "2:54.21",
+     "3:57.66"
+    ],
+    "B_time": [
+     "0:20.69",
+     "1:24.14"
+    ],
+    "last_drop_played": false,
+    "B_drop_in": true,
+    "A_at": [
+     "in a breakdown slowdown [107-144)",
+     "| exit:",
+     "inside drop 2 [144-208)"
+    ],
+    "B_at": [
+     "| end:",
+     "inside drop 1 [32-96)"
+    ]
+   },
+   "default": {
+    "name": "default",
+    "exit": 240,
+    "cue": 16,
+    "X": 16,
+    "A": [
+     224,
+     240
+    ],
+    "B": [
+     16,
+     32
+    ],
+    "score": 40.68,
+    "A_time": [
+     "5:08.97",
+     "5:31.03"
+    ],
+    "B_time": [
+     "0:22.07",
+     "0:44.14"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "16 bars before music end (240)",
+     "| exit:",
+     "at/past music end (240)"
+    ],
+    "B_at": [
+     "| end:",
+     "drop1 (32)",
+     "inside drop 1 [32-96)"
+    ]
+   },
+   "EP": {
+    "name": "EP",
+    "exit": 240,
+    "cue": 0,
+    "X": 16,
+    "A": [
+     224,
+     240
+    ],
+    "B": [
+     0,
+     16
+    ],
+    "score": 16.91,
+    "A_time": [
+     "5:08.97",
+     "5:31.03"
+    ],
+    "B_time": [
+     "0:00.00",
+     "0:22.07"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": false,
+    "A_at": [
+     "16 bars before music end (240)",
+     "| exit:",
+     "at/past music end (240)"
+    ],
+    "B_at": [
+     "| end:"
+    ]
+   },
+   "EPS": {
+    "name": "EPS",
+    "exit": 240,
+    "cue": 0,
+    "X": 16,
+    "A": [
+     224,
+     240
+    ],
+    "B": [
+     0,
+     16
+    ],
+    "score": 16.91,
+    "A_time": [
+     "5:08.97",
+     "5:31.03"
+    ],
+    "B_time": [
+     "0:00.00",
+     "0:22.07"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": false,
+    "A_at": [
+     "16 bars before music end (240)",
+     "| exit:",
+     "at/past music end (240)"
+    ],
+    "B_at": [
+     "| end:"
+    ]
+   },
+   "d_EP": -23.77,
+   "d_EPS": -23.77,
+   "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_hybrid_minds_ukf__28.png"
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "kind": "loser",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+   "titles": [
+    "Logistics - We Are One (Nu:Logic Remix)",
+    "Cyantific - Ghetto Blaster"
+   ],
+   "ya": "wUVt_GsvMzw",
+   "yb": "tCyYwek-o28",
+   "bar_sec": 1.3793,
+   "A": {
+    "drops": [
+     [
+      64,
+      128
+     ],
+     [
+      160,
+      240
+     ]
+    ],
+    "drop1": 64,
+    "music_end": 242,
+    "slow": [
+     [
+      26,
+      52,
+      "intro"
+     ],
+     [
+      55,
+      67,
+      "breakdown"
+     ],
+     [
+      129,
+      145,
+      "breakdown"
+     ],
+     [
+      154,
+      163,
+      "breakdown"
+     ]
+    ]
+   },
+   "B": {
+    "drops": [
+     [
+      40,
+      128
+     ],
+     [
+      144,
+      192
+     ]
+    ],
+    "drop1": 40,
+    "music_end": 235,
+    "slow": [
+     [
+      198,
+      235,
+      "outro"
+     ]
+    ]
+   },
+   "pro": {
+    "name": "pro",
+    "A": [
+     206.7,
+     244.7
+    ],
+    "B": [
+     14.7,
+     52.7
+    ],
+    "exit": 244.7,
+    "cue": 14.7,
+    "X": 38,
+    "swapA": 223.7,
+    "A_time": [
+     "4:45.10",
+     "5:37.52"
+    ],
+    "B_time": [
+     "0:20.28",
+     "1:12.69"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "inside drop 2 [160-240)",
+     "| exit:",
+     "5 bars after drop 2 ended at 240",
+     "at/past music end (242)"
+    ],
+    "B_at": [
+     "| end:",
+     "inside drop 1 [40-128)"
+    ]
+   },
+   "default": {
+    "name": "default",
+    "exit": 240,
+    "cue": 24,
+    "X": 16,
+    "A": [
+     224,
+     240
+    ],
+    "B": [
+     24,
+     40
+    ],
+    "score": 60.51,
+    "A_time": [
+     "5:08.97",
+     "5:31.03"
+    ],
+    "B_time": [
+     "0:33.10",
+     "0:55.17"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "inside drop 2 [160-240)",
+     "| exit:",
+     "end of drop 2 (240)",
+     "2 bars before music end (242)"
+    ],
+    "B_at": [
+     "| end:",
+     "drop1 (40)",
+     "inside drop 1 [40-128)"
+    ]
+   },
+   "EP": {
+    "name": "EP",
+    "exit": 240,
+    "cue": 32,
+    "X": 16,
+    "A": [
+     224,
+     240
+    ],
+    "B": [
+     32,
+     48
+    ],
+    "score": 37.93,
+    "A_time": [
+     "5:08.97",
+     "5:31.03"
+    ],
+    "B_time": [
+     "0:44.14",
+     "1:06.21"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "inside drop 2 [160-240)",
+     "| exit:",
+     "end of drop 2 (240)",
+     "2 bars before music end (242)"
+    ],
+    "B_at": [
+     "8 bars before drop 1 at 40",
+     "| end:",
+     "inside drop 1 [40-128)"
+    ]
+   },
+   "EPS": {
+    "name": "EPS",
+    "exit": 240,
+    "cue": 32,
+    "X": 16,
+    "A": [
+     224,
+     240
+    ],
+    "B": [
+     32,
+     48
+    ],
+    "score": 37.93,
+    "A_time": [
+     "5:08.97",
+     "5:31.03"
+    ],
+    "B_time": [
+     "0:44.14",
+     "1:06.21"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "inside drop 2 [160-240)",
+     "| exit:",
+     "end of drop 2 (240)",
+     "2 bars before music end (242)"
+    ],
+    "B_at": [
+     "8 bars before drop 1 at 40",
+     "| end:",
+     "inside drop 1 [40-128)"
+    ]
+   },
+   "d_EP": -22.58,
+   "d_EPS": -22.58,
+   "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_joe_syntax_hospital__11.png"
+  },
+  {
+   "id": "pola_bryson_puzzlewood__02",
+   "kind": "winner",
+   "dj": "Pola & Bryson",
+   "split": "test",
+   "pair": "Pola & Bryson feat. Lauren Archer - Night Dawns -> Pola & Bryson - Wind Rises",
+   "titles": [
+    "Pola & Bryson feat. Lauren Archer - Night Dawns",
+    "Pola & Bryson - Wind Rises"
+   ],
+   "ya": "5VtwlyaYohs",
+   "yb": "fvSe3ZmZRPs",
+   "bar_sec": 1.3793,
+   "A": {
+    "drops": [
+     [
+      48,
+      112
+     ],
+     [
+      144,
+      192
+     ]
+    ],
+    "drop1": 48,
+    "music_end": 217,
+    "slow": [
+     [
+      0,
+      18,
+      "intro"
+     ],
+     [
+      209,
+      220,
+      "outro"
+     ]
+    ]
+   },
+   "B": {
+    "drops": [
+     [
+      32,
+      96
+     ],
+     [
+      128,
+      176
+     ]
+    ],
+    "drop1": 32,
+    "music_end": 194,
+    "slow": [
+     [
+      98,
+      113,
+      "breakdown"
+     ],
+     [
+      116,
+      128,
+      "breakdown"
+     ]
+    ]
+   },
+   "pro": {
+    "name": "pro",
+    "A": [
+     134.3,
+     180.3
+    ],
+    "B": [
+     38.7,
+     84.7
+    ],
+    "exit": 180.3,
+    "cue": 38.7,
+    "X": 46,
+    "swapA": 135.3,
+    "A_time": [
+     "3:05.24",
+     "4:08.69"
+    ],
+    "B_time": [
+     "0:53.38",
+     "1:56.83"
+    ],
+    "last_drop_played": false,
+    "B_drop_in": false,
+    "A_at": [
+     "| exit:",
+     "inside drop 2 [144-192)"
+    ],
+    "B_at": [
+     "inside drop 1 [32-96)",
+     "| end:",
+     "inside drop 1 [32-96)"
+    ]
+   },
+   "default": {
+    "name": "default",
+    "exit": 208,
+    "cue": 16,
+    "X": 16,
+    "A": [
+     192,
+     208
+    ],
+    "B": [
+     16,
+     32
+    ],
+    "score": 20.54,
+    "A_time": [
+     "4:24.83",
+     "4:46.90"
+    ],
+    "B_time": [
+     "0:22.07",
+     "0:44.14"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "end of drop 2 (192)",
+     "| exit:",
+     "9 bars before music end (217)",
+     "outro slowdown starts in 1 bars"
+    ],
+    "B_at": [
+     "| end:",
+     "drop1 (32)",
+     "inside drop 1 [32-96)"
+    ]
+   },
+   "EP": {
+    "name": "EP",
+    "exit": 208,
+    "cue": 0,
+    "X": 16,
+    "A": [
+     192,
+     208
+    ],
+    "B": [
+     0,
+     16
+    ],
+    "score": 33.77,
+    "A_time": [
+     "4:24.83",
+     "4:46.90"
+    ],
+    "B_time": [
+     "0:00.00",
+     "0:22.07"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": false,
+    "A_at": [
+     "end of drop 2 (192)",
+     "| exit:",
+     "9 bars before music end (217)",
+     "outro slowdown starts in 1 bars"
+    ],
+    "B_at": [
+     "| end:"
+    ]
+   },
+   "EPS": {
+    "name": "EPS",
+    "exit": 208,
+    "cue": 0,
+    "X": 16,
+    "A": [
+     192,
+     208
+    ],
+    "B": [
+     0,
+     16
+    ],
+    "score": 33.77,
+    "A_time": [
+     "4:24.83",
+     "4:46.90"
+    ],
+    "B_time": [
+     "0:00.00",
+     "0:22.07"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": false,
+    "A_at": [
+     "end of drop 2 (192)",
+     "| exit:",
+     "9 bars before music end (217)",
+     "outro slowdown starts in 1 bars"
+    ],
+    "B_at": [
+     "| end:"
+    ]
+   },
+   "d_EP": 13.23,
+   "d_EPS": 13.23,
+   "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_pola_bryson_puzzlewood__02.png"
+  },
+  {
+   "id": "joe_syntax_hospital__12",
+   "kind": "winner",
+   "dj": "Joe Syntax",
+   "split": "train",
+   "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+   "titles": [
+    "Cyantific - Ghetto Blaster",
+    "S.P.Y - Seconds To Midnight"
+   ],
+   "ya": "tCyYwek-o28",
+   "yb": "u6cggHmZEAs",
+   "bar_sec": 1.3793,
+   "A": {
+    "drops": [
+     [
+      40,
+      128
+     ],
+     [
+      144,
+      192
+     ]
+    ],
+    "drop1": 40,
+    "music_end": 235,
+    "slow": [
+     [
+      198,
+      235,
+      "outro"
+     ]
+    ]
+   },
+   "B": {
+    "drops": [
+     [
+      64,
+      128
+     ],
+     [
+      160,
+      224
+     ]
+    ],
+    "drop1": 64,
+    "music_end": 259,
+    "slow": [
+     [
+      129,
+      162,
+      "breakdown"
+     ]
+    ]
+   },
+   "pro": {
+    "name": "pro",
+    "A": [
+     189.0,
+     208.0
+    ],
+    "B": [
+     140.0,
+     159.0
+    ],
+    "exit": 208.0,
+    "cue": 140.0,
+    "X": 19,
+    "swapA": 193.0,
+    "A_time": [
+     "4:20.69",
+     "4:46.90"
+    ],
+    "B_time": [
+     "3:13.10",
+     "3:39.31"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": false,
+    "A_at": [
+     "inside drop 2 [144-192)",
+     "| exit:",
+     "in a outro slowdown [198-235)"
+    ],
+    "B_at": [
+     "in a breakdown slowdown [129-162)",
+     "| end:",
+     "1 bars before drop 2 at 160",
+     "in a breakdown slowdown [129-162)"
+    ]
+   },
+   "default": {
+    "name": "default",
+    "exit": 224,
+    "cue": 48,
+    "X": 16,
+    "A": [
+     208,
+     224
+    ],
+    "B": [
+     48,
+     64
+    ],
+    "score": 32.29,
+    "A_time": [
+     "4:46.90",
+     "5:08.97"
+    ],
+    "B_time": [
+     "1:06.21",
+     "1:28.28"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "in a outro slowdown [198-235)",
+     "| exit:",
+     "11 bars before music end (235)",
+     "in a outro slowdown [198-235)"
+    ],
+    "B_at": [
+     "| end:",
+     "drop1 (64)",
+     "inside drop 1 [64-128)"
+    ]
+   },
+   "EP": {
+    "name": "EP",
+    "exit": 224,
+    "cue": 48,
+    "X": 16,
+    "A": [
+     208,
+     224
+    ],
+    "B": [
+     48,
+     64
+    ],
+    "score": 32.29,
+    "A_time": [
+     "4:46.90",
+     "5:08.97"
+    ],
+    "B_time": [
+     "1:06.21",
+     "1:28.28"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "in a outro slowdown [198-235)",
+     "| exit:",
+     "11 bars before music end (235)",
+     "in a outro slowdown [198-235)"
+    ],
+    "B_at": [
+     "| end:",
+     "drop1 (64)",
+     "inside drop 1 [64-128)"
+    ]
+   },
+   "EPS": {
+    "name": "EPS",
+    "exit": 208,
+    "cue": 48,
+    "X": 16,
+    "A": [
+     192,
+     208
+    ],
+    "B": [
+     48,
+     64
+    ],
+    "score": 48.78,
+    "A_time": [
+     "4:24.83",
+     "4:46.90"
+    ],
+    "B_time": [
+     "1:06.21",
+     "1:28.28"
+    ],
+    "last_drop_played": true,
+    "B_drop_in": true,
+    "A_at": [
+     "end of drop 2 (192)",
+     "outro slowdown starts in 6 bars",
+     "| exit:",
+     "in a outro slowdown [198-235)"
+    ],
+    "B_at": [
+     "| end:",
+     "drop1 (64)",
+     "inside drop 1 [64-128)"
+    ]
+   },
+   "d_EP": 0.0,
+   "d_EPS": 16.49,
+   "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_joe_syntax_hospital__12.png"
+  }
+ ],
+ "pngs": [
+  "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_pola_bryson_puzzlewood__00.png",
+  "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_hybrid_minds_ukf__28.png",
+  "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_joe_syntax_hospital__11.png",
+  "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_pola_bryson_puzzlewood__02.png",
+  "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_ep_joe_syntax_hospital__12.png"
+ ]
+}

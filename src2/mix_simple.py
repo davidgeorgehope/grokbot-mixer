@@ -239,6 +239,28 @@ def outro_qc(a,s,e):
       d,f=_OQ.deduction(a,s,e);_QCC[k]=d;QC_LOG.append(dict(a=a,s=s,e=e,ded=round(d,3),f=f))
     except Exception as ex:print('OUTRO_QC failed',a,ex,file=sys.stderr);_QCC[k]=0.0
   return _QCC[k]
+# EXITPOS=1 (2026-11-19, research, off by default): replaces the rigid outro-over-intro bonus with a pro-fitted, structure-based score of
+# where a blend works (protrans/replica/halftime/exitpos.py: where A is left vs its last drop / breakdowns / outro, whether B's drop lands
+# inside the blend, B entering in a drop or breakdown), leave-one-DJ-out weights per outgoing track, scaled so its spread equals STRUCTW.
+# Guards kept as hard +2*STRUCTW: the blend may not start before the last 8 bars of A's last drop (payoff), B may not enter after its first
+# drop (cue skip). The SLOWDOWN rule still applies; its bonus-move is off under EXITPOS (there is no bonus to move).
+# EXITPOS_GATE=1 (2026-11-19, research, off by default): keep the outro-over-intro window as the safe default. An EXITPOS alternative is used
+# only when it exits earlier, A's last drop has played to its end, B's first drop lands inside the blend, and a leave-one-DJ-out logistic
+# (halftime/exitpos_gate.py) says the alternative is closer to a good blend than the default.
+EXITPOS=int(os.environ.get('EXITPOS',0));EXITPOS_GATE=int(os.environ.get('EXITPOS_GATE',0));EP_LOG=[];EPG_LOG=[]
+def exitpos_term(a,b,ea,ib,X,emx=None):
+  try:
+    sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime');import exitpos as _EP
+    SA_,SB_=sections.get(a),sections.get(b);u,scale=_EP.score(a,SA_,SB_,ea,ib,X,me=emx)
+    dr=SA_.get('drops') or [];lde=dr[-1][1] if dr else SA_['music_end'];d1=SB_.get('drop1')
+    # payoff guard v2 (11-19 12:40): A must play its last drop to its end (or to the latest exit this pair allows) and the blend may
+    # overlap at most the last 32 bars of that drop. v1 (start >= lde-8) was infeasible for tracks that end right after their last drop,
+    # so it hit every window and stopped guarding.
+    lim=min(lde,emx) if emx else lde
+    g=2*STRUCTW if (ea<lim or ea-X<lde-32 or (d1 is not None and ib>d1)) else 0.0
+    return g-scale*u
+  except Exception as ex:
+    print('EXITPOS failed',a,b,ex,file=sys.stderr);return 0.0
 STRUCTB=float(os.environ.get('STRUCTB',STRUCTW));STRUCT_COND=int(os.environ.get('STRUCT_COND',0));_SCC={}
 def struct_full(a,s,e):
   k=(a,s,e)
@@ -394,18 +416,51 @@ def pair_cands(i,ia0):
       sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',40))*{'n':0,'la':1,'lb':1,'ab':2,'lx':0}[kind]+(LXPEN if kind=='lx' else 0),-ea,str(ib))
       _k6=(kind,a,b,ea,ib,X)
       if SLOWS and kind in ('n','lb') and any(x<=ea-X<y for x,y in SLOWS):sc=(sc[0]+STRUCTW,)+sc[1:]  # SLOWDOWN: blend may not start inside the outgoing's outro / in-drop slowdown
-      if SLOWALT and _k6 in SLOWALT:sc=(sc[0]-STRUCTW,)+sc[1:]
+      if SLOWALT and _k6 in SLOWALT and not EXITPOS:sc=(sc[0]-STRUCTW,)+sc[1:]
+      if EXITPOS:sc=(sc[0]+exitpos_term(a,b,ea,ib,X,e_max),)+sc[1:]
       if LDE2 is not None and ea-X<LDE2:sc=(sc[0]+STRUCTW,)+sc[1:]  # SLOWDOWN payoff guard: never start before the last 8 bars of A's last drop  # SLOWDOWN: pro-like alternative inherits the outro-over-intro bonus
       if LDE is not None and ea-X<LDE:sc=(sc[0]+STRUCTW,)+sc[1:]  # STRUCT_THIN payoff guard (2026-11-19): blend may not start before A's last drop has played (its last 8 bars may overlap)
       if _k6 in STRK:
         _bw=STRUCTB if not (STRUCT_COND and not struct_full(a,ea-X,ea)) else 0.0
+        if EXITPOS:_bw=0.0
         if OUTRO_QC and _bw>0:_bw*=1-outro_qc(a,ea-X,ea)
         if _k6 in THINK and THIN_DROPCUE and DCUE:_bw=0.0  # THIN_DROPCUE: the bonus moves to the drop-in-overlap cue(s)
         elif _k6 in THINK and STRUCT_THIN:_bw=STRUCTW*STRUCT_THIN_W
         sc=(sc[0]-_bw-(float(os.environ.get('LOOPPEN',40)) if kind=='lb' and _bw>0 else 0),)+sc[1:]
-      elif _k6 in DCUE:sc=(sc[0]-STRUCTW,)+sc[1:]  # blend length chosen per pair from structure + fit (the listener 2026-10-31)
+      elif _k6 in DCUE and not EXITPOS:sc=(sc[0]-STRUCTW,)+sc[1:]  # blend length chosen per pair from structure + fit (the listener 2026-10-31)
       res.append((sc,kind,(e,p) if kind in('la','ab','lx') else e,ib,r,X))
-  X=XMAX;res.sort(key=lambda t:t[0]);return res
+  X=XMAX;res.sort(key=lambda t:t[0])
+  if EXITPOS and EXITPOS_GATE and res:
+    def _ea(c):
+      e=c[2];return (e[0] if isinstance(e,tuple) else e,c[3],c[5],c[1])
+    def _dcost(c):
+      sc,kind,e,ib,r,X=c;ea=_ea(c)[0];term=exitpos_term(a,b,ea,ib,X,e_max);bonus=0.0
+      if (kind,a,b,ea,ib,X) in STRK:
+        bonus=STRUCTB
+        if OUTRO_QC and bonus>0:bonus*=1-outro_qc(a,ea-X,ea)
+      return (sc[0]-term-bonus,)+sc[1:]
+    try:
+      sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime');import exitpos_gate as _EG
+      dwin=min(res,key=_dcost);be,bc,bX,bk=_ea(dwin);default=(be,bc,bX)
+      alts=[]
+      for c in res:
+        ea,ib,X,kind=_ea(c)
+        if kind!='n':continue
+        if _EG.hard_ok((ea,ib,X),default,sections.get(a),sections.get(b)):alts.append(c)
+      take,info=False,dict(reason='no_alt');altw=None
+      if alts:
+        ac=min(alts,key=lambda c:c[0]);ae,ai,aX,_=_ea(ac);altw=(ae,ai,aX)
+        take,info=_EG.should_switch(default,altw,sections.get(a),sections.get(b),ya=a)
+      if take and altw and altw!=default:
+        head=[c for c in alts if _ea(c)[:3]==altw][0]
+        res=[head]+[c for c in res if c is not head]
+      else:
+        res=[dwin]+[c for c in res if c is not dwin]
+      EPG_LOG.append(dict(a=a,b=b,default=list(default),alt=list(altw) if altw else None,take=bool(take),**info))
+      print('EXITPOS_GATE',a,b,'default',default,'alt',altw,'take',take,info,file=sys.stderr)
+    except Exception as ex:
+      print('EXITPOS_GATE failed',a,b,ex,file=sys.stderr)
+  return res
 def win_key(c):return [c[1],*(c[2] if isinstance(c[2],tuple) else (c[2],None)),c[3],c[5]]  # [kind, out bar, loop phrase, in bar, blend bars]
 def nxt_inn(c):return ("loopB",c[3]) if c[1] in("lb","ab") else c[3]
 LOOK=int(os.environ.get("LOOKAHEAD",8))

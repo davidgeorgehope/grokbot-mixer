@@ -10,8 +10,7 @@ import json;ch=json.load(open('replica/struct_changed_1119.json'))
 print(','.join(sorted({i for k,v in ch.items() if k in ('QC','SLOW','QCS') for i in v})))")
 echo "changed ids: $(echo $IDS | tr ',' '\n' | wc -l)"
 r=0
-ONLY=$IDS WORKERS=4 python3 replica/eval_gate.py 'sbase1119={}' 'sqc1119={"OUTRO_QC":1}' 'sslow1119={"SLOWDOWN":1}' 'sqcs1119={"OUTRO_QC":1,"SLOWDOWN":1}'  # STRUCTB 0/100: comparison arms, held-out only (B0 changes 102/105 pairs)
-|| r=$((r+1))
+ONLY=$IDS WORKERS=4 python3 replica/eval_gate.py 'sbase1119={}' 'sqc1119={"OUTRO_QC":1}' 'sslow1119={"SLOWDOWN":1}' 'sqcs1119={"OUTRO_QC":1,"SLOWDOWN":1}' || r=$((r+1))  # STRUCTB comparison arms held-out only
 for v in sbase1119 sqc1119 sslow1119 sqcs1119; do python3 replica/hc2_arrays.py $v || r=$((r+1)); done
 echo "DEV_DONE rc=$r"
 cd /workspace/mixes

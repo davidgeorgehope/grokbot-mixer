@@ -1,0 +1,2557 @@
+{
+ "test_n": 12,
+ "train_n": 21,
+ "test_start_in_rule": [
+  "wilkinson_boomtown2026__33"
+ ],
+ "test_start_in_any": [
+  "wilkinson_boomtown2026__33",
+  "netsky_hospital_classics__17",
+  "netsky_hospital_classics__15",
+  "maduk_liquicity_lunar2025__02"
+ ],
+ "test_near8_rule": [
+  "wilkinson_boomtown2026__33",
+  "netsky_hospital_classics__06",
+  "maduk_liquicity_lunar2025__03",
+  "pola_bryson_puzzlewood__00",
+  "pola_bryson_puzzlewood__02"
+ ],
+ "test_near16_rule": [
+  "wilkinson_boomtown2026__33",
+  "netsky_hospital_classics__06",
+  "netsky_hospital_classics__17",
+  "maduk_liquicity_lunar2025__03",
+  "pola_bryson_puzzlewood__00",
+  "pola_bryson_puzzlewood__02"
+ ],
+ "test_overlap_rule": [
+  "wilkinson_boomtown2026__33",
+  "netsky_hospital_classics__06"
+ ],
+ "test_SLOW_moved": [],
+ "train_start_in_rule": [
+  "joe_syntax_hospital__12",
+  "hybrid_minds_ukf__10"
+ ],
+ "train_SLOW_moved": [
+  "joe_syntax_hospital__12"
+ ],
+ "rows": [
+  {
+   "id": "wilkinson_boomtown2026__33",
+   "split": "test",
+   "dj": "Wilkinson",
+   "pair": "Wilkinson - Ultraviolet feat. Katy Alex -> Wilkinson - Afterglow",
+   "titles": [
+    "Wilkinson - Ultraviolet feat. Katy Alex",
+    "Wilkinson - Afterglow"
+   ],
+   "win": [
+    64,
+    96,
+    0,
+    32,
+    32
+   ],
+   "music_end": 156,
+   "last_drop_end": 152,
+   "drops": [
+    [
+     40,
+     88
+    ],
+    [
+     120,
+     152
+    ]
+   ],
+   "drop1_b": 24,
+   "rule_slows": [
+    [
+     60,
+     73,
+     "in_drop"
+    ],
+    [
+     130,
+     139,
+     "in_drop"
+    ]
+   ],
+   "all_slows": [
+    [
+     10,
+     40,
+     "intro"
+    ],
+    [
+     60,
+     73,
+     "in_drop"
+    ],
+    [
+     89,
+     122,
+     "breakdown"
+    ],
+    [
+     130,
+     139,
+     "in_drop"
+    ],
+    [
+     145,
+     157,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": true,
+   "start_in_any": true,
+   "start_kind": "in_drop",
+   "overlap_bars_rule": 9,
+   "overlap_bars_any": 16,
+   "overlap_frac_rule": 0.28125,
+   "overlap_frac_any": 0.5,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 0,
+   "gap_any": 0,
+   "nearest_rule": [
+    60,
+    73,
+    "in_drop"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    96,
+    null,
+    0,
+    32
+   ],
+   "base_score": 30.2,
+   "slow_score": 30.2,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "joe_syntax_hospital__01",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "pair": "Nu:Tone - The Feeling (ft. Ben Westbeech) -> High Contrast - Fearful Symmetry",
+   "titles": [
+    "Nu:Tone - The Feeling (ft. Ben Westbeech)",
+    "High Contrast - Fearful Symmetry"
+   ],
+   "win": [
+    144,
+    160,
+    32,
+    48,
+    16
+   ],
+   "music_end": 174,
+   "last_drop_end": 144,
+   "drops": [
+    [
+     16,
+     48
+    ],
+    [
+     64,
+     144
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [
+    [
+     158,
+     171,
+     "outro"
+    ]
+   ],
+   "all_slows": [
+    [
+     137,
+     147,
+     "breakdown"
+    ],
+    [
+     158,
+     171,
+     "outro"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": true,
+   "start_kind": "breakdown",
+   "overlap_bars_rule": 2,
+   "overlap_bars_any": 5,
+   "overlap_frac_rule": 0.125,
+   "overlap_frac_any": 0.3125,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 0,
+   "gap_any": 0,
+   "nearest_rule": [
+    158,
+    171,
+    "outro"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "base_score": 30.24,
+   "slow_score": 30.24,
+   "B_start_in_any": true,
+   "B_overlap_any": 1
+  },
+  {
+   "id": "joe_syntax_hospital__08",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "pair": "Nu:Tone - Shine In (ft. Natalie Williams) -> Camo & Krooked - Dusk To Dawn",
+   "titles": [
+    "Nu:Tone - Shine In (ft. Natalie Williams)",
+    "Camo & Krooked - Dusk To Dawn"
+   ],
+   "win": [
+    224,
+    240,
+    40,
+    56,
+    16
+   ],
+   "music_end": 248,
+   "last_drop_end": 232,
+   "drops": [
+    [
+     64,
+     232
+    ]
+   ],
+   "drop1_b": 56,
+   "rule_slows": [
+    [
+     150,
+     163,
+     "in_drop"
+    ]
+   ],
+   "all_slows": [
+    [
+     150,
+     163,
+     "in_drop"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": 61,
+   "gap_any": 61,
+   "nearest_rule": [
+    150,
+    163,
+    "in_drop"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ],
+   "base_score": 30.08,
+   "slow_score": 30.08,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "hybrid_minds_ukf__08",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Mitekiss - Final Hours -> Hybrid Minds - Listen (ft. Tiffani Juno)",
+   "titles": [
+    "Mitekiss - Final Hours",
+    "Hybrid Minds - Listen (ft. Tiffani Juno)"
+   ],
+   "win": [
+    208,
+    224,
+    32,
+    48,
+    16
+   ],
+   "music_end": 224,
+   "last_drop_end": 208,
+   "drops": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     0,
+     17,
+     "intro"
+    ],
+    [
+     114,
+     146,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 62,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    224,
+    null,
+    32,
+    16
+   ],
+   "base_score": 42.98,
+   "slow_score": 42.98,
+   "B_start_in_any": true,
+   "B_overlap_any": 1
+  },
+  {
+   "id": "hybrid_minds_ukf__11",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
+   "titles": [
+    "Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+    "Sabre - These Simple Things"
+   ],
+   "win": [
+    192,
+    208,
+    64,
+    80,
+    16
+   ],
+   "music_end": 221,
+   "last_drop_end": 208,
+   "drops": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "drop1_b": 80,
+   "rule_slows": [
+    [
+     209,
+     222,
+     "outro"
+    ]
+   ],
+   "all_slows": [
+    [
+     2,
+     19,
+     "intro"
+    ],
+    [
+     37,
+     50,
+     "intro"
+    ],
+    [
+     120,
+     147,
+     "breakdown"
+    ],
+    [
+     209,
+     222,
+     "outro"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 1,
+   "gap_any": 1,
+   "nearest_rule": [
+    209,
+    222,
+    "outro"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ],
+   "base_score": 34.15,
+   "slow_score": 34.15,
+   "B_start_in_any": true,
+   "B_overlap_any": 11
+  },
+  {
+   "id": "hybrid_minds_ukf__12",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+   "titles": [
+    "Sabre - These Simple Things",
+    "Hybrid Minds - Pretend (ft. Rocky Nti)"
+   ],
+   "win": [
+    288,
+    304,
+    32,
+    48,
+    16
+   ],
+   "music_end": 304,
+   "last_drop_end": 304,
+   "drops": [
+    [
+     80,
+     304
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [
+    [
+     91,
+     102,
+     "in_drop"
+    ],
+    [
+     202,
+     211,
+     "in_drop"
+    ],
+    [
+     218,
+     231,
+     "in_drop"
+    ],
+    [
+     246,
+     258,
+     "in_drop"
+    ]
+   ],
+   "all_slows": [
+    [
+     43,
+     75,
+     "intro"
+    ],
+    [
+     91,
+     102,
+     "in_drop"
+    ],
+    [
+     202,
+     211,
+     "in_drop"
+    ],
+    [
+     218,
+     231,
+     "in_drop"
+    ],
+    [
+     246,
+     258,
+     "in_drop"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": 30,
+   "gap_any": 30,
+   "nearest_rule": [
+    246,
+    258,
+    "in_drop"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    304,
+    null,
+    32,
+    16
+   ],
+   "base_score": 12.03,
+   "slow_score": 12.03,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  },
+  {
+   "id": "hybrid_minds_ukf__19",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Urbandawn - Prime Expansion -> Hybrid Minds - Demons (ft. Charlotte Haining)",
+   "titles": [
+    "Urbandawn - Prime Expansion",
+    "Hybrid Minds - Demons (ft. Charlotte Haining)"
+   ],
+   "win": [
+    160,
+    176,
+    32,
+    48,
+    16
+   ],
+   "music_end": 185,
+   "last_drop_end": 184,
+   "drops": [
+    [
+     32,
+     112
+    ],
+    [
+     136,
+     184
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     7,
+     23,
+     "intro"
+    ],
+    [
+     113,
+     135,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 25,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "base_score": 27.92,
+   "slow_score": 27.92,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "hybrid_minds_ukf__25",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Logistics - Together",
+   "titles": [
+    "Jome - Cinnamon (Hybrid Minds Remix)",
+    "Logistics - Together"
+   ],
+   "win": [
+    176,
+    192,
+    0,
+    16,
+    16
+   ],
+   "music_end": 205,
+   "last_drop_end": 192,
+   "drops": [
+    [
+     48,
+     112
+    ],
+    [
+     128,
+     192
+    ]
+   ],
+   "drop1_b": 16,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     23,
+     32,
+     "intro"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 144,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "base_score": 26.37,
+   "slow_score": 26.37,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "hybrid_minds_ukf__45",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Alix Perez - Contradictions -> BCee - Lost & Found (Hybrid Minds Remix)",
+   "titles": [
+    "Alix Perez - Contradictions",
+    "BCee - Lost & Found (Hybrid Minds Remix)"
+   ],
+   "win": [
+    112,
+    128,
+    32,
+    48,
+    16
+   ],
+   "music_end": 128,
+   "last_drop_end": 112,
+   "drops": [
+    [
+     32,
+     112
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [],
+   "all_slows": [],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": null,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "base_score": 41.6,
+   "slow_score": 41.6,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  },
+  {
+   "id": "netsky_hospital_classics__02",
+   "split": "test",
+   "dj": "Netsky",
+   "pair": "Netsky - I See The Future In Your Eyes -> Camo & Krooked - In The Future",
+   "titles": [
+    "Netsky - I See The Future In Your Eyes",
+    "Camo & Krooked - In The Future"
+   ],
+   "win": [
+    160,
+    176,
+    0,
+    16,
+    16
+   ],
+   "music_end": 180,
+   "last_drop_end": 160,
+   "drops": [
+    [
+     32,
+     48
+    ],
+    [
+     64,
+     96
+    ],
+    [
+     128,
+     160
+    ]
+   ],
+   "drop1_b": 16,
+   "rule_slows": [
+    [
+     33,
+     43,
+     "in_drop"
+    ]
+   ],
+   "all_slows": [
+    [
+     33,
+     43,
+     "in_drop"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": 117,
+   "gap_any": 117,
+   "nearest_rule": [
+    33,
+    43,
+    "in_drop"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "base_score": 43.75,
+   "slow_score": 43.75,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  },
+  {
+   "id": "netsky_hospital_classics__06",
+   "split": "test",
+   "dj": "Netsky",
+   "pair": "High Contrast - Twilight's Last Gleaming -> Netsky - Escape (ft. Darrison)",
+   "titles": [
+    "High Contrast - Twilight's Last Gleaming",
+    "Netsky - Escape (ft. Darrison)"
+   ],
+   "win": [
+    304,
+    320,
+    48,
+    64,
+    16
+   ],
+   "music_end": 327,
+   "last_drop_end": 312,
+   "drops": [
+    [
+     88,
+     184
+    ],
+    [
+     248,
+     312
+    ]
+   ],
+   "drop1_b": 64,
+   "rule_slows": [
+    [
+     316,
+     327,
+     "outro"
+    ]
+   ],
+   "all_slows": [
+    [
+     77,
+     91,
+     "breakdown"
+    ],
+    [
+     316,
+     327,
+     "outro"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 4,
+   "overlap_bars_any": 4,
+   "overlap_frac_rule": 0.25,
+   "overlap_frac_any": 0.25,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 0,
+   "gap_any": 0,
+   "nearest_rule": [
+    316,
+    327,
+    "outro"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    320,
+    null,
+    48,
+    16
+   ],
+   "base_score": 27.58,
+   "slow_score": 27.58,
+   "B_start_in_any": false,
+   "B_overlap_any": 9
+  },
+  {
+   "id": "netsky_hospital_classics__17",
+   "split": "test",
+   "dj": "Netsky",
+   "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+   "titles": [
+    "Logistics - Together",
+    "Apex - Just One Second (London Elektricity Remix)"
+   ],
+   "win": [
+    240,
+    256,
+    32,
+    48,
+    16
+   ],
+   "music_end": 256,
+   "last_drop_end": 240,
+   "drops": [
+    [
+     16,
+     48
+    ],
+    [
+     64,
+     144
+    ],
+    [
+     160,
+     240
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [
+    [
+     70,
+     84,
+     "in_drop"
+    ],
+    [
+     114,
+     122,
+     "in_drop"
+    ],
+    [
+     162,
+     190,
+     "in_drop"
+    ],
+    [
+     218,
+     231,
+     "in_drop"
+    ]
+   ],
+   "all_slows": [
+    [
+     49,
+     66,
+     "breakdown"
+    ],
+    [
+     70,
+     84,
+     "in_drop"
+    ],
+    [
+     114,
+     122,
+     "in_drop"
+    ],
+    [
+     125,
+     159,
+     "breakdown"
+    ],
+    [
+     162,
+     190,
+     "in_drop"
+    ],
+    [
+     218,
+     231,
+     "in_drop"
+    ],
+    [
+     234,
+     257,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": true,
+   "start_kind": "breakdown",
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 16,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 1.0,
+   "near8_rule": false,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 9,
+   "gap_any": 0,
+   "nearest_rule": [
+    218,
+    231,
+    "in_drop"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "base_score": 33.35,
+   "slow_score": 33.35,
+   "B_start_in_any": false,
+   "B_overlap_any": 2
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "pair": "Logistics - We Are One (Nu:Logic Remix) -> Cyantific - Ghetto Blaster",
+   "titles": [
+    "Logistics - We Are One (Nu:Logic Remix)",
+    "Cyantific - Ghetto Blaster"
+   ],
+   "win": [
+    224,
+    240,
+    24,
+    40,
+    16
+   ],
+   "music_end": 242,
+   "last_drop_end": 240,
+   "drops": [
+    [
+     64,
+     128
+    ],
+    [
+     160,
+     240
+    ]
+   ],
+   "drop1_b": 40,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     26,
+     52,
+     "intro"
+    ],
+    [
+     55,
+     67,
+     "breakdown"
+    ],
+    [
+     129,
+     145,
+     "breakdown"
+    ],
+    [
+     154,
+     163,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 61,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ],
+   "base_score": 60.51,
+   "slow_score": 60.51,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "joe_syntax_hospital__12",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+   "titles": [
+    "Cyantific - Ghetto Blaster",
+    "S.P.Y - Seconds To Midnight"
+   ],
+   "win": [
+    208,
+    224,
+    48,
+    64,
+    16
+   ],
+   "music_end": 235,
+   "last_drop_end": 192,
+   "drops": [
+    [
+     40,
+     128
+    ],
+    [
+     144,
+     192
+    ]
+   ],
+   "drop1_b": 64,
+   "rule_slows": [
+    [
+     198,
+     235,
+     "outro"
+    ]
+   ],
+   "all_slows": [
+    [
+     198,
+     235,
+     "outro"
+    ]
+   ],
+   "start_in_rule": true,
+   "start_in_any": true,
+   "start_kind": "outro",
+   "overlap_bars_rule": 16,
+   "overlap_bars_any": 16,
+   "overlap_frac_rule": 1.0,
+   "overlap_frac_any": 1.0,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 0,
+   "gap_any": 0,
+   "nearest_rule": [
+    198,
+    235,
+    "outro"
+   ],
+   "SLOW_moved": true,
+   "slow_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "base_score": 32.29,
+   "slow_score": 48.78,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "joe_syntax_hospital__13",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+   "titles": [
+    "S.P.Y - Seconds To Midnight",
+    "London Elektricity - Meteorites (Danny Byrd Remix)"
+   ],
+   "win": [
+    240,
+    256,
+    48,
+    64,
+    16
+   ],
+   "music_end": 259,
+   "last_drop_end": 224,
+   "drops": [
+    [
+     64,
+     128
+    ],
+    [
+     160,
+     224
+    ]
+   ],
+   "drop1_b": 64,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     129,
+     162,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 78,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    256,
+    null,
+    48,
+    16
+   ],
+   "base_score": 19.81,
+   "slow_score": 19.81,
+   "B_start_in_any": true,
+   "B_overlap_any": 13
+  },
+  {
+   "id": "hybrid_minds_ukf__00",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+   "titles": [
+    "SpectraSoul - Away With Me (Calibre Remix)",
+    "EastColors - Keys"
+   ],
+   "win": [
+    208,
+    224,
+    8,
+    24,
+    16
+   ],
+   "music_end": 225,
+   "last_drop_end": 208,
+   "drops": [
+    [
+     64,
+     128
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "drop1_b": 24,
+   "rule_slows": [
+    [
+     176,
+     191,
+     "in_drop"
+    ]
+   ],
+   "all_slows": [
+    [
+     2,
+     17,
+     "intro"
+    ],
+    [
+     57,
+     65,
+     "intro"
+    ],
+    [
+     124,
+     140,
+     "breakdown"
+    ],
+    [
+     176,
+     191,
+     "in_drop"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": 17,
+   "gap_any": 17,
+   "nearest_rule": [
+    176,
+    191,
+    "in_drop"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    224,
+    null,
+    8,
+    16
+   ],
+   "base_score": 29.45,
+   "slow_score": 29.45,
+   "B_start_in_any": true,
+   "B_overlap_any": 14
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+   "titles": [
+    "Hybrid Minds - Listen (ft. Tiffani Juno)",
+    "LSB - The Optimist"
+   ],
+   "win": [
+    192,
+    208,
+    48,
+    64,
+    16
+   ],
+   "music_end": 221,
+   "last_drop_end": 208,
+   "drops": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "drop1_b": 64,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     25,
+     33,
+     "intro"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 159,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "base_score": 32.58,
+   "slow_score": 32.58,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "hybrid_minds_ukf__10",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "LSB - The Optimist -> Hybrid Minds - Secret Place (ft. Tiffani Juno)",
+   "titles": [
+    "LSB - The Optimist",
+    "Hybrid Minds - Secret Place (ft. Tiffani Juno)"
+   ],
+   "win": [
+    240,
+    256,
+    32,
+    48,
+    16
+   ],
+   "music_end": 256,
+   "last_drop_end": 240,
+   "drops": [
+    [
+     64,
+     128
+    ],
+    [
+     176,
+     240
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [
+    [
+     239,
+     254,
+     "outro"
+    ]
+   ],
+   "all_slows": [
+    [
+     136,
+     177,
+     "breakdown"
+    ],
+    [
+     239,
+     254,
+     "outro"
+    ]
+   ],
+   "start_in_rule": true,
+   "start_in_any": true,
+   "start_kind": "outro",
+   "overlap_bars_rule": 14,
+   "overlap_bars_any": 14,
+   "overlap_frac_rule": 0.875,
+   "overlap_frac_any": 0.875,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 0,
+   "gap_any": 0,
+   "nearest_rule": [
+    239,
+    254,
+    "outro"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "base_score": 36.67,
+   "slow_score": 36.67,
+   "B_start_in_any": false,
+   "B_overlap_any": 11
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+   "titles": [
+    "Nu:Tone - Balaclava",
+    "SpectraSoul & Alix Perez - The Need"
+   ],
+   "win": [
+    224,
+    240,
+    16,
+    32,
+    16
+   ],
+   "music_end": 240,
+   "last_drop_end": 208,
+   "drops": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "drop1_b": 32,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     0,
+     16,
+     "intro"
+    ],
+    [
+     107,
+     144,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 80,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    240,
+    null,
+    16,
+    16
+   ],
+   "base_score": 40.68,
+   "slow_score": 40.68,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "hybrid_minds_ukf__40",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+   "titles": [
+    "LSB - I Need Love",
+    "Hybrid Minds - Inside (ft. Emily Jones)"
+   ],
+   "win": [
+    256,
+    272,
+    32,
+    48,
+    16
+   ],
+   "music_end": 287,
+   "last_drop_end": 272,
+   "drops": [
+    [
+     64,
+     160
+    ],
+    [
+     176,
+     272
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [
+    [
+     88,
+     97,
+     "in_drop"
+    ],
+    [
+     269,
+     287,
+     "outro"
+    ]
+   ],
+   "all_slows": [
+    [
+     2,
+     32,
+     "intro"
+    ],
+    [
+     56,
+     64,
+     "intro"
+    ],
+    [
+     88,
+     97,
+     "in_drop"
+    ],
+    [
+     157,
+     176,
+     "breakdown"
+    ],
+    [
+     269,
+     287,
+     "outro"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 3,
+   "overlap_bars_any": 3,
+   "overlap_frac_rule": 0.1875,
+   "overlap_frac_any": 0.1875,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 0,
+   "gap_any": 0,
+   "nearest_rule": [
+    269,
+    287,
+    "outro"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    272,
+    null,
+    32,
+    16
+   ],
+   "base_score": 31.0,
+   "slow_score": 31.0,
+   "B_start_in_any": false,
+   "B_overlap_any": 6
+  },
+  {
+   "id": "joe_syntax_hospital__00",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
+   "titles": [
+    "Fred V & Grafix - Find My Way",
+    "Nu:Tone - The Feeling (ft. Ben Westbeech)"
+   ],
+   "win": [
+    80,
+    96,
+    0,
+    16,
+    16
+   ],
+   "music_end": 111,
+   "last_drop_end": 112,
+   "drops": [
+    [
+     40,
+     112
+    ]
+   ],
+   "drop1_b": 16,
+   "rule_slows": [],
+   "all_slows": [],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": null,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    96,
+    null,
+    0,
+    16
+   ],
+   "base_score": 29.36,
+   "slow_score": 29.36,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "joe_syntax_hospital__09",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "pair": "Camo & Krooked - Dusk To Dawn -> Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)",
+   "titles": [
+    "Camo & Krooked - Dusk To Dawn",
+    "Danny Byrd - B.R.I.S.T.O.L (ft. MC Risky)"
+   ],
+   "win": [
+    176,
+    192,
+    16,
+    32,
+    16
+   ],
+   "music_end": 196,
+   "last_drop_end": 192,
+   "drops": [
+    [
+     56,
+     112
+    ],
+    [
+     128,
+     192
+    ]
+   ],
+   "drop1_b": 32,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     113,
+     129,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 47,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "base_score": 28.36,
+   "slow_score": 28.36,
+   "B_start_in_any": true,
+   "B_overlap_any": 3
+  },
+  {
+   "id": "joe_syntax_hospital__14",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "pair": "London Elektricity - Meteorites (Danny Byrd Remix) -> Logistics - Closer",
+   "titles": [
+    "London Elektricity - Meteorites (Danny Byrd Remix)",
+    "Logistics - Closer"
+   ],
+   "win": [
+    208,
+    224,
+    16,
+    32,
+    16
+   ],
+   "music_end": 226,
+   "last_drop_end": 224,
+   "drops": [
+    [
+     64,
+     128
+    ],
+    [
+     160,
+     224
+    ]
+   ],
+   "drop1_b": 32,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     2,
+     14,
+     "intro"
+    ],
+    [
+     48,
+     61,
+     "intro"
+    ],
+    [
+     130,
+     140,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 68,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "base_score": 28.87,
+   "slow_score": 28.87,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "hybrid_minds_ukf__13",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+   "titles": [
+    "Hybrid Minds - Pretend (ft. Rocky Nti)",
+    "Logistics - Wanderlust"
+   ],
+   "win": [
+    176,
+    192,
+    32,
+    48,
+    16
+   ],
+   "music_end": 199,
+   "last_drop_end": 192,
+   "drops": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     192
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     21,
+     49,
+     "intro"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 127,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "base_score": 33.72,
+   "slow_score": 33.72,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "pair": "SpectraSoul & Alix Perez - Undone (ft. DRS) -> Logistics - City Life",
+   "titles": [
+    "SpectraSoul & Alix Perez - Undone (ft. DRS)",
+    "Logistics - City Life"
+   ],
+   "win": [
+    208,
+    224,
+    16,
+    32,
+    16
+   ],
+   "music_end": 225,
+   "last_drop_end": 224,
+   "drops": [
+    [
+     16,
+     128
+    ],
+    [
+     160,
+     224
+    ]
+   ],
+   "drop1_b": 32,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     125,
+     134,
+     "breakdown"
+    ],
+    [
+     145,
+     161,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 47,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "base_score": 31.79,
+   "slow_score": 31.79,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  },
+  {
+   "id": "netsky_hospital_classics__15",
+   "split": "test",
+   "dj": "Netsky",
+   "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+   "titles": [
+    "Netsky - Memory Lane",
+    "Netsky - The Whistle Song"
+   ],
+   "win": [
+    224,
+    240,
+    0,
+    16,
+    16
+   ],
+   "music_end": 242,
+   "last_drop_end": 240,
+   "drops": [
+    [
+     48,
+     128
+    ],
+    [
+     160,
+     240
+    ]
+   ],
+   "drop1_b": 16,
+   "rule_slows": [
+    [
+     166,
+     177,
+     "in_drop"
+    ]
+   ],
+   "all_slows": [
+    [
+     152,
+     163,
+     "breakdown"
+    ],
+    [
+     166,
+     177,
+     "in_drop"
+    ],
+    [
+     222,
+     242,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": true,
+   "start_kind": "breakdown",
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 16,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 1.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 47,
+   "gap_any": 0,
+   "nearest_rule": [
+    166,
+    177,
+    "in_drop"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    240,
+    null,
+    0,
+    16
+   ],
+   "base_score": 40.9,
+   "slow_score": 40.9,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "netsky_hospital_classics__23",
+   "split": "test",
+   "dj": "Netsky",
+   "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
+   "titles": [
+    "Netsky - Porcelain",
+    "Nu:Logic - Morning Light"
+   ],
+   "win": [
+    176,
+    192,
+    16,
+    32,
+    16
+   ],
+   "music_end": 193,
+   "last_drop_end": 192,
+   "drops": [
+    [
+     32,
+     96
+    ],
+    [
+     128,
+     192
+    ]
+   ],
+   "drop1_b": 32,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     0,
+     23,
+     "intro"
+    ],
+    [
+     104,
+     129,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 47,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "base_score": 28.45,
+   "slow_score": 28.45,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__02",
+   "split": "test",
+   "dj": "Maduk",
+   "pair": "Camo & Krooked - Afterlife (BCee Remix) -> Sub Focus & Wilkinson - Freedom (High Contrast Remix)",
+   "titles": [
+    "Camo & Krooked - Afterlife (BCee Remix)",
+    "Sub Focus & Wilkinson - Freedom (High Contrast Remix)"
+   ],
+   "win": [
+    96,
+    112,
+    32,
+    48,
+    16
+   ],
+   "music_end": 121,
+   "last_drop_end": 112,
+   "drops": [
+    [
+     40,
+     80
+    ],
+    [
+     96,
+     112
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     25,
+     43,
+     "breakdown"
+    ],
+    [
+     82,
+     97,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": true,
+   "start_kind": "breakdown",
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 1,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0625,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": null,
+   "gap_any": 0,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "base_score": 27.78,
+   "slow_score": 27.78,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__03",
+   "split": "test",
+   "dj": "Maduk",
+   "pair": "Sub Focus & Wilkinson - Freedom (High Contrast Remix) -> LSB - New Day",
+   "titles": [
+    "Sub Focus & Wilkinson - Freedom (High Contrast Remix)",
+    "LSB - New Day"
+   ],
+   "win": [
+    160,
+    176,
+    16,
+    32,
+    16
+   ],
+   "music_end": 179,
+   "last_drop_end": 176,
+   "drops": [
+    [
+     48,
+     96
+    ],
+    [
+     128,
+     176
+    ]
+   ],
+   "drop1_b": 32,
+   "rule_slows": [
+    [
+     150,
+     160,
+     "in_drop"
+    ]
+   ],
+   "all_slows": [
+    [
+     0,
+     48,
+     "intro"
+    ],
+    [
+     95,
+     128,
+     "breakdown"
+    ],
+    [
+     150,
+     160,
+     "in_drop"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 0,
+   "gap_any": 0,
+   "nearest_rule": [
+    150,
+    160,
+    "in_drop"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "base_score": 39.32,
+   "slow_score": 39.32,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__05",
+   "split": "test",
+   "dj": "Maduk",
+   "pair": "Netsky - Memory Lane -> Maduk - Miles Apart",
+   "titles": [
+    "Netsky - Memory Lane",
+    "Maduk - Miles Apart"
+   ],
+   "win": [
+    224,
+    240,
+    32,
+    48,
+    16
+   ],
+   "music_end": 242,
+   "last_drop_end": 240,
+   "drops": [
+    [
+     48,
+     128
+    ],
+    [
+     160,
+     240
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [],
+   "all_slows": [],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": null,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "base_score": 23.58,
+   "slow_score": 23.58,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  },
+  {
+   "id": "pola_bryson_puzzlewood__00",
+   "split": "test",
+   "dj": "Pola & Bryson",
+   "pair": "Pola & Bryson feat. Hugh Hardie - Vetur -> Pola & Bryson & Ko-Jo - Closer to Home",
+   "titles": [
+    "Pola & Bryson feat. Hugh Hardie - Vetur",
+    "Pola & Bryson & Ko-Jo - Closer to Home"
+   ],
+   "win": [
+    160,
+    176,
+    32,
+    48,
+    16
+   ],
+   "music_end": 185,
+   "last_drop_end": 176,
+   "drops": [
+    [
+     64,
+     112
+    ],
+    [
+     128,
+     176
+    ]
+   ],
+   "drop1_b": 48,
+   "rule_slows": [
+    [
+     177,
+     186,
+     "outro"
+    ]
+   ],
+   "all_slows": [
+    [
+     1,
+     64,
+     "intro"
+    ],
+    [
+     113,
+     126,
+     "breakdown"
+    ],
+    [
+     177,
+     186,
+     "outro"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 1,
+   "gap_any": 1,
+   "nearest_rule": [
+    177,
+    186,
+    "outro"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "base_score": 59.25,
+   "slow_score": 59.25,
+   "B_start_in_any": false,
+   "B_overlap_any": 14
+  },
+  {
+   "id": "pola_bryson_puzzlewood__02",
+   "split": "test",
+   "dj": "Pola & Bryson",
+   "pair": "Pola & Bryson feat. Lauren Archer - Night Dawns -> Pola & Bryson - Wind Rises",
+   "titles": [
+    "Pola & Bryson feat. Lauren Archer - Night Dawns",
+    "Pola & Bryson - Wind Rises"
+   ],
+   "win": [
+    192,
+    208,
+    16,
+    32,
+    16
+   ],
+   "music_end": 217,
+   "last_drop_end": 192,
+   "drops": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     192
+    ]
+   ],
+   "drop1_b": 32,
+   "rule_slows": [
+    [
+     209,
+     220,
+     "outro"
+    ]
+   ],
+   "all_slows": [
+    [
+     0,
+     18,
+     "intro"
+    ],
+    [
+     209,
+     220,
+     "outro"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": true,
+   "near16_rule": true,
+   "near8_any": true,
+   "near16_any": true,
+   "gap_rule": 1,
+   "gap_any": 1,
+   "nearest_rule": [
+    209,
+    220,
+    "outro"
+   ],
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "base_score": 20.54,
+   "slow_score": 20.54,
+   "B_start_in_any": false,
+   "B_overlap_any": 0
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "split": "test",
+   "dj": "Pola & Bryson",
+   "pair": "Pola & Bryson - Abandon -> Pola & Bryson feat. Lauren Archer - Under",
+   "titles": [
+    "Pola & Bryson - Abandon",
+    "Pola & Bryson feat. Lauren Archer - Under"
+   ],
+   "win": [
+    208,
+    224,
+    40,
+    56,
+    16
+   ],
+   "music_end": 226,
+   "last_drop_end": 224,
+   "drops": [
+    [
+     0,
+     32
+    ],
+    [
+     64,
+     128
+    ],
+    [
+     160,
+     224
+    ]
+   ],
+   "drop1_b": 56,
+   "rule_slows": [],
+   "all_slows": [
+    [
+     127,
+     148,
+     "breakdown"
+    ]
+   ],
+   "start_in_rule": false,
+   "start_in_any": false,
+   "start_kind": null,
+   "overlap_bars_rule": 0,
+   "overlap_bars_any": 0,
+   "overlap_frac_rule": 0.0,
+   "overlap_frac_any": 0.0,
+   "near8_rule": false,
+   "near16_rule": false,
+   "near8_any": false,
+   "near16_any": false,
+   "gap_rule": null,
+   "gap_any": 60,
+   "nearest_rule": null,
+   "SLOW_moved": false,
+   "slow_win": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "base_score": 34.12,
+   "slow_score": 34.12,
+   "B_start_in_any": true,
+   "B_overlap_any": 16
+  }
+ ]
+}

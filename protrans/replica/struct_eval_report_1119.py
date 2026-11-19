@@ -53,4 +53,4 @@ for arm, tag in (('base', 'cb1119_base'), ('QC', 'cs_qc_1119'), ('SLOW', 'cs_slo
         res[split + '_vs_floor_pairs'] = sorted([(i, round(S[i]['score']['score'] - B[i]['score']['score'], 2)) for i in ids if i in B and abs(S[i]['score']['score'] - B[i]['score']['score']) > 0.5], key=lambda t: t[1])
     out['cohort'][arm] = res
 json.dump(out, open(os.path.join(H, 'struct_eval_1119.json'), 'w'), indent=1, default=str)
-print(json.dumps({k: ({a: {kk: vv for kk, vv in x.items() if kk != 'rows'} for a, x in v.items()} if isinstance(v, dict) else v) for k, v in out.items()}, indent=1, default=str))
+print(json.dumps({k: ({a: ({kk: vv for kk, vv in x.items() if kk != 'rows'} if isinstance(x, dict) else x) for a, x in v.items()} if isinstance(v, dict) else v) for k, v in out.items()}, indent=1, default=str))

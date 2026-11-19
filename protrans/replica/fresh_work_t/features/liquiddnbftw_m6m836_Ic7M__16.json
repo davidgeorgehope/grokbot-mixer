@@ -1,0 +1,858 @@
+{
+  "id": "liquiddnbftw_m6m836_Ic7M__16",
+  "mix_id": "liquiddnbftw_m6m836_Ic7M",
+  "dj": "Liquiddnbftw",
+  "pair": "Alpha Rhythm & HumaNature - Correct the Vibe ft. MC Astro -> Alpha Rhythm - Jupiter",
+  "video_id": "m6m836_Ic7M",
+  "cue": {
+    "incoming_bar": 143.59,
+    "incoming_section": "drop",
+    "outgoing_bar": 63.51,
+    "outgoing_section": "drop",
+    "blend_list_s": 176.0,
+    "locate_a": {
+      "z": 6.766,
+      "cc": 0.5942,
+      "mix_t": 20.271,
+      "track_t": 83.87,
+      "n": 99
+    },
+    "locate_b": {
+      "z": 6.088,
+      "cc": 0.5237,
+      "mix_t": 41.61,
+      "track_t": 215.667,
+      "n": 91
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.695,
+      "hold_db": -1.14,
+      "tail_bars": 35.16,
+      "out_p90": -1.09,
+      "in_p90": -1.51
+    },
+    "bass": {
+      "rise_db_per_beat": -1.267,
+      "hold_db": -1.05,
+      "tail_bars": 34.98,
+      "out_p90": -1.02,
+      "in_p90": -0.96
+    },
+    "highs": {
+      "rise_db_per_beat": -0.209,
+      "hold_db": -3.94,
+      "tail_bars": 46.21,
+      "out_p90": -3.52,
+      "in_p90": -4.38
+    },
+    "mids": {
+      "rise_db_per_beat": -0.226,
+      "hold_db": -1.29,
+      "tail_bars": 46.21,
+      "out_p90": -1.17,
+      "in_p90": -5.64
+    }
+  },
+  "overlap_bars": 4.712,
+  "track_a": {
+    "sections": {
+      "n_bars": 230,
+      "intro_end": 32,
+      "drop1": 32,
+      "breakdown": 96,
+      "drop2": 112,
+      "outro_start": 191,
+      "music_end": 230,
+      "drops": [
+        [
+          32,
+          95
+        ],
+        [
+          112,
+          191
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 8
+        },
+        {
+          "name": "build",
+          "start": 8,
+          "end": 32
+        },
+        {
+          "name": "drop",
+          "start": 32,
+          "end": 95
+        },
+        {
+          "name": "build",
+          "start": 95,
+          "end": 96
+        },
+        {
+          "name": "breakdown",
+          "start": 96,
+          "end": 112
+        },
+        {
+          "name": "drop",
+          "start": 112,
+          "end": 191
+        },
+        {
+          "name": "outro",
+          "start": 191,
+          "end": 230
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -27.48,
+          "drums": -26.3,
+          "energy": -26.3
+        },
+        "build": {
+          "bass": -16.94,
+          "drums": -11.99,
+          "energy": -11.99
+        },
+        "drop": {
+          "bass": -9.61,
+          "drums": -8.33,
+          "energy": -8.33
+        },
+        "breakdown": {
+          "bass": -67.86,
+          "drums": -29.39,
+          "energy": -29.39
+        },
+        "outro": {
+          "bass": -70.96,
+          "drums": -36.42,
+          "energy": -36.42
+        }
+      },
+      "intro_len": 32,
+      "n_drops": 2
+    },
+    "bpm": 174.015,
+    "yt": "4-qauDT3z7U",
+    "title": "Alpha Rhythm & HumaNature - Correct the Vibe ft. MC Astro"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 200,
+      "intro_end": 32,
+      "drop1": 32,
+      "breakdown": 96,
+      "drop2": 128,
+      "outro_start": 192,
+      "music_end": 200,
+      "drops": [
+        [
+          32,
+          96
+        ],
+        [
+          128,
+          192
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 32
+        },
+        {
+          "name": "drop",
+          "start": 32,
+          "end": 96
+        },
+        {
+          "name": "breakdown",
+          "start": 96,
+          "end": 128
+        },
+        {
+          "name": "drop",
+          "start": 128,
+          "end": 192
+        },
+        {
+          "name": "outro",
+          "start": 192,
+          "end": 200
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -31.96,
+          "drums": -22.79,
+          "energy": -22.79
+        },
+        "drop": {
+          "bass": -8.24,
+          "drums": -7.41,
+          "energy": -7.41
+        },
+        "breakdown": {
+          "bass": -29.95,
+          "drums": -18.86,
+          "energy": -18.86
+        },
+        "outro": {
+          "bass": -73.09,
+          "drums": -51.42,
+          "energy": -51.42
+        }
+      },
+      "intro_len": 32,
+      "n_drops": 2
+    },
+    "bpm": 174.002,
+    "yt": "pHkkDUzLX18",
+    "title": "Alpha Rhythm - Jupiter"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 63.51,
+    "outgoing_section": "drop",
+    "outgoing_bars_into_section": 31.51,
+    "outgoing_bars_left": 166.49,
+    "outgoing_bars_to_outro": 127.49,
+    "incoming_cue_bar": 143.59,
+    "incoming_section": "drop",
+    "incoming_bars_into_section": 15.59,
+    "incoming_rel_drop1": 111.59,
+    "bass_swap_bar": 0.91
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -1.9,
+        -1.6,
+        -1.09,
+        -1.17,
+        -1.16,
+        -1.31,
+        -1.13,
+        -1.13,
+        -1.09,
+        -1.31,
+        -1.1,
+        -1.05,
+        -1.05,
+        -1.13,
+        -1.11,
+        -1.16,
+        -1.16,
+        -3.37,
+        -13.54,
+        -22.24,
+        -21.06,
+        -15.3,
+        -14.26,
+        -23.37,
+        -20.29,
+        -11.47,
+        -14.32,
+        -21.68,
+        -23.82,
+        -19.7,
+        -17.76,
+        -23.92,
+        -20.97,
+        -5.99,
+        -11.07,
+        -13.01,
+        -23.08,
+        -23.68,
+        -24.63,
+        -25.48,
+        -25.78,
+        -19.51,
+        -29.88,
+        -23.84,
+        -25.0,
+        -21.5
+      ],
+      "b": [
+        -18.71,
+        -17.87,
+        -43.12,
+        -54.22,
+        -39.88,
+        -51.65,
+        -40.92,
+        -41.99,
+        -39.33,
+        -33.26,
+        -38.36,
+        -42.43,
+        -36.27,
+        -35.18,
+        -36.42,
+        -30.88,
+        -26.12,
+        -18.28,
+        -2.3,
+        -1.46,
+        -1.87,
+        -2.29,
+        -2.51,
+        -1.68,
+        -2.13,
+        -3.81,
+        -1.98,
+        -1.61,
+        -1.7,
+        -1.82,
+        -1.93,
+        -1.48,
+        -1.92,
+        -7.35,
+        -3.18,
+        -4.98,
+        -2.1,
+        -1.48,
+        -1.51,
+        -1.23,
+        -1.36,
+        -2.33,
+        -1.84,
+        -3.7,
+        -2.62,
+        -2.38
+      ]
+    },
+    "bass": {
+      "a": [
+        -1.13,
+        -1.09,
+        -0.99,
+        -1.07,
+        -1.05,
+        -1.25,
+        -1.08,
+        -1.07,
+        -1.04,
+        -1.24,
+        -1.11,
+        -1.02,
+        -1.0,
+        -1.02,
+        -1.05,
+        -1.04,
+        -1.0,
+        -4.44,
+        -34.27,
+        -45.2,
+        -37.78,
+        -37.66,
+        -32.34,
+        -37.83,
+        -34.38,
+        -30.47,
+        -43.52,
+        -37.65,
+        -47.19,
+        -44.63,
+        -46.17,
+        -39.24,
+        -40.08,
+        -8.12,
+        -12.8,
+        -15.49,
+        -47.1,
+        -47.59,
+        -46.57,
+        -42.67,
+        -44.66,
+        -36.75,
+        -45.1,
+        -42.11,
+        -37.64,
+        -39.07
+      ],
+      "b": [
+        -11.48,
+        4.23,
+        -46.38,
+        -64.83,
+        -55.2,
+        -60.55,
+        -50.37,
+        -50.89,
+        -54.85,
+        -37.67,
+        -45.91,
+        -56.43,
+        -56.27,
+        -51.58,
+        -50.79,
+        -49.64,
+        -44.68,
+        -24.52,
+        -1.77,
+        -0.95,
+        -1.09,
+        -1.11,
+        -1.25,
+        -1.09,
+        -1.19,
+        -1.31,
+        -1.16,
+        -1.09,
+        -1.12,
+        -0.97,
+        -1.1,
+        -1.09,
+        -1.33,
+        -6.06,
+        -2.74,
+        -4.4,
+        -1.37,
+        -0.98,
+        -1.06,
+        -0.72,
+        -0.61,
+        -1.14,
+        -1.03,
+        -2.7,
+        -1.44,
+        -1.06
+      ]
+    },
+    "mids": {
+      "a": [
+        -6.28,
+        -5.05,
+        -1.56,
+        -1.39,
+        -1.37,
+        -1.25,
+        -1.12,
+        -1.22,
+        -1.07,
+        -1.11,
+        -1.12,
+        -1.37,
+        -1.4,
+        -1.32,
+        -1.17,
+        -1.28,
+        -1.28,
+        -1.78,
+        -2.32,
+        -2.29,
+        -3.36,
+        -2.54,
+        -4.16,
+        -4.99,
+        -4.61,
+        -3.65,
+        -4.05,
+        -3.88,
+        -5.4,
+        -5.76,
+        -6.26,
+        -6.15,
+        -6.94,
+        -5.65,
+        -6.34,
+        -5.5,
+        -8.01,
+        -11.09,
+        -12.09,
+        -11.92,
+        -11.98,
+        -11.23,
+        -11.64,
+        -8.92,
+        -8.87,
+        -10.17
+      ],
+      "b": [
+        -11.88,
+        -12.92,
+        -19.71,
+        -24.09,
+        -19.29,
+        -26.71,
+        -19.76,
+        -21.16,
+        -16.96,
+        -23.39,
+        -14.23,
+        -15.69,
+        -13.0,
+        -15.28,
+        -15.44,
+        -13.18,
+        -10.46,
+        -9.95,
+        -9.56,
+        -11.59,
+        -8.7,
+        -8.35,
+        -8.84,
+        -6.06,
+        -6.98,
+        -6.68,
+        -8.6,
+        -10.3,
+        -7.61,
+        -6.42,
+        -6.39,
+        -5.5,
+        -5.72,
+        -8.52,
+        -12.19,
+        -13.32,
+        -7.42,
+        -5.49,
+        -4.56,
+        -4.37,
+        -5.08,
+        -6.94,
+        -10.38,
+        -13.49,
+        -11.63,
+        -11.86
+      ]
+    },
+    "highs": {
+      "a": [
+        -6.16,
+        -4.13,
+        -3.63,
+        -3.78,
+        -4.43,
+        -3.66,
+        -3.98,
+        -4.02,
+        -4.36,
+        -4.38,
+        -3.75,
+        -4.16,
+        -3.77,
+        -3.91,
+        -3.6,
+        -3.95,
+        1.81,
+        4.95,
+        -4.5,
+        -5.93,
+        -5.34,
+        -5.7,
+        -5.26,
+        -6.32,
+        -5.9,
+        -6.71,
+        -7.08,
+        -7.72,
+        -7.76,
+        -8.33,
+        -8.25,
+        -7.98,
+        -5.02,
+        -0.37,
+        -4.97,
+        -6.23,
+        -9.68,
+        -10.8,
+        -13.07,
+        -12.69,
+        -12.97,
+        -12.96,
+        -14.05,
+        -14.09,
+        -14.73,
+        -13.89
+      ],
+      "b": [
+        -9.47,
+        -9.35,
+        -19.44,
+        -19.91,
+        -16.97,
+        -19.25,
+        -17.18,
+        -18.72,
+        -16.81,
+        -17.89,
+        -17.84,
+        -17.88,
+        -17.2,
+        -17.95,
+        -16.31,
+        -17.8,
+        -15.05,
+        -13.06,
+        -6.47,
+        -5.61,
+        -7.14,
+        -6.4,
+        -7.81,
+        -5.88,
+        -7.01,
+        -6.15,
+        -6.35,
+        -5.92,
+        -6.11,
+        -5.9,
+        -6.43,
+        -5.9,
+        -3.08,
+        0.06,
+        1.17,
+        0.89,
+        -5.35,
+        -6.23,
+        -4.72,
+        -5.47,
+        -5.04,
+        -5.25,
+        -4.5,
+        -5.04,
+        -4.48,
+        -5.15
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        224,
+        null,
+        16,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 127.59,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 111.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 79.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 111.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 111.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 111.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 79.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 79.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 79.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 15.59,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 15.59,
+      "section_match": true,
+      "relevance": 1
+    }
+  ]
+}

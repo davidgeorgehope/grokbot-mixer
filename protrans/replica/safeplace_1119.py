@@ -5,7 +5,7 @@ fresh mixes are never loaded. The planner deliberately chooses swap (mid-track e
   music end or its last loud bar, cue on the incoming's 16-bar phrase grid relative to its drop 1 or bar 0, legal lengths X in {16,32});
   score = learned hard-fail risk (LightGBM on rendered dev blends, HC_A|HC_B labels) + phrase penalty + LAMBDA*(1 - musical fit),
   musical fit = within-pair percentile of picker_1119b's style-free exit and cue rankers (pro placement as a secondary signal);
-  the default window is always a candidate; best score wins (deterministic, no coin).
+  the default window is always a candidate; best score wins (fixed rule, no coin).
   Then render the top 2 non-default picks, keep the first that passes HC_A and HC_B, else the default.
 All models are fit leave-one-DJ-out (the test DJ's renders and pairs are excluded). usage:
   safeplace_1119.py risk               grouped-by-mix CV of the risk model

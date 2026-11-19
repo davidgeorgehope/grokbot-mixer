@@ -207,7 +207,7 @@ def pick_type(r, s, ch):
     w = within(r, s); return w[ch] if w[ch] is not None else r['Edix']
 THR = np.round(np.arange(0.2, 0.91, 0.05), 2); BANDS = [0.0, 0.05, 0.1, 0.15, 0.2, 0.3]
 def tune(tr, S, poof, C):
-    """thr: P(mid) threshold minimising inner-OOF exit error; band: abstain to the default exit when |p - p*| < band (p* = cost break-even)"""
+    """thr: P(mid) threshold with the lowest inner-OOF exit error; band: abstain to the default exit when |p - p*| < band (p* = cost break-even)"""
     E = {r['id']: (eerr(r, pick_type(r, S[r['id']], 0)), eerr(r, pick_type(r, S[r['id']], 1)), eerr(r, r['Edix'])) for r in tr}
     bt = min(THR, key=lambda t: (np.mean([E[r['id']][0] if p >= t else E[r['id']][1] for r, p in zip(tr, poof)]), abs(t - 0.5)))
     den = (C[0, 0] - C[0, 1] - C[1, 0] + C[1, 1]); pstar = float((C[1, 1] - C[0, 1]) / den) if abs(den) > 1e-9 else 0.5
@@ -244,7 +244,7 @@ def auc(p, y):
     if not len(pos) or not len(neg): return None
     return float(np.mean([(a > b) + 0.5 * (a == b) for a in pos for b in neg]))
 def ece(p, y, k=5):
-    p, y = np.asarray(p), np.asarray(y); bins = np.minimum((p * k).astype(int), k - 1)
+    p, y = np.asarray(p), np.asarray(y); bins = np.clip((p * k).astype(int), None, k - 1)
     return float(sum(abs(p[bins == b].mean() - y[bins == b].mean()) * (bins == b).mean() for b in range(k) if (bins == b).any()))
 
 def run_cv():

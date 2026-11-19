@@ -55,6 +55,28 @@ How it chooses a window. It doesn't use a style knob, and it doesn't flip a coin
 - Off-section: 2 of the 5 changed picks, vs 5 of 7 defaults.
 - One mix gives no valid CI. The direction agrees with dev.
 
+**Why fresh pair __11 still fails.** Etherwood "Begin By Letting Go" into "You're Missing Life". Every window tried fails the pump check:
+- default 161–176 with the cue at bar 33: 5.2 dB;
+- rank-1 177–192 / cue 49: 5.2 dB;
+- rank-2 177–192 / cue 65: 5.4 dB;
+- a diagnostic render, 161–176 / cue 48 (A at full level, B already in its drop): 6.1 dB. It's labelled diagnostic and wasn't scored.
+
+Per-bar levels show the reason. The crossfader gains are close to equal-power (0.71/0.71 at mid-blend), but around blend bar 7 the bass swap and the high-band swap overlap:
+- A's low and high bands are cut there;
+- B's lows and highs are still ramping in;
+- for about one bar both decks are mostly mids, so the sum dips about 6 dB and comes back.
+
+So this one isn't a placement fault. Moving the window doesn't help, and the planner's risk model said 0.06–0.07 because its see-saw simulation assumes plain equal-power fades without the EQ swaps.
+
+Two smaller issues on the same pair:
+- The default's cue sits in B's quiet pre-drop build, about 8 dB under A.
+- The rank-1 and rank-2 exits run into A's own fade to silence. The end constraint (last loud bar + 8, with loud meaning within 20 dB of the track's normal level) is too loose.
+
+Fixes:
+- (a) put the engine's real gain and EQ lanes into the risk simulation;
+- (b) never let the high-band swap and the bass swap both open a gap in the same bar;
+- (c) tighten the end constraint to "no fading tail inside the blend".
+
 ## 2. Clash check measured per deck (HC_DECKCLASH)
 
 Our renders have the two decks separately, so a clash can be measured per deck, not from the summed audio.
@@ -80,6 +102,7 @@ Splits are md5%3 by pair: 300 dev, 175 held-out renders. The threshold is chosen
 **Wired up.** `final_eval.flags` adds `deckclash` to HC_A and HC_B only when `HC_DECKCLASH=1` and the arrays carry `deck_lag`. The value comes from `deckclash3_1119.annotate(variant)`, and D is 52 ms, chosen on dev. It's off by default because it doesn't meet the bars yet: held-out clean is 7.4% against a target of ≤ 5%, and 60 ms recall is 57% against a target of ≥ 80%.
 
 ## Next
+0. **Pair __11 fix.** Simulate the real gain and EQ lanes in the risk features, stop the swap lanes from stacking into a gap, and tighten the end-of-track constraint (see above).
 1. **Engine.** Add a gated per-bar re-sync behind `BAR_RESYNC`, using the engine's per-source-bar NUDGE hook.
    - Act only where 3 or more consecutive bars agree within 8 ms with r ≥ 0.3.
    - Then re-render, rather than shifting the envelope.

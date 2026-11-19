@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -436,6 +436,24 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     replica_info = dict(want=want, why=why, applied=True)
                 else:
                     replica_info['reason'] = 'win_not_in_cs'
+        # DROPCAND=exit|cue (off by default, 2026-11-18 late): force the drop-exit / drop-cue window when the engine scored it
+        drop_info = None
+        _dm = None
+        if env.get('DROPCAND') or rules.get('DROPCAND'):
+            import replica_rule as _RR
+            import sections as _SEC
+            _dm = _RR.drop_mode(env.get('DROPCAND') or rules.get('DROPCAND'))
+        if _dm in ('exit', 'cue'):
+            hit = None
+            for _X in (16, 32):
+                want, why = _RR.drop_window(_SEC.get(a), _SEC.get(b), _dm, X=_X)
+                hit = next((c for c in cs if want and list(c.get('win') or []) == list(want)), None)
+                if hit is not None: break
+            drop_info = dict(mode=_dm, want=want, why=why, applied=hit is not None)
+            if hit is not None:
+                pick = dict(fam='drop_' + _dm, win=list(want), env={}); fade = {}
+            else:
+                drop_info['reason'] = 'win_not_in_cs'
         pick['env'] = {**env, **dict(pick.get('env') or {}), **fade}
         # FADE=graphcut is a renderer flag: keep it on top of any family FADE so a cohort
         # eval compares the same windows under a different handover, not a different family.
@@ -453,7 +471,7 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     n_cands=len(fams), phase_cost_errors=list(PHASE_COST_ERRORS),
                     halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'),
                     planner=(planner_choice if planner_choice else pick.get('planner')),
-                    ranker=(ranker_info if ranker_on else None), replica=replica_info)
+                    ranker=(ranker_info if ranker_on else None), replica=replica_info, dropcand=drop_info)
         return info
     finally:
         os.chdir(oldcwd)

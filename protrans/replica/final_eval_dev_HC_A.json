@@ -1,0 +1,2975 @@
+{
+ "hard_check": "HC_A",
+ "hole": {
+  "T0": 30,
+  "thr": 109.0
+ },
+ "clash_v2": {
+  "ours": "deck2deck",
+  "pro": "deck2deck",
+  "form": "median",
+  "cmin": 0.3,
+  "D": null,
+  "mask": "overlap",
+  "thr": 70.8,
+  "pro_fa_loo": 0.091,
+  "dev_clean": 0.027,
+  "dev_clash60": 0.151,
+  "dev_clash110": 0.397,
+  "heldout_clean": 0.033,
+  "heldout_clash60": 0.167,
+  "heldout_clash110": 0.567
+ },
+ "n": 91,
+ "picks": {
+  "Alpha Rhythm": "X",
+  "Fryett": "X",
+  "Hybrid Minds": "X",
+  "Joe Syntax": "X",
+  "Maduk": "X",
+  "Netsky": "X",
+  "Pola & Bryson": "X",
+  "SuicideSheeep": "X",
+  "TheHeshBesh": "C",
+  "UKF Drum & Bass": "X",
+  "Wilkinson": "X"
+ },
+ "results": {
+  "online_rule_K3": {
+   "exit_median": 27.4,
+   "exit_mean": 42.4,
+   "cue_median": 14.9,
+   "cue_mean": 25.2,
+   "exit_cue_median": 24.6,
+   "exit_cue_mean": 33.8,
+   "overlap_median": 13.0,
+   "overlap_mean": 14.9,
+   "swap_median": 7.0,
+   "swap_mean": 8.0,
+   "fade_median": 6.4,
+   "fade_mean": 6.7,
+   "exit_hit4": 0.088,
+   "cue_hit4": 0.154,
+   "exit_accset_hit4": 0.132,
+   "cue_accset_hit4": 0.165,
+   "exit_hit8": 0.121,
+   "cue_hit8": 0.231,
+   "exit_accset_hit8": 0.143,
+   "cue_accset_hit8": 0.231,
+   "exit_hit16": 0.33,
+   "cue_hit16": 0.593,
+   "exit_accset_hit16": 0.385,
+   "cue_accset_hit16": 0.637,
+   "hard_fail": 21,
+   "n": 91,
+   "replica_used": 39,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -15.5,
+     "ci": [
+      -23.33,
+      -5.29
+     ],
+     "verdict": "better"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": 2.32,
+     "ci": [
+      0.23,
+      3.95
+     ],
+     "verdict": "worse"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -6.59,
+     "ci": [
+      -10.41,
+      -1.95
+     ],
+     "verdict": "better"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": -0.52,
+     "ci": [
+      -0.97,
+      -0.01
+     ],
+     "verdict": "better"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": -0.26,
+     "ci": [
+      -0.65,
+      0.52
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.143,
+    "ci": [
+     0.061,
+     0.215
+    ],
+    "verdict": "better"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.099,
+    "ci": [
+     0.029,
+     0.17
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 21,
+   "fails_HC_B": 18,
+   "fails_v1": 23,
+   "new_fails_HC_A": [
+    {
+     "id": "fryett_ltdJ6GFixfs__26",
+     "dj": "Fryett",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 24.9,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "hybrid_minds_ukf__10",
+     "dj": "Hybrid Minds",
+     "win": [
+      "n",
+      160,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 38.5,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "netsky_hospital_classics__23",
+     "dj": "Netsky",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 136.0,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "pola_bryson_puzzlewood__04",
+     "dj": "Pola & Bryson",
+     "win": [
+      "n",
+      64,
+      null,
+      24,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      40,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__18",
+     "dj": "SuicideSheeep",
+     "win": [
+      "n",
+      160,
+      null,
+      32,
+      32
+     ],
+     "default_win": [
+      "n",
+      240,
+      null,
+      48,
+      16
+     ],
+     "hole_score": 10.3,
+     "med_lag": 98.7,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 8.6,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      112,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 166.7,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 93.0,
+     "med_lag": 87.1,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": true
+    }
+   ],
+   "fixed_HC_A": [
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__11",
+    "hybrid_minds_ukf__28",
+    "suicidesheeep_R8MWKsheHxk__27"
+   ]
+  },
+  "online_dropx_K3": {
+   "exit_median": 31.1,
+   "exit_mean": 45.4,
+   "cue_median": 14.7,
+   "cue_mean": 22.7,
+   "exit_cue_median": 24.6,
+   "exit_cue_mean": 34.0,
+   "overlap_median": 13.0,
+   "overlap_mean": 15.4,
+   "swap_median": 7.0,
+   "swap_mean": 6.5,
+   "fade_median": 6.4,
+   "fade_mean": 7.0,
+   "exit_hit4": 0.077,
+   "cue_hit4": 0.22,
+   "exit_accset_hit4": 0.088,
+   "cue_accset_hit4": 0.231,
+   "exit_hit8": 0.099,
+   "cue_hit8": 0.297,
+   "exit_accset_hit8": 0.11,
+   "cue_accset_hit8": 0.297,
+   "exit_hit16": 0.319,
+   "cue_hit16": 0.648,
+   "exit_accset_hit16": 0.396,
+   "cue_accset_hit16": 0.703,
+   "hard_fail": 14,
+   "n": 91,
+   "replica_used": 0,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -12.46,
+     "ci": [
+      -20.79,
+      -1.71
+     ],
+     "verdict": "better"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -0.18,
+     "ci": [
+      -0.6,
+      0.0
+     ],
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -6.32,
+     "ci": [
+      -10.48,
+      -0.93
+     ],
+     "verdict": "better"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.132,
+    "ci": [
+     0.024,
+     0.221
+    ],
+    "verdict": "better"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.077,
+    "ci": [
+     0.024,
+     0.128
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 14,
+   "fails_HC_B": 13,
+   "fails_v1": 15,
+   "new_fails_HC_A": [],
+   "fixed_HC_A": [
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__28",
+    "joe_syntax_hospital__11"
+   ]
+  },
+  "online_dropc_K3": {
+   "exit_median": 31.1,
+   "exit_mean": 45.4,
+   "cue_median": 15.4,
+   "cue_mean": 24.2,
+   "exit_cue_median": 24.8,
+   "exit_cue_mean": 34.8,
+   "overlap_median": 13.0,
+   "overlap_mean": 15.4,
+   "swap_median": 7.0,
+   "swap_mean": 6.4,
+   "fade_median": 6.4,
+   "fade_mean": 6.9,
+   "exit_hit4": 0.077,
+   "cue_hit4": 0.165,
+   "exit_accset_hit4": 0.088,
+   "cue_accset_hit4": 0.198,
+   "exit_hit8": 0.099,
+   "cue_hit8": 0.242,
+   "exit_accset_hit8": 0.11,
+   "cue_accset_hit8": 0.253,
+   "exit_hit16": 0.319,
+   "cue_hit16": 0.527,
+   "exit_accset_hit16": 0.396,
+   "cue_accset_hit16": 0.571,
+   "hard_fail": 10,
+   "n": 91,
+   "replica_used": 0,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -12.46,
+     "ci": [
+      -20.79,
+      -1.71
+     ],
+     "verdict": "better"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": 1.36,
+     "ci": [
+      -0.71,
+      3.57
+     ],
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -5.55,
+     "ci": [
+      -9.43,
+      -0.33
+     ],
+     "verdict": "better"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": -0.04,
+     "ci": [
+      -0.09,
+      0.0
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": -0.1,
+     "ci": [
+      -0.17,
+      0.04
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.132,
+    "ci": [
+     0.024,
+     0.221
+    ],
+    "verdict": "better"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.077,
+    "ci": [
+     0.024,
+     0.128
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 10,
+   "fails_HC_B": 9,
+   "fails_v1": 11,
+   "new_fails_HC_A": [
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      112,
+      null,
+      48,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 2.9,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      16
+     ],
+     "default_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    }
+   ],
+   "fixed_HC_A": [
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__11",
+    "hybrid_minds_ukf__28",
+    "hybrid_minds_ukf__40",
+    "joe_syntax_hospital__11",
+    "maduk_liquicity_lunar2025__05",
+    "theheshbesh_zHf8cC9ViuA__13",
+    "theheshbesh_zHf8cC9ViuA__27",
+    "ukf_drum_bass_LeMk0yiSoq4__52"
+   ]
+  },
+  "online_rule_Kall": {
+   "exit_median": 24.1,
+   "exit_mean": 40.3,
+   "cue_median": 14.8,
+   "cue_mean": 25.2,
+   "exit_cue_median": 24.0,
+   "exit_cue_mean": 32.8,
+   "overlap_median": 13.0,
+   "overlap_mean": 15.1,
+   "swap_median": 7.0,
+   "swap_mean": 8.3,
+   "fade_median": 6.5,
+   "fade_mean": 6.8,
+   "exit_hit4": 0.088,
+   "cue_hit4": 0.165,
+   "exit_accset_hit4": 0.132,
+   "cue_accset_hit4": 0.176,
+   "exit_hit8": 0.121,
+   "cue_hit8": 0.231,
+   "exit_accset_hit8": 0.143,
+   "cue_accset_hit8": 0.231,
+   "exit_hit16": 0.33,
+   "cue_hit16": 0.593,
+   "exit_accset_hit16": 0.385,
+   "cue_accset_hit16": 0.637,
+   "hard_fail": 20,
+   "n": 91,
+   "replica_used": 40,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -17.54,
+     "ci": [
+      -24.69,
+      -7.59
+     ],
+     "verdict": "better"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": 2.37,
+     "ci": [
+      0.26,
+      3.97
+     ],
+     "verdict": "worse"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -7.58,
+     "ci": [
+      -10.97,
+      -3.09
+     ],
+     "verdict": "better"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": -0.37,
+     "ci": [
+      -0.82,
+      0.11
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": -0.2,
+     "ci": [
+      -0.64,
+      0.56
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.143,
+    "ci": [
+     0.061,
+     0.215
+    ],
+    "verdict": "better"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.099,
+    "ci": [
+     0.029,
+     0.17
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 20,
+   "fails_HC_B": 18,
+   "fails_v1": 22,
+   "new_fails_HC_A": [
+    {
+     "id": "fryett_ltdJ6GFixfs__26",
+     "dj": "Fryett",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 24.9,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "hybrid_minds_ukf__10",
+     "dj": "Hybrid Minds",
+     "win": [
+      "n",
+      160,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 38.5,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "netsky_hospital_classics__23",
+     "dj": "Netsky",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 136.0,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "pola_bryson_puzzlewood__04",
+     "dj": "Pola & Bryson",
+     "win": [
+      "n",
+      64,
+      null,
+      24,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      40,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__18",
+     "dj": "SuicideSheeep",
+     "win": [
+      "n",
+      160,
+      null,
+      32,
+      32
+     ],
+     "default_win": [
+      "n",
+      240,
+      null,
+      48,
+      16
+     ],
+     "hole_score": 10.3,
+     "med_lag": 98.7,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 8.6,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      112,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 166.7,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 93.0,
+     "med_lag": 87.1,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": true
+    }
+   ],
+   "fixed_HC_A": [
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__11",
+    "hybrid_minds_ukf__28",
+    "suicidesheeep_R8MWKsheHxk__27",
+    "suicidesheeep_R8MWKsheHxk__46"
+   ]
+  },
+  "online_dropx_Kall": {
+   "exit_median": 30.7,
+   "exit_mean": 43.2,
+   "cue_median": 14.7,
+   "cue_mean": 22.7,
+   "exit_cue_median": 24.1,
+   "exit_cue_mean": 32.9,
+   "overlap_median": 13.0,
+   "overlap_mean": 15.4,
+   "swap_median": 7.0,
+   "swap_mean": 6.5,
+   "fade_median": 6.4,
+   "fade_mean": 7.0,
+   "exit_hit4": 0.088,
+   "cue_hit4": 0.22,
+   "exit_accset_hit4": 0.099,
+   "cue_accset_hit4": 0.231,
+   "exit_hit8": 0.11,
+   "cue_hit8": 0.297,
+   "exit_accset_hit8": 0.121,
+   "cue_accset_hit8": 0.297,
+   "exit_hit16": 0.319,
+   "cue_hit16": 0.648,
+   "exit_accset_hit16": 0.396,
+   "cue_accset_hit16": 0.703,
+   "hard_fail": 14,
+   "n": 91,
+   "replica_used": 0,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -14.65,
+     "ci": [
+      -22.02,
+      -4.58
+     ],
+     "verdict": "better"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -0.18,
+     "ci": [
+      -0.6,
+      0.0
+     ],
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -7.41,
+     "ci": [
+      -11.13,
+      -2.39
+     ],
+     "verdict": "better"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": 0.0,
+     "ci": [
+      0.0,
+      0.0
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.132,
+    "ci": [
+     0.024,
+     0.221
+    ],
+    "verdict": "better"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.088,
+    "ci": [
+     0.027,
+     0.14
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 14,
+   "fails_HC_B": 13,
+   "fails_v1": 15,
+   "new_fails_HC_A": [],
+   "fixed_HC_A": [
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__28",
+    "suicidesheeep_R8MWKsheHxk__46"
+   ]
+  },
+  "online_dropc_Kall": {
+   "exit_median": 30.7,
+   "exit_mean": 43.2,
+   "cue_median": 15.0,
+   "cue_mean": 24.1,
+   "exit_cue_median": 24.7,
+   "exit_cue_mean": 33.6,
+   "overlap_median": 13.0,
+   "overlap_mean": 15.4,
+   "swap_median": 7.0,
+   "swap_mean": 6.4,
+   "fade_median": 6.4,
+   "fade_mean": 6.9,
+   "exit_hit4": 0.088,
+   "cue_hit4": 0.176,
+   "exit_accset_hit4": 0.099,
+   "cue_accset_hit4": 0.209,
+   "exit_hit8": 0.11,
+   "cue_hit8": 0.253,
+   "exit_accset_hit8": 0.121,
+   "cue_accset_hit8": 0.264,
+   "exit_hit16": 0.319,
+   "cue_hit16": 0.538,
+   "exit_accset_hit16": 0.396,
+   "cue_accset_hit16": 0.582,
+   "hard_fail": 10,
+   "n": 91,
+   "replica_used": 0,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -14.65,
+     "ci": [
+      -22.02,
+      -4.58
+     ],
+     "verdict": "better"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": 1.19,
+     "ci": [
+      -0.85,
+      3.47
+     ],
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -6.73,
+     "ci": [
+      -10.5,
+      -1.74
+     ],
+     "verdict": "better"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": -0.03,
+     "ci": [
+      -0.08,
+      0.0
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": -0.07,
+     "ci": [
+      -0.15,
+      0.04
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.132,
+    "ci": [
+     0.024,
+     0.221
+    ],
+    "verdict": "better"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.088,
+    "ci": [
+     0.027,
+     0.14
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 10,
+   "fails_HC_B": 9,
+   "fails_v1": 11,
+   "new_fails_HC_A": [
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      112,
+      null,
+      48,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 2.9,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      16
+     ],
+     "default_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    }
+   ],
+   "fixed_HC_A": [
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__11",
+    "hybrid_minds_ukf__28",
+    "hybrid_minds_ukf__40",
+    "maduk_liquicity_lunar2025__05",
+    "suicidesheeep_R8MWKsheHxk__46",
+    "theheshbesh_zHf8cC9ViuA__13",
+    "theheshbesh_zHf8cC9ViuA__27",
+    "ukf_drum_bass_LeMk0yiSoq4__52"
+   ]
+  },
+  "lodo_select": {
+   "exit_median": 41.2,
+   "exit_mean": 52.2,
+   "cue_median": 14.9,
+   "cue_mean": 23.8,
+   "exit_cue_median": 31.8,
+   "exit_cue_mean": 38.0,
+   "overlap_median": 13.0,
+   "overlap_mean": 15.5,
+   "swap_median": 6.0,
+   "swap_mean": 6.2,
+   "fade_median": 6.5,
+   "fade_mean": 7.1,
+   "exit_hit4": 0.099,
+   "cue_hit4": 0.176,
+   "exit_accset_hit4": 0.099,
+   "cue_accset_hit4": 0.187,
+   "exit_hit8": 0.121,
+   "cue_hit8": 0.242,
+   "exit_accset_hit8": 0.121,
+   "cue_accset_hit8": 0.242,
+   "exit_hit16": 0.253,
+   "cue_hit16": 0.593,
+   "exit_accset_hit16": 0.308,
+   "cue_accset_hit16": 0.648,
+   "hard_fail": 9,
+   "n": 91,
+   "replica_used": 0,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -5.7,
+     "ci": [
+      -25.38,
+      20.63
+     ],
+     "verdict": "no clear difference"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": 0.91,
+     "ci": [
+      -0.64,
+      3.53
+     ],
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -2.4,
+     "ci": [
+      -11.92,
+      10.53
+     ],
+     "verdict": "no clear difference"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": 0.07,
+     "ci": [
+      -0.06,
+      0.32
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": 0.15,
+     "ci": [
+      0.0,
+      0.78
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.066,
+    "ci": [
+     -0.149,
+     0.22
+    ],
+    "verdict": "no clear difference"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.099,
+    "ci": [
+     0.023,
+     0.172
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 9,
+   "fails_HC_B": 10,
+   "fails_v1": 12,
+   "new_fails_HC_A": [
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      112,
+      null,
+      48,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 2.9,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      64,
+      null,
+      0,
+      16
+     ],
+     "default_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "hole_score": 13.4,
+     "med_lag": 145.1,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": true,
+     "pump": false
+    }
+   ],
+   "fixed_HC_A": [
+    "alpha_rhythm_AU0V19j8oKM__16",
+    "alpha_rhythm_imZjEt78YXs__03",
+    "alpha_rhythm_imZjEt78YXs__10",
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__28",
+    "joe_syntax_hospital__11",
+    "joe_syntax_hospital__12",
+    "suicidesheeep_R8MWKsheHxk__46",
+    "theheshbesh_zHf8cC9ViuA__13",
+    "theheshbesh_zHf8cC9ViuA__27"
+   ]
+  },
+  "default": {
+   "exit_median": 49.1,
+   "exit_mean": 57.9,
+   "cue_median": 14.8,
+   "cue_mean": 22.9,
+   "exit_cue_median": 32.7,
+   "exit_cue_mean": 40.4,
+   "overlap_median": 13.0,
+   "overlap_mean": 15.4,
+   "swap_median": 7.0,
+   "swap_mean": 6.5,
+   "fade_median": 6.4,
+   "fade_mean": 7.0,
+   "exit_hit4": 0.011,
+   "cue_hit4": 0.209,
+   "exit_accset_hit4": 0.022,
+   "cue_accset_hit4": 0.22,
+   "exit_hit8": 0.022,
+   "cue_hit8": 0.286,
+   "exit_accset_hit8": 0.033,
+   "cue_accset_hit8": 0.286,
+   "exit_hit16": 0.187,
+   "cue_hit16": 0.637,
+   "exit_accset_hit16": 0.242,
+   "cue_accset_hit16": 0.703,
+   "hard_fail": 17,
+   "n": 91,
+   "replica_used": 0,
+   "fails_HC_A": 17,
+   "fails_HC_B": 13,
+   "fails_v1": 18,
+   "new_fails_HC_A": [],
+   "fixed_HC_A": []
+  },
+  "gated": {
+   "exit_median": 34.0,
+   "exit_mean": 46.8,
+   "cue_median": 15.4,
+   "cue_mean": 26.4,
+   "exit_cue_median": 34.5,
+   "exit_cue_mean": 36.6,
+   "overlap_median": 14.8,
+   "overlap_mean": 15.1,
+   "swap_median": 7.0,
+   "swap_mean": 8.6,
+   "fade_median": 6.3,
+   "fade_mean": 6.5,
+   "exit_hit4": 0.121,
+   "cue_hit4": 0.154,
+   "exit_accset_hit4": 0.176,
+   "cue_accset_hit4": 0.165,
+   "exit_hit8": 0.165,
+   "cue_hit8": 0.231,
+   "exit_accset_hit8": 0.176,
+   "cue_accset_hit8": 0.231,
+   "exit_hit16": 0.297,
+   "cue_hit16": 0.527,
+   "exit_accset_hit16": 0.308,
+   "cue_accset_hit16": 0.56,
+   "hard_fail": 30,
+   "n": 91,
+   "replica_used": 0,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -11.04,
+     "ci": [
+      -29.54,
+      14.86
+     ],
+     "verdict": "no clear difference"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": 3.57,
+     "ci": [
+      1.44,
+      5.47
+     ],
+     "verdict": "worse"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -3.74,
+     "ci": [
+      -13.12,
+      9.09
+     ],
+     "verdict": "no clear difference"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": -0.38,
+     "ci": [
+      -1.45,
+      1.0
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": -0.45,
+     "ci": [
+      -0.98,
+      0.5
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.11,
+    "ci": [
+     -0.119,
+     0.287
+    ],
+    "verdict": "no clear difference"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.143,
+    "ci": [
+     0.05,
+     0.253
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 30,
+   "fails_HC_B": 26,
+   "fails_v1": 29,
+   "new_fails_HC_A": [
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__13",
+     "dj": "Alpha Rhythm",
+     "win": [
+      "n",
+      48,
+      null,
+      16,
+      16
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "alpha_rhythm_V0BMNeOy_t4__05",
+     "dj": "Alpha Rhythm",
+     "win": [
+      "n",
+      112,
+      null,
+      16,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 169.3,
+     "med_lag": 14.5,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "alpha_rhythm__fNcLmH-CYQ__00",
+     "dj": "Alpha Rhythm",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      16
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 178.5,
+     "med_lag": 2.9,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__15",
+     "dj": "Alpha Rhythm",
+     "win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 168.0,
+     "med_lag": 5.8,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__26",
+     "dj": "Fryett",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 24.9,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "hybrid_minds_ukf__08",
+     "dj": "Hybrid Minds",
+     "win": [
+      "n",
+      144,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 138.7,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "hybrid_minds_ukf__10",
+     "dj": "Hybrid Minds",
+     "win": [
+      "n",
+      160,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 38.5,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "joe_syntax_hospital__13",
+     "dj": "Joe Syntax",
+     "win": [
+      "n",
+      160,
+      null,
+      32,
+      32
+     ],
+     "default_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "hole_score": 5.5,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__02",
+     "dj": "Maduk",
+     "win": [
+      "n",
+      96,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      112,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 87.1,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__03",
+     "dj": "Maduk",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 111.0,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "netsky_hospital_classics__06",
+     "dj": "Netsky",
+     "win": [
+      "n",
+      216,
+      null,
+      32,
+      32
+     ],
+     "default_win": [
+      "n",
+      320,
+      null,
+      48,
+      16
+     ],
+     "hole_score": 37.1,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "netsky_hospital_classics__23",
+     "dj": "Netsky",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 136.0,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "pola_bryson_puzzlewood__00",
+     "dj": "Pola & Bryson",
+     "win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 131.9,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__18",
+     "dj": "SuicideSheeep",
+     "win": [
+      "n",
+      160,
+      null,
+      32,
+      32
+     ],
+     "default_win": [
+      "n",
+      240,
+      null,
+      48,
+      16
+     ],
+     "hole_score": 10.3,
+     "med_lag": 98.7,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__05",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 126.3,
+     "med_lag": 133.5,
+     "hole_v2": true,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__06",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 359.9,
+     "med_lag": 5.8,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 8.6,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      112,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 166.7,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 93.0,
+     "med_lag": 87.1,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": true
+    }
+   ],
+   "fixed_HC_A": [
+    "alpha_rhythm_imZjEt78YXs__03",
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__11",
+    "hybrid_minds_ukf__28",
+    "suicidesheeep_R8MWKsheHxk__27",
+    "suicidesheeep_R8MWKsheHxk__46"
+   ]
+  },
+  "on": {
+   "exit_median": 31.5,
+   "exit_mean": 44.8,
+   "cue_median": 15.3,
+   "cue_mean": 26.3,
+   "exit_cue_median": 31.9,
+   "exit_cue_mean": 35.5,
+   "overlap_median": 14.8,
+   "overlap_mean": 15.0,
+   "swap_median": 7.0,
+   "swap_mean": 8.6,
+   "fade_median": 6.3,
+   "fade_mean": 6.5,
+   "exit_hit4": 0.121,
+   "cue_hit4": 0.154,
+   "exit_accset_hit4": 0.176,
+   "cue_accset_hit4": 0.165,
+   "exit_hit8": 0.165,
+   "cue_hit8": 0.231,
+   "exit_accset_hit8": 0.176,
+   "cue_accset_hit8": 0.231,
+   "exit_hit16": 0.308,
+   "cue_hit16": 0.538,
+   "exit_accset_hit16": 0.319,
+   "cue_accset_hit16": 0.571,
+   "hard_fail": 31,
+   "n": 91,
+   "replica_used": 84,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -13.04,
+     "ci": [
+      -31.26,
+      12.54
+     ],
+     "verdict": "no clear difference"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": 3.4,
+     "ci": [
+      1.18,
+      5.29
+     ],
+     "verdict": "worse"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -4.82,
+     "ci": [
+      -14.11,
+      8.17
+     ],
+     "verdict": "no clear difference"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": -0.45,
+     "ci": [
+      -1.59,
+      0.97
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": -0.49,
+     "ci": [
+      -1.1,
+      0.5
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.121,
+    "ci": [
+     -0.11,
+     0.301
+    ],
+    "verdict": "no clear difference"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.143,
+    "ci": [
+     0.05,
+     0.253
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 31,
+   "fails_HC_B": 28,
+   "fails_v1": 30,
+   "new_fails_HC_A": [
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__13",
+     "dj": "Alpha Rhythm",
+     "win": [
+      "n",
+      48,
+      null,
+      16,
+      16
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "alpha_rhythm_V0BMNeOy_t4__05",
+     "dj": "Alpha Rhythm",
+     "win": [
+      "n",
+      112,
+      null,
+      16,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 169.3,
+     "med_lag": 14.5,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "alpha_rhythm__fNcLmH-CYQ__00",
+     "dj": "Alpha Rhythm",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      16
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 178.5,
+     "med_lag": 2.9,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__15",
+     "dj": "Alpha Rhythm",
+     "win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 168.0,
+     "med_lag": 5.8,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__26",
+     "dj": "Fryett",
+     "win": [
+      "n",
+      144,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 24.9,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "hybrid_minds_ukf__08",
+     "dj": "Hybrid Minds",
+     "win": [
+      "n",
+      144,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 138.7,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "hybrid_minds_ukf__10",
+     "dj": "Hybrid Minds",
+     "win": [
+      "n",
+      160,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 38.5,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "joe_syntax_hospital__13",
+     "dj": "Joe Syntax",
+     "win": [
+      "n",
+      160,
+      null,
+      32,
+      32
+     ],
+     "default_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "hole_score": 5.5,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__02",
+     "dj": "Maduk",
+     "win": [
+      "n",
+      96,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      112,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 87.1,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__03",
+     "dj": "Maduk",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 111.0,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "netsky_hospital_classics__06",
+     "dj": "Netsky",
+     "win": [
+      "n",
+      216,
+      null,
+      32,
+      32
+     ],
+     "default_win": [
+      "n",
+      320,
+      null,
+      48,
+      16
+     ],
+     "hole_score": 37.1,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "netsky_hospital_classics__23",
+     "dj": "Netsky",
+     "win": [
+      "n",
+      128,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 136.0,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "pola_bryson_puzzlewood__00",
+     "dj": "Pola & Bryson",
+     "win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 131.9,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "pola_bryson_puzzlewood__04",
+     "dj": "Pola & Bryson",
+     "win": [
+      "n",
+      64,
+      null,
+      24,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      40,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__18",
+     "dj": "SuicideSheeep",
+     "win": [
+      "n",
+      160,
+      null,
+      32,
+      32
+     ],
+     "default_win": [
+      "n",
+      240,
+      null,
+      48,
+      16
+     ],
+     "hole_score": 10.3,
+     "med_lag": 98.7,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__05",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      160,
+      null,
+      0,
+      32
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 126.3,
+     "med_lag": 133.5,
+     "hole_v2": true,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": false
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__06",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 359.9,
+     "med_lag": 5.8,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 8.6,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      112,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 166.7,
+     "med_lag": 0.0,
+     "hole_v2": true,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      32
+     ],
+     "default_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 93.0,
+     "med_lag": 87.1,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": true,
+     "halfbeat": false,
+     "pump": true
+    }
+   ],
+   "fixed_HC_A": [
+    "alpha_rhythm_imZjEt78YXs__03",
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__11",
+    "hybrid_minds_ukf__28",
+    "suicidesheeep_R8MWKsheHxk__27",
+    "suicidesheeep_R8MWKsheHxk__46"
+   ]
+  },
+  "dropx": {
+   "exit_median": 41.2,
+   "exit_mean": 52.2,
+   "cue_median": 14.7,
+   "cue_mean": 22.6,
+   "exit_cue_median": 31.8,
+   "exit_cue_mean": 37.4,
+   "overlap_median": 13.0,
+   "overlap_mean": 15.5,
+   "swap_median": 6.0,
+   "swap_mean": 6.2,
+   "fade_median": 6.5,
+   "fade_mean": 7.1,
+   "exit_hit4": 0.099,
+   "cue_hit4": 0.22,
+   "exit_accset_hit4": 0.099,
+   "cue_accset_hit4": 0.231,
+   "exit_hit8": 0.121,
+   "cue_hit8": 0.297,
+   "exit_accset_hit8": 0.121,
+   "cue_accset_hit8": 0.297,
+   "exit_hit16": 0.253,
+   "cue_hit16": 0.648,
+   "exit_accset_hit16": 0.308,
+   "cue_accset_hit16": 0.703,
+   "hard_fail": 10,
+   "n": 91,
+   "replica_used": 0,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -5.7,
+     "ci": [
+      -25.38,
+      20.63
+     ],
+     "verdict": "no clear difference"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -0.26,
+     "ci": [
+      -0.77,
+      0.0
+     ],
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -2.98,
+     "ci": [
+      -12.78,
+      10.2
+     ],
+     "verdict": "no clear difference"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": 0.09,
+     "ci": [
+      0.0,
+      0.33
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": 0.15,
+     "ci": [
+      0.0,
+      0.78
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.066,
+    "ci": [
+     -0.149,
+     0.22
+    ],
+    "verdict": "no clear difference"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.099,
+    "ci": [
+     0.023,
+     0.172
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 10,
+   "fails_HC_B": 11,
+   "fails_v1": 13,
+   "new_fails_HC_A": [
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      64,
+      null,
+      0,
+      16
+     ],
+     "default_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "hole_score": 13.4,
+     "med_lag": 145.1,
+     "hole_v2": false,
+     "clash_v1": true,
+     "clash_v2": true,
+     "halfbeat": true,
+     "pump": false
+    }
+   ],
+   "fixed_HC_A": [
+    "alpha_rhythm_AU0V19j8oKM__16",
+    "alpha_rhythm_imZjEt78YXs__03",
+    "alpha_rhythm_imZjEt78YXs__10",
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__28",
+    "joe_syntax_hospital__11",
+    "joe_syntax_hospital__12",
+    "suicidesheeep_R8MWKsheHxk__46"
+   ]
+  },
+  "dropc": {
+   "exit_median": 41.2,
+   "exit_mean": 52.2,
+   "cue_median": 15.6,
+   "cue_mean": 23.2,
+   "exit_cue_median": 31.8,
+   "exit_cue_mean": 37.7,
+   "overlap_median": 13.0,
+   "overlap_mean": 15.5,
+   "swap_median": 6.0,
+   "swap_mean": 6.1,
+   "fade_median": 6.4,
+   "fade_mean": 7.0,
+   "exit_hit4": 0.099,
+   "cue_hit4": 0.275,
+   "exit_accset_hit4": 0.099,
+   "cue_accset_hit4": 0.352,
+   "exit_hit8": 0.121,
+   "cue_hit8": 0.33,
+   "exit_accset_hit8": 0.121,
+   "cue_accset_hit8": 0.352,
+   "exit_hit16": 0.253,
+   "cue_hit16": 0.505,
+   "exit_accset_hit16": 0.308,
+   "cue_accset_hit16": 0.505,
+   "hard_fail": 5,
+   "n": 91,
+   "replica_used": 0,
+   "delta_vs_default": {
+    "exit": {
+     "n": 91,
+     "groups": 18,
+     "delta": -5.7,
+     "ci": [
+      -25.38,
+      20.63
+     ],
+     "verdict": "no clear difference"
+    },
+    "cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": 0.36,
+     "ci": [
+      -3.55,
+      4.02
+     ],
+     "verdict": "no clear difference"
+    },
+    "exit_cue": {
+     "n": 91,
+     "groups": 18,
+     "delta": -2.67,
+     "ci": [
+      -11.47,
+      9.29
+     ],
+     "verdict": "no clear difference"
+    },
+    "overlap": {
+     "n": 91,
+     "groups": 18,
+     "delta": 0.05,
+     "ci": [
+      -0.08,
+      0.32
+     ],
+     "verdict": "no clear difference"
+    },
+    "fade": {
+     "n": 33,
+     "groups": 6,
+     "delta": 0.02,
+     "ci": [
+      -0.19,
+      0.72
+     ],
+     "verdict": "no clear difference"
+    }
+   },
+   "delta_exit_hit16": {
+    "delta": 0.066,
+    "ci": [
+     -0.149,
+     0.22
+    ],
+    "verdict": "no clear difference"
+   },
+   "delta_exit_hit8": {
+    "delta": 0.099,
+    "ci": [
+     0.023,
+     0.172
+    ],
+    "verdict": "better"
+   },
+   "fails_HC_A": 5,
+   "fails_HC_B": 7,
+   "fails_v1": 5,
+   "new_fails_HC_A": [
+    {
+     "id": "alpha_rhythm_hb7PvukS-Pk__07",
+     "dj": "Alpha Rhythm",
+     "win": [
+      "n",
+      112,
+      null,
+      32,
+      16
+     ],
+     "default_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 5.8,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "dj": "TheHeshBesh",
+     "win": [
+      "n",
+      112,
+      null,
+      48,
+      16
+     ],
+     "default_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 2.9,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+     "dj": "UKF Drum & Bass",
+     "win": [
+      "n",
+      128,
+      null,
+      16,
+      16
+     ],
+     "default_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "hole_score": 0.0,
+     "med_lag": 0.0,
+     "hole_v2": false,
+     "clash_v1": false,
+     "clash_v2": false,
+     "halfbeat": false,
+     "pump": true
+    }
+   ],
+   "fixed_HC_A": [
+    "alpha_rhythm_AU0V19j8oKM__16",
+    "alpha_rhythm_imZjEt78YXs__03",
+    "alpha_rhythm_imZjEt78YXs__09",
+    "alpha_rhythm_imZjEt78YXs__10",
+    "fryett_ltdJ6GFixfs__52",
+    "hybrid_minds_ukf__00",
+    "hybrid_minds_ukf__11",
+    "hybrid_minds_ukf__28",
+    "hybrid_minds_ukf__40",
+    "joe_syntax_hospital__11",
+    "maduk_liquicity_lunar2025__05",
+    "suicidesheeep_R8MWKsheHxk__46",
+    "theheshbesh_zHf8cC9ViuA__13",
+    "theheshbesh_zHf8cC9ViuA__27",
+    "ukf_drum_bass_LeMk0yiSoq4__52"
+   ]
+  }
+ },
+ "all103": {
+  "default": {
+   "v1": 18,
+   "HC_A": 17,
+   "HC_B": 14,
+   "hole_v2": 1,
+   "clash_v1": 7,
+   "clash_v2": 3,
+   "halfbeat": 1,
+   "pump": 9,
+   "n": 103
+  },
+  "gated": {
+   "v1": 29,
+   "HC_A": 30,
+   "HC_B": 27,
+   "hole_v2": 12,
+   "clash_v1": 8,
+   "clash_v2": 5,
+   "halfbeat": 1,
+   "pump": 15,
+   "n": 103
+  },
+  "on": {
+   "v1": 30,
+   "HC_A": 31,
+   "HC_B": 29,
+   "hole_v2": 12,
+   "clash_v1": 8,
+   "clash_v2": 6,
+   "halfbeat": 1,
+   "pump": 16,
+   "n": 103
+  },
+  "dropx": {
+   "v1": 13,
+   "HC_A": 10,
+   "HC_B": 11,
+   "hole_v2": 0,
+   "clash_v1": 2,
+   "clash_v2": 2,
+   "halfbeat": 2,
+   "pump": 8,
+   "n": 103
+  },
+  "dropc": {
+   "v1": 6,
+   "HC_A": 6,
+   "HC_B": 7,
+   "hole_v2": 0,
+   "clash_v1": 1,
+   "clash_v2": 2,
+   "halfbeat": 0,
+   "pump": 5,
+   "n": 103
+  }
+ }
+}

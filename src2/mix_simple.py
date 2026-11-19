@@ -252,6 +252,12 @@ def pair_cands(i,ia0):
       for kind,e,ib in _RR.engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia, a_id=a):
         if (kind,e,ib) not in have:
           cands.append((kind,e,ib)); have.add((kind,e,ib)); PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
+    if __import__('replica_rule').drop_mode()!='off':  # DROPCAND drop-exit / drop-cue windows (2026-11-18, off by default)
+      import replica_rule as _RR, sections as _SEC
+      have=set(cands)
+      for kind,e,ib in _RR.drop_engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia):
+        if (kind,e,ib) not in have:
+          cands.append((kind,e,ib)); have.add((kind,e,ib)); PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
     eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
     for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
       for p in [e-16] if e-16>=max(ia,16) else []:  # a fill/level drop inside the loop is penalised (DIPPEN), not refused

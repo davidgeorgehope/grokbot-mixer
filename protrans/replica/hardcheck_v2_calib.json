@@ -1,0 +1,103 @@
+{
+ "chosen": {
+  "T0": 30,
+  "D": 20,
+  "cmin": 0.4,
+  "hole_form": "area",
+  "clash": "v2b_xcorr"
+ },
+ "dev": {
+  "T0": 30,
+  "D": 20,
+  "cmin": 0.4,
+  "thr_hole": 109.0,
+  "thr_clash": 1.0,
+  "pro_fa_loo": {
+   "hole": 0.061,
+   "clash": 0.03,
+   "n": 33
+  },
+  "clean_flag_rate": {
+   "hole": 0.014,
+   "clash": 0.0,
+   "n": 73
+  },
+  "detect": {
+   "clash110": {
+    "n": 73,
+    "hole": 0.014,
+    "clash": 0.068
+   },
+   "clash60": {
+    "n": 73,
+    "hole": 0.014,
+    "clash": 0.041
+   },
+   "hole4": {
+    "n": 73,
+    "hole": 0.274,
+    "clash": 0.0
+   },
+   "hole8": {
+    "n": 73,
+    "hole": 0.932,
+    "clash": 0.0
+   },
+   "pump": {
+    "n": 73,
+    "hole": 0.014,
+    "clash": 0.0
+   }
+  }
+ },
+ "heldout": {
+  "T0": 30,
+  "D": 20,
+  "cmin": 0.4,
+  "thr_hole": 109.0,
+  "thr_clash": 1.0,
+  "pro_fa_loo": {
+   "hole": 0.061,
+   "clash": 0.03,
+   "n": 33
+  },
+  "clean_flag_rate": {
+   "hole": 0.0,
+   "clash": 0.0,
+   "n": 30
+  },
+  "detect": {
+   "clash110": {
+    "n": 30,
+    "hole": 0.0,
+    "clash": 0.067
+   },
+   "clash60": {
+    "n": 30,
+    "hole": 0.0,
+    "clash": 0.067
+   },
+   "hole4": {
+    "n": 30,
+    "hole": 0.3,
+    "clash": 0.0
+   },
+   "hole8": {
+    "n": 30,
+    "hole": 0.9,
+    "clash": 0.0
+   },
+   "pump": {
+    "n": 30,
+    "hole": 0.033,
+    "clash": 0.0
+   }
+  }
+ },
+ "n_pros": 33,
+ "n_pairs": 103,
+ "thresholds": {
+  "hole": 109.0,
+  "clash": 1.0
+ }
+}

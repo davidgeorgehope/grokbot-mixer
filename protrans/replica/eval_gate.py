@@ -60,6 +60,13 @@ def _reuse(rec, variant, src_variant, why):
 def _lazy(rec, rules):
     """identical-window shortcut: REPLICA=gated renders exactly the default when the gate abstains; REPLICA=1 renders exactly the
     gated window when the gate passes (primary detector = same window), and the default when no window exists."""
+    dm = str(rules.get('DROPCAND') or '').lower()
+    if dm in ('exit', 'cue'):  # DROPCAND forced variant: no legal drop window at X 16/32 -> renders exactly the default
+        sys.path.insert(0, paths.SRC2); os.chdir(paths.SRC2)
+        import replica_rule as RR, sections as S
+        sa, sb = S.get(rec['a']), S.get(rec['b'])
+        if not any(RR.drop_window(sa, sb, dm, X=x)[0] for x in (16, 32)): return ('default', 'no legal drop window')
+        return None
     m = str(rules.get('REPLICA') or '').lower()
     if m not in ('gated', '1') or len(rules) and any(k for k in rules.get('_extra', [])): return None
     sys.path.insert(0, paths.SRC2); os.chdir(paths.SRC2)
@@ -89,7 +96,7 @@ def _worker(job):
         info = recreate.recreate(rec['a'], rec['b'], rec['sa'], rec['sb'], hint_a_played_sec=rec['hint'], rules=rules, tag=tag)
         os.chdir(paths.SRC2); hc = HC.check(info['meta_path']); od = HC.ours_decisions(info['meta_path'], info['win'])
         row = dict(id=rec['id'], src=rec['src'], split=rec['split'], dj=rec['dj'], mix=rec['mix'], fam=info['fam'], win=info['win'],
-                   replica=info.get('replica'), hard=hc, ours={k: v for k, v in od.items() if not k.startswith('curve')},
+                   replica=info.get('replica'), dropcand=info.get('dropcand'), hard=hc, ours={k: v for k, v in od.items() if not k.startswith('curve')},
                    fade_err=HC.fade_err(od, rec['pro']['curve_a'], rec['pro']['curve_b']), meta=info['meta_path'], mp3=info.get('ours'))
         p = rec['pro']
         row['err'] = dict(exit=abs(od['out_bar'] - p['out_bar']), cue=abs(od['in_bar'] - p['in_bar']),

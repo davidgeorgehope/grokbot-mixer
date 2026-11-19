@@ -119,3 +119,38 @@ def gate(sa, sb, a_id=None, root='.', low=None):
     if d1 - bdm < GATE_DIP_DB:
         info['why'] = f'breakdown dip {d1 - bdm:.1f} dB < {GATE_DIP_DB}'; return None, info
     info.update(path='replica', why='confident breakdown', win=w); return w, info
+
+# ---------------------------------------------------------------------------------------------------------------------------
+# DROPCAND (2026-11-18 late, off by default; research flag): drop-exit / drop-cue candidate windows.
+# Relabel of dev misses: pros often leave the outgoing over the end of its drop 1 (exit-in-drop1 pros sit 45-65 bars into a
+# drop), and on 20 dev pairs they cued the incoming at its own drop 1 (median +5 bars).
+#   exit : blend = last X bars of the outgoing's drop 1 (e = drop1 end); incoming drop lands at the blend end (ib = drop1_b - X)
+#   cue  : same outgoing span; incoming starts AT its drop 1 (ib = drop1_b): drop-on-drop for X bars
+# DROPCAND=exit|cue forces that window when the engine scored it (like REPLICA=1); DROPCAND=both only adds both as candidates.
+def drop_mode(v=None):
+    v = os.environ.get('DROPCAND') if v is None else v
+    s = str(v).strip().lower() if v is not None else ''
+    if s in ('1', 'true', 'yes', 'on', 'both'): return 'both'
+    return s if s in ('exit', 'cue') else 'off'
+
+def drop_window(sa, sb, which, X=16):
+    drops_a = [list(map(int, d)) for d in (sa.get('drops') or [])]
+    if not drops_a: return None, 'outgoing has no drop'
+    na = int(sa.get('music_end') or sa.get('n_bars') or 0); nb = int(sb.get('music_end') or sb.get('n_bars') or 0)
+    d1b = int(sb.get('drop1') or 0)
+    if d1b <= 0: return None, 'incoming has no drop1'
+    e = phrase(drops_a[0][1]); X = int(X)
+    ib = phrase(d1b) if which == 'cue' else phrase(max(0, d1b - X))
+    if e > na or e - X < 32 or ib + X > nb or nb - ib < 48:
+        return None, 'window not legal'
+    return ['n', e, None, ib, X], dict(which=which, drop1_a=drops_a[0], drop1_b=d1b, X=X)
+
+def drop_engine_cands(sa, sb, X, e_max=None, ia=0):
+    m = drop_mode(); out = []
+    for which in (('exit', 'cue') if m == 'both' else (m,)):
+        w, _ = drop_window(sa, sb, which, X=X)
+        if not w: continue
+        if e_max is not None and w[1] > e_max: continue
+        if ia is not None and w[1] - X < int(ia): continue
+        out.append((w[0], w[1], w[3]))
+    return out

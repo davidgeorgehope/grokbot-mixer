@@ -5,6 +5,10 @@ import json, os, random, sys
 H = os.path.dirname(os.path.abspath(__file__)); P = os.path.dirname(H); sys.path.insert(0, P)
 import corpus_v2_pipeline as CP
 OUT = os.path.join(H, 'fresh_mixes.json')
+# Isolated work dirs: archive_mix() deletes every .m4a in its LIB, which on 2026-11-18 21:57 ET removed sources the running
+# corpus-v2 job was using (mrmommusic_nodB5gqt_mU__49 rejected on a missing file). Never share corpus_v2/work again.
+FW = os.path.join(H, 'fresh_work'); CP.WORK = FW; CP.LIB = os.path.join(FW, 'lib'); CP.CLIPS = os.path.join(FW, 'clips'); CP.MIXES_DIR = os.path.join(FW, 'mixes')
+for d in (CP.LIB, CP.CLIPS, CP.MIXES_DIR): os.makedirs(d, exist_ok=True)
 q = json.load(open(CP.QUEUE))['mixes']; todo = [m for m in q if m.get('status') == 'queued'][20:]
 random.Random(20261118).shuffle(todo)
 CP._mkdirs(); snap = CP.snapshot_protected(); got = json.load(open(OUT)) if os.path.exists(OUT) else dict(mixes=[], tried=[])

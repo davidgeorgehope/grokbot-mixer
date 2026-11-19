@@ -1,0 +1,8 @@
+{"written": "2026-11-18 ~22:13 ET, before the locked-holdout check",
+ "candidates_frozen_from_dev": ["model_conformal (style_setting)", "model_plain (style_setting)", "gate_apriori (REPLICA=gated)"],
+ "promote_only_if_all": [
+   "locked holdout (Liquicity + Hospital Records corpus mixes): grouped-bootstrap 95% CI of mean exit+cue bar error delta vs default lies entirely below 0",
+   "fresh-mix test: same delta not worse (point estimate <= 0)",
+   "hard checks: no more hard-fail pairs than default on dev + holdout + fresh (pairs where default already fails are not counted against it)",
+   "style_setting variants additionally need a real per-mix style setting from the listener; until then they stay flags"],
+ "note": "Similarity score is diagnostic only. the listener's A/B is an optional low-weight taste signal, not a gate. rules.json is never edited by this workstream."}

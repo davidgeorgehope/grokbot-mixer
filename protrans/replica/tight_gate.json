@@ -1,0 +1,101 @@
+{
+ "grid": 60,
+ "outer_folds": {
+  "Alpha Rhythm": null,
+  "Fryett": null,
+  "Hybrid Minds": null,
+  "Joe Syntax": null,
+  "Maduk": null,
+  "Netsky": null,
+  "Pola & Bryson": null,
+  "SuicideSheeep": null,
+  "TheHeshBesh": [
+   18,
+   24,
+   0.5
+  ],
+  "UKF Drum & Bass": null,
+  "Wilkinson": null
+ },
+ "dev_outer": {
+  "n": 91,
+  "used": 2,
+  "hard_fail": 20,
+  "new_fail": 2,
+  "fixed": 0,
+  "exit_cue_mean": 39.7,
+  "exit_median": 47.7,
+  "exit_hit4": 0.022,
+  "exit_hit8": 0.033,
+  "exit_hit16": 0.209,
+  "delta_exit_cue": {
+   "n": 91,
+   "groups": 18,
+   "delta": -0.7,
+   "ci": [
+    -2.23,
+    0.0
+   ],
+   "verdict": "no clear difference"
+  },
+  "delta_exit": {
+   "n": 91,
+   "groups": 18,
+   "delta": -1.57,
+   "ci": [
+    -5.03,
+    0.0
+   ],
+   "verdict": "no clear difference"
+  },
+  "delta_exit_hit16": {
+   "delta": 0.022,
+   "ci": [
+    0.0,
+    0.071
+   ],
+   "verdict": "no clear difference"
+  }
+ },
+ "dev_gate_apriori": {
+  "n": 91,
+  "used": 0,
+  "hard_fail": 29,
+  "new_fail": 18,
+  "fixed": 7,
+  "exit_cue_mean": 36.6,
+  "exit_median": 34.0,
+  "exit_hit4": 0.121,
+  "exit_hit8": 0.165,
+  "exit_hit16": 0.297,
+  "delta_exit_cue": {
+   "n": 91,
+   "groups": 18,
+   "delta": -3.74,
+   "ci": [
+    -13.12,
+    9.09
+   ],
+   "verdict": "no clear difference"
+  },
+  "delta_exit": {
+   "n": 91,
+   "groups": 18,
+   "delta": -11.04,
+   "ci": [
+    -29.54,
+    14.86
+   ],
+   "verdict": "no clear difference"
+  },
+  "delta_exit_hit16": {
+   "delta": 0.11,
+   "ci": [
+    -0.119,
+    0.287
+   ],
+   "verdict": "no clear difference"
+  }
+ },
+ "final_params_all_dev": null
+}

@@ -1,0 +1,87 @@
+{
+ "n_pairs": 103,
+ "default": {
+  "hard_fail": 18,
+  "rate": 0.175,
+  "by_check": {
+   "beat_clash": 7,
+   "bass_hole": 3,
+   "pumping": 9
+  },
+  "new_vs_default": [],
+  "new_vs_default_n": 0,
+  "fixed_vs_default_n": 0,
+  "also_fails_default_n": 18,
+  "new_fails_on_changed_window": 0,
+  "fails_on_unchanged_window": 18
+ },
+ "on": {
+  "hard_fail": 30,
+  "rate": 0.291,
+  "by_check": {
+   "beat_clash": 8,
+   "bass_hole": 10,
+   "pumping": 16
+  },
+  "new_vs_default": [
+   "alpha_rhythm_TnnrrqVRZIM__13",
+   "alpha_rhythm__fNcLmH-CYQ__00",
+   "alpha_rhythm_imZjEt78YXs__15",
+   "fryett_ltdJ6GFixfs__26",
+   "hybrid_minds_ukf__08",
+   "hybrid_minds_ukf__10",
+   "hybrid_minds_ukf__23",
+   "joe_syntax_hospital__13",
+   "maduk_liquicity_lunar2025__02",
+   "maduk_liquicity_lunar2025__03",
+   "netsky_hospital_classics__06",
+   "netsky_hospital_classics__23",
+   "pola_bryson_puzzlewood__04",
+   "suicidesheeep_R8MWKsheHxk__18",
+   "theheshbesh_zHf8cC9ViuA__05",
+   "theheshbesh_zHf8cC9ViuA__06",
+   "theheshbesh_zHf8cC9ViuA__39",
+   "ukf_drum_bass_LeMk0yiSoq4__31",
+   "ukf_drum_bass_LeMk0yiSoq4__51"
+  ],
+  "new_vs_default_n": 19,
+  "fixed_vs_default_n": 7,
+  "also_fails_default_n": 11,
+  "new_fails_on_changed_window": 19,
+  "fails_on_unchanged_window": 0
+ },
+ "gated": {
+  "hard_fail": 29,
+  "rate": 0.282,
+  "by_check": {
+   "beat_clash": 8,
+   "bass_hole": 10,
+   "pumping": 15
+  },
+  "new_vs_default": [
+   "alpha_rhythm_TnnrrqVRZIM__13",
+   "alpha_rhythm__fNcLmH-CYQ__00",
+   "alpha_rhythm_imZjEt78YXs__15",
+   "fryett_ltdJ6GFixfs__26",
+   "hybrid_minds_ukf__08",
+   "hybrid_minds_ukf__10",
+   "hybrid_minds_ukf__23",
+   "joe_syntax_hospital__13",
+   "maduk_liquicity_lunar2025__02",
+   "maduk_liquicity_lunar2025__03",
+   "netsky_hospital_classics__06",
+   "netsky_hospital_classics__23",
+   "suicidesheeep_R8MWKsheHxk__18",
+   "theheshbesh_zHf8cC9ViuA__05",
+   "theheshbesh_zHf8cC9ViuA__06",
+   "theheshbesh_zHf8cC9ViuA__39",
+   "ukf_drum_bass_LeMk0yiSoq4__31",
+   "ukf_drum_bass_LeMk0yiSoq4__51"
+  ],
+  "new_vs_default_n": 18,
+  "fixed_vs_default_n": 7,
+  "also_fails_default_n": 11,
+  "new_fails_on_changed_window": 18,
+  "fails_on_unchanged_window": 0
+ }
+}

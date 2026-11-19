@@ -2338,5 +2338,455 @@
     "source": "bandcamp",
     "extractor": "Bandcamp",
     "score": 4
+  },
+  "Hybrid Minds - Walls": {
+    "id": "3386464554",
+    "title": "Hybrid Minds & Grimm - Walls",
+    "channel": "Hybrid Minds & Grimm",
+    "duration": "",
+    "url": "https://hybridminds.bandcamp.com/track/walls",
+    "source": "bandcamp",
+    "extractor": "Bandcamp",
+    "score": 6
+  },
+  "LOATIAL & ALB - Absence": {
+    "id": "J3sizcwNf18",
+    "title": "LOATIAL & ALB - Absence",
+    "channel": "Liquicity",
+    "duration": "228",
+    "url": "https://www.youtube.com/watch?v=J3sizcwNf18",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 9
+  },
+  "Echomatics - Starlit Tears": {
+    "id": "2307640265",
+    "title": "Echomatics - Starlit Tears",
+    "channel": "KushSessions",
+    "duration": "309.011",
+    "url": "https://soundcloud.com/kushsessionsdnb/echomatics-starlit-tears-1",
+    "extractor": "soundcloud",
+    "source": "soundcloud",
+    "score": 6
+  },
+  "Liquefaction - Fluide": {
+    "id": "AB5INnHdNJs",
+    "title": "Liquefaction - Fluide [Lizplay Records]",
+    "channel": "Drumad",
+    "duration": "291",
+    "url": "https://www.youtube.com/watch?v=AB5INnHdNJs",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 4
+  },
+  "Low:r - Jos": {
+    "id": "tIeF6lTvHdY",
+    "title": "Low:r - Jos",
+    "channel": "Liquicity",
+    "duration": "268",
+    "url": "https://www.youtube.com/watch?v=tIeF6lTvHdY",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 7
+  },
+  "LOATIAL & ALB - 4 The 1st Time": {
+    "id": "fiNDQqhhdJE",
+    "title": "LOATIAL & ALB - 4 The 1st Time",
+    "channel": "Liquicity",
+    "duration": "184",
+    "url": "https://www.youtube.com/watch?v=fiNDQqhhdJE",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 11
+  },
+  "Hollie Gauti\u00e9r - I Got U": {
+    "id": "8rZfXRMwZb0",
+    "title": "Dapreme & Hollie Gauti\u00e9r - Warning Signs",
+    "channel": "UKF Drum & Bass",
+    "duration": "199",
+    "url": "https://www.youtube.com/watch?v=8rZfXRMwZb0",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 5
+  },
+  "Kleer - The Current (Seathasky Remix)": {
+    "id": "kV7lE8VAej8",
+    "title": "Kleer  - The Current (Seathasky Remix)",
+    "channel": "Liquiddnbftw",
+    "duration": "292",
+    "url": "https://www.youtube.com/watch?v=kV7lE8VAej8",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 12
+  },
+  "Weynorx - Lights Down": {
+    "id": "I6sk6-3q2xw",
+    "title": "Weynorx - Lights Down",
+    "channel": "LiquidMusick",
+    "duration": "296",
+    "url": "https://www.youtube.com/watch?v=I6sk6-3q2xw",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Miss Medik - Sacred Ground": {
+    "id": "S2WIy_Txr9E",
+    "title": "Miss Medik - Sacred Ground",
+    "channel": "Liquid Flow",
+    "duration": "291",
+    "url": "https://www.youtube.com/watch?v=S2WIy_Txr9E",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 8
+  },
+  "Grecker - Childhood Memory": {
+    "id": "rh2gMHhh8B0",
+    "title": "Grecker - Childhood Memory",
+    "channel": "Liquid Flow",
+    "duration": "293",
+    "url": "https://www.youtube.com/watch?v=rh2gMHhh8B0",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Edlan x Aev.aya - Change Of Heart": {
+    "id": "2160661314",
+    "title": "Edlan x Aev.aya - Change Of Heart",
+    "channel": "Liquicity Records",
+    "duration": "220.046",
+    "url": "https://soundcloud.com/liquicityrecords/b656e7d4-0ecf-4d54-84fe-a212a1c7c66e",
+    "extractor": "soundcloud",
+    "source": "soundcloud",
+    "score": 13
+  },
+  "Boxplot, Coben & Spaces - Grounded (Goodbye)": {
+    "id": "6pWteaUb_tU",
+    "title": "Boxplot, Coben & Spaces - Grounded (Goodbye)",
+    "channel": "Spaces",
+    "duration": "283",
+    "url": "https://www.youtube.com/watch?v=6pWteaUb_tU",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 10
+  },
+  "Aleyum & IYRE - Northern Corridor (Minos Remix)": {
+    "id": "DTpREfFsyzU",
+    "title": "Aleyum & IYRE - Northern Corridor (Minos Remix)",
+    "channel": "Liquiddnbftw",
+    "duration": "254",
+    "url": "https://www.youtube.com/watch?v=DTpREfFsyzU",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 16
+  },
+  "Beels - Pouring Rain": {
+    "id": "2184170931",
+    "title": "Beels - Pouring Rain",
+    "channel": "C Recordings",
+    "duration": "224.098",
+    "url": "https://soundcloud.com/crecs/beels-pouring-rain",
+    "extractor": "soundcloud",
+    "source": "soundcloud",
+    "score": 6
+  },
+  "Sereni7 - Lifeline": {
+    "id": "2201020535",
+    "title": "Sereni7 - Lifeline",
+    "channel": "Interstellar Audio",
+    "duration": "282.046",
+    "url": "https://soundcloud.com/interstellar_audio/sereni7-lifeline-3",
+    "extractor": "soundcloud",
+    "source": "soundcloud",
+    "score": 4
+  },
+  "Peter Lix - Loaded Dice": {
+    "id": "T0WRtF7uNw4",
+    "title": "Peter Lix  - Loaded Dice  (Liquid Drum & Bass)",
+    "channel": "Peter Lix",
+    "duration": "224",
+    "url": "https://www.youtube.com/watch?v=T0WRtF7uNw4",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 8
+  },
+  "Sereni7 & Kate Clark - Run To Me": {
+    "id": "nokPvJeA2P8",
+    "title": "Sereni7 & Kate Clark - Run To Me (Official Video)",
+    "channel": "KushSessions and Kush Records",
+    "duration": "289",
+    "url": "https://www.youtube.com/watch?v=nokPvJeA2P8",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 8
+  },
+  "Rafau Etamski - My Way Of": {
+    "id": "2rRQWazxATI",
+    "title": "Rafau Etamski - My Way Of",
+    "channel": "Liquiddnbftw",
+    "duration": "215",
+    "url": "https://www.youtube.com/watch?v=2rRQWazxATI",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Phloem - Variegate": {
+    "id": "_A9gjnl9rug",
+    "title": "Phloem - Variegate",
+    "channel": "Liquicity",
+    "duration": "328",
+    "url": "https://www.youtube.com/watch?v=_A9gjnl9rug",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 7
+  },
+  "Hugh Hardie, Sub:liminal, Degs & Blocksberg - No More Excuses": {
+    "id": "qQR8XqXOqew",
+    "title": "Hugh Hardie, Sub:liminal, Degs & Blocksberg - No More Excuses",
+    "channel": "Hospital Records",
+    "duration": "245",
+    "url": "https://www.youtube.com/watch?v=qQR8XqXOqew",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 19
+  },
+  "Waitt Carry - How Do You Do It": {
+    "id": "sg_sgMFQjNo",
+    "title": "DRUM AND BASS | Tyler Brand, Waitt Carry - Tenzee (ft. Andrew Nagy) Soundrive",
+    "channel": "",
+    "duration": "252",
+    "url": "https://www.youtube.com/watch?v=sg_sgMFQjNo",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 2
+  },
+  "Hybrid Minds - Body Bags": {
+    "id": "M2V9aKXnbzo",
+    "title": "Hybrid Minds, homesick & Tempza - Body Bags",
+    "channel": "UKF Drum & Bass",
+    "duration": "203",
+    "url": "https://www.youtube.com/watch?v=M2V9aKXnbzo",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 11
+  },
+  "Edlan - Serenity": {
+    "id": "tdm5mVS3MeM",
+    "title": "Edlan - Serenity",
+    "channel": "Liquicity",
+    "duration": "220",
+    "url": "https://www.youtube.com/watch?v=tdm5mVS3MeM",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 7
+  },
+  "Cooper Stites - Right Now": {
+    "id": "2EpYAGagBiQ",
+    "title": "Cooper Stites - Right Now",
+    "channel": "Kush Records",
+    "duration": "257",
+    "url": "https://www.youtube.com/watch?v=2EpYAGagBiQ",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 8
+  },
+  "Hybrid Minds - Bored": {
+    "id": "vOKwP-DGKBI",
+    "title": "Hybrid Minds, homesick & D38 - Bored",
+    "channel": "Hybrid Minds",
+    "duration": "200",
+    "url": "https://www.youtube.com/watch?v=vOKwP-DGKBI",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Sereni7 - Stay The Night": {
+    "id": "f3B0hck7h6Y",
+    "title": "Sereni7 - Stay the night",
+    "channel": "Sereni7",
+    "duration": "285",
+    "url": "https://www.youtube.com/watch?v=f3B0hck7h6Y",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Destiny - Turning": {
+    "id": "2166693552",
+    "title": "Destiny - Turning (Lizplay Records)",
+    "channel": "Lizplay Records",
+    "duration": "331.85",
+    "url": "https://soundcloud.com/lizplayrecords/destiny-turning-lizplay-records-8",
+    "extractor": "soundcloud",
+    "source": "soundcloud",
+    "score": 4
+  },
+  "YAANO, Grey Code & Rhode - Alone": {
+    "id": "jMsIy26GpWs",
+    "title": "YAANO, Grey Code & Rhode - Alone",
+    "channel": "UKF Drum & Bass",
+    "duration": "232",
+    "url": "https://www.youtube.com/watch?v=jMsIy26GpWs",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 13
+  },
+  "Sub:liminal, Charlotte X - Cling (ft. Flava D)": {
+    "id": "2159634684",
+    "title": "Flava D x Sub:liminal x Charlotte X - Cling",
+    "channel": "Hospital Records",
+    "duration": "313.308",
+    "url": "https://soundcloud.com/hospitalrecords/flava-d-x-sub_liminal-x-charlotte-x-cling-3",
+    "extractor": "soundcloud",
+    "source": "soundcloud",
+    "score": 13
+  },
+  "Frameshift & Twintone - A Poison In Disguise": {
+    "id": "-NlfH77Wqus",
+    "title": "Frameshift & Twintone - A Poison In Disguise",
+    "channel": "Liquiddnbftw",
+    "duration": "304",
+    "url": "https://www.youtube.com/watch?v=-NlfH77Wqus",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 8
+  },
+  "DPR & Sorn - Give You": {
+    "id": "8GZwIh3xq9Q",
+    "title": "DPR & Sorn - Give You",
+    "channel": "Liquid Flow",
+    "duration": "255",
+    "url": "https://www.youtube.com/watch?v=8GZwIh3xq9Q",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Dellamar - Universe Is Endless": {
+    "id": "2176403694",
+    "title": "Dellamar - Universe Is Endless (Lizplay Records)",
+    "channel": "Lizplay Records",
+    "duration": "280.707",
+    "url": "https://soundcloud.com/lizplayrecords/dellamar-universe-is-endless-lizplay-records-4",
+    "extractor": "soundcloud",
+    "source": "soundcloud",
+    "score": 6
+  },
+  "Actraiser - The Oracle": {
+    "id": "YF4-9hheDag",
+    "title": "ActRaiser - The Oracle",
+    "channel": "Fokuz Recordings",
+    "duration": "360",
+    "url": "https://www.youtube.com/watch?v=YF4-9hheDag",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 4
+  },
+  "Singular Mind - Seasons": {
+    "id": "Ew9RV37uXUU",
+    "title": "Singular Mind - Seasons",
+    "channel": "Fokuz Recordings",
+    "duration": "273",
+    "url": "https://www.youtube.com/watch?v=Ew9RV37uXUU",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Ben Rolo - B THRU Y": {
+    "id": "2263268357",
+    "title": "Ben Rolo - B THRU Y",
+    "channel": "Detached Audio",
+    "duration": "214.046",
+    "url": "https://soundcloud.com/detachedaudioreleases/ben-rolo-b-thru-y-6",
+    "extractor": "soundcloud",
+    "source": "soundcloud",
+    "score": 6
+  },
+  "Destiny ft. Lily Garcia - Under Your Spell": {
+    "id": "SvWwenRCzsg",
+    "title": "Destiny - Under Your Spell (feat. Lily Garcia) | Drum and Bass",
+    "channel": "Mathematica Records",
+    "duration": "331",
+    "url": "https://www.youtube.com/watch?v=SvWwenRCzsg",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 12
+  },
+  "Shaki & DA TU - Silver & Gold": {
+    "id": "YExOdAeUIMk",
+    "title": "Shaki & DA TU - Silver & Gold",
+    "channel": "Liquiddnbftw",
+    "duration": "246",
+    "url": "https://www.youtube.com/watch?v=YExOdAeUIMk",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Sereni7 - Higher With You": {
+    "id": "2263268342",
+    "title": "Sereni7 - Higher With You",
+    "channel": "Detached Audio",
+    "duration": "342.046",
+    "url": "https://soundcloud.com/detachedaudioreleases/sereni7-higher-with-you-4",
+    "extractor": "soundcloud",
+    "source": "soundcloud",
+    "score": 4
+  },
+  "Sigma - ONLY YOU (ft. SACHA)": {
+    "id": "k8MNNgUCudY",
+    "title": "Sigma - ONLY YOU (ft. SACHA)",
+    "channel": "UKF Drum & Bass",
+    "duration": "149",
+    "url": "https://www.youtube.com/watch?v=k8MNNgUCudY",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 9
+  },
+  "Actraiser - Manifest Destiny": {
+    "id": "_mohYgN8430",
+    "title": "ActRaiser - Manifest Destiny",
+    "channel": "LiquidMusick",
+    "duration": "320",
+    "url": "https://www.youtube.com/watch?v=_mohYgN8430",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Skepsis, Disrupta & Klaudia Keziah - Been Here Before": {
+    "id": "eYJyldoZ9mU",
+    "title": "Skepsis, Disrupta & Klaudia Keziah - Been Here Before",
+    "channel": "Liquicity",
+    "duration": "171",
+    "url": "https://www.youtube.com/watch?v=eYJyldoZ9mU",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 17
+  },
+  "Krakota - Breathe in": {
+    "id": "q6FizrIBJng",
+    "title": "Krakota - Breathe in",
+    "channel": "Liquicity",
+    "duration": "224",
+    "url": "https://www.youtube.com/watch?v=q6FizrIBJng",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 7
+  },
+  "Metrik - Setting Sun": {
+    "id": "0rWdsV625dk",
+    "title": "Metrik - Setting Sun",
+    "channel": "UKF Drum & Bass",
+    "duration": "216",
+    "url": "https://www.youtube.com/watch?v=0rWdsV625dk",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 9
+  },
+  "Boxplot, Coben & Spaces - Loving, Loathing": {
+    "id": "ECGCnkA2r_k",
+    "title": "Boxplot, Coben, Spaces - Loving, Loathing",
+    "channel": "Liquicity",
+    "duration": "432",
+    "url": "https://www.youtube.com/watch?v=ECGCnkA2r_k",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 13
   }
 }

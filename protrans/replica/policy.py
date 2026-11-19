@@ -171,9 +171,15 @@ def worst(rs, M, D, k=6):
                 for r, m, d in zip(rs, M, D)), reverse=True)[:k]
     return [dict(delta=round(x[0], 1), id=x[1], dj=x[2], fam=x[3], win=x[4], default_win=x[5], pro_exit=x[6], pro_cue=x[7]) for x in w]
 
-def run_final(style_mode=None):
-    dev = load_all(False); te = load_all(True)
-    ch, dg = policies(dev, te)
+def mixbit_style(rows):
+    mixbit = collections.defaultdict(list)
+    for r in rows: mixbit[r['mix']].append(mid_exit(r))
+    mb = {k: float(np.mean(v) > 0.5) for k, v in mixbit.items()}; return lambda r: mb[r['mix']]
+
+def run_final(style_mode=None, test_rows=None):
+    dev = load_all(False); te = test_rows if test_rows is not None else load_all(True)
+    style = mixbit_style(dev + te) if style_mode == 'mix_setting' else None
+    ch, dg = policies(dev, te, style)
     res = evaluate(te, ch)
     return dict(n=len(te), djs=sorted({r['dj'] for r in te}), mixes=sorted({r['mix'] for r in te}), model=dict(C=dg['C'], alpha=dg['alpha'], q=dg['q']),
                 used=int(sum(dg['use'])), abstain_rate=round(1 - float(np.mean(dg['use'])), 3), conformal_coverage=round(float(np.mean(dg['coverage'])), 3),
@@ -181,7 +187,7 @@ def run_final(style_mode=None):
 
 if __name__ == '__main__':
     if '--final' in sys.argv:
-        out = run_final(); json.dump(out, open(os.path.join(H, 'policy_final.json'), 'w'), indent=1, default=str)
+        out = dict(no_style=run_final(), style_setting=run_final('mix_setting')); json.dump(out, open(os.path.join(H, 'policy_final.json'), 'w'), indent=1, default=str)
     else:
         out = dict(no_style=run_dev(), style_setting=run_dev('mix_setting'))
         json.dump(out, open(os.path.join(H, 'policy_dev.json'), 'w'), indent=1, default=str)

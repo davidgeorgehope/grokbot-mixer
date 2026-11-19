@@ -1,11 +1,15 @@
-"""Download mix or source audio via the residential host (yt-dlp + browser cookies).
+"""Download mix or source audio with yt-dlp.
 
-Reads HOST from mixes/config.env. Does not hardcode a hostname. Copies the
-file back into protrans/cache. Never prints cookie values or credentials.
+YouTube runs on this box first (search, metadata, and audio). SoundCloud and
+Bandcamp go to FETCH_PREFERRED_HOST when set, then the residential HOST. Audio
+is written to the caller dest (usually protrans cache / corpus work) and the
+corpus pipeline archives it to Google Drive. Never prints cookie values or
+credentials.
 """
 from __future__ import annotations
 import os, subprocess, shlex, json, time, re, hashlib, urllib.parse, urllib.request
 import paths
+import fetch_local as FL
 
 def _safe_url(url):
     """Avoid remote-shell globbing of watch?v= by using youtu.be/id."""
@@ -96,50 +100,34 @@ def strip_tracklist_tags(title):
 
 
 def ytdlp_remote(url, dest, kind='audio'):
-    """Download url on HOST and copy to dest. Returns dest or raises."""
-    host = _host()
+    """Download url and copy to dest. YouTube prefers this box; other sources prefer FETCH_PREFERRED_HOST then HOST."""
     os.makedirs(os.path.dirname(dest) or '.', exist_ok=True)
     rid = os.path.splitext(os.path.basename(dest))[0]
-    remote = None  # set unquoted below
-    script = r'''
-set -euo pipefail
-export PATH=/opt/homebrew/bin:$HOME/.ytdlp-nightly/bin:$PATH
-SCRIPT_YTDLP_PLACEHOLDER
-URL="$1"; DEST="$2"
-mkdir -p "$(dirname "$DEST")"
-# Reuse a file left by a previous attempt so a flaky copy does not re-encode.
-if [ -s "$DEST" ]; then
-  echo "$DEST"
-  ls -l "$DEST" | awk '{print $5}'
-  exit 0
-fi
-ok=0
-for jar in safari chrome; do
-  if $YTDLP --no-update --cookies-from-browser "$jar" -f "ba[ext=m4a]/bestaudio/140" -o "$DEST" --no-progress --no-warnings "$URL"; then
-    ok=1; break
-  fi
-done
-[ "$ok" = 1 ] && [ -s "$DEST" ]
-echo "$DEST"
-ls -l "$DEST" | awk '{print $5}'
-'''
-    script = script.replace('SCRIPT_YTDLP_PLACEHOLDER', _ytdlp_snippet())
     url = _safe_url(url)
     if not is_youtube_url(url):
-        return _ytdlp_remote_other(host, url, dest, rid)
-    script = script.replace('URL="$1"; DEST="$2"', f'URL={shlex.quote(url)}; DEST="$HOME/protrans_dl/{rid}.m4a"')
-    r = subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=20', host, 'bash','-s'],
-                       input=script, text=True, capture_output=True)
-    if r.returncode:
-        raise RuntimeError(f'download failed for {url}: {(r.stderr or r.stdout)[-400:]}')
-    remote_path = None
-    for line in (r.stdout or '').splitlines():
-        if line.startswith('/') and line.endswith('.m4a'):
-            remote_path = line.strip()
-    if not remote_path:
-        raise RuntimeError(f'download succeeded but no remote path printed for {url}: {(r.stdout or "")[-200:]}')
-    scp_from_host(host, remote_path, dest)
-    return dest
+        return _ytdlp_remote_other(url, dest, rid)
+    try:
+        return FL.ytdlp_local_download(url, dest, ensure_m4a, is_youtube_url)
+    except Exception as e:
+        print(f'local youtube failed, falling back to HOST: {type(e).__name__}: {e}'[:300], flush=True)
+    return _ytdlp_via(_host(), url, dest, rid, youtube=True)
+
+
+def _ytdlp_via(host, url, dest, rid, youtube=True):
+    return FL.ytdlp_via(host, url, dest, rid, youtube, _ytdlp_snippet(), scp_from_host, ensure_m4a)
+
+
+def _ytdlp_remote_other(url, dest, rid):
+    """Download a non-YouTube URL: FETCH_PREFERRED_HOST first, then the residential HOST."""
+    errors = []
+    hosts = FL.fetch_host_order(_host())
+    for host in hosts:
+        try:
+            return _ytdlp_via(host, url, dest, rid, youtube=False)
+        except Exception as e:
+            errors.append(f'{host}: {type(e).__name__}: {e}')
+            print(f'fetch via {host} failed: {type(e).__name__}: {e}'[:300], flush=True)
+    raise RuntimeError(f'download failed for {url}: {"; ".join(errors)}'[-400:])
 
 
 def scp_from_host(host, remote_path, dest, attempts=4):
@@ -164,28 +152,25 @@ def scp_from_host(host, remote_path, dest, attempts=4):
     raise RuntimeError(f'copy from download host failed for {remote_path}: {err}')
 
 def meta_remote(url):
-    """Return {id,title,channel,duration,chapters,description} from HOST (no download)."""
-    host = _host()
-    script = r'''
-set -euo pipefail
-export PATH=/opt/homebrew/bin:$HOME/.ytdlp-nightly/bin:$PATH
-SCRIPT_YTDLP_PLACEHOLDER
-URL="$1"
-for jar in safari chrome; do
-  if $YTDLP --no-update --cookies-from-browser "$jar" --skip-download --no-warnings --no-progress --dump-json "$URL"; then
-    exit 0
-  fi
-done
-exit 1
-'''
-    script = script.replace('SCRIPT_YTDLP_PLACEHOLDER', _ytdlp_snippet())
+    """Return {id,title,channel,duration,chapters,description}. YouTube prefers this box."""
     url = _safe_url(url)
-    script = script.replace('URL="$1"', f'URL={__import__("shlex").quote(url)}')
-    r = subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=20', host, 'bash','-s'],
-                       input=script, text=True, capture_output=True)
+    if is_youtube_url(url):
+        try:
+            return FL.ytdlp_local_meta(url)
+        except Exception as e:
+            print(f'local meta failed, falling back to HOST: {type(e).__name__}: {e}'[:300], flush=True)
+    host = _host()
+    script = FL.remote_ytdlp_preamble(host, _ytdlp_snippet()) + 'URL=' + shlex.quote(url) + chr(10)
+    for jar in FL.cookie_jars(host):
+        if jar == 'NONE':
+            script += 'if $YTDLP --no-update --skip-download --no-warnings --no-progress --dump-json "$URL"; then exit 0; fi' + chr(10)
+        else:
+            script += 'if $YTDLP --no-update --cookies-from-browser %s --skip-download --no-warnings --no-progress --dump-json "$URL"; then exit 0; fi' % shlex.quote(jar) + chr(10)
+    script += 'exit 1' + chr(10)
+    print(f'fetch meta via {host} {url}', flush=True)
+    r = FL.ssh_bash(host, script, timeout=40)
     if r.returncode:
         raise RuntimeError(f'meta failed for {url}: {(r.stderr or "")[-300:]}')
-    # dump-json can be one huge line; keep the fields we need
     raw = r.stdout[r.stdout.find('{'):]
     info = json.loads(raw)
     ch = info.get('chapters') or []
@@ -223,66 +208,6 @@ def parse_tracklist(description, chapters=None):
         if k in seen: continue
         seen.add(k); out.append(it)
     return out
-
-def _ytdlp_remote_other(host, url, dest, rid):
-    """Download a non-YouTube URL on HOST and remux to m4a at dest."""
-    os.makedirs(os.path.dirname(dest) or '.', exist_ok=True)
-    script = r'''
-set -euo pipefail
-export PATH=/opt/homebrew/bin:$HOME/.ytdlp-nightly/bin:$PATH
-SCRIPT_YTDLP_PLACEHOLDER
-URL="$1"
-BASE="$2"
-mkdir -p "$(dirname "$BASE")"
-# Reuse a previous audio file so a flaky copy does not re-download.
-existing=$(ls -1 "$BASE".* 2>/dev/null | head -n 1 || true)
-if [ -n "$existing" ] && [ -s "$existing" ]; then
-  echo "$existing"
-  ls -l "$existing" | awk '{print $5}'
-  exit 0
-fi
-ok=0
-for jar in safari chrome NONE; do
-  if [ "$jar" = NONE ]; then
-    if $YTDLP --no-update -f "bestaudio/best" -o "$BASE.%(ext)s" --no-progress --no-warnings "$URL"; then
-      ok=1; break
-    fi
-  else
-    if $YTDLP --no-update --cookies-from-browser "$jar" -f "bestaudio/best" -o "$BASE.%(ext)s" --no-progress --no-warnings "$URL"; then
-      ok=1; break
-    fi
-  fi
-done
-found=$(ls -1 "$BASE".* 2>/dev/null | head -n 1 || true)
-[ "$ok" = 1 ] && [ -n "$found" ] && [ -s "$found" ]
-echo "$found"
-ls -l "$found" | awk '{print $5}'
-'''
-    script = script.replace('SCRIPT_YTDLP_PLACEHOLDER', _ytdlp_snippet())
-    script = script.replace('URL="$1"', f'URL={shlex.quote(url)}')
-    script = script.replace('BASE="$2"', f'BASE={shlex.quote(f"$HOME/protrans_dl/{rid}")}')
-    # The second replace left $HOME literal on the remote, which is what we want,
-    # but shlex.quote would have quoted it. Inject without quoting the $HOME prefix.
-    script = script.replace(
-        f'BASE={shlex.quote(f"$HOME/protrans_dl/{rid}")}',
-        f'BASE="$HOME/protrans_dl/{rid}"',
-    )
-    r = subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=20', host, 'bash','-s'],
-                       input=script, text=True, capture_output=True)
-    if r.returncode:
-        raise RuntimeError(f'download failed for {url}: {(r.stderr or r.stdout)[-400:]}')
-    remote_path = None
-    for line in (r.stdout or '').splitlines():
-        line=line.strip()
-        if line.startswith('/') and '/protrans_dl/' in line:
-            remote_path = line
-    if not remote_path:
-        raise RuntimeError(f'download succeeded but no remote path printed for {url}: {(r.stdout or "")[-200:]}')
-    ext = os.path.splitext(remote_path)[1] or '.bin'
-    tmp = dest + '.dl' + ext
-    scp_from_host(host, remote_path, tmp)
-    return ensure_m4a(tmp, dest)
-
 
 def ensure_m4a(src, dest):
     """Remux downloaded audio to m4a at dest. Leaves dest in place."""
@@ -421,40 +346,42 @@ def _annotate_hits(rows, source):
 
 
 def _ytdlp_search(query, n, prefix):
-    """Return hits from a yt-dlp search prefix (ytsearch, scsearch, ...) on HOST."""
-    host = _host()
+    """Return hits from a yt-dlp search prefix (ytsearch, scsearch, ...)."""
+    # YouTube search is reliable on this box. SoundCloud is not (TLS), so skip local for it.
+    if prefix == 'ytsearch':
+        try:
+            return FL.ytdlp_search_local(query, n, prefix, parse_search_line)
+        except Exception as e:
+            print(f'local search failed, falling back: {type(e).__name__}: {e}'[:300], flush=True)
+    if prefix != 'ytsearch':
+        order = FL.fetch_host_order(_host())
+    else:
+        order = [h for h in (_host(),) if h]
+    errors = []
     q = f'{prefix}{int(n)}:{query}'
-    # webpage_url + extractor are optional trailing columns; older parsers ignore them.
-    print_fmt = '%(id)s\\t%(title)s\\t%(channel,uploader|)s\\t%(duration)s\\t%(webpage_url,url|)s\\t%(extractor|)s'
-    script = (
-        'set -euo pipefail\n'
-        'export PATH=/opt/homebrew/bin:$HOME/.ytdlp-nightly/bin:$PATH\n'
-        + _ytdlp_snippet() +
-        f'\nQ={shlex.quote(q)}\n'
-        f'PRINT={shlex.quote(print_fmt)}\n'
-        'for jar in safari chrome NONE; do\n'
-        '  if [ "$jar" = NONE ]; then\n'
-        '    if $YTDLP --no-update --flat-playlist --skip-download --no-warnings --no-progress --print "$PRINT" "$Q"; then\n'
-        '      exit 0\n'
-        '    fi\n'
-        '  else\n'
-        '    if $YTDLP --no-update --cookies-from-browser "$jar" --flat-playlist --skip-download --no-warnings --no-progress --print "$PRINT" "$Q"; then\n'
-        '      exit 0\n'
-        '    fi\n'
-        '  fi\n'
-        'done\n'
-        'exit 1\n'
-    )
-    r = subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=20', host, 'bash','-s'],
-                       input=script, text=True, capture_output=True)
-    if r.returncode:
-        raise RuntimeError(f'search failed for {query}: {(r.stderr or "")[-300:]}')
-    out = []
-    for line in (r.stdout or '').splitlines():
-        hit = parse_search_line(line)
-        if hit:
-            out.append(hit)
-    return out
+    print_fmt = '%(id)s\t%(title)s\t%(channel,uploader|)s\t%(duration)s\t%(webpage_url,url|)s\t%(extractor|)s'
+    for host in order:
+        script = FL.remote_ytdlp_preamble(host, _ytdlp_snippet())
+        script += 'Q=' + shlex.quote(q) + chr(10)
+        script += 'PRINT=' + shlex.quote(print_fmt) + chr(10)
+        for jar in FL.cookie_jars(host):
+            if jar == 'NONE':
+                script += 'if $YTDLP --no-update --flat-playlist --skip-download --no-warnings --no-progress --print "$PRINT" "$Q"; then exit 0; fi' + chr(10)
+            else:
+                script += 'if $YTDLP --no-update --cookies-from-browser %s --flat-playlist --skip-download --no-warnings --no-progress --print "$PRINT" "$Q"; then exit 0; fi' % shlex.quote(jar) + chr(10)
+        script += 'exit 1' + chr(10)
+        print(f'fetch search via {host} {q}', flush=True)
+        r = FL.ssh_bash(host, script, timeout=40)
+        if r.returncode == 0:
+            out = []
+            for line in (r.stdout or '').splitlines():
+                hit = parse_search_line(line)
+                if hit:
+                    out.append(hit)
+            return out
+        errors.append(f'{host}: {(r.stderr or r.stdout or "")[-200:]}')
+        print(f'fetch search via {host} failed', flush=True)
+    raise RuntimeError(f'search failed for {query}: {"; ".join(errors)}'[-400:])
 
 
 def search_remote(query, n=5, source='youtube'):
@@ -471,6 +398,41 @@ def search_remote(query, n=5, source='youtube'):
     if source == 'bandcamp':
         return _annotate_hits(bandcamp_search_remote(query, n=n), 'bandcamp')
     raise RuntimeError(f'unknown search source {source}')
+
+
+def ytdlp_flat(url, limit=None, watch_url=None):
+    """Flat-list a playlist, channel, or search URL. YouTube prefers this box."""
+    url = url or ''
+    if is_youtube_url(url) or 'youtube.com/' in url.lower() or url.lower().startswith('ytsearch'):
+        try:
+            rows = FL.ytdlp_flat_local(url, limit=limit, watch_url=watch_url)
+            for row in rows:
+                if not row.get('url') and watch_url and row.get('id'):
+                    row['url'] = watch_url(row['id'])
+            return rows
+        except Exception as e:
+            print(f'local flat list failed, falling back to HOST: {type(e).__name__}: {e}'[:300], flush=True)
+    host = _host()
+    extra = f' --playlist-end {int(limit)}' if limit else ''
+    script = FL.remote_ytdlp_preamble(host, _ytdlp_snippet())
+    script += 'URL=' + shlex.quote(url) + chr(10)
+    print_fmt = '%(id)s\t%(title)s\t%(duration)s\t%(channel)s\t%(webpage_url)s'
+    script += 'PRINT=' + shlex.quote(print_fmt) + chr(10)
+    for jar in FL.cookie_jars(host):
+        if jar == 'NONE':
+            script += 'if $YTDLP --no-update --flat-playlist --skip-download --no-warnings --no-progress' + extra + ' --print "$PRINT" "$URL"; then exit 0; fi' + chr(10)
+        else:
+            script += 'if $YTDLP --no-update --cookies-from-browser %s --flat-playlist --skip-download --no-warnings --no-progress' % shlex.quote(jar) + extra + ' --print "$PRINT" "$URL"; then exit 0; fi' + chr(10)
+    script += 'exit 1' + chr(10)
+    print(f'fetch flat via {host} {url}', flush=True)
+    r = FL.ssh_bash(host, script, timeout=40)
+    if r.returncode:
+        raise RuntimeError(f'flat list failed for {url}: {(r.stderr or "")[-300:]}')
+    rows = FL.parse_flat_lines(r.stdout, watch_url=watch_url)
+    for row in rows:
+        if not row.get('url') and watch_url and row.get('id'):
+            row['url'] = watch_url(row['id'])
+    return rows
 
 
 def parse_bandcamp_api(payload, n=5):
@@ -566,8 +528,7 @@ def parse_bandcamp_html(html, n=5):
 
 
 def bandcamp_search_remote(query, n=5):
-    """Search Bandcamp for tracks on HOST (cloud IPs are often challenged)."""
-    host = _host()
+    """Search Bandcamp for tracks. FETCH_PREFERRED_HOST first, then the residential HOST."""
     q = query or ''
     api_body = json.dumps({
         'search_text': q,
@@ -576,7 +537,6 @@ def bandcamp_search_remote(query, n=5):
         'fan_id': None,
     })
     search_url = 'https://bandcamp.com/search?q=' + urllib.parse.quote(q) + '&item_type=t'
-    # Run a tiny Python helper on the host so we don't depend on local egress.
     py = r'''
 import json, sys, urllib.request
 q = sys.argv[1]
@@ -603,32 +563,47 @@ except Exception as e:
     out["html_error"] = str(e)[:200]
 print(json.dumps(out))
 '''
-    script = (
-        'set -euo pipefail\n'
-        'export PATH=/opt/homebrew/bin:$PATH\n'
-        'python3 - ' + ' '.join(
-            shlex.quote(x) for x in (q, str(int(n)), api_body, search_url)
-        ) + ' <<\'PY\'\n' + py + 'PY\n'
-    )
-    r = subprocess.run(['ssh','-o','BatchMode=yes','-o','ConnectTimeout=20', host, 'bash','-s'],
-                       input=script, text=True, capture_output=True)
-    if r.returncode:
-        raise RuntimeError(f'bandcamp search failed for {query}: {(r.stderr or "")[-300:]}')
-    raw = (r.stdout or '').strip()
-    try:
-        blob = json.loads(raw[raw.find('{'):])
-    except ValueError as e:
-        raise RuntimeError(f'bandcamp search: bad payload for {query}: {e}')
-    hits = []
-    api_raw = blob.get('api')
-    if api_raw:
-        # API may be JSON or a challenge page
+    hosts = FL.fetch_host_order(_host())
+    errors = []
+    empty = []
+    for host in hosts:
+        script = (
+            'set -euo pipefail\n'
+            'export PATH=/usr/local/bin:/opt/homebrew/bin:/usr/bin:$PATH\n'
+            'python3 - ' + ' '.join(
+                shlex.quote(x) for x in (q, str(int(n)), api_body, search_url)
+            ) + " <<'PY'\n" + py + 'PY\n'
+        )
+        print(f'fetch bandcamp via {host} {query}', flush=True)
+        r = FL.ssh_bash(host, script, timeout=30)
+        if r.returncode:
+            errors.append(f'{host}: {(r.stderr or "")[-200:]}')
+            print(f'fetch bandcamp via {host} failed', flush=True)
+            continue
+        raw = (r.stdout or '').strip()
         try:
-            hits = parse_bandcamp_api(json.loads(api_raw) if isinstance(api_raw, str) and api_raw.lstrip()[:1] in '{[' else api_raw, n=n)
-        except ValueError:
-            hits = []
-    if not hits and blob.get('html'):
-        hits = parse_bandcamp_html(blob['html'], n=n)
-    if not hits and (blob.get('api_error') or blob.get('html_error')) and not (blob.get('api') or blob.get('html')):
-        raise RuntimeError(f"bandcamp search failed for {query}: {blob.get('api_error') or blob.get('html_error')}")
-    return hits
+            blob = json.loads(raw[raw.find('{'):])
+        except ValueError as e:
+            errors.append(f'{host}: bad payload: {e}')
+            continue
+        hits = []
+        api_raw = blob.get('api')
+        if api_raw:
+            try:
+                hits = parse_bandcamp_api(json.loads(api_raw) if isinstance(api_raw, str) and api_raw.lstrip()[:1] in '{[' else api_raw, n=n)
+            except ValueError:
+                hits = []
+        if not hits and blob.get('html'):
+            hits = parse_bandcamp_html(blob['html'], n=n)
+        if hits:
+            return hits
+        if blob.get('api_error') or blob.get('html_error'):
+            errors.append(f"{host}: {blob.get('api_error') or blob.get('html_error')}")
+        else:
+            empty.append(host)
+    if empty and not errors:
+        return []
+    if not errors:
+        return []
+    raise RuntimeError(f"bandcamp search failed for {query}: {'; '.join(errors)}"[-400:])
+

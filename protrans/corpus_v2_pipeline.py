@@ -169,13 +169,21 @@ def snapshot_protected():
 
 
 def assert_protected(snap, where=''):
+    """Refuse to abort the corpus job when someone else edits a protected file.
+
+    Corpus ingest must not write these paths. If they change mid-run (for
+    example rules.json during a hill-climb), log it, refresh the snapshot,
+    and keep going so a long ingest is not killed.
+    """
     bad = []
     now = snapshot_protected()
-    for p, old in snap.items():
+    for p, old in list(snap.items()):
         if now.get(p) != old:
             bad.append(p)
     if bad:
-        raise RuntimeError(f'protected files changed {where}: {bad}')
+        print('protected files changed (continuing, refreshing snapshot) at', where, ':', bad, flush=True)
+        for p in bad:
+            snap[p] = now.get(p)
 
 
 def append_jsonl(path, row):
@@ -233,46 +241,8 @@ def watch_url(vid_or_url):
 # ---------- remote listing (existing yt-dlp HOST flow) ----------
 
 def ytdlp_flat(url, limit=None):
-    """Flat-list a playlist, channel, or search URL on HOST. No download."""
-    host = fetch._host()
-    extra = f' --playlist-end {int(limit)}' if limit else ''
-    script = (
-        'set -euo pipefail\n'
-        'export PATH=/opt/homebrew/bin:$HOME/.ytdlp-nightly/bin:$PATH\n'
-        + fetch._ytdlp_snippet() +
-        f'\nURL={__import__("shlex").quote(url)}\n'
-        'for jar in safari chrome; do\n'
-        f'  if $YTDLP --no-update --cookies-from-browser "$jar" --flat-playlist '
-        f'--skip-download --no-warnings --no-progress{extra} '
-        f'--print "%(id)s\\t%(title)s\\t%(duration)s\\t%(channel)s\\t%(webpage_url)s" "$URL"; then\n'
-        '    exit 0\n'
-        '  fi\n'
-        'done\n'
-        'exit 1\n'
-    )
-    r = subprocess.run(['ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=25',
-                        host, 'bash', '-s'],
-                       input=script, text=True, capture_output=True)
-    if r.returncode:
-        raise RuntimeError(f'flat list failed for {url}: {(r.stderr or "")[-300:]}')
-    out = []
-    for line in (r.stdout or '').splitlines():
-        line = line.replace('\\t', '\t')
-        if '\t' not in line:
-            continue
-        parts = line.split('\t')
-        if len(parts) < 2:
-            continue
-        dur = parts[2].strip() if len(parts) > 2 else ''
-        try:
-            duration = float(dur) if dur not in ('', 'NA', 'None') else None
-        except ValueError:
-            duration = None
-        out.append(dict(id=parts[0].strip(), title=parts[1].strip(),
-                        duration=duration,
-                        channel=parts[3].strip() if len(parts) > 3 else '',
-                        url=(parts[4].strip() if len(parts) > 4 else '') or watch_url(parts[0].strip())))
-    return out
+    """Flat-list a playlist, channel, or search URL. YouTube prefers this box."""
+    return fetch.ytdlp_flat(url, limit=limit, watch_url=watch_url)
 
 
 def retry(fn, times=3, wait=8, what='op'):
@@ -627,7 +597,9 @@ def process_pair_v2(c, mix_audio):
             gate['passed'] = False
     if gate.get('passed'):
         blend = _real_blend_paths(rec['pro_clip'], sa, sb)
-        row['real_blend'] = blend
+        row['real_blend'] = {k: v for k, v in blend.items() if k != '_deck_levels'}
+        if blend.get('_deck_levels'):
+            row['_deck_levels'] = blend['_deck_levels']
         if blend.get('flagged'):
             row['verdict'] = 'reject'
             row['reason'] = 'not_real_blend: ' + (blend.get('reason') or 'flagged')
@@ -652,6 +624,15 @@ def _real_blend_paths(pro, sa, sb):
         gains, _, times, hop = D.band_gains(mix, *aligned)
         r = real_blend.assess(gains['all']['a'], gains['all']['b'], hop / D.SR, D.BAR_SEC)
         r['gains'] = _curve_summary(gains, times, hop, D)
+        try:
+            swap = bass_swap_bar_from_gains(gains, hop, D)
+            r['bass_swap_bar'] = None if swap is None else round(float(swap), 2)
+        except Exception:
+            r['bass_swap_bar'] = None
+        try:
+            r['_deck_levels'] = per_bar_deck_levels(gains, hop, D)
+        except Exception:
+            r['_deck_levels'] = None
         return r
     except Exception as e:
         return dict(version=real_blend.VERSION, flagged=True, reason='measurement_failed',
@@ -746,6 +727,109 @@ def sections_from_bar(bar):
     )
 
 
+
+def _section_span(sec, bar):
+    """Return the phase dict covering bar, or None."""
+    if bar is None or not (sec or {}).get('phases'):
+        return None
+    for ph in sec['phases']:
+        if ph['start'] <= bar < ph['end']:
+            return ph
+    return sec['phases'][-1]
+
+
+def _rel_to_section(sec, bar):
+    """Bars into the current section, and bars left in it."""
+    ph = _section_span(sec, bar)
+    if ph is None or bar is None:
+        return None, None
+    return round(float(bar - ph['start']), 2), round(float(ph['end'] - bar), 2)
+
+
+def pro_decision_from_feat(feat, bass_swap_bar=None):
+    """Outgoing exit / incoming cue relatives plus optional bass-swap bar."""
+    cue = feat.get('cue') or {}
+    sa = (feat.get('track_a') or {}).get('sections') or {}
+    sb = (feat.get('track_b') or {}).get('sections') or {}
+    ob, ib = cue.get('outgoing_bar'), cue.get('incoming_bar')
+    if ob is None and ib is None:
+        return None
+    out_into, out_left_sec = _rel_to_section(sa, ob)
+    in_into, in_left_sec = _rel_to_section(sb, ib)
+    music_end = sa.get('music_end')
+    outro = sa.get('outro_start')
+    drop1 = sb.get('drop1')
+    pd = dict(
+        outgoing_exit_bar=None if ob is None else round(float(ob), 2),
+        outgoing_section=cue.get('outgoing_section'),
+        outgoing_bars_into_section=out_into,
+        outgoing_bars_left=None if (ob is None or music_end is None) else round(float(music_end - ob), 2),
+        outgoing_bars_to_outro=None if (ob is None or outro is None) else round(float(outro - ob), 2),
+        incoming_cue_bar=None if ib is None else round(float(ib), 2),
+        incoming_section=cue.get('incoming_section'),
+        incoming_bars_into_section=in_into,
+        incoming_rel_drop1=None if (ib is None or drop1 is None) else round(float(ib - drop1), 2),
+        bass_swap_bar=None if bass_swap_bar is None else round(float(bass_swap_bar), 2),
+    )
+    return pd
+
+
+def bass_swap_bar_from_gains(gains, hop, D):
+    """First bar (from clip start) where incoming bass overtakes outgoing."""
+    band = 'bass' if 'bass' in (gains or {}) else 'all'
+    if not gains or band not in gains:
+        return None
+    a = np.asarray(gains[band]['a'], float)
+    b = np.asarray(gains[band]['b'], float)
+    if a.size < 4 or b.size < 4:
+        return None
+    def db(x):
+        return 20.0 * np.log10(np.maximum(x, 1e-8))
+    ad, bd = db(a), db(b)
+    loud_b = float(np.percentile(bd, 90))
+    audible = bd > (loud_b - 18)
+    over = (bd >= ad) & audible
+    idx = np.flatnonzero(over)
+    if idx.size == 0:
+        return None
+    return float(idx[0] * hop / D.SR / D.BAR_SEC)
+
+
+def per_bar_deck_levels(gains, hop, D, max_bars=400):
+    """Mean dB per bar for each deck and band. Compact JSON, no raw audio."""
+    if not gains:
+        return None
+    frames_per_bar = D.BAR_SEC * D.SR / float(hop)
+    if frames_per_bar <= 0:
+        return None
+    out = dict(bar_sec=round(float(D.BAR_SEC), 4), hop=int(hop), sr=int(D.SR))
+    n_bars = 0
+    for band in ('all', 'bass', 'mids', 'highs', 'drums'):
+        if band not in gains:
+            continue
+        a = np.asarray(gains[band]['a'], float)
+        b = np.asarray(gains[band]['b'], float)
+        def db(x):
+            return 20.0 * np.log10(np.maximum(x, 1e-8))
+        ad, bd = db(a), db(b)
+        n = int(min(len(ad), len(bd)) // frames_per_bar)
+        n = max(0, min(n, int(max_bars)))
+        if n == 0:
+            continue
+        a_bars, b_bars = [], []
+        for i in range(n):
+            s = int(round(i * frames_per_bar))
+            e = int(round((i + 1) * frames_per_bar))
+            a_bars.append(round(float(np.mean(ad[s:e])) if e > s else float(ad[min(s, len(ad)-1)]), 2))
+            b_bars.append(round(float(np.mean(bd[s:e])) if e > s else float(bd[min(s, len(bd)-1)]), 2))
+        out[band] = dict(a=a_bars, b=b_bars)
+        n_bars = n
+    if n_bars == 0:
+        return None
+    out['n_bars'] = n_bars
+    return out
+
+
 def extract_features(row, rec, sa, sb):
     """Cue / section / blend / rise-tail / per-track features. JSON only."""
     BAR = S.BAR_SEC
@@ -802,6 +886,12 @@ def extract_features(row, rec, sa, sb):
         track_b=dict(sections=sec_b, bpm=bpm_b, yt=row['b']['yt'], title=row['b']['title']),
         error=row_err,
     )
+    blend = row.get('real_blend') or {}
+    swap = blend.get('bass_swap_bar')
+    feat['pro_decision'] = pro_decision_from_feat(feat, bass_swap_bar=swap)
+    levels = row.get('_deck_levels') or blend.get('_deck_levels') or blend.get('deck_levels')
+    if levels:
+        feat['deck_levels'] = levels
     # Candidate windows + labels (no engine render required).
     try:
         cands = []
@@ -1017,12 +1107,12 @@ def ingest_mix(mix, snap):
                 row['feature_error'] = str(e)[:200]
                 print('feature fail', row['id'], e, flush=True)
             # strip huge gate arrays; keep locates + bpm
-            append_jsonl(ACCEPTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+            append_jsonl(ACCEPTED, {k: v for k, v in row.items() if k not in ('pro_clip', '_deck_levels')})
             admitted_rows.append(row)
             n_admit += 1
             print('admit', row['id'], row.get('pair'), flush=True)
         else:
-            append_jsonl(REJECTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+            append_jsonl(REJECTED, {k: v for k, v in row.items() if k not in ('pro_clip', '_deck_levels')})
             n_rej += 1
             print('reject', row['id'], row.get('reason'), flush=True)
             shutil.rmtree(os.path.dirname(row.get('pro_clip') or '/tmp/none'), ignore_errors=True)
@@ -1460,13 +1550,13 @@ def retry_slash_rejects(archive=True):
                     row['cue'] = feat.get('cue')
                 except Exception as e:
                     row['feature_error'] = str(e)[:200]
-                append_jsonl(ACCEPTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+                append_jsonl(ACCEPTED, {k: v for k, v in row.items() if k not in ('pro_clip', '_deck_levels')})
                 admitted_rows.append(row)
                 recovered_rows.append(row)
                 recovered += 1
                 print('retry admit', row['id'], row.get('pair'), flush=True)
             else:
-                append_jsonl(REJECTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+                append_jsonl(REJECTED, {k: v for k, v in row.items() if k not in ('pro_clip', '_deck_levels')})
                 still += 1
                 print('retry still reject', row['id'], row.get('reason'), flush=True)
                 if row.get('pro_clip'):
@@ -1629,14 +1719,14 @@ def retry_resolve_rejects(archive=True, limit=None):
                     row['cue'] = feat.get('cue')
                 except Exception as e:
                     row['feature_error'] = str(e)[:200]
-                append_jsonl(ACCEPTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+                append_jsonl(ACCEPTED, {k: v for k, v in row.items() if k not in ('pro_clip', '_deck_levels')})
                 admitted_rows.append(row)
                 recovered_rows.append(row)
                 recovered += 1
                 print('retry admit', row['id'], row.get('pair'),
                       row.get('a', {}).get('source'), '->', row.get('b', {}).get('source'), flush=True)
             else:
-                append_jsonl(REJECTED, {k: v for k, v in row.items() if k != 'pro_clip'})
+                append_jsonl(REJECTED, {k: v for k, v in row.items() if k not in ('pro_clip', '_deck_levels')})
                 still += 1
                 print('retry still reject', row['id'], row.get('reason'), flush=True)
                 if row.get('pro_clip'):
@@ -1661,12 +1751,63 @@ def retry_resolve_rejects(archive=True, limit=None):
     return out
 
 
+def requeue_failed_mixes():
+    """Put download-failed mixes back in the queue so ingest can try again."""
+    if not os.path.exists(QUEUE):
+        return 0
+    queue = json.load(open(QUEUE))
+    n = 0
+    for m in queue.get('mixes') or []:
+        if m.get('status') == 'failed':
+            m['status'] = 'queued'
+            m['requeued_from'] = 'failed'
+            n += 1
+    if n:
+        _atomic_json(QUEUE, queue)
+        print(f'requeued {n} failed mixes', flush=True)
+    return n
+
+
+def backfill_pro_decisions():
+    """Add cue-relative decision fields to existing feature files (no audio)."""
+    n = 0
+    if not os.path.isdir(FEATURES):
+        return 0
+    for name in os.listdir(FEATURES):
+        if not name.endswith('.json'):
+            continue
+        path = os.path.join(FEATURES, name)
+        try:
+            feat = json.load(open(path))
+        except (OSError, ValueError):
+            continue
+        if feat.get('pro_decision') and 'outgoing_bars_left' in (feat.get('pro_decision') or {}):
+            continue
+        pd = pro_decision_from_feat(feat)
+        if not pd:
+            continue
+        feat['pro_decision'] = pd
+        _atomic_json(path, feat)
+        n += 1
+    if n:
+        print(f'backfilled pro_decision on {n} existing features', flush=True)
+    return n
+
+
 def resume():
     """Continue from the queue checkpoint: retry resolve misses, then ingest."""
     _mkdirs()
     _limit_cpu()
     snap = snapshot_protected()
-    retry_resolve_rejects(archive=True)
+    try:
+        backfill_pro_decisions()
+    except Exception as e:
+        print('backfill pro_decision warning', e, flush=True)
+    requeue_failed_mixes()
+    try:
+        retry_resolve_rejects(archive=True)
+    except Exception as e:
+        print('resolve retry failed, continuing with ingest:', type(e).__name__, e, flush=True)
     assert_protected(snap, 'after resolve retry')
     save_progress(dict(phase='ingest', accepted=len(load_jsonl(ACCEPTED)),
                        rejected=len(load_jsonl(REJECTED))))

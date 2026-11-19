@@ -55,7 +55,7 @@ Copy `config.example.env` to `config.env`, fill it in, and `source config.env` b
 | Delivery | iCloud Drive "DJ Mixes" on a Mac reached by `ssh $HOST` | `src/sync_icloud.sh` (`HOST`, `DEST`, ID3 artist), `src/sync_set.sh` |
 | Secrets | A password manager. `yt_upload.py` calls the 1Password CLI `op item get <item> --vault <vault>` | `src/yt_upload.py`: the vault and item titles in `op()`/`access_token()`. Edit them, or use a copy that reads `OP_VAULT`, `OP_YT_CLIENT_ITEM` and `OP_YT_REFRESH_ITEM` from the config (the public repo's version does) |
 | YouTube | The OAuth client and refresh token for your channel (scope `youtube.upload`) | as above |
-| Fetch host | ssh alias of the residential machine; yt-dlp path `~/.ytdlp-nightly/bin` | `HOST` env, `src/sync_set.sh` |
+| Fetch hosts | ssh alias of the residential machine; optional Linux fetch host for SoundCloud/Bandcamp; optional local Chrome profile for yt-dlp cookies | `HOST`, `FETCH_PREFERRED_HOST`, `FETCH_COOKIELESS_HOSTS`, `FETCH_CHROME_PROFILE` in `config.env` (see `config.example.env`) |
 | Taste | `eval/example_ratings.jsonl`, `src/tests/fixtures/*rated*.json`, `test_guardrails.py` time windows | replace with your listener's ratings (docs/TASTE.md) |
 | Tags | `artist="DJ (Grok Bot) for the listener"` | `src/sync_icloud.sh` |
 

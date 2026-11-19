@@ -1,0 +1,3285 @@
+{
+ "n": 33,
+ "n_take": 11,
+ "n_block": 22,
+ "n_no_log": 0,
+ "rows": [
+  {
+   "id": "wilkinson_boomtown2026__33",
+   "split": "test",
+   "dj": "Wilkinson",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    144,
+    8,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "uP0KAzefX8Y",
+    "b": "I9QGpHScGug",
+    "default": [
+     144,
+     8,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      144,
+      8,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      96,
+      0,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     144,
+     8,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     96,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    144,
+    null,
+    8,
+    16
+   ],
+   "nat_long": [
+    "n",
+    96,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_long",
+   "floor_win": [
+    "n",
+    96,
+    null,
+    0,
+    32
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "joe_syntax_hospital__01",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": true,
+   "reason": "short:model",
+   "default": [
+    160,
+    32,
+    16
+   ],
+   "alt": [
+    144,
+    32,
+    16
+   ],
+   "info": {
+    "a": "dOJp7bsjuyU",
+    "b": "zM6au9qc2XQ",
+    "default": [
+     160,
+     32,
+     16
+    ],
+    "alt": [
+     144,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "short:model",
+    "short": {
+     "default": [
+      160,
+      32,
+      16
+     ],
+     "alt": [
+      144,
+      32,
+      16
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.8758,
+     "thr": 0.6
+    },
+    "long": {
+     "default": [
+      160,
+      16,
+      32
+     ],
+     "alt": [
+      144,
+      32,
+      32
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.7655,
+     "thr": 0.6
+    }
+   },
+   "short": {
+    "default": [
+     160,
+     32,
+     16
+    ],
+    "alt": [
+     144,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.8758,
+    "thr": 0.6
+   },
+   "long": {
+    "default": [
+     160,
+     16,
+     32
+    ],
+    "alt": [
+     144,
+     32,
+     32
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.7655,
+    "thr": 0.6
+   },
+   "nat_short": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    144,
+    null,
+    32,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "joe_syntax_hospital__08",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    240,
+    40,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "NjwN3B617tg",
+    "b": "Dy3qi_gCP9k",
+    "default": [
+     240,
+     40,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      240,
+      40,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      240,
+      24,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     240,
+     40,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     240,
+     24,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    24,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "hybrid_minds_ukf__08",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": true,
+   "reason": "short:model",
+   "default": [
+    224,
+    32,
+    16
+   ],
+   "alt": [
+    208,
+    32,
+    16
+   ],
+   "info": {
+    "a": "suPgRyRLVC4",
+    "b": "J3oTRY7AdE4",
+    "default": [
+     224,
+     32,
+     16
+    ],
+    "alt": [
+     208,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "short:model",
+    "short": {
+     "default": [
+      224,
+      32,
+      16
+     ],
+     "alt": [
+      208,
+      32,
+      16
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.7183,
+     "thr": 0.6
+    },
+    "long": {
+     "default": [
+      224,
+      16,
+      32
+     ],
+     "alt": [
+      208,
+      32,
+      32
+     ],
+     "take": false,
+     "reason": "model",
+     "p": 0.5686,
+     "thr": 0.6
+    }
+   },
+   "short": {
+    "default": [
+     224,
+     32,
+     16
+    ],
+    "alt": [
+     208,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.7183,
+    "thr": 0.6
+   },
+   "long": {
+    "default": [
+     224,
+     16,
+     32
+    ],
+    "alt": [
+     208,
+     32,
+     32
+    ],
+    "take": false,
+    "reason": "model",
+    "p": 0.5686,
+    "thr": 0.6
+   },
+   "nat_short": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    224,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    224,
+    null,
+    32,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "hybrid_minds_ukf__11",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    208,
+    64,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "Vwb-3pAvOVk",
+    "b": "M4UU1xn_K4s",
+    "default": [
+     208,
+     64,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      208,
+      64,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      208,
+      48,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     208,
+     64,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     208,
+     48,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ],
+   "nat_long": [
+    "n",
+    208,
+    null,
+    48,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "hybrid_minds_ukf__12",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    304,
+    32,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "M4UU1xn_K4s",
+    "b": "zEvLsOVhg0I",
+    "default": [
+     304,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      304,
+      32,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      304,
+      16,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     304,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     304,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    304,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    304,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    304,
+    null,
+    32,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "hybrid_minds_ukf__19",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    176,
+    32,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "HP7Q0vDU9vI",
+    "b": "5YG-HKjtiHM",
+    "default": [
+     176,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      176,
+      32,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      176,
+      16,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     176,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     176,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    176,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "hybrid_minds_ukf__25",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    192,
+    0,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "9oBXWTlTPMw",
+    "b": "3f-XOhfDhxk",
+    "default": [
+     192,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      192,
+      0,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      192,
+      64,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     192,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     192,
+     64,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    64,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "hybrid_minds_ukf__45",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": true,
+   "reason": "short:model",
+   "default": [
+    128,
+    32,
+    16
+   ],
+   "alt": [
+    112,
+    32,
+    16
+   ],
+   "info": {
+    "a": "xv0Qw1QZT8I",
+    "b": "0oxJBc__U0c",
+    "default": [
+     128,
+     32,
+     16
+    ],
+    "alt": [
+     112,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "short:model",
+    "short": {
+     "default": [
+      128,
+      32,
+      16
+     ],
+     "alt": [
+      112,
+      32,
+      16
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.7183,
+     "thr": 0.6
+    },
+    "long": {
+     "default": [
+      128,
+      16,
+      32
+     ],
+     "alt": [
+      112,
+      16,
+      32
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.7183,
+     "thr": 0.6
+    }
+   },
+   "short": {
+    "default": [
+     128,
+     32,
+     16
+    ],
+    "alt": [
+     112,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.7183,
+    "thr": 0.6
+   },
+   "long": {
+    "default": [
+     128,
+     16,
+     32
+    ],
+    "alt": [
+     112,
+     16,
+     32
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.7183,
+    "thr": 0.6
+   },
+   "nat_short": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    112,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "netsky_hospital_classics__02",
+   "split": "test",
+   "dj": "Netsky",
+   "take": true,
+   "reason": "short:model",
+   "default": [
+    176,
+    0,
+    16
+   ],
+   "alt": [
+    160,
+    0,
+    16
+   ],
+   "info": {
+    "a": "0fjPvcfMJWk",
+    "b": "XUX0ebuFh7Y",
+    "default": [
+     176,
+     0,
+     16
+    ],
+    "alt": [
+     160,
+     0,
+     16
+    ],
+    "take": true,
+    "reason": "short:model",
+    "short": {
+     "default": [
+      176,
+      0,
+      16
+     ],
+     "alt": [
+      160,
+      0,
+      16
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.7732,
+     "thr": 0.6
+    },
+    "long": {
+     "default": [
+      160,
+      0,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     176,
+     0,
+     16
+    ],
+    "alt": [
+     160,
+     0,
+     16
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.7732,
+    "thr": 0.6
+   },
+   "long": {
+    "default": [
+     160,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    160,
+    null,
+    0,
+    16
+   ],
+   "nat_long": [
+    "n",
+    160,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "netsky_hospital_classics__06",
+   "split": "test",
+   "dj": "Netsky",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    320,
+    48,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "CX4UFb_LlU4",
+    "b": "na79dfVHpp0",
+    "default": [
+     320,
+     48,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      320,
+      48,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      320,
+      32,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     320,
+     48,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     320,
+     32,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    320,
+    null,
+    48,
+    16
+   ],
+   "nat_long": [
+    "n",
+    320,
+    null,
+    32,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    320,
+    null,
+    48,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "netsky_hospital_classics__17",
+   "split": "test",
+   "dj": "Netsky",
+   "take": true,
+   "reason": "short:model",
+   "default": [
+    256,
+    32,
+    16
+   ],
+   "alt": [
+    240,
+    32,
+    16
+   ],
+   "info": {
+    "a": "3f-XOhfDhxk",
+    "b": "Mzgh0cLopck",
+    "default": [
+     256,
+     32,
+     16
+    ],
+    "alt": [
+     240,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "short:model",
+    "short": {
+     "default": [
+      256,
+      32,
+      16
+     ],
+     "alt": [
+      240,
+      32,
+      16
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.6981,
+     "thr": 0.6
+    },
+    "long": {
+     "default": [
+      256,
+      16,
+      32
+     ],
+     "alt": [
+      240,
+      32,
+      32
+     ],
+     "take": true,
+     "reason": "weird_outro",
+     "slow_start": 1.0,
+     "slow_frac": 0.219
+    }
+   },
+   "short": {
+    "default": [
+     256,
+     32,
+     16
+    ],
+    "alt": [
+     240,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.6981,
+    "thr": 0.6
+   },
+   "long": {
+    "default": [
+     256,
+     16,
+     32
+    ],
+    "alt": [
+     240,
+     32,
+     32
+    ],
+    "take": true,
+    "reason": "weird_outro",
+    "slow_start": 1.0,
+    "slow_frac": 0.219
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    32,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    240,
+    24,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "wUVt_GsvMzw",
+    "b": "tCyYwek-o28",
+    "default": [
+     240,
+     24,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      240,
+      24,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      240,
+      8,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     240,
+     24,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     240,
+     8,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    8,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "joe_syntax_hospital__12",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": true,
+   "reason": "short:weird_outro",
+   "default": [
+    224,
+    48,
+    16
+   ],
+   "alt": [
+    192,
+    48,
+    16
+   ],
+   "info": {
+    "a": "tCyYwek-o28",
+    "b": "u6cggHmZEAs",
+    "default": [
+     224,
+     48,
+     16
+    ],
+    "alt": [
+     192,
+     48,
+     16
+    ],
+    "take": true,
+    "reason": "short:weird_outro",
+    "short": {
+     "default": [
+      224,
+      48,
+      16
+     ],
+     "alt": [
+      192,
+      48,
+      16
+     ],
+     "take": true,
+     "reason": "weird_outro",
+     "slow_start": 1.0,
+     "slow_frac": 1.0
+    },
+    "long": {
+     "default": [
+      224,
+      32,
+      32
+     ],
+     "alt": [
+      192,
+      48,
+      32
+     ],
+     "take": true,
+     "reason": "weird_outro",
+     "slow_start": 0.0,
+     "slow_frac": 0.812
+    }
+   },
+   "short": {
+    "default": [
+     224,
+     48,
+     16
+    ],
+    "alt": [
+     192,
+     48,
+     16
+    ],
+    "take": true,
+    "reason": "weird_outro",
+    "slow_start": 1.0,
+    "slow_frac": 1.0
+   },
+   "long": {
+    "default": [
+     224,
+     32,
+     32
+    ],
+    "alt": [
+     192,
+     48,
+     32
+    ],
+    "take": true,
+    "reason": "weird_outro",
+    "slow_start": 0.0,
+    "slow_frac": 0.812
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    48,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    48,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "joe_syntax_hospital__13",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": true,
+   "reason": "short:model",
+   "default": [
+    256,
+    48,
+    16
+   ],
+   "alt": [
+    224,
+    48,
+    16
+   ],
+   "info": {
+    "a": "u6cggHmZEAs",
+    "b": "SqzxwPEa-DI",
+    "default": [
+     256,
+     48,
+     16
+    ],
+    "alt": [
+     224,
+     48,
+     16
+    ],
+    "take": true,
+    "reason": "short:model",
+    "short": {
+     "default": [
+      256,
+      48,
+      16
+     ],
+     "alt": [
+      224,
+      48,
+      16
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.8366,
+     "thr": 0.6
+    },
+    "long": {
+     "default": [
+      256,
+      32,
+      32
+     ],
+     "alt": [
+      240,
+      48,
+      32
+     ],
+     "take": false,
+     "reason": "model",
+     "p": 0.3572,
+     "thr": 0.6
+    }
+   },
+   "short": {
+    "default": [
+     256,
+     48,
+     16
+    ],
+    "alt": [
+     224,
+     48,
+     16
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.8366,
+    "thr": 0.6
+   },
+   "long": {
+    "default": [
+     256,
+     32,
+     32
+    ],
+    "alt": [
+     240,
+     48,
+     32
+    ],
+    "take": false,
+    "reason": "model",
+    "p": 0.3572,
+    "thr": 0.6
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "nat_long": [
+    "n",
+    256,
+    null,
+    32,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    256,
+    null,
+    48,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "hybrid_minds_ukf__00",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": true,
+   "reason": "short:model",
+   "default": [
+    224,
+    8,
+    16
+   ],
+   "alt": [
+    208,
+    16,
+    16
+   ],
+   "info": {
+    "a": "pzFgQ7iIfXQ",
+    "b": "qeXTBEtGUtk",
+    "default": [
+     224,
+     8,
+     16
+    ],
+    "alt": [
+     208,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "short:model",
+    "short": {
+     "default": [
+      224,
+      8,
+      16
+     ],
+     "alt": [
+      208,
+      16,
+      16
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.671,
+     "thr": 0.6
+    },
+    "long": {
+     "default": [
+      224,
+      0,
+      32
+     ],
+     "alt": [
+      208,
+      0,
+      32
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.739,
+     "thr": 0.6
+    }
+   },
+   "short": {
+    "default": [
+     224,
+     8,
+     16
+    ],
+    "alt": [
+     208,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.671,
+    "thr": 0.6
+   },
+   "long": {
+    "default": [
+     224,
+     0,
+     32
+    ],
+    "alt": [
+     208,
+     0,
+     32
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.739,
+    "thr": 0.6
+   },
+   "nat_short": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    208,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    224,
+    null,
+    8,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    208,
+    48,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "J3oTRY7AdE4",
+    "b": "ksVDZt9_0J4",
+    "default": [
+     208,
+     48,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      208,
+      48,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      208,
+      32,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     208,
+     48,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     208,
+     32,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "nat_long": [
+    "n",
+    208,
+    null,
+    32,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "hybrid_minds_ukf__10",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": true,
+   "reason": "short:weird_outro",
+   "default": [
+    256,
+    32,
+    16
+   ],
+   "alt": [
+    240,
+    32,
+    16
+   ],
+   "info": {
+    "a": "ksVDZt9_0J4",
+    "b": "Vwb-3pAvOVk",
+    "default": [
+     256,
+     32,
+     16
+    ],
+    "alt": [
+     240,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "short:weird_outro",
+    "short": {
+     "default": [
+      256,
+      32,
+      16
+     ],
+     "alt": [
+      240,
+      32,
+      16
+     ],
+     "take": true,
+     "reason": "weird_outro",
+     "slow_start": 1.0,
+     "slow_frac": 0.875
+    },
+    "long": {
+     "default": [
+      256,
+      16,
+      32
+     ],
+     "alt": [
+      240,
+      32,
+      32
+     ],
+     "take": true,
+     "reason": "weird_outro",
+     "slow_start": 0.0,
+     "slow_frac": 0.469
+    }
+   },
+   "short": {
+    "default": [
+     256,
+     32,
+     16
+    ],
+    "alt": [
+     240,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "weird_outro",
+    "slow_start": 1.0,
+    "slow_frac": 0.875
+   },
+   "long": {
+    "default": [
+     256,
+     16,
+     32
+    ],
+    "alt": [
+     240,
+     32,
+     32
+    ],
+    "take": true,
+    "reason": "weird_outro",
+    "slow_start": 0.0,
+    "slow_frac": 0.469
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    32,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": true,
+   "reason": "short:model",
+   "default": [
+    240,
+    16,
+    16
+   ],
+   "alt": [
+    208,
+    16,
+    16
+   ],
+   "info": {
+    "a": "bnRTUL2jnk0",
+    "b": "Op886B0sd4Q",
+    "default": [
+     240,
+     16,
+     16
+    ],
+    "alt": [
+     208,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "short:model",
+    "short": {
+     "default": [
+      240,
+      16,
+      16
+     ],
+     "alt": [
+      208,
+      16,
+      16
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.8356,
+     "thr": 0.6
+    },
+    "long": {
+     "default": [
+      240,
+      0,
+      32
+     ],
+     "alt": [
+      208,
+      0,
+      32
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.8356,
+     "thr": 0.6
+    }
+   },
+   "short": {
+    "default": [
+     240,
+     16,
+     16
+    ],
+    "alt": [
+     208,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.8356,
+    "thr": 0.6
+   },
+   "long": {
+    "default": [
+     240,
+     0,
+     32
+    ],
+    "alt": [
+     208,
+     0,
+     32
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.8356,
+    "thr": 0.6
+   },
+   "nat_short": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    208,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    240,
+    null,
+    16,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "hybrid_minds_ukf__40",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    272,
+    32,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "pqqjaLUk-MY",
+    "b": "oySqE3z99AE",
+    "default": [
+     272,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      272,
+      32,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      272,
+      16,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     272,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     272,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    272,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    272,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    272,
+    null,
+    32,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "joe_syntax_hospital__00",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    96,
+    0,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "R06kP42RFRo",
+    "b": "dOJp7bsjuyU",
+    "default": [
+     96,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      96,
+      0,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      64,
+      16,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     96,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     64,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    96,
+    null,
+    0,
+    16
+   ],
+   "nat_long": [
+    "n",
+    64,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    96,
+    null,
+    0,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "joe_syntax_hospital__09",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    192,
+    16,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "Dy3qi_gCP9k",
+    "b": "fApyZbwuAjM",
+    "default": [
+     192,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      192,
+      16,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      192,
+      0,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     192,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     192,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "joe_syntax_hospital__14",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    224,
+    16,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "SqzxwPEa-DI",
+    "b": "q3WVxTT01dY",
+    "default": [
+     224,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      224,
+      16,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      224,
+      0,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     224,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     224,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    224,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "hybrid_minds_ukf__13",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    192,
+    32,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "zEvLsOVhg0I",
+    "b": "W77cCOreg_0",
+    "default": [
+     192,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      192,
+      32,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      192,
+      16,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     192,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     192,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    224,
+    16,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "INaNIcQ4S7k",
+    "b": "HpfQ0bus688",
+    "default": [
+     224,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      224,
+      16,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      224,
+      0,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     224,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     224,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    224,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "netsky_hospital_classics__15",
+   "split": "test",
+   "dj": "Netsky",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    240,
+    0,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "DpYdXERlkFk",
+    "b": "k-7z5X0ATEc",
+    "default": [
+     240,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      240,
+      0,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      240,
+      16,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     240,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     240,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    0,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    240,
+    null,
+    0,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "netsky_hospital_classics__23",
+   "split": "test",
+   "dj": "Netsky",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    192,
+    16,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "gCkKc2LuCuM",
+    "b": "KP8jwoWF44Y",
+    "default": [
+     192,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      192,
+      16,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      192,
+      0,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     192,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     192,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__02",
+   "split": "test",
+   "dj": "Maduk",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    112,
+    32,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "U1VSQ7SRtX0",
+    "b": "smXG7OvMrFI",
+    "default": [
+     112,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      112,
+      32,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      112,
+      16,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     112,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     112,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    112,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__03",
+   "split": "test",
+   "dj": "Maduk",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    176,
+    16,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "smXG7OvMrFI",
+    "b": "11SJZqMmzQ0",
+    "default": [
+     176,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      176,
+      16,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      176,
+      0,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     176,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     176,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    176,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__05",
+   "split": "test",
+   "dj": "Maduk",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    240,
+    32,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "cG7cRDcPY3k",
+    "b": "EpHrodtTiK0",
+    "default": [
+     240,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      240,
+      32,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      240,
+      16,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     240,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     240,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "pola_bryson_puzzlewood__00",
+   "split": "test",
+   "dj": "Pola & Bryson",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    176,
+    32,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "_IgqP6Hv3fs",
+    "b": "wyl3hVnB1dQ",
+    "default": [
+     176,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      176,
+      32,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      176,
+      16,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     176,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     176,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    176,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  },
+  {
+   "id": "pola_bryson_puzzlewood__02",
+   "split": "test",
+   "dj": "Pola & Bryson",
+   "take": true,
+   "reason": "short:model",
+   "default": [
+    208,
+    16,
+    16
+   ],
+   "alt": [
+    192,
+    16,
+    16
+   ],
+   "info": {
+    "a": "5VtwlyaYohs",
+    "b": "fvSe3ZmZRPs",
+    "default": [
+     208,
+     16,
+     16
+    ],
+    "alt": [
+     192,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "short:model",
+    "short": {
+     "default": [
+      208,
+      16,
+      16
+     ],
+     "alt": [
+      192,
+      16,
+      16
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.9039,
+     "thr": 0.6
+    },
+    "long": {
+     "default": [
+      208,
+      0,
+      32
+     ],
+     "alt": [
+      192,
+      16,
+      32
+     ],
+     "take": true,
+     "reason": "model",
+     "p": 0.7468,
+     "thr": 0.6
+    }
+   },
+   "short": {
+    "default": [
+     208,
+     16,
+     16
+    ],
+    "alt": [
+     192,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.9039,
+    "thr": 0.6
+   },
+   "long": {
+    "default": [
+     208,
+     0,
+     32
+    ],
+    "alt": [
+     192,
+     16,
+     32
+    ],
+    "take": true,
+    "reason": "model",
+    "p": 0.7468,
+    "thr": 0.6
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    16,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "blocked": false,
+   "allowed": true
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "split": "test",
+   "dj": "Pola & Bryson",
+   "take": false,
+   "reason": "no_alt",
+   "default": [
+    224,
+    40,
+    16
+   ],
+   "alt": null,
+   "info": {
+    "a": "ogXFi8wa56w",
+    "b": "nNXHqtByO-A",
+    "default": [
+     224,
+     40,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt",
+    "short": {
+     "default": [
+      224,
+      40,
+      16
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    },
+    "long": {
+     "default": [
+      224,
+      24,
+      32
+     ],
+     "alt": null,
+     "take": false,
+     "reason": "no_alt"
+    }
+   },
+   "short": {
+    "default": [
+     224,
+     40,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     224,
+     24,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "nat_long": [
+    "n",
+    224,
+    null,
+    24,
+    32
+   ],
+   "floor_fam": "nat_short",
+   "floor_win": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "blocked": true,
+   "allowed": false
+  }
+ ]
+}

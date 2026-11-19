@@ -1,0 +1,6094 @@
+{
+ "changed": {
+  "EPG": 104,
+  "EPGS": 104
+ },
+ "dev": {
+  "EPG": {
+   "n": 104,
+   "n_window_changed": 45,
+   "base_fail": 25,
+   "arm_fail": 20,
+   "diff": {
+    "delta": -0.048,
+    "ci": [
+     -0.148,
+     0.042
+    ]
+   },
+   "with_gated_d": {
+    "base": 17,
+    "arm": 14,
+    "diff": {
+     "delta": -0.029,
+     "ci": [
+      -0.081,
+      0.025
+     ]
+    }
+   },
+   "lodo_range": [
+    -0.075,
+    -0.024
+   ],
+   "play": {
+    "n": 104,
+    "out_bars_left_base_median": 3.0,
+    "out_bars_left_arm_median": 4.0,
+    "out_bars_left_diff": {
+     "delta": 0.769,
+     "ci": [
+      -0.79,
+      2.259
+     ]
+    },
+    "in_skip_diff": {
+     "delta": -4.308,
+     "ci": [
+      -7.674,
+      -1.454
+     ]
+    },
+    "cut_16plus_more": 10
+   },
+   "rows": [
+    {
+     "id": "alpha_rhythm_AU0V19j8oKM__12",
+     "mix": "alpha_rhythm_AU0V19j8oKM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_AU0V19j8oKM__16",
+     "mix": "alpha_rhythm_AU0V19j8oKM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__13",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__14",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__15",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 16,
+     "arm_left": 16,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_V0BMNeOy_t4__05",
+     "mix": "alpha_rhythm_V0BMNeOy_t4",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm_V0BMNeOy_t4__06",
+     "mix": "alpha_rhythm_V0BMNeOy_t4",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 5,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_V0BMNeOy_t4__07",
+     "mix": "alpha_rhythm_V0BMNeOy_t4",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm__fNcLmH-CYQ__00",
+     "mix": "alpha_rhythm__fNcLmH-CYQ",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm__fNcLmH-CYQ__01",
+     "mix": "alpha_rhythm__fNcLmH-CYQ",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 11,
+     "arm_left": 27,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm__fNcLmH-CYQ__02",
+     "mix": "alpha_rhythm__fNcLmH-CYQ",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_hb7PvukS-Pk__07",
+     "mix": "alpha_rhythm_hb7PvukS-Pk",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_hb7PvukS-Pk__11",
+     "mix": "alpha_rhythm_hb7PvukS-Pk",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__03",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 33,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__07",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__09",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__10",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 0,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__15",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__16",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__09",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__25",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 5,
+     "base_skip": 48,
+     "arm_skip": 16
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__26",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 10,
+     "arm_left": 10,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__46",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 66,
+     "arm_left": 2,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__52",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__00",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      8,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 8,
+     "arm_skip": 16
+    },
+    {
+     "id": "hybrid_minds_ukf__08",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__09",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      208,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 13,
+     "arm_left": 13,
+     "base_skip": 48,
+     "arm_skip": 16
+    },
+    {
+     "id": "hybrid_minds_ukf__10",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__11",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      208,
+      null,
+      64,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 13,
+     "arm_left": 13,
+     "base_skip": 64,
+     "arm_skip": 0
+    },
+    {
+     "id": "hybrid_minds_ukf__12",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      304,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      304,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__13",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__19",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__23",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "hybrid_minds_ukf__25",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 13,
+     "arm_left": 13,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "hybrid_minds_ukf__28",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "hybrid_minds_ukf__40",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      272,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      272,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 15,
+     "arm_left": 15,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__45",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      112,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "joe_syntax_hospital__00",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      96,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      96,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": true,
+     "base_left": 15,
+     "arm_left": 15,
+     "base_skip": 0,
+     "arm_skip": 16
+    },
+    {
+     "id": "joe_syntax_hospital__01",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 14,
+     "arm_left": 30,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "joe_syntax_hospital__08",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      40,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 40,
+     "arm_skip": 48
+    },
+    {
+     "id": "joe_syntax_hospital__09",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "joe_syntax_hospital__11",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "joe_syntax_hospital__12",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 11,
+     "arm_left": 11,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "joe_syntax_hospital__13",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "john_b_frbb5gILfjo__00",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 14,
+     "arm_left": 14,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "john_b_frbb5gILfjo__01",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "john_b_frbb5gILfjo__04",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "john_b_frbb5gILfjo__05",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "john_b_frbb5gILfjo__06",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      80,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      80,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 80,
+     "arm_skip": 80
+    },
+    {
+     "id": "john_b_frbb5gILfjo__14",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      272,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      272,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__04",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 15,
+     "arm_left": 15,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__12",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 12,
+     "arm_left": 12,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__18",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__22",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__25",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      40,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      48,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 40,
+     "arm_skip": 48
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__34",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 5,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__36",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__39",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      96,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      96,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 10,
+     "arm_left": 10,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__02",
+     "mix": "maduk_liquicity_lunar2025",
+     "dj": "Maduk",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      112,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      112,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__03",
+     "mix": "maduk_liquicity_lunar2025",
+     "dj": "Maduk",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__05",
+     "mix": "maduk_liquicity_lunar2025",
+     "dj": "Maduk",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "netsky_hospital_classics__02",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 20,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "netsky_hospital_classics__06",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      320,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      320,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 48,
+     "arm_skip": 16
+    },
+    {
+     "id": "netsky_hospital_classics__15",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "netsky_hospital_classics__17",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "netsky_hospital_classics__23",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "pola_bryson_puzzlewood__00",
+     "mix": "pola_bryson_puzzlewood",
+     "dj": "Pola & Bryson",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "pola_bryson_puzzlewood__02",
+     "mix": "pola_bryson_puzzlewood",
+     "dj": "Pola & Bryson",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "pola_bryson_puzzlewood__04",
+     "mix": "pola_bryson_puzzlewood",
+     "dj": "Pola & Bryson",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      40,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 40,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__07",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__09",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__10",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 14,
+     "arm_left": 14,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__14",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__15",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      288,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      288,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 14,
+     "arm_left": 14,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__18",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      240,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 48,
+     "arm_skip": 0
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__22",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__25",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 12,
+     "arm_left": 12,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__27",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 35,
+     "arm_left": 3,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__30",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      40,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 40,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__46",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      320,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      320,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__05",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__06",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__07",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__10",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__13",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 6,
+     "arm_left": 6,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__15",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      8,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 8,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__27",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__18",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 21,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__22",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__43",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "ukf_drum_bass_abhfer_BNoQ__16",
+     "mix": "ukf_drum_bass_abhfer_BNoQ",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_abhfer_BNoQ__25",
+     "mix": "ukf_drum_bass_abhfer_BNoQ",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 21,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__11",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      8,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 6,
+     "arm_left": 6,
+     "base_skip": 8,
+     "arm_skip": 16
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__17",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__21",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 16,
+     "arm_left": 16,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__35",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 48,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__40",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 12,
+     "arm_left": 12,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "wilkinson_boomtown2026__33",
+     "mix": "wilkinson_boomtown2026",
+     "dj": "Wilkinson",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      96,
+      null,
+      0,
+      32
+     ],
+     "arm_win": [
+      "n",
+      96,
+      null,
+      0,
+      32
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 60,
+     "arm_left": 60,
+     "base_skip": 0,
+     "arm_skip": 0
+    }
+   ]
+  },
+  "EPGS": {
+   "n": 104,
+   "n_window_changed": 49,
+   "base_fail": 25,
+   "arm_fail": 19,
+   "diff": {
+    "delta": -0.058,
+    "ci": [
+     -0.15,
+     0.028
+    ]
+   },
+   "with_gated_d": {
+    "base": 17,
+    "arm": 13,
+    "diff": {
+     "delta": -0.038,
+     "ci": [
+      -0.087,
+      0.01
+     ]
+    }
+   },
+   "lodo_range": [
+    -0.086,
+    -0.035
+   ],
+   "play": {
+    "n": 104,
+    "out_bars_left_base_median": 3.0,
+    "out_bars_left_arm_median": 4.0,
+    "out_bars_left_diff": {
+     "delta": 0.615,
+     "ci": [
+      -1.517,
+      2.311
+     ]
+    },
+    "in_skip_diff": {
+     "delta": -4.154,
+     "ci": [
+      -7.348,
+      -1.166
+     ]
+    },
+    "cut_16plus_more": 13
+   },
+   "rows": [
+    {
+     "id": "alpha_rhythm_AU0V19j8oKM__12",
+     "mix": "alpha_rhythm_AU0V19j8oKM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_AU0V19j8oKM__16",
+     "mix": "alpha_rhythm_AU0V19j8oKM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__13",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__14",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_TnnrrqVRZIM__15",
+     "mix": "alpha_rhythm_TnnrrqVRZIM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 16,
+     "arm_left": 16,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_V0BMNeOy_t4__05",
+     "mix": "alpha_rhythm_V0BMNeOy_t4",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm_V0BMNeOy_t4__06",
+     "mix": "alpha_rhythm_V0BMNeOy_t4",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 5,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_V0BMNeOy_t4__07",
+     "mix": "alpha_rhythm_V0BMNeOy_t4",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm__fNcLmH-CYQ__00",
+     "mix": "alpha_rhythm__fNcLmH-CYQ",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm__fNcLmH-CYQ__01",
+     "mix": "alpha_rhythm__fNcLmH-CYQ",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 11,
+     "arm_left": 27,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm__fNcLmH-CYQ__02",
+     "mix": "alpha_rhythm__fNcLmH-CYQ",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_hb7PvukS-Pk__07",
+     "mix": "alpha_rhythm_hb7PvukS-Pk",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_hb7PvukS-Pk__11",
+     "mix": "alpha_rhythm_hb7PvukS-Pk",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__03",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__07",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__09",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__10",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 0,
+     "arm_skip": 16
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__15",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "alpha_rhythm_imZjEt78YXs__16",
+     "mix": "alpha_rhythm_imZjEt78YXs",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__09",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__25",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 5,
+     "base_skip": 48,
+     "arm_skip": 16
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__26",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 10,
+     "arm_left": 10,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__46",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 66,
+     "arm_left": 2,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__52",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__00",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      8,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 8,
+     "arm_skip": 16
+    },
+    {
+     "id": "hybrid_minds_ukf__08",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__09",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      208,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 13,
+     "arm_left": 13,
+     "base_skip": 48,
+     "arm_skip": 16
+    },
+    {
+     "id": "hybrid_minds_ukf__10",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__11",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      208,
+      null,
+      64,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 13,
+     "arm_left": 13,
+     "base_skip": 64,
+     "arm_skip": 0
+    },
+    {
+     "id": "hybrid_minds_ukf__12",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      304,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      304,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__13",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__19",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__23",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "hybrid_minds_ukf__25",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 13,
+     "arm_left": 13,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "hybrid_minds_ukf__28",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "hybrid_minds_ukf__40",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      272,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      272,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 15,
+     "arm_left": 15,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__45",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      112,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "joe_syntax_hospital__00",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      96,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      96,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": true,
+     "base_left": 15,
+     "arm_left": 15,
+     "base_skip": 0,
+     "arm_skip": 16
+    },
+    {
+     "id": "joe_syntax_hospital__01",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 14,
+     "arm_left": 30,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "joe_syntax_hospital__08",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      40,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 40,
+     "arm_skip": 48
+    },
+    {
+     "id": "joe_syntax_hospital__09",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "joe_syntax_hospital__11",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "joe_syntax_hospital__12",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      48,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 11,
+     "arm_left": 27,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "joe_syntax_hospital__13",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "john_b_frbb5gILfjo__00",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 14,
+     "arm_left": 14,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "john_b_frbb5gILfjo__01",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 32,
+     "arm_skip": 0
+    },
+    {
+     "id": "john_b_frbb5gILfjo__04",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "john_b_frbb5gILfjo__05",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "john_b_frbb5gILfjo__06",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      80,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      80,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 80,
+     "arm_skip": 80
+    },
+    {
+     "id": "john_b_frbb5gILfjo__14",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      272,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      272,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__04",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 15,
+     "arm_left": 15,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__12",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 12,
+     "arm_left": 12,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__18",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__22",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__25",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      40,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      48,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 40,
+     "arm_skip": 48
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__34",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 5,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__36",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__39",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      96,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      96,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 10,
+     "arm_left": 10,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__02",
+     "mix": "maduk_liquicity_lunar2025",
+     "dj": "Maduk",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      112,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      112,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__03",
+     "mix": "maduk_liquicity_lunar2025",
+     "dj": "Maduk",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "maduk_liquicity_lunar2025__05",
+     "mix": "maduk_liquicity_lunar2025",
+     "dj": "Maduk",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "netsky_hospital_classics__02",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 20,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "netsky_hospital_classics__06",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      320,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      320,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 48,
+     "arm_skip": 16
+    },
+    {
+     "id": "netsky_hospital_classics__15",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "netsky_hospital_classics__17",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "netsky_hospital_classics__23",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "pola_bryson_puzzlewood__00",
+     "mix": "pola_bryson_puzzlewood",
+     "dj": "Pola & Bryson",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 32,
+     "arm_skip": 16
+    },
+    {
+     "id": "pola_bryson_puzzlewood__02",
+     "mix": "pola_bryson_puzzlewood",
+     "dj": "Pola & Bryson",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 16,
+     "arm_skip": 0
+    },
+    {
+     "id": "pola_bryson_puzzlewood__04",
+     "mix": "pola_bryson_puzzlewood",
+     "dj": "Pola & Bryson",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      40,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": true,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 40,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__07",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 9,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__09",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__10",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 14,
+     "arm_left": 14,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__14",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__15",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      288,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      288,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 14,
+     "arm_left": 14,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__18",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      240,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 48,
+     "arm_skip": 0
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__22",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 4,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__25",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 12,
+     "arm_left": 12,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__27",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 35,
+     "arm_left": 3,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__30",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      40,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 40,
+     "arm_skip": 48
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__46",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      320,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      320,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__05",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__06",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__07",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__10",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__13",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 6,
+     "arm_left": 6,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__15",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      8,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 7,
+     "base_skip": 8,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__27",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__39",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__18",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 21,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__22",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 3,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 8,
+     "arm_left": 8,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__43",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "ukf_drum_bass_abhfer_BNoQ__16",
+     "mix": "ukf_drum_bass_abhfer_BNoQ",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 1,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_abhfer_BNoQ__25",
+     "mix": "ukf_drum_bass_abhfer_BNoQ",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 21,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__11",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      8,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 6,
+     "arm_left": 6,
+     "base_skip": 8,
+     "arm_skip": 16
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__17",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 2,
+     "arm_left": 2,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__21",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 16,
+     "arm_left": 16,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__35",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 48,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_cCtoa1U_1DE__40",
+     "mix": "ukf_drum_bass_cCtoa1U_1DE",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 12,
+     "arm_left": 12,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "wilkinson_boomtown2026__33",
+     "mix": "wilkinson_boomtown2026",
+     "dj": "Wilkinson",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      96,
+      null,
+      0,
+      32
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 60,
+     "arm_left": 12,
+     "base_skip": 0,
+     "arm_skip": 16
+    }
+   ]
+  }
+ },
+ "cohort": {
+  "base": {
+   "test": 34.07,
+   "test_with_d": 34.07,
+   "test_pairs_vs_floor": [],
+   "train": 32.4,
+   "train_with_d": 32.4,
+   "train_pairs_vs_floor": [],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    4.0
+   ]
+  },
+  "EPG": {
+   "test": 31.94,
+   "test_with_d": 32.51,
+   "test_pairs_vs_floor": [
+    [
+     "pola_bryson_puzzlewood__00",
+     -27.84
+    ],
+    [
+     "netsky_hospital_classics__02",
+     -9.6
+    ],
+    [
+     "pola_bryson_puzzlewood__04",
+     -5.5
+    ],
+    [
+     "netsky_hospital_classics__06",
+     4.18
+    ],
+    [
+     "pola_bryson_puzzlewood__02",
+     13.23
+    ]
+   ],
+   "train": 29.28,
+   "train_with_d": 31.49,
+   "train_pairs_vs_floor": [
+    [
+     "hybrid_minds_ukf__28",
+     -23.77
+    ],
+    [
+     "joe_syntax_hospital__11",
+     -22.58
+    ],
+    [
+     "hybrid_minds_ukf__09",
+     -11.33
+    ],
+    [
+     "hybrid_minds_ukf__11",
+     -8.79
+    ],
+    [
+     "hybrid_minds_ukf__45",
+     -7.22
+    ],
+    [
+     "joe_syntax_hospital__08",
+     -2.76
+    ],
+    [
+     "hybrid_minds_ukf__00",
+     1.86
+    ],
+    [
+     "joe_syntax_hospital__00",
+     3.16
+    ],
+    [
+     "joe_syntax_hospital__01",
+     5.76
+    ]
+   ],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    7.0
+   ]
+  },
+  "EPGS": {
+   "test": 30.87,
+   "test_with_d": 31.45,
+   "test_pairs_vs_floor": [
+    [
+     "pola_bryson_puzzlewood__00",
+     -27.84
+    ],
+    [
+     "wilkinson_boomtown2026__33",
+     -12.81
+    ],
+    [
+     "netsky_hospital_classics__02",
+     -9.6
+    ],
+    [
+     "pola_bryson_puzzlewood__04",
+     -5.5
+    ],
+    [
+     "netsky_hospital_classics__06",
+     4.18
+    ],
+    [
+     "pola_bryson_puzzlewood__02",
+     13.23
+    ]
+   ],
+   "train": 30.06,
+   "train_with_d": 32.27,
+   "train_pairs_vs_floor": [
+    [
+     "hybrid_minds_ukf__28",
+     -23.77
+    ],
+    [
+     "joe_syntax_hospital__11",
+     -22.58
+    ],
+    [
+     "hybrid_minds_ukf__09",
+     -11.33
+    ],
+    [
+     "hybrid_minds_ukf__11",
+     -8.79
+    ],
+    [
+     "hybrid_minds_ukf__45",
+     -7.22
+    ],
+    [
+     "joe_syntax_hospital__08",
+     -2.76
+    ],
+    [
+     "hybrid_minds_ukf__00",
+     1.86
+    ],
+    [
+     "joe_syntax_hospital__00",
+     3.16
+    ],
+    [
+     "joe_syntax_hospital__01",
+     5.76
+    ],
+    [
+     "joe_syntax_hospital__12",
+     16.49
+    ]
+   ],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    7.0
+   ]
+  }
+ }
+}

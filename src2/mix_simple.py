@@ -441,23 +441,36 @@ def pair_cands(i,ia0):
       return (sc[0]-term-bonus,)+sc[1:]
     try:
       sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime');import exitpos_gate as _EG
-      dwin=min(res,key=_dcost);be,bc,bX,bk=_ea(dwin);default=(be,bc,bX)
-      alts=[]
+      def _fam(xpred):
+        cands=[c for c in res if _ea(c)[3]=='n' and xpred(_ea(c)[2])]
+        if not cands:return None,None,False,dict(reason='no_cand')
+        dwin=min(cands,key=_dcost);default=_ea(dwin)[:3]
+        alts=[c for c in cands if _EG.hard_ok(_ea(c)[:3],default,sections.get(a),sections.get(b))]
+        if not alts:return default,None,False,dict(reason='no_alt')
+        ac=min(alts,key=lambda c:c[0]);altw=_ea(ac)[:3]
+        take,info=_EG.should_switch(default,altw,sections.get(a),sections.get(b),ya=a)
+        return default,altw,bool(take and altw!=default),info
+      d16,a16,t16,i16=_fam(lambda X:X==16)
+      d32,a32,t32,i32=_fam(lambda X:X>=32)
+      boost=set()
+      if t16 and a16:boost.add(tuple(a16))
+      if t32 and a32:boost.add(tuple(a32))
+      new=[]
       for c in res:
         ea,ib,X,kind=_ea(c)
-        if kind!='n':continue
-        if _EG.hard_ok((ea,ib,X),default,sections.get(a),sections.get(b)):alts.append(c)
-      take,info=False,dict(reason='no_alt');altw=None
-      if alts:
-        ac=min(alts,key=lambda c:c[0]);ae,ai,aX,_=_ea(ac);altw=(ae,ai,aX)
-        take,info=_EG.should_switch(default,altw,sections.get(a),sections.get(b),ya=a)
-      if take and altw and altw!=default:
-        head=[c for c in alts if _ea(c)[:3]==altw][0]
-        res=[head]+[c for c in res if c is not head]
-      else:
-        res=[dwin]+[c for c in res if c is not dwin]
-      EPG_LOG.append(dict(a=a,b=b,default=list(default),alt=list(altw) if altw else None,take=bool(take),**info))
-      print('EXITPOS_GATE',a,b,'default',default,'alt',altw,'take',take,info,file=sys.stderr)
+        if kind=='n' and (ea,ib,X) in boost:
+          sc=c[0];new.append(((sc[0]-10*STRUCTW,)+sc[1:],)+c[1:])
+        else:
+          new.append((_dcost(c),)+c[1:])
+      res=new
+      res.sort(key=lambda t:t[0])
+      rec=dict(a=a,b=b,default=list(d16) if d16 else (list(d32) if d32 else None),alt=list(a16) if a16 else (list(a32) if a32 else None),take=bool(t16 or t32),reason=('short:'+i16.get('reason','') if t16 else ('long:'+i32.get('reason','') if t32 else (i16 or i32 or {}).get('reason','none'))),short=dict(default=list(d16) if d16 else None,alt=list(a16) if a16 else None,take=t16,**i16),long=dict(default=list(d32) if d32 else None,alt=list(a32) if a32 else None,take=t32,**i32))
+      EPG_LOG.append(rec)
+      print('EXITPOS_GATE',a,b,'short',d16,a16,t16,i16,'long',d32,a32,t32,i32,file=sys.stderr)
+      _lf=os.environ.get('EPG_LOG_FILE')
+      if _lf:
+        import json as _j
+        with open(_lf,'a') as _f:_f.write(_j.dumps(rec)+chr(10))
     except Exception as ex:
       print('EXITPOS_GATE failed',a,b,ex,file=sys.stderr)
   return res

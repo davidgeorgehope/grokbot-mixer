@@ -27,3 +27,24 @@ important work; the per-DJ weights are a further veto, with the weird-outro over
 lost when Joe Syntax is held out.
 
 Eval job: `epg-1119` (arms EPG / EPGS).
+
+## Why the first `epg-1119` eval matched EP/EPS exactly
+
+`EXITPOS_GATE` *was* on the planner path and the env vars did reach `mix_simple.py`.
+The hook only reordered `pair_cands` so the gated window was first. That does not matter:
+`DUMP_CANDS` writes each window's engine cost, and `blend_bench.families()` then picks
+`min(cost)` per family. Cue-only EXITPOS winners kept their cheaper costs, so detect
+and `eval_cohort` both scored the ungated EP/EPS windows (pola__00 −27.84, Wilkinson
+EPS −12.81, and the rest). Hook prints went to the child stderr, which `blend_bench.sh()`
+discards on success — so the job log had no `EXITPOS_GATE` lines even though the hook ran.
+
+Fix (still flag-only): after the decision, rewrite costs. A taken alt is boosted
+(`−10*STRUCTW` on top of its EXITPOS cost); every other window is restored to the
+default (outro-bonus) cost. nat_short (16-bar) and nat_long (≥32) are gated
+separately so a 32-bar alt cannot be swallowed by `length_pref=16`. Rerun is
+`epg2-1119` (new tags; ungated `cs_epg_1119` caches are not reused).
+
+Live decisions for the 33 admitted pairs are in `protrans/replica/epg_decisions_1119.json`.
+The "almost only nat_short" pattern is the default's own behaviour (`length_pref=16`
+in `rules.json`): 32 of 33 floor windows are already nat_short, and only
+`wilkinson_boomtown2026__33` is nat_long. The gate does not change that preference.

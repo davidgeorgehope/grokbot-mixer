@@ -7,11 +7,12 @@ unset GATE_FEAT GATE_FLIB PICKER_WIN ONLY BAR_RESYNC THINDEF
 export EXTRA_SRC=/workspace/mixes/protrans/replica/nightly_1119_work/src
 IDS=$(python3 -c "
 import json;ch=json.load(open('replica/struct_changed_1119.json'))
-print(','.join(sorted({i for k,v in ch.items() if k in ('B0','B100','QC','SLOW','QCS') for i in v})))")
+print(','.join(sorted({i for k,v in ch.items() if k in ('QC','SLOW','QCS') for i in v})))")
 echo "changed ids: $(echo $IDS | tr ',' '\n' | wc -l)"
 r=0
-ONLY=$IDS WORKERS=4 python3 replica/eval_gate.py 'sbase1119={}' 'sqc1119={"OUTRO_QC":1}' 'sslow1119={"SLOWDOWN":1}' 'sqcs1119={"OUTRO_QC":1,"SLOWDOWN":1}' 'sb0_1119={"STRUCTB":0}' 'sb100_1119={"STRUCTB":100}' || r=$((r+1))
-for v in sbase1119 sqc1119 sslow1119 sqcs1119 sb0_1119 sb100_1119; do python3 replica/hc2_arrays.py $v || r=$((r+1)); done
+ONLY=$IDS WORKERS=4 python3 replica/eval_gate.py 'sbase1119={}' 'sqc1119={"OUTRO_QC":1}' 'sslow1119={"SLOWDOWN":1}' 'sqcs1119={"OUTRO_QC":1,"SLOWDOWN":1}'  # STRUCTB 0/100: comparison arms, held-out only (B0 changes 102/105 pairs)
+|| r=$((r+1))
+for v in sbase1119 sqc1119 sslow1119 sqcs1119; do python3 replica/hc2_arrays.py $v || r=$((r+1)); done
 echo "DEV_DONE rc=$r"
 cd /workspace/mixes
 python3 - <<'PY'

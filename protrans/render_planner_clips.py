@@ -115,7 +115,7 @@ def render_one(rec, rules, tag, stem_name=None):
                  f"planner={((info.get('planner') or {}).get('type'))}")
         summ = blend_diag.figure(M, 0, png, title, pro=rec['pro_clip'], src_a=sa, src_b=sb, ours=ours)
         import shutil
-        shutil.copy2(png, png2)
+        if os.path.abspath(png) != os.path.abspath(png2): shutil.copy2(png, png2)
     finally:
         os.chdir(cwd)
     meta = dict(

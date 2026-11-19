@@ -1,0 +1,70 @@
+{
+ "key": "pick1119:kushsessions_yaWXrFBRYrM__18",
+ "overlap_bars": [
+  8,
+  24
+ ],
+ "nudged_bars": {
+  "2rRQWazxATI": 8
+ },
+ "nudges": {
+  "2rRQWazxATI": {
+   "144": 26.2,
+   "145": 26.2,
+   "146": 26.3,
+   "147": 26.3,
+   "148": 26.2,
+   "149": 26.1,
+   "150": 26.2,
+   "151": 26.1
+  }
+ },
+ "before": {
+  "A": {
+   "n": 16,
+   "med": -12.3,
+   "spread": 29.5,
+   "trend": {
+    "n": 16,
+    "slope_ms_per_bar": -2.52,
+    "span_ms": -37.8,
+    "r2": 0.75,
+    "resid_sd": 6.8,
+    "jump_sd": 6.8,
+    "mean": -12.7
+   }
+  },
+  "B": {
+   "n": 0,
+   "med": null,
+   "spread": null,
+   "trend": {
+    "n": 0
+   }
+  }
+ },
+ "after": {
+  "A": {
+   "n": 16,
+   "med": -0.0,
+   "spread": 3.9,
+   "trend": {
+    "n": 16,
+    "slope_ms_per_bar": -0.03,
+    "span_ms": -0.5,
+    "r2": 0.02,
+    "resid_sd": 1.1,
+    "jump_sd": 1.4,
+    "mean": 0.5
+   }
+  },
+  "B": {
+   "n": 0,
+   "med": null,
+   "spread": null,
+   "trend": {
+    "n": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,345 @@
+[
+ {
+  "id": "alpha_rhythm_u3OiUhgnfkE__00",
+  "default_win": [
+   "n",
+   240,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.089,
+  "top": [
+   {
+    "win": [
+     "n",
+     80,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.053,
+    "score": 0.113
+   },
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.069,
+    "score": 0.133
+   }
+  ],
+  "keep_default": true,
+  "pro_out": 123.95,
+  "pro_in": 64.49,
+  "dex": 225.0,
+  "dcue": 49.0,
+  "off_sec": [
+   false,
+   false
+  ],
+  "default_offsec": false,
+  "is_mid": [
+   true,
+   true
+  ]
+ },
+ {
+  "id": "alpha_rhythm_u3OiUhgnfkE__01",
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.054,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.05,
+    "score": 0.062
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.034,
+    "score": 0.065
+   }
+  ],
+  "keep_default": true,
+  "pro_out": 193.52,
+  "pro_in": 46.89,
+  "dex": 177.0,
+  "dcue": 33.0,
+  "off_sec": [
+   false,
+   false
+  ],
+  "default_offsec": false,
+  "is_mid": [
+   true,
+   true
+  ]
+ },
+ {
+  "id": "alpha_rhythm_u3OiUhgnfkE__04",
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.281,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.024,
+    "score": 0.145
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.021,
+    "score": 0.145
+   }
+  ],
+  "keep_default": false,
+  "pro_out": 202.16,
+  "pro_in": 47.55,
+  "dex": 193.0,
+  "dcue": 33.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": true,
+  "is_mid": [
+   true,
+   true
+  ]
+ },
+ {
+  "id": "alpha_rhythm_u3OiUhgnfkE__05",
+  "default_win": [
+   "n",
+   176,
+   null,
+   56,
+   16
+  ],
+  "default_risk": 0.043,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.024,
+    "score": 0.031
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     56,
+     16
+    ],
+    "risk": 0.018,
+    "score": 0.032
+   }
+  ],
+  "keep_default": false,
+  "pro_out": 176.62,
+  "pro_in": 4.32,
+  "dex": 161.0,
+  "dcue": 57.0,
+  "off_sec": [
+   false,
+   false
+  ],
+  "default_offsec": true,
+  "is_mid": [
+   false,
+   false
+  ]
+ },
+ {
+  "id": "alpha_rhythm_u3OiUhgnfkE__07",
+  "default_win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.053,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.049,
+    "score": 0.064
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.044,
+    "score": 0.074
+   }
+  ],
+  "keep_default": false,
+  "pro_out": 164.13,
+  "pro_in": 31.83,
+  "dex": 161.0,
+  "dcue": 17.0,
+  "off_sec": [
+   false,
+   false
+  ],
+  "default_offsec": true,
+  "is_mid": [
+   true,
+   true
+  ]
+ },
+ {
+  "id": "alpha_rhythm_u3OiUhgnfkE__11",
+  "default_win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.074,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.063,
+    "score": 0.081
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.058,
+    "score": 0.092
+   }
+  ],
+  "keep_default": false,
+  "pro_out": 184.55,
+  "pro_in": -0.44,
+  "dex": 161.0,
+  "dcue": 33.0,
+  "off_sec": [
+   false,
+   false
+  ],
+  "default_offsec": true,
+  "is_mid": [
+   false,
+   false
+  ]
+ },
+ {
+  "id": "alpha_rhythm_u3OiUhgnfkE__14",
+  "default_win": [
+   "n",
+   160,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.434,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.029,
+    "score": 0.137
+   },
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.019,
+    "score": 0.14
+   }
+  ],
+  "keep_default": false,
+  "pro_out": 171.1,
+  "pro_in": 62.68,
+  "dex": 145.0,
+  "dcue": 49.0,
+  "off_sec": [
+   true,
+   true
+  ],
+  "default_offsec": true,
+  "is_mid": [
+   true,
+   true
+  ]
+ }
+]

@@ -1,0 +1,3580 @@
+{
+ "n": 91,
+ "n_mixes": 15,
+ "outcomes": {
+  "r1_pass": 64,
+  "r2_pass": 10,
+  "planner_kept_default": 10,
+  "both_fail_default": 7
+ },
+ "default_HC_A": 0.143,
+ "raw_HC_A": 0.176,
+ "raw_minus_default_HC_A": {
+  "delta": 0.03,
+  "ci": [
+   -0.08,
+   0.13
+  ],
+  "n": 91,
+  "groups": 15,
+  "verdict": "no clear difference"
+ },
+ "final_HC_A": 0.022,
+ "final_minus_default_HC_A": {
+  "delta": -0.12,
+  "ci": [
+   -0.21,
+   -0.06
+  ],
+  "n": 91,
+  "groups": 15,
+  "verdict": "better"
+ },
+ "default_HC_B": 0.121,
+ "raw_HC_B": 0.187,
+ "raw_minus_default_HC_B": {
+  "delta": 0.07,
+  "ci": [
+   -0.02,
+   0.15
+  ],
+  "n": 91,
+  "groups": 15,
+  "verdict": "no clear difference"
+ },
+ "final_HC_B": 0.033,
+ "final_minus_default_HC_B": {
+  "delta": -0.09,
+  "ci": [
+   -0.15,
+   -0.04
+  ],
+  "n": 91,
+  "groups": 15,
+  "verdict": "better"
+ },
+ "raw_any": 0.187,
+ "raw_minus_default_any": {
+  "delta": 0.03,
+  "ci": [
+   -0.08,
+   0.13
+  ],
+  "n": 91,
+  "groups": 15,
+  "verdict": "no clear difference"
+ },
+ "final_any": 0.033,
+ "final_minus_default_any": {
+  "delta": -0.12,
+  "ci": [
+   -0.21,
+   -0.06
+  ],
+  "n": 91,
+  "groups": 15,
+  "verdict": "better"
+ },
+ "default_any": 0.154,
+ "def_off_phrase": 0.0,
+ "def_off_section": 0.703,
+ "def_pro_err": 37.48,
+ "def_mid_share": 0.165,
+ "raw_off_phrase": 0.0,
+ "raw_off_section": 0.824,
+ "raw_pro_err": 37.05,
+ "raw_mid_share": 0.758,
+ "final_off_phrase": 0.0,
+ "final_off_section": 0.791,
+ "final_pro_err": 37.88,
+ "final_mid_share": 0.714,
+ "final_pro_err_minus_default": {
+  "delta": 0.4,
+  "ci": [
+   -6.04,
+   11.88
+  ],
+  "n": 91,
+  "groups": 15,
+  "verdict": "no clear difference"
+ },
+ "changed_final": 74,
+ "raw_fired": {
+  "pump": 15,
+  "clash_v1": 2,
+  "halfbeat": 2,
+  "clash_v2": 3
+ },
+ "per_dj": {
+  "Alpha Rhythm": {
+   "n": 19,
+   "def_any": 4,
+   "raw_any": 4,
+   "final_any": 0,
+   "changed": 17
+  },
+  "Fryett": {
+   "n": 5,
+   "def_any": 1,
+   "raw_any": 0,
+   "final_any": 0,
+   "changed": 5
+  },
+  "John B": {
+   "n": 3,
+   "def_any": 1,
+   "raw_any": 2,
+   "final_any": 0,
+   "changed": 2
+  },
+  "MrMoMMusic": {
+   "n": 13,
+   "def_any": 1,
+   "raw_any": 2,
+   "final_any": 0,
+   "changed": 10
+  },
+  "Sound Territory": {
+   "n": 17,
+   "def_any": 1,
+   "raw_any": 4,
+   "final_any": 1,
+   "changed": 10
+  },
+  "SuicideSheeep": {
+   "n": 11,
+   "def_any": 2,
+   "raw_any": 2,
+   "final_any": 0,
+   "changed": 10
+  },
+  "TheHeshBesh": {
+   "n": 8,
+   "def_any": 2,
+   "raw_any": 1,
+   "final_any": 1,
+   "changed": 7
+  },
+  "UKF Drum & Bass": {
+   "n": 15,
+   "def_any": 2,
+   "raw_any": 2,
+   "final_any": 1,
+   "changed": 13
+  }
+ },
+ "pairs": [
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__00",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm__fNcLmH-CYQ",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    48,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    112,
+    null,
+    48,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__01",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm__fNcLmH-CYQ",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__02",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm__fNcLmH-CYQ",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__15",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_TnnrrqVRZIM",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    96,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    96,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_AU0V19j8oKM__12",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_AU0V19j8oKM",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    80,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    80,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_AU0V19j8oKM__16",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_AU0V19j8oKM",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__05",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_V0BMNeOy_t4",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    16,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    16,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__06",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_V0BMNeOy_t4",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__07",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_V0BMNeOy_t4",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    96,
+    null,
+    48,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    96,
+    null,
+    48,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__03",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "def_A": true,
+   "def_B": false,
+   "def_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    144,
+    null,
+    29,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    144,
+    null,
+    29,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__07",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    32,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    32,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__09",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    192,
+    null,
+    64,
+    16
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__10",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__15",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    32,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    32,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__16",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    48,
+    null,
+    64,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    48,
+    null,
+    64,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__13",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_TnnrrqVRZIM",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__14",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_TnnrrqVRZIM",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    144,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [
+    "clash_v1",
+    "halfbeat"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "alpha_rhythm_hb7PvukS-Pk__07",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_hb7PvukS-Pk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "both_fail_default"
+  },
+  {
+   "id": "alpha_rhythm_hb7PvukS-Pk__11",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_hb7PvukS-Pk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    32,
+    32
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__09",
+   "dj": "Fryett",
+   "mix": "fryett_ltdJ6GFixfs",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__25",
+   "dj": "Fryett",
+   "mix": "fryett_ltdJ6GFixfs",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    48,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    96,
+    null,
+    64,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    96,
+    null,
+    64,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__26",
+   "dj": "Fryett",
+   "mix": "fryett_ltdJ6GFixfs",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    22,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    22,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__46",
+   "dj": "Fryett",
+   "mix": "fryett_ltdJ6GFixfs",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__52",
+   "dj": "Fryett",
+   "mix": "fryett_ltdJ6GFixfs",
+   "def_A": true,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    24,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__06",
+   "dj": "John B",
+   "mix": "john_b_RyhRkT6DQTQ",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    224,
+    null,
+    32,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    160,
+    null,
+    32,
+    32
+   ],
+   "raw_fired": [
+    "clash_v1",
+    "clash_v2",
+    "pump",
+    "halfbeat"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    112,
+    null,
+    48,
+    16
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__10",
+   "dj": "John B",
+   "mix": "john_b_RyhRkT6DQTQ",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    224,
+    null,
+    0,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    48,
+    32
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    176,
+    null,
+    32,
+    32
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__31",
+   "dj": "John B",
+   "mix": "john_b_RyhRkT6DQTQ",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__50",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__53",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "both_fail_default"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__55",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__59",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    64,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    64,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__60",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    48,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    48,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__64",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__65",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    64,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    64,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__66",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__70",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    8,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    16,
+    32
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__72",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    6,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    112,
+    null,
+    6,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__74",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    48,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    112,
+    null,
+    48,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__75",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    64,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    112,
+    null,
+    64,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__76",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    96,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    96,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__02",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    32,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__04",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    16,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    16,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__05",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__08",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    32
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__09",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__10",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__11",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    112,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__12",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    16,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    16,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__13",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__14",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    96,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    96,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__15",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__23",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    224,
+    null,
+    16,
+    32
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "both_fail_default"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__26",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__27",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": true,
+   "final_B": true,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [
+    "pump"
+   ],
+   "why": "both_fail_default"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__28",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    224,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    32,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__31",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__34",
+   "dj": "Sound Territory",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__07",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__09",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    64,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    112,
+    null,
+    64,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__10",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    256,
+    null,
+    24,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    256,
+    null,
+    24,
+    16
+   ],
+   "final_fired": [],
+   "why": "both_fail_default"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__14",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    96,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    96,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__15",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    288,
+    null,
+    48,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    144,
+    null,
+    80,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    144,
+    null,
+    80,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__18",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    240,
+    null,
+    48,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    48,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    48,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__22",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__25",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    256,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    32,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    32,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__27",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    224,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    64,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    64,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__30",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    40,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    64,
+    16
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    112,
+    null,
+    80,
+    16
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__46",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "def_A": true,
+   "def_B": false,
+   "def_win": [
+    "n",
+    320,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    304,
+    null,
+    16,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    304,
+    null,
+    16,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__05",
+   "dj": "TheHeshBesh",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    48,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    48,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__06",
+   "dj": "TheHeshBesh",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    64,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    64,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__07",
+   "dj": "TheHeshBesh",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    31,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    31,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__10",
+   "dj": "TheHeshBesh",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    80,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    80,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__13",
+   "dj": "TheHeshBesh",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [
+    "pump"
+   ],
+   "final_A": true,
+   "final_B": true,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [
+    "pump"
+   ],
+   "why": "both_fail_default"
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__15",
+   "dj": "TheHeshBesh",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    8,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    7,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    7,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__27",
+   "dj": "TheHeshBesh",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    176,
+    null,
+    24,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__39",
+   "dj": "TheHeshBesh",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    96,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    96,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__16",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_abhfer_BNoQ",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "default",
+   "raw_win": [
+    "n",
+    160,
+    null,
+    0,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    160,
+    null,
+    0,
+    16
+   ],
+   "final_fired": [],
+   "why": "planner_kept_default"
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__25",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_abhfer_BNoQ",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__18",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    144,
+    null,
+    48,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "def_A": false,
+   "def_B": true,
+   "def_win": [
+    "n",
+    128,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    48,
+    null,
+    80,
+    16
+   ],
+   "raw_fired": [
+    "clash_v2"
+   ],
+   "final_A": false,
+   "final_B": true,
+   "final_src": "default",
+   "final_win": [
+    "n",
+    128,
+    null,
+    0,
+    16
+   ],
+   "final_fired": [
+    "clash_v2"
+   ],
+   "why": "both_fail_default"
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__22",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    24,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    160,
+    null,
+    16,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    160,
+    null,
+    16,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    144,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    144,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    144,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    80,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    80,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__43",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    192,
+    null,
+    64,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    192,
+    null,
+    64,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "def_A": true,
+   "def_B": true,
+   "def_win": [
+    "n",
+    256,
+    null,
+    16,
+    16
+   ],
+   "raw_A": true,
+   "raw_B": true,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [
+    "clash_v2",
+    "pump"
+   ],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r2",
+   "final_win": [
+    "n",
+    176,
+    null,
+    96,
+    16
+   ],
+   "final_fired": [],
+   "why": "r2_pass"
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__11",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    8,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__17",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    128,
+    null,
+    24,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__21",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    128,
+    null,
+    0,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    64,
+    null,
+    32,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    64,
+    null,
+    32,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__35",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    160,
+    null,
+    48,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__40",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "def_A": false,
+   "def_B": false,
+   "def_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "raw_A": false,
+   "raw_B": false,
+   "raw_src": "r1",
+   "raw_win": [
+    "n",
+    112,
+    null,
+    32,
+    32
+   ],
+   "raw_fired": [],
+   "final_A": false,
+   "final_B": false,
+   "final_src": "r1",
+   "final_win": [
+    "n",
+    112,
+    null,
+    32,
+    32
+   ],
+   "final_fired": [],
+   "why": "r1_pass"
+  }
+ ]
+}

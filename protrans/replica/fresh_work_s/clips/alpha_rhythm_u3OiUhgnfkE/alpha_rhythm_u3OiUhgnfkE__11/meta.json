@@ -1,0 +1,29 @@
+{
+  "id": "alpha_rhythm_u3OiUhgnfkE__11",
+  "mix_id": "alpha_rhythm_u3OiUhgnfkE",
+  "dj": "Alpha Rhythm",
+  "a": {
+    "title": "Etherwood - Begin By Letting Go",
+    "yt": "P1-7oQpFbwg",
+    "t": 2382.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=P1-7oQpFbwg"
+  },
+  "b": {
+    "title": "Etherwood - You're Missing Life",
+    "yt": "sneuBn3DcMo",
+    "t": 2561.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=sneuBn3DcMo"
+  },
+  "window": {
+    "mix_t_a": 2382.0,
+    "mix_t_b": 2561.0,
+    "mix_t_next": 2851.0,
+    "hint_a_played_sec": 179.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__11/pro.wav",
+  "pro_clip_start": 2537.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__11"
+}

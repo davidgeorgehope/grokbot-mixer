@@ -1,0 +1,1259 @@
+{
+  "id": "alpha_rhythm_u3OiUhgnfkE__04",
+  "mix_id": "alpha_rhythm_u3OiUhgnfkE",
+  "dj": "Alpha Rhythm",
+  "pair": "Etherwood - Fire Lit Sky -> Etherwood - The Rain Will Fall (ft. LSB)",
+  "video_id": "u3OiUhgnfkE",
+  "cue": {
+    "incoming_bar": 47.55,
+    "incoming_section": "breakdown",
+    "outgoing_bar": 202.16,
+    "outgoing_section": "outro",
+    "blend_list_s": 268.0,
+    "locate_a": {
+      "z": 7.063,
+      "cc": 0.7593,
+      "mix_t": 2.763,
+      "track_t": 257.602,
+      "n": 103
+    },
+    "locate_b": {
+      "z": 6.474,
+      "cc": 0.7136,
+      "mix_t": 24.311,
+      "track_t": 65.898,
+      "n": 88
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.065,
+      "hold_db": -0.26,
+      "tail_bars": 44.04,
+      "out_p90": 5.11,
+      "in_p90": -0.3
+    },
+    "bass": {
+      "rise_db_per_beat": -0.131,
+      "hold_db": -0.69,
+      "tail_bars": 38.06,
+      "out_p90": 7.6,
+      "in_p90": 0.07
+    },
+    "highs": {
+      "rise_db_per_beat": -0.015,
+      "hold_db": -3.03,
+      "tail_bars": 44.76,
+      "out_p90": 9.54,
+      "in_p90": -1.18
+    },
+    "mids": {
+      "rise_db_per_beat": 0.076,
+      "hold_db": -0.54,
+      "tail_bars": 46.03,
+      "out_p90": 5.96,
+      "in_p90": -0.76
+    }
+  },
+  "overlap_bars": 15.042,
+  "track_a": {
+    "sections": {
+      "n_bars": 226,
+      "intro_end": 72,
+      "drop1": 72,
+      "breakdown": 137,
+      "drop2": 168,
+      "outro_start": 201,
+      "music_end": 226,
+      "drops": [
+        [
+          72,
+          137
+        ],
+        [
+          168,
+          201
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 41
+        },
+        {
+          "name": "build",
+          "start": 41,
+          "end": 72
+        },
+        {
+          "name": "drop",
+          "start": 72,
+          "end": 137
+        },
+        {
+          "name": "breakdown",
+          "start": 137,
+          "end": 168
+        },
+        {
+          "name": "drop",
+          "start": 168,
+          "end": 201
+        },
+        {
+          "name": "outro",
+          "start": 201,
+          "end": 226
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -58.02,
+          "drums": -31.98,
+          "energy": -31.98
+        },
+        "build": {
+          "bass": -29.24,
+          "drums": -22.07,
+          "energy": -22.07
+        },
+        "drop": {
+          "bass": -10.87,
+          "drums": -9.42,
+          "energy": -9.42
+        },
+        "breakdown": {
+          "bass": -33.22,
+          "drums": -21.26,
+          "energy": -21.26
+        },
+        "outro": {
+          "bass": -53.42,
+          "drums": -34.47,
+          "energy": -34.47
+        }
+      },
+      "intro_len": 72,
+      "n_drops": 2
+    },
+    "bpm": 172.009,
+    "yt": "Es0P41vIVHY",
+    "title": "Etherwood - Fire Lit Sky"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 194,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 44,
+      "drop2": 112,
+      "outro_start": 176,
+      "music_end": 194,
+      "drops": [
+        [
+          48,
+          96
+        ],
+        [
+          112,
+          176
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 16
+        },
+        {
+          "name": "build",
+          "start": 16,
+          "end": 44
+        },
+        {
+          "name": "breakdown",
+          "start": 44,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 96
+        },
+        {
+          "name": "breakdown",
+          "start": 96,
+          "end": 112
+        },
+        {
+          "name": "drop",
+          "start": 112,
+          "end": 176
+        },
+        {
+          "name": "outro",
+          "start": 176,
+          "end": 194
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -58.58,
+          "drums": -22.22,
+          "energy": -22.22
+        },
+        "build": {
+          "bass": -21.68,
+          "drums": -15.57,
+          "energy": -15.57
+        },
+        "breakdown": {
+          "bass": -28.34,
+          "drums": -17.46,
+          "energy": -17.46
+        },
+        "drop": {
+          "bass": -12.57,
+          "drums": -10.74,
+          "energy": -10.74
+        },
+        "outro": {
+          "bass": -58.48,
+          "drums": -34.35,
+          "energy": -34.35
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 174.011,
+    "yt": "2Jnm9eP9guM",
+    "title": "Etherwood - The Rain Will Fall (ft. LSB)"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 202.16,
+    "outgoing_section": "outro",
+    "outgoing_bars_into_section": 1.16,
+    "outgoing_bars_left": 23.84,
+    "outgoing_bars_to_outro": -1.16,
+    "incoming_cue_bar": 47.55,
+    "incoming_section": "breakdown",
+    "incoming_bars_into_section": 3.55,
+    "incoming_rel_drop1": -0.45,
+    "bass_swap_bar": 17.22
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -0.24,
+        -0.21,
+        -0.25,
+        -0.27,
+        -0.21,
+        -0.29,
+        -0.24,
+        -0.25,
+        -0.23,
+        -0.24,
+        -0.21,
+        -0.31,
+        -0.38,
+        -0.57,
+        -2.79,
+        -5.79,
+        -8.67,
+        -11.54,
+        -9.05,
+        -9.11,
+        -10.61,
+        -9.3,
+        -10.33,
+        -14.22,
+        -13.49,
+        -14.31,
+        -15.39,
+        -24.66,
+        -20.53,
+        -13.73,
+        -7.12,
+        -8.04,
+        -6.04,
+        -12.86,
+        -0.21,
+        -9.89,
+        -2.24,
+        1.23,
+        3.93,
+        6.04,
+        5.58,
+        4.35,
+        8.77,
+        4.35,
+        3.49,
+        -160.0
+      ],
+      "b": [
+        -18.78,
+        -19.31,
+        -22.06,
+        -24.22,
+        -28.71,
+        -20.75,
+        -22.62,
+        -17.49,
+        -19.71,
+        -19.03,
+        -25.38,
+        -14.89,
+        -12.21,
+        -11.4,
+        -7.62,
+        -5.68,
+        -4.45,
+        -3.15,
+        -2.66,
+        -1.71,
+        -0.94,
+        -0.82,
+        -0.4,
+        -0.63,
+        -0.1,
+        -0.13,
+        -0.45,
+        -0.27,
+        -0.46,
+        -0.94,
+        -0.67,
+        -1.49,
+        -0.56,
+        -1.1,
+        -1.15,
+        -2.63,
+        -1.2,
+        -2.53,
+        -2.03,
+        -4.22,
+        -3.03,
+        -1.74,
+        -3.34,
+        -3.97,
+        -3.07,
+        -2.99
+      ]
+    },
+    "bass": {
+      "a": [
+        -0.18,
+        -0.15,
+        -0.19,
+        -0.2,
+        -0.12,
+        -0.17,
+        -0.15,
+        -0.18,
+        -0.15,
+        -0.15,
+        -0.18,
+        -0.22,
+        -0.2,
+        -0.46,
+        -2.97,
+        -6.58,
+        -10.29,
+        -14.44,
+        -3.07,
+        -4.52,
+        -27.31,
+        -11.88,
+        -1.89,
+        -2.89,
+        -13.2,
+        -27.23,
+        -15.57,
+        -7.36,
+        -8.1,
+        -3.72,
+        -1.0,
+        2.92,
+        3.92,
+        1.17,
+        4.4,
+        1.17,
+        6.6,
+        0.58,
+        4.9,
+        7.6,
+        7.99,
+        5.77,
+        4.9,
+        7.6,
+        6.99,
+        2.93
+      ],
+      "b": [
+        -38.0,
+        -24.0,
+        -33.73,
+        -70.9,
+        -34.48,
+        -23.56,
+        -27.15,
+        -28.39,
+        -14.9,
+        -27.89,
+        -33.29,
+        -32.38,
+        -19.36,
+        -14.06,
+        -26.76,
+        -25.36,
+        -20.42,
+        -10.87,
+        -2.41,
+        -1.37,
+        -0.77,
+        -0.39,
+        -0.3,
+        -0.18,
+        0.18,
+        0.28,
+        0.08,
+        -0.42,
+        -0.19,
+        -0.92,
+        -0.46,
+        -0.53,
+        -0.49,
+        -0.54,
+        -0.82,
+        -1.15,
+        -0.76,
+        -1.32,
+        -0.42,
+        -3.24,
+        -3.23,
+        -0.18,
+        -2.65,
+        -2.9,
+        -3.33,
+        -2.75
+      ]
+    },
+    "mids": {
+      "a": [
+        -0.36,
+        -0.4,
+        -0.55,
+        -0.45,
+        -0.51,
+        -0.54,
+        -0.63,
+        -0.43,
+        -0.49,
+        -0.59,
+        -0.35,
+        -0.97,
+        -1.29,
+        -0.88,
+        -2.22,
+        -3.99,
+        -5.34,
+        -7.03,
+        -9.54,
+        -9.52,
+        -9.34,
+        -6.61,
+        -9.45,
+        -12.29,
+        -10.86,
+        -12.31,
+        -12.72,
+        -25.22,
+        -14.94,
+        -11.09,
+        -7.2,
+        -8.32,
+        -5.62,
+        -6.07,
+        -1.37,
+        -7.05,
+        -2.27,
+        4.47,
+        5.22,
+        8.6,
+        5.4,
+        9.47,
+        9.54,
+        9.22,
+        4.9,
+        2.93
+      ],
+      "b": [
+        -16.76,
+        -16.47,
+        -18.74,
+        -20.99,
+        -23.42,
+        -17.69,
+        -18.15,
+        -15.03,
+        -16.93,
+        -15.12,
+        -20.9,
+        -10.2,
+        -9.37,
+        -9.62,
+        -7.43,
+        -6.33,
+        -5.29,
+        -4.33,
+        -2.67,
+        -1.4,
+        -1.62,
+        -2.82,
+        -0.78,
+        -1.55,
+        -0.88,
+        -0.86,
+        -1.36,
+        -0.23,
+        -2.01,
+        -1.95,
+        -2.17,
+        -1.88,
+        -1.07,
+        -4.69,
+        -0.94,
+        -3.27,
+        -0.94,
+        -3.27,
+        -1.33,
+        -2.81,
+        -2.29,
+        -3.62,
+        -2.68,
+        -4.4,
+        -3.01,
+        -4.62
+      ]
+    },
+    "highs": {
+      "a": [
+        -3.38,
+        -3.12,
+        -2.97,
+        -2.85,
+        -3.03,
+        -3.0,
+        -3.09,
+        -3.09,
+        -2.88,
+        -2.68,
+        -3.28,
+        -3.17,
+        -2.73,
+        -3.0,
+        -3.23,
+        -4.12,
+        -3.84,
+        -3.11,
+        3.18,
+        9.25,
+        8.05,
+        5.94,
+        8.31,
+        8.44,
+        7.1,
+        7.56,
+        8.28,
+        8.7,
+        5.89,
+        7.52,
+        8.86,
+        9.54,
+        7.99,
+        9.22,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        3.88,
+        -160.0
+      ],
+      "b": [
+        -7.82,
+        -10.91,
+        -9.6,
+        -9.84,
+        -10.53,
+        -8.22,
+        -9.1,
+        -7.95,
+        -8.47,
+        -8.55,
+        -6.97,
+        -8.42,
+        -6.77,
+        -7.11,
+        2.3,
+        7.01,
+        2.72,
+        -3.78,
+        -4.21,
+        -3.33,
+        -2.61,
+        -2.44,
+        -1.94,
+        -2.42,
+        -1.69,
+        -2.28,
+        -2.5,
+        -2.06,
+        -2.58,
+        -1.5,
+        -2.42,
+        -2.47,
+        -2.98,
+        -3.47,
+        -4.43,
+        -3.85,
+        -4.89,
+        -3.93,
+        -5.12,
+        -3.95,
+        -5.51,
+        -5.17,
+        -4.65,
+        -6.25,
+        -3.83,
+        -3.18
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        224,
+        null,
+        32,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.55,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        136,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        136,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        136,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 24.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        136,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        136,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 24.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 24.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 24.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 64.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 64.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 96.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        152,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 96.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 24.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 24.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 24.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 64.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 64.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 96.45,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        168,
+        null,
+        144,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 96.45,
+      "section_match": false,
+      "relevance": 0
+    }
+  ]
+}

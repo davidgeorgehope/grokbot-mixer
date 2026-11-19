@@ -1,0 +1,29 @@
+{
+  "id": "alpha_rhythm_u3OiUhgnfkE__00",
+  "mix_id": "alpha_rhythm_u3OiUhgnfkE",
+  "dj": "Alpha Rhythm",
+  "a": {
+    "title": "Jakwob - Fade (Etherwood VIP)",
+    "yt": "jIb2ZZmW5WE",
+    "t": 0.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=jIb2ZZmW5WE"
+  },
+  "b": {
+    "title": "Etherwood - Three Eagles",
+    "yt": "-IgKaTb7pMo",
+    "t": 178.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=-IgKaTb7pMo"
+  },
+  "window": {
+    "mix_t_a": 0.0,
+    "mix_t_b": 178.0,
+    "mix_t_next": 356.0,
+    "hint_a_played_sec": 178.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__00/pro.wav",
+  "pro_clip_start": 154.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__00"
+}

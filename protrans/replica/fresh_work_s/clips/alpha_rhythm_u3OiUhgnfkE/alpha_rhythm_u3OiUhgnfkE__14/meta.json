@@ -1,0 +1,29 @@
+{
+  "id": "alpha_rhythm_u3OiUhgnfkE__14",
+  "mix_id": "alpha_rhythm_u3OiUhgnfkE",
+  "dj": "Alpha Rhythm",
+  "a": {
+    "title": "Etherwood - Caption",
+    "yt": "EJQpeqOI1P0",
+    "t": 3056.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=EJQpeqOI1P0"
+  },
+  "b": {
+    "title": "Etherwood - Souls Apart",
+    "yt": "pvFdPCx6UpM",
+    "t": 3280.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=pvFdPCx6UpM"
+  },
+  "window": {
+    "mix_t_a": 3056.0,
+    "mix_t_b": 3280.0,
+    "mix_t_next": 3370.0,
+    "hint_a_played_sec": 224.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__14/pro.wav",
+  "pro_clip_start": 3256.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__14"
+}

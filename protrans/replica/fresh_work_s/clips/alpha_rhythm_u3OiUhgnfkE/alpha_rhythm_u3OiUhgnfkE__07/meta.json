@@ -1,0 +1,29 @@
+{
+  "id": "alpha_rhythm_u3OiUhgnfkE__07",
+  "mix_id": "alpha_rhythm_u3OiUhgnfkE",
+  "dj": "Alpha Rhythm",
+  "a": {
+    "title": "Etherwood - Bear's Breeches (ft. Anile)",
+    "yt": "zyAQqEJ1Zyo",
+    "t": 1590.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=zyAQqEJ1Zyo"
+  },
+  "b": {
+    "title": "Etherwood - Frozen Grass",
+    "yt": "eWUyihqgPG8",
+    "t": 1791.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=eWUyihqgPG8"
+  },
+  "window": {
+    "mix_t_a": 1590.0,
+    "mix_t_b": 1791.0,
+    "mix_t_next": 1980.0,
+    "hint_a_played_sec": 201.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__07/pro.wav",
+  "pro_clip_start": 1767.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__07"
+}

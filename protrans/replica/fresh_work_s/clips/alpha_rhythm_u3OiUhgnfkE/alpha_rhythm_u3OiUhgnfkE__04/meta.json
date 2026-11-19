@@ -1,0 +1,29 @@
+{
+  "id": "alpha_rhythm_u3OiUhgnfkE__04",
+  "mix_id": "alpha_rhythm_u3OiUhgnfkE",
+  "dj": "Alpha Rhythm",
+  "a": {
+    "title": "Etherwood - Fire Lit Sky",
+    "yt": "Es0P41vIVHY",
+    "t": 803.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=Es0P41vIVHY"
+  },
+  "b": {
+    "title": "Etherwood - The Rain Will Fall (ft. LSB)",
+    "yt": "2Jnm9eP9guM",
+    "t": 1071.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=2Jnm9eP9guM"
+  },
+  "window": {
+    "mix_t_a": 803.0,
+    "mix_t_b": 1071.0,
+    "mix_t_next": 1251.0,
+    "hint_a_played_sec": 268.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__04/pro.wav",
+  "pro_clip_start": 1047.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__04"
+}

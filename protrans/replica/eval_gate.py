@@ -8,7 +8,7 @@ import copy, glob, json, os, sys, time, traceback, fcntl
 H = os.path.dirname(os.path.abspath(__file__)); P = os.path.dirname(H); sys.path.insert(0, P); sys.path.insert(0, H)
 import paths
 CK = os.path.join(H, 'gate_ckpt'); os.makedirs(CK, exist_ok=True)
-FEAT = os.path.join(P, 'corpus_v2', 'features'); FLIB = os.path.join(P, 'corpus_v2', 'feat_lib')
+FEAT = os.environ.get('GATE_FEAT') or os.path.join(P, 'corpus_v2', 'features'); FLIB = os.environ.get('GATE_FLIB') or os.path.join(P, 'corpus_v2', 'feat_lib')  # GATE_*: isolated fresh-mix ingest (2026-11-19 day)
 
 def entry_from_curves(a, b):
     import numpy as np

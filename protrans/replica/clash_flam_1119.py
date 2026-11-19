@@ -33,7 +33,7 @@ def bar_ac(e, nbars):
 def feats(y, s, e):
     n = int(len(y) / SR / BAR); ac = bar_ac(env(y), n); return dict(ac=ac, s=s, e=min(e, n), n=n)
 def stat(f, lo_ms=35, hi_ms=140, form='median'):
-    ac = f['ac']; m = np.isfinite(ac[:, 0]); ov = np.zeros(len(ac), bool); ov[f['s']:f['e']] = True
+    ac = f['ac']; m = np.isfinite(ac[:, 0]); ov = np.zeros(len(ac), bool); ov[f['s']:(f['e'] if np.ndim(f['e']) == 0 else f['ee'])] = True
     ref = ac[m & ~ov]
     if len(ref) < 2 or (m & ov).sum() < 2: return 0.0
     base = np.median(ref, 0); band = (LAGS_MS >= lo_ms) & (LAGS_MS <= hi_ms)

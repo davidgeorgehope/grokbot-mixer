@@ -1,0 +1,29 @@
+{
+  "id": "alpha_rhythm_u3OiUhgnfkE__05",
+  "mix_id": "alpha_rhythm_u3OiUhgnfkE",
+  "dj": "Alpha Rhythm",
+  "a": {
+    "title": "Etherwood - The Rain Will Fall (ft. LSB)",
+    "yt": "2Jnm9eP9guM",
+    "t": 1071.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=2Jnm9eP9guM"
+  },
+  "b": {
+    "title": "Etherwood - In Stillness",
+    "yt": "JrlVgrJHy7s",
+    "t": 1251.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=JrlVgrJHy7s"
+  },
+  "window": {
+    "mix_t_a": 1071.0,
+    "mix_t_b": 1251.0,
+    "mix_t_next": 1590.0,
+    "hint_a_played_sec": 180.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__05/pro.wav",
+  "pro_clip_start": 1227.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_s/clips/alpha_rhythm_u3OiUhgnfkE/alpha_rhythm_u3OiUhgnfkE__05"
+}

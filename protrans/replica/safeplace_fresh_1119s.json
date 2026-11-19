@@ -1,0 +1,131 @@
+{
+ "mix": {
+  "mix_id": "alpha_rhythm_u3OiUhgnfkE",
+  "dj": "Alpha Rhythm",
+  "url": "https://www.youtube.com/watch?v=u3OiUhgnfkE",
+  "title": "'Etherwood' Liquid Drum and Bass Mix 95",
+  "n_admit": 7,
+  "for_night": "2026-11-19-day-safeplace"
+ },
+ "n_pairs": 7,
+ "default_fail": 3,
+ "raw_fail": 2,
+ "final_fail": 1,
+ "outcomes": {
+  "both_fail_default": 1,
+  "r1_pass": 3,
+  "kept_default": 2,
+  "r2_pass": 1
+ },
+ "off_phrase_final": 0,
+ "off_section_default": 5,
+ "off_section_pick": 2,
+ "rows": [
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__00",
+   "how": "kept_default",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score"
+   ],
+   "fired_raw": [
+    "hole_score"
+   ],
+   "applied": null
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__01",
+   "how": "kept_default",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score"
+   ],
+   "fired_raw": [
+    "hole_score"
+   ],
+   "applied": null
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__04",
+   "how": "r2_pass",
+   "default": true,
+   "raw": true,
+   "final": false,
+   "fired_default": [
+    "hole_score",
+    "med_lag",
+    "pump",
+    "v1"
+   ],
+   "fired_raw": [
+    "hole_score",
+    "med_lag",
+    "pump",
+    "v1"
+   ],
+   "applied": "picker"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__05",
+   "how": "r1_pass",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [],
+   "fired_raw": [
+    "hole_score"
+   ],
+   "applied": "picker"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__07",
+   "how": "r1_pass",
+   "default": true,
+   "raw": false,
+   "final": false,
+   "fired_default": [
+    "hole_score",
+    "med_lag",
+    "pump",
+    "v1"
+   ],
+   "fired_raw": [
+    "hole_score",
+    "med_lag"
+   ],
+   "applied": "picker"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__11",
+   "how": "both_fail_default",
+   "default": true,
+   "raw": true,
+   "final": true,
+   "fired_default": [
+    "med_lag",
+    "pump",
+    "v1"
+   ],
+   "fired_raw": [
+    "med_lag",
+    "pump",
+    "v1"
+   ],
+   "applied": "picker"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__14",
+   "how": "r1_pass",
+   "default": false,
+   "raw": false,
+   "final": false,
+   "fired_default": [],
+   "fired_raw": [],
+   "applied": "picker"
+  }
+ ]
+}

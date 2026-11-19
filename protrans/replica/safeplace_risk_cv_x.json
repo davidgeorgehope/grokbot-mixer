@@ -1,0 +1,65 @@
+{
+ "n": 655,
+ "pos_rate": 0.211,
+ "n_mixes": 17,
+ "by_mix": {
+  "auc": 0.71,
+  "top_quintile_fail": 0.473,
+  "bottom_quintile_fail": 0.106
+ },
+ "by_dj": {
+  "auc": 0.751,
+  "top_quintile_fail": 0.489,
+  "bottom_quintile_fail": 0.068
+ },
+ "top_features": [
+  [
+   "sim_wobble",
+   851.5
+  ],
+  [
+   "B_dropbass",
+   502.6
+  ],
+  [
+   "sim_sum_sd",
+   476.0
+  ],
+  [
+   "sumlow_hole",
+   418.4
+  ],
+  [
+   "A_outrobass",
+   333.2
+  ],
+  [
+   "B_low_start",
+   317.9
+  ],
+  [
+   "B_introbass",
+   271.1
+  ],
+  [
+   "sim_anti_r",
+   254.7
+  ],
+  [
+   "sim_out_rise",
+   242.1
+  ],
+  [
+   "A_low_rel",
+   215.1
+  ],
+  [
+   "B_slope",
+   209.8
+  ],
+  [
+   "B_low_rel",
+   192.9
+  ]
+ ]
+}

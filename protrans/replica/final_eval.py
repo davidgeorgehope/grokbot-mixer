@@ -19,12 +19,15 @@ def med_lag(a, c=0.3):
     L, r = np.abs(a['lag']), a['xr']; m = (r >= c) & np.isfinite(L); m[:a['s']] = False; m[a['e']:] = False
     return float(np.median(L[m])) if m.sum() >= 2 else 0.0
 
+DECKCLASH_D = 52.0  # ms; deckclash3_1119 FP0 'med' rmin 0.1, chosen on the md5%3 dev split at clean <= 5% (held-out clean 7.4%, recall 57/83/75%)
 def flags(a):
     h = V.hole_score(a['lows'], a['s'], a['e'], HOLE_T0); hv = a['hard_v1']; ml = med_lag(a)
     base = bool(hv.get('halfbeat_fail') or hv.get('pumping')); hole = h > HOLE_TH
+    # HC_DECKCLASH=1 (2026-11-19 day, research, off by default): per-deck kick lag from deckclash3_1119.annotate (raw decks, per bar, dev-chosen D)
+    dc = bool(os.environ.get('HC_DECKCLASH') == '1' and a.get('deck_lag') is not None and np.isfinite(a['deck_lag']) and abs(a['deck_lag']) > DECKCLASH_D)
     return dict(hole_score=round(h, 1), med_lag=round(ml, 1), hole_v2=hole, clash_v1=bool(hv.get('beat_clash')), clash_v2=ml > CL['thr'],
-                halfbeat=bool(hv.get('halfbeat_fail')), pump=bool(hv.get('pumping')), v1=bool(hv['hard_fail']),
-                HC_A=bool(hole or hv.get('beat_clash') or base), HC_B=bool(hole or ml > CL['thr'] or base))
+                halfbeat=bool(hv.get('halfbeat_fail')), pump=bool(hv.get('pumping')), v1=bool(hv['hard_fail']), deckclash=dc,
+                HC_A=bool(hole or hv.get('beat_clash') or base or dc), HC_B=bool(hole or ml > CL['thr'] or base or dc))
 
 def arr(v):
     p = os.path.join(H, 'hc2_cache', f'arr_{v}.pkl'); return {k: flags(a) for k, a in pickle.load(open(p, 'rb')).items()} if os.path.exists(p) else {}

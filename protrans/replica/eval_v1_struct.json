@@ -1,0 +1,86 @@
+{
+ "out": {
+  "corpus_v2": {
+   "model": {
+    "n": 76,
+    "within8": 0.184,
+    "within16": 0.237,
+    "median": 78.5
+   },
+   "default": {
+    "n": 76,
+    "within8": 0.132,
+    "within16": 0.355,
+    "median": 41.5
+   },
+   "oracle_best_candidate": {
+    "n": 76,
+    "within8": 0.697,
+    "within16": 0.934,
+    "median": 2.7
+   }
+  },
+  "protrans": {
+   "model": {
+    "n": 33,
+    "within8": 0.182,
+    "within16": 0.333,
+    "median": 31.0
+   },
+   "default": {
+    "n": 33,
+    "within8": 0.0,
+    "within16": 0.061,
+    "median": 76.1
+   },
+   "oracle_best_candidate": {
+    "n": 33,
+    "within8": 0.485,
+    "within16": 0.697,
+    "median": 9.7
+   }
+  }
+ },
+ "in": {
+  "corpus_v2": {
+   "model": {
+    "n": 76,
+    "within8": 0.105,
+    "within16": 0.276,
+    "median": 31.7
+   },
+   "default": {
+    "n": 76,
+    "within8": 0.316,
+    "within16": 0.658,
+    "median": 15.6
+   },
+   "oracle_best_candidate": {
+    "n": 76,
+    "within8": 0.961,
+    "within16": 0.987,
+    "median": 0.7
+   }
+  },
+  "protrans": {
+   "model": {
+    "n": 33,
+    "within8": 0.152,
+    "within16": 0.364,
+    "median": 27.2
+   },
+   "default": {
+    "n": 33,
+    "within8": 0.212,
+    "within16": 0.455,
+    "median": 17.2
+   },
+   "oracle_best_candidate": {
+    "n": 33,
+    "within8": 0.909,
+    "within16": 0.939,
+    "median": 1.5
+   }
+  }
+ }
+}

@@ -1,0 +1,49 @@
+{
+  "variant": "rp1118_replica_v2",
+  "v3": {
+    "train": 31.69,
+    "test": 32.81,
+    "n": 33,
+    "n_fail": 0
+  },
+  "v2": {
+    "train": 32.13,
+    "test": 32.27
+  },
+  "fams": {
+    "replica_bd_drop": 30,
+    "nat_short": 3
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 29.81,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 34.74,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 31.23,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 31.81,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 36.4,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 31.83,
+      "split": "test"
+    }
+  }
+}

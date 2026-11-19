@@ -1,0 +1,384 @@
+{
+ "n": 33,
+ "exit_within16": {
+  "default": 0.061,
+  "replica": 0.273
+ },
+ "exit_median": {
+  "default": 57.69999999999999,
+  "replica": 28.400000000000006
+ },
+ "cue_within16": {
+  "default": 0.364,
+  "replica": 0.394
+ },
+ "exit_closer": 23,
+ "exit_further": 7,
+ "score_up": 14,
+ "score_down": 16,
+ "rows": [
+  {
+   "id": "wilkinson_boomtown2026__33",
+   "split": "test",
+   "def_out": 9.400000000000006,
+   "rep_out": 14.599999999999994,
+   "def_in": 50.2,
+   "rep_in": 50.2,
+   "def_score": 30.2,
+   "rep_score": 31.83,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "joe_syntax_hospital__01",
+   "split": "train",
+   "def_out": 31.0,
+   "rep_out": 65.0,
+   "def_in": 18.1,
+   "rep_in": 18.1,
+   "def_score": 30.24,
+   "rep_score": 27.23,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "joe_syntax_hospital__08",
+   "split": "train",
+   "def_out": 115.2,
+   "rep_out": 19.200000000000003,
+   "def_in": 26.3,
+   "rep_in": 26.3,
+   "def_score": 30.08,
+   "rep_score": 32.05,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__08",
+   "split": "train",
+   "def_out": 80.6,
+   "rep_out": 15.400000000000006,
+   "def_in": 0.5,
+   "rep_in": 15.5,
+   "def_score": 42.98,
+   "rep_score": 23.56,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__11",
+   "split": "train",
+   "def_out": 44.400000000000006,
+   "rep_out": 35.599999999999994,
+   "def_in": 81.80000000000001,
+   "rep_in": 97.80000000000001,
+   "def_score": 34.15,
+   "rep_score": 34.17,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__12",
+   "split": "train",
+   "def_out": 125.1,
+   "rep_out": 125.1,
+   "def_in": 31.3,
+   "rep_in": 31.3,
+   "def_score": 12.03,
+   "rep_score": 12.03,
+   "rep_fam": "nat_short"
+  },
+  {
+   "id": "hybrid_minds_ukf__19",
+   "split": "train",
+   "def_out": 65.2,
+   "rep_out": 17.200000000000003,
+   "def_in": 78.3,
+   "rep_in": 78.3,
+   "def_score": 27.92,
+   "rep_score": 50.47,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__25",
+   "split": "train",
+   "def_out": 46.69999999999999,
+   "rep_out": 17.30000000000001,
+   "def_in": 190.6,
+   "rep_in": 190.6,
+   "def_score": 26.37,
+   "rep_score": 27.54,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__45",
+   "split": "train",
+   "def_out": 15.599999999999994,
+   "rep_out": 15.599999999999994,
+   "def_in": 17.2,
+   "rep_in": 17.2,
+   "def_score": 41.6,
+   "rep_score": 41.6,
+   "rep_fam": "nat_short"
+  },
+  {
+   "id": "netsky_hospital_classics__02",
+   "split": "test",
+   "def_out": 67.1,
+   "rep_out": 44.900000000000006,
+   "def_in": 12.5,
+   "rep_in": 12.5,
+   "def_score": 43.75,
+   "rep_score": 33.38,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "netsky_hospital_classics__06",
+   "split": "test",
+   "def_out": 194.9,
+   "rep_out": 74.9,
+   "def_in": 46.5,
+   "rep_in": 30.5,
+   "def_score": 27.58,
+   "rep_score": 14.54,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "netsky_hospital_classics__17",
+   "split": "test",
+   "def_out": 145.6,
+   "rep_out": 46.400000000000006,
+   "def_in": 17.4,
+   "rep_in": 17.4,
+   "def_score": 33.35,
+   "rep_score": 30.78,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "split": "train",
+   "def_out": 17.30000000000001,
+   "rep_out": 78.69999999999999,
+   "def_in": 9.3,
+   "rep_in": 6.699999999999999,
+   "def_score": 60.51,
+   "rep_score": 51.47,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "joe_syntax_hospital__12",
+   "split": "train",
+   "def_out": 19.0,
+   "rep_out": 61.0,
+   "def_in": 92.0,
+   "rep_in": 92.0,
+   "def_score": 32.29,
+   "rep_score": 35.65,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "joe_syntax_hospital__13",
+   "split": "train",
+   "def_out": 117.1,
+   "rep_out": 5.099999999999994,
+   "def_in": 19.9,
+   "rep_in": 3.8999999999999986,
+   "def_score": 19.81,
+   "rep_score": 48.23,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__00",
+   "split": "train",
+   "def_out": 121.9,
+   "rep_out": 41.900000000000006,
+   "def_in": 5.1,
+   "rep_in": 5.1,
+   "def_score": 29.45,
+   "rep_score": 23.97,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "split": "train",
+   "def_out": 58.400000000000006,
+   "rep_out": 21.599999999999994,
+   "def_in": 4.200000000000003,
+   "rep_in": 20.200000000000003,
+   "def_score": 32.58,
+   "rep_score": 21.54,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__10",
+   "split": "train",
+   "def_out": 106.69999999999999,
+   "rep_out": 5.300000000000011,
+   "def_in": 6.5,
+   "rep_in": 9.5,
+   "def_score": 36.67,
+   "rep_score": 32.7,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "split": "train",
+   "def_out": 97.7,
+   "rep_out": 14.299999999999997,
+   "def_in": 1.0,
+   "rep_in": 15.0,
+   "def_score": 40.68,
+   "rep_score": 33.97,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__40",
+   "split": "train",
+   "def_out": 111.4,
+   "rep_out": 15.400000000000006,
+   "def_in": 14.7,
+   "rep_in": 14.7,
+   "def_score": 31.0,
+   "rep_score": 41.97,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "joe_syntax_hospital__00",
+   "split": "train",
+   "def_out": 25.099999999999994,
+   "rep_out": 25.099999999999994,
+   "def_in": 44.6,
+   "rep_in": 44.6,
+   "def_score": 29.36,
+   "rep_score": 29.36,
+   "rep_fam": "nat_short"
+  },
+  {
+   "id": "joe_syntax_hospital__09",
+   "split": "train",
+   "def_out": 18.900000000000006,
+   "rep_out": 82.9,
+   "def_in": 16.4,
+   "rep_in": 16.4,
+   "def_score": 28.36,
+   "rep_score": 30.35,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "joe_syntax_hospital__14",
+   "split": "train",
+   "def_out": 31.69999999999999,
+   "rep_out": 48.30000000000001,
+   "def_in": 19.6,
+   "rep_in": 35.6,
+   "def_score": 28.87,
+   "rep_score": 23.57,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__13",
+   "split": "train",
+   "def_out": 32.5,
+   "rep_out": 31.5,
+   "def_in": 31.6,
+   "rep_in": 47.6,
+   "def_score": 33.72,
+   "rep_score": 24.53,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "split": "train",
+   "def_out": 48.099999999999994,
+   "rep_out": 31.900000000000006,
+   "def_in": 78.3,
+   "rep_in": 94.3,
+   "def_score": 31.79,
+   "rep_score": 19.5,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "netsky_hospital_classics__15",
+   "split": "test",
+   "def_out": 20.599999999999994,
+   "rep_out": 75.4,
+   "def_in": 0.2,
+   "rep_in": 0.2,
+   "def_score": 40.9,
+   "rep_score": 42.04,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "netsky_hospital_classics__23",
+   "split": "test",
+   "def_out": 51.599999999999994,
+   "rep_out": 28.400000000000006,
+   "def_in": 16.9,
+   "rep_in": 32.9,
+   "def_score": 28.45,
+   "rep_score": 38.31,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__02",
+   "split": "test",
+   "def_out": 49.0,
+   "rep_out": 33.0,
+   "def_in": 9.0,
+   "rep_in": 9.0,
+   "def_score": 27.78,
+   "rep_score": 32.03,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__03",
+   "split": "test",
+   "def_out": 80.0,
+   "rep_out": 16.0,
+   "def_in": 12.6,
+   "rep_in": 3.4,
+   "def_score": 39.32,
+   "rep_score": 28.06,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__05",
+   "split": "test",
+   "def_out": 113.7,
+   "rep_out": 17.700000000000003,
+   "def_in": 32.9,
+   "rep_in": 16.9,
+   "def_score": 23.58,
+   "rep_score": 33.6,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "pola_bryson_puzzlewood__00",
+   "split": "test",
+   "def_out": 43.599999999999994,
+   "rep_out": 4.400000000000006,
+   "def_in": 4.399999999999999,
+   "rep_in": 4.399999999999999,
+   "def_score": 59.25,
+   "rep_score": 68.93,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "pola_bryson_puzzlewood__02",
+   "split": "test",
+   "def_out": 57.69999999999999,
+   "rep_out": 22.30000000000001,
+   "def_in": 22.700000000000003,
+   "rep_in": 38.7,
+   "def_score": 20.54,
+   "rep_score": 17.29,
+   "rep_fam": "replica_bd_drop"
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "split": "test",
+   "def_out": 89.6,
+   "rep_out": 86.4,
+   "def_in": 26.3,
+   "rep_in": 10.3,
+   "def_score": 34.12,
+   "rep_score": 22.98,
+   "rep_fam": "replica_bd_drop"
+  }
+ ]
+}

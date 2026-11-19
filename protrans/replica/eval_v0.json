@@ -1,0 +1,111 @@
+{
+ "n": 76,
+ "n_mixes": 16,
+ "features": [
+  "a_drop2",
+  "a_n",
+  "a_ndrops",
+  "a_outro",
+  "a_outro_bass_gap",
+  "b_drop2",
+  "b_intro",
+  "b_intro_bass_gap",
+  "b_n",
+  "b_ndrops"
+ ],
+ "default_rule": {
+  "out_left": {
+   "median_abs": 41.5,
+   "within8": 0.132,
+   "within16": 0.355
+  },
+  "in_rel_drop1": {
+   "median_abs": 15.7,
+   "within8": 0.303,
+   "within16": 0.645
+  },
+  "overlap": {
+   "median_abs": 9.8,
+   "within8": 0.355,
+   "within16": 0.816
+  },
+  "cue_pair_within8": 0.039,
+  "style_match": 0.171
+ },
+ "median": {
+  "out_left": {
+   "median_abs": 48.9,
+   "within8": 0.066,
+   "within16": 0.145
+  },
+  "in_rel_drop1": {
+   "median_abs": 13.0,
+   "within8": 0.211,
+   "within16": 0.618
+  },
+  "overlap": {
+   "median_abs": 12.3,
+   "within8": 0.224,
+   "within16": 0.737
+  },
+  "cue_pair_within8": 0.0,
+  "style_match": 0.092
+ },
+ "knn7": {
+  "out_left": {
+   "median_abs": 50.1,
+   "within8": 0.079,
+   "within16": 0.184
+  },
+  "in_rel_drop1": {
+   "median_abs": 15.8,
+   "within8": 0.25,
+   "within16": 0.5
+  },
+  "overlap": {
+   "median_abs": 12.7,
+   "within8": 0.276,
+   "within16": 0.658
+  },
+  "cue_pair_within8": 0.026,
+  "style_match": 0.145
+ },
+ "knn11": {
+  "out_left": {
+   "median_abs": 53.7,
+   "within8": 0.066,
+   "within16": 0.118
+  },
+  "in_rel_drop1": {
+   "median_abs": 15.2,
+   "within8": 0.316,
+   "within16": 0.605
+  },
+  "overlap": {
+   "median_abs": 12.3,
+   "within8": 0.263,
+   "within16": 0.684
+  },
+  "cue_pair_within8": 0.013,
+  "style_match": 0.145
+ },
+ "gbm": {
+  "out_left": {
+   "median_abs": 50.8,
+   "within8": 0.092,
+   "within16": 0.158
+  },
+  "in_rel_drop1": {
+   "median_abs": 14.9,
+   "within8": 0.197,
+   "within16": 0.539
+  },
+  "overlap": {
+   "median_abs": 11.4,
+   "within8": 0.329,
+   "within16": 0.671
+  },
+  "cue_pair_within8": 0.039,
+  "style_match": 0.132
+ }
+}

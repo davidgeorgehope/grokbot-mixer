@@ -1,0 +1,240 @@
+{
+ "daily_1111": {
+  "pick": "joe_syntax_hospital__08",
+  "win": [
+   "n",
+   240,
+   null,
+   24,
+   32
+  ],
+  "ours_out": 208,
+  "ours_in": 24,
+  "pro_out": 108.8,
+  "pro_in": 13.7,
+  "d_out": 99.2,
+  "d_in": 10.3,
+  "d_sum": 109.5
+ },
+ "daily_1112": {
+  "pick": "hybrid_minds_ukf__08",
+  "win": [
+   "n",
+   224,
+   null,
+   32,
+   16
+  ],
+  "ours_out": 208,
+  "ours_in": 32,
+  "pro_out": 127.4,
+  "pro_in": 31.5,
+  "d_out": 80.6,
+  "d_in": 0.5,
+  "d_sum": 81.1
+ },
+ "daily_1113": {
+  "pick": "hybrid_minds_ukf__12",
+  "win": [
+   "n",
+   304,
+   null,
+   32,
+   16
+  ],
+  "ours_out": 288,
+  "ours_in": 32,
+  "pro_out": 162.9,
+  "pro_in": 0.7,
+  "d_out": 125.1,
+  "d_in": 31.3,
+  "d_sum": 156.4
+ },
+ "daily_1114": {
+  "pick": "hybrid_minds_ukf__19",
+  "win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ],
+  "ours_out": 160,
+  "ours_in": 32,
+  "pro_out": 94.8,
+  "pro_in": 110.3,
+  "d_out": 65.2,
+  "d_in": 78.3,
+  "d_sum": 143.5
+ },
+ "daily_1115": {
+  "pick": "hybrid_minds_ukf__25",
+  "win": [
+   "n",
+   192,
+   null,
+   0,
+   16
+  ],
+  "ours_out": 176,
+  "ours_in": 0,
+  "pro_out": 129.3,
+  "pro_in": 190.6,
+  "d_out": 46.7,
+  "d_in": 190.6,
+  "d_sum": 237.3
+ },
+ "daily_1116": {
+  "pick": "hybrid_minds_ukf__45",
+  "win": [
+   "n",
+   128,
+   null,
+   32,
+   16
+  ],
+  "ours_out": 112,
+  "ours_in": 32,
+  "pro_out": 96.4,
+  "pro_in": 14.8,
+  "d_out": 15.6,
+  "d_in": 17.2,
+  "d_sum": 32.8
+ },
+ "daily_1117": {
+  "pick": "joe_syntax_hospital__11",
+  "win": [
+   "n",
+   240,
+   null,
+   24,
+   16
+  ],
+  "ours_out": 224,
+  "ours_in": 24,
+  "pro_out": 206.7,
+  "pro_in": 14.7,
+  "d_out": 17.3,
+  "d_in": 9.3,
+  "d_sum": 26.6
+ },
+ "planner_ukf19": {
+  "pick": "hybrid_minds_ukf__19",
+  "win": [
+   "n",
+   112,
+   null,
+   48,
+   16
+  ],
+  "ours_out": 96,
+  "ours_in": 48,
+  "pro_out": 94.8,
+  "pro_in": 110.3,
+  "d_out": 1.2,
+  "d_in": 62.3,
+  "d_sum": 63.5
+ },
+ "planner_ukf25": {
+  "pick": "hybrid_minds_ukf__25",
+  "win": [
+   "n",
+   128,
+   null,
+   64,
+   16
+  ],
+  "ours_out": 112,
+  "ours_in": 64,
+  "pro_out": 129.3,
+  "pro_in": 190.6,
+  "d_out": 17.3,
+  "d_in": 126.6,
+  "d_sum": 143.9
+ },
+ "planner_ukf25_v2": {
+  "pick": "hybrid_minds_ukf__25",
+  "win": [
+   "n",
+   128,
+   null,
+   192,
+   16
+  ],
+  "ours_out": 112,
+  "ours_in": 192,
+  "pro_out": 129.3,
+  "pro_in": 190.6,
+  "d_out": 17.3,
+  "d_in": 1.4,
+  "d_sum": 18.7
+ },
+ "ranker_A_default": {
+  "pick": "hybrid_minds_ukf__25",
+  "win": [
+   "n",
+   192,
+   null,
+   0,
+   16
+  ],
+  "ours_out": 176,
+  "ours_in": 0,
+  "pro_out": 129.3,
+  "pro_in": 190.6,
+  "d_out": 46.7,
+  "d_in": 190.6,
+  "d_sum": 237.3
+ },
+ "ranker_B_ranker": {
+  "pick": "hybrid_minds_ukf__25",
+  "win": [
+   "n",
+   112,
+   null,
+   160,
+   16
+  ],
+  "ours_out": 96,
+  "ours_in": 160,
+  "pro_out": 129.3,
+  "pro_in": 190.6,
+  "d_out": 33.3,
+  "d_in": 30.6,
+  "d_sum": 63.9
+ },
+ "replica_v1_ukf19": {
+  "pick": "hybrid_minds_ukf__19",
+  "win": [
+   "n",
+   128,
+   null,
+   32,
+   16
+  ],
+  "ours_out": 112,
+  "ours_in": 32,
+  "pro_out": 94.8,
+  "pro_in": 110.3,
+  "d_out": 17.2,
+  "d_in": 78.3,
+  "d_sum": 95.5
+ },
+ "replica_v2_js08": {
+  "pick": "joe_syntax_hospital__08",
+  "win": [
+   "n",
+   144,
+   null,
+   40,
+   16
+  ],
+  "ours_out": 128,
+  "ours_in": 40,
+  "pro_out": 108.8,
+  "pro_in": 13.7,
+  "d_out": 19.2,
+  "d_in": 26.3,
+  "d_sum": 45.5
+ }
+}

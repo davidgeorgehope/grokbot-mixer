@@ -1,0 +1,1048 @@
+{
+ "items": {
+  "daily_1109": {
+   "score": 28.9,
+   "score_v2": 28.23,
+   "parts": {
+    "stem_curves": 44.82,
+    "deck_curves": 25.72,
+    "beat_align": 36.42,
+    "bass_swap": 1.94,
+    "outgoing_cut": 12.83,
+    "blend_length": 34.33,
+    "beat_identity": 40.85,
+    "beat_align_v2": 31.99,
+    "beat_off_ms": 8.71
+   },
+   "rating": null,
+   "spotted": false,
+   "note": "couldn't tell; ours 'quite good'"
+  },
+  "daily_1110": {
+   "score": 35.13,
+   "score_v2": 35.13,
+   "parts": {
+    "stem_curves": 45.0,
+    "deck_curves": 37.58,
+    "beat_align": 41.38,
+    "bass_swap": 23.64,
+    "outgoing_cut": 12.85,
+    "blend_length": 34.39,
+    "beat_identity": null,
+    "beat_align_v2": 41.38,
+    "beat_off_ms": 2.9
+   },
+   "rating": 4,
+   "spotted": true,
+   "note": null
+  },
+  "daily_1111": {
+   "score": 26.96,
+   "score_v2": 28.93,
+   "parts": {
+    "stem_curves": 45.71,
+    "deck_curves": 30.57,
+    "beat_align": 13.36,
+    "bass_swap": 18.54,
+    "outgoing_cut": 5.31,
+    "blend_length": 23.81,
+    "beat_identity": 0.17,
+    "beat_align_v2": 26.55,
+    "beat_off_ms": 17.41
+   },
+   "rating": 2,
+   "spotted": true,
+   "note": null
+  },
+  "daily_1112": {
+   "score": 42.19,
+   "score_v2": 40.96,
+   "parts": {
+    "stem_curves": 54.84,
+    "deck_curves": 40.09,
+    "beat_align": 60.56,
+    "bass_swap": 20.24,
+    "outgoing_cut": 33.37,
+    "blend_length": 22.94,
+    "beat_identity": 68.72,
+    "beat_align_v2": 52.4,
+    "beat_off_ms": 5.8
+   },
+   "rating": 4,
+   "spotted": false,
+   "note": null
+  },
+  "daily_1113": {
+   "score": 20.14,
+   "score_v2": 20.14,
+   "parts": {
+    "stem_curves": 13.16,
+    "deck_curves": 26.27,
+    "beat_align": 53.68,
+    "bass_swap": 9.72,
+    "outgoing_cut": 8.71,
+    "blend_length": 3.15,
+    "beat_identity": null,
+    "beat_align_v2": 53.68,
+    "beat_off_ms": 0.0
+   },
+   "rating": 4,
+   "spotted": true,
+   "note": null
+  },
+  "daily_1114": {
+   "score": 27.67,
+   "score_v2": 24.01,
+   "parts": {
+    "stem_curves": 37.4,
+    "deck_curves": 23.88,
+    "beat_align": 59.22,
+    "bass_swap": 0.85,
+    "outgoing_cut": 16.99,
+    "blend_length": 9.1,
+    "beat_identity": 83.58,
+    "beat_align_v2": 34.86,
+    "beat_off_ms": 8.71
+   },
+   "rating": 2,
+   "spotted": true,
+   "note": null
+  },
+  "daily_1115": {
+   "score": 25.91,
+   "score_v2": 25.91,
+   "parts": {
+    "stem_curves": 14.65,
+    "deck_curves": 36.31,
+    "beat_align": 29.59,
+    "bass_swap": 12.76,
+    "outgoing_cut": 44.52,
+    "blend_length": 23.83,
+    "beat_identity": null,
+    "beat_align_v2": 29.59,
+    "beat_off_ms": 5.8
+   },
+   "rating": 4,
+   "spotted": true,
+   "note": null
+  },
+  "daily_1116": {
+   "score": 41.64,
+   "score_v2": 40.04,
+   "parts": {
+    "stem_curves": 54.37,
+    "deck_curves": 32.78,
+    "beat_align": 71.99,
+    "bass_swap": 9.52,
+    "outgoing_cut": 14.07,
+    "blend_length": 54.78,
+    "beat_identity": 82.67,
+    "beat_align_v2": 61.3,
+    "beat_off_ms": 2.9
+   },
+   "rating": null,
+   "spotted": false,
+   "note": "cannot tell"
+  },
+  "daily_1117": {
+   "score": 56.72,
+   "score_v2": 61.77,
+   "parts": {
+    "stem_curves": 73.96,
+    "deck_curves": 59.1,
+    "beat_align": 34.9,
+    "bass_swap": 50.39,
+    "outgoing_cut": 64.7,
+    "blend_length": 34.63,
+    "beat_identity": 1.26,
+    "beat_align_v2": 68.54,
+    "beat_off_ms": 0.0
+   },
+   "rating": 3,
+   "spotted": true,
+   "note": null
+  },
+  "rca1111_engine": {
+   "score": 33.97,
+   "score_v2": 35.29,
+   "parts": {
+    "stem_curves": 51.58,
+    "deck_curves": 34.54,
+    "beat_align": 43.0,
+    "bass_swap": 7.22,
+    "outgoing_cut": 7.22,
+    "blend_length": 36.68,
+    "beat_identity": 34.19,
+    "beat_align_v2": 51.82,
+    "beat_off_ms": 2.9
+   },
+   "rating": null,
+   "spotted": null,
+   "note": "'pretty good, that will do it'"
+  },
+  "rca1111_phrase_cut": {
+   "score": 36.18,
+   "score_v2": 37.28,
+   "parts": {
+    "stem_curves": 49.72,
+    "deck_curves": 31.53,
+    "beat_align": 41.56,
+    "bass_swap": 0.75,
+    "outgoing_cut": 67.32,
+    "blend_length": 9.11,
+    "beat_identity": 34.19,
+    "beat_align_v2": 48.92,
+    "beat_off_ms": 2.9
+   },
+   "rating": null,
+   "spotted": null,
+   "note": "'sounds off'"
+  },
+  "rca1111_long": {
+   "score": 48.22,
+   "score_v2": 50.31,
+   "parts": {
+    "stem_curves": 78.85,
+    "deck_curves": 55.67,
+    "beat_align": 48.18,
+    "bass_swap": 9.09,
+    "outgoing_cut": 19.25,
+    "blend_length": 31.73,
+    "beat_identity": 34.19,
+    "beat_align_v2": 62.16,
+    "beat_off_ms": 2.9
+   },
+   "rating": 3.5,
+   "spotted": null,
+   "note": null
+  },
+  "rca1111_long_fix": {
+   "score": 47.3,
+   "score_v2": 48.8,
+   "parts": {
+    "stem_curves": 60.17,
+    "deck_curves": 38.72,
+    "beat_align": 44.19,
+    "bass_swap": 57.72,
+    "outgoing_cut": 44.95,
+    "blend_length": 24.06,
+    "beat_identity": 34.19,
+    "beat_align_v2": 54.19,
+    "beat_off_ms": 2.9
+   },
+   "rating": 4.25,
+   "spotted": null,
+   "note": "'best one yet' (>4)"
+  },
+  "planner_ukf19": {
+   "score": 25.73,
+   "score_v2": 22.22,
+   "parts": {
+    "stem_curves": 33.25,
+    "deck_curves": 23.3,
+    "beat_align": 59.49,
+    "bass_swap": 3.62,
+    "outgoing_cut": 7.66,
+    "blend_length": 9.84,
+    "beat_identity": 82.9,
+    "beat_align_v2": 36.08,
+    "beat_off_ms": 5.8
+   },
+   "rating": null,
+   "spotted": null,
+   "note": "'really nice'"
+  },
+  "planner_ukf25": {
+   "score": 32.17,
+   "score_v2": 26.46,
+   "parts": {
+    "stem_curves": 29.27,
+    "deck_curves": 19.85,
+    "beat_align": 61.9,
+    "bass_swap": 32.77,
+    "outgoing_cut": 10.81,
+    "blend_length": 47.68,
+    "beat_identity": 100.0,
+    "beat_align_v2": 23.8,
+    "beat_off_ms": 31.93
+   },
+   "rating": 3.5,
+   "spotted": null,
+   "note": null
+  },
+  "planner_ukf25_v2": {
+   "score": 35.98,
+   "score_v2": 33.95,
+   "parts": {
+    "stem_curves": 26.9,
+    "deck_curves": 23.51,
+    "beat_align": 77.17,
+    "bass_swap": 52.49,
+    "outgoing_cut": 2.04,
+    "blend_length": 46.32,
+    "beat_identity": 90.67,
+    "beat_align_v2": 63.66,
+    "beat_off_ms": 0.0
+   },
+   "rating": 4,
+   "spotted": null,
+   "note": null
+  },
+  "ranker_A_default": {
+   "score": 26.38,
+   "score_v2": 26.38,
+   "parts": {
+    "stem_curves": 14.63,
+    "deck_curves": 36.29,
+    "beat_align": 29.63,
+    "bass_swap": 16.37,
+    "outgoing_cut": 44.51,
+    "blend_length": 23.82,
+    "beat_identity": null,
+    "beat_align_v2": 29.63,
+    "beat_off_ms": 5.8
+   },
+   "rating": null,
+   "spotted": null,
+   "note": "'super boring'"
+  },
+  "ranker_B_ranker": {
+   "score": 27.94,
+   "score_v2": 26.55,
+   "parts": {
+    "stem_curves": 25.53,
+    "deck_curves": 15.31,
+    "beat_align": 46.27,
+    "bass_swap": 40.18,
+    "outgoing_cut": 10.32,
+    "blend_length": 40.18,
+    "beat_identity": 55.49,
+    "beat_align_v2": 37.04,
+    "beat_off_ms": 5.8
+   },
+   "rating": null,
+   "spotted": null,
+   "note": "'much much better'"
+  },
+  "rca1117_fix": {
+   "score": 60.53,
+   "score_v2": 59.33,
+   "parts": {
+    "stem_curves": 77.89,
+    "deck_curves": 61.02,
+    "beat_align": 47.58,
+    "bass_swap": 66.69,
+    "outgoing_cut": 66.69,
+    "blend_length": 14.88,
+    "beat_identity": 55.57,
+    "beat_align_v2": 39.6,
+    "beat_off_ms": 8.71
+   },
+   "rating": null,
+   "spotted": null,
+   "note": "'beat clash is gone'"
+  }
+ },
+ "pairwise": {
+  "score": {
+   "agree": 6,
+   "n": 9,
+   "rows": [
+    [
+     "rca1111_engine",
+     "rca1111_phrase_cut",
+     33.97,
+     36.18,
+     false
+    ],
+    [
+     "rca1111_long",
+     "daily_1111",
+     48.22,
+     26.96,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "rca1111_long",
+     47.3,
+     48.22,
+     false
+    ],
+    [
+     "rca1111_long_fix",
+     "daily_1111",
+     47.3,
+     26.96,
+     true
+    ],
+    [
+     "rca1111_engine",
+     "daily_1111",
+     33.97,
+     26.96,
+     true
+    ],
+    [
+     "planner_ukf19",
+     "daily_1114",
+     25.73,
+     27.67,
+     false
+    ],
+    [
+     "planner_ukf25_v2",
+     "planner_ukf25",
+     35.98,
+     32.17,
+     true
+    ],
+    [
+     "ranker_B_ranker",
+     "ranker_A_default",
+     27.94,
+     26.38,
+     true
+    ],
+    [
+     "rca1117_fix",
+     "daily_1117",
+     60.53,
+     56.72,
+     true
+    ]
+   ]
+  },
+  "score_v2": {
+   "agree": 5,
+   "n": 9,
+   "rows": [
+    [
+     "rca1111_engine",
+     "rca1111_phrase_cut",
+     35.29,
+     37.28,
+     false
+    ],
+    [
+     "rca1111_long",
+     "daily_1111",
+     50.31,
+     28.93,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "rca1111_long",
+     48.8,
+     50.31,
+     false
+    ],
+    [
+     "rca1111_long_fix",
+     "daily_1111",
+     48.8,
+     28.93,
+     true
+    ],
+    [
+     "rca1111_engine",
+     "daily_1111",
+     35.29,
+     28.93,
+     true
+    ],
+    [
+     "planner_ukf19",
+     "daily_1114",
+     22.22,
+     24.01,
+     false
+    ],
+    [
+     "planner_ukf25_v2",
+     "planner_ukf25",
+     33.95,
+     26.46,
+     true
+    ],
+    [
+     "ranker_B_ranker",
+     "ranker_A_default",
+     26.55,
+     26.38,
+     true
+    ],
+    [
+     "rca1117_fix",
+     "daily_1117",
+     59.33,
+     61.77,
+     false
+    ]
+   ]
+  },
+  "stem_curves": {
+   "agree": 6,
+   "n": 9,
+   "rows": [
+    [
+     "rca1111_engine",
+     "rca1111_phrase_cut",
+     51.58,
+     49.72,
+     true
+    ],
+    [
+     "rca1111_long",
+     "daily_1111",
+     78.85,
+     45.71,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "rca1111_long",
+     60.17,
+     78.85,
+     false
+    ],
+    [
+     "rca1111_long_fix",
+     "daily_1111",
+     60.17,
+     45.71,
+     true
+    ],
+    [
+     "rca1111_engine",
+     "daily_1111",
+     51.58,
+     45.71,
+     true
+    ],
+    [
+     "planner_ukf19",
+     "daily_1114",
+     33.25,
+     37.4,
+     false
+    ],
+    [
+     "planner_ukf25_v2",
+     "planner_ukf25",
+     26.9,
+     29.27,
+     false
+    ],
+    [
+     "ranker_B_ranker",
+     "ranker_A_default",
+     25.53,
+     14.63,
+     true
+    ],
+    [
+     "rca1117_fix",
+     "daily_1117",
+     77.89,
+     73.96,
+     true
+    ]
+   ]
+  },
+  "deck_curves": {
+   "agree": 6,
+   "n": 9,
+   "rows": [
+    [
+     "rca1111_engine",
+     "rca1111_phrase_cut",
+     34.54,
+     31.53,
+     true
+    ],
+    [
+     "rca1111_long",
+     "daily_1111",
+     55.67,
+     30.57,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "rca1111_long",
+     38.72,
+     55.67,
+     false
+    ],
+    [
+     "rca1111_long_fix",
+     "daily_1111",
+     38.72,
+     30.57,
+     true
+    ],
+    [
+     "rca1111_engine",
+     "daily_1111",
+     34.54,
+     30.57,
+     true
+    ],
+    [
+     "planner_ukf19",
+     "daily_1114",
+     23.3,
+     23.88,
+     false
+    ],
+    [
+     "planner_ukf25_v2",
+     "planner_ukf25",
+     23.51,
+     19.85,
+     true
+    ],
+    [
+     "ranker_B_ranker",
+     "ranker_A_default",
+     15.31,
+     36.29,
+     false
+    ],
+    [
+     "rca1117_fix",
+     "daily_1117",
+     61.02,
+     59.1,
+     true
+    ]
+   ]
+  },
+  "beat_align": {
+   "agree": 8,
+   "n": 9,
+   "rows": [
+    [
+     "rca1111_engine",
+     "rca1111_phrase_cut",
+     43.0,
+     41.56,
+     true
+    ],
+    [
+     "rca1111_long",
+     "daily_1111",
+     48.18,
+     13.36,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "rca1111_long",
+     44.19,
+     48.18,
+     false
+    ],
+    [
+     "rca1111_long_fix",
+     "daily_1111",
+     44.19,
+     13.36,
+     true
+    ],
+    [
+     "rca1111_engine",
+     "daily_1111",
+     43.0,
+     13.36,
+     true
+    ],
+    [
+     "planner_ukf19",
+     "daily_1114",
+     59.49,
+     59.22,
+     true
+    ],
+    [
+     "planner_ukf25_v2",
+     "planner_ukf25",
+     77.17,
+     61.9,
+     true
+    ],
+    [
+     "ranker_B_ranker",
+     "ranker_A_default",
+     46.27,
+     29.63,
+     true
+    ],
+    [
+     "rca1117_fix",
+     "daily_1117",
+     47.58,
+     34.9,
+     true
+    ]
+   ]
+  },
+  "bass_swap": {
+   "agree": 7,
+   "n": 9,
+   "rows": [
+    [
+     "rca1111_engine",
+     "rca1111_phrase_cut",
+     7.22,
+     0.75,
+     true
+    ],
+    [
+     "rca1111_long",
+     "daily_1111",
+     9.09,
+     18.54,
+     false
+    ],
+    [
+     "rca1111_long_fix",
+     "rca1111_long",
+     57.72,
+     9.09,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "daily_1111",
+     57.72,
+     18.54,
+     true
+    ],
+    [
+     "rca1111_engine",
+     "daily_1111",
+     7.22,
+     18.54,
+     false
+    ],
+    [
+     "planner_ukf19",
+     "daily_1114",
+     3.62,
+     0.85,
+     true
+    ],
+    [
+     "planner_ukf25_v2",
+     "planner_ukf25",
+     52.49,
+     32.77,
+     true
+    ],
+    [
+     "ranker_B_ranker",
+     "ranker_A_default",
+     40.18,
+     16.37,
+     true
+    ],
+    [
+     "rca1117_fix",
+     "daily_1117",
+     66.69,
+     50.39,
+     true
+    ]
+   ]
+  },
+  "outgoing_cut": {
+   "agree": 5,
+   "n": 9,
+   "rows": [
+    [
+     "rca1111_engine",
+     "rca1111_phrase_cut",
+     7.22,
+     67.32,
+     false
+    ],
+    [
+     "rca1111_long",
+     "daily_1111",
+     19.25,
+     5.31,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "rca1111_long",
+     44.95,
+     19.25,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "daily_1111",
+     44.95,
+     5.31,
+     true
+    ],
+    [
+     "rca1111_engine",
+     "daily_1111",
+     7.22,
+     5.31,
+     true
+    ],
+    [
+     "planner_ukf19",
+     "daily_1114",
+     7.66,
+     16.99,
+     false
+    ],
+    [
+     "planner_ukf25_v2",
+     "planner_ukf25",
+     2.04,
+     10.81,
+     false
+    ],
+    [
+     "ranker_B_ranker",
+     "ranker_A_default",
+     10.32,
+     44.51,
+     false
+    ],
+    [
+     "rca1117_fix",
+     "daily_1117",
+     66.69,
+     64.7,
+     true
+    ]
+   ]
+  },
+  "blend_length": {
+   "agree": 6,
+   "n": 9,
+   "rows": [
+    [
+     "rca1111_engine",
+     "rca1111_phrase_cut",
+     36.68,
+     9.11,
+     true
+    ],
+    [
+     "rca1111_long",
+     "daily_1111",
+     31.73,
+     23.81,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "rca1111_long",
+     24.06,
+     31.73,
+     false
+    ],
+    [
+     "rca1111_long_fix",
+     "daily_1111",
+     24.06,
+     23.81,
+     true
+    ],
+    [
+     "rca1111_engine",
+     "daily_1111",
+     36.68,
+     23.81,
+     true
+    ],
+    [
+     "planner_ukf19",
+     "daily_1114",
+     9.84,
+     9.1,
+     true
+    ],
+    [
+     "planner_ukf25_v2",
+     "planner_ukf25",
+     46.32,
+     47.68,
+     false
+    ],
+    [
+     "ranker_B_ranker",
+     "ranker_A_default",
+     40.18,
+     23.82,
+     true
+    ],
+    [
+     "rca1117_fix",
+     "daily_1117",
+     14.88,
+     34.63,
+     false
+    ]
+   ]
+  },
+  "beat_identity": {
+   "agree": 4,
+   "n": 6,
+   "rows": [
+    [
+     "rca1111_engine",
+     "rca1111_phrase_cut",
+     34.19,
+     34.19,
+     null
+    ],
+    [
+     "rca1111_long",
+     "daily_1111",
+     34.19,
+     0.17,
+     true
+    ],
+    [
+     "rca1111_long_fix",
+     "rca1111_long",
+     34.19,
+     34.19,
+     null
+    ],
+    [
+     "rca1111_long_fix",
+     "daily_1111",
+     34.19,
+     0.17,
+     true
+    ],
+    [
+     "rca1111_engine",
+     "daily_1111",
+     34.19,
+     0.17,
+     true
+    ],
+    [
+     "planner_ukf19",
+     "daily_1114",
+     82.9,
+     83.58,
+     false
+    ],
+    [
+     "planner_ukf25_v2",
+     "planner_ukf25",
+     90.67,
+     100.0,
+     false
+    ],
+    [
+     "ranker_B_ranker",
+     "ranker_A_default",
+     55.49,
+     null,
+     null
+    ],
+    [
+     "rca1117_fix",
+     "daily_1117",
+     55.57,
+     1.26,
+     true
+    ]
+   ]
+  }
+ },
+ "blind_rating_spearman": {
+  "score": [
+   -0.14,
+   0.766
+  ],
+  "score_v2": [
+   0.02,
+   0.966
+  ],
+  "stem_curves": [
+   -0.3,
+   0.515
+  ],
+  "deck_curves": [
+   0.34,
+   0.457
+  ],
+  "beat_align": [
+   0.26,
+   0.575
+  ],
+  "bass_swap": [
+   0.18,
+   0.701
+  ],
+  "outgoing_cut": [
+   0.18,
+   0.701
+  ],
+  "blend_length": [
+   0.02,
+   0.966
+  ]
+ },
+ "blind_spotted": {
+  "score": {
+   "spotted_mean": 32.09,
+   "fooled_or_unsure_mean": 37.58
+  },
+  "score_v2": {
+   "spotted_mean": 32.65,
+   "fooled_or_unsure_mean": 36.41
+  },
+  "stem_curves": {
+   "spotted_mean": 38.31,
+   "fooled_or_unsure_mean": 51.34
+  },
+  "deck_curves": {
+   "spotted_mean": 35.62,
+   "fooled_or_unsure_mean": 32.86
+  },
+  "beat_align": {
+   "spotted_mean": 38.69,
+   "fooled_or_unsure_mean": 56.32
+  },
+  "bass_swap": {
+   "spotted_mean": 19.32,
+   "fooled_or_unsure_mean": 10.57
+  },
+  "outgoing_cut": {
+   "spotted_mean": 25.51,
+   "fooled_or_unsure_mean": 20.09
+  },
+  "blend_length": {
+   "spotted_mean": 21.48,
+   "fooled_or_unsure_mean": 37.35
+  },
+  "beat_identity": {
+   "spotted_mean": 28.34,
+   "fooled_or_unsure_mean": 64.08
+  }
+ },
+ "n": {
+  "daily": 9,
+  "rated": 7,
+  "spotted": 6,
+  "not_spotted": 3,
+  "pairs": 9
+ }
+}

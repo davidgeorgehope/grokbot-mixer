@@ -1,0 +1,799 @@
+{
+ "daily_1109": {
+  "id": "daily_1109",
+  "pick": "hybrid_minds_ukf__11",
+  "clip": "/workspace/mixes/deliver/protrans/daily_2026-11-09_B.mp3",
+  "rating": null,
+  "spotted": false,
+  "note": "couldn't tell; ours 'quite good'",
+  "score": 28.9,
+  "score_v2": 28.23,
+  "parts": {
+   "stem_curves": 44.82,
+   "deck_curves": 25.72,
+   "beat_align": 36.42,
+   "bass_swap": 1.94,
+   "outgoing_cut": 12.83,
+   "blend_length": 34.33,
+   "beat_identity": 40.85,
+   "beat_align_v2": 31.99,
+   "beat_off_ms": 8.71
+  },
+  "stems": {
+   "drums": 53.31,
+   "bass": 40.21,
+   "vocals": 34.84,
+   "melody": 50.94
+  },
+  "events_pro": {
+   "bass_swap": 33,
+   "outgoing_cut": null,
+   "blend_length": 3
+  },
+  "events_ours": {
+   "bass_swap": 19,
+   "outgoing_cut": 22,
+   "blend_length": 8
+  },
+  "align": {
+   "lag_samples": 0,
+   "lag_ms": 0.0,
+   "peak": 0.2115,
+   "win_sec": 57.03
+  }
+ },
+ "daily_1110": {
+  "id": "daily_1110",
+  "pick": "joe_syntax_hospital__01",
+  "clip": "/workspace/mixes/deliver/protrans/daily_2026-11-10_A.mp3",
+  "rating": 4,
+  "spotted": true,
+  "score": 35.13,
+  "score_v2": 35.13,
+  "parts": {
+   "stem_curves": 45.0,
+   "deck_curves": 37.58,
+   "beat_align": 41.38,
+   "bass_swap": 23.64,
+   "outgoing_cut": 12.85,
+   "blend_length": 34.39,
+   "beat_identity": null,
+   "beat_align_v2": 41.38,
+   "beat_off_ms": 2.9
+  },
+  "stems": {
+   "drums": 49.23,
+   "bass": 34.36,
+   "vocals": 39.15,
+   "melody": 57.26
+  },
+  "events_pro": {
+   "bass_swap": 3,
+   "outgoing_cut": null,
+   "blend_length": 5
+  },
+  "events_ours": {
+   "bass_swap": 7,
+   "outgoing_cut": 30,
+   "blend_length": 10
+  },
+  "align": {
+   "lag_samples": 0,
+   "lag_ms": 0.0,
+   "peak": 0.1497,
+   "win_sec": 57.0
+  }
+ },
+ "daily_1111": {
+  "id": "daily_1111",
+  "pick": "joe_syntax_hospital__08",
+  "clip": "/workspace/mixes/deliver/protrans/daily_2026-11-11_A.mp3",
+  "rating": 2,
+  "spotted": true,
+  "score": 26.96,
+  "score_v2": 28.93,
+  "parts": {
+   "stem_curves": 45.71,
+   "deck_curves": 30.57,
+   "beat_align": 13.36,
+   "bass_swap": 18.54,
+   "outgoing_cut": 5.31,
+   "blend_length": 23.81,
+   "beat_identity": 0.17,
+   "beat_align_v2": 26.55,
+   "beat_off_ms": 17.41
+  },
+  "stems": {
+   "drums": 48.8,
+   "bass": 46.79,
+   "vocals": 47.76,
+   "melody": 39.48
+  },
+  "events_pro": {
+   "bass_swap": 7,
+   "outgoing_cut": 18,
+   "blend_length": 17
+  },
+  "events_ours": {
+   "bass_swap": 2,
+   "outgoing_cut": 28,
+   "blend_length": 9
+  },
+  "align": {
+   "lag_samples": 0,
+   "lag_ms": 0.0,
+   "peak": 0.313,
+   "win_sec": 57.0
+  }
+ },
+ "daily_1112": {
+  "id": "daily_1112",
+  "pick": "hybrid_minds_ukf__08",
+  "clip": "/workspace/mixes/deliver/protrans/daily_2026-11-12_B.mp3",
+  "rating": 4,
+  "spotted": false,
+  "score": 42.19,
+  "score_v2": 40.96,
+  "parts": {
+   "stem_curves": 54.84,
+   "deck_curves": 40.09,
+   "beat_align": 60.56,
+   "bass_swap": 20.24,
+   "outgoing_cut": 33.37,
+   "blend_length": 22.94,
+   "beat_identity": 68.72,
+   "beat_align_v2": 52.4,
+   "beat_off_ms": 5.8
+  },
+  "stems": {
+   "drums": 64.77,
+   "bass": 77.29,
+   "vocals": 35.61,
+   "melody": 41.7
+  },
+  "events_pro": {
+   "bass_swap": 3,
+   "outgoing_cut": 18,
+   "blend_length": 18
+  },
+  "events_ours": {
+   "bass_swap": 8,
+   "outgoing_cut": 21,
+   "blend_length": 9
+  },
+  "align": {
+   "lag_samples": -200448,
+   "lag_ms": -9090.61,
+   "peak": 0.3355,
+   "win_sec": 35.047
+  }
+ },
+ "daily_1113": {
+  "id": "daily_1113",
+  "pick": "hybrid_minds_ukf__12",
+  "clip": "/workspace/mixes/deliver/protrans/daily_2026-11-13_A.mp3",
+  "rating": 4,
+  "spotted": true,
+  "score": 20.14,
+  "score_v2": 20.14,
+  "parts": {
+   "stem_curves": 13.16,
+   "deck_curves": 26.27,
+   "beat_align": 53.68,
+   "bass_swap": 9.72,
+   "outgoing_cut": 8.71,
+   "blend_length": 3.15,
+   "beat_identity": null,
+   "beat_align_v2": 53.68,
+   "beat_off_ms": 0.0
+  },
+  "stems": {
+   "drums": 10.81,
+   "bass": 20.63,
+   "vocals": 11.95,
+   "melody": 9.25
+  },
+  "events_pro": {
+   "bass_swap": 4,
+   "outgoing_cut": null,
+   "blend_length": 29
+  },
+  "events_ours": {
+   "bass_swap": 10,
+   "outgoing_cut": 15,
+   "blend_length": 8
+  },
+  "align": {
+   "lag_samples": 149504,
+   "lag_ms": 6780.23,
+   "peak": 0.1305,
+   "win_sec": 40.728
+  }
+ },
+ "daily_1114": {
+  "id": "daily_1114",
+  "pick": "hybrid_minds_ukf__19",
+  "clip": "/workspace/mixes/deliver/protrans/daily_2026-11-14_A.mp3",
+  "rating": 2,
+  "spotted": true,
+  "score": 27.67,
+  "score_v2": 24.01,
+  "parts": {
+   "stem_curves": 37.4,
+   "deck_curves": 23.88,
+   "beat_align": 59.22,
+   "bass_swap": 0.85,
+   "outgoing_cut": 16.99,
+   "blend_length": 9.1,
+   "beat_identity": 83.58,
+   "beat_align_v2": 34.86,
+   "beat_off_ms": 8.71
+  },
+  "stems": {
+   "drums": 48.17,
+   "bass": 42.91,
+   "vocals": 23.49,
+   "melody": 35.02
+  },
+  "events_pro": {
+   "bass_swap": 1,
+   "outgoing_cut": 21,
+   "blend_length": 18
+  },
+  "events_ours": {
+   "bass_swap": 18,
+   "outgoing_cut": 26,
+   "blend_length": 3
+  },
+  "align": {
+   "lag_samples": 60928,
+   "lag_ms": 2763.17,
+   "peak": 0.2869,
+   "win_sec": 44.138
+  }
+ },
+ "daily_1115": {
+  "id": "daily_1115",
+  "pick": "hybrid_minds_ukf__25",
+  "clip": "/workspace/mixes/deliver/protrans/daily_2026-11-15_A.mp3",
+  "rating": 4,
+  "spotted": true,
+  "score": 25.91,
+  "score_v2": 25.91,
+  "parts": {
+   "stem_curves": 14.65,
+   "deck_curves": 36.31,
+   "beat_align": 29.59,
+   "bass_swap": 12.76,
+   "outgoing_cut": 44.52,
+   "blend_length": 23.83,
+   "beat_identity": null,
+   "beat_align_v2": 29.59,
+   "beat_off_ms": 5.8
+  },
+  "stems": {
+   "drums": 14.23,
+   "bass": 9.79,
+   "vocals": 18.6,
+   "melody": 15.99
+  },
+  "events_pro": {
+   "bass_swap": 6,
+   "outgoing_cut": null,
+   "blend_length": 10
+  },
+  "events_ours": {
+   "bass_swap": 1,
+   "outgoing_cut": null,
+   "blend_length": 5
+  },
+  "align": {
+   "lag_samples": -436736,
+   "lag_ms": -19806.62,
+   "peak": 0.1645,
+   "win_sec": 24.331
+  }
+ },
+ "daily_1116": {
+  "id": "daily_1116",
+  "pick": "hybrid_minds_ukf__45",
+  "clip": "/workspace/mixes/deliver/protrans/daily_2026-11-16_B.mp3",
+  "rating": null,
+  "spotted": false,
+  "note": "cannot tell",
+  "score": 41.64,
+  "score_v2": 40.04,
+  "parts": {
+   "stem_curves": 54.37,
+   "deck_curves": 32.78,
+   "beat_align": 71.99,
+   "bass_swap": 9.52,
+   "outgoing_cut": 14.07,
+   "blend_length": 54.78,
+   "beat_identity": 82.67,
+   "beat_align_v2": 61.3,
+   "beat_off_ms": 2.9
+  },
+  "stems": {
+   "drums": 40.95,
+   "bass": 74.15,
+   "vocals": 51.4,
+   "melody": 50.98
+  },
+  "events_pro": {
+   "bass_swap": 8,
+   "outgoing_cut": null,
+   "blend_length": 8
+  },
+  "events_ours": {
+   "bass_swap": 16,
+   "outgoing_cut": 27,
+   "blend_length": 10
+  },
+  "align": {
+   "lag_samples": 286464,
+   "lag_ms": 12991.56,
+   "peak": 0.442,
+   "win_sec": 44.138
+  }
+ },
+ "daily_1117": {
+  "id": "daily_1117",
+  "pick": "joe_syntax_hospital__11",
+  "clip": "/workspace/mixes/deliver/protrans/daily_2026-11-17_B.mp3",
+  "rating": 3,
+  "spotted": true,
+  "score": 56.72,
+  "score_v2": 61.77,
+  "parts": {
+   "stem_curves": 73.96,
+   "deck_curves": 59.1,
+   "beat_align": 34.9,
+   "bass_swap": 50.39,
+   "outgoing_cut": 64.7,
+   "blend_length": 34.63,
+   "beat_identity": 1.26,
+   "beat_align_v2": 68.54,
+   "beat_off_ms": 0.0
+  },
+  "stems": {
+   "drums": 75.87,
+   "bass": 75.58,
+   "vocals": 66.11,
+   "melody": 78.26
+  },
+  "events_pro": {
+   "bass_swap": 15,
+   "outgoing_cut": 16,
+   "blend_length": 10
+  },
+  "events_ours": {
+   "bass_swap": 13,
+   "outgoing_cut": 17,
+   "blend_length": 3
+  },
+  "align": {
+   "lag_samples": 44544,
+   "lag_ms": 2020.14,
+   "peak": 0.3849,
+   "win_sec": 44.138
+  }
+ },
+ "rca1111_engine": {
+  "id": "rca1111_engine",
+  "pick": "joe_syntax_hospital__08",
+  "clip": "/workspace/mixes/deliver/protrans/rca_2026-11-11_engine.mp3",
+  "rating": null,
+  "note": "'pretty good, that will do it'",
+  "score": 33.97,
+  "score_v2": 35.29,
+  "parts": {
+   "stem_curves": 51.58,
+   "deck_curves": 34.54,
+   "beat_align": 43.0,
+   "bass_swap": 7.22,
+   "outgoing_cut": 7.22,
+   "blend_length": 36.68,
+   "beat_identity": 34.19,
+   "beat_align_v2": 51.82,
+   "beat_off_ms": 2.9
+  },
+  "stems": {
+   "drums": 47.8,
+   "bass": 54.56,
+   "vocals": 59.43,
+   "melody": 44.54
+  },
+  "events_pro": {
+   "bass_swap": 3,
+   "outgoing_cut": 23,
+   "blend_length": 15
+  },
+  "events_ours": {
+   "bass_swap": 12,
+   "outgoing_cut": 32,
+   "blend_length": 10
+  },
+  "align": {
+   "lag_samples": 95232,
+   "lag_ms": 4318.91,
+   "peak": 0.3378,
+   "win_sec": 59.681
+  }
+ },
+ "rca1111_phrase_cut": {
+  "id": "rca1111_phrase_cut",
+  "pick": "joe_syntax_hospital__08",
+  "clip": "/workspace/mixes/deliver/protrans/rca_2026-11-11_engine_phrase_cut.mp3",
+  "rating": null,
+  "note": "'sounds off'",
+  "score": 36.18,
+  "score_v2": 37.28,
+  "parts": {
+   "stem_curves": 49.72,
+   "deck_curves": 31.53,
+   "beat_align": 41.56,
+   "bass_swap": 0.75,
+   "outgoing_cut": 67.32,
+   "blend_length": 9.11,
+   "beat_identity": 34.19,
+   "beat_align_v2": 48.92,
+   "beat_off_ms": 2.9
+  },
+  "stems": {
+   "drums": 53.82,
+   "bass": 51.01,
+   "vocals": 44.42,
+   "melody": 49.64
+  },
+  "events_pro": {
+   "bass_swap": 1,
+   "outgoing_cut": null,
+   "blend_length": 18
+  },
+  "events_ours": {
+   "bass_swap": 19,
+   "outgoing_cut": null,
+   "blend_length": 2
+  },
+  "align": {
+   "lag_samples": -422400,
+   "lag_ms": -19156.46,
+   "peak": 0.2253,
+   "win_sec": 47.05
+  }
+ },
+ "rca1111_long": {
+  "id": "rca1111_long",
+  "pick": "joe_syntax_hospital__08",
+  "clip": "/workspace/mixes/deliver/protrans/rca_2026-11-11_long.mp3",
+  "rating": 3.5,
+  "score": 48.22,
+  "score_v2": 50.31,
+  "parts": {
+   "stem_curves": 78.85,
+   "deck_curves": 55.67,
+   "beat_align": 48.18,
+   "bass_swap": 9.09,
+   "outgoing_cut": 19.25,
+   "blend_length": 31.73,
+   "beat_identity": 34.19,
+   "beat_align_v2": 62.16,
+   "beat_off_ms": 2.9
+  },
+  "stems": {
+   "drums": 78.95,
+   "bass": 94.41,
+   "vocals": 74.34,
+   "melody": 67.72
+  },
+  "events_pro": {
+   "bass_swap": 3,
+   "outgoing_cut": 23,
+   "blend_length": 15
+  },
+  "events_ours": {
+   "bass_swap": 12,
+   "outgoing_cut": 17,
+   "blend_length": 7
+  },
+  "align": {
+   "lag_samples": 95232,
+   "lag_ms": 4318.91,
+   "peak": 0.5219,
+   "win_sec": 59.681
+  }
+ },
+ "rca1111_long_fix": {
+  "id": "rca1111_long_fix",
+  "pick": "joe_syntax_hospital__08",
+  "clip": "/workspace/mixes/deliver/protrans/rca_2026-11-11_long_fix.mp3",
+  "rating": 4.25,
+  "note": "'best one yet' (>4)",
+  "score": 47.3,
+  "score_v2": 48.8,
+  "parts": {
+   "stem_curves": 60.17,
+   "deck_curves": 38.72,
+   "beat_align": 44.19,
+   "bass_swap": 57.72,
+   "outgoing_cut": 44.95,
+   "blend_length": 24.06,
+   "beat_identity": 34.19,
+   "beat_align_v2": 54.19,
+   "beat_off_ms": 2.9
+  },
+  "stems": {
+   "drums": 57.33,
+   "bass": 63.99,
+   "vocals": 67.13,
+   "melody": 52.22
+  },
+  "events_pro": {
+   "bass_swap": 3,
+   "outgoing_cut": 23,
+   "blend_length": 15
+  },
+  "events_ours": {
+   "bass_swap": 4,
+   "outgoing_cut": 25,
+   "blend_length": 24
+  },
+  "align": {
+   "lag_samples": 95232,
+   "lag_ms": 4318.91,
+   "peak": 0.3808,
+   "win_sec": 59.681
+  }
+ },
+ "planner_ukf19": {
+  "id": "planner_ukf19",
+  "pick": "hybrid_minds_ukf__19",
+  "clip": "/workspace/mixes/deliver/protrans/planner_2026-11-15_hybrid_minds_ukf__19.mp3",
+  "rating": null,
+  "note": "'really nice'",
+  "score": 25.73,
+  "score_v2": 22.22,
+  "parts": {
+   "stem_curves": 33.25,
+   "deck_curves": 23.3,
+   "beat_align": 59.49,
+   "bass_swap": 3.62,
+   "outgoing_cut": 7.66,
+   "blend_length": 9.84,
+   "beat_identity": 82.9,
+   "beat_align_v2": 36.08,
+   "beat_off_ms": 5.8
+  },
+  "stems": {
+   "drums": 47.5,
+   "bass": 26.99,
+   "vocals": 23.87,
+   "melody": 34.65
+  },
+  "events_pro": {
+   "bass_swap": 14,
+   "outgoing_cut": 21,
+   "blend_length": 18
+  },
+  "events_ours": {
+   "bass_swap": 25,
+   "outgoing_cut": 29,
+   "blend_length": 4
+  },
+  "align": {
+   "lag_samples": 61184,
+   "lag_ms": 2774.78,
+   "peak": 0.2002,
+   "win_sec": 44.138
+  }
+ },
+ "planner_ukf25": {
+  "id": "planner_ukf25",
+  "pick": "hybrid_minds_ukf__25",
+  "clip": "/workspace/mixes/deliver/protrans/planner_2026-11-15_hybrid_minds_ukf__25.mp3",
+  "rating": 3.5,
+  "score": 32.17,
+  "score_v2": 26.46,
+  "parts": {
+   "stem_curves": 29.27,
+   "deck_curves": 19.85,
+   "beat_align": 61.9,
+   "bass_swap": 32.77,
+   "outgoing_cut": 10.81,
+   "blend_length": 47.68,
+   "beat_identity": 100.0,
+   "beat_align_v2": 23.8,
+   "beat_off_ms": 31.93
+  },
+  "stems": {
+   "drums": 17.52,
+   "bass": 56.36,
+   "vocals": 25.25,
+   "melody": 17.95
+  },
+  "events_pro": {
+   "bass_swap": 15,
+   "outgoing_cut": 30,
+   "blend_length": 3
+  },
+  "events_ours": {
+   "bass_swap": 17,
+   "outgoing_cut": null,
+   "blend_length": 2
+  },
+  "align": {
+   "lag_samples": 45056,
+   "lag_ms": 2043.36,
+   "peak": 0.3052,
+   "win_sec": 49.655
+  }
+ },
+ "planner_ukf25_v2": {
+  "id": "planner_ukf25_v2",
+  "pick": "hybrid_minds_ukf__25",
+  "clip": "/workspace/mixes/deliver/protrans/planner_2026-11-15_ukf25_v2.mp3",
+  "rating": 4,
+  "score": 35.98,
+  "score_v2": 33.95,
+  "parts": {
+   "stem_curves": 26.9,
+   "deck_curves": 23.51,
+   "beat_align": 77.17,
+   "bass_swap": 52.49,
+   "outgoing_cut": 2.04,
+   "blend_length": 46.32,
+   "beat_identity": 90.67,
+   "beat_align_v2": 63.66,
+   "beat_off_ms": 0.0
+  },
+  "stems": {
+   "drums": 15.29,
+   "bass": 56.34,
+   "vocals": 20.57,
+   "melody": 15.42
+  },
+  "events_pro": {
+   "bass_swap": 15,
+   "outgoing_cut": 30,
+   "blend_length": 3
+  },
+  "events_ours": {
+   "bass_swap": 15,
+   "outgoing_cut": 17,
+   "blend_length": 2
+  },
+  "align": {
+   "lag_samples": 44800,
+   "lag_ms": 2031.75,
+   "peak": 0.3157,
+   "win_sec": 49.655
+  }
+ },
+ "ranker_A_default": {
+  "id": "ranker_A_default",
+  "pick": "hybrid_minds_ukf__25",
+  "clip": "/workspace/mixes/deliver/protrans/ranker_v0_hybrid_minds_ukf__25_A_default.mp3",
+  "rating": null,
+  "note": "'super boring'",
+  "score": 26.38,
+  "score_v2": 26.38,
+  "parts": {
+   "stem_curves": 14.63,
+   "deck_curves": 36.29,
+   "beat_align": 29.63,
+   "bass_swap": 16.37,
+   "outgoing_cut": 44.51,
+   "blend_length": 23.82,
+   "beat_identity": null,
+   "beat_align_v2": 29.63,
+   "beat_off_ms": 5.8
+  },
+  "stems": {
+   "drums": 14.14,
+   "bass": 9.78,
+   "vocals": 18.57,
+   "melody": 16.02
+  },
+  "events_pro": {
+   "bass_swap": 6,
+   "outgoing_cut": null,
+   "blend_length": 10
+  },
+  "events_ours": {
+   "bass_swap": 2,
+   "outgoing_cut": null,
+   "blend_length": 5
+  },
+  "align": {
+   "lag_samples": -436736,
+   "lag_ms": -19806.62,
+   "peak": 0.1645,
+   "win_sec": 24.331
+  }
+ },
+ "ranker_B_ranker": {
+  "id": "ranker_B_ranker",
+  "pick": "hybrid_minds_ukf__25",
+  "clip": "/workspace/mixes/deliver/protrans/ranker_v0_hybrid_minds_ukf__25_B_ranker.mp3",
+  "rating": null,
+  "note": "'much much better'",
+  "score": 27.94,
+  "score_v2": 26.55,
+  "parts": {
+   "stem_curves": 25.53,
+   "deck_curves": 15.31,
+   "beat_align": 46.27,
+   "bass_swap": 40.18,
+   "outgoing_cut": 10.32,
+   "blend_length": 40.18,
+   "beat_identity": 55.49,
+   "beat_align_v2": 37.04,
+   "beat_off_ms": 5.8
+  },
+  "stems": {
+   "drums": 20.2,
+   "bass": 43.46,
+   "vocals": 17.34,
+   "melody": 21.12
+  },
+  "events_pro": {
+   "bass_swap": 15,
+   "outgoing_cut": null,
+   "blend_length": 5
+  },
+  "events_ours": {
+   "bass_swap": 14,
+   "outgoing_cut": 16,
+   "blend_length": 3
+  },
+  "align": {
+   "lag_samples": 45312,
+   "lag_ms": 2054.97,
+   "peak": 0.1957,
+   "win_sec": 44.138
+  }
+ },
+ "rca1117_fix": {
+  "id": "rca1117_fix",
+  "pick": "joe_syntax_hospital__11",
+  "clip": "/workspace/mixes/deliver/protrans/rca_2026-11-17_fix.mp3",
+  "rating": null,
+  "note": "'beat clash is gone'",
+  "score": 60.53,
+  "score_v2": 59.33,
+  "parts": {
+   "stem_curves": 77.89,
+   "deck_curves": 61.02,
+   "beat_align": 47.58,
+   "bass_swap": 66.69,
+   "outgoing_cut": 66.69,
+   "blend_length": 14.88,
+   "beat_identity": 55.57,
+   "beat_align_v2": 39.6,
+   "beat_off_ms": 8.71
+  },
+  "stems": {
+   "drums": 78.78,
+   "bass": 78.66,
+   "vocals": 72.44,
+   "melody": 81.67
+  },
+  "events_pro": {
+   "bass_swap": 15,
+   "outgoing_cut": 16,
+   "blend_length": 16
+  },
+  "events_ours": {
+   "bass_swap": 14,
+   "outgoing_cut": 15,
+   "blend_length": 2
+  },
+  "align": {
+   "lag_samples": 41984,
+   "lag_ms": 1904.04,
+   "peak": 0.3454,
+   "win_sec": 44.138
+  }
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "n": 76,
+ "base_rates": {
+  "out_mid": 0.566,
+  "in_drop_anchored": 0.5,
+  "overlap_ge24": 0.395
+ },
+ "out_mid": {
+  "majority": 0.566,
+  "logreg": 0.355,
+  "gbm": 0.368
+ },
+ "in_drop_anchored": {
+  "majority": 0.224,
+  "logreg": 0.526,
+  "gbm": 0.526
+ },
+ "overlap_ge24": {
+  "majority": 0.605,
+  "logreg": 0.566,
+  "gbm": 0.539
+ },
+ "by_dj": {
+  "Alpha Rhythm": {
+   "n": 20,
+   "out_mid": 0.0,
+   "in_drop": 0.8,
+   "overlap_med": 7.2
+  },
+  "UKF Drum & Bass": {
+   "n": 16,
+   "out_mid": 0.75,
+   "in_drop": 0.31,
+   "overlap_med": 11.3
+  },
+  "SuicideSheeep": {
+   "n": 11,
+   "out_mid": 0.73,
+   "in_drop": 0.73,
+   "overlap_med": 35.3
+  },
+  "TheHeshBesh": {
+   "n": 10,
+   "out_mid": 0.9,
+   "in_drop": 0.2,
+   "overlap_med": 29.4
+  },
+  "Hospital Records": {
+   "n": 7,
+   "out_mid": 0.29,
+   "in_drop": 0.29,
+   "overlap_med": 14.0
+  },
+  "Liquicity": {
+   "n": 7,
+   "out_mid": 1.0,
+   "in_drop": 0.71,
+   "overlap_med": 23.6
+  },
+  "Fryett": {
+   "n": 5,
+   "out_mid": 1.0,
+   "in_drop": 0.0,
+   "overlap_med": 20.8
+  }
+ }
+}

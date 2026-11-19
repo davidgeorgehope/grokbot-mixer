@@ -1,0 +1,38 @@
+{
+ "blend": 0,
+ "a": "gCkKc2LuCuM",
+ "b": "KP8jwoWF44Y",
+ "start_bar": 176.0,
+ "end_bar": 192.0,
+ "png": "/workspace/mixes/protrans/llm_judge/cases/netsky_hospital_classics__23__clean.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": null,
+ "offset_ms_median": -14.5,
+ "offset_bars": 9,
+ "clash_bars": 7.06,
+ "sum_lows_dip_db": 35.3,
+ "bass_swap": [
+  180.0,
+  185.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.026152,
+  "pcty": 1.566697,
+  "Scol": 0.8427,
+  "Scty": 0.8158,
+  "banger_clash_rate": 0.1093,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

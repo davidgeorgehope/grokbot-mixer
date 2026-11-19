@@ -1,0 +1,38 @@
+{
+ "blend": 0,
+ "a": "M4UU1xn_K4s",
+ "b": "zEvLsOVhg0I",
+ "start_bar": 288.0,
+ "end_bar": 304.0,
+ "png": "/workspace/mixes/protrans/llm_judge/cases/hybrid_minds_ukf__12__inj_bass_hole.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": null,
+ "offset_ms_median": 2.9,
+ "offset_bars": 9,
+ "clash_bars": 7.06,
+ "sum_lows_dip_db": 38.1,
+ "bass_swap": [
+  292.0,
+  297.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.023878,
+  "pcty": 4.788307,
+  "Scol": 0.8553,
+  "Scty": 0.5367,
+  "banger_clash_rate": 0.0866,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

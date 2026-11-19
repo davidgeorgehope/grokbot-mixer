@@ -1,0 +1,9 @@
+{
+ "final_holdout_djs": [
+  "Liquicity",
+  "Hospital Records"
+ ],
+ "seed": 20261118,
+ "rule": "corpus_v2 DJ groups; untouched until final check; chosen 2026-11-18 20:3x ET before any results",
+ "frozen_pairs_note": "eval_gate pair list frozen at job start 20:24 ET"
+}

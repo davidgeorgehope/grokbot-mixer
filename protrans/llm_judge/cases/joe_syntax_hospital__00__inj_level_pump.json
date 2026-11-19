@@ -1,0 +1,38 @@
+{
+ "blend": 0,
+ "a": "R06kP42RFRo",
+ "b": "dOJp7bsjuyU",
+ "start_bar": 80.0,
+ "end_bar": 96.0,
+ "png": "/workspace/mixes/protrans/llm_judge/cases/joe_syntax_hospital__00__inj_level_pump.png",
+ "halfbeat": {
+  "r0": 0.62,
+  "rh": 0.531,
+  "lag_ms": 0.0,
+  "bars": 1,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": null,
+ "offset_ms_median": 11.6,
+ "offset_bars": 11,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 25.1,
+ "bass_swap": [
+  85.0,
+  90.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.031224,
+  "pcty": 1.722423,
+  "Scol": 0.8152,
+  "Scty": 0.7995,
+  "banger_clash_rate": 0.0659,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

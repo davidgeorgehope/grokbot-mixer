@@ -1,0 +1,157 @@
+{
+ "defect_vs_truth": {
+  "beat_clash": {
+   "tp": 0,
+   "fp": 1,
+   "fn": 0,
+   "tn": 2,
+   "precision": 0.0,
+   "recall": null
+  },
+  "bass_hole": {
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "tn": 3,
+   "precision": null,
+   "recall": null
+  },
+  "level_pump": {
+   "tp": 0,
+   "fp": 1,
+   "fn": 0,
+   "tn": 2,
+   "precision": 0.0,
+   "recall": null
+  },
+  "bad_cue": {
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "tn": 0,
+   "precision": null,
+   "recall": null
+  }
+ },
+ "defect_vs_truth_by_source": {
+  "real_render": {
+   "beat_clash": {
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "tn": 2,
+    "precision": 0.0,
+    "recall": null
+   },
+   "bass_hole": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "tn": 3,
+    "precision": null,
+    "recall": null
+   },
+   "level_pump": {
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "tn": 2,
+    "precision": 0.0,
+    "recall": null
+   },
+   "bad_cue": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "tn": 0,
+    "precision": null,
+    "recall": null
+   }
+  }
+ },
+ "defect_vs_hardcheck": {
+  "beat_clash": {
+   "tp": 0,
+   "fp": 1,
+   "fn": 0,
+   "tn": 2,
+   "precision": 0.0,
+   "recall": null
+  },
+  "bass_hole": {
+   "tp": 0,
+   "fp": 0,
+   "fn": 0,
+   "tn": 3,
+   "precision": null,
+   "recall": null
+  },
+  "level_pump": {
+   "tp": 0,
+   "fp": 1,
+   "fn": 0,
+   "tn": 2,
+   "precision": 0.0,
+   "recall": null
+  }
+ },
+ "hardcheck_vs_truth": {
+  "beat_clash": {
+   "tp": 0,
+   "fp": 0,
+   "fn": 0
+  },
+  "bass_hole": {
+   "tp": 0,
+   "fp": 0,
+   "fn": 0
+  },
+  "level_pump": {
+   "tp": 0,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ "any_defect": {
+  "n": 3,
+  "acc": 0.33,
+  "false_alarm_on_clean": "2/3",
+  "caught": "0/0"
+ },
+ "pair:human": {
+  "n_calls": 1,
+  "accuracy": 0.0,
+  "ci95": [
+   0.0,
+   0.79
+  ],
+  "picks_first_slot": 0.0,
+  "swap_consistent": "0/0",
+  "both_orders_right": "0/0",
+  "rep_flips": null
+ },
+ "pair:injected": {
+  "n_calls": 5,
+  "accuracy": 0.8,
+  "ci95": [
+   0.38,
+   0.96
+  ],
+  "picks_first_slot": 1.0,
+  "swap_consistent": "0/0",
+  "both_orders_right": "0/0",
+  "rep_flips": null
+ },
+ "pair:all": {
+  "n_calls": 6,
+  "accuracy": 0.67,
+  "ci95": [
+   0.3,
+   0.9
+  ],
+  "picks_first_slot": 0.83,
+  "swap_consistent": "0/0",
+  "both_orders_right": "0/0",
+  "rep_flips": null
+ }
+}

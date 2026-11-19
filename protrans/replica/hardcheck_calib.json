@@ -1,0 +1,139 @@
+{
+ "n": 33,
+ "lows_dip_p95": 45.34,
+ "pump_p95": 4.54,
+ "rows": {
+  "wilkinson_boomtown2026__33": [
+   47.7,
+   3.1
+  ],
+  "joe_syntax_hospital__01": [
+   3.3,
+   0.4
+  ],
+  "joe_syntax_hospital__08": [
+   16.4,
+   1.5
+  ],
+  "hybrid_minds_ukf__08": [
+   12.8,
+   2.9
+  ],
+  "hybrid_minds_ukf__11": [
+   0.0,
+   0.0
+  ],
+  "hybrid_minds_ukf__12": [
+   16.1,
+   1.6
+  ],
+  "hybrid_minds_ukf__19": [
+   40.7,
+   1.7
+  ],
+  "hybrid_minds_ukf__25": [
+   0.4,
+   0.2
+  ],
+  "hybrid_minds_ukf__45": [
+   23.2,
+   4.4
+  ],
+  "netsky_hospital_classics__02": [
+   27.1,
+   3.1
+  ],
+  "netsky_hospital_classics__06": [
+   7.5,
+   4.1
+  ],
+  "netsky_hospital_classics__17": [
+   16.6,
+   3.9
+  ],
+  "joe_syntax_hospital__11": [
+   9.6,
+   4.1
+  ],
+  "joe_syntax_hospital__12": [
+   0.1,
+   0.0
+  ],
+  "joe_syntax_hospital__13": [
+   6.8,
+   0.6
+  ],
+  "hybrid_minds_ukf__00": [
+   3.7,
+   1.3
+  ],
+  "hybrid_minds_ukf__09": [
+   13.4,
+   0.6
+  ],
+  "hybrid_minds_ukf__10": [
+   31.9,
+   8.3
+  ],
+  "hybrid_minds_ukf__28": [
+   11.7,
+   1.0
+  ],
+  "hybrid_minds_ukf__40": [
+   45.6,
+   4.8
+  ],
+  "joe_syntax_hospital__00": [
+   6.7,
+   1.7
+  ],
+  "joe_syntax_hospital__09": [
+   0.9,
+   0.0
+  ],
+  "joe_syntax_hospital__14": [
+   0.5,
+   0.2
+  ],
+  "hybrid_minds_ukf__13": [
+   0.6,
+   0.0
+  ],
+  "hybrid_minds_ukf__23": [
+   2.0,
+   1.0
+  ],
+  "netsky_hospital_classics__15": [
+   6.6,
+   1.7
+  ],
+  "netsky_hospital_classics__23": [
+   0.0,
+   0.0
+  ],
+  "maduk_liquicity_lunar2025__02": [
+   9.8,
+   3.5
+  ],
+  "maduk_liquicity_lunar2025__03": [
+   40.8,
+   1.0
+  ],
+  "maduk_liquicity_lunar2025__05": [
+   45.2,
+   1.6
+  ],
+  "pola_bryson_puzzlewood__00": [
+   5.9,
+   3.2
+  ],
+  "pola_bryson_puzzlewood__02": [
+   3.5,
+   1.9
+  ],
+  "pola_bryson_puzzlewood__04": [
+   44.7,
+   2.3
+  ]
+ }
+}

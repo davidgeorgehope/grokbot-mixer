@@ -1,0 +1,38 @@
+{
+ "blend": 0,
+ "a": "smXG7OvMrFI",
+ "b": "11SJZqMmzQ0",
+ "start_bar": 160.0,
+ "end_bar": 176.0,
+ "png": "/workspace/mixes/protrans/llm_judge/cases/maduk_liquicity_lunar2025__03__inj_bass_hole.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": null,
+ "offset_ms_median": 29.8,
+ "offset_bars": 12,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 28.6,
+ "bass_swap": [
+  165.0,
+  170.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.045199,
+  "pcty": 2.762268,
+  "Scol": 0.744,
+  "Scty": 0.6984,
+  "banger_clash_rate": 0.1496,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

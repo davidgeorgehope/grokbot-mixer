@@ -1,0 +1,44 @@
+{
+ "blend": 0,
+ "a": "uP0KAzefX8Y",
+ "b": "I9QGpHScGug",
+ "start_bar": 64.0,
+ "end_bar": 96.0,
+ "png": "/workspace/mixes/protrans/llm_judge/cases/wilkinson_boomtown2026__33__inj_beat_clash.png",
+ "halfbeat": {
+  "r0": 0.601,
+  "rh": 0.463,
+  "lag_ms": 0.0,
+  "bars": 8,
+  "phase_fail": false,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": 0.0,
+  "phase_b": -0.125,
+  "dphase_beats": 0.125,
+  "dphase_ms": 43.1,
+  "strength": 0.546,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": null,
+ "offset_ms_median": -81.3,
+ "offset_bars": 15,
+ "clash_bars": 15.81,
+ "sum_lows_dip_db": 40.5,
+ "bass_swap": [
+  77.0,
+  82.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.019646,
+  "pcty": 2.171667,
+  "Scol": 0.8794,
+  "Scty": 0.7541,
+  "banger_clash_rate": 0.0844,
+  "start_s": 11.034,
+  "end_s": 55.172,
+  "continuity_fallback": false
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "blend": 0,
+ "a": "wUVt_GsvMzw",
+ "b": "tCyYwek-o28",
+ "start_bar": 224.0,
+ "end_bar": 240.0,
+ "png": "/workspace/mixes/protrans/llm_judge/cases/joe_syntax_hospital__11__inj_beat_clash.png",
+ "halfbeat": {
+  "r0": 0.184,
+  "rh": 0.27,
+  "lag_ms": 127.71,
+  "bars": 5,
+  "phase_fail": true,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": -0.188,
+  "phase_b": -0.438,
+  "dphase_beats": 0.25,
+  "dphase_ms": 86.2,
+  "strength": 1.819,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": null,
+ "offset_ms_median": 65.3,
+ "offset_bars": 9,
+ "clash_bars": 6.06,
+ "sum_lows_dip_db": 11.8,
+ "bass_swap": [
+  227.0,
+  232.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.037481,
+  "pcty": 2.780234,
+  "Scol": 0.7825,
+  "Scty": 0.6968,
+  "banger_clash_rate": 0.1476,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

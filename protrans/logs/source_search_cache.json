@@ -2188,5 +2188,155 @@
     "source": "bandcamp",
     "extractor": "Bandcamp",
     "score": 6
+  },
+  "Pola & Bryson ft. Ruth Royall - Friend": {
+    "id": "7D91_ID0k10",
+    "title": "Pola & Bryson - Friend (ft. Ruth Royall)",
+    "channel": "Liquicity",
+    "duration": "226",
+    "url": "https://www.youtube.com/watch?v=7D91_ID0k10",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 13
+  },
+  "High Contrast - Passion (Bop Remix)": {
+    "id": "3035421563",
+    "title": "High Contrast - Passion (BOP Remix)",
+    "channel": "High Contrast",
+    "duration": "",
+    "url": "https://highcontrast.bandcamp.com/track/passion-bop-remix",
+    "source": "bandcamp",
+    "extractor": "Bandcamp",
+    "score": 14
+  },
+  "Need For Mirrors - Shangri-La": {
+    "id": "1226828955",
+    "title": "Need For Mirrors - Shangri-La",
+    "channel": "Need For Mirrors",
+    "duration": "",
+    "url": "https://needformirrors.bandcamp.com/track/shangri-la",
+    "source": "bandcamp",
+    "extractor": "Bandcamp",
+    "score": 6
+  },
+  "Nu:Logic - Chromium": {
+    "id": "OvIVIg_GxZY",
+    "title": "Nu:Logic - Chromium",
+    "channel": "UKF Drum & Bass",
+    "duration": "249",
+    "url": "https://www.youtube.com/watch?v=OvIVIg_GxZY",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 7
+  },
+  "Bop & Logistics - Miles and Miles": {
+    "id": "UKy7eYQPsfk",
+    "title": "BOP & Logistics - Miles and Miles",
+    "channel": "Hospital Records and Bop",
+    "duration": "360",
+    "url": "https://www.youtube.com/watch?v=UKy7eYQPsfk",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 11
+  },
+  "Sequences - Shutdown": {
+    "id": "-bPbh7FIEFU",
+    "title": "Sequences  - Shutdown - Dispatch Limited 114",
+    "channel": "Dispatch Recordings",
+    "duration": "299",
+    "url": "https://www.youtube.com/watch?v=-bPbh7FIEFU",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 4
+  },
+  "Klute - Tranceformat": {
+    "id": "itRWbITPFTM",
+    "title": "Klute - Tranceformat",
+    "channel": "I-Witness DnB",
+    "duration": "447",
+    "url": "https://www.youtube.com/watch?v=itRWbITPFTM",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 4
+  },
+  "LSB - Sketch For My Sweetheart": {
+    "id": "OTd_bIRRGYY",
+    "title": "LSB - Sketch For My Sweetheart",
+    "channel": "UKF Drum & Bass",
+    "duration": "354",
+    "url": "https://www.youtube.com/watch?v=OTd_bIRRGYY",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 9
+  },
+  "ST Files & Calibre - Astral Plane": {
+    "id": "6yjM4hsfln0",
+    "title": "ST Files + Calibre - Astral Plane",
+    "channel": "Supermarkt",
+    "duration": "342",
+    "url": "https://www.youtube.com/watch?v=6yjM4hsfln0",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 8
+  },
+  "Response - Betrayal": {
+    "id": "DBtZP-cbEMI",
+    "title": "Response - Betrayal",
+    "channel": "ROOTZDNB",
+    "duration": "365",
+    "url": "https://www.youtube.com/watch?v=DBtZP-cbEMI",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 4
+  },
+  "Bungle - Ordinary": {
+    "id": "rLsx7DlzUPM",
+    "title": "Bungle - Ordinary",
+    "channel": "ROOTZDNB",
+    "duration": "337",
+    "url": "https://www.youtube.com/watch?v=rLsx7DlzUPM",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 4
+  },
+  "Bungle - Astral Travel": {
+    "id": "UngfYVlqBXE",
+    "title": "Bungle - Astral Travel",
+    "channel": "",
+    "duration": "376",
+    "url": "https://www.youtube.com/watch?v=UngfYVlqBXE",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 6
+  },
+  "Makoto & Elle Shimada - Astral Travelling": {
+    "id": "Dqk4phrY83M",
+    "title": "Makoto x Elle Shimada - Astral Travelling  (FH6 OST)",
+    "channel": "Deadly Music Promotion",
+    "duration": "221",
+    "url": "https://www.youtube.com/watch?v=Dqk4phrY83M",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 10
+  },
+  "Mohican Sun - Cold Earth": {
+    "id": "2nh65mtB9OU",
+    "title": "Mohican Sun - Cold Earth",
+    "channel": "Drum&BassArena",
+    "duration": "258",
+    "url": "https://www.youtube.com/watch?v=2nh65mtB9OU",
+    "extractor": "youtube",
+    "source": "youtube",
+    "score": 8
+  },
+  "Wagz - Revolution": {
+    "id": "3317870526",
+    "title": "Wagz - Revolution",
+    "channel": "Wagz",
+    "duration": "",
+    "url": "https://thirtyonerecordings.bandcamp.com/track/revolution",
+    "source": "bandcamp",
+    "extractor": "Bandcamp",
+    "score": 4
   }
 }

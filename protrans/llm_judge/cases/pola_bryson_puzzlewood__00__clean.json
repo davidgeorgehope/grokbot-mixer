@@ -1,0 +1,38 @@
+{
+ "blend": 0,
+ "a": "_IgqP6Hv3fs",
+ "b": "wyl3hVnB1dQ",
+ "start_bar": 160.0,
+ "end_bar": 176.0,
+ "png": "/workspace/mixes/protrans/llm_judge/cases/pola_bryson_puzzlewood__00__clean.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": null,
+ "offset_ms_median": -11.6,
+ "offset_bars": 11,
+ "clash_bars": 7.06,
+ "sum_lows_dip_db": 45.4,
+ "bass_swap": [
+  164.0,
+  169.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.040311,
+  "pcty": 3.792406,
+  "Scol": 0.7681,
+  "Scty": 0.6109,
+  "banger_clash_rate": 0.1063,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

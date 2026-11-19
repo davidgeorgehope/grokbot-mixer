@@ -1,0 +1,38 @@
+{
+ "blend": 0,
+ "a": "CX4UFb_LlU4",
+ "b": "na79dfVHpp0",
+ "start_bar": 304.0,
+ "end_bar": 320.0,
+ "png": "/workspace/mixes/protrans/llm_judge/cases/netsky_hospital_classics__06__inj_level_pump.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": null,
+ "offset_ms_median": -81.3,
+ "offset_bars": 9,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 29.8,
+ "bass_swap": [
+  309.0,
+  314.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.027278,
+  "pcty": 3.19996,
+  "Scol": 0.8365,
+  "Scty": 0.6598,
+  "banger_clash_rate": 0.0817,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

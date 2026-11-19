@@ -110,7 +110,19 @@ Errors are in bars against the pro. Deltas are variant minus default, with group
 - **The fresh-mix ingest shared `corpus_v2/work/lib` with the running corpus-v2 job.** `archive_mix()` deletes every .m4a there. At about 21:57 ET it removed sources corpus-v2 was using, and `mrmommusic_nodB5gqt_mU__49` was rejected on a missing file. That reject is spurious and should be retried.
 - I killed that fresh job and restarted it as `replica-fresh2-1118` with isolated dirs (`replica/fresh_work`, sources in `replica/fresh_src`).
 
-## FYI blind clips (not a decision step)
-- These are gated vs default on two pairs the listener hasn't heard, where both versions pass the hard checks and the gate's exit is closer to the pro.
-- Pairs: netsky_hospital_classics__17 (exit error 146.6 → 45.4) and pola_bryson_puzzlewood__02 (59 → 21, but the cue is worse, 22 → 38).
-- Files are in `deliver/research/2026-11-18/replica_gated/` (mp3 + png + json). The key is in `/workspace/private/research_2026-11-18_replica_gated_key.json`.
+## FYI blind clips (not a decision step; not sent to the listener)
+- Render provenance:
+  - The windows match the eval rows exactly. netsky__17: default ['n',256,None,32,16] vs gated ['n',64,None,32,16]. puzzlewood__02: default ['n',208,None,16,16] vs gated ['n',144,None,0,32].
+  - Metas are in /tmp/protrans_bench/rpgated{1,2}{A,B}_*_meta.json.
+  - Hard checks rerun on the clip metas: all 4 pass. Lows dip 23.6/24.6/22.7/21.4 dB, pump 2.6/2.6/0.9/3.5 dB, no residual confident lag, halfbeat ok.
+- Loudness: all clips are -14.0 / -14.0 / -13.9 / -14.0 LUFS.
+- **Pair 1 (netsky__17) is validated with caveats.**
+  - Both clips are 44.17 s.
+  - Both versions have the same ~20 dB summed-lows drop for about 5 bars at the blend start (a thin intro). This isn't a replica-only risk.
+  - The per-bar beat-offset readings swing ±150 ms on both, with weak kicks in the drum fold. Pro-lock diff is 2.6 ms (A) and 3.6 ms (B), so it's probably a measurement artifact.
+- **Pair 2 (puzzlewood__02) is NOT validated. Don't send it.**
+  - The gated clip is 66.2 s against 44.2 s, which gives away which is which.
+  - Its pro-lock diff is 23.1 ms, over the 15 ms F1 line, with ±130 ms offset swings at bars 121–125 (flam/clash risk).
+  - It also has about 25 bars of summed lows near -38 dB.
+- Detector caveat: in the judge pilot the automatic bass-hole and clash checks missed most injected faults, so a "pass" here is weak evidence.
+- The key stays in /workspace/private/research_2026-11-18_replica_gated_key.json.

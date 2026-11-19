@@ -44,7 +44,7 @@ def vdip(L):
 def p10(x): return 10 ** (np.asarray(x, float) / 10)
 def sim(Abar, Bbar, s, ib, X):
     """Abar/Bbar: st 'bar' dicts; s = first outgoing bar (e - X), ib = first incoming bar. -> dict of features (NaN if unavailable)"""
-    T = tmpl(X); nan = dict(sim2_vdip=np.nan, sim2_lohi_vdip=np.nan, sim2_min_rel=np.nan)
+    T = tmpl(X); nan = dict(sim2_vdip=np.nan, sim2_lohi_vdip=np.nan, sim2_min_rel=np.nan, sim2_lowsdrop=np.nan, sim2_thin=np.nan)
     if T is None or not Abar or not Bbar or 'hat' not in Abar or 'hat' not in Bbar: return nan
     def seg(b, a): v = {k: np.asarray(b[k][max(0, a):a + X], float) for k in ('all', 'low', 'hat')}; return v if all(len(x) == X for x in v.values()) else None
     a, b = seg(Abar, s), seg(Bbar, ib)
@@ -54,12 +54,19 @@ def sim(Abar, Bbar, s, ib, X):
         g, lo, hi = np.asarray(g), np.asarray(lo), np.asarray(hi); return g ** 2 * (lo ** 2 * Pl + Pm + hi ** 2 * Ph), g ** 2 * (lo ** 2 * Pl + hi ** 2 * Ph)
     fa, la = deck(a, T['gA'], T['lA'], T['hA']); fb, lb = deck(b, T['gB'], T['lB'], T['hB'])
     S = 10 * np.log10(fa + fb + 1e-12); LH = 10 * np.log10(la + lb + 1e-12)
-    return dict(sim2_vdip=vdip(S), sim2_lohi_vdip=vdip(LH), sim2_min_rel=float(S.min() - S[0]))
+    # 2026-11-19 RCA: the summed-LOWS drop vs the 2 bars before the blend (same formula as blend_diag sum_lows_dip_db / hard lows_dip_db),
+    # and how thin the swap bars are (max over decks of lows vs own body, median over the window's middle half; very negative = both thin)
+    ga, gb, la_, lb_ = np.asarray(T['gA']), np.asarray(T['gB']), np.asarray(T['lA']), np.asarray(T['lB'])
+    SL = 10 * np.log10(ga ** 2 * la_ ** 2 * p10(a['low']) + gb ** 2 * lb_ ** 2 * p10(b['low']) + 1e-12)
+    pre = np.asarray(Abar['low'][max(0, s - 2):s], float); drop = float(pre.max() - SL.min()) if len(pre) else np.nan
+    bA, bB = np.percentile(np.asarray(Abar['low'], float), 75), np.percentile(np.asarray(Bbar['low'], float), 75); q = X // 4
+    thin = float(np.median(np.maximum(a['low'][q:X - q] - bA, b['low'][q:X - q] - bB)))
+    return dict(sim2_vdip=vdip(S), sim2_lohi_vdip=vdip(LH), sim2_min_rel=float(S.min() - S[0]), sim2_lowsdrop=drop, sim2_thin=thin)
 def validate():
     """simulated vdip vs the rendered blend's measured pump_db on dev renders (Spearman), and the gap rule's hit rates"""
     import picker_1119 as P, safeplace_1119 as S
     from scipy.stats import spearmanr
-    rows = {r['id']: r for r in S.dev_rows()}; xs, ys, fl = [], [], []
+    rows = {r['id']: r for r in S.dev_rows()}; xs, ys, fl = [], [], []; lx, ly, th = [], [], []
     for v in VARS:
         for k, arr in S.load(v).items():
             r = rows.get(k); w = arr.get('win')
@@ -68,9 +75,17 @@ def validate():
             f = sim(A, B, e - X, ib, X)
             if not np.isfinite(f['sim2_vdip']): continue
             xs.append(f['sim2_vdip']); ys.append(arr['hard_v1'].get('pump_db') or 0.0); fl.append(bool(arr['hard_v1'].get('pumping')))
+            lx.append(f['sim2_lowsdrop']); ly.append(arr['hard_v1'].get('lows_dip_db') if arr['hard_v1'].get('lows_dip_db') is not None else np.nan); th.append(f['sim2_thin'])
     xs, ys, fl = map(np.array, (xs, ys, fl)); rho = spearmanr(xs, ys)[0]; gap = xs >= X_GAP
     res = dict(n=len(xs), spearman=round(float(rho), 3), X_GAP=X_GAP, gap_rate=round(float(gap.mean()), 3),
                pump_rate_if_gap=round(float(fl[gap].mean()), 3) if gap.any() else None, pump_rate_if_no_gap=round(float(fl[~gap].mean()), 3),
                pump_recall_of_gap=round(float(gap[fl].mean()), 3) if fl.any() else None)
+    lx, ly, th = map(lambda v: np.asarray(v, float), (lx, ly, th)); ok = np.isfinite(lx) & np.isfinite(ly)
+    LP = float(json.load(open(os.path.join(H, 'hardcheck_calib.json')))['lows_dip_p95'])
+    res['lows'] = dict(n=int(ok.sum()), spearman=round(float(spearmanr(lx[ok], ly[ok])[0]), 3), mae_db=round(float(np.median(np.abs(lx[ok] - ly[ok]))), 2),
+                       lows_dip_p95=LP, measured_over_p95=int((ly[ok] >= LP).sum()), recall_sim_over_p95=round(float((lx[ok][ly[ok] >= LP] >= LP).mean()), 3) if (ly[ok] >= LP).any() else None,
+                       flag_rate_sim_over_p95=round(float((lx[ok] >= LP).mean()), 3),
+                       thin_share=round(float((th[ok] < -6).mean()), 3), measured_lowsdip_med_thin=round(float(np.median(ly[ok][th[ok] < -6])), 1) if (th[ok] < -6).any() else None,
+                       measured_lowsdip_med_not_thin=round(float(np.median(ly[ok][th[ok] >= -6])), 1))
     json.dump(res, open(os.path.join(H, 'lanesim_1119_validate.json'), 'w'), indent=1); print(res)
 if __name__ == '__main__': {'build': build, 'validate': validate}[sys.argv[1]]()

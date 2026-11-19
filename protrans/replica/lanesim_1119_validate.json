@@ -5,5 +5,17 @@
  "gap_rate": 0.119,
  "pump_rate_if_gap": 0.852,
  "pump_rate_if_no_gap": 0.015,
- "pump_recall_of_gap": 0.885
+ "pump_recall_of_gap": 0.885,
+ "lows": {
+  "n": 455,
+  "spearman": 0.957,
+  "mae_db": 1.87,
+  "lows_dip_p95": 45.34,
+  "measured_over_p95": 17,
+  "recall_sim_over_p95": 0.588,
+  "flag_rate_sim_over_p95": 0.057,
+  "thin_share": 0.248,
+  "measured_lowsdip_med_thin": 30.1,
+  "measured_lowsdip_med_not_thin": 19.6
+ }
 }

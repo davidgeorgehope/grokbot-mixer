@@ -62,6 +62,9 @@ def main(pick_id, base_variant, cands):
         import daily_diag
         d = daily_diag.make(pick_id, f'daily_{time.strftime("%Y-%m-%d")}')
         print('DIAG', d['png'], 'half-beat', 'FAIL' if (d.get('halfbeat') or {}).get('fail') else 'ok', flush=True)
+        pv = d.get('provsours') or {}  # 2026-11-19: pro pick vs ours table + PNG (goes in the daily note)
+        print('PROVSOURS', pv.get('md'), pv.get('png'), pv.get('error') or '', flush=True)
+        if pv.get('md'): print(open(pv['md']).read(), flush=True)
     except Exception as e:
         print('DIAG skipped:', type(e).__name__, str(e)[-200:], flush=True)
 

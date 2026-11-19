@@ -211,6 +211,65 @@ if CUEW>0:
     if a not in _CX:g=track(a)['g']['bar'];_CX[a]=cue.track_feats(g['all'],g['low'],g['hat'])
     return 1-cue.pctl(CM,'out',_CX[a],ea)
 import sections;STRUCT=int(os.environ.get('STRUCT',1));STRUCTW=float(os.environ.get('STRUCTW',300));STRK=set()
+# THIN swap (2026-11-19 RCA Ghetto Blaster -> Seconds To Midnight, research, off by default). A window's swap bars are "thin" when BOTH
+# decks' lows sit more than THIN_DB (6 dB, the existing BASS_COVER / DROP_SWAP thin line) under their own body (75th pct of per-bar lows)
+# over the middle half of the window. STRUCT_THIN=1: the outro-over-intro bonus is scaled by STRUCT_THIN_W (0) on thin windows.
+# THIN_DROPCUE=1: on a thin outro-over-intro window, the bonus moves to the already-scored cue(s) at the same exit whose incoming drop1
+# lands inside the overlap (ib <= drop1 <= ib + X - 4), so the outgoing still plays to its music end (its last drop is not cut).
+STRUCT_THIN=int(os.environ.get('STRUCT_THIN',0));THIN_DROPCUE=int(os.environ.get('THIN_DROPCUE',0));THIN_DB=float(os.environ.get('THIN_DB',6));STRUCT_THIN_W=float(os.environ.get('STRUCT_THIN_W',0))
+THIN_LOG=[]
+# SLOWDOWN=1 (2026-11-19 RCA, research, off by default): the outgoing's half-time / no-snare sections (protrans/replica/halftime/slowdown.py).
+# On dev, pros start a blend inside an outgoing OUTRO or in-drop slowdown 2.9% of the time vs 12.4% for our default (mix-grouped CI of the
+# difference -17.6..-1.9 pts); outgoing BREAKDOWNS are a normal pro blend spot, so they are not penalised. A window whose blend starts inside
+# an outgoing outro / in-drop slowdown gets +STRUCTW (cancels the outro-over-intro bonus). If the bonus window is hit, the bonus moves to the
+# pro-like alternative: the latest grid exit whose blend starts before the slowdown but not before the last 8 bars of the outgoing's last drop
+# (payoff guard), with the incoming cued so its drop1 lands as the blend ends (pre-drop over the last drop's tail).
+SLOWDOWN=int(os.environ.get('SLOWDOWN',0));SLOW_LOG=[]
+# STRUCTW ablation (2026-11-19, listener: why the 300 bonus?). STRUCTB = size of the outro-over-intro bonus only (default = STRUCTW, so the
+# slowdown / payoff guards keep their 300). STRUCT_COND=1: the bonus applies only when the outgoing's blend bars have full drums (median kicks
+# >= 0.6 x its drop median and median strong snares >= 0.35 x its drop mean) and the window touches no slowdown section (halftime/slowdown.py).
+# OUTRO_QC=1 (2026-11-19, the listener's design call): keep the bonus but scale it by 1 - deduction, the deduction fitted from pro data on the
+# outgoing's outro bars (slowdown, drums / snare out, level drop, early fade, thin lows; protrans/replica/halftime/outro_qc.py).
+OUTRO_QC=int(os.environ.get('OUTRO_QC',0));QC_LOG=[];_QCC={}
+def outro_qc(a,s,e):
+  k=(a,s,e)
+  if k not in _QCC:
+    try:
+      sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime');import outro_qc as _OQ
+      d,f=_OQ.deduction(a,s,e);_QCC[k]=d;QC_LOG.append(dict(a=a,s=s,e=e,ded=round(d,3),f=f))
+    except Exception as ex:print('OUTRO_QC failed',a,ex,file=sys.stderr);_QCC[k]=0.0
+  return _QCC[k]
+STRUCTB=float(os.environ.get('STRUCTB',STRUCTW));STRUCT_COND=int(os.environ.get('STRUCT_COND',0));_SCC={}
+def struct_full(a,s,e):
+  k=(a,s,e)
+  if k in _SCC:return _SCC[k]
+  ok=True
+  try:
+    sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime');import slowdown as _SD
+    P=_SD.profile(a);dr=sections.get(a).get('drops') or []
+    if P and dr:
+      K=np.asarray(P['kicks'],float);S=np.asarray(P['snare_strong'],float);db=[i for x,y in dr for i in range(x,min(y,len(K)))]
+      w=[i for i in range(max(0,s),min(e,len(K)))]
+      if w and db:ok=bool(np.median(K[w])>=0.6*np.median(K[db]) and np.median(S[w])>=0.35*np.mean(S[db]) and not any(x<e and s<y for x,y in P['sections']))
+  except Exception as ex:print('STRUCT_COND profile failed',a,ex,file=sys.stderr)
+  _SCC[k]=ok;return ok
+def slow_secs(a):
+  try:
+    sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime');import slowdown as _SD
+    P=_SD.profile(a);dr=sections.get(a).get('drops') or []
+    if not P or not dr:return []
+    out=[]
+    for x,y in P['sections']:
+      if y<=dr[0][0]+2:continue  # intro
+      if x>=dr[-1][1]-4 or any(p<=x and y<=q for p,q in dr):out.append((x,y))  # outro or in-drop half-time (breakdowns are fine)
+    return out
+  except Exception as ex:
+    print('SLOWDOWN profile failed',a,ex,file=sys.stderr);return []
+def thin_swap(a,b,wa,wb):
+  ga,gb=track(a)['g']['bar'],track(b)['g']['bar'];la=np.asarray(ga.get('low',ga['all']),float);lb=np.asarray(gb.get('low',gb['all']),float)
+  wa,wb=list(wa),list(wb);q=len(wa)//4;sa=[k for k in wa[q:len(wa)-q] if 0<=k<len(la)];sb=[k for k in wb[q:len(wb)-q] if 0<=k<len(lb)]
+  if not sa or not sb:return False
+  return bool(np.median(la[sa])-np.percentile(la,75)<-THIN_DB and np.median(lb[sb])-np.percentile(lb,75)<-THIN_DB)
 XT={};inn={ids[0]:0};outs={};loops={};notes={};info_={}
 PLANNER_EXTRA_WINS=set()  # windows only added by window_planner.engine_cands (past bar-80 / before emin)
 def pair_cands(i,ia0):
@@ -281,6 +340,37 @@ def pair_cands(i,ia0):
     if b in ANCH and b not in NOIN:  # incoming anchor: start early enough to keep >=160 bars of its own music
       bmx=min(tail0(alb,bb),nb)-160;cands=[c for c in cands if c[2]<=max(0,bmx)] or cands
     LW=float(os.environ.get('LW',0.4))
+    THINK=set();DCUE=set();LDE=None
+    if STRUCT_THIN or THIN_DROPCUE:
+      for (k_,a_,b_,es_,ib_,X_) in list(STRK):
+        if a_!=a or b_!=b or X_!=X:continue
+        wa_=range(es_-X,es_);wb_=[ib_+(k%16) for k in range(X)] if k_=='lb' else range(ib_,ib_+X)
+        if thin_swap(a,b,wa_,wb_):
+          THINK.add((k_,a,b,es_,ib_,X));d1_=sections.get(b)['drop1']
+          if THIN_DROPCUE:
+            for (kk,ee,qq) in cands:
+              if kk=='n' and ee==es_ and qq<=d1_<=qq+X-4 and ('n',a,b,ee,qq,X) not in STRK:DCUE.add(('n',a,b,ee,qq,X))
+      THIN_LOG.append(dict(a=a,b=b,X=X,thin=sorted(map(str,THINK)),dropcue=sorted(map(str,DCUE))))
+      _dra=sections.get(a).get('drops') or [];LDE=(_dra[-1][1]-8) if (_dra and THINK and STRUCT_THIN) else None  # payoff guard: with the bonus gone, never trade the outgoing's last drop for it
+      if THINK:print('THIN',a,b,'X',X,'thin',sorted(THINK),'dropcue',sorted(DCUE),file=sys.stderr)
+    SLOWS=[];SLOWALT=set();LDE2=None
+    if SLOWDOWN:
+      SLOWS=slow_secs(a);_dra=sections.get(a).get('drops') or []
+      if SLOWS and _dra:
+        LDE2=_dra[-1][1]-8;d1b_=sections.get(b)['drop1']
+        hit=[k6 for k6 in STRK if k6[1]==a and k6[2]==b and k6[5]==X and any(x<=k6[3]-X<y for x,y in SLOWS)]
+        if hit:
+          s0=min(x for x,y in SLOWS if x>=LDE2) if any(x>=LDE2 for x,y in SLOWS) else None
+          if s0 is not None:
+            alts=[ee for (kk,ee,qq) in cands if kk=='n' and LDE2<=ee-X<s0]
+            ib_=d1b_-X
+            if alts and ib_>=0 and ib_+X<nb:
+              ee=max(alts)
+              if ('n',ee,ib_) not in set(cands):cands.append(('n',ee,ib_))
+              SLOWALT.add(('n',a,b,ee,ib_,X))
+        if not hit:LDE2=None  # payoff guard only where the slowdown actually displaced the bonus window
+        SLOW_LOG.append(dict(a=a,b=b,X=X,slow=SLOWS,hit=[str(h) for h in hit],alt=[str(h) for h in SLOWALT]))
+        print('SLOWDOWN',a,b,'X',X,'slow',SLOWS,'bonus window hit',hit,'alt',sorted(SLOWALT),file=sys.stderr)
     for kind,e,ib in cands:
       if kind=='lx':e,p=e;wa=lx_wa(a,p,X);ea=e;NOVOC.add(a)
       elif kind in('la','ab'):e,p=e;wa=[p+(k%16) for k in range(X)];ea=e
@@ -302,7 +392,18 @@ def pair_cands(i,ia0):
       if step>float(os.environ.get('SEAMMAX',2)) or r['both']<int(os.environ.get('BOTHMIN',11)):r['pen']+=float(os.environ.get('HARDPEN',60))  # hard limits: guardrail N1 (3 dB step) and O1 (>=8 bars)
       if CUEW>0:r['cue']=round(cue_pen(a,ea),3);r['pen']+=CUEW*r['cue']
       sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',40))*{'n':0,'la':1,'lb':1,'ab':2,'lx':0}[kind]+(LXPEN if kind=='lx' else 0),-ea,str(ib))
-      if (kind,a,b,ea,ib,X) in STRK:sc=(sc[0]-STRUCTW-(float(os.environ.get('LOOPPEN',40)) if kind=='lb' else 0),)+sc[1:]  # blend length chosen per pair from structure + fit (the listener 2026-10-31)
+      _k6=(kind,a,b,ea,ib,X)
+      if SLOWS and kind in ('n','lb') and any(x<=ea-X<y for x,y in SLOWS):sc=(sc[0]+STRUCTW,)+sc[1:]  # SLOWDOWN: blend may not start inside the outgoing's outro / in-drop slowdown
+      if SLOWALT and _k6 in SLOWALT:sc=(sc[0]-STRUCTW,)+sc[1:]
+      if LDE2 is not None and ea-X<LDE2:sc=(sc[0]+STRUCTW,)+sc[1:]  # SLOWDOWN payoff guard: never start before the last 8 bars of A's last drop  # SLOWDOWN: pro-like alternative inherits the outro-over-intro bonus
+      if LDE is not None and ea-X<LDE:sc=(sc[0]+STRUCTW,)+sc[1:]  # STRUCT_THIN payoff guard (2026-11-19): blend may not start before A's last drop has played (its last 8 bars may overlap)
+      if _k6 in STRK:
+        _bw=STRUCTB if not (STRUCT_COND and not struct_full(a,ea-X,ea)) else 0.0
+        if OUTRO_QC and _bw>0:_bw*=1-outro_qc(a,ea-X,ea)
+        if _k6 in THINK and THIN_DROPCUE and DCUE:_bw=0.0  # THIN_DROPCUE: the bonus moves to the drop-in-overlap cue(s)
+        elif _k6 in THINK and STRUCT_THIN:_bw=STRUCTW*STRUCT_THIN_W
+        sc=(sc[0]-_bw-(float(os.environ.get('LOOPPEN',40)) if kind=='lb' and _bw>0 else 0),)+sc[1:]
+      elif _k6 in DCUE:sc=(sc[0]-STRUCTW,)+sc[1:]  # blend length chosen per pair from structure + fit (the listener 2026-10-31)
       res.append((sc,kind,(e,p) if kind in('la','ab','lx') else e,ib,r,X))
   X=XMAX;res.sort(key=lambda t:t[0]);return res
 def win_key(c):return [c[1],*(c[2] if isinstance(c[2],tuple) else (c[2],None)),c[3],c[5]]  # [kind, out bar, loop phrase, in bar, blend bars]

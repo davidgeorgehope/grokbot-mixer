@@ -29,6 +29,13 @@ def make(pick_id, name=None, rules=None, out_dir=None):
         os.chdir(cwd)
     summ.update(pick_id=pick_id, fam=info['fam'], win=info['win'], score=sc['score'], score_v2=sc.get('score_v2'),
                 breakdown=sc.get('breakdown'), ours=info['ours'])
+    # 2026-11-19 standard: "pro pick vs ours and why" table + PNG for every daily delivery / RCA (before cleanup: needs the st/ grids)
+    try:
+        import provsours
+        pv = provsours.make(pick_id, name, {'ours': list(info['win'])}, out_dir)
+        summ['provsours'] = dict(md=os.path.join(out_dir, name + '_provsours.md'), png=os.path.join(out_dir, name + '_provsours.png'), rows=pv['rows'])
+    except Exception as ex:
+        summ['provsours'] = dict(error=f'{type(ex).__name__}: {str(ex)[-200:]}')
     json.dump(summ, open(os.path.join(out_dir, name + '.json'), 'w'), indent=1, default=str)
     cleanup.drop_our_src2(info.get('created') or [])
     return summ
@@ -38,4 +45,4 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser(); ap.add_argument('pick_id'); ap.add_argument('--date'); ap.add_argument('--rules'); ap.add_argument('--name')
     a = ap.parse_args()
     s = make(a.pick_id, a.name or (f'daily_{a.date}' if a.date else None), json.load(open(a.rules)) if a.rules else None)
-    print('DIAG ' + json.dumps({k: s.get(k) for k in ('png', 'score', 'score_v2', 'fam', 'halfbeat', 'pro_lock')}, default=str))
+    print('DIAG ' + json.dumps({k: s.get(k) for k in ('png', 'score', 'score_v2', 'fam', 'halfbeat', 'pro_lock', 'provsours')}, default=str))

@@ -68,15 +68,23 @@ def wfeat(r, w):
             (bb.get('drop') or {}).get('bass', np.nan), (bbb.get('drop') or {}).get('bass', np.nan), (bb.get('outro') or {}).get('bass', np.nan), (bbb.get('intro') or {}).get('bass', np.nan)] + \
            ([out_rise, wob, sd, anti, both_loud] if os.environ.get('PUMPF', '0') == '1' else []) + (_lanes(r, s, ib, X) if os.environ.get('LANES', '0') == '1' else [])
 def _lanes(r, s, ib, X):
-    import lanesim_1119 as LS; f = LS.sim(st(r['ya']), st(r['yb']), s, ib, X); return [f['sim2_vdip'], f['sim2_lohi_vdip'], f['sim2_min_rel']]
+    import lanesim_1119 as LS; f = LS.sim(st(r['ya']), st(r['yb']), s, ib, X); return [f['sim2_vdip'], f['sim2_lohi_vdip'], f['sim2_min_rel']] + ([f['sim2_lowsdrop'], f['sim2_thin']] if os.environ.get('LANES2', '0') == '1' else [])  # LANES2 (2026-11-19 RCA): summed-lows drop + thin swap
 FN = ['X', 'e', 'ib', 'left', 'e_minus_outro', 'past_end', 'e_minus_tail0', 'is_mid', 'secA_s', 'secA_m', 'secA_e', 'secB_s', 'secB_m', 'secB_e', 'A_drop_frac', 'B_drop_frac',
       'both_drop_frac', 'e_mod16', 'ib_mod16', 'ibd1_mod16', 'ibX_minus_d1', 'ib_minus_d1', 'd_e_dropend', 'd_s_dropstart', 'd_e_outro', 'A_low_rel', 'B_low_rel', 'A_slope', 'B_slope',
-      'sumlow_hole', 'low_stack', 'A_low_end', 'B_low_start', 'A_dropbass', 'B_dropbass', 'A_outrobass', 'B_introbass'] + (['sim_out_rise', 'sim_wobble', 'sim_sum_sd', 'sim_anti_r', 'sim_both_loud'] if os.environ.get('PUMPF', '0') == '1' else []) + (['sim2_vdip', 'sim2_lohi_vdip', 'sim2_min_rel'] if os.environ.get('LANES', '0') == '1' else [])
+      'sumlow_hole', 'low_stack', 'A_low_end', 'B_low_start', 'A_dropbass', 'B_dropbass', 'A_outrobass', 'B_introbass'] + (['sim_out_rise', 'sim_wobble', 'sim_sum_sd', 'sim_anti_r', 'sim_both_loud'] if os.environ.get('PUMPF', '0') == '1' else []) + (['sim2_vdip', 'sim2_lohi_vdip', 'sim2_min_rel'] + (['sim2_lowsdrop', 'sim2_thin'] if os.environ.get('LANES2', '0') == '1' else []) if os.environ.get('LANES', '0') == '1' else [])
 
 def dev_rows():
     rows = [r for r in B.build(P.rows_all(), P.load_rendered_defaults()) if r['set'] == 'dev']
     for r in rows:
         f = json.load(open(os.path.join(P0, 'corpus_v2', 'features', r['id'] + '.json'))); r['ya'], r['yb'] = f['track_a']['yt'], f['track_b']['yt']
+    if os.environ.get('THINDEF'):  # THINDEF=<eval_gate variant>: that variant's engine default window replaces the default (2026-11-19 thin flags + d)
+        p = os.path.join(H, 'gate_ckpt', os.environ['THINDEF'] + '.jsonl'); W = {}
+        for l in open(p):
+            g = json.loads(l)
+            if not g.get('error') and g.get('win') and g['win'][0] == 'n': W[g['id']] = g['win']
+        for r in rows:
+            w = W.get(r['id'])
+            if w: r['dX'] = int(w[4]); r['dcue'] = int(w[3]) + 1; r['dex'] = int(w[1]) - int(w[4]) + 1
     return rows
 def load(v):
     p = os.path.join(H, 'hc2_cache', f'arr_{v}.pkl'); return pickle.load(open(p, 'rb')) if os.path.exists(p) else {}
@@ -127,7 +135,7 @@ def default_win(r): return ['n', int(round((r['dex'] + r['dX'] - 1) / 8) * 8), N
 
 def plan(tag, lam):
     rows = dev_rows(); DEF = {}
-    for v in ('default', 'ndef1119'):
+    for v in ([os.environ['THINDEF']] if os.environ.get('THINDEF') else []) + ['default', 'ndef1119']:
         for k, a in load(v).items(): DEF.setdefault(k, a)
     src = lambda y: os.path.exists(os.path.join(P0, 'corpus_v2', 'feat_lib', y + '.m4a')) or os.path.exists(os.path.join(H, 'nightly_1119_work', 'src', y + '.m4a'))
     ev = [r for r in rows if r['id'] in DEF and src(r['ya']) and src(r['yb'])]
@@ -146,12 +154,18 @@ def plan(tag, lam):
             offsec = np.array([min((abs((c['win'][1] - c['win'][4] + 1) - v) for v in bnd), default=99) > 4 for c in C]) if secpen else np.zeros(len(C))
             paypen = float(os.environ.get('PAYPEN', 0)); pay = np.array([payoff_miss(r, c['win']) for c in C]) if paypen else np.zeros(len(C))
             score = pr + 0.15 * np.array([not c['phrase_ok'] for c in C]) + lam * (1 - fit) + secpen * offsec + paypen * pay
-            o = np.argsort(score); di = len(C) - 1
+            di = len(C) - 1; veto_def = False
+            if os.environ.get('RISKVETO', '0') == '1':  # RISKVETO (2026-11-19, research): pre-render veto from the fold's own risk model.
+                # tau = 80th pct of the model's risk on its training rows (that quintile fails ~60% in CV); vetoed non-default windows are
+                # pushed to the back; a vetoed default no longer wins by default when a non-vetoed alternative exists (replan).
+                tau = float(np.percentile(m.predict_proba(Xr[djr != d])[:, 1], 80)); vet = pr >= tau
+                score = score + 10.0 * (vet & (np.arange(len(C)) != di)); veto_def = bool(vet[di]) and bool((~vet[:di]).any())
+            o = np.argsort(score)
             top = [int(j) for j in o if j != di][:2]
             rec = dict(id=r['id'], dj=d, mix=r['mix'], pro_out=r['pro_out'], pro_in=r['pro_in'], default_win=dw, default_risk=round(float(pr[di]), 3), default_score=round(float(score[di]), 3),
                        default_rank=int(np.where(o == di)[0][0]), n_cands=len(C),
                        top=[dict(win=C[j]['win'], risk=round(float(pr[j]), 3), fit=round(float(fit[j]), 3), score=round(float(score[j]), 3), is_mid=bool(NA(r['sa']) - (C[j]['win'][1] - C[j]['win'][4] + 1) >= 32)) for j in top])
-            rec['keep_default'] = bool(not top or score[di] <= min(score[j] for j in top))
+            rec['keep_default'] = bool(not top or (score[di] <= min(score[j] for j in top) and not veto_def)); rec['veto_default'] = veto_def
             if not rec['keep_default']:
                 W1[f"{r['ya']}|{r['yb']}"] = rec['top'][0]['win']
                 if len(rec['top']) > 1: W2[f"{r['ya']}|{r['yb']}"] = rec['top'][1]['win']

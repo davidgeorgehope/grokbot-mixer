@@ -9,7 +9,7 @@ T = sys.argv[1]; WK = os.path.join(H, 'safeplace_work'); L = json.load(open(os.p
 def load(v):
     p = os.path.join(H, 'hc2_cache', f'arr_{v}.pkl'); return pickle.load(open(p, 'rb')) if os.path.exists(p) else {}
 DEF = {}
-for v in ('default', 'ndef1119'):
+for v in ([os.environ['THINDEF']] if os.environ.get('THINDEF') else []) + ['default', 'ndef1119']:  # THINDEF: thin-flag default renders override (2026-11-19)
     for k, a in load(v).items(): DEF.setdefault(k, a)
 R1, R2 = load(f'sp1119{T}1'), load(f'sp1119{T}2'); R = {r['id']: r for r in P.rows_all()}
 def ok(a, w): return a is not None and list(a['win']) == list(w)

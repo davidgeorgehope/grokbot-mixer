@@ -1,0 +1,1479 @@
+{
+ "variant": "d",
+ "n": 91,
+ "n_mixes": 15,
+ "default_fail": 0.154,
+ "gated_fail": 0.033,
+ "variant_final_fail": 0.033,
+ "gated_minus_default": {
+  "delta": -0.121,
+  "ci": [
+   -0.205,
+   -0.062
+  ]
+ },
+ "changed": 11,
+ "changed_share": 0.121,
+ "lodo_delta_range": [
+  -0.135,
+  -0.097
+ ],
+ "rows": [
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__00",
+   "mix": "alpha_rhythm__fNcLmH-CYQ",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__01",
+   "mix": "alpha_rhythm__fNcLmH-CYQ",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__02",
+   "mix": "alpha_rhythm__fNcLmH-CYQ",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__15",
+   "mix": "alpha_rhythm_TnnrrqVRZIM",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_AU0V19j8oKM__12",
+   "mix": "alpha_rhythm_AU0V19j8oKM",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_AU0V19j8oKM__16",
+   "mix": "alpha_rhythm_AU0V19j8oKM",
+   "dj": "Alpha Rhythm",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__05",
+   "mix": "alpha_rhythm_V0BMNeOy_t4",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__06",
+   "mix": "alpha_rhythm_V0BMNeOy_t4",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__07",
+   "mix": "alpha_rhythm_V0BMNeOy_t4",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__03",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "dj": "Alpha Rhythm",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__07",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__09",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "dj": "Alpha Rhythm",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__10",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "dj": "Alpha Rhythm",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__15",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__16",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__13",
+   "mix": "alpha_rhythm_TnnrrqVRZIM",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__14",
+   "mix": "alpha_rhythm_TnnrrqVRZIM",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_hb7PvukS-Pk__07",
+   "mix": "alpha_rhythm_hb7PvukS-Pk",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "alpha_rhythm_hb7PvukS-Pk__11",
+   "mix": "alpha_rhythm_hb7PvukS-Pk",
+   "dj": "Alpha Rhythm",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__09",
+   "mix": "fryett_ltdJ6GFixfs",
+   "dj": "Fryett",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__25",
+   "mix": "fryett_ltdJ6GFixfs",
+   "dj": "Fryett",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    48,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__26",
+   "mix": "fryett_ltdJ6GFixfs",
+   "dj": "Fryett",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__46",
+   "mix": "fryett_ltdJ6GFixfs",
+   "dj": "Fryett",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "fryett_ltdJ6GFixfs__52",
+   "mix": "fryett_ltdJ6GFixfs",
+   "dj": "Fryett",
+   "def_fail": true,
+   "g_fail": true,
+   "g_win": [
+    "n",
+    208,
+    null,
+    24,
+    16
+   ],
+   "changed": false,
+   "v_fail": true
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__06",
+   "mix": "john_b_RyhRkT6DQTQ",
+   "dj": "John B",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    18,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__10",
+   "mix": "john_b_RyhRkT6DQTQ",
+   "dj": "John B",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    224,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__31",
+   "mix": "john_b_RyhRkT6DQTQ",
+   "dj": "John B",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__50",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__53",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__55",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__59",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__60",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__64",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__65",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__66",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__70",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    8,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__72",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__74",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__75",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__76",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "dj": "MrMoMMusic",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__02",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__04",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__05",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__08",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__09",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__10",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__11",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    112,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__12",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__13",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__14",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__15",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__23",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__26",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__27",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__28",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    224,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__31",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "sound_territory_p5JM5r2J8r0__34",
+   "mix": "sound_territory_p5JM5r2J8r0",
+   "dj": "Sound Territory",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__07",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__09",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__10",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    256,
+    null,
+    24,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__14",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__15",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    288,
+    null,
+    48,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__18",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    240,
+    null,
+    48,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__22",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__25",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    256,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__27",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    48,
+    32
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__30",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    40,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__46",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "dj": "SuicideSheeep",
+   "def_fail": true,
+   "g_fail": true,
+   "g_win": [
+    "n",
+    320,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": true
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__05",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "dj": "TheHeshBesh",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__06",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "dj": "TheHeshBesh",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__07",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "dj": "TheHeshBesh",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__10",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "dj": "TheHeshBesh",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__13",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "dj": "TheHeshBesh",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__15",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "dj": "TheHeshBesh",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    8,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__27",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "dj": "TheHeshBesh",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "theheshbesh_zHf8cC9ViuA__39",
+   "mix": "theheshbesh_zHf8cC9ViuA",
+   "dj": "TheHeshBesh",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__16",
+   "mix": "ukf_drum_bass_abhfer_BNoQ",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_abhfer_BNoQ__25",
+   "mix": "ukf_drum_bass_abhfer_BNoQ",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__18",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    144,
+    null,
+    48,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "dj": "UKF Drum & Bass",
+   "def_fail": true,
+   "g_fail": true,
+   "g_win": [
+    "n",
+    128,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": true
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__22",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    24,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    144,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__43",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+   "mix": "ukf_drum_bass_LeMk0yiSoq4",
+   "dj": "UKF Drum & Bass",
+   "def_fail": true,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "changed": true,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__11",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    8,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__17",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    128,
+    null,
+    24,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__21",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    128,
+    null,
+    0,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__35",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    160,
+    null,
+    48,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  },
+  {
+   "id": "ukf_drum_bass_cCtoa1U_1DE__40",
+   "mix": "ukf_drum_bass_cCtoa1U_1DE",
+   "dj": "UKF Drum & Bass",
+   "def_fail": false,
+   "g_fail": false,
+   "g_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "changed": false,
+   "v_fail": false
+  }
+ ]
+}

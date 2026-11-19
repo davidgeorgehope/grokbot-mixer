@@ -1,0 +1,1256 @@
+[
+ {
+  "id": "wilkinson_boomtown2026__33",
+  "split": "test",
+  "default_win": [
+   "n",
+   96,
+   null,
+   0,
+   32
+  ],
+  "default_risk": 0.426,
+  "keep_default": false,
+  "veto_default": true,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     7,
+     16
+    ],
+    "risk": 0.088,
+    "score": 0.399
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.112,
+    "score": 0.428
+   }
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__01",
+  "split": "train",
+  "default_win": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.152,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.034,
+    "score": 0.174
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.051,
+    "score": 0.202
+   }
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__08",
+  "split": "train",
+  "default_win": [
+   "n",
+   240,
+   null,
+   40,
+   16
+  ],
+  "default_risk": 0.14,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     31,
+     16
+    ],
+    "risk": 0.062,
+    "score": 0.176
+   },
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     15,
+     16
+    ],
+    "risk": 0.056,
+    "score": 0.182
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__08",
+  "split": "train",
+  "default_win": [
+   "n",
+   224,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.074,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.027,
+    "score": 0.219
+   },
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.048,
+    "score": 0.227
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__11",
+  "split": "train",
+  "default_win": [
+   "n",
+   208,
+   null,
+   64,
+   16
+  ],
+  "default_risk": 0.972,
+  "keep_default": false,
+  "veto_default": true,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.031,
+    "score": 0.354
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.045,
+    "score": 0.362
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__12",
+  "split": "train",
+  "default_win": [
+   "n",
+   304,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.235,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     288,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.061,
+    "score": 0.213
+   },
+   {
+    "win": [
+     "n",
+     288,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.036,
+    "score": 0.224
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__19",
+  "split": "train",
+  "default_win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.024,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.019,
+    "score": 0.264
+   },
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.008,
+    "score": 0.265
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__25",
+  "split": "train",
+  "default_win": [
+   "n",
+   192,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.024,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.013,
+    "score": 0.297
+   },
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.018,
+    "score": 0.325
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__45",
+  "split": "train",
+  "default_win": [
+   "n",
+   128,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.214,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.052,
+    "score": 0.072
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.054,
+    "score": 0.101
+   }
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__02",
+  "split": "test",
+  "default_win": [
+   "n",
+   176,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.551,
+  "keep_default": false,
+  "veto_default": true,
+  "top": [
+   {
+    "win": [
+     "n",
+     80,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.035,
+    "score": 0.368
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.057,
+    "score": 0.372
+   }
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__06",
+  "split": "test",
+  "default_win": [
+   "n",
+   320,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.019,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     304,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.013,
+    "score": 0.258
+   },
+   {
+    "win": [
+     "n",
+     304,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.029,
+    "score": 0.271
+   }
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__17",
+  "split": "test",
+  "default_win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.036,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.009,
+    "score": 0.172
+   },
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.017,
+    "score": 0.177
+   }
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__11",
+  "split": "train",
+  "default_win": [
+   "n",
+   240,
+   null,
+   24,
+   16
+  ],
+  "default_risk": 0.023,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.015,
+    "score": 0.212
+   },
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     25,
+     16
+    ],
+    "risk": 0.008,
+    "score": 0.214
+   }
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__12",
+  "split": "train",
+  "default_win": [
+   "n",
+   224,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.066,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.019,
+    "score": 0.199
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     31,
+     16
+    ],
+    "risk": 0.018,
+    "score": 0.205
+   }
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__13",
+  "split": "train",
+  "default_win": [
+   "n",
+   256,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.13,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.053,
+    "score": 0.075
+   },
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     45,
+     16
+    ],
+    "risk": 0.055,
+    "score": 0.088
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__00",
+  "split": "train",
+  "default_win": [
+   "n",
+   224,
+   null,
+   8,
+   16
+  ],
+  "default_risk": 0.972,
+  "keep_default": false,
+  "veto_default": true,
+  "top": [
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.038,
+    "score": 0.053
+   },
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     22,
+     16
+    ],
+    "risk": 0.06,
+    "score": 0.077
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__09",
+  "split": "train",
+  "default_win": [
+   "n",
+   208,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.041,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.061,
+    "score": 0.228
+   },
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.033,
+    "score": 0.232
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__10",
+  "split": "train",
+  "default_win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.112,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.012,
+    "score": 0.165
+   },
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     52,
+     16
+    ],
+    "risk": 0.009,
+    "score": 0.172
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__28",
+  "split": "train",
+  "default_win": [
+   "n",
+   240,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.216,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.02,
+    "score": 0.037
+   },
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.032,
+    "score": 0.063
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__40",
+  "split": "train",
+  "default_win": [
+   "n",
+   272,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.95,
+  "keep_default": false,
+  "veto_default": true,
+  "top": [
+   {
+    "win": [
+     "n",
+     272,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.091,
+    "score": 0.214
+   },
+   {
+    "win": [
+     "n",
+     272,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.109,
+    "score": 0.263
+   }
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__00",
+  "split": "train",
+  "default_win": [
+   "n",
+   96,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.033,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.052,
+    "score": 0.271
+   },
+   {
+    "win": [
+     "n",
+     80,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.043,
+    "score": 0.362
+   }
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__09",
+  "split": "train",
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.017,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     12,
+     16
+    ],
+    "risk": 0.02,
+    "score": 0.184
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.014,
+    "score": 0.194
+   }
+  ]
+ },
+ {
+  "id": "joe_syntax_hospital__14",
+  "split": "train",
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.019,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     20,
+     16
+    ],
+    "risk": 0.011,
+    "score": 0.176
+   },
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.013,
+    "score": 0.182
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__13",
+  "split": "train",
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.014,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.013,
+    "score": 0.19
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.009,
+    "score": 0.208
+   }
+  ]
+ },
+ {
+  "id": "hybrid_minds_ukf__23",
+  "split": "train",
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.036,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.027,
+    "score": 0.205
+   },
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.034,
+    "score": 0.224
+   }
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__15",
+  "split": "test",
+  "default_win": [
+   "n",
+   240,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.045,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.045,
+    "score": 0.174
+   },
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.047,
+    "score": 0.252
+   }
+  ]
+ },
+ {
+  "id": "netsky_hospital_classics__23",
+  "split": "test",
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.011,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.013,
+    "score": 0.166
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     36,
+     16
+    ],
+    "risk": 0.019,
+    "score": 0.168
+   }
+  ]
+ },
+ {
+  "id": "maduk_liquicity_lunar2025__02",
+  "split": "test",
+  "default_win": [
+   "n",
+   112,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.515,
+  "keep_default": false,
+  "veto_default": true,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.038,
+    "score": 0.352
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.041,
+    "score": 0.354
+   }
+  ]
+ },
+ {
+  "id": "maduk_liquicity_lunar2025__03",
+  "split": "test",
+  "default_win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.033,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.038,
+    "score": 0.21
+   },
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     19,
+     16
+    ],
+    "risk": 0.04,
+    "score": 0.221
+   }
+  ]
+ },
+ {
+  "id": "maduk_liquicity_lunar2025__05",
+  "split": "test",
+  "default_win": [
+   "n",
+   240,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.046,
+  "keep_default": false,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.036,
+    "score": 0.162
+   },
+   {
+    "win": [
+     "n",
+     240,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.078,
+    "score": 0.213
+   }
+  ]
+ },
+ {
+  "id": "pola_bryson_puzzlewood__00",
+  "split": "test",
+  "default_win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.04,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.021,
+    "score": 0.316
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.015,
+    "score": 0.33
+   }
+  ]
+ },
+ {
+  "id": "pola_bryson_puzzlewood__02",
+  "split": "test",
+  "default_win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.033,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.047,
+    "score": 0.095
+   },
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.094,
+    "score": 0.119
+   }
+  ]
+ },
+ {
+  "id": "pola_bryson_puzzlewood__04",
+  "split": "test",
+  "default_win": [
+   "n",
+   224,
+   null,
+   40,
+   16
+  ],
+  "default_risk": 0.013,
+  "keep_default": true,
+  "veto_default": false,
+  "top": [
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.016,
+    "score": 0.193
+   },
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     24,
+     16
+    ],
+    "risk": 0.018,
+    "score": 0.202
+   }
+  ]
+ }
+]

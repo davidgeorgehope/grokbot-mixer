@@ -35,6 +35,19 @@
     "fresh mix (for_night 2026-11-20 in fresh_mixes.json), once ingested, not worse than default on that mix"
    ],
    "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
+  },
+  {
+   "name": "epg_drop",
+   "promotion": false,
+   "shadow": true,
+   "delta": {
+    "EXITPOS": 1,
+    "EXITPOS_DROP": 1
+   },
+   "label": "EXITPOS_DROP: take an exit at the end of the last drop (epg2 behaviour) only when incoming drop 1 lands in the blend, there is no hard fail, and the outgoing outro is quieter or thinner than the drop; block when pro data shows the outro carried the blend (HM45). Independent of EXITPOS_GATE. A pro-match drop alone must not kill this arm.",
+   "flags_off_by_default": true,
+   "do_not": "replace epg_strict as the n1120 promotion candidate; do not write rules.json; do not change defaults",
+   "note": "Shadow arm. Day eval job epgdrop-1119. the listener's ear picks (JS01, netsky__02) are scored separately from pro-match."
   }
  ]
 }

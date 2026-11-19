@@ -1,0 +1,2801 @@
+{
+ "n": 33,
+ "n_take": 8,
+ "rows": [
+  {
+   "id": "wilkinson_boomtown2026__33",
+   "split": "test",
+   "dj": "Wilkinson",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     144,
+     8,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     96,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    144,
+    null,
+    8,
+    16
+   ],
+   "nat_long": [
+    "n",
+    96,
+    null,
+    0,
+    32
+   ],
+   "floor_win": [
+    "n",
+    96,
+    null,
+    0,
+    32
+   ],
+   "floor_fam": "nat_long",
+   "picked": [
+    "n",
+    96,
+    null,
+    0,
+    32
+   ],
+   "info": {
+    "default": [
+     96,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 30.2,
+   "epg2_score": 30.2,
+   "epg2_win": [
+    "n",
+    96,
+    null,
+    0,
+    32
+   ]
+  },
+  {
+   "id": "joe_syntax_hospital__01",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": true,
+   "reason": "drop_end",
+   "short": {
+    "default": [
+     160,
+     32,
+     16
+    ],
+    "alt": [
+     144,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 11.02,
+    "d_low": 21.57,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.279,
+    "known_hard_fail": false
+   },
+   "long": {
+    "default": [
+     160,
+     16,
+     32
+    ],
+    "alt": [
+     144,
+     32,
+     32
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 11.02,
+    "d_low": 21.57,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.279
+   },
+   "nat_short": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    144,
+    null,
+    32,
+    32
+   ],
+   "floor_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     160,
+     32,
+     16
+    ],
+    "alt": [
+     144,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 11.02,
+    "d_low": 21.57,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.279,
+    "known_hard_fail": false
+   },
+   "floor_score": 30.24,
+   "epg2_score": 36.0,
+   "epg2_win": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "joe_syntax_hospital__08",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     240,
+     40,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     240,
+     24,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    24,
+    32
+   ],
+   "floor_win": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ],
+   "info": {
+    "default": [
+     240,
+     40,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 30.08,
+   "epg2_score": 30.08,
+   "epg2_win": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__08",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "hard_fail",
+   "short": {
+    "default": [
+     224,
+     32,
+     16
+    ],
+    "alt": [
+     208,
+     32,
+     16
+    ],
+    "take": false,
+    "reason": "hard_fail",
+    "d_all": 7.48,
+    "d_low": 9.64,
+    "quiet": true,
+    "thin": true,
+    "frac": 0.0,
+    "pro": [
+     127.4,
+     173.4
+    ],
+    "ld": 208
+   },
+   "long": {
+    "default": [
+     224,
+     16,
+     32
+    ],
+    "alt": [
+     208,
+     32,
+     32
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 7.48,
+    "d_low": 9.64,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    208,
+    null,
+    32,
+    32
+   ],
+   "floor_win": [
+    "n",
+    224,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    224,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     224,
+     32,
+     16
+    ],
+    "alt": [
+     208,
+     32,
+     16
+    ],
+    "take": false,
+    "reason": "hard_fail",
+    "d_all": 7.48,
+    "d_low": 9.64,
+    "quiet": true,
+    "thin": true,
+    "frac": 0.0,
+    "pro": [
+     127.4,
+     173.4
+    ],
+    "ld": 208
+   },
+   "floor_score": 42.98,
+   "epg2_score": 39.15,
+   "epg2_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__11",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     208,
+     64,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     208,
+     48,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ],
+   "nat_long": [
+    "n",
+    208,
+    null,
+    48,
+    32
+   ],
+   "floor_win": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ],
+   "info": {
+    "default": [
+     208,
+     64,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 34.15,
+   "epg2_score": 34.15,
+   "epg2_win": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__12",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     304,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     304,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    304,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    304,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    304,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    304,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     304,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 12.03,
+   "epg2_score": 12.03,
+   "epg2_win": [
+    "n",
+    304,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__19",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     176,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     176,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    176,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     176,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 27.92,
+   "epg2_score": 27.92,
+   "epg2_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__25",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     192,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     192,
+     64,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    64,
+    32
+   ],
+   "floor_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "info": {
+    "default": [
+     192,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 26.37,
+   "epg2_score": 26.37,
+   "epg2_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__45",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "pro_outro",
+   "short": {
+    "default": [
+     128,
+     32,
+     16
+    ],
+    "alt": [
+     112,
+     32,
+     16
+    ],
+    "take": false,
+    "reason": "pro_outro",
+    "frac": 0.578,
+    "pro": [
+     96.4,
+     133.4
+    ],
+    "ld": 112
+   },
+   "long": {
+    "default": [
+     128,
+     16,
+     32
+    ],
+    "alt": [
+     112,
+     16,
+     32
+    ],
+    "take": false,
+    "reason": "pro_outro",
+    "frac": 0.578,
+    "pro": [
+     96.4,
+     133.4
+    ],
+    "ld": 112
+   },
+   "nat_short": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    128,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     128,
+     32,
+     16
+    ],
+    "alt": [
+     112,
+     32,
+     16
+    ],
+    "take": false,
+    "reason": "pro_outro",
+    "frac": 0.578,
+    "pro": [
+     96.4,
+     133.4
+    ],
+    "ld": 112
+   },
+   "floor_score": 41.6,
+   "epg2_score": 35.16,
+   "epg2_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "netsky_hospital_classics__02",
+   "split": "test",
+   "dj": "Netsky",
+   "take": true,
+   "reason": "drop_end",
+   "short": {
+    "default": [
+     176,
+     0,
+     16
+    ],
+    "alt": [
+     160,
+     0,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 7.92,
+    "d_low": 8.29,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "long": {
+    "default": [
+     160,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    160,
+    null,
+    0,
+    16
+   ],
+   "nat_long": [
+    "n",
+    160,
+    null,
+    0,
+    32
+   ],
+   "floor_win": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    160,
+    null,
+    0,
+    16
+   ],
+   "info": {
+    "default": [
+     176,
+     0,
+     16
+    ],
+    "alt": [
+     160,
+     0,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 7.92,
+    "d_low": 8.29,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "floor_score": 43.75,
+   "epg2_score": 34.15,
+   "epg2_win": [
+    "n",
+    160,
+    null,
+    0,
+    16
+   ]
+  },
+  {
+   "id": "netsky_hospital_classics__06",
+   "split": "test",
+   "dj": "Netsky",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     320,
+     48,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     320,
+     32,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    320,
+    null,
+    48,
+    16
+   ],
+   "nat_long": [
+    "n",
+    320,
+    null,
+    32,
+    32
+   ],
+   "floor_win": [
+    "n",
+    320,
+    null,
+    48,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    320,
+    null,
+    48,
+    16
+   ],
+   "info": {
+    "default": [
+     320,
+     48,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 27.58,
+   "epg2_score": 27.58,
+   "epg2_win": [
+    "n",
+    320,
+    null,
+    48,
+    16
+   ]
+  },
+  {
+   "id": "netsky_hospital_classics__17",
+   "split": "test",
+   "dj": "Netsky",
+   "take": true,
+   "reason": "drop_end",
+   "short": {
+    "default": [
+     256,
+     32,
+     16
+    ],
+    "alt": [
+     240,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 5.52,
+    "d_low": 19.38,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "long": {
+    "default": [
+     256,
+     16,
+     32
+    ],
+    "alt": [
+     240,
+     32,
+     32
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 5.52,
+    "d_low": 19.38,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    32,
+    32
+   ],
+   "floor_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     256,
+     32,
+     16
+    ],
+    "alt": [
+     240,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 5.52,
+    "d_low": 19.38,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "floor_score": 33.35,
+   "epg2_score": 32.49,
+   "epg2_win": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     240,
+     24,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     240,
+     8,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    8,
+    32
+   ],
+   "floor_win": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ],
+   "info": {
+    "default": [
+     240,
+     24,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 60.51,
+   "epg2_score": 60.51,
+   "epg2_win": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ]
+  },
+  {
+   "id": "joe_syntax_hospital__12",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "pro_outro",
+   "short": {
+    "default": [
+     224,
+     48,
+     16
+    ],
+    "alt": [
+     192,
+     48,
+     16
+    ],
+    "take": false,
+    "reason": "pro_outro",
+    "frac": 0.842,
+    "pro": [
+     189.0,
+     208.0
+    ],
+    "ld": 192
+   },
+   "long": {
+    "default": [
+     224,
+     32,
+     32
+    ],
+    "alt": [
+     192,
+     48,
+     32
+    ],
+    "take": false,
+    "reason": "pro_outro",
+    "frac": 0.842,
+    "pro": [
+     189.0,
+     208.0
+    ],
+    "ld": 192
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "nat_long": [
+    "n",
+    224,
+    null,
+    32,
+    32
+   ],
+   "floor_win": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "info": {
+    "default": [
+     224,
+     48,
+     16
+    ],
+    "alt": [
+     192,
+     48,
+     16
+    ],
+    "take": false,
+    "reason": "pro_outro",
+    "frac": 0.842,
+    "pro": [
+     189.0,
+     208.0
+    ],
+    "ld": 192
+   },
+   "floor_score": 32.29,
+   "epg2_score": 34.34,
+   "epg2_win": [
+    "n",
+    192,
+    null,
+    48,
+    16
+   ]
+  },
+  {
+   "id": "joe_syntax_hospital__13",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": true,
+   "reason": "drop_end",
+   "short": {
+    "default": [
+     256,
+     48,
+     16
+    ],
+    "alt": [
+     224,
+     48,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 6.3,
+    "d_low": 10.65,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "long": {
+    "default": [
+     256,
+     32,
+     32
+    ],
+    "alt": [
+     240,
+     48,
+     32
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 6.3,
+    "d_low": 10.65,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    48,
+    32
+   ],
+   "floor_win": [
+    "n",
+    256,
+    null,
+    48,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "info": {
+    "default": [
+     256,
+     48,
+     16
+    ],
+    "alt": [
+     224,
+     48,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 6.3,
+    "d_low": 10.65,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "floor_score": 19.81,
+   "epg2_score": 26.04,
+   "epg2_win": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__00",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": true,
+   "reason": "drop_end",
+   "short": {
+    "default": [
+     224,
+     8,
+     16
+    ],
+    "alt": [
+     208,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 3.01,
+    "d_low": 5.02,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "long": {
+    "default": [
+     224,
+     0,
+     32
+    ],
+    "alt": [
+     208,
+     0,
+     32
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 3.01,
+    "d_low": 5.02,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0
+   },
+   "nat_short": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    208,
+    null,
+    0,
+    32
+   ],
+   "floor_win": [
+    "n",
+    224,
+    null,
+    8,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "info": {
+    "default": [
+     224,
+     8,
+     16
+    ],
+    "alt": [
+     208,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 3.01,
+    "d_low": 5.02,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "floor_score": 29.45,
+   "epg2_score": 25.32,
+   "epg2_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     208,
+     48,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     208,
+     32,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "nat_long": [
+    "n",
+    208,
+    null,
+    32,
+    32
+   ],
+   "floor_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "info": {
+    "default": [
+     208,
+     48,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 32.58,
+   "epg2_score": 32.58,
+   "epg2_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__10",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": true,
+   "reason": "drop_end",
+   "short": {
+    "default": [
+     256,
+     32,
+     16
+    ],
+    "alt": [
+     240,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 12.41,
+    "d_low": 20.58,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "long": {
+    "default": [
+     256,
+     16,
+     32
+    ],
+    "alt": [
+     240,
+     32,
+     32
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 12.41,
+    "d_low": 20.58,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    32,
+    32
+   ],
+   "floor_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     256,
+     32,
+     16
+    ],
+    "alt": [
+     240,
+     32,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 12.41,
+    "d_low": 20.58,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "floor_score": 36.67,
+   "epg2_score": 39.16,
+   "epg2_win": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": true,
+   "reason": "drop_end",
+   "short": {
+    "default": [
+     240,
+     16,
+     16
+    ],
+    "alt": [
+     208,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 4.63,
+    "d_low": 10.25,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "long": {
+    "default": [
+     240,
+     0,
+     32
+    ],
+    "alt": [
+     208,
+     0,
+     32
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 4.63,
+    "d_low": 10.25,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0
+   },
+   "nat_short": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    208,
+    null,
+    0,
+    32
+   ],
+   "floor_win": [
+    "n",
+    240,
+    null,
+    16,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "info": {
+    "default": [
+     240,
+     16,
+     16
+    ],
+    "alt": [
+     208,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 4.63,
+    "d_low": 10.25,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "floor_score": 40.68,
+   "epg2_score": 25.67,
+   "epg2_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__40",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     272,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     272,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    272,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    272,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    272,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    272,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     272,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 31.0,
+   "epg2_score": 31.0,
+   "epg2_win": [
+    "n",
+    272,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "joe_syntax_hospital__00",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     96,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     64,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    96,
+    null,
+    0,
+    16
+   ],
+   "nat_long": [
+    "n",
+    64,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    96,
+    null,
+    0,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    96,
+    null,
+    0,
+    16
+   ],
+   "info": {
+    "default": [
+     96,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 29.36,
+   "epg2_score": 29.36,
+   "epg2_win": [
+    "n",
+    96,
+    null,
+    0,
+    16
+   ]
+  },
+  {
+   "id": "joe_syntax_hospital__09",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     192,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     192,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    0,
+    32
+   ],
+   "floor_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "info": {
+    "default": [
+     192,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 28.36,
+   "epg2_score": 28.36,
+   "epg2_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ]
+  },
+  {
+   "id": "joe_syntax_hospital__14",
+   "split": "train",
+   "dj": "Joe Syntax",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     224,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     224,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    224,
+    null,
+    0,
+    32
+   ],
+   "floor_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "info": {
+    "default": [
+     224,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 28.87,
+   "epg2_score": 28.87,
+   "epg2_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__13",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     192,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     192,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     192,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 33.72,
+   "epg2_score": 33.72,
+   "epg2_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "split": "train",
+   "dj": "Hybrid Minds",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     224,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     224,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    224,
+    null,
+    0,
+    32
+   ],
+   "floor_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "info": {
+    "default": [
+     224,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 31.79,
+   "epg2_score": 31.79,
+   "epg2_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ]
+  },
+  {
+   "id": "netsky_hospital_classics__15",
+   "split": "test",
+   "dj": "Netsky",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     240,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     240,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    0,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    240,
+    null,
+    0,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    240,
+    null,
+    0,
+    16
+   ],
+   "info": {
+    "default": [
+     240,
+     0,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 40.9,
+   "epg2_score": 40.9,
+   "epg2_win": [
+    "n",
+    240,
+    null,
+    0,
+    16
+   ]
+  },
+  {
+   "id": "netsky_hospital_classics__23",
+   "split": "test",
+   "dj": "Netsky",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     192,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     192,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    0,
+    32
+   ],
+   "floor_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "info": {
+    "default": [
+     192,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 28.45,
+   "epg2_score": 28.45,
+   "epg2_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ]
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__02",
+   "split": "test",
+   "dj": "Maduk",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     112,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     112,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    112,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     112,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 27.78,
+   "epg2_score": 27.78,
+   "epg2_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__03",
+   "split": "test",
+   "dj": "Maduk",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     176,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     176,
+     0,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    176,
+    null,
+    0,
+    32
+   ],
+   "floor_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "info": {
+    "default": [
+     176,
+     16,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 39.32,
+   "epg2_score": 39.32,
+   "epg2_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ]
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__05",
+   "split": "test",
+   "dj": "Maduk",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     240,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     240,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    240,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     240,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 23.58,
+   "epg2_score": 23.58,
+   "epg2_win": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "pola_bryson_puzzlewood__00",
+   "split": "test",
+   "dj": "Pola & Bryson",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     176,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     176,
+     16,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "nat_long": [
+    "n",
+    176,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "info": {
+    "default": [
+     176,
+     32,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 59.25,
+   "epg2_score": 59.25,
+   "epg2_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ]
+  },
+  {
+   "id": "pola_bryson_puzzlewood__02",
+   "split": "test",
+   "dj": "Pola & Bryson",
+   "take": true,
+   "reason": "drop_end",
+   "short": {
+    "default": [
+     208,
+     16,
+     16
+    ],
+    "alt": [
+     192,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 4.9,
+    "d_low": 8.62,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "long": {
+    "default": [
+     208,
+     0,
+     32
+    ],
+    "alt": [
+     192,
+     16,
+     32
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 4.9,
+    "d_low": 8.62,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0
+   },
+   "nat_short": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "nat_long": [
+    "n",
+    192,
+    null,
+    16,
+    32
+   ],
+   "floor_win": [
+    "n",
+    208,
+    null,
+    16,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "info": {
+    "default": [
+     208,
+     16,
+     16
+    ],
+    "alt": [
+     192,
+     16,
+     16
+    ],
+    "take": true,
+    "reason": "drop_end",
+    "d_all": 4.9,
+    "d_low": 8.62,
+    "quiet": true,
+    "thin": true,
+    "pro_frac": 0.0,
+    "known_hard_fail": false
+   },
+   "floor_score": 20.54,
+   "epg2_score": 29.07,
+   "epg2_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ]
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "split": "test",
+   "dj": "Pola & Bryson",
+   "take": false,
+   "reason": "no_alt",
+   "short": {
+    "default": [
+     224,
+     40,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "long": {
+    "default": [
+     224,
+     24,
+     32
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "nat_short": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "nat_long": [
+    "n",
+    224,
+    null,
+    24,
+    32
+   ],
+   "floor_win": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "floor_fam": "nat_short",
+   "picked": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "info": {
+    "default": [
+     224,
+     40,
+     16
+    ],
+    "alt": null,
+    "take": false,
+    "reason": "no_alt"
+   },
+   "floor_score": 34.12,
+   "epg2_score": 34.12,
+   "epg2_win": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ]
+  }
+ ]
+}

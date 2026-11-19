@@ -1,0 +1,38 @@
+{
+ "blend": 0,
+ "a": "pzFgQ7iIfXQ",
+ "b": "qeXTBEtGUtk",
+ "start_bar": 208.0,
+ "end_bar": 224.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epgdrop_hm00_default.png",
+ "halfbeat": {
+  "r0": 0.819,
+  "rh": 0.571,
+  "lag_ms": 0.0,
+  "bars": 2,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": null,
+ "offset_ms_median": -91.4,
+ "offset_bars": 9,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 36.1,
+ "bass_swap": [
+  213.0,
+  218.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.039566,
+  "pcty": 3.36452,
+  "Scol": 0.7719,
+  "Scty": 0.6458,
+  "banger_clash_rate": 0.0541,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

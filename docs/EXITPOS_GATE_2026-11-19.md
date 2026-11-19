@@ -72,3 +72,36 @@ wins. The nightly reads `protrans/replica/nightly_candidates.json` (and
 `promotion_criteria_1120.json`). Defaults and `rules.json` stay unchanged; a night-1 win is
 not an auto-adopt. Fresh mix queued in `fresh_mixes.json` for_night 2026-11-20:
 Sirenity `ofcHup56lME` (new DJ, not in dev, not spent).
+
+## epg_drop (shadow arm, 2026-11-19)
+
+A second flagged arm, independent of EXITPOS_GATE. `EXITPOS_DROP=1` (requires `EXITPOS=1`,
+off by default, not in `rules.json`) takes an exit right at the end of the last drop
+(the epg2 behaviour the listener preferred on netsky_hospital_classics__02, [pt556u]) only when:
+
+1. Incoming drop 1 lands inside the blend.
+2. The first 16 bars of the outgoing outro are at least 3 dB quieter (all bands) or 3 dB
+   thinner (lows) than the last 16 of the last drop.
+3. When pro placement is known, the outro does not carry the blend (fraction of the pro
+   outgoing overlap at or after last-drop end is below 0.5). This is the hybrid_minds_ukf__45
+   veto (pro fraction 0.58). joe_syntax_hospital__12 (0.84) is also blocked; its +16.49
+   earlier-outro window stays with epg_strict.
+4. The window is not a known hard fail (cache; unknown is allowed and checked after render).
+   hybrid_minds_ukf__08 is blocked this way.
+
+If both EXITPOS_GATE and EXITPOS_DROP are set, the hook runs only the gate, so epg_strict
+stays a pure arm. Thresholds were not fitted on held-out. Train check: JS01 allowed, HM45 blocked.
+
+Live 33-pair decisions (`epgdrop_decisions_1119.json`): 8 takes (JS01, netsky__02,
+netsky__17, JS13, HM00, HM10, HM28, pola__02) and the three epg2 takes above blocked.
+Predicted pro-match from already-scored windows: held-out 33.91 vs the 34.07 floor,
+train 32.18 vs 32.40. Both of the listener's ear picks are taken. A pro-match drop alone does
+not kill the arm. Hard-fail on the 33, from epbasem vs the taken epg2 windows: 8 to 6
+(fixes HM00 and HM28; leaves JS12's default fail for epg_strict). Leave-one-DJ-out of the
+pro cache does not change any take that is not itself the motivating veto: without that
+DJ's own pro row, energy alone would allow HM45 and JS12. Held-out DJs have no pro-outro
+blocks.
+
+epg_strict stays the n1120 promotion candidate. epg_drop is a shadow arm in
+`nightly_candidates.json`. Official 105-dev hard-fail and confirmation scores: job
+`epgdrop-1119` (webhook via runjob).

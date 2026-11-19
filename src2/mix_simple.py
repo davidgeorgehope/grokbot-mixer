@@ -247,7 +247,7 @@ def outro_qc(a,s,e):
 # EXITPOS_GATE=1 (2026-11-19, research, off by default): keep the outro-over-intro window as the safe default. An EXITPOS alternative is used
 # only when it exits earlier, A's last drop has played to its end, B's first drop lands inside the blend, and a leave-one-DJ-out logistic
 # (halftime/exitpos_gate.py) says the alternative is closer to a good blend than the default.
-EXITPOS=int(os.environ.get('EXITPOS',0));EXITPOS_GATE=int(os.environ.get('EXITPOS_GATE',0));EP_LOG=[];EPG_LOG=[]
+EXITPOS=int(os.environ.get('EXITPOS',0));EXITPOS_GATE=int(os.environ.get('EXITPOS_GATE',0));EXITPOS_DROP=int(os.environ.get('EXITPOS_DROP',0));EP_LOG=[];EPG_LOG=[]
 def exitpos_term(a,b,ea,ib,X,emx=None):
   try:
     sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime');import exitpos as _EP
@@ -473,6 +473,49 @@ def pair_cands(i,ia0):
         with open(_lf,'a') as _f:_f.write(_j.dumps(rec)+chr(10))
     except Exception as ex:
       print('EXITPOS_GATE failed',a,b,ex,file=sys.stderr)
+  if EXITPOS and EXITPOS_DROP and not EXITPOS_GATE and res:
+    def _dea(c):
+      e=c[2];return (e[0] if isinstance(e,tuple) else e,c[3],c[5],c[1])
+    def _ddcost(c):
+      sc,kind,e,ib,r,X=c;ea=_dea(c)[0];term=exitpos_term(a,b,ea,ib,X,e_max);bonus=0.0
+      if (kind,a,b,ea,ib,X) in STRK:
+        bonus=STRUCTB
+        if OUTRO_QC and bonus>0:bonus*=1-outro_qc(a,ea-X,ea)
+      return (sc[0]-term-bonus,)+sc[1:]
+    try:
+      sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime');import exitpos_drop as _ED
+      def _dfam(xpred):
+        cands=[c for c in res if _dea(c)[3]=='n' and xpred(_dea(c)[2])]
+        if not cands:return None,None,False,dict(reason='no_cand')
+        dwin=min(cands,key=_ddcost);default=_dea(dwin)[:3]
+        alts=[c for c in cands if _ED.hard_ok_drop(_dea(c)[:3],default,sections.get(a),sections.get(b))]
+        if not alts:return default,None,False,dict(reason='no_alt')
+        ac=min(alts,key=lambda c:c[0]);altw=_dea(ac)[:3]
+        take,info=_ED.should_switch_drop(default,altw,sections.get(a),sections.get(b),ya=a,yb=b)
+        return default,altw,bool(take and altw!=default),info
+      d16,a16,t16,i16=_dfam(lambda X:X==16)
+      d32,a32,t32,i32=_dfam(lambda X:X>=32)
+      boost=set()
+      if t16 and a16:boost.add(tuple(a16))
+      if t32 and a32:boost.add(tuple(a32))
+      new=[]
+      for c in res:
+        ea,ib,X,kind=_dea(c)
+        if kind=='n' and (ea,ib,X) in boost:
+          sc=c[0];new.append(((sc[0]-10*STRUCTW,)+sc[1:],)+c[1:])
+        else:
+          new.append((_ddcost(c),)+c[1:])
+      res=new
+      res.sort(key=lambda t:t[0])
+      rec=dict(a=a,b=b,default=list(d16) if d16 else (list(d32) if d32 else None),alt=list(a16) if a16 else (list(a32) if a32 else None),take=bool(t16 or t32),reason=('short:'+i16.get('reason','') if t16 else ('long:'+i32.get('reason','') if t32 else (i16 or i32 or {}).get('reason','none'))),short=dict(default=list(d16) if d16 else None,alt=list(a16) if a16 else None,take=t16,**i16),long=dict(default=list(d32) if d32 else None,alt=list(a32) if a32 else None,take=t32,**i32))
+      EPG_LOG.append(rec)
+      print('EXITPOS_DROP',a,b,'short',d16,a16,t16,i16,'long',d32,a32,t32,i32,file=sys.stderr)
+      _lf=os.environ.get('EPG_LOG_FILE')
+      if _lf:
+        import json as _j
+        with open(_lf,'a') as _f:_f.write(_j.dumps(rec)+chr(10))
+    except Exception as ex:
+      print('EXITPOS_DROP failed',a,b,ex,file=sys.stderr)
   return res
 def win_key(c):return [c[1],*(c[2] if isinstance(c[2],tuple) else (c[2],None)),c[3],c[5]]  # [kind, out bar, loop phrase, in bar, blend bars]
 def nxt_inn(c):return ("loopB",c[3]) if c[1] in("lb","ab") else c[3]

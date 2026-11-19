@@ -78,10 +78,16 @@ def main():
         tune.log_row(row); tried.append(row)
         if ok and meta.get('promotion'):
             night_wins.append(dict(name=name, delta=delta, summary=sm, why=why))
-            if not adopt:
+        elif ok and not meta.get('promotion') and adopt:
+            kept = dict(name=name, delta=delta, rules=trial, summary=sm)
+        # A nightly_candidates.json list is the night's full card: run every listed
+        # arm, including shadow arms after a promotion night-win. Never write rules.json
+        # from this path unless adopt_to_defaults is on (it is not for n1120).
+        if not spec.get('candidates'):
+            if ok and meta.get('promotion') and not adopt:
                 break
-        elif ok and not meta.get('promotion'):
-            kept = dict(name=name, delta=delta, rules=trial, summary=sm); break
+            if ok and not meta.get('promotion'):
+                kept = dict(name=name, delta=delta, rules=trial, summary=sm); break
     out = dict(tag=tag, baseline=base, base_rules=base_rules, tried=tried, kept=kept,
                night_wins=night_wins, promoted=False, rules_json_changed=False,
                ts=time.strftime('%Y-%m-%d %H:%M %Z'))

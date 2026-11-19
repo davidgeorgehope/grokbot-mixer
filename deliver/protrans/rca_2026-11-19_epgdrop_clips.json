@@ -1,0 +1,94 @@
+[
+ {
+  "id": "joe_syntax_hospital__13",
+  "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+  "arm": "default",
+  "win": [
+   "n",
+   256,
+   null,
+   48,
+   16
+  ],
+  "fam": "nat_short",
+  "hard_fail": false,
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epgdrop_js13_default.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epgdrop_js13_default.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epgdrop_js13_default.png",
+  "duration_s": 44.138,
+  "lufs": -14.0,
+  "tick_timestamp": "0:11",
+  "tick_s": 11.034,
+  "src": "/tmp/protrans_bench/gdefa14.mp3",
+  "bar_sec": 1.3793103448275863
+ },
+ {
+  "id": "joe_syntax_hospital__13",
+  "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+  "arm": "drop",
+  "win": [
+   "n",
+   224,
+   null,
+   48,
+   16
+  ],
+  "fam": "nat_short",
+  "hard_fail": false,
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epgdrop_js13_drop.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epgdrop_js13_drop.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epgdrop_js13_drop.png",
+  "duration_s": 44.138,
+  "lufs": -14.0,
+  "tick_timestamp": "0:11",
+  "tick_s": 11.034,
+  "src": "/tmp/protrans_bench/gepg26.mp3",
+  "bar_sec": 1.3793103448275863
+ },
+ {
+  "id": "hybrid_minds_ukf__00",
+  "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+  "arm": "default",
+  "win": [
+   "n",
+   224,
+   null,
+   8,
+   16
+  ],
+  "fam": "nat_short",
+  "hard_fail": true,
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epgdrop_hm00_default.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epgdrop_hm00_default.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epgdrop_hm00_default.png",
+  "duration_s": 44.138,
+  "lufs": -14.0,
+  "tick_timestamp": "0:11",
+  "tick_s": 11.034,
+  "src": "/tmp/protrans_bench/gdefa15.mp3",
+  "bar_sec": 1.3793103448275863
+ },
+ {
+  "id": "hybrid_minds_ukf__00",
+  "pair": "SpectraSoul - Away With Me (Calibre Remix) -> EastColors - Keys",
+  "arm": "drop",
+  "win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short",
+  "hard_fail": false,
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epgdrop_hm00_drop.mp3",
+  "png": "/workspace/mixes/deliver/protrans/rca_2026-11-19_epgdrop_hm00_drop.png",
+  "diag_png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-19_epgdrop_hm00_drop.png",
+  "duration_s": 44.138,
+  "lufs": -14.0,
+  "tick_timestamp": "0:11",
+  "tick_s": 11.034,
+  "src": "/tmp/protrans_bench/gepg27.mp3",
+  "bar_sec": 1.3793103448275863
+ }
+]

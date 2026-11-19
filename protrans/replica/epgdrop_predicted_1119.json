@@ -1,0 +1,63 @@
+{
+ "written": "2026-11-19 5:01 PM ET",
+ "arm": "epg_drop",
+ "flags": {
+  "EXITPOS": 1,
+  "EXITPOS_DROP": 1
+ },
+ "defaults_unchanged": true,
+ "epg_strict_still_n1120_candidate": true,
+ "shadow_in_nightly": true,
+ "predicted_cohort": {
+  "held_out": 33.91,
+  "floor_held_out": 34.07,
+  "train": 32.18,
+  "floor_train": 32.4,
+  "n": 33,
+  "n_take": 8,
+  "hard_fail_epbasem": {
+   "base": 8,
+   "drop": 6,
+   "fixed": [
+    "hybrid_minds_ukf__00",
+    "hybrid_minds_ukf__28"
+   ],
+   "still_fail_default": [
+    "joe_syntax_hospital__12",
+    "hybrid_minds_ukf__11",
+    "joe_syntax_hospital__11",
+    "hybrid_minds_ukf__40",
+    "maduk_liquicity_lunar2025__05",
+    "pola_bryson_puzzlewood__00"
+   ]
+  },
+  "takes": [
+   "joe_syntax_hospital__01",
+   "netsky_hospital_classics__02",
+   "netsky_hospital_classics__17",
+   "joe_syntax_hospital__13",
+   "hybrid_minds_ukf__00",
+   "hybrid_minds_ukf__10",
+   "hybrid_minds_ukf__28",
+   "pola_bryson_puzzlewood__02"
+  ],
+  "blocked_epg2_takes": [
+   "hybrid_minds_ukf__08",
+   "hybrid_minds_ukf__45",
+   "joe_syntax_hospital__12"
+  ],
+  "david_picks": {
+   "joe_syntax_hospital__01": {
+    "take": true,
+    "dscore": 5.76
+   },
+   "netsky_hospital_classics__02": {
+    "take": true,
+    "dscore": -9.6,
+    "owner_message": "pt556u"
+   }
+  }
+ },
+ "job": "epgdrop-1119",
+ "official": "pending job; 33-pair windows already scored so predicted means should match"
+}

@@ -1,0 +1,98 @@
+[
+ {
+  "id": "alpha_rhythm_hb7PvukS-Pk__07",
+  "drops_A": [
+   [
+    48,
+    112
+   ],
+   [
+    144,
+    209
+   ]
+  ],
+  "music_end_A": 237,
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "c_win": [
+   "n",
+   144,
+   null,
+   32,
+   32
+  ],
+  "default_fail": false,
+  "c_fail": false,
+  "played_default": 0.9451476793248945,
+  "played_c": 0.6075949367088608
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__60",
+  "drops_A": [
+   [
+    48,
+    112
+   ],
+   [
+    144,
+    203
+   ]
+  ],
+  "music_end_A": 211,
+  "default_win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "c_win": [
+   "n",
+   128,
+   null,
+   32,
+   16
+  ],
+  "default_fail": false,
+  "c_fail": false,
+  "played_default": 0.985781990521327,
+  "played_c": 0.6066350710900474
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__18",
+  "drops_A": [
+   [
+    48,
+    128
+   ],
+   [
+    160,
+    237
+   ]
+  ],
+  "music_end_A": 243,
+  "default_win": [
+   "n",
+   240,
+   null,
+   48,
+   16
+  ],
+  "c_win": [
+   "n",
+   144,
+   null,
+   29,
+   16
+  ],
+  "default_fail": false,
+  "c_fail": false,
+  "played_default": 0.9876543209876543,
+  "played_c": 0.5925925925925926
+ }
+]

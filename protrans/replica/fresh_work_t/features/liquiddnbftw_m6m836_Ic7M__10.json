@@ -1,0 +1,1264 @@
+{
+  "id": "liquiddnbftw_m6m836_Ic7M__10",
+  "mix_id": "liquiddnbftw_m6m836_Ic7M",
+  "dj": "Liquiddnbftw",
+  "pair": "Alpha Rhythm, HumaNature & Natus - The Lost River -> Alpha Rhythm, HumaNature & Natus - The Lost River (T:Base Remix)",
+  "video_id": "m6m836_Ic7M",
+  "cue": {
+    "incoming_bar": 144.74,
+    "incoming_section": "breakdown",
+    "outgoing_bar": 128.51,
+    "outgoing_section": "build",
+    "blend_list_s": 192.0,
+    "locate_a": {
+      "z": 7.924,
+      "cc": 0.6175,
+      "mix_t": 20.48,
+      "track_t": 173.732,
+      "n": 128
+    },
+    "locate_b": {
+      "z": 8.01,
+      "cc": 0.9206,
+      "mix_t": 43.027,
+      "track_t": 218.662,
+      "n": 111
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.386,
+      "hold_db": -11.5,
+      "tail_bars": 14.5,
+      "out_p90": -1.07,
+      "in_p90": -1.06
+    },
+    "bass": {
+      "rise_db_per_beat": 0.388,
+      "hold_db": -1.05,
+      "tail_bars": 15.77,
+      "out_p90": -1.02,
+      "in_p90": -0.99
+    },
+    "highs": {
+      "rise_db_per_beat": 0.15,
+      "hold_db": -2.73,
+      "tail_bars": 31.9,
+      "out_p90": -2.61,
+      "in_p90": -2.36
+    },
+    "mids": {
+      "rise_db_per_beat": 0.12,
+      "hold_db": -3.27,
+      "tail_bars": 15.77,
+      "out_p90": -1.23,
+      "in_p90": -1.1
+    }
+  },
+  "overlap_bars": 6.706,
+  "track_a": {
+    "sections": {
+      "n_bars": 284,
+      "intro_end": 46,
+      "drop1": 46,
+      "breakdown": 129,
+      "drop2": 161,
+      "outro_start": 241,
+      "music_end": 284,
+      "drops": [
+        [
+          46,
+          128
+        ],
+        [
+          161,
+          241
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 16
+        },
+        {
+          "name": "build",
+          "start": 16,
+          "end": 46
+        },
+        {
+          "name": "drop",
+          "start": 46,
+          "end": 128
+        },
+        {
+          "name": "build",
+          "start": 128,
+          "end": 129
+        },
+        {
+          "name": "breakdown",
+          "start": 129,
+          "end": 148
+        },
+        {
+          "name": "build",
+          "start": 148,
+          "end": 161
+        },
+        {
+          "name": "drop",
+          "start": 161,
+          "end": 241
+        },
+        {
+          "name": "outro",
+          "start": 241,
+          "end": 284
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -56.93,
+          "drums": -25.86,
+          "energy": -25.86
+        },
+        "build": {
+          "bass": -14.97,
+          "drums": -11.38,
+          "energy": -11.38
+        },
+        "drop": {
+          "bass": -9.11,
+          "drums": -7.93,
+          "energy": -7.93
+        },
+        "breakdown": {
+          "bass": -31.51,
+          "drums": -16.64,
+          "energy": -16.64
+        },
+        "outro": {
+          "bass": -48.3,
+          "drums": -26.62,
+          "energy": -26.62
+        }
+      },
+      "intro_len": 46,
+      "n_drops": 2
+    },
+    "bpm": 174.0,
+    "yt": "hfSN2JQD4FU",
+    "title": "Alpha Rhythm, HumaNature & Natus - The Lost River"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 243,
+      "intro_end": 64,
+      "drop1": 64,
+      "breakdown": 44,
+      "drop2": 160,
+      "outro_start": 222,
+      "music_end": 243,
+      "drops": [
+        [
+          64,
+          129
+        ],
+        [
+          160,
+          222
+        ]
+      ],
+      "phases": [
+        {
+          "name": "build",
+          "start": 0,
+          "end": 44
+        },
+        {
+          "name": "breakdown",
+          "start": 44,
+          "end": 48
+        },
+        {
+          "name": "build",
+          "start": 48,
+          "end": 64
+        },
+        {
+          "name": "drop",
+          "start": 64,
+          "end": 129
+        },
+        {
+          "name": "breakdown",
+          "start": 129,
+          "end": 160
+        },
+        {
+          "name": "drop",
+          "start": 160,
+          "end": 222
+        },
+        {
+          "name": "outro",
+          "start": 222,
+          "end": 243
+        }
+      ],
+      "bass_by_section": {
+        "build": {
+          "bass": -33.78,
+          "drums": -21.8,
+          "energy": -21.8
+        },
+        "breakdown": {
+          "bass": -41.03,
+          "drums": -25.36,
+          "energy": -25.36
+        },
+        "drop": {
+          "bass": -10.43,
+          "drums": -9.47,
+          "energy": -9.47
+        },
+        "outro": {
+          "bass": -37.82,
+          "drums": -25.1,
+          "energy": -25.1
+        }
+      },
+      "intro_len": 64,
+      "n_drops": 2
+    },
+    "bpm": 174.002,
+    "yt": "tfdbcL0P1iw",
+    "title": "Alpha Rhythm, HumaNature & Natus - The Lost River (T:Base Remix)"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 128.51,
+    "outgoing_section": "build",
+    "outgoing_bars_into_section": 0.51,
+    "outgoing_bars_left": 155.49,
+    "outgoing_bars_to_outro": 112.49,
+    "incoming_cue_bar": 144.74,
+    "incoming_section": "breakdown",
+    "incoming_bars_into_section": 15.74,
+    "incoming_rel_drop1": 80.74,
+    "bass_swap_bar": 7.79
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -1.09,
+        -1.13,
+        -1.07,
+        -1.13,
+        -1.08,
+        -1.08,
+        -1.05,
+        -1.1,
+        -1.06,
+        -1.09,
+        -1.06,
+        -1.08,
+        -1.17,
+        -1.12,
+        -1.26,
+        -1.59,
+        -2.54,
+        -3.32,
+        -3.82,
+        -4.86,
+        -7.12,
+        -8.72,
+        -8.78,
+        -10.79,
+        -12.25,
+        -13.96,
+        -16.17,
+        -19.71,
+        -24.42,
+        -21.2,
+        -22.7,
+        -36.26,
+        -47.12,
+        -74.16,
+        -56.26,
+        -99.3,
+        -49.8,
+        -104.62,
+        -62.16,
+        -146.23,
+        -53.41,
+        -80.13,
+        -49.15,
+        -80.67,
+        -53.5,
+        -57.17
+      ],
+      "b": [
+        -42.07,
+        -43.97,
+        -37.99,
+        -43.9,
+        -52.87,
+        -123.76,
+        -114.7,
+        -160.0,
+        -160.0,
+        -63.3,
+        -29.37,
+        -28.79,
+        -44.37,
+        -48.01,
+        -38.84,
+        -32.71,
+        -10.52,
+        -18.74,
+        -24.5,
+        -11.99,
+        -4.81,
+        -5.52,
+        -7.11,
+        -6.38,
+        -3.71,
+        -3.71,
+        -2.46,
+        -3.11,
+        -2.15,
+        -2.99,
+        -2.66,
+        -1.66,
+        -1.16,
+        -1.12,
+        -1.07,
+        -1.07,
+        -1.39,
+        -1.15,
+        -1.12,
+        -1.08,
+        -1.1,
+        -1.1,
+        -1.11,
+        -1.07,
+        -1.05,
+        -1.04
+      ]
+    },
+    "bass": {
+      "a": [
+        -1.03,
+        -1.06,
+        -1.04,
+        -1.06,
+        -1.0,
+        -1.05,
+        -1.02,
+        -1.05,
+        -1.01,
+        -1.03,
+        -1.01,
+        -1.02,
+        -1.03,
+        -1.06,
+        -1.22,
+        -1.49,
+        -2.15,
+        -4.96,
+        -7.18,
+        -10.16,
+        -13.71,
+        -19.66,
+        -22.98,
+        -28.6,
+        -81.82,
+        -31.01,
+        -35.93,
+        -43.96,
+        -41.91,
+        -34.49,
+        -31.48,
+        -37.67,
+        -37.03,
+        -42.96,
+        -39.98,
+        -73.36,
+        -67.31,
+        -34.97,
+        -44.93,
+        -64.0,
+        -16.27,
+        -18.27,
+        -39.42,
+        -28.43,
+        -40.73,
+        -31.88
+      ],
+      "b": [
+        -44.73,
+        -88.1,
+        -32.44,
+        -38.35,
+        -16.69,
+        -11.84,
+        -9.01,
+        -15.99,
+        -1.37,
+        -3.07,
+        -0.47,
+        -4.04,
+        -17.22,
+        -3.64,
+        -23.01,
+        -15.53,
+        -7.15,
+        -13.4,
+        -21.43,
+        -26.11,
+        -21.06,
+        -16.15,
+        -13.36,
+        -12.13,
+        -10.6,
+        -9.92,
+        -8.53,
+        -7.37,
+        -6.22,
+        -4.78,
+        -3.57,
+        -2.38,
+        -1.43,
+        -1.04,
+        -1.0,
+        -1.01,
+        -1.02,
+        -1.02,
+        -1.01,
+        -1.0,
+        -1.02,
+        -1.03,
+        -1.03,
+        -1.02,
+        -1.02,
+        -1.0
+      ]
+    },
+    "mids": {
+      "a": [
+        -1.2,
+        -1.24,
+        -1.18,
+        -1.3,
+        -1.16,
+        -1.19,
+        -1.2,
+        -1.31,
+        -1.29,
+        -1.33,
+        -1.35,
+        -1.34,
+        -1.31,
+        -1.34,
+        -1.67,
+        -1.93,
+        -2.73,
+        -2.87,
+        -3.28,
+        -4.57,
+        -6.93,
+        -9.09,
+        -8.81,
+        -10.34,
+        -11.63,
+        -13.5,
+        -15.94,
+        -19.72,
+        -24.83,
+        -26.11,
+        -26.69,
+        -38.99,
+        -51.24,
+        -51.96,
+        -44.44,
+        -51.94,
+        -44.53,
+        -48.59,
+        -45.36,
+        -47.22,
+        -47.84,
+        -49.87,
+        -46.05,
+        -48.22,
+        -50.73,
+        -43.06
+      ],
+      "b": [
+        -43.03,
+        -40.15,
+        -39.38,
+        -35.78,
+        -31.26,
+        -38.65,
+        -23.88,
+        -21.58,
+        -26.33,
+        -27.91,
+        -19.93,
+        -18.59,
+        -23.46,
+        -29.0,
+        -27.18,
+        -31.02,
+        -10.09,
+        -14.09,
+        -13.88,
+        -7.96,
+        -4.69,
+        -4.25,
+        -6.48,
+        -6.86,
+        -4.5,
+        -4.14,
+        -2.62,
+        -2.86,
+        -1.89,
+        -2.15,
+        -2.2,
+        -1.52,
+        -1.12,
+        -1.13,
+        -1.17,
+        -1.13,
+        -1.28,
+        -1.24,
+        -1.17,
+        -1.18,
+        -1.07,
+        -1.16,
+        -1.19,
+        -1.17,
+        -1.03,
+        -1.18
+      ]
+    },
+    "highs": {
+      "a": [
+        -2.67,
+        -2.68,
+        -2.59,
+        -2.79,
+        -2.74,
+        -2.77,
+        -2.75,
+        -2.74,
+        -2.76,
+        -2.79,
+        -2.87,
+        -2.59,
+        -2.85,
+        -2.22,
+        -2.62,
+        -4.03,
+        -4.3,
+        -7.34,
+        -6.92,
+        -7.97,
+        -7.01,
+        -6.98,
+        -5.71,
+        -5.24,
+        -4.19,
+        -6.23,
+        -7.47,
+        -8.66,
+        -5.12,
+        -7.51,
+        -4.28,
+        -8.9,
+        -17.97,
+        -19.5,
+        -21.56,
+        -22.08,
+        -21.88,
+        -22.69,
+        -20.45,
+        -19.12,
+        -20.62,
+        -19.45,
+        -20.77,
+        -20.17,
+        -19.29,
+        -19.97
+      ],
+      "b": [
+        -11.19,
+        -13.11,
+        -5.62,
+        -3.18,
+        -2.19,
+        -4.5,
+        -2.7,
+        -2.67,
+        -5.49,
+        -4.18,
+        -5.1,
+        -4.61,
+        -3.63,
+        -11.35,
+        -12.57,
+        -7.74,
+        -6.01,
+        -3.77,
+        -3.37,
+        -2.66,
+        -2.51,
+        -2.6,
+        -2.64,
+        -2.6,
+        -2.52,
+        -2.4,
+        -2.41,
+        -2.27,
+        -2.31,
+        -2.53,
+        -2.78,
+        -3.31,
+        -2.56,
+        -2.46,
+        -2.5,
+        -2.47,
+        -2.5,
+        -2.41,
+        -2.56,
+        -2.71,
+        -2.62,
+        -2.82,
+        -2.57,
+        -2.7,
+        -2.6,
+        -2.59
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        280,
+        null,
+        48,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 48.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.74,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 47.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 80.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 80.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 48.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 48.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 48.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.74,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 16.74,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 16.74,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 15.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 15.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 47.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 47.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 47.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 80.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 80.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 48.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 48.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 48.74,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.74,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 16.74,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 16.74,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 15.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 15.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 47.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 47.26,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        160,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 47.26,
+      "section_match": false,
+      "relevance": 0
+    }
+  ]
+}

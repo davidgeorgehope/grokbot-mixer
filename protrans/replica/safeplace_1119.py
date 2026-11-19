@@ -33,6 +33,12 @@ def tail0(r):
     if not A: return NA(r['sa'])
     al = np.asarray(A['all'], float); body = np.percentile(al, 75); loud = np.where(al > body - 20)[0]
     return int(loud[-1]) + 1 if len(loud) else len(al)
+def tail6(r):
+    """last outgoing bar still within 6 dB of its body (75th pct of per-bar level), +1; the exit window must end by then"""
+    A = st(r['ya'])
+    if not A: return NA(r['sa'])
+    al = np.asarray(A['all'], float); body = np.percentile(al, 75); loud = np.where(al > body - 6)[0]
+    return int(loud[-1]) + 1 if len(loud) else len(al)
 def in_drop(s, k): return any(d[0] <= k < d[1] for d in (s.get('drops') or []))
 def wfeat(r, w):
     sa, sb = r['sa'], r['sb']; e, ib, X = int(w[1]), int(w[3]), int(w[4]); s = e - X; na, nb = NA(sa), NA(sb); d1b = int(sb.get('drop1') or 0)
@@ -60,10 +66,12 @@ def wfeat(r, w):
             mean(al) - abody if A else np.nan, mean(bl) - bbody if Bc else np.nan, slope(aa), slope(ba), hole, stack,
             mean(al[-4:]) - abody if len(al) else np.nan, mean(bl[:4]) - bbody if len(bl) else np.nan,
             (bb.get('drop') or {}).get('bass', np.nan), (bbb.get('drop') or {}).get('bass', np.nan), (bb.get('outro') or {}).get('bass', np.nan), (bbb.get('intro') or {}).get('bass', np.nan)] + \
-           ([out_rise, wob, sd, anti, both_loud] if os.environ.get('PUMPF', '0') == '1' else [])
+           ([out_rise, wob, sd, anti, both_loud] if os.environ.get('PUMPF', '0') == '1' else []) + (_lanes(r, s, ib, X) if os.environ.get('LANES', '0') == '1' else [])
+def _lanes(r, s, ib, X):
+    import lanesim_1119 as LS; f = LS.sim(st(r['ya']), st(r['yb']), s, ib, X); return [f['sim2_vdip'], f['sim2_lohi_vdip'], f['sim2_min_rel']]
 FN = ['X', 'e', 'ib', 'left', 'e_minus_outro', 'past_end', 'e_minus_tail0', 'is_mid', 'secA_s', 'secA_m', 'secA_e', 'secB_s', 'secB_m', 'secB_e', 'A_drop_frac', 'B_drop_frac',
       'both_drop_frac', 'e_mod16', 'ib_mod16', 'ibd1_mod16', 'ibX_minus_d1', 'ib_minus_d1', 'd_e_dropend', 'd_s_dropstart', 'd_e_outro', 'A_low_rel', 'B_low_rel', 'A_slope', 'B_slope',
-      'sumlow_hole', 'low_stack', 'A_low_end', 'B_low_start', 'A_dropbass', 'B_dropbass', 'A_outrobass', 'B_introbass'] + (['sim_out_rise', 'sim_wobble', 'sim_sum_sd', 'sim_anti_r', 'sim_both_loud'] if os.environ.get('PUMPF', '0') == '1' else [])
+      'sumlow_hole', 'low_stack', 'A_low_end', 'B_low_start', 'A_dropbass', 'B_dropbass', 'A_outrobass', 'B_introbass'] + (['sim_out_rise', 'sim_wobble', 'sim_sum_sd', 'sim_anti_r', 'sim_both_loud'] if os.environ.get('PUMPF', '0') == '1' else []) + (['sim2_vdip', 'sim2_lohi_vdip', 'sim2_min_rel'] if os.environ.get('LANES', '0') == '1' else [])
 
 def dev_rows():
     rows = [r for r in B.build(P.rows_all(), P.load_rendered_defaults()) if r['set'] == 'dev']
@@ -89,7 +97,7 @@ def auc(p, y):
 
 def cands(r):
     sa, sb = r['sa'], r['sb']; na, nb = NA(sa), NA(sb); d1b = int(sb.get('drop1') or 0); t0 = tail0(r); out = {}
-    emax = min(na, t0 + 8)
+    emax = min(na, t0 + 8) if os.environ.get('TAIL6', '0') != '1' else min(na, tail6(r))  # TAIL6: the blend may not reach A's own fade
     for X in (16, 32):
         cues = {c for c in range(0, 97, 16)} | {d1b - X + 16 * k for k in range(-2, 2)} | {d1b, d1b - 16}
         cues = {c for c in cues if c >= 0 and c + X <= nb - 16}
@@ -97,6 +105,24 @@ def cands(r):
             if e - X < 16: continue
             for ib in cues: out[('n', e, None, ib, X)] = dict(win=['n', e, None, ib, X], phrase_ok=(ib % 16 == 0) or ((ib - d1b) % 16 == 0))
     return list(out.values())
+def gap_filter(r, C):
+    """GAPX: drop non-default candidates whose simulated full-band sum (real fader + EQ lane templates) V-dips >= the pro p95 (pump_p95)"""
+    import lanesim_1119 as LS
+    keep = []
+    for c in C:
+        e, ib, X = int(c['win'][1]), int(c['win'][3]), int(c['win'][4]); f = LS.sim(st(r['ya']), st(r['yb']), e - X, ib, X)
+        if c.get('default') or not (np.isfinite(f['sim2_vdip']) and f['sim2_vdip'] >= LS.X_GAP): keep.append(c)
+    return keep
+def payoff_miss(r, w):
+    """PAYPEN placement-quality term (2026-11-19, listener: placement must suit the tracks, not copy pro habits). 0 = fine, up to 2.
+    Outgoing: share of A's last drop (its main payoff, usually drop 2) NOT heard before the blend starts; the blend may cover the
+    drop's last 8 bars. Incoming: +1 if the cue starts after B's first drop (skips it). Tracks without detected drops cost 0."""
+    sa, sb = r['sa'], r['sb']; e, ib, X = int(w[1]), int(w[3]), int(w[4]); s = e - X; dr = sa.get('drops') or []; m = 0.0
+    if dr:
+        a0, a1 = dr[-1]; L = max(1, a1 - a0 - min(8, (a1 - a0) // 2)); m += 1 - float(np.clip((s - a0) / L, 0, 1))
+    d1b = sb.get('drop1')
+    if d1b and ib > int(d1b) + 2: m += 1.0
+    return m
 def default_win(r): return ['n', int(round((r['dex'] + r['dX'] - 1) / 8) * 8), None, int(r['dcue'] - 1), int(r['dX'])]
 
 def plan(tag, lam):
@@ -111,19 +137,21 @@ def plan(tag, lam):
         mE = B.fit(tr, 'E', False, B.CFGS[0]); mC = B.fit(tr, 'C', False, B.CFGS[0])
         for r in [r for r in ev if r['dj'] == d]:
             C = cands(r); dw = default_win(r); C = [c for c in C if c['win'] != dw] + [dict(win=dw, phrase_ok=True, default=True)]
+            if os.environ.get('GAPX', '0') == '1': C = gap_filter(r, C)
             F = np.array([wfeat(r, c['win']) for c in C], float); pr = m.predict_proba(F)[:, 1]
             se = mE.predict(np.array([B.fe_exit(r, dict(v=c['win'][1] - c['win'][4] + 1, tags={'grid'} if not c.get('default') else {'default'}), False) for c in C], float))
             sc = mC.predict(np.array([B.fe_cue(r, dict(v=c['win'][3] + 1, tags={'grid'} if not c.get('default') else {'default'}), False) for c in C], float))
             pct = lambda s: (np.argsort(np.argsort(s)) + 0.5) / len(s); fit = (pct(se) + pct(sc)) / 2
             secpen = float(os.environ.get('SECPEN', 0)); bnd = P.bnd_a(r['sa'])
             offsec = np.array([min((abs((c['win'][1] - c['win'][4] + 1) - v) for v in bnd), default=99) > 4 for c in C]) if secpen else np.zeros(len(C))
-            score = pr + 0.15 * np.array([not c['phrase_ok'] for c in C]) + lam * (1 - fit) + secpen * offsec
+            paypen = float(os.environ.get('PAYPEN', 0)); pay = np.array([payoff_miss(r, c['win']) for c in C]) if paypen else np.zeros(len(C))
+            score = pr + 0.15 * np.array([not c['phrase_ok'] for c in C]) + lam * (1 - fit) + secpen * offsec + paypen * pay
             o = np.argsort(score); di = len(C) - 1
             top = [int(j) for j in o if j != di][:2]
             rec = dict(id=r['id'], dj=d, mix=r['mix'], pro_out=r['pro_out'], pro_in=r['pro_in'], default_win=dw, default_risk=round(float(pr[di]), 3), default_score=round(float(score[di]), 3),
                        default_rank=int(np.where(o == di)[0][0]), n_cands=len(C),
                        top=[dict(win=C[j]['win'], risk=round(float(pr[j]), 3), fit=round(float(fit[j]), 3), score=round(float(score[j]), 3), is_mid=bool(NA(r['sa']) - (C[j]['win'][1] - C[j]['win'][4] + 1) >= 32)) for j in top])
-            rec['keep_default'] = bool(score[di] <= min(score[j] for j in top))
+            rec['keep_default'] = bool(not top or score[di] <= min(score[j] for j in top))
             if not rec['keep_default']:
                 W1[f"{r['ya']}|{r['yb']}"] = rec['top'][0]['win']
                 if len(rec['top']) > 1: W2[f"{r['ya']}|{r['yb']}"] = rec['top'][1]['win']

@@ -1,4 +1,4 @@
-// Minimal WebGL2 helpers: matrices (column-major), meshes (interleaved position + normal), programs.
+// Small WebGL2 helpers: matrices (column-major), meshes (interleaved position + normal), programs.
 
 export const mul = (a, b) => {
   const o = new Float32Array(16);

@@ -190,7 +190,7 @@ def _pair_row(X,a,b,K,ia=0):
     for sc,kind,e,ib,r,Xn in ns['pair_cands'](0,ia)[:K]:
       e,p=e if isinstance(e,tuple) else (e,None);wa,wb=windows(kind,e,p,ib,Xn,a)
       none=sum(not(xa<len(dA) and dA[xa]) and not(xb<len(dB) and dB[xb]) for xa,xb in zip(wa,wb))
-      x=(np.arange(Xn)+.5)/Xn;lv=10*np.log10(np.cos(x*np.pi/2)**2*10**(alA[wa]/10)+np.sin(x*np.pi/2)**2*10**(alB[np.minimum(wb,len(alB)-1)]/10))
+      x=(np.arange(Xn)+.5)/Xn;lv=10*np.log10(np.cos(x*np.pi/2)**2*10**(alA[wa]/10)+np.sin(x*np.pi/2)**2*10**(alB[np.clip(wb,None,len(alB)-1)]/10))
       row['wins'].append(dict(w=[kind,int(e),None if p is None else int(p),int(ib),int(Xn)],pen=round(float(r['pen']),1),bob=int(r['DT']),beatless=int(none),
         voc=int(r['V']),both=int(r['both']),L=int(r['L']),R=r['R'],dip=round(float(tr[a]['body']-lv.min()),1),lv=[round(float(x),1) for x in lv],cue=round(1-cue.pctl(CM,'out',tr[a]['cuef'],e),3),**clash(FT[a],FT[b],wa,wb),step=entry_step(BT[a],wa,e-1 if kind in('la','ab','lx') else wa[0]-1),boff=beat_off_bars(PT[a],PT[b],DA[a],DA[b],wa,wb)))
   return row

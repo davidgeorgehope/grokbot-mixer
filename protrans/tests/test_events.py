@@ -8,7 +8,7 @@ import score
 
 def frames(bars):
     t = np.arange(int(len(bars)*score.BAR_SEC*score.SR/score.HOP))
-    return np.asarray(bars)[np.minimum((t*score.HOP/score.SR/score.BAR_SEC).astype(int),len(bars)-1)]
+    return np.asarray(bars)[np.clip((t*score.HOP/score.SR/score.BAR_SEC).astype(int),None,len(bars)-1)]
 
 
 def test_events_relative_level_and_no_bar_zero_swap():

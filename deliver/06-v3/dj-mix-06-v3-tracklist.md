@@ -1,6 +1,6 @@
 # DJ Grok Bot – Mix 06 v3
 
-Length 57:47 · 174 BPM · times from src2/m06v3_meta.json · crossfader engine: one monotonic equal-power crossfade per blend (32 bars, 16 minimum) with a 2-bar low-band bass handoff tied to the crossfader at 35%, constant per-track gain (-16 LUFS), no stems or ducking
+Length 57:47 · 174 BPM · times from src2/m06v3_meta.json · crossfader engine: one monotonic equal-power crossfade per blend (32 bars, at least 16) with a 2-bar low-band bass handoff tied to the crossfader at 35%, constant per-track gain (-16 LUFS), no stems or ducking
 
  1. 0:00  Grafix – Blur  [8A]  (youtu.be/6JmrdpH1B5M)
  2. 2:56  BCee & Bladerunner ft. Philippa Hanna – In The Shadows  [9A]  (youtu.be/q_IuTV23x7Q)

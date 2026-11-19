@@ -1,6 +1,6 @@
 # DJ Grok Bot – Mix 07
 
-Length 60:54 · 174 BPM · times from /workspace/mixes/src2/mix07r17_meta.json · crossfader engine: one monotonic equal-power crossfade per blend (32 bars, 16 minimum) with a 2-bar low-band bass handoff tied to the crossfader at 35%, constant per-track gain (-16 LUFS), no stems or ducking
+Length 60:54 · 174 BPM · times from /workspace/mixes/src2/mix07r17_meta.json · crossfader engine: one monotonic equal-power crossfade per blend (32 bars, at least 16) with a 2-bar low-band bass handoff tied to the crossfader at 35%, constant per-track gain (-16 LUFS), no stems or ducking
 
  1. 0:00  Etherwood & Grace Barton – Haven  [6A]  (youtu.be/5196v8VY1LI)
  2. 2:56  Culture Shock – Breathe  [7A]  (youtu.be/rpIpJQ7ujzc)

@@ -1,0 +1,9 @@
+{
+ "n": 455,
+ "spearman": 0.894,
+ "X_GAP": 4.54,
+ "gap_rate": 0.119,
+ "pump_rate_if_gap": 0.852,
+ "pump_rate_if_no_gap": 0.015,
+ "pump_recall_of_gap": 0.885
+}

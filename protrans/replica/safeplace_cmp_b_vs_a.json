@@ -1,0 +1,92 @@
+{
+ "n": 91,
+ "n_mixes": 15,
+ "b_raw_any": 0.143,
+ "a_raw_any": 0.187,
+ "raw_b_minus_a": {
+  "delta": -0.044,
+  "ci": [
+   -0.144,
+   0.072
+  ],
+  "verdict": "no clear difference"
+ },
+ "b_final_any": 0.022,
+ "a_final_any": 0.033,
+ "final_b_minus_a": {
+  "delta": -0.011,
+  "ci": [
+   -0.043,
+   0.029
+  ],
+  "verdict": "no clear difference"
+ },
+ "default_any": 0.154,
+ "same_final_window": 5,
+ "per_dj": {
+  "Alpha Rhythm": {
+   "n": 19,
+   "default": 4,
+   "b_final": 0,
+   "a_final": 0,
+   "b_raw": 1,
+   "a_raw": 4
+  },
+  "Fryett": {
+   "n": 5,
+   "default": 1,
+   "b_final": 0,
+   "a_final": 0,
+   "b_raw": 2,
+   "a_raw": 0
+  },
+  "John B": {
+   "n": 3,
+   "default": 1,
+   "b_final": 1,
+   "a_final": 0,
+   "b_raw": 2,
+   "a_raw": 2
+  },
+  "MrMoMMusic": {
+   "n": 13,
+   "default": 1,
+   "b_final": 0,
+   "a_final": 0,
+   "b_raw": 2,
+   "a_raw": 2
+  },
+  "Sound Territory": {
+   "n": 17,
+   "default": 1,
+   "b_final": 0,
+   "a_final": 1,
+   "b_raw": 1,
+   "a_raw": 4
+  },
+  "SuicideSheeep": {
+   "n": 11,
+   "default": 2,
+   "b_final": 0,
+   "a_final": 0,
+   "b_raw": 1,
+   "a_raw": 2
+  },
+  "TheHeshBesh": {
+   "n": 8,
+   "default": 2,
+   "b_final": 0,
+   "a_final": 1,
+   "b_raw": 0,
+   "a_raw": 1
+  },
+  "UKF Drum & Bass": {
+   "n": 15,
+   "default": 2,
+   "b_final": 1,
+   "a_final": 1,
+   "b_raw": 4,
+   "a_raw": 2
+  }
+ }
+}

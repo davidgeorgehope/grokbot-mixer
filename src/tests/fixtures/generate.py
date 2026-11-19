@@ -1,4 +1,4 @@
-"""Deterministic, copyright-free audio. Writes only into a caller-owned temp directory.
+"""Repeatable, copyright-free audio. Writes only into a caller-owned temp directory.
 
 Run: python generate.py /tmp/mixer-fixtures
 FLAC containers retain .wav names because the engine uses that path contract;

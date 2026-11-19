@@ -1,6 +1,6 @@
 """CONSONANCE (2026-11-19 midnight research, off by default).
 
-Minimal version of Gebhardt, Davies & Seeber, "Psychoacoustic Approaches for Harmonic Music Mixing",
+Small version of Gebhardt, Davies & Seeber, "Psychoacoustic Approaches for Harmonic Music Mixing",
 Applied Sciences 6(5):123, May 2016: judge how two overlapping tracks sound together by the *sensory
 roughness* between their spectral peaks (Plomp-Levelt curve, Sethares' parameterisation), instead of
 key labels. No pitch shifting (the engine has none): we only use the score to rank candidate windows.
@@ -67,9 +67,9 @@ def pair_dissonance(f1, f2, a1, a2):
     """Sethares (1993/2005) dissonance of two partials (broadcasts). 0 at unison, peak near ~1/4 critical band,
     -> 0 for wide intervals. Amplitude term min(a1, a2)."""
     f1 = np.asarray(f1, float); f2 = np.asarray(f2, float)
-    fmin = np.minimum(f1, f2); df = np.abs(f2 - f1)
+    fmin = np.fmin(f1, f2); df = np.abs(f2 - f1)
     s = DSTAR / (S1 * fmin + S2)
-    return np.minimum(a1, a2) * (np.exp(-B1 * s * df) - np.exp(-B2 * s * df))
+    return np.fmin(a1, a2) * (np.exp(-B1 * s * df) - np.exp(-B2 * s * df))
 
 
 def cross_roughness(fa, aa, fb, ab):

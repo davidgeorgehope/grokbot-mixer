@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic auto-fix for guardrail timing failures (F1 flam, N1 entry off-grid, G1 grid):
+"""Repeatable auto-fix for guardrail timing failures (F1 flam, N1 entry off-grid, G1 grid):
 for every flagged transition (or G1 bar), render each deck alone, measure its own 16th-grid phase per bar, and write
 warp nudges (ms) for the source bars that sit > 5 ms off the mix grid. usage: autofix.py NAME NUDGE_JSON"""
 import os,sys,json

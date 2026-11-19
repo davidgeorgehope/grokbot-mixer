@@ -24,7 +24,7 @@ def _kick(sr=SR, seed=0):
 
 
 def _click_id(k, n, sr=SR):
-    """Deterministic unique payload inside the hit (still a short transient)."""
+    """Repeatable unique payload inside the hit (still a short transient)."""
     t = np.arange(n) / sr
     return 0.15 * np.sin(2 * np.pi * (900 + 70 * k) * t) * np.exp(-t * 220)
 

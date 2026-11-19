@@ -19,7 +19,7 @@ def med_lag(a, c=0.3):
     L, r = np.abs(a['lag']), a['xr']; m = (r >= c) & np.isfinite(L); m[:a['s']] = False; m[a['e']:] = False
     return float(np.median(L[m])) if m.sum() >= 2 else 0.0
 
-DECKCLASH_D = 52.0  # ms; deckclash3_1119 FP0 'med' rmin 0.1, chosen on the md5%3 dev split at clean <= 5% (held-out clean 7.4%, recall 57/83/75%)
+DECKCLASH_D = 16.0  # ms; deckclash4_1119 (real BAR_RESYNC=1 raw-deck renders) 'med' rmin 0.2, abstain below 3 confident bars; chosen on calibration mixes at clean <= 5%; disjoint test mixes: clean 4.3%, recall 57/56/60% (misses the 80% target: the strict gate abstains on ~44% of overlaps). Research only, keep off.
 def flags(a):
     h = V.hole_score(a['lows'], a['s'], a['e'], HOLE_T0); hv = a['hard_v1']; ml = med_lag(a)
     base = bool(hv.get('halfbeat_fail') or hv.get('pumping')); hole = h > HOLE_TH

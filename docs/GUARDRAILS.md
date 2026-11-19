@@ -1,6 +1,6 @@
 # Guardrails (`src/guardrails.py`)
 
-These are deterministic pass/fail checks on a rendered mix. You can't listen to the mix, so the checks measure it. Exit 0 means zero failures.
+These are repeatable pass/fail checks on a rendered mix. You can't listen to the mix, so the checks measure it. Exit 0 means zero failures.
 ```
 python3 src/guardrails.py --name NAME --mp3 OUT.mp3 --nudge nudge60f.json --png [--src /workspace/mixes/src2] [--out DIR] [--skip-decks]
 ```

@@ -3,6 +3,7 @@
 T=${1:-a}
 cd /workspace/mixes/protrans || exit 1
 W=/workspace/mixes/protrans/replica/safeplace_work
+unset GATE_FEAT GATE_FLIB PICKER_WIN ONLY BAR_RESYNC  # 2026-11-19: never inherit the isolated fresh-ingest paths (c run saw only 7 fresh pairs)
 export EXTRA_SRC=/workspace/mixes/protrans/replica/nightly_1119_work/src
 r=0
 ONLY=$(python3 -c "import json;print(','.join(json.load(open('$W/ids_$T.json'))))") PICKER_WIN=$W/win_${T}_r1.json WORKERS=3 python3 replica/eval_gate.py "sp1119${T}1={}" || r=$((r+1))

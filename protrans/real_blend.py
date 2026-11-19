@@ -12,7 +12,7 @@ import paths
 
 VERSION = 'real-blend-v3'
 LEVEL_DB = -12.0
-# A fixed half-bar-resolution minimum, not a clip-specific exception. Two bars
+# A fixed half-bar-resolution lowest, not a clip-specific exception. Two bars
 # alone admits the radio fade/talk control (2.356 fitted bars); 2.5 retains tight
 # cuts such as Netsky __15 (3.262). Talkover remains an independent veto.
 MIN_BARS = 2.5

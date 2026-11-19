@@ -1,0 +1,4279 @@
+[
+ {
+  "id": "alpha_rhythm__fNcLmH-CYQ__00",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm__fNcLmH-CYQ",
+  "pro_out": 193.79,
+  "pro_in": 31.68,
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.018,
+  "default_score": 0.044,
+  "default_rank": 3,
+  "n_cands": 134,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.017,
+    "fit": 0.869,
+    "score": 0.03,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.025,
+    "fit": 0.94,
+    "score": 0.031,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm__fNcLmH-CYQ__01",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm__fNcLmH-CYQ",
+  "pro_out": 207.85,
+  "pro_in": 31.81,
+  "default_win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.012,
+  "default_score": 0.043,
+  "default_rank": 5,
+  "n_cands": 128,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.01,
+    "fit": 0.922,
+    "score": 0.017,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.007,
+    "fit": 0.859,
+    "score": 0.021,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm__fNcLmH-CYQ__02",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm__fNcLmH-CYQ",
+  "pro_out": 192.02,
+  "pro_in": 31.76,
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.13,
+  "default_score": 0.24,
+  "default_rank": 81,
+  "n_cands": 107,
+  "top": [
+   {
+    "win": [
+     "n",
+     48,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.02,
+    "fit": 0.229,
+    "score": 0.097,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     48,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.044,
+    "fit": 0.421,
+    "score": 0.102,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_TnnrrqVRZIM__15",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_TnnrrqVRZIM",
+  "pro_out": 177.18,
+  "pro_in": 33.06,
+  "default_win": [
+   "n",
+   160,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.024,
+  "default_score": 0.149,
+  "default_rank": 72,
+  "n_cands": 129,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     30,
+     32
+    ],
+    "risk": 0.008,
+    "fit": 0.969,
+    "score": 0.011,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.009,
+    "fit": 0.899,
+    "score": 0.019,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_AU0V19j8oKM__12",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_AU0V19j8oKM",
+  "pro_out": 193.76,
+  "pro_in": 32.18,
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.058,
+  "default_score": 0.168,
+  "default_rank": 29,
+  "n_cands": 155,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     114,
+     16
+    ],
+    "risk": 0.035,
+    "fit": 0.674,
+    "score": 0.067,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     82,
+     16
+    ],
+    "risk": 0.041,
+    "fit": 0.7,
+    "score": 0.071,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_AU0V19j8oKM__16",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_AU0V19j8oKM",
+  "pro_out": -0.01,
+  "pro_in": 32.38,
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.254,
+  "default_score": 0.29,
+  "default_rank": 69,
+  "n_cands": 87,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.029,
+    "fit": 0.925,
+    "score": 0.037,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.035,
+    "fit": 0.793,
+    "score": 0.056,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_V0BMNeOy_t4__05",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_V0BMNeOy_t4",
+  "pro_out": 175.85,
+  "pro_in": 39.18,
+  "default_win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.039,
+  "default_score": 0.17,
+  "default_rank": 36,
+  "n_cands": 155,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.036,
+    "fit": 0.884,
+    "score": 0.048,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.041,
+    "fit": 0.787,
+    "score": 0.063,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_V0BMNeOy_t4__06",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_V0BMNeOy_t4",
+  "pro_out": 193.88,
+  "pro_in": 30.16,
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.084,
+  "default_score": 0.104,
+  "default_rank": 25,
+  "n_cands": 109,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.016,
+    "fit": 0.959,
+    "score": 0.02,
+    "is_mid": false
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.023,
+    "fit": 0.881,
+    "score": 0.035,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_V0BMNeOy_t4__07",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_V0BMNeOy_t4",
+  "pro_out": 193.2,
+  "pro_in": 31.91,
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.025,
+  "default_score": 0.151,
+  "default_rank": 41,
+  "n_cands": 161,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.01,
+    "fit": 0.925,
+    "score": 0.018,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.018,
+    "fit": 0.932,
+    "score": 0.025,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_imZjEt78YXs__03",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_imZjEt78YXs",
+  "pro_out": 252.61,
+  "pro_in": 169.5,
+  "default_win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.023,
+  "default_score": 0.149,
+  "default_rank": 78,
+  "n_cands": 260,
+  "top": [
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.015,
+    "fit": 0.942,
+    "score": 0.021,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     29,
+     32
+    ],
+    "risk": 0.018,
+    "fit": 0.958,
+    "score": 0.023,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_imZjEt78YXs__07",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_imZjEt78YXs",
+  "pro_out": 255.69,
+  "pro_in": 47.77,
+  "default_win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.103,
+  "default_score": 0.214,
+  "default_rank": 103,
+  "n_cands": 177,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.03,
+    "fit": 0.78,
+    "score": 0.052,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.028,
+    "fit": 0.669,
+    "score": 0.061,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_imZjEt78YXs__09",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_imZjEt78YXs",
+  "pro_out": 207.58,
+  "pro_in": 47.82,
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.863,
+  "default_score": 0.984,
+  "default_rank": 104,
+  "n_cands": 105,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.044,
+    "fit": 0.971,
+    "score": 0.046,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.042,
+    "fit": 0.857,
+    "score": 0.057,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_imZjEt78YXs__10",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_imZjEt78YXs",
+  "pro_out": 192.85,
+  "pro_in": 15.72,
+  "default_win": [
+   "n",
+   192,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.749,
+  "default_score": 0.796,
+  "default_rank": 114,
+  "n_cands": 115,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.01,
+    "fit": 0.857,
+    "score": 0.024,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.034,
+    "fit": 0.922,
+    "score": 0.042,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_imZjEt78YXs__15",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_imZjEt78YXs",
+  "pro_out": 223.13,
+  "pro_in": 44.12,
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.035,
+  "default_score": 0.16,
+  "default_rank": 57,
+  "n_cands": 150,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.007,
+    "fit": 0.9,
+    "score": 0.017,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.009,
+    "fit": 0.887,
+    "score": 0.021,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_imZjEt78YXs__16",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_imZjEt78YXs",
+  "pro_out": 174.99,
+  "pro_in": 33.85,
+  "default_win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.041,
+  "default_score": 0.152,
+  "default_rank": 11,
+  "n_cands": 32,
+  "top": [
+   {
+    "win": [
+     "n",
+     48,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.014,
+    "fit": 0.797,
+    "score": 0.034,
+    "is_mid": false
+   },
+   {
+    "win": [
+     "n",
+     48,
+     null,
+     50,
+     16
+    ],
+    "risk": 0.02,
+    "fit": 0.719,
+    "score": 0.048,
+    "is_mid": false
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_TnnrrqVRZIM__13",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_TnnrrqVRZIM",
+  "pro_out": 191.62,
+  "pro_in": 32.0,
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.01,
+  "default_score": 0.123,
+  "default_rank": 49,
+  "n_cands": 136,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.021,
+    "fit": 0.868,
+    "score": 0.035,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.019,
+    "fit": 0.805,
+    "score": 0.038,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_TnnrrqVRZIM__14",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_TnnrrqVRZIM",
+  "pro_out": 145.63,
+  "pro_in": 47.94,
+  "default_win": [
+   "n",
+   144,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.033,
+  "default_score": 0.148,
+  "default_rank": 30,
+  "n_cands": 100,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.027,
+    "fit": 0.94,
+    "score": 0.033,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     80,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.022,
+    "fit": 0.875,
+    "score": 0.035,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_hb7PvukS-Pk__07",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_hb7PvukS-Pk",
+  "pro_out": 226.4,
+  "pro_in": 31.24,
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.04,
+  "default_score": 0.078,
+  "default_rank": 17,
+  "n_cands": 128,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.013,
+    "fit": 0.973,
+    "score": 0.016,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.012,
+    "fit": 0.867,
+    "score": 0.025,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "alpha_rhythm_hb7PvukS-Pk__11",
+  "dj": "Alpha Rhythm",
+  "mix": "alpha_rhythm_hb7PvukS-Pk",
+  "pro_out": 192.04,
+  "pro_in": 48.41,
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.033,
+  "default_score": 0.133,
+  "default_rank": 24,
+  "n_cands": 107,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.019,
+    "fit": 0.855,
+    "score": 0.033,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.01,
+    "fit": 0.617,
+    "score": 0.049,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "fryett_ltdJ6GFixfs__09",
+  "dj": "Fryett",
+  "mix": "fryett_ltdJ6GFixfs",
+  "pro_out": 110.97,
+  "pro_in": 16.09,
+  "default_win": [
+   "n",
+   160,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.03,
+  "default_score": 0.14,
+  "default_rank": 24,
+  "n_cands": 91,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.016,
+    "fit": 0.94,
+    "score": 0.022,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.018,
+    "fit": 0.791,
+    "score": 0.039,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "fryett_ltdJ6GFixfs__25",
+  "dj": "Fryett",
+  "mix": "fryett_ltdJ6GFixfs",
+  "pro_out": 95.98,
+  "pro_in": 34.34,
+  "default_win": [
+   "n",
+   160,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.05,
+  "default_score": 0.173,
+  "default_rank": 41,
+  "n_cands": 179,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.036,
+    "fit": 0.81,
+    "score": 0.055,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.05,
+    "fit": 0.916,
+    "score": 0.058,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "fryett_ltdJ6GFixfs__26",
+  "dj": "Fryett",
+  "mix": "fryett_ltdJ6GFixfs",
+  "pro_out": 145.61,
+  "pro_in": 16.04,
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.087,
+  "default_score": 0.198,
+  "default_rank": 111,
+  "n_cands": 222,
+  "top": [
+   {
+    "win": [
+     "n",
+     208,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.02,
+    "fit": 0.793,
+    "score": 0.04,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.021,
+    "fit": 0.743,
+    "score": 0.047,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "fryett_ltdJ6GFixfs__46",
+  "dj": "Fryett",
+  "mix": "fryett_ltdJ6GFixfs",
+  "pro_out": 97.94,
+  "pro_in": 0.33,
+  "default_win": [
+   "n",
+   128,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.025,
+  "default_score": 0.137,
+  "default_rank": 26,
+  "n_cands": 137,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.044,
+    "fit": 0.96,
+    "score": 0.048,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.038,
+    "fit": 0.766,
+    "score": 0.061,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "fryett_ltdJ6GFixfs__52",
+  "dj": "Fryett",
+  "mix": "fryett_ltdJ6GFixfs",
+  "pro_out": 97.13,
+  "pro_in": 16.14,
+  "default_win": [
+   "n",
+   208,
+   null,
+   24,
+   16
+  ],
+  "default_risk": 0.039,
+  "default_score": 0.057,
+  "default_rank": 4,
+  "n_cands": 127,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.024,
+    "fit": 0.898,
+    "score": 0.034,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.017,
+    "fit": 0.827,
+    "score": 0.034,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "john_b_RyhRkT6DQTQ__06",
+  "dj": "John B",
+  "mix": "john_b_RyhRkT6DQTQ",
+  "pro_out": 27.0,
+  "pro_in": 76.02,
+  "default_win": [
+   "n",
+   224,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.938,
+  "default_score": 1.039,
+  "default_rank": 127,
+  "n_cands": 128,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.016,
+    "fit": 0.816,
+    "score": 0.034,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     64,
+     32
+    ],
+    "risk": 0.025,
+    "fit": 0.789,
+    "score": 0.046,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "john_b_RyhRkT6DQTQ__10",
+  "dj": "John B",
+  "mix": "john_b_RyhRkT6DQTQ",
+  "pro_out": 283.44,
+  "pro_in": 90.76,
+  "default_win": [
+   "n",
+   224,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.236,
+  "default_score": 0.389,
+  "default_rank": 179,
+  "n_cands": 189,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.008,
+    "fit": 0.913,
+    "score": 0.017,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.015,
+    "fit": 0.899,
+    "score": 0.025,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "john_b_RyhRkT6DQTQ__31",
+  "dj": "John B",
+  "mix": "john_b_RyhRkT6DQTQ",
+  "pro_out": 198.77,
+  "pro_in": 39.02,
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.035,
+  "default_score": 0.135,
+  "default_rank": 44,
+  "n_cands": 107,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.022,
+    "fit": 0.724,
+    "score": 0.049,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     0,
+     32
+    ],
+    "risk": 0.016,
+    "fit": 0.621,
+    "score": 0.054,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__50",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 109.69,
+  "pro_in": 77.15,
+  "default_win": [
+   "n",
+   192,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.013,
+  "default_score": 0.151,
+  "default_rank": 68,
+  "n_cands": 179,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.016,
+    "fit": 0.88,
+    "score": 0.028,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     19,
+     32
+    ],
+    "risk": 0.008,
+    "fit": 0.768,
+    "score": 0.031,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__53",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 95.83,
+  "pro_in": 95.53,
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.196,
+  "default_score": 0.206,
+  "default_rank": 98,
+  "n_cands": 146,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.013,
+    "fit": 0.767,
+    "score": 0.037,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     24,
+     16
+    ],
+    "risk": 0.014,
+    "fit": 0.75,
+    "score": 0.039,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__55",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 107.52,
+  "pro_in": 27.57,
+  "default_win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.047,
+  "default_score": 0.165,
+  "default_rank": 31,
+  "n_cands": 190,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     17,
+     16
+    ],
+    "risk": 0.034,
+    "fit": 0.932,
+    "score": 0.041,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.051,
+    "fit": 0.911,
+    "score": 0.06,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__59",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 95.48,
+  "pro_in": 31.56,
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.945,
+  "default_score": 0.967,
+  "default_rank": 116,
+  "n_cands": 117,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.007,
+    "fit": 0.863,
+    "score": 0.021,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.01,
+    "fit": 0.868,
+    "score": 0.023,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__60",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 112.03,
+  "pro_in": 15.97,
+  "default_win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.039,
+  "default_score": 0.14,
+  "default_rank": 15,
+  "n_cands": 110,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.016,
+    "fit": 0.714,
+    "score": 0.045,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.016,
+    "fit": 0.705,
+    "score": 0.046,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__64",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 107.58,
+  "pro_in": 28.19,
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.026,
+  "default_score": 0.158,
+  "default_rank": 46,
+  "n_cands": 131,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.035,
+    "fit": 0.87,
+    "score": 0.048,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.034,
+    "fit": 0.859,
+    "score": 0.049,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__65",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 111.5,
+  "pro_in": 30.21,
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.036,
+  "default_score": 0.151,
+  "default_rank": 27,
+  "n_cands": 140,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.019,
+    "fit": 0.95,
+    "score": 0.024,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.014,
+    "fit": 0.786,
+    "score": 0.036,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__66",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 207.41,
+  "pro_in": 19.44,
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.165,
+  "default_score": 0.18,
+  "default_rank": 42,
+  "n_cands": 209,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.047,
+    "fit": 0.938,
+    "score": 0.054,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.052,
+    "fit": 0.971,
+    "score": 0.055,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__70",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 95.38,
+  "pro_in": 15.41,
+  "default_win": [
+   "n",
+   208,
+   null,
+   8,
+   16
+  ],
+  "default_risk": 0.118,
+  "default_score": 0.14,
+  "default_rank": 26,
+  "n_cands": 114,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.019,
+    "fit": 0.939,
+    "score": 0.025,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.02,
+    "fit": 0.877,
+    "score": 0.032,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__72",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 95.66,
+  "pro_in": 31.66,
+  "default_win": [
+   "n",
+   160,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.022,
+  "default_score": 0.053,
+  "default_rank": 0,
+  "n_cands": 168,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.043,
+    "fit": 0.89,
+    "score": 0.054,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.04,
+    "fit": 0.711,
+    "score": 0.068,
+    "is_mid": true
+   }
+  ],
+  "keep_default": true
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__74",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 105.38,
+  "pro_in": 29.77,
+  "default_win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.022,
+  "default_score": 0.149,
+  "default_rank": 35,
+  "n_cands": 113,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.012,
+    "fit": 0.947,
+    "score": 0.017,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.016,
+    "fit": 0.934,
+    "score": 0.023,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__75",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 95.02,
+  "pro_in": 31.02,
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.047,
+  "default_score": 0.055,
+  "default_rank": 6,
+  "n_cands": 125,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.022,
+    "fit": 0.892,
+    "score": 0.033,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.017,
+    "fit": 0.796,
+    "score": 0.037,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "mrmommusic_nodB5gqt_mU__76",
+  "dj": "MrMoMMusic",
+  "mix": "mrmommusic_nodB5gqt_mU",
+  "pro_out": 126.71,
+  "pro_in": 15.35,
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.069,
+  "default_score": 0.109,
+  "default_rank": 30,
+  "n_cands": 138,
+  "top": [
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     96,
+     32
+    ],
+    "risk": 0.023,
+    "fit": 0.83,
+    "score": 0.04,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     96,
+     16
+    ],
+    "risk": 0.02,
+    "fit": 0.768,
+    "score": 0.043,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__02",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 127.53,
+  "pro_in": 63.85,
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.026,
+  "default_score": 0.033,
+  "default_rank": 3,
+  "n_cands": 148,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.017,
+    "fit": 0.899,
+    "score": 0.027,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.022,
+    "fit": 0.936,
+    "score": 0.028,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__04",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 175.58,
+  "pro_in": 63.46,
+  "default_win": [
+   "n",
+   176,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.014,
+  "default_score": 0.151,
+  "default_rank": 27,
+  "n_cands": 113,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.014,
+    "fit": 0.876,
+    "score": 0.027,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.017,
+    "fit": 0.717,
+    "score": 0.046,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__05",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 175.83,
+  "pro_in": 64.1,
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.017,
+  "default_score": 0.125,
+  "default_rank": 16,
+  "n_cands": 64,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.021,
+    "fit": 0.859,
+    "score": 0.035,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.024,
+    "fit": 0.789,
+    "score": 0.045,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__08",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 175.93,
+  "pro_in": 63.46,
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.016,
+  "default_score": 0.117,
+  "default_rank": 16,
+  "n_cands": 80,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.012,
+    "fit": 0.819,
+    "score": 0.03,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.026,
+    "fit": 0.769,
+    "score": 0.05,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__09",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 174.38,
+  "pro_in": 47.4,
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.027,
+  "default_score": 0.039,
+  "default_rank": 0,
+  "n_cands": 138,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.042,
+    "fit": 0.913,
+    "score": 0.051,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.035,
+    "fit": 0.837,
+    "score": 0.051,
+    "is_mid": true
+   }
+  ],
+  "keep_default": true
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__10",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 159.6,
+  "pro_in": 47.35,
+  "default_win": [
+   "n",
+   176,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.144,
+  "default_score": 0.257,
+  "default_rank": 73,
+  "n_cands": 108,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.014,
+    "fit": 0.866,
+    "score": 0.028,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.032,
+    "fit": 0.759,
+    "score": 0.056,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__11",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 174.94,
+  "pro_in": 64.12,
+  "default_win": [
+   "n",
+   112,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.032,
+  "default_score": 0.168,
+  "default_rank": 52,
+  "n_cands": 137,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.024,
+    "fit": 0.912,
+    "score": 0.032,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.023,
+    "fit": 0.723,
+    "score": 0.051,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__12",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 95.55,
+  "pro_in": 47.58,
+  "default_win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.065,
+  "default_score": 0.183,
+  "default_rank": 48,
+  "n_cands": 114,
+  "top": [
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.011,
+    "fit": 0.952,
+    "score": 0.015,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.041,
+    "fit": 0.882,
+    "score": 0.053,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__13",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 175.02,
+  "pro_in": 47.26,
+  "default_win": [
+   "n",
+   192,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.01,
+  "default_score": 0.14,
+  "default_rank": 31,
+  "n_cands": 132,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.007,
+    "fit": 0.89,
+    "score": 0.018,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.016,
+    "fit": 0.89,
+    "score": 0.027,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__14",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 175.41,
+  "pro_in": 65.6,
+  "default_win": [
+   "n",
+   128,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.05,
+  "default_score": 0.074,
+  "default_rank": 15,
+  "n_cands": 143,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.018,
+    "fit": 0.99,
+    "score": 0.019,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.009,
+    "fit": 0.86,
+    "score": 0.023,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__15",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 97.75,
+  "pro_in": 64.77,
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.038,
+  "default_score": 0.15,
+  "default_rank": 40,
+  "n_cands": 144,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.008,
+    "fit": 0.851,
+    "score": 0.023,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.014,
+    "fit": 0.785,
+    "score": 0.035,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__23",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 207.41,
+  "pro_in": 47.75,
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.022,
+  "default_score": 0.134,
+  "default_rank": 35,
+  "n_cands": 151,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.013,
+    "fit": 0.937,
+    "score": 0.02,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.011,
+    "fit": 0.848,
+    "score": 0.027,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__26",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 159.2,
+  "pro_in": 145.11,
+  "default_win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.064,
+  "default_score": 0.179,
+  "default_rank": 22,
+  "n_cands": 106,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     0,
+     32
+    ],
+    "risk": 0.019,
+    "fit": 0.755,
+    "score": 0.043,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.039,
+    "fit": 0.929,
+    "score": 0.046,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__27",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 177.34,
+  "pro_in": 63.71,
+  "default_win": [
+   "n",
+   208,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.947,
+  "default_score": 0.953,
+  "default_rank": 100,
+  "n_cands": 101,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.01,
+    "fit": 0.941,
+    "score": 0.016,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.026,
+    "fit": 0.896,
+    "score": 0.037,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__28",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 191.13,
+  "pro_in": 63.17,
+  "default_win": [
+   "n",
+   224,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.826,
+  "default_score": 0.959,
+  "default_rank": 159,
+  "n_cands": 161,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.031,
+    "fit": 0.826,
+    "score": 0.048,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.06,
+    "fit": 0.925,
+    "score": 0.067,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__31",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 190.91,
+  "pro_in": 64.01,
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.017,
+  "default_score": 0.134,
+  "default_rank": 22,
+  "n_cands": 143,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.024,
+    "fit": 0.962,
+    "score": 0.028,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.018,
+    "fit": 0.822,
+    "score": 0.035,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "sound_territory_p5JM5r2J8r0__34",
+  "dj": "Sound Territory",
+  "mix": "sound_territory_p5JM5r2J8r0",
+  "pro_out": 191.64,
+  "pro_in": 65.71,
+  "default_win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.016,
+  "default_score": 0.136,
+  "default_rank": 63,
+  "n_cands": 219,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     19,
+     32
+    ],
+    "risk": 0.017,
+    "fit": 0.87,
+    "score": 0.031,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.019,
+    "fit": 0.877,
+    "score": 0.031,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__07",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 142.68,
+  "pro_in": 31.2,
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.033,
+  "default_score": 0.169,
+  "default_rank": 20,
+  "n_cands": 175,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.048,
+    "fit": 0.803,
+    "score": 0.068,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.054,
+    "fit": 0.794,
+    "score": 0.074,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__09",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 215.02,
+  "pro_in": 63.06,
+  "default_win": [
+   "n",
+   224,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.045,
+  "default_score": 0.162,
+  "default_rank": 25,
+  "n_cands": 133,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.014,
+    "fit": 0.955,
+    "score": 0.019,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.021,
+    "fit": 0.947,
+    "score": 0.027,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__10",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 143.14,
+  "pro_in": 25.43,
+  "default_win": [
+   "n",
+   256,
+   null,
+   24,
+   16
+  ],
+  "default_risk": 0.015,
+  "default_score": 0.144,
+  "default_rank": 40,
+  "n_cands": 225,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     40,
+     16
+    ],
+    "risk": 0.009,
+    "fit": 0.836,
+    "score": 0.025,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.006,
+    "fit": 0.771,
+    "score": 0.029,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__14",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 127.48,
+  "pro_in": 31.78,
+  "default_win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.08,
+  "default_score": 0.209,
+  "default_rank": 82,
+  "n_cands": 203,
+  "top": [
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     64,
+     32
+    ],
+    "risk": 0.043,
+    "fit": 0.906,
+    "score": 0.053,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.034,
+    "fit": 0.623,
+    "score": 0.072,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__15",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 159.82,
+  "pro_in": 63.43,
+  "default_win": [
+   "n",
+   288,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.067,
+  "default_score": 0.08,
+  "default_rank": 26,
+  "n_cands": 363,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     47,
+     32
+    ],
+    "risk": 0.011,
+    "fit": 0.934,
+    "score": 0.018,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     31,
+     32
+    ],
+    "risk": 0.007,
+    "fit": 0.803,
+    "score": 0.027,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__18",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 126.91,
+  "pro_in": 64.7,
+  "default_win": [
+   "n",
+   240,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.123,
+  "default_score": 0.254,
+  "default_rank": 213,
+  "n_cands": 297,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     29,
+     16
+    ],
+    "risk": 0.022,
+    "fit": 0.944,
+    "score": 0.027,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     45,
+     32
+    ],
+    "risk": 0.013,
+    "fit": 0.84,
+    "score": 0.029,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__22",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 176.05,
+  "pro_in": 63.46,
+  "default_win": [
+   "n",
+   208,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.07,
+  "default_score": 0.189,
+  "default_rank": 70,
+  "n_cands": 161,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.029,
+    "fit": 0.842,
+    "score": 0.045,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.037,
+    "fit": 0.898,
+    "score": 0.047,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__25",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 176.92,
+  "pro_in": 143.52,
+  "default_win": [
+   "n",
+   256,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.09,
+  "default_score": 0.223,
+  "default_rank": 141,
+  "n_cands": 261,
+  "top": [
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.038,
+    "fit": 0.828,
+    "score": 0.055,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.038,
+    "fit": 0.734,
+    "score": 0.064,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__27",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 227.63,
+  "pro_in": 31.91,
+  "default_win": [
+   "n",
+   224,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.96,
+  "default_score": 1.128,
+  "default_rank": 153,
+  "n_cands": 154,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.017,
+    "fit": 0.818,
+    "score": 0.036,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.021,
+    "fit": 0.753,
+    "score": 0.046,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__30",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 150.02,
+  "pro_in": 24.03,
+  "default_win": [
+   "n",
+   176,
+   null,
+   40,
+   16
+  ],
+  "default_risk": 0.087,
+  "default_score": 0.222,
+  "default_rank": 24,
+  "n_cands": 186,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.028,
+    "fit": 0.508,
+    "score": 0.178,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.048,
+    "fit": 0.61,
+    "score": 0.187,
+    "is_mid": false
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "suicidesheeep_R8MWKsheHxk__46",
+  "dj": "SuicideSheeep",
+  "mix": "suicidesheeep_R8MWKsheHxk",
+  "pro_out": 146.12,
+  "pro_in": 32.6,
+  "default_win": [
+   "n",
+   320,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.277,
+  "default_score": 0.299,
+  "default_rank": 65,
+  "n_cands": 246,
+  "top": [
+   {
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.028,
+    "fit": 0.97,
+    "score": 0.031,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.027,
+    "fit": 0.933,
+    "score": 0.034,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "theheshbesh_zHf8cC9ViuA__05",
+  "dj": "TheHeshBesh",
+  "mix": "theheshbesh_zHf8cC9ViuA",
+  "pro_out": 129.69,
+  "pro_in": 16.31,
+  "default_win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.175,
+  "default_score": 0.313,
+  "default_rank": 119,
+  "n_cands": 128,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.033,
+    "fit": 0.895,
+    "score": 0.043,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.02,
+    "fit": 0.746,
+    "score": 0.046,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "theheshbesh_zHf8cC9ViuA__06",
+  "dj": "TheHeshBesh",
+  "mix": "theheshbesh_zHf8cC9ViuA",
+  "pro_out": 105.04,
+  "pro_in": 25.67,
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.233,
+  "default_score": 0.357,
+  "default_rank": 93,
+  "n_cands": 105,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.029,
+    "fit": 0.881,
+    "score": 0.041,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.04,
+    "fit": 0.89,
+    "score": 0.05,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "theheshbesh_zHf8cC9ViuA__07",
+  "dj": "TheHeshBesh",
+  "mix": "theheshbesh_zHf8cC9ViuA",
+  "pro_out": 110.04,
+  "pro_in": 30.61,
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.027,
+  "default_score": 0.149,
+  "default_rank": 53,
+  "n_cands": 178,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.011,
+    "fit": 0.812,
+    "score": 0.03,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     31,
+     16
+    ],
+    "risk": 0.014,
+    "fit": 0.84,
+    "score": 0.03,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "theheshbesh_zHf8cC9ViuA__10",
+  "dj": "TheHeshBesh",
+  "mix": "theheshbesh_zHf8cC9ViuA",
+  "pro_out": 94.45,
+  "pro_in": 19.76,
+  "default_win": [
+   "n",
+   160,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.118,
+  "default_score": 0.136,
+  "default_rank": 41,
+  "n_cands": 131,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     19,
+     32
+    ],
+    "risk": 0.011,
+    "fit": 0.859,
+    "score": 0.025,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.01,
+    "fit": 0.782,
+    "score": 0.032,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "theheshbesh_zHf8cC9ViuA__13",
+  "dj": "TheHeshBesh",
+  "mix": "theheshbesh_zHf8cC9ViuA",
+  "pro_out": 96.96,
+  "pro_in": 15.62,
+  "default_win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.711,
+  "default_score": 0.711,
+  "default_rank": 88,
+  "n_cands": 93,
+  "top": [
+   {
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.023,
+    "fit": 0.871,
+    "score": 0.036,
+    "is_mid": false
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.025,
+    "fit": 0.817,
+    "score": 0.043,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "theheshbesh_zHf8cC9ViuA__15",
+  "dj": "TheHeshBesh",
+  "mix": "theheshbesh_zHf8cC9ViuA",
+  "pro_out": 111.05,
+  "pro_in": 72.73,
+  "default_win": [
+   "n",
+   192,
+   null,
+   8,
+   16
+  ],
+  "default_risk": 0.131,
+  "default_score": 0.262,
+  "default_rank": 130,
+  "n_cands": 162,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.018,
+    "fit": 0.63,
+    "score": 0.055,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.019,
+    "fit": 0.636,
+    "score": 0.056,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "theheshbesh_zHf8cC9ViuA__27",
+  "dj": "TheHeshBesh",
+  "mix": "theheshbesh_zHf8cC9ViuA",
+  "pro_out": 80.66,
+  "pro_in": 16.1,
+  "default_win": [
+   "n",
+   176,
+   null,
+   24,
+   16
+  ],
+  "default_risk": 0.748,
+  "default_score": 0.758,
+  "default_rank": 129,
+  "n_cands": 130,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.03,
+    "fit": 0.954,
+    "score": 0.034,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.021,
+    "fit": 0.742,
+    "score": 0.047,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "theheshbesh_zHf8cC9ViuA__39",
+  "dj": "TheHeshBesh",
+  "mix": "theheshbesh_zHf8cC9ViuA",
+  "pro_out": 73.22,
+  "pro_in": 9.59,
+  "default_win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.02,
+  "default_score": 0.129,
+  "default_rank": 7,
+  "n_cands": 55,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.026,
+    "fit": 0.691,
+    "score": 0.057,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.029,
+    "fit": 0.645,
+    "score": 0.065,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_abhfer_BNoQ__16",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_abhfer_BNoQ",
+  "pro_out": 160.33,
+  "pro_in": 7.33,
+  "default_win": [
+   "n",
+   160,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.021,
+  "default_score": 0.163,
+  "default_rank": 31,
+  "n_cands": 60,
+  "top": [
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.017,
+    "fit": 0.758,
+    "score": 0.041,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.014,
+    "fit": 0.717,
+    "score": 0.043,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_abhfer_BNoQ__25",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_abhfer_BNoQ",
+  "pro_out": 188.08,
+  "pro_in": 24.32,
+  "default_win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.116,
+  "default_score": 0.136,
+  "default_rank": 1,
+  "n_cands": 65,
+  "top": [
+   {
+    "win": [
+     "n",
+     32,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.081,
+    "fit": 0.592,
+    "score": 0.121,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.032,
+    "fit": 0.9,
+    "score": 0.142,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_LeMk0yiSoq4__18",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_LeMk0yiSoq4",
+  "pro_out": 90.18,
+  "pro_in": 55.02,
+  "default_win": [
+   "n",
+   144,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.024,
+  "default_score": 0.038,
+  "default_rank": 0,
+  "n_cands": 78,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.033,
+    "fit": 0.744,
+    "score": 0.058,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     80,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.022,
+    "fit": 0.615,
+    "score": 0.061,
+    "is_mid": true
+   }
+  ],
+  "keep_default": true
+ },
+ {
+  "id": "ukf_drum_bass_LeMk0yiSoq4__21",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_LeMk0yiSoq4",
+  "pro_out": 95.58,
+  "pro_in": 31.61,
+  "default_win": [
+   "n",
+   128,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.131,
+  "default_score": 0.144,
+  "default_rank": 15,
+  "n_cands": 79,
+  "top": [
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     0,
+     32
+    ],
+    "risk": 0.035,
+    "fit": 0.785,
+    "score": 0.056,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.063,
+    "fit": 0.924,
+    "score": 0.071,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_LeMk0yiSoq4__22",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_LeMk0yiSoq4",
+  "pro_out": 31.36,
+  "pro_in": 54.91,
+  "default_win": [
+   "n",
+   160,
+   null,
+   24,
+   16
+  ],
+  "default_risk": 0.022,
+  "default_score": 0.146,
+  "default_rank": 72,
+  "n_cands": 187,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     48,
+     16
+    ],
+    "risk": 0.012,
+    "fit": 0.88,
+    "score": 0.024,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.018,
+    "fit": 0.936,
+    "score": 0.025,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_LeMk0yiSoq4",
+  "pro_out": 74.49,
+  "pro_in": 15.43,
+  "default_win": [
+   "n",
+   144,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.088,
+  "default_score": 0.116,
+  "default_rank": 21,
+  "n_cands": 52,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.014,
+    "fit": 0.808,
+    "score": 0.034,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.035,
+    "fit": 0.913,
+    "score": 0.044,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_LeMk0yiSoq4__31",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_LeMk0yiSoq4",
+  "pro_out": 112.48,
+  "pro_in": 32.48,
+  "default_win": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.059,
+  "default_score": 0.17,
+  "default_rank": 21,
+  "n_cands": 81,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.024,
+    "fit": 0.846,
+    "score": 0.04,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.03,
+    "fit": 0.704,
+    "score": 0.059,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_LeMk0yiSoq4__43",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_LeMk0yiSoq4",
+  "pro_out": 107.43,
+  "pro_in": 28.36,
+  "default_win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.278,
+  "default_score": 0.39,
+  "default_rank": 173,
+  "n_cands": 180,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.024,
+    "fit": 0.889,
+    "score": 0.035,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     15,
+     32
+    ],
+    "risk": 0.026,
+    "fit": 0.9,
+    "score": 0.036,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_LeMk0yiSoq4__51",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_LeMk0yiSoq4",
+  "pro_out": 83.85,
+  "pro_in": 36.59,
+  "default_win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "default_risk": 0.19,
+  "default_score": 0.325,
+  "default_rank": 57,
+  "n_cands": 71,
+  "top": [
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     64,
+     16
+    ],
+    "risk": 0.009,
+    "fit": 0.845,
+    "score": 0.025,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.021,
+    "fit": 0.937,
+    "score": 0.027,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_LeMk0yiSoq4",
+  "pro_out": 112.46,
+  "pro_in": 15.4,
+  "default_win": [
+   "n",
+   256,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.976,
+  "default_score": 1.11,
+  "default_rank": 92,
+  "n_cands": 93,
+  "top": [
+   {
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.029,
+    "fit": 0.935,
+    "score": 0.036,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.032,
+    "fit": 0.887,
+    "score": 0.043,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_cCtoa1U_1DE__11",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_cCtoa1U_1DE",
+  "pro_out": 84.5,
+  "pro_in": 2.82,
+  "default_win": [
+   "n",
+   160,
+   null,
+   8,
+   16
+  ],
+  "default_risk": 0.009,
+  "default_score": 0.145,
+  "default_rank": 60,
+  "n_cands": 146,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     25,
+     16
+    ],
+    "risk": 0.012,
+    "fit": 0.873,
+    "score": 0.025,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.018,
+    "fit": 0.894,
+    "score": 0.028,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_cCtoa1U_1DE__17",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_cCtoa1U_1DE",
+  "pro_out": 72.31,
+  "pro_in": 8.68,
+  "default_win": [
+   "n",
+   128,
+   null,
+   24,
+   16
+  ],
+  "default_risk": 0.024,
+  "default_score": 0.137,
+  "default_rank": 57,
+  "n_cands": 130,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ],
+    "risk": 0.007,
+    "fit": 0.804,
+    "score": 0.027,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.01,
+    "fit": 0.831,
+    "score": 0.027,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_cCtoa1U_1DE__21",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_cCtoa1U_1DE",
+  "pro_out": 79.7,
+  "pro_in": 15.26,
+  "default_win": [
+   "n",
+   128,
+   null,
+   0,
+   16
+  ],
+  "default_risk": 0.054,
+  "default_score": 0.186,
+  "default_rank": 53,
+  "n_cands": 91,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     32
+    ],
+    "risk": 0.017,
+    "fit": 0.929,
+    "score": 0.024,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     48,
+     32
+    ],
+    "risk": 0.013,
+    "fit": 0.786,
+    "score": 0.035,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_cCtoa1U_1DE__35",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_cCtoa1U_1DE",
+  "pro_out": 31.27,
+  "pro_in": 127.38,
+  "default_win": [
+   "n",
+   160,
+   null,
+   48,
+   16
+  ],
+  "default_risk": 0.038,
+  "default_score": 0.159,
+  "default_rank": 40,
+  "n_cands": 83,
+  "top": [
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.01,
+    "fit": 0.946,
+    "score": 0.016,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     96,
+     null,
+     0,
+     16
+    ],
+    "risk": 0.009,
+    "fit": 0.898,
+    "score": 0.02,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ },
+ {
+  "id": "ukf_drum_bass_cCtoa1U_1DE__40",
+  "dj": "UKF Drum & Bass",
+  "mix": "ukf_drum_bass_cCtoa1U_1DE",
+  "pro_out": 104.13,
+  "pro_in": 15.63,
+  "default_win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "default_risk": 0.005,
+  "default_score": 0.128,
+  "default_rank": 25,
+  "n_cands": 94,
+  "top": [
+   {
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ],
+    "risk": 0.01,
+    "fit": 0.787,
+    "score": 0.031,
+    "is_mid": true
+   },
+   {
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     32
+    ],
+    "risk": 0.003,
+    "fit": 0.723,
+    "score": 0.031,
+    "is_mid": true
+   }
+  ],
+  "keep_default": false
+ }
+]

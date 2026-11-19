@@ -95,12 +95,15 @@ if __name__ == '__main__':
     json.dump(out, open(os.path.join(H, 'deckclash3_1119.json'), 'w'), indent=1, default=float)
     print('DONE', out['drift_decks'], 'finephase nudged decks', out['finephase_decks_with_any_nudge'])
 
-def annotate(variant, rmin=0.1):
+def annotate(variant, rmin=0.2):
     """add 'deck_lag' (ms, per-bar median B - A on raw decks; NaN = abstain) to hc2_cache/arr_<variant>.pkl for final_eval HC_DECKCLASH=1"""
     p = os.path.join(H, 'hc2_cache', f'arr_{variant}.pkl'); A = pickle.load(open(p, 'rb'))
     G = {json.loads(l)['id']: json.loads(l) for l in open(os.path.join(H, 'gate_ckpt', variant + '.jsonl'))}
+    old = os.environ.get('BAR_RESYNC'); os.environ['BAR_RESYNC'] = '1'  # calibrated on re-synced decks (deckclash4_1119)
     for k, a in A.items():
         if 'deck_lag' in a or k not in G: continue
         _, c = job((k, G[k]['meta'])); a['deck_lag'] = D3stat(c, rmin) if c else np.nan
+    if old is None: os.environ.pop('BAR_RESYNC', None)
+    else: os.environ['BAR_RESYNC'] = old
     pickle.dump(A, open(p, 'wb')); return A
 def D3stat(c, rmin): return stat(deck_bars(c, '0'), rmin)[0]

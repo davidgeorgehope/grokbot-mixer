@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic, fail-hard audio guardrails for a rendered mix (mix_simple.py meta + raw wav + mastered mp3).
+"""Repeatable, fail-hard audio guardrails for a rendered mix (mix_simple.py meta + raw wav + mastered mp3).
 usage: guardrails.py --src DIR --name NAME --mp3 MP3 [--out DIR] [--png] [--only 13:00-15:00,36:00-40:00]
 Exit 0 = zero failures. Writes OUT/guardrails.json (summary+failures with timestamps) and, with --png,
 OUT/trans_XX_MMSS.png per transition (+ win_MMSS.png for flagged windows inside a track).

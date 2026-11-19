@@ -1,0 +1,144 @@
+[
+ {
+  "key": "pick1119:kushsessions_yaWXrFBRYrM__18",
+  "resync0": {
+   "A": {
+    "n": 16,
+    "med": -12.3,
+    "spread": 29.5,
+    "trend": {
+     "n": 16,
+     "slope_ms_per_bar": -2.52,
+     "span_ms": -37.8,
+     "r2": 0.75,
+     "resid_sd": 6.8,
+     "jump_sd": 6.8,
+     "mean": -12.7
+    }
+   },
+   "B": {
+    "n": 0,
+    "med": null,
+    "spread": null,
+    "trend": {
+     "n": 0
+    }
+   },
+   "moved_bars": {},
+   "log": {}
+  },
+  "resync1": {
+   "A": {
+    "n": 16,
+    "med": -0.3,
+    "spread": 26.0,
+    "trend": {
+     "n": 16,
+     "slope_ms_per_bar": -0.71,
+     "span_ms": -10.6,
+     "r2": 0.31,
+     "resid_sd": 4.9,
+     "jump_sd": 6.2,
+     "mean": -1.8
+    }
+   },
+   "B": {
+    "n": 0,
+    "med": null,
+    "spread": null,
+    "trend": {
+     "n": 0
+    }
+   },
+   "moved_bars": {
+    "2rRQWazxATI": 7,
+    "_A9gjnl9rug": 0
+   },
+   "log": {
+    "2rRQWazxATI": {
+     "16": -25.0,
+     "17": -25.0,
+     "18": -25.0,
+     "19": -25.0,
+     "20": -25.0,
+     "21": -25.0,
+     "22": -25.0
+    },
+    "_A9gjnl9rug": {}
+   }
+  }
+ },
+ {
+  "key": "default:suicidesheeep_R8MWKsheHxk__25",
+  "resync0": {
+   "A": {
+    "n": 15,
+    "med": -0.1,
+    "spread": 19.2,
+    "trend": {
+     "n": 15,
+     "slope_ms_per_bar": -0.41,
+     "span_ms": -5.8,
+     "r2": 0.13,
+     "resid_sd": 4.5,
+     "jump_sd": 6.6,
+     "mean": 0.7
+    }
+   },
+   "B": {
+    "n": 14,
+    "med": -47.6,
+    "spread": 234.8,
+    "trend": {
+     "n": 14,
+     "slope_ms_per_bar": -4.19,
+     "span_ms": -62.9,
+     "r2": 0.06,
+     "resid_sd": 77.8,
+     "jump_sd": 124.2,
+     "mean": -28.0
+    }
+   },
+   "moved_bars": {},
+   "log": {}
+  },
+  "resync1": {
+   "A": {
+    "n": 15,
+    "med": -0.1,
+    "spread": 19.2,
+    "trend": {
+     "n": 15,
+     "slope_ms_per_bar": -0.41,
+     "span_ms": -5.8,
+     "r2": 0.13,
+     "resid_sd": 4.5,
+     "jump_sd": 6.6,
+     "mean": 0.7
+    }
+   },
+   "B": {
+    "n": 14,
+    "med": -47.6,
+    "spread": 234.8,
+    "trend": {
+     "n": 14,
+     "slope_ms_per_bar": -4.19,
+     "span_ms": -62.9,
+     "r2": 0.06,
+     "resid_sd": 77.8,
+     "jump_sd": 124.2,
+     "mean": -28.0
+    }
+   },
+   "moved_bars": {
+    "gSaH1yaRkzI": 0,
+    "XUX0ebuFh7Y": 0
+   },
+   "log": {
+    "gSaH1yaRkzI": {},
+    "XUX0ebuFh7Y": {}
+   }
+  }
+ }
+]

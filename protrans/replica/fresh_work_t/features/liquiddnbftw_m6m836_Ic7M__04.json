@@ -1,0 +1,1388 @@
+{
+  "id": "liquiddnbftw_m6m836_Ic7M__04",
+  "mix_id": "liquiddnbftw_m6m836_Ic7M",
+  "dj": "Liquiddnbftw",
+  "pair": "Alpha Rhythm & Echomatics - Lost Grace -> Alpha Rhythm - Wardenfell",
+  "video_id": "m6m836_Ic7M",
+  "cue": {
+    "incoming_bar": 31.99,
+    "incoming_section": "breakdown",
+    "outgoing_bar": 142.78,
+    "outgoing_section": "breakdown",
+    "blend_list_s": 154.0,
+    "locate_a": {
+      "z": 8.19,
+      "cc": 0.6247,
+      "mix_t": 9.776,
+      "track_t": 182.718,
+      "n": 109
+    },
+    "locate_b": {
+      "z": 6.19,
+      "cc": 0.5902,
+      "mix_t": 21.804,
+      "track_t": 41.935,
+      "n": 101
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.223,
+      "hold_db": -1.92,
+      "tail_bars": 40.96,
+      "out_p90": -1.67,
+      "in_p90": -2.66
+    },
+    "bass": {
+      "rise_db_per_beat": 0.137,
+      "hold_db": -1.26,
+      "tail_bars": 45.31,
+      "out_p90": -0.8,
+      "in_p90": -2.17
+    },
+    "highs": {
+      "rise_db_per_beat": 0.553,
+      "hold_db": -6.07,
+      "tail_bars": 33.35,
+      "out_p90": -4.37,
+      "in_p90": -5.01
+    },
+    "mids": {
+      "rise_db_per_beat": 0.253,
+      "hold_db": -2.45,
+      "tail_bars": 39.33,
+      "out_p90": -1.89,
+      "in_p90": -4.09
+    }
+  },
+  "overlap_bars": 5.075,
+  "track_a": {
+    "sections": {
+      "n_bars": 240,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 31,
+      "drop2": 144,
+      "outro_start": 206,
+      "music_end": 240,
+      "drops": [
+        [
+          48,
+          111
+        ],
+        [
+          144,
+          206
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 16
+        },
+        {
+          "name": "build",
+          "start": 16,
+          "end": 31
+        },
+        {
+          "name": "breakdown",
+          "start": 31,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 111
+        },
+        {
+          "name": "build",
+          "start": 111,
+          "end": 112
+        },
+        {
+          "name": "breakdown",
+          "start": 112,
+          "end": 144
+        },
+        {
+          "name": "drop",
+          "start": 144,
+          "end": 206
+        },
+        {
+          "name": "outro",
+          "start": 206,
+          "end": 240
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -44.68,
+          "drums": -23.3,
+          "energy": -23.3
+        },
+        "build": {
+          "bass": -14.62,
+          "drums": -12.34,
+          "energy": -12.34
+        },
+        "breakdown": {
+          "bass": -30.63,
+          "drums": -20.01,
+          "energy": -20.01
+        },
+        "drop": {
+          "bass": -8.97,
+          "drums": -8.02,
+          "energy": -8.02
+        },
+        "outro": {
+          "bass": -43.24,
+          "drums": -30.82,
+          "energy": -30.82
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 175.003,
+    "yt": "bs192qOyCJY",
+    "title": "Alpha Rhythm & Echomatics - Lost Grace"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 231,
+      "intro_end": 32,
+      "drop1": 32,
+      "breakdown": 27,
+      "drop2": 128,
+      "outro_start": 192,
+      "music_end": 231,
+      "drops": [
+        [
+          32,
+          111
+        ],
+        [
+          128,
+          192
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 16
+        },
+        {
+          "name": "build",
+          "start": 16,
+          "end": 27
+        },
+        {
+          "name": "breakdown",
+          "start": 27,
+          "end": 32
+        },
+        {
+          "name": "drop",
+          "start": 32,
+          "end": 111
+        },
+        {
+          "name": "build",
+          "start": 111,
+          "end": 128
+        },
+        {
+          "name": "drop",
+          "start": 128,
+          "end": 192
+        },
+        {
+          "name": "outro",
+          "start": 192,
+          "end": 231
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -47.81,
+          "drums": -22.5,
+          "energy": -22.5
+        },
+        "build": {
+          "bass": -20.25,
+          "drums": -14.83,
+          "energy": -14.83
+        },
+        "breakdown": {
+          "bass": -33.09,
+          "drums": -18.99,
+          "energy": -18.99
+        },
+        "drop": {
+          "bass": -7.93,
+          "drums": -6.94,
+          "energy": -6.94
+        },
+        "outro": {
+          "bass": -38.22,
+          "drums": -28.16,
+          "energy": -28.16
+        }
+      },
+      "intro_len": 32,
+      "n_drops": 2
+    },
+    "bpm": 171.998,
+    "yt": "nhSUInN2swA",
+    "title": "Alpha Rhythm - Wardenfell"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 142.78,
+    "outgoing_section": "breakdown",
+    "outgoing_bars_into_section": 30.78,
+    "outgoing_bars_left": 97.22,
+    "outgoing_bars_to_outro": 63.22,
+    "incoming_cue_bar": 31.99,
+    "incoming_section": "breakdown",
+    "incoming_bars_into_section": 4.99,
+    "incoming_rel_drop1": -0.01,
+    "bass_swap_bar": 5.62
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -2.84,
+        -2.71,
+        -2.41,
+        -2.86,
+        -1.31,
+        -2.57,
+        -1.45,
+        -2.12,
+        -1.88,
+        -1.58,
+        -1.6,
+        -1.72,
+        -1.79,
+        -2.26,
+        -2.02,
+        -2.21,
+        -1.06,
+        -5.85,
+        -20.39,
+        -19.3,
+        -19.39,
+        -19.13,
+        -22.22,
+        -14.83,
+        -19.44,
+        -17.76,
+        -24.62,
+        -19.2,
+        -19.3,
+        -21.61,
+        -28.95,
+        -16.43,
+        -15.75,
+        -11.61,
+        -26.44,
+        -21.31,
+        -20.74,
+        -16.55,
+        -24.04,
+        -17.71,
+        -21.5,
+        -13.66,
+        -23.0,
+        -22.57,
+        -22.15,
+        -15.23
+      ],
+      "b": [
+        -40.25,
+        -33.69,
+        -27.83,
+        -29.36,
+        -21.42,
+        -26.71,
+        -23.83,
+        -27.16,
+        -27.23,
+        -33.71,
+        -32.68,
+        -28.51,
+        -25.33,
+        -21.84,
+        -15.65,
+        -14.06,
+        -5.12,
+        -3.4,
+        -2.47,
+        -3.39,
+        -3.68,
+        -4.41,
+        -3.43,
+        -4.53,
+        -4.02,
+        -5.27,
+        -3.9,
+        -3.8,
+        -4.36,
+        -4.68,
+        -3.61,
+        -3.72,
+        -5.45,
+        -6.32,
+        -3.45,
+        -3.63,
+        -4.94,
+        -7.87,
+        -5.11,
+        -4.45,
+        -5.19,
+        -5.33,
+        -4.59,
+        -3.52,
+        -5.94,
+        -8.29
+      ]
+    },
+    "bass": {
+      "a": [
+        -2.05,
+        -1.54,
+        -2.58,
+        -3.22,
+        -0.42,
+        -2.78,
+        -1.42,
+        -2.91,
+        -1.86,
+        -1.68,
+        -1.01,
+        -0.82,
+        -0.8,
+        0.27,
+        -0.66,
+        1.94,
+        -1.2,
+        -13.34,
+        -24.51,
+        -19.07,
+        -21.6,
+        -19.88,
+        -24.19,
+        -15.4,
+        -20.65,
+        -17.93,
+        -24.52,
+        -20.03,
+        -19.55,
+        -23.14,
+        -29.82,
+        -17.27,
+        -14.71,
+        -13.25,
+        -27.62,
+        -21.78,
+        -19.76,
+        -15.75,
+        -21.07,
+        -18.01,
+        -19.46,
+        -13.3,
+        -22.82,
+        -28.77,
+        -25.62,
+        -15.53
+      ],
+      "b": [
+        -25.1,
+        -29.41,
+        -20.35,
+        -19.8,
+        -13.38,
+        -8.28,
+        -21.24,
+        -20.7,
+        -29.44,
+        -32.91,
+        -43.1,
+        -34.36,
+        -31.75,
+        -20.22,
+        -21.17,
+        -19.04,
+        -14.6,
+        -6.13,
+        -0.56,
+        -2.95,
+        -3.1,
+        -4.33,
+        -2.67,
+        -4.31,
+        -3.41,
+        -5.06,
+        -3.67,
+        -2.91,
+        -4.09,
+        -4.3,
+        -3.37,
+        -3.77,
+        -5.57,
+        -6.03,
+        -2.73,
+        -3.66,
+        -4.44,
+        -8.61,
+        -5.46,
+        -4.19,
+        -5.57,
+        -4.61,
+        -4.08,
+        -3.06,
+        -5.73,
+        -8.53
+      ]
+    },
+    "mids": {
+      "a": [
+        -2.92,
+        -2.9,
+        -2.2,
+        -2.39,
+        -2.27,
+        -2.32,
+        -1.71,
+        -1.89,
+        -2.45,
+        -1.64,
+        -1.96,
+        -1.98,
+        -1.99,
+        -2.63,
+        -2.07,
+        -2.43,
+        -1.08,
+        -5.87,
+        -12.32,
+        -15.37,
+        -10.63,
+        -9.88,
+        -10.96,
+        -10.25,
+        -8.03,
+        -7.69,
+        -14.34,
+        -11.64,
+        -12.03,
+        -9.92,
+        -16.88,
+        -7.93,
+        -9.98,
+        -8.49,
+        -11.95,
+        -11.28,
+        -11.0,
+        -11.19,
+        -15.08,
+        -9.53,
+        -13.41,
+        -8.79,
+        -15.26,
+        -9.55,
+        -8.11,
+        -9.02
+      ],
+      "b": [
+        -29.44,
+        -27.19,
+        -29.63,
+        -33.08,
+        -25.66,
+        -30.57,
+        -22.96,
+        -24.21,
+        -23.39,
+        -28.67,
+        -27.78,
+        -26.74,
+        -22.58,
+        -19.47,
+        -14.51,
+        -11.79,
+        -4.75,
+        -3.63,
+        -4.3,
+        -4.17,
+        -6.37,
+        -4.86,
+        -6.55,
+        -4.55,
+        -7.01,
+        -6.03,
+        -5.55,
+        -6.59,
+        -6.13,
+        -6.32,
+        -5.36,
+        -4.8,
+        -4.42,
+        -5.19,
+        -6.15,
+        -3.91,
+        -7.04,
+        -5.04,
+        -5.24,
+        -5.63,
+        -5.82,
+        -9.3,
+        -6.93,
+        -6.0,
+        -8.05,
+        -5.64
+      ]
+    },
+    "highs": {
+      "a": [
+        -6.14,
+        -5.57,
+        -5.52,
+        -5.45,
+        -5.03,
+        -5.17,
+        -5.02,
+        -5.17,
+        -4.99,
+        -5.06,
+        -5.12,
+        -4.48,
+        -4.18,
+        -5.73,
+        -5.78,
+        -5.89,
+        -2.75,
+        -3.27,
+        -7.71,
+        -7.89,
+        -7.1,
+        -8.03,
+        -6.47,
+        -7.19,
+        -5.18,
+        -6.11,
+        -5.93,
+        -7.05,
+        -6.58,
+        -7.22,
+        -5.82,
+        -7.07,
+        -6.77,
+        -8.5,
+        -7.15,
+        -7.4,
+        -6.53,
+        -7.26,
+        -7.75,
+        -6.62,
+        -6.99,
+        -5.37,
+        -7.84,
+        -5.84,
+        -8.24,
+        -6.36
+      ],
+      "b": [
+        -43.59,
+        -42.71,
+        -43.21,
+        -42.58,
+        -44.84,
+        -45.1,
+        -43.13,
+        -44.33,
+        -43.25,
+        -43.75,
+        -42.2,
+        -37.61,
+        -26.43,
+        -16.62,
+        -10.62,
+        -5.69,
+        5.04,
+        -1.61,
+        -5.02,
+        -6.57,
+        -7.23,
+        -7.22,
+        -6.74,
+        -6.76,
+        -6.74,
+        -7.14,
+        -6.97,
+        -7.85,
+        -7.81,
+        -7.69,
+        -6.58,
+        -6.76,
+        -6.23,
+        -6.81,
+        -6.59,
+        -6.53,
+        -6.73,
+        -6.47,
+        -6.89,
+        -6.73,
+        -5.92,
+        -6.58,
+        -6.27,
+        -7.77,
+        -7.54,
+        -7.17
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        240,
+        null,
+        16,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.99,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 40.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 128.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 64.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 64.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 40.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 40.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 40.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 96.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 96.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 128.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 128.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 128.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 64.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 64.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 40.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 40.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 40.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 96.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 96.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 128.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 128.01,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 128.01,
+      "section_match": false,
+      "relevance": 0
+    }
+  ]
+}

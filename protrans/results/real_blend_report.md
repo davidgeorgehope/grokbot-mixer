@@ -14,7 +14,7 @@ Calibration sweep (-9 / -12 / -15 dB): Hospital radio-DJ excerpt 2.356 / 2.356 /
 
 Current input was **31**, not 33: four talkover rejects and two permanent version skips had already reduced the original 37. This gate rejects **11 more**, leaving **20** (16 train / 4 held-out).
 
-Reject means **less than eight adequately audible overlap bars**, not necessarily no mixing. In particular, previously favoured Netsky __15 has 3.262 such bars and is excluded by this policy. A genuine shorter blend can fail this minimum-length requirement; all data remain available for review.
+Reject means **less than eight adequately audible overlap bars**, not necessarily no mixing. In particular, previously favoured Netsky __15 has 3.262 such bars and is excluded by this policy. A genuine shorter blend can fail this lowest-length requirement; all data remain available for review.
 
 | Clip | Total overlap bars | Longest run bars | Admission |
 |---|---:|---:|---|

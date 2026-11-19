@@ -49,7 +49,7 @@ for r in J['blends']:
   aud=(ga>=THRESH['GMIN'])&(gb>=THRESH['GMIN'])
   both=aud&drum_active(S['A']['drums'],nb)&drum_active(S['B']['drums'],nb)
   t=time.time();bt={x:a2b(S[x]['drums'],SR) for x in 'AB'};T['beat']+=time.time()-t
-  inb=lambda v:np.isin(np.minimum((v/BAR).astype(int),nb-1),np.where(both)[0])
+  inb=lambda v:np.isin(np.clip((v/BAR).astype(int),None,nb-1),np.where(both)[0])
   (ba,da),(bb,db)=bt['A'],bt['B'];m=dict(k=k,t0=r['t0'],a=r['a'],b=r['b'],bars=nb,both_audible=int(aud.sum()),both_drum_bars=int(both.sum()))
   BEAT=BAR/4;m['bt']={x:[np.round(bt[x][0],3).tolist(),np.round(bt[x][1],3).tolist()] for x in 'AB'}
   def phase(dn):
@@ -59,13 +59,13 @@ for r in J['blends']:
   if both.sum()>=2:
     xa,xb=ba[inb(ba)],bb[inb(bb)]
     if len(xa) and len(xb):
-      off=np.minimum(np.array([np.min(np.abs(xb-v)) for v in xa]),BEAT/2)*1000
+      off=np.clip(np.array([np.min(np.abs(xb-v)) for v in xa]),None,BEAT/2)*1000
       m.update(beat_ms_med=float(np.median(off)),beat_ms_p90=float(np.percentile(off,90)))
     xd,yd=da[inb(da)],db[inb(db)]
     m['down_agree']=float(np.mean([np.min(np.abs(yd-v))<0.07 for v in xd])) if len(xd) and len(yd) else None
   m['verdict']=verdict(m)
   fa,PA=pcs(S['A']['vocals']+S['A']['other'],f'/tmp/ea{k}.wav');fb,PB=pcs(S['B']['vocals']+S['B']['other'],f'/tmp/eb{k}.wav')
-  n=min(len(PA),len(PB));bi=np.minimum((fa[:n]/BAR).astype(int),nb-1);w=np.minimum(ga[bi],gb[bi])*aud[bi]
+  n=min(len(PA),len(PB));bi=np.clip((fa[:n]/BAR).astype(int),None,nb-1);w=np.fmin(ga[bi],gb[bi])*aud[bi]
   sa,sb=PA[:n].sum(1),PB[:n].sum(1);ok=(sa>0)&(sb>0)&(w>0)
   num=np.einsum('ti,ij,tj->t',PA[:n],R,PB[:n]);dd=np.where(ok,num/(sa*sb+1e-9),0)
   m['diss']=float((dd*w).sum()/max(w[ok].sum(),1e-9)) if ok.any() else None

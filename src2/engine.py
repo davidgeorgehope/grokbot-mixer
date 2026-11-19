@@ -33,6 +33,57 @@ def nudge(tr,k):
   v=v+_LOCK.get(tr['id'],0)
   return v
 SEAM=int(round(BEAT*SR))
+# ---- BAR_RESYNC (2026-11-19, research flag, off by default). A deck whose own kicks sit off the bar grid for a stretch of bars
+# (e.g. a -26 ms step inside a track's outro) is re-read bar by bar so its kicks land back on the grid ('riding the pitch' by
+# re-sync rather than stretch). Measured on the deck's raw audio (before EQ lanes and fader gain): 30-150 Hz onset flux,
+# folded per bar; each bar is cross-correlated with every other bar (+-RS_LIM ms). Offsets are relative to the deck's
+# majority (pairwise bar-vs-bar lags). A bar is moved only when it is confident (>= RS_AGREE of its pairwise lags with r >= RS_RMIN
+# agree with its median within RS_CONS ms) AND it sits in a stretch of >= 2
+# consecutive bars within RS_STRETCH ms of each other (stable), and the stretch median is in [RS_MIN, RS_MAX] ms. Anything else is left exactly as is.
+RS_RMIN=float(os.environ.get('RS_RMIN',0.15));RS_CONS=float(os.environ.get('RS_CONS',6.0));RS_MIN=float(os.environ.get('RS_MIN',8.0))
+RS_MAX=float(os.environ.get('RS_MAX',60.0));RS_AGREE=float(os.environ.get('RS_AGREE',0.4));RS_STRETCH=float(os.environ.get('RS_STRETCH',8.0));RS_LIM=float(os.environ.get('RS_LIM',120.0))
+_RESYNC_LOG={};_RESYNC_DIAG={}
+def _kick_env(y,hop=128,nfft=2048):
+  m=y.mean(1) if y.ndim==2 else y
+  if len(m)<nfft:return np.zeros(1)
+  fr=np.lib.stride_tricks.sliding_window_view(m,nfft)[::hop]*np.hanning(nfft)
+  S=np.abs(np.fft.rfft(fr,axis=1));f=np.fft.rfftfreq(nfft,1/SR);L=np.log1p(100*S[:,(f>=30)&(f<150)])
+  return np.concatenate([[0],np.maximum(0,np.diff(L,axis=0)).sum(1)])
+def _resync(y,hop=128,nfft=2048,win=None):
+  """per-bar offsets from PAIRWISE bar-vs-bar cross-correlation (FFT, +-RS_LIM ms) over the deck's bars (+-win, default all): o_k = median lag of bar k vs
+  the other bars (the deck's majority defines the grid), so a stretch of shifted bars is measured against the deck's local majority (a template folded
+  from all bars would contain the shifted bars' own peak and read 0)."""
+  e=_kick_env(y,hop,nfft);fpb=BS/hop;N=int(round(fpb));nb=int(len(y)//BS);P=np.zeros((nb,N));val=np.zeros(nb,bool)
+  for k in range(nb):
+    idx=(k*fpb+np.arange(N)).astype(int)-nfft//(2*hop)
+    if idx.min()>=0 and idx.max()<len(e):
+      p=e[idx]
+      if p.std()>0:P[k]=(p-p.mean())/p.std();val[k]=True
+  if val.sum()<4:return {}
+  win=win or nb;F=np.fft.rfft(P,axis=1);lm=int(RS_LIM/1000*SR/hop);EX={};off=np.full(nb,np.nan);conf=np.zeros(nb,bool)
+  for k in np.where(val)[0]:
+    js=[j for j in range(max(0,k-win),min(nb,k+win+1)) if j!=k and val[j]]
+    if len(js)<3:continue
+    C=np.fft.irfft(np.conj(F[js])*F[k][None,:],n=N,axis=1)/N  # C[j,l] = mean(P_j * roll(P_k,-l)) -> peak at l = lag of k behind j
+    C=np.concatenate([C[:,-lm:],C[:,:lm+1]],axis=1);L=np.arange(-lm,lm+1);jj=np.argmax(C,axis=1);ii=np.arange(len(js));r=C[ii,jj]
+    a=C[ii,np.clip(jj-1,0,2*lm)];c=C[ii,np.clip(jj+1,0,2*lm)];den=a-2*r+c;dj=np.where((jj>0)&(jj<2*lm)&(den!=0),0.5*(a-c)/np.where(den!=0,den,1),0.0)
+    lag=(L[jj]+dj)*hop/SR*1000
+    g=r>=RS_RMIN
+    if g.sum()>=3:
+      off[k]=float(np.median(lag[g]));conf[k]=float(np.mean(np.abs(lag[g]-off[k])<=RS_CONS))>=RS_AGREE
+  _RESYNC_DIAG['last']=dict(off=off.round(1).tolist(),conf=conf.tolist())
+  # stretches: consecutive bars whose offsets stay within RS_STRETCH ms of the stretch median; a stretch of >= 2 bars, at least
+  # half of them confident, |median| in [RS_MIN, RS_MAX], is moved by its median (one constant shift per stretch, no per-bar jitter)
+  k=0
+  while k<nb:
+    if not np.isfinite(off[k]):k+=1;continue
+    st=[k];j=k+1
+    while j<nb and np.isfinite(off[j]) and abs(off[j]-float(np.median(off[st])))<=RS_STRETCH:st.append(j);j+=1
+    med=float(np.median(off[st]))
+    if len(st)>=2 and np.mean(conf[st])>=0.5 and RS_MIN<=abs(med)<=RS_MAX:
+      for q in st:EX[q]=round(med,1)
+    k=j
+  return EX
 def render_deck(d):
   """Render deck d (meta dict) alone: source bars from full_map, 1-beat linear overlap-add at loop seams,
   times the crossfader gain curve d['auto']['gain'] ([[mix_bar, gain], ...])."""
@@ -40,6 +91,10 @@ def render_deck(d):
   if d.get('blend_lock_ms'):  # 2026-11-17 RCA: constant incoming lock, same sign as nudge (delay +)
     _LOCK[d['id']]=float(_LOCK.get(d['id'],0))+float(d['blend_lock_ms'])
   src=[c for _,c in d['full_map']];y=_bars(tr,m,tr['st']['mix'],n)
+  EX=None
+  if os.environ.get('BAR_RESYNC','0')=='1' and 'beat' not in src and not d.get('ib'):  # 2026-11-19 gated per-bar re-sync (off by default)
+    EX=_resync(y);_RESYNC_LOG[d['id']]=EX
+    if EX:y=_bars(tr,m,tr['st']['mix'],n,extra=EX)
   if 'beat' in src:  # synthetic beat-only outro ('lx'): the same bar map from the drums+bass stem, faded in over LX_XF bars that END
     k0=src.index('beat');xf=int(d.get('lx_xf',2))  # where the beat-only bars start (before the blend; the stems are phase-identical to the mix)
     yb=_bars(tr,m,tr['st']['beat'],n)
@@ -61,7 +116,7 @@ def render_deck(d):
   if ib:y=y+_ib_layer(tr,d,m,n,y)  # incoming beat loop under its beatless intro (beatmelody.py), before the bass lane so the swap gates it
   ds=d.get('dswap')
   if ds and 'beat' not in src:  # drum swap: outgoing drums+bass stem out over ds['xf'] bars from mix bar ds['bar']; melody keeps the crossfader tail
-    yb=_bars(tr,m,tr['st']['beat'],n);w=np.clip((np.arange(n)/BS+d['start_bar']-ds['bar'])/max(ds['xf'],1e-9),0,1).astype(np.float32)
+    yb=_bars(tr,m,tr['st']['beat'],n,extra=EX);w=np.clip((np.arange(n)/BS+d['start_bar']-ds['bar'])/max(ds['xf'],1e-9),0,1).astype(np.float32)
     y=y-yb*w[:,None]
   gc=d.get('graphcut')
   if gc:

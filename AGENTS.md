@@ -1,6 +1,6 @@
 # AGENTS.md: start here
 
-This is **grokbot-mixer**, an automated liquid drum & bass mix builder. It takes YouTube track IDs, time-stretches every track to 174 BPM and analyses grids, keys and per-bar features. It then renders beat-matched **crossfader** blends from a JSON plan and runs deterministic guardrails and tests. It produces an MP3, a twin-turntable video and a public YouTube upload.
+This is **grokbot-mixer**, an automated liquid drum & bass mix builder. It takes YouTube track IDs, time-stretches every track to 174 BPM and analyses grids, keys and per-bar features. It then renders beat-matched **crossfader** blends from a JSON plan and runs repeatable guardrails and tests. It produces an MP3, a twin-turntable video and a public YouTube upload.
 
 Audio is **not** in this repo. You source your own tracks, legally.
 

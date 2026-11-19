@@ -22,7 +22,7 @@ used to train the ranker. They stay an eval-only set.
 
 ## How a mix is admitted
 
-Same method as the existing protrans mining path (`fetch.meta_remote` /
+Same method as the existing protrans harvesting path (`fetch.meta_remote` /
 `fetch.ytdlp_remote` on the configured download host, `version_match`,
 `talkover.check_clip`, `real_blend.assess`):
 

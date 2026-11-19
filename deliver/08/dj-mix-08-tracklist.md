@@ -1,6 +1,6 @@
 # DJ Grok Bot – Mix 08
 
-Length 62:21 · 174 BPM · times from /workspace/mixes/src2/mix08_r11c_meta.json · crossfader engine: one monotonic equal-power crossfade per blend (32 bars, 16 minimum) with a 2-bar low-band bass handoff tied to the crossfader at 35%, constant per-track gain (-16 LUFS), no stems or ducking
+Length 62:21 · 174 BPM · times from /workspace/mixes/src2/mix08_r11c_meta.json · crossfader engine: one monotonic equal-power crossfade per blend (32 bars, at least 16) with a 2-bar low-band bass handoff tied to the crossfader at 35%, constant per-track gain (-16 LUFS), no stems or ducking
 
  1. 0:00  Hybrid Minds – Better Now (ft. Lily Denning)  [10B]  (youtu.be/gbD9mt0T10g)
  2. 2:34  Fred V & Grafix – Forest Fires (ft. Etherwood)  [11B]  (youtu.be/1WOi5IRuO7Y)

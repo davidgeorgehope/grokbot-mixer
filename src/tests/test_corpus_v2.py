@@ -96,7 +96,7 @@ def test_split_is_by_mix_and_holds_out_at_least_20_percent(tmp_path, monkeypatch
     # no mix appears in both sides
     assert set(split['train_mixes']).isdisjoint(split['heldout_mixes'])
     assert set(split['train_mixes']) | set(split['heldout_mixes']) == {f'mix{m:02d}' for m in range(10)}
-    # deterministic
+    # repeatable
     split2 = P.assign_split()
     assert split2['heldout_mixes'] == split['heldout_mixes']
 

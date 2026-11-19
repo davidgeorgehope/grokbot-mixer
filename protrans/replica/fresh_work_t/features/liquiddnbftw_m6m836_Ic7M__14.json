@@ -1,0 +1,1021 @@
+{
+  "id": "liquiddnbftw_m6m836_Ic7M__14",
+  "mix_id": "liquiddnbftw_m6m836_Ic7M",
+  "dj": "Liquiddnbftw",
+  "pair": "Alpha Rhythm - Dunsworth -> Alpha Rhythm - The Unknown ft. Gemma Rose (HumaNature Remix)",
+  "video_id": "m6m836_Ic7M",
+  "cue": {
+    "incoming_bar": 31.81,
+    "incoming_section": "build",
+    "outgoing_bar": 210.04,
+    "outgoing_section": "outro",
+    "blend_list_s": 243.0,
+    "locate_a": {
+      "z": 7.401,
+      "cc": 0.7564,
+      "mix_t": 0.882,
+      "track_t": 266.588,
+      "n": 98
+    },
+    "locate_b": {
+      "z": 8.584,
+      "cc": 0.5475,
+      "mix_t": 19.064,
+      "track_t": 38.94,
+      "n": 102
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.301,
+      "hold_db": -3.91,
+      "tail_bars": 23.2,
+      "out_p90": -2.69,
+      "in_p90": -1.04
+    },
+    "bass": {
+      "rise_db_per_beat": -0.642,
+      "hold_db": -0.69,
+      "tail_bars": 24.83,
+      "out_p90": 4.64,
+      "in_p90": -0.92
+    },
+    "highs": {
+      "rise_db_per_beat": -0.379,
+      "hold_db": -3.65,
+      "tail_bars": 23.56,
+      "out_p90": 9.54,
+      "in_p90": -1.95
+    },
+    "mids": {
+      "rise_db_per_beat": 0.305,
+      "hold_db": -3.89,
+      "tail_bars": 25.01,
+      "out_p90": -1.54,
+      "in_p90": -1.06
+    }
+  },
+  "overlap_bars": 18.667,
+  "track_a": {
+    "sections": {
+      "n_bars": 213,
+      "intro_end": 32,
+      "drop1": 32,
+      "breakdown": 96,
+      "drop2": 128,
+      "outro_start": 192,
+      "music_end": 213,
+      "drops": [
+        [
+          32,
+          96
+        ],
+        [
+          128,
+          192
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 24
+        },
+        {
+          "name": "build",
+          "start": 24,
+          "end": 32
+        },
+        {
+          "name": "drop",
+          "start": 32,
+          "end": 96
+        },
+        {
+          "name": "breakdown",
+          "start": 96,
+          "end": 128
+        },
+        {
+          "name": "drop",
+          "start": 128,
+          "end": 192
+        },
+        {
+          "name": "outro",
+          "start": 192,
+          "end": 213
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -41.03,
+          "drums": -27.72,
+          "energy": -27.72
+        },
+        "build": {
+          "bass": -30.38,
+          "drums": -18.21,
+          "energy": -18.21
+        },
+        "drop": {
+          "bass": -9.8,
+          "drums": -8.67,
+          "energy": -8.67
+        },
+        "breakdown": {
+          "bass": -38.22,
+          "drums": -21.28,
+          "energy": -21.28
+        },
+        "outro": {
+          "bass": -46.1,
+          "drums": -25.19,
+          "energy": -25.19
+        }
+      },
+      "intro_len": 32,
+      "n_drops": 2
+    },
+    "bpm": 172.024,
+    "yt": "h9Z7x2zrYSU",
+    "title": "Alpha Rhythm - Dunsworth"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 224,
+      "intro_end": 36,
+      "drop1": 36,
+      "breakdown": 97,
+      "drop2": 128,
+      "outro_start": 191,
+      "music_end": 224,
+      "drops": [
+        [
+          36,
+          95
+        ],
+        [
+          128,
+          191
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 15
+        },
+        {
+          "name": "build",
+          "start": 15,
+          "end": 36
+        },
+        {
+          "name": "drop",
+          "start": 36,
+          "end": 95
+        },
+        {
+          "name": "build",
+          "start": 95,
+          "end": 97
+        },
+        {
+          "name": "breakdown",
+          "start": 97,
+          "end": 128
+        },
+        {
+          "name": "drop",
+          "start": 128,
+          "end": 191
+        },
+        {
+          "name": "outro",
+          "start": 191,
+          "end": 224
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -32.23,
+          "drums": -21.62,
+          "energy": -21.62
+        },
+        "build": {
+          "bass": -17.61,
+          "drums": -14.54,
+          "energy": -14.54
+        },
+        "drop": {
+          "bass": -10.23,
+          "drums": -8.8,
+          "energy": -8.8
+        },
+        "breakdown": {
+          "bass": -29.34,
+          "drums": -17.53,
+          "energy": -17.53
+        },
+        "outro": {
+          "bass": -72.04,
+          "drums": -34.56,
+          "energy": -34.56
+        }
+      },
+      "intro_len": 36,
+      "n_drops": 2
+    },
+    "bpm": 174.002,
+    "yt": "ws-fCkvBzqU",
+    "title": "Alpha Rhythm - The Unknown ft. Gemma Rose (HumaNature Remix)"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 210.04,
+    "outgoing_section": "outro",
+    "outgoing_bars_into_section": 18.04,
+    "outgoing_bars_left": 2.96,
+    "outgoing_bars_to_outro": -18.04,
+    "incoming_cue_bar": 31.81,
+    "incoming_section": "build",
+    "incoming_bars_into_section": 16.81,
+    "incoming_rel_drop1": -4.19,
+    "bass_swap_bar": 9.79
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -1.15,
+        -1.21,
+        -1.93,
+        -2.7,
+        -2.2,
+        -4.29,
+        -1.74,
+        -5.56,
+        -3.68,
+        -4.46,
+        -5.41,
+        -6.6,
+        -4.1,
+        -4.17,
+        -6.12,
+        -5.96,
+        -6.02,
+        -5.32,
+        -11.68,
+        -14.14,
+        -12.9,
+        -5.83,
+        -12.08,
+        -34.73,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -18.29,
+        -19.65,
+        -13.92,
+        -11.02,
+        -11.65,
+        -9.84,
+        -9.07,
+        -8.94,
+        -9.17,
+        -7.27,
+        -5.36,
+        -4.86,
+        -5.28,
+        -4.6,
+        -4.34,
+        -3.29,
+        -2.55,
+        -1.75,
+        -1.1,
+        -1.05,
+        -1.1,
+        -1.28,
+        -1.07,
+        -1.06,
+        -1.16,
+        -1.18,
+        -1.02,
+        -1.06,
+        -1.08,
+        -1.21,
+        -1.05,
+        -1.08,
+        -1.11,
+        -1.14,
+        -1.05,
+        -1.09,
+        -1.17,
+        -1.32,
+        -1.09,
+        -1.05,
+        -1.15,
+        -1.1,
+        -1.06,
+        -1.08,
+        -1.19,
+        -1.06
+      ]
+    },
+    "bass": {
+      "a": [
+        -0.64,
+        -1.02,
+        -0.48,
+        -1.92,
+        -0.43,
+        -4.09,
+        2.37,
+        -2.06,
+        2.35,
+        -1.91,
+        -1.03,
+        0.13,
+        -0.13,
+        0.94,
+        -4.81,
+        -7.36,
+        -14.19,
+        -15.54,
+        -1.92,
+        4.41,
+        6.92,
+        6.79,
+        7.38,
+        5.11,
+        1.75,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -13.62,
+        -29.46,
+        -25.11,
+        -26.13,
+        -29.63,
+        -23.82,
+        -22.59,
+        -27.9,
+        -29.77,
+        -11.26,
+        -9.3,
+        -10.54,
+        -10.54,
+        -9.16,
+        -7.87,
+        -6.33,
+        -3.77,
+        -1.8,
+        -1.01,
+        -1.0,
+        -0.85,
+        -0.97,
+        -0.98,
+        -1.01,
+        -0.89,
+        -1.12,
+        -0.97,
+        -1.01,
+        -0.96,
+        -1.15,
+        -1.01,
+        -0.99,
+        -0.95,
+        -1.13,
+        -1.02,
+        -1.0,
+        -0.95,
+        -1.47,
+        -1.12,
+        -0.97,
+        -1.14,
+        -1.15,
+        -1.03,
+        -0.99,
+        -1.14,
+        -0.96
+      ]
+    },
+    "mids": {
+      "a": [
+        -2.09,
+        -1.44,
+        -1.85,
+        -2.92,
+        -2.35,
+        -4.46,
+        -1.99,
+        -6.06,
+        -3.88,
+        -4.3,
+        -5.26,
+        -6.43,
+        -3.97,
+        -4.18,
+        -6.21,
+        -5.92,
+        -6.05,
+        -5.32,
+        -10.23,
+        -12.81,
+        -13.74,
+        -10.76,
+        -8.71,
+        3.6,
+        3.93,
+        -128.89,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -14.88,
+        -17.5,
+        -13.84,
+        -10.33,
+        -10.46,
+        -9.26,
+        -8.12,
+        -7.9,
+        -7.77,
+        -6.98,
+        -5.5,
+        -4.85,
+        -4.8,
+        -4.36,
+        -3.91,
+        -2.96,
+        -2.27,
+        -1.7,
+        -1.33,
+        -1.2,
+        -1.18,
+        -1.15,
+        -1.21,
+        -1.19,
+        -1.12,
+        -1.19,
+        -1.17,
+        -1.13,
+        -0.99,
+        -1.31,
+        -1.11,
+        -1.14,
+        -1.03,
+        -1.22,
+        -1.12,
+        -1.15,
+        -1.03,
+        -1.17,
+        -1.02,
+        -1.12,
+        -0.97,
+        -1.18,
+        -1.09,
+        -1.21,
+        -1.08,
+        -1.22
+      ]
+    },
+    "highs": {
+      "a": [
+        -4.07,
+        -3.21,
+        -3.23,
+        -3.48,
+        -2.41,
+        -4.71,
+        -0.8,
+        -9.02,
+        -6.25,
+        -4.24,
+        -4.03,
+        -7.06,
+        -3.75,
+        1.29,
+        -3.66,
+        -6.6,
+        2.62,
+        9.46,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        -30.03,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        1.51,
+        -5.81,
+        -3.98,
+        -1.76,
+        -3.46,
+        -5.97,
+        -6.41,
+        -5.49,
+        -5.24,
+        -4.41,
+        -3.36,
+        -2.89,
+        -3.02,
+        -2.88,
+        -2.66,
+        -2.72,
+        -2.94,
+        -2.99,
+        -2.61,
+        -2.44,
+        -2.38,
+        -2.48,
+        -2.4,
+        -2.13,
+        -2.06,
+        -2.11,
+        -2.09,
+        -2.14,
+        -2.09,
+        -2.18,
+        -1.98,
+        -1.92,
+        -2.03,
+        -1.93,
+        -2.2,
+        -2.1,
+        -1.96,
+        -2.24,
+        -2.19,
+        -2.13,
+        -2.26,
+        -2.13,
+        -2.35,
+        -2.03,
+        -2.13,
+        -2.12
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        208,
+        null,
+        16,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.81,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 128.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 96.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 96.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 128.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 128.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 128.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 96.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 96.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 128.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 128.19,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 128.19,
+      "section_match": false,
+      "relevance": 0
+    }
+  ]
+}

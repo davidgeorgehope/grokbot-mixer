@@ -66,10 +66,11 @@ def main(pick_id, base_variant, cands):
         print('DIAG skipped:', type(e).__name__, str(e)[-200:], flush=True)
 
 if __name__ == '__main__':
-    # 2026-11-18 list (base n1118_base: rules.json incl. TAIL_EXIT 6 + BLEND_LOCK 1).
-    # Skips everything n1118 nightly already rejected on the full cohort.
-    CANDS = [  # round 3 (round 2: long_exit_4 lifted pick 33.72->35.01 but overfit 34.07->32.33; try milder)
-        ('long_exit_6', {'LONG_EXIT': 6}),
-        ('long_exit_7', {'LONG_EXIT': 7}),
+    # 2026-11-19 list (base n1118_base: rules.json incl. TAIL_EXIT 6 + BLEND_LOCK 1, unchanged since).
+    # Only general knobs/values never tried on this scorer cohort.
+    # round 2 (round 1: length_pref 12 lifted pick 32.29->37.21 but overfit 34.07->31.04; tail_exit_5 32.85 next best)
+    CANDS = [
+        ('length_pref_14', {'length_pref': 14}),
+        ('tail_exit_5', {'TAIL_EXIT': 5}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

@@ -33,7 +33,7 @@ Those four groups total the original 72 skips; two extra phase parameters and ei
   historical guardrail report, four small grid JSONs, preference JSON and generator.
 - Generated two-track source/stem workspace: **3565010 bytes** (~3.57 MB),
   compressed FLAC containers; .wav names retain the engine path contract.
-- No binary audio committed. `src/tests/fixtures/generate.py` is deterministic,
+- No binary audio committed. `src/tests/fixtures/generate.py` is repeatable,
   copyright-free, offline, and creates sources only inside pytest-owned temporary dirs.
 - Generated stems, cards and copies are removed at fixture teardown. Tempo pulse
   files are unlinked at teardown. No dependency on deleted archival WAVs remains

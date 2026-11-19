@@ -192,7 +192,7 @@ def activity(rA, rB, pi=None):
     pi = pi / (pi.sum() + EPS)
     rA_bar = rA @ pi
     rB_bar = rB @ pi
-    return np.minimum(rA_bar, rB_bar), rA_bar, rB_bar
+    return np.fmin(rA_bar, rB_bar), rA_bar, rB_bar
 
 
 def detect_span(mu, times, tau_on=TAU_ON, tau_off=TAU_OFF, l_on=L_ON_S, l_off=L_OFF_S):
@@ -223,7 +223,7 @@ def detect_span(mu, times, tau_on=TAU_ON, tau_off=TAU_OFF, l_on=L_ON_S, l_off=L_
 
 def collision_frame(rA, rB, qA, qB, omega):
     """Per-frame collision term (the inner sum of eq. 16)."""
-    shared = np.minimum(qA, qB)
+    shared = np.fmin(qA, qB)
     return np.sum(omega * rA * rB * shared, axis=1)
 
 

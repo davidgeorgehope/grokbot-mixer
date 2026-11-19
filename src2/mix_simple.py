@@ -2,7 +2,7 @@
 deck gains derived only from x (equal-power), channel faders at unity, no stems/EQ/ducking in playback.
 Vocal clashes avoided by choosing mix points from full-track analysis; else loop a clean instrumental
 phrase (seams overlap-added at bar boundaries).
-Blend length: XBARS (default 32) per blend, falling back to 16 (the minimum) only when no clean 32-bar window exists.
+Blend length: XBARS (default 32) per blend, falling back to 16 (the lowest) only when no clean 32-bar window exists.
 Bass handoff (BASS_SWAP_BARS, default 2; 0 = off): the only EQ move, tied to the crossfader. When x passes SWAP_POS
 (default 0.35, Raveform median ~0.36) the outgoing deck's low band (<150 Hz) ramps 1->0 while the incoming one ramps
 0->1 (raised cosine, monotonic), so one bassline plays at a time.
@@ -224,7 +224,7 @@ def pair_cands(i,ia0):
   minlen=160 if a in ANCH else 96-X  # anchors: >=160 bars (~220 s) of their own music, blend included
   emin=max(ia+minlen,ia+int((e_max-ia)*0.5));emin+=(-emin)%16;emin=min(emin,e_max)
   XMAX=X
-  for X in sorted({XMAX,16},reverse=True):  # 32-bar blend preferred; 16 is the minimum when no clean 32-bar window exists
+  for X in sorted({XMAX,16},reverse=True):  # 32-bar blend preferred; 16 is the lowest when no clean 32-bar window exists
     cands=[]
     for e in range(e_max,emin-1,-16):
       for ib in range(0,min(81,nb-3*X),16):cands.append(('n',e,ib))

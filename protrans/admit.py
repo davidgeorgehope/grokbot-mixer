@@ -85,7 +85,7 @@ def pick_search_ranked(title, results):
 
 
 def needed_source_duration(t_a=None, t_b=None, t_next=None, which='a'):
-    """Minimum source length (seconds) so a preview can cover the blend window.
+    """Lowest source length (seconds) so a preview can cover the blend window.
 
     The analysis clip is extract.PRE + extract.POST around the incoming cue.
     The outgoing also has to cover the listed slot (90-280 s). Incoming uses

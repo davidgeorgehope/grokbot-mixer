@@ -123,7 +123,7 @@ def test_collision_monotonic_in_shared_occupancy():
     qB2[:, 0] += 0.2
     qA2 = qA2 / qA2.sum(1, keepdims=True)
     qB2 = qB2 / qB2.sum(1, keepdims=True)
-    assert np.all(np.minimum(qA2, qB2)[:, 0] > np.minimum(qA, qB)[:, 0])
+    assert np.all(np.fmin(qA2, qB2)[:, 0] > np.fmin(qA, qB)[:, 0])
     p1, _ = S.collision_penalty(rA, rB, qA2, qB2, omega)
     assert p1 >= p0 - 1e-12, (p0, p1)
 

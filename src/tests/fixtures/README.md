@@ -1,6 +1,6 @@
 # Small offline fixtures
 
-`generate.py` creates deterministic copyright-free full mix and drums+bass sources
+`generate.py` creates repeatable copyright-free full mix and drums+bass sources
 in a caller-supplied directory. The pytest fixture owns that temporary directory
 and deletes its generated audio and cards at teardown. Generated sources are
 3.57 MB total; the checked-in generator and metadata are about 133 KB.

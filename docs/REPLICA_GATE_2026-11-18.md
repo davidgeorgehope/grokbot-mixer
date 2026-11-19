@@ -6,7 +6,7 @@ Nothing was promoted. The pre-registered criteria in `protrans/replica/promotion
 ## What was built
 - `src2/replica_rule.py`:
   - `mode()` returns off, on or gated.
-  - `gate()` passes a pair only when the primary sections detector finds two separate drops, the breakdown is at least 16 bars long, and the low band dips at least 6 dB versus drop 1. These a-priori constants are the sections.py drop margin and the minimum blend length.
+  - `gate()` passes a pair only when the primary sections detector finds two separate drops, the breakdown is at least 16 bars long, and the low band dips at least 6 dB versus drop 1. These a-priori constants are the sections.py drop margin and the lowest blend length.
   - `REPLICA_X` is a research override for blend length.
   - Hooks are in `src2/mix_simple.py` (via `engine_cands`) and `protrans/recreate.py`. In gated mode there's no fine-fallback breakdown.
 - `protrans/replica/hardcheck.py` has three hard checks:
@@ -72,7 +72,7 @@ Errors are in bars against the pro. Deltas are variant minus default, with group
 - Fresh: default and gated each fail 3/6, on different pairs.
 
 ### Tightened gate (`tight_gate.json`)
-- Nested leave-one-DJ-out over a 60-point grid: minimum dip 6–18 dB × minimum breakdown length 16–32 bars × minimum breakdown position 0–0.5.
+- Nested leave-one-DJ-out over a 60-point grid: dip floor 6–18 dB × breakdown-length floor 16–32 bars × breakdown-position floor 0–0.5.
 - Constraint: no more new hard fails than fixed ones.
 - In 10 of 11 folds no setting qualified, so the gate abstains, which means the default.
 - Result: exit+cue −0.7 [−2.2, 0.0], with 2 replica uses. On all dev data the selection also returns "none".

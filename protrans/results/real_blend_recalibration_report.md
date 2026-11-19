@@ -6,7 +6,7 @@ Gate recalibration, fresh baseline and tests completed. **Corpus growth is block
 
 ## Gate choice
 
-Use the same source-fitted full-band deck gains and -12 dB audibility criterion, but require **at least 2.5 total simultaneously audible bars** instead of eight. This is one fixed half-bar minimum for all clips, not a clip-specific exception or a new gap classifier. No gap-closing adds silent time. Existing version and talkover checks remain independent vetoes. Source file fingerprints were checked before reusing identical overlap measurements under the new threshold.
+Use the same source-fitted full-band deck gains and -12 dB audibility criterion, but require **at least 2.5 total simultaneously audible bars** instead of eight. This is one fixed half-bar lowest for all clips, not a clip-specific exception or a new gap classifier. No gap-closing adds silent time. Existing version and talkover checks remain independent vetoes. Source file fingerprints were checked before reusing identical overlap measurements under the new threshold.
 
 - Hospital __04: retained 46.7 s pro excerpt measures **2.356 bars**, rejected. The original full WAV remains unavailable; do not report this as a full-original-clip measurement.
 - Joe Syntax __17: **0 bars**, rejected.

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: sync_set.sh <youtube_url> "<Artist/DJ>" [existing_local_audio_on_mini]
+# Usage: sync_set.sh <youtube_url> "<Artist/DJ>" [existing_local_audio_on_mac]
 # Runs on the residential machine $HOST. Downloads (if needed) via yt-dlp + chrome cookies, keeps AAC as .m4a
 # (smaller than 256k MP3, iOS-native), tags title/artist/album 'DJ Sets'/thumbnail cover,
 # copies to iCloud 'DJ Mixes/Sets'. Never deletes source files.

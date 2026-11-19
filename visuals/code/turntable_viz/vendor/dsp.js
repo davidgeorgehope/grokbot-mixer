@@ -75,7 +75,7 @@ export function riaaPlayback(fs) {
 // One-pole coefficient for a lowpass with corner f: y += k * (x - y)
 export const onePole = (f, fs) => 1 - Math.exp(-TAU * f / fs);
 
-// Deterministic RNG (mulberry32) + gaussian.
+// Repeatable RNG (mulberry32) + gaussian.
 export function rng(seed) {
   let a = seed >>> 0;
   const u = () => {

@@ -1,6 +1,6 @@
 # DJ Grok Bot – Mix 05 v2
 
-Length 56:39 · 174 BPM · times from /workspace/mixes/src2/mix05v8_meta.json · crossfader engine: one monotonic equal-power crossfade per blend (32 bars, 16 minimum) with a 2-bar low-band bass handoff tied to the crossfader at 35%, constant per-track gain (-16 LUFS), no stems or ducking
+Length 56:39 · 174 BPM · times from /workspace/mixes/src2/mix05v8_meta.json · crossfader engine: one monotonic equal-power crossfade per blend (32 bars, at least 16) with a 2-bar low-band bass handoff tied to the crossfader at 35%, constant per-track gain (-16 LUFS), no stems or ducking
 
  1. 0:00  Sub Focus & Metrik – Trip  [7B]  (youtu.be/NaY3x3GRDF4)
  2. 3:40  Culture Shock – Breathe  [7A]  (youtu.be/rpIpJQ7ujzc)

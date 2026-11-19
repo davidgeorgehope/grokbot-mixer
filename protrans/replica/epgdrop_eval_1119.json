@@ -1,0 +1,789 @@
+{
+ "changed": {
+  "DROP": 24
+ },
+ "dev": {
+  "DROP": {
+   "n": 24,
+   "n_window_changed": 20,
+   "base_fail": 8,
+   "arm_fail": 5,
+   "diff": {
+    "delta": -0.125,
+    "ci": [
+     -0.353,
+     0.053
+    ]
+   },
+   "with_gated_d": {
+    "base": 4,
+    "arm": 1,
+    "diff": {
+     "delta": -0.125,
+     "ci": [
+      -0.296,
+      0.0
+     ]
+    }
+   },
+   "lodo_range": [
+    -0.2,
+    -0.05
+   ],
+   "play": {
+    "n": 24,
+    "out_bars_left_base_median": 1.0,
+    "out_bars_left_arm_median": 18.0,
+    "out_bars_left_diff": {
+     "delta": 16.0,
+     "ci": [
+      14.0,
+      18.0
+     ]
+    },
+    "in_skip_diff": {
+     "delta": 1.0,
+     "ci": [
+      0.0,
+      2.0
+     ]
+    },
+    "cut_16plus_more": 20
+   },
+   "rows": [
+    {
+     "id": "alpha_rhythm_AU0V19j8oKM__16",
+     "mix": "alpha_rhythm_AU0V19j8oKM",
+     "dj": "Alpha Rhythm",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "fryett_ltdJ6GFixfs__52",
+     "mix": "fryett_ltdJ6GFixfs",
+     "dj": "Fryett",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__00",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      8,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 17,
+     "base_skip": 8,
+     "arm_skip": 16
+    },
+    {
+     "id": "hybrid_minds_ukf__08",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__10",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "hybrid_minds_ukf__28",
+     "mix": "hybrid_minds_ukf",
+     "dj": "Hybrid Minds",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": false,
+     "base_gd": true,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 32,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "joe_syntax_hospital__01",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 14,
+     "arm_left": 30,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "joe_syntax_hospital__13",
+     "mix": "joe_syntax_hospital",
+     "dj": "Joe Syntax",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 35,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "john_b_frbb5gILfjo__04",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "john_b_frbb5gILfjo__05",
+     "mix": "john_b_frbb5gILfjo",
+     "dj": "John B",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 7,
+     "arm_left": 23,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__04",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 15,
+     "arm_left": 31,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "kushsessions_yaWXrFBRYrM__36",
+     "mix": "kushsessions_yaWXrFBRYrM",
+     "dj": "KushSessions",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": true,
+     "arm_gd": true,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "netsky_hospital_classics__02",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      176,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 4,
+     "arm_left": 20,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "netsky_hospital_classics__17",
+     "mix": "netsky_hospital_classics",
+     "dj": "Netsky",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+     ],
+     "arm_win": [
+      "n",
+      240,
+      null,
+      32,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 32,
+     "arm_skip": 32
+    },
+    {
+     "id": "pola_bryson_puzzlewood__02",
+     "mix": "pola_bryson_puzzlewood",
+     "dj": "Pola & Bryson",
+     "src": "protrans",
+     "base_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 9,
+     "arm_left": 25,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "suicidesheeep_R8MWKsheHxk__15",
+     "mix": "suicidesheeep_R8MWKsheHxk",
+     "dj": "SuicideSheeep",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      288,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      272,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 14,
+     "arm_left": 30,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__05",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      224,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      192,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 1,
+     "arm_left": 33,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__10",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      144,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__13",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 6,
+     "arm_left": 6,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "theheshbesh_zHf8cC9ViuA__27",
+     "mix": "theheshbesh_zHf8cC9ViuA",
+     "dj": "TheHeshBesh",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      176,
+      null,
+      24,
+      16
+     ],
+     "arm_win": [
+      "n",
+      160,
+      null,
+      32,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 16,
+     "base_skip": 24,
+     "arm_skip": 32
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__18",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      48,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      48,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 5,
+     "arm_left": 21,
+     "base_skip": 48,
+     "arm_skip": 48
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__29",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      144,
+      null,
+      0,
+      16
+     ],
+     "arm_win": [
+      "n",
+      128,
+      null,
+      0,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 3,
+     "arm_left": 19,
+     "base_skip": 0,
+     "arm_skip": 0
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__43",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      208,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      176,
+      null,
+      16,
+      16
+     ],
+     "base_fail": false,
+     "arm_fail": false,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 32,
+     "base_skip": 16,
+     "arm_skip": 16
+    },
+    {
+     "id": "ukf_drum_bass_LeMk0yiSoq4__52",
+     "mix": "ukf_drum_bass_LeMk0yiSoq4",
+     "dj": "UKF Drum & Bass",
+     "src": "corpus_v2",
+     "base_win": [
+      "n",
+      256,
+      null,
+      16,
+      16
+     ],
+     "arm_win": [
+      "n",
+      256,
+      null,
+      16,
+      16
+     ],
+     "base_fail": true,
+     "arm_fail": true,
+     "base_gd": false,
+     "arm_gd": false,
+     "base_left": 0,
+     "arm_left": 0,
+     "base_skip": 16,
+     "arm_skip": 16
+    }
+   ]
+  }
+ },
+ "cohort": {
+  "base": {
+   "test": 34.07,
+   "test_with_d": 34.07,
+   "test_pairs_vs_floor": [],
+   "train": 32.4,
+   "train_with_d": 32.4,
+   "train_pairs_vs_floor": [],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    4.0
+   ]
+  },
+  "DROP": {
+   "test": 33.91,
+   "test_with_d": 33.91,
+   "test_pairs_vs_floor": [
+    [
+     "netsky_hospital_classics__02",
+     -9.6
+    ],
+    [
+     "netsky_hospital_classics__17",
+     -0.86
+    ],
+    [
+     "pola_bryson_puzzlewood__02",
+     8.53
+    ]
+   ],
+   "train": 32.18,
+   "train_with_d": 32.18,
+   "train_pairs_vs_floor": [
+    [
+     "hybrid_minds_ukf__28",
+     -15.01
+    ],
+    [
+     "hybrid_minds_ukf__00",
+     -4.13
+    ],
+    [
+     "hybrid_minds_ukf__10",
+     2.49
+    ],
+    [
+     "joe_syntax_hospital__01",
+     5.76
+    ],
+    [
+     "joe_syntax_hospital__13",
+     6.23
+    ]
+   ],
+   "out_bars_left_median_floor_vs_arm": [
+    4.0,
+    9.0
+   ]
+  }
+ }
+}

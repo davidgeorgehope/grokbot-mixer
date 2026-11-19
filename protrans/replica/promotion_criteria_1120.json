@@ -1,26 +1,113 @@
 {
- "written": "2026-11-19 4:40 PM ET, before the 2026-11-20 1 AM nightly. Frozen here so tonight can be at most night 1 of 2.",
- "candidate_frozen": "EPG (EXITPOS_GATE strict): flags EXITPOS=1 and EXITPOS_GATE=1, off by default. The gate keeps the outro-over-intro default and takes an earlier exit only when the last drop has fully played *before the blend starts* (exit - X >= last_drop_end), incoming drop 1 lands in the blend, and the leave-one-DJ-out model or a weird-outro override agrees. Fit and hard checks: protrans/replica/halftime/exitpos_gate.py. Day eval: epg3-1119 / epg3_eval_1119.json.",
- "already_scored_today": {
-  "held_out": 34.07,
-  "train": 33.19,
-  "floor_held_out": 34.07,
-  "floor_train": 32.4,
-  "dev_changed_pairs": [
-   "alpha_rhythm_imZjEt78YXs__03",
-   "joe_syntax_hospital__12",
-   "theheshbesh_zHf8cC9ViuA__05"
-  ],
-  "hard_fails_on_changed_dev": "2 to 0 (default beat-clash on alpha_rhythm_imZjEt78YXs__03 and theheshbesh_zHf8cC9ViuA__05; EPG clears both). joe_syntax_hospital__12 is the train +16.49 earlier-outro move."
+ "written": "2026-11-19 5:30 PM ET, before the 2026-11-20 1 AM nightly. Frozen so tonight can be at most night 1 of 2 for each co-candidate.",
+ "consecutive_wins_required": 2,
+ "adopt_to_defaults": false,
+ "do_not_write_rules_json": true,
+ "nightly_reads": "protrans/replica/nightly_candidates.json, this file, and promotion_judge.py",
+ "judge_change": "epg_drop's promotion bar is a deliberate change of judge made on the listener's direct listening (drop-fade exits, 5/5 including JS13 and HM00), not a loosened threshold. Documented in docs/PROCESS.md. Pro-match may sit within the mix-grouped bootstrap CI of the floor (4000 resamples, seed 20261119): the CI of (arm minus floor) must include 0 on held-out and train. It is not required to beat 34.07 / 32.40. Do not cap or rein in last-drop-end exits; that is the behaviour he wants.",
+ "fresh_mix": "Sirenity ofcHup56lME, for_night 2026-11-20 in fresh_mixes.json. New DJ, not spent. Zero new hard fails required on that mix once ingested. Do not reuse a spent fresh mix.",
+ "locked_holdout": "already opened once on 2026-11-19 (see promotion_criteria.json locked_holdout_opens). Not required to reopen for these flag candidates.",
+ "candidates": {
+  "epg_strict": {
+   "candidate_frozen": "EPG (EXITPOS_GATE strict): flags EXITPOS=1 and EXITPOS_GATE=1, off by default. The gate keeps the outro-over-intro default and takes an earlier exit only when the last drop has fully played *before the blend starts* (exit - X >= last_drop_end), incoming drop 1 lands in the blend, and the leave-one-DJ-out model or a weird-outro override agrees. Fit and hard checks: protrans/replica/halftime/exitpos_gate.py. Day eval: epg3-1119 / epg3_eval_1119.json.",
+   "judge": "not_worse_than_floor_mean",
+   "already_scored_today": {
+    "held_out": 34.07,
+    "train": 33.19,
+    "floor_held_out": 34.07,
+    "floor_train": 32.4,
+    "dev_changed_pairs": [
+     "alpha_rhythm_imZjEt78YXs__03",
+     "joe_syntax_hospital__12",
+     "theheshbesh_zHf8cC9ViuA__05"
+    ],
+    "hard_fails_on_changed_dev": "2 to 0 (default beat-clash on alpha_rhythm_imZjEt78YXs__03 and joe_syntax_hospital__12; EPG clears both). joe_syntax_hospital__12 is the train +16.49 earlier-outro move."
+   },
+   "keep_as_flag_tonight_only_if_all": [
+    "held-out mean not worse than the 34.07 floor (already 34.07 today)",
+    "train mean not worse than the 32.40 floor (already 33.19 today)",
+    "hard-fail not worse, leave-one-DJ-out and per DJ (already 2 to 0 on the changed dev pairs)",
+    "zero new hard fails on the Sirenity fresh mix, once ingested"
+   ]
+  },
+  "epg_drop": {
+   "candidate_frozen": "EXITPOS_DROP: flags EXITPOS=1 and EXITPOS_DROP=1, off by default, independent of EXITPOS_GATE. Takes an exit at the end of the last drop when drop 1 lands in the blend, the outro is quieter or thinner than the last 16 of the drop, pro data does not show the outro carrying the blend, and the window is not a known hard fail. Hard checks: protrans/replica/halftime/exitpos_drop.py. Day eval: epgdrop-1119 / epgdrop_eval_1119.json.",
+   "judge": "pro_match_within_floor_ci",
+   "already_scored_today": {
+    "held_out": 33.91,
+    "train": 32.18,
+    "floor_held_out": 34.07,
+    "floor_train": 32.4,
+    "pro_match_delta_ci": {
+     "held_out": {
+      "mean_delta": -0.161,
+      "ci": [
+       -1.743,
+       2.133
+      ]
+     },
+     "train": {
+      "mean_delta": -0.222,
+      "ci": [
+       -1.281,
+       1.499
+      ]
+     }
+    },
+    "hard_fail_with_gated_d": {
+     "delta": -0.125,
+     "ci": [
+      -0.296,
+      0.0
+     ],
+     "note": "leave-one-DJ-out range on the raw fail-delta was [-0.2, -0.05]"
+    },
+    "ear_picks_5_of_5": [
+     {
+      "id": "joe_syntax_hospital__01",
+      "pick": "EXITPOS",
+      "quote": "Think I prefer that second one out of what you sent me. It's more exciting ?"
+     },
+     {
+      "id": "netsky_hospital_classics__02",
+      "pick": "epg2_gate",
+      "quote": "Idk if I mentioned but preferred the gate version here",
+      "owner_message": "pt556u"
+     },
+     {
+      "id": "joe_syntax_hospital__13",
+      "pick": "epg_drop",
+      "quote": "Yeah I think these drop versions are better",
+      "owner_message": "pt558u"
+     },
+     {
+      "id": "hybrid_minds_ukf__00",
+      "pick": "epg_drop",
+      "quote": "Yeah I think these drop versions are better",
+      "owner_message": "pt558u"
+     }
+    ]
+   },
+   "keep_as_flag_tonight_only_if_all": [
+    "hard-fail not worse, leave-one-DJ-out and per DJ (today's gated-d change already -0.125 [-0.296, 0.0])",
+    "zero new hard fails on the Sirenity fresh mix, once ingested",
+    "the listener's ear picks favouring it, already 5/5 on drop-fade exits; a contrary new pref would stop promotion",
+    "pro-match within the CI of the floor (CI of arm minus floor includes 0). Already true today: held-out -0.161 [-1.743, 2.133], train -0.222 [-1.281, 1.499]. Not required to beat 34.07 / 32.40."
+   ]
+  },
+  "epg_stack": {
+   "candidate_frozen": "Stacked flags EXITPOS=1, EXITPOS_GATE=1, EXITPOS_DROP=1, off by default. mix_simple runs a combined hook: drop owns last-drop-end windows, strict owns post-drop earlier-outro windows. Drop is tried first; if it is blocked, strict may still take the window it owns. They cannot claim the same window. Hook: EXITPOS_STACK in src2/mix_simple.py.",
+   "judge": "pro_match_within_floor_ci",
+   "coherence": "Live smoke 2026-11-19 5:30 PM ET: drop takes JS01, JS13, HM00, netsky__02; strict takes JS12 (208) and alpha__03 (240); HM45 stays default; theheshbesh__05 takes strict 208 after drop's 192 was recorded as a known official hard fail. Predicted 33-pair scores: held-out 33.91, train about 32.97 (drop's eight takes plus JS12 +16.49). No full official 105-dev eval yet.",
+   "keep_as_flag_tonight_only_if_all": [
+    "same pro-match CI judge as epg_drop (within the CI of the floor, not required to beat it)",
+    "hard-fail not worse, leave-one-DJ-out and per DJ",
+    "zero new hard fails on the Sirenity fresh mix, once ingested",
+    "ear picks on the drop-fade pattern remain in favour (already 5/5) and the epg_strict alpha__03 pref is kept"
+   ]
+  }
  },
- "keep_as_flag_tonight_only_if_all": [
-  "held-out mean not worse than the 34.07 floor (already 34.07 today)",
-  "train mean not worse than the 32.40 floor (already 33.19 today)",
-  "hard checks: no more hard-fail pairs than default on rendered changed pairs (already 2 to 0 on the 3 changed dev pairs)",
-  "fresh mix queued in fresh_mixes.json for_night 2026-11-20 (Sirenity ofcHup56lME, a DJ not in the 9-DJ dev set and not previously spent): once ingested, not worse than default on that mix"
- ],
- "promote_to_default_only_if": "the same frozen candidate passes on two consecutive nights AND fresh not worse AND tests pass; tonight is at most night 1. Do not write rules.json.",
- "nightly_reads": "protrans/replica/nightly_candidates.json (also read by nightly_hill_climb.py) and this file",
- "note": "Similarity, Grok judge and the listener's A/B are diagnostics only. rules.json is never edited by the nightly. Do not reuse a spent fresh mix. Do not reopen the locked Liquicity/Hospital holdout to rescue a miss.",
- "locked_holdout": "already opened once on 2026-11-19 (see promotion_criteria.json locked_holdout_opens). Not required to reopen for this flag candidate, whose official bar is the existing 33-pair held-out floor of 34.07."
+ "promote_to_default_only_if": "the same frozen candidate passes on two consecutive nights AND its own criteria above still hold. Tonight is at most night 1. Do not write rules.json.",
+ "note": "A pro-match drop alone must not kill epg_drop or epg_stack. Official hard-fail is HC_A/HC_B v2, not the nightly scorer n_fail (that count is render errors). Do not reopen the locked Liquicity/Hospital holdout to rescue a miss.",
+ "candidate_frozen": "Co-candidates: epg_strict and epg_drop, plus third arm epg_stack. See candidates.* in this file. Do not write rules.json."
 }

@@ -105,3 +105,7 @@ blocks.
 epg_strict stays the n1120 promotion candidate. epg_drop is a shadow arm in
 `nightly_candidates.json`. Official 105-dev hard-fail and confirmation scores: job
 `epgdrop-1119` (webhook via runjob).
+
+## Promoted to co-candidate (2026-11-19, 5:30 PM ET)
+
+the listener preferred the epg_drop clips on JS13 and HM00 ("these drop versions are better", [pt558u]), 5/5 on this pattern. epg_drop is no longer a shadow arm: it is a co-candidate with epg_strict for n1120, with its own judge in `promotion_criteria_1120.json` and `docs/PROCESS.md` (listening judge, not a loosened threshold). Do not rein in last-drop-end exits. A third arm, epg_stack, runs both hooks on the windows each owns. Promotion still needs two night-wins. `rules.json` is not written.

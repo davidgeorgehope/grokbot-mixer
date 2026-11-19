@@ -10,6 +10,7 @@ import copy, json, os, sys, time, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import paths, tune, score, cleanup
 import run_admitted_tune as T
+import promotion_judge as PJ
 
 MAX_CANDS = 6
 CANDS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica', 'nightly_candidates.json')
@@ -53,15 +54,9 @@ def main():
         sm = T.summarize(r)
         meta = byname.get(name) or {}
         if meta.get('promotion'):
-            # Night-win for a promotion candidate: held-out and train not worse, hard-fails not worse.
-            # This is not an auto-adopt keep; defaults stay unchanged until consecutive wins are earned.
-            ok = (sm['test_mean'] is not None and base['test_mean'] is not None
-                  and sm['train_mean'] is not None and base['train_mean'] is not None
-                  and sm['test_mean'] + 1e-9 >= base['test_mean']
-                  and sm['train_mean'] + 1e-9 >= base['train_mean']
-                  and sm['n_fail'] <= base['n_fail'])
-            why = (f'promotion night-win: held-out {base["test_mean"]} -> {sm["test_mean"]}, train {base["train_mean"]} -> {sm["train_mean"]}'
-                   if ok else f'promotion night lost (held-out {base["test_mean"]} -> {sm["test_mean"]}, train {base["train_mean"]} -> {sm["train_mean"]})')
+            # Per-candidate judge from nightly_candidates.json / promotion_criteria_1120.json.
+            # epg_drop uses the listening judge (pro-match CI may include 0). Not an auto-adopt keep.
+            ok, why = PJ.promotion_night_win(meta, base, sm, base_rows=rows, arm_rows=r)
             label = 'NIGHT-WIN' if ok else 'reject'
         else:
             ok = (sm['test_mean'] is not None and base['test_mean'] is not None
@@ -99,6 +94,7 @@ def main():
                                 kept_name=kept['name'] if kept else None,
                                 night_win=bool(night_wins),
                                 night_win_name=nw['name'] if nw else None,
+                                night_win_names=[x['name'] for x in night_wins],
                                 n_tried=len(tried))) + chr(10))
     print('RESULT ' + json.dumps(dict(kept=kept and kept['name'], night_win=nw['name'] if nw else None,
                                       base=base['test_mean'],

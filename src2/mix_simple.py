@@ -430,7 +430,69 @@ def pair_cands(i,ia0):
       elif _k6 in DCUE and not EXITPOS:sc=(sc[0]-STRUCTW,)+sc[1:]  # blend length chosen per pair from structure + fit (the listener 2026-10-31)
       res.append((sc,kind,(e,p) if kind in('la','ab','lx') else e,ib,r,X))
   X=XMAX;res.sort(key=lambda t:t[0])
-  if EXITPOS and EXITPOS_GATE and res:
+  if EXITPOS and EXITPOS_GATE and EXITPOS_DROP and res:
+    def _sea(c):
+      e=c[2];return (e[0] if isinstance(e,tuple) else e,c[3],c[5],c[1])
+    def _sdcost(c):
+      sc,kind,e,ib,r,X=c;ea=_sea(c)[0];term=exitpos_term(a,b,ea,ib,X,e_max);bonus=0.0
+      if (kind,a,b,ea,ib,X) in STRK:
+        bonus=STRUCTB
+        if OUTRO_QC and bonus>0:bonus*=1-outro_qc(a,ea-X,ea)
+      return (sc[0]-term-bonus,)+sc[1:]
+    try:
+      sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime')
+      import exitpos_drop as _ED, exitpos_gate as _EG
+      def _sfam(xpred):
+        cands=[c for c in res if _sea(c)[3]=='n' and xpred(_sea(c)[2])]
+        if not cands:return None,None,False,dict(reason='no_cand',arm='none')
+        dwin=min(cands,key=_sdcost);default=_sea(dwin)[:3]
+        # Drop owns last-drop-end windows; strict owns post-drop windows. Disjoint hard_ok.
+        # If drop wants a window but is blocked (pro_outro / known hard fail), fall through to strict.
+        d_alts=[c for c in cands if _ED.hard_ok_drop(_sea(c)[:3],default,sections.get(a),sections.get(b))]
+        g_alts=[c for c in cands if _EG.hard_ok(_sea(c)[:3],default,sections.get(a),sections.get(b))]
+        info=dict(arm='none')
+        altw=None
+        if d_alts:
+          ac=min(d_alts,key=lambda c:c[0]);dalt=_sea(ac)[:3]
+          take,dinfo=_ED.should_switch_drop(default,dalt,sections.get(a),sections.get(b),ya=a,yb=b)
+          info['drop']=dict(alt=list(dalt),take=bool(take and dalt!=default),**{k:v for k,v in dinfo.items()})
+          if take and dalt!=default:
+            return default,dalt,True,dict(arm='drop',reason=dinfo.get('reason','drop_end'),**{k:v for k,v in dinfo.items() if k!='reason'})
+        else:
+          info['drop']=dict(reason='no_alt')
+        if g_alts:
+          ac=min(g_alts,key=lambda c:c[0]);galt=_sea(ac)[:3]
+          take,ginfo=_EG.should_switch(default,galt,sections.get(a),sections.get(b),ya=a)
+          info['strict']=dict(alt=list(galt),take=bool(take and galt!=default),**{k:v for k,v in ginfo.items()})
+          if take and galt!=default:
+            return default,galt,True,dict(arm='strict',reason=ginfo.get('reason','gate'),**{k:v for k,v in ginfo.items() if k!='reason'})
+        else:
+          info['strict']=dict(reason='no_alt')
+        return default,altw,False,dict(reason=(info.get('drop') or info.get('strict') or {}).get('reason','none'),**info)
+      d16,a16,t16,i16=_sfam(lambda X:X==16)
+      d32,a32,t32,i32=_sfam(lambda X:X>=32)
+      boost=set()
+      if t16 and a16:boost.add(tuple(a16))
+      if t32 and a32:boost.add(tuple(a32))
+      new=[]
+      for c in res:
+        ea,ib,X,kind=_sea(c)
+        if kind=='n' and (ea,ib,X) in boost:
+          sc=c[0];new.append(((sc[0]-10*STRUCTW,)+sc[1:],)+c[1:])
+        else:
+          new.append((_sdcost(c),)+c[1:])
+      res=new
+      res.sort(key=lambda t:t[0])
+      rec=dict(a=a,b=b,stack=True,default=list(d16) if d16 else (list(d32) if d32 else None),alt=list(a16) if a16 else (list(a32) if a32 else None),take=bool(t16 or t32),reason=('short:'+((i16 or {}).get('arm','')+':'+(i16 or {}).get('reason','')) if t16 else ('long:'+((i32 or {}).get('arm','')+':'+(i32 or {}).get('reason','')) if t32 else (i16 or i32 or {}).get('reason','none'))),short=dict(default=list(d16) if d16 else None,alt=list(a16) if a16 else None,take=t16,**(i16 or {})),long=dict(default=list(d32) if d32 else None,alt=list(a32) if a32 else None,take=t32,**(i32 or {})))
+      EPG_LOG.append(rec)
+      print('EXITPOS_STACK',a,b,'short',d16,a16,t16,i16,'long',d32,a32,t32,i32,file=sys.stderr)
+      _lf=os.environ.get('EPG_LOG_FILE')
+      if _lf:
+        import json as _j
+        with open(_lf,'a') as _f:_f.write(_j.dumps(rec)+chr(10))
+    except Exception as ex:
+      print('EXITPOS_STACK failed',a,b,ex,file=sys.stderr)
+  if EXITPOS and EXITPOS_GATE and not EXITPOS_DROP and res:
     def _ea(c):
       e=c[2];return (e[0] if isinstance(e,tuple) else e,c[3],c[5],c[1])
     def _dcost(c):

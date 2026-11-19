@@ -49,7 +49,7 @@ These are the assistant routines that surround the mixer. Their prompts live wit
 
 - **Friday fresh finds** — real, verified mixes and tracks in the listener's lane; do not invent links.
 - **Daily pro-transition recreation** — recreate one real pro DJ liquid transition from source tracks, score it, and try a general rule change; keep the change only if the held-out score improves. Filter out talk-over and fade-gap-talk-drop blends.
-- **Nightly pro-transition hill-climb** (Sun–Fri) — bounded automatic rule search; commit a keep back to the repo.
+- **Nightly pro-transition hill-climb** (Sun–Fri) — bounded automatic rule search over `protrans/replica/nightly_candidates.json`. Promotion candidates need two consecutive night-wins and do not auto-write `rules.json`. epg_strict still has to hold the 34.07 / 32.40 means; epg_drop (and epg_stack) use a listening judge documented below.
 - **Daily mix disk cleanup** — delete scratch; keep sources, json/guard data, ratings, and deliverables.
 - **Weekly mix watchdog** — Saturday morning checks that the weekly mix is on track.
 - **Job finished webhook** — wakes the assistant when a `runjob.sh` job finishes or fails, so the next step can run without polling.
@@ -119,3 +119,19 @@ Every daily delivery and every RCA carries the "pro pick vs ours and why" table 
 extra windows: `python3 protrans/provsours.py <pick_id> <stem> '{"label": [kind, out_bar, loop, in_bar, X], ...}'`. Columns: outgoing / incoming
 bars, the section each blend starts in (with slowdown / half-time), whether the window touches the outgoing's slowdown, where the incoming's next
 drop lands vs the blend end, how much of the outgoing's last drop plays, track and set times, and the structural reason for each pick.
+
+
+## Promotion judge (2026-11-19): the listener's ear on drop-fade exits
+
+This is a deliberate change of judge made on the listener's direct listening, not a loosened threshold.
+
+the listener preferred the drop-fade exit (leave at the end of the still-hot last drop) on every pair he was asked, including joe_syntax_hospital__13 and hybrid_minds_ukf__00 ("these drop versions are better"). Those picks are in `protrans/log.jsonl`. Exiting at last-drop end is the behaviour he wants; do not cap or rein it in.
+
+`epg_drop` (flags `EXITPOS=1` and `EXITPOS_DROP=1`, off by default) is a co-candidate with `epg_strict` for the 2026-11-20 1 AM ET nightly (n1120). Promotion still needs two consecutive night-wins. Do not write `rules.json`. Criteria live in `protrans/replica/promotion_criteria_1120.json` and `nightly_candidates.json`:
+
+- Hard-fail not worse, leave-one-DJ-out and per DJ. Today's official gated-d change was -0.125 [-0.296, 0.0].
+- Zero new hard fails on the Sirenity fresh mix (`fresh_mixes.json`, for_night 2026-11-20), once ingested.
+- the listener's ear picks favouring it, already 5/5. A contrary new pref would stop promotion.
+- Pro-match may sit within the mix-grouped bootstrap CI of the floor (4000 resamples, seed 20261119): the CI of (arm minus floor) must include 0 on held-out and train. It is not required to beat 34.07 / 32.40. Today's drop arm: held-out 33.91, delta -0.161 [-1.743, 2.133]; train 32.18, delta -0.222 [-1.281, 1.499].
+
+`epg_strict` keeps its own bar (held-out and train mean not worse than the floor). The two arms own disjoint window classes, so they can be stacked: drop takes last-drop-end exits first; if it is blocked (pro outro carried the blend, or a known hard fail), strict may take a post-drop earlier-outro exit. That third arm is `epg_stack` (`EXITPOS` + `EXITPOS_GATE` + `EXITPOS_DROP`). It uses the same listening judge as `epg_drop` for pro-match.

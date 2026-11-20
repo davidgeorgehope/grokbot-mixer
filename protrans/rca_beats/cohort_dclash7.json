@@ -1,0 +1,424 @@
+{
+ "base": {
+  "n": 33,
+  "n_fail": 0,
+  "train_n": 21,
+  "test_n": 12,
+  "train_mean": 32.4,
+  "test_mean": 34.07,
+  "by_dj": {
+   "Hybrid Minds": {
+    "n": 13,
+    "mean": 32.38,
+    "split": "train"
+   },
+   "Joe Syntax": {
+    "n": 8,
+    "mean": 32.44,
+    "split": "train"
+   },
+   "Maduk": {
+    "n": 3,
+    "mean": 30.23,
+    "split": "test"
+   },
+   "Netsky": {
+    "n": 5,
+    "mean": 34.81,
+    "split": "test"
+   },
+   "Pola & Bryson": {
+    "n": 3,
+    "mean": 37.97,
+    "split": "test"
+   },
+   "Wilkinson": {
+    "n": 1,
+    "mean": 30.2,
+    "split": "test"
+   }
+  },
+  "stem_kind": "bands"
+ },
+ "dclash": {
+  "n": 33,
+  "n_fail": 0,
+  "train_n": 21,
+  "test_n": 12,
+  "train_mean": 33.32,
+  "test_mean": 32.61,
+  "by_dj": {
+   "Hybrid Minds": {
+    "n": 13,
+    "mean": 33.68,
+    "split": "train"
+   },
+   "Joe Syntax": {
+    "n": 8,
+    "mean": 32.74,
+    "split": "train"
+   },
+   "Maduk": {
+    "n": 3,
+    "mean": 30.23,
+    "split": "test"
+   },
+   "Netsky": {
+    "n": 5,
+    "mean": 34.81,
+    "split": "test"
+   },
+   "Pola & Bryson": {
+    "n": 3,
+    "mean": 32.14,
+    "split": "test"
+   },
+   "Wilkinson": {
+    "n": 1,
+    "mean": 30.2,
+    "split": "test"
+   }
+  },
+  "stem_kind": "bands"
+ },
+ "changed": [
+  {
+   "id": "joe_syntax_hospital__08",
+   "split": "train",
+   "base": 30.08,
+   "new": 32.5,
+   "base_win": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ],
+   "new_win": [
+    "n",
+    224,
+    null,
+    80,
+    32
+   ],
+   "fam": "clash_alt"
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "split": "train",
+   "base": 32.58,
+   "new": 44.29,
+   "base_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "new_win": [
+    "n",
+    144,
+    null,
+    48,
+    16
+   ],
+   "fam": "clash_alt"
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "split": "train",
+   "base": 31.79,
+   "new": 39.33,
+   "base_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "new_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "fam": "clash_alt"
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "split": "test",
+   "base": 34.12,
+   "new": 16.62,
+   "base_win": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "new_win": [
+    "n",
+    160,
+    null,
+    40,
+    16
+   ],
+   "fam": "clash_alt"
+  }
+ ],
+ "gray": [
+  "hybrid_minds_ukf__11",
+  "joe_syntax_hospital__11",
+  "hybrid_minds_ukf__00",
+  "maduk_liquicity_lunar2025__05"
+ ],
+ "render_clash": [
+  {
+   "id": "joe_syntax_hospital__08",
+   "hard": {
+    "fam": "nat_short",
+    "win": [
+     "n",
+     240,
+     null,
+     40,
+     16
+    ],
+    "flagged": true,
+    "level": "clash",
+    "confidence": 0.75,
+    "fallback": null,
+    "replaced_by": {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      224,
+      null,
+      80,
+      32
+     ],
+     "total": 130.6
+    }
+   },
+   "retries": [
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      224,
+      null,
+      80,
+      32
+     ],
+     "cls": 1,
+     "level": "clean",
+     "kind": "lattice",
+     "lattice": 0.0,
+     "pulse": 0.208,
+     "engine_cost": 54.4,
+     "risk": 76.2,
+     "total": 130.6
+    },
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      208,
+      null,
+      80,
+      32
+     ],
+     "cls": 1,
+     "level": "clean",
+     "kind": "lattice",
+     "lattice": 0.0,
+     "pulse": 0.25,
+     "engine_cost": 60.8,
+     "risk": 91.6,
+     "total": 152.4
+    },
+    {
+     "fam": "cue_late",
+     "win": [
+      "n",
+      240,
+      null,
+      80,
+      32
+     ],
+     "cls": 2.25,
+     "level": "clean",
+     "kind": "lattice",
+     "lattice": 0.0,
+     "pulse": 0.25,
+     "engine_cost": 48.0,
+     "risk": 91.6,
+     "total": 139.6
+    },
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      224,
+      null,
+      48,
+      32
+     ],
+     "cls": 2.25,
+     "level": "gray",
+     "kind": "pulse",
+     "lattice": 0.0,
+     "pulse": 0.4,
+     "engine_cost": 56.6,
+     "risk": 646.5,
+     "total": 703.1
+    }
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "hard": {
+    "fam": "nat_short",
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ],
+    "flagged": true,
+    "level": "clash",
+    "confidence": 0.6,
+    "fallback": null,
+    "replaced_by": {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      144,
+      null,
+      48,
+      16
+     ],
+     "total": 183.7
+    }
+   },
+   "retries": [
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      144,
+      null,
+      48,
+      16
+     ],
+     "cls": 0,
+     "level": "clean",
+     "kind": "lattice",
+     "lattice": 0.0,
+     "pulse": 0.0,
+     "engine_cost": 183.69,
+     "risk": 0.0,
+     "total": 183.7
+    }
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "hard": {
+    "fam": "nat_short",
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ],
+    "flagged": true,
+    "level": "clash",
+    "confidence": 1.0,
+    "fallback": null,
+    "replaced_by": {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "total": 144.7
+    }
+   },
+   "retries": [
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      160,
+      null,
+      16,
+      16
+     ],
+     "cls": 0,
+     "level": "clean",
+     "kind": "lattice",
+     "lattice": 0.083,
+     "pulse": 0.0,
+     "engine_cost": 117.64,
+     "risk": 27.0,
+     "total": 144.7
+    }
+   ]
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "hard": {
+    "fam": "nat_short",
+    "win": [
+     "n",
+     224,
+     null,
+     40,
+     16
+    ],
+    "flagged": true,
+    "level": "clash",
+    "confidence": 0.667,
+    "fallback": null,
+    "replaced_by": {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      160,
+      null,
+      40,
+      16
+     ],
+     "total": 86.4
+    }
+   },
+   "retries": [
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      160,
+      null,
+      40,
+      16
+     ],
+     "cls": 0,
+     "level": "clean",
+     "kind": "lattice",
+     "lattice": 0.0,
+     "pulse": 0.0,
+     "engine_cost": 86.41,
+     "risk": 0.0,
+     "total": 86.4
+    }
+   ]
+  }
+ ]
+}

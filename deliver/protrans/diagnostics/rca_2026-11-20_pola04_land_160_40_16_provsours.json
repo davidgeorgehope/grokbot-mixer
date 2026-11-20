@@ -1,0 +1,38 @@
+{
+ "pick": "pola_bryson_puzzlewood__04",
+ "pair": "Pola & Bryson - Abandon -> Pola & Bryson feat. Lauren Archer - Under",
+ "rows": [
+  {
+   "who": "pro",
+   "out_start": 118.4,
+   "out_end": 135.4,
+   "in_start": 13.7,
+   "in_end": 30.7,
+   "out_swap": 128.4,
+   "out_start_section": "drop 2",
+   "in_start_section": "intro + slowdown/half-time",
+   "touches_out_slowdown": true,
+   "in_next_drop_vs_blend_end": 25.3,
+   "out_last_drop_played": "cut 106 bars early",
+   "out_time": "2:43",
+   "mix_time": "21:24",
+   "why": "what the DJ did"
+  },
+  {
+   "who": "ours_land",
+   "out_start": 144,
+   "out_end": 160,
+   "in_start": 40,
+   "in_end": 56,
+   "out_swap": null,
+   "out_start_section": "breakdown + slowdown/half-time",
+   "in_start_section": "intro + slowdown/half-time",
+   "touches_out_slowdown": true,
+   "in_next_drop_vs_blend_end": 0,
+   "out_last_drop_played": "cut 80 bars early",
+   "out_time": "3:18",
+   "mix_time": null,
+   "why": "blend starts inside the outgoing slowdown"
+  }
+ ]
+}

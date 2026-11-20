@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -274,6 +274,10 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
     try:
         os.chdir(paths.SRC2)
         cs = BB.cands_for(a, b, tag)
+        # PLAN_LAND (off by default): landing breakdown-fade windows exist only for the DRUMCLASH_LAND veto fallback; keep them out of
+        # every default path so non-vetoed pairs pick exactly as before
+        cs_land = [c for c in cs if c.get('land_extra')]
+        cs = [c for c in cs if not c.get('land_extra')]
         # When RANKER=1, pair_cands also adds mid-track windows (planner_extra).
         # Keep the default family shortlist on the non-extra windows so the
         # baseline pick matches RANKER=0.
@@ -597,8 +601,8 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     X = int(w[4]); ka = int(w[1]) - X; kb = int(w[3])
                     return sum(1 for j in range(X) if _indrop(_sa, ka + j) and _indrop(_sb, kb + j)) / max(X, 1)
                 _ecost = {}
-                for c in cs:
-                    if (c.get('win') or [''])[0] == 'n' and not c.get('planner_extra'):
+                for c in cs + (cs_land if _flag_on(rules.get('DRUMCLASH_LAND') or os.environ.get('DRUMCLASH_LAND')) else []):
+                    if (c.get('win') or [''])[0] == 'n' and (not c.get('planner_extra') or c.get('land_extra')):
                         _ecost[tuple(c['win'])] = min(_ecost.get(tuple(c['win']), 1e9), float(c['cost']))
                 _pool = {}
                 for _cost, _c in sorted(scored, key=lambda x: x[0]):
@@ -648,7 +652,7 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                         _land.sort(key=lambda x: (int(x[2]['win'][4]), x[1])); _land = _land[:6]
                         _seenw = {tuple(x[2]['win']) for x in _land}
                         _try = _land + [x for x in _try if tuple(x[2]['win']) not in _seenw]
-                        clash_info['landing'] = [dict(win=list(x[2]['win']), engine_cost=round(x[1], 2)) for x in _land]
+                        clash_info['landing'] = [dict(win=list(x[2]['win']), engine_cost=round(x[1], 2), plan_land=tuple(x[2]['win']) in {tuple(c['win']) for c in cs_land}) for x in _land]
                     _landbest = None
                     _best = None
                     for _ti, x in enumerate(_try):

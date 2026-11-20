@@ -293,12 +293,13 @@ def thin_swap(a,b,wa,wb):
   if not sa or not sb:return False
   return bool(np.median(la[sa])-np.percentile(la,75)<-THIN_DB and np.median(lb[sb])-np.percentile(lb,75)<-THIN_DB)
 XT={};inn={ids[0]:0};outs={};loops={};notes={};info_={}
+LAND_EXTRA_WINS=set()
 PLANNER_EXTRA_WINS=set()  # windows only added by window_planner.engine_cands (past bar-80 / before emin)
 def pair_cands(i,ia0):
   """all scored windows for blend i given where track i starts (ia0); sorted best first"""
   global X
-  global PLANNER_EXTRA_WINS
-  PLANNER_EXTRA_WINS=set()
+  global PLANNER_EXTRA_WINS, LAND_EXTRA_WINS
+  PLANNER_EXTRA_WINS=set();LAND_EXTRA_WINS=set()
   a,b=ids[i],ids[i+1];ta,ala,ba,va,na=A_(a);tb,alb,bb,vb,nb=A_(b)
   ia=ia0[1]+16 if isinstance(ia0,tuple) else ia0;res=[]
   e_max=min(tail0(ala,ba),na,OUTMAX.get(a,na));e_max-=e_max%16
@@ -339,6 +340,20 @@ def pair_cands(i,ia0):
       for kind,e,ib in _RR.drop_engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia):
         if (kind,e,ib) not in have:
           cands.append((kind,e,ib)); have.add((kind,e,ib)); PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
+    if os.environ.get('PLAN_LAND','0') not in ('','0'):  # PLAN_LAND (2026-11-20 beats RCA, off by default): 'landing' breakdown fades for the DRUMCLASH veto fallback only
+      # outgoing exits where one of its breakdowns ends (= start of a drop, the X bars before it outside every drop); incoming cue =
+      # one of its drop starts minus X (the X bars before it outside every drop). 8-bar phrase granularity, may be off the 16-bar grid
+      # (pola04: B drop at 56 -> cue 40/24). Marked land_extra: recreate keeps them out of the default families.
+      import sections as _SEC
+      _SA,_SB=_SEC.get(a),_SEC.get(b);_ind=lambda S,k:any(lo<=k<hi for lo,hi in (S.get('drops') or []))
+      have=set(cands)
+      for _e in sorted({lo for lo,hi in (_SA.get('drops') or [])}):
+        if _e%8 or _e>e_max or _e<emin or _e-X<ia+16 or any(_ind(_SA,k) for k in range(_e-X,_e)):continue
+        for _d in sorted({lo for lo,hi in (_SB.get('drops') or [])}):
+          _ib=_d-X
+          if _ib<0 or _ib%8 or _ib+3*X>nb or any(_ind(_SB,k) for k in range(_ib,_d)):continue
+          if ('n',_e,_ib) not in have:
+            cands.append(('n',_e,_ib));have.add(('n',_e,_ib));PLANNER_EXTRA_WINS.add(('n',_e,None,_ib,X));LAND_EXTRA_WINS.add(('n',_e,None,_ib,X))
     if os.environ.get('PICKER_WIN'):  # PICKER_WIN=<json {"a|b": [kind,e,null,ib,X]}> (2026-11-19 nightly, off by default): learned picker's window as a candidate
       import json as _js
       _w=_js.load(open(os.environ['PICKER_WIN'])).get(f'{a}|{b}')
@@ -585,7 +600,7 @@ LOOK=int(os.environ.get("LOOKAHEAD",8))
 KIND={};LXD=set()
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];cs=pair_cands(i,inn[a])
-  if os.environ.get("DUMP_CANDS"):json.dump([dict(win=win_key(c),cost=float(c[0][0]),pen=float(c[4]['pen']),planner_extra=tuple(win_key(c)) in PLANNER_EXTRA_WINS) for c in cs],open(os.environ["DUMP_CANDS"],'w'));sys.exit()  # blend_bench.py: all scored windows of the first pair
+  if os.environ.get("DUMP_CANDS"):json.dump([dict(win=win_key(c),cost=float(c[0][0]),pen=float(c[4]['pen']),planner_extra=tuple(win_key(c)) in PLANNER_EXTRA_WINS,land_extra=tuple(win_key(c)) in LAND_EXTRA_WINS) for c in cs],open(os.environ["DUMP_CANDS"],'w'));sys.exit()  # blend_bench.py: all scored windows of the first pair
   if os.environ.get("DBG_PAIR")==f"{a}>{b}":[print("DBG",round(c[0][0],1),c[1],c[2],c[3],c[5],round(c[4]["pen"],1),file=sys.stderr) for c in cs[:8]]
   W=plan[i].get('out_win')  # opt-in: the window plan_search.py chose for this blend (renders exactly what was planned)
   if W:

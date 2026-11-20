@@ -1,0 +1,53 @@
+{
+ "clip": "/workspace/mixes/deliver/protrans/rca_2026-11-20_pola04_land_160_40_16.mp3",
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-20_pola04_land_160_40_16.png",
+ "provsours": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-20_pola04_land_160_40_16_provsours.md",
+ "lufs": -13.99,
+ "dur_s": 66.2,
+ "win": [
+  "n",
+  160,
+  null,
+  40,
+  16
+ ],
+ "pro_match": 16.62,
+ "level": "clean",
+ "kind": "lattice",
+ "lattice": 0.0,
+ "pulse": 0.0,
+ "rows": [
+  {
+   "who": "pro",
+   "out_start": 118.4,
+   "out_end": 135.4,
+   "in_start": 13.7,
+   "in_end": 30.7,
+   "out_swap": 128.4,
+   "out_start_section": "drop 2",
+   "in_start_section": "intro + slowdown/half-time",
+   "touches_out_slowdown": true,
+   "in_next_drop_vs_blend_end": 25.3,
+   "out_last_drop_played": "cut 106 bars early",
+   "out_time": "2:43",
+   "mix_time": "21:24",
+   "why": "what the DJ did"
+  },
+  {
+   "who": "ours_land",
+   "out_start": 144,
+   "out_end": 160,
+   "in_start": 40,
+   "in_end": 56,
+   "out_swap": null,
+   "out_start_section": "breakdown + slowdown/half-time",
+   "in_start_section": "intro + slowdown/half-time",
+   "touches_out_slowdown": true,
+   "in_next_drop_vs_blend_end": 0,
+   "out_last_drop_played": "cut 80 bars early",
+   "out_time": "3:18",
+   "mix_time": null,
+   "why": "blend starts inside the outgoing slowdown"
+  }
+ ]
+}

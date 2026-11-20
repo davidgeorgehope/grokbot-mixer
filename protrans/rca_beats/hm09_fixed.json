@@ -1,0 +1,125 @@
+{
+ "default": {
+  "win": [
+   "n",
+   208,
+   null,
+   48,
+   16
+  ],
+  "score": 32.58,
+  "drumclash": {
+   "score": 0.0,
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.054
+  },
+  "lock": {
+   "lag_ms": null,
+   "n": 3,
+   "n_loud": 3,
+   "bars": [
+    199,
+    200,
+    201
+   ],
+   "offs": [
+    -50.8,
+    -117.6,
+    103.0
+   ],
+   "applied": false,
+   "why": "inconsistent / too few agreeing bars"
+  },
+  "progrid": {
+   "diff_ms": -0.2,
+   "r_a": 0.296,
+   "r_b": 0.883,
+   "rate": 1.0,
+   "tc": 22.1,
+   "both_span": [
+    28.6,
+    27.7
+   ]
+  },
+  "mp3": "/tmp/protrans_bench/rcahm09default.mp3",
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-20_hm09_default.png",
+  "blend_bars": [
+   192,
+   208
+  ],
+  "bass_swap": [
+   197.0,
+   202.0
+  ],
+  "xcorr_med": -72.6
+ },
+ "fixed": {
+  "win": [
+   "n",
+   144,
+   null,
+   48,
+   16
+  ],
+  "score": 44.29,
+  "drumclash": {
+   "score": 0.143,
+   "n_dd": 7,
+   "n_off": 1,
+   "flagged": false,
+   "cluster_lag_ms": 40.6,
+   "med_c0": 0.056
+  },
+  "lock": {
+   "lag_ms": null,
+   "n": 7,
+   "n_loud": 7,
+   "bars": [
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136
+   ],
+   "offs": [
+    -101.6,
+    -11.6,
+    -158.2,
+    -45.0,
+    140.8,
+    104.5,
+    13.1
+   ],
+   "applied": false,
+   "why": "inconsistent / too few agreeing bars"
+  },
+  "progrid": {
+   "diff_ms": -0.6,
+   "r_a": 0.773,
+   "r_b": 0.874,
+   "rate": 1.0,
+   "tc": 22.1,
+   "both_span": [
+    28.6,
+    26.1
+   ]
+  },
+  "mp3": "/tmp/protrans_bench/rcahm09fixed.mp3",
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-20_hm09_fixed.png",
+  "blend_bars": [
+   128,
+   144
+  ],
+  "bass_swap": [
+   133.0,
+   138.0
+  ],
+  "xcorr_med": -10.2,
+  "clip": "/workspace/mixes/deliver/protrans/rca_2026-11-20_hm09_fixed.mp3"
+ }
+}

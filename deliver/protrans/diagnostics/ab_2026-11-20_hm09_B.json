@@ -1,0 +1,52 @@
+{
+ "blend": 0,
+ "a": "J3oTRY7AdE4",
+ "b": "ksVDZt9_0J4",
+ "start_bar": 192.0,
+ "end_bar": 208.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/ab_2026-11-20_hm09_B.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": -0.068,
+   "rate": 1.006,
+   "r_a": 0.682,
+   "r_b": 0.805
+  },
+  "ours": {
+   "phase_beats": 0.011,
+   "rate": 1.0,
+   "r_a": 0.143,
+   "r_b": 0.884
+  },
+  "why": "deck not located (onset r < 0.2)"
+ },
+ "offset_ms_median": -72.6,
+ "offset_bars": 9,
+ "clash_bars": 7.81,
+ "sum_lows_dip_db": 20.5,
+ "bass_swap": [
+  197.0,
+  202.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.031858,
+  "pcty": 3.010069,
+  "Scol": 0.8118,
+  "Scty": 0.6763,
+  "banger_clash_rate": 0.0551,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

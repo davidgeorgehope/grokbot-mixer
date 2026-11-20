@@ -52,9 +52,10 @@
    "for_night": "2026-11-20",
    "queued": true,
    "queued_on": "2026-11-19 4:40 PM ET",
-   "spent": false,
+   "spent": true,
    "note": "New DJ, not in the 9-DJ corpus-v2 dev set (MrMoMMusic, UKF Drum & Bass, Alpha Rhythm, Sound Territory, SuicideSheeep, John B, TheHeshBesh, KushSessions, Fryett), not in the locked Liquicity/Hospital holdout, not previously spent, 0 accepted rows. Queued for EPG strict-gate fresh validation. Ingest in an isolated work dir and keep sources until renders are done. Do not rewrite corpus_v2/queue.json.",
-   "ingested": "2026-11-20 nightly, isolated in replica/fresh_work_1120"
+   "ingested": "2026-11-20 nightly, isolated in replica/fresh_work_1120",
+   "spent_on": "2026-11-20 06:44 ET (n1120 epg candidates, once)"
   }
  ],
  "tried": [

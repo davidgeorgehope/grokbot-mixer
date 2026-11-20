@@ -1,0 +1,223 @@
+{
+ "meta_path": "/tmp/protrans_bench/smk42125_J3oTRY7AdE4_ksVDZt9_0J4_meta.json",
+ "a": "J3oTRY7AdE4",
+ "b": "ksVDZt9_0J4",
+ "fam": "nat_long",
+ "win": [
+  "n",
+  208,
+  null,
+  32,
+  32
+ ],
+ "env": {
+  "FADE": "long",
+  "BASS_SWAP_BARS": "3",
+  "SWAP_POS": "0.21",
+  "HIGH_SWAP": "1",
+  "HIGH_OFS": "8",
+  "STRUCT": "1",
+  "LOOP32": "0",
+  "LONG_XP": "0.45",
+  "LONG_SOLO": "16",
+  "LONG_SWAP": "exit",
+  "LONG_SOLO_STRUCT": "1",
+  "TAIL_EXIT": "6",
+  "BLEND_LOCK": "1",
+  "DRUMCLASH": "1"
+ },
+ "hint_a_played_sec": 131.0,
+ "ours": "/tmp/protrans_bench/smk42125.mp3",
+ "created": null,
+ "n_cands": 11,
+ "phase_cost_errors": [],
+ "halfbeat": {
+  "r0": 0.863,
+  "rh": 0.462,
+  "lag_ms": 0.0,
+  "bars": 16,
+  "phase_fail": false,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": 0.0,
+  "phase_b": 0.0,
+  "dphase_beats": 0.0,
+  "dphase_ms": 0.0,
+  "strength": 7.785,
+  "basis": "drum-phase+lag"
+ },
+ "hard": null,
+ "planner": null,
+ "ranker": null,
+ "replica": null,
+ "dropcand": null,
+ "picker": null,
+ "consonance": null,
+ "slowpair": null,
+ "drumclash": {
+  "w": 5.0,
+  "gray_w": 0.1,
+  "terms": {
+   "nat_long": {
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     32
+    ],
+    "confidence": 0.136,
+    "level": "gray",
+    "flagged": false,
+    "raw": 0.136,
+    "fallback_lock_ms": null,
+    "kind": "pulse"
+   },
+   "nat_short": {
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ],
+    "confidence": 0.5,
+    "level": "gray",
+    "flagged": false,
+    "raw": 0.5,
+    "fallback_lock_ms": null,
+    "kind": "pulse"
+   },
+   "cue_early": {
+    "win": [
+     "n",
+     208,
+     null,
+     0,
+     32
+    ],
+    "confidence": 0.053,
+    "level": "gray",
+    "flagged": false,
+    "raw": 0.053,
+    "fallback_lock_ms": null,
+    "kind": "pulse"
+   },
+   "cue_late": {
+    "win": [
+     "n",
+     208,
+     null,
+     80,
+     32
+    ],
+    "confidence": 0.031,
+    "level": "gray",
+    "flagged": false,
+    "raw": 0.031,
+    "fallback_lock_ms": null,
+    "kind": "pulse"
+   },
+   "swap_early": {
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     32
+    ],
+    "confidence": 0.136,
+    "level": "gray",
+    "flagged": false,
+    "raw": 0.136,
+    "fallback_lock_ms": null,
+    "kind": "pulse"
+   },
+   "swap_late": {
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     32
+    ],
+    "confidence": 0.136,
+    "level": "gray",
+    "flagged": false,
+    "raw": 0.136,
+    "fallback_lock_ms": null,
+    "kind": "pulse"
+   },
+   "sneak_in": {
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     32
+    ],
+    "confidence": 0.136,
+    "level": "gray",
+    "flagged": false,
+    "raw": 0.136,
+    "fallback_lock_ms": null,
+    "kind": "pulse"
+   },
+   "phrase_cut": {
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     32
+    ],
+    "confidence": 0.136,
+    "level": "gray",
+    "flagged": false,
+    "raw": 0.136,
+    "fallback_lock_ms": null,
+    "kind": "pulse"
+   }
+  },
+  "hard": {
+   "fam": "nat_short",
+   "win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "flagged": true,
+   "level": "clash",
+   "confidence": 0.6,
+   "fallback": null,
+   "replaced_by": {
+    "fam": "nat_long",
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     32
+    ]
+   }
+  },
+  "retries": [
+   {
+    "fam": "nat_long",
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     32
+    ],
+    "flagged": false,
+    "level": "gray",
+    "kind": null,
+    "confidence": 0.059
+   }
+  ]
+ }
+}

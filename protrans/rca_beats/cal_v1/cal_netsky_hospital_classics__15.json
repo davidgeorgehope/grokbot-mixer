@@ -1,0 +1,121 @@
+{
+ "id": "netsky_hospital_classics__15",
+ "split": "test",
+ "pro": {
+  "error": "deck not located a",
+  "line": {
+   "a": -275.7481176943895,
+   "s": 0.9873271889400915,
+   "r": 0.043,
+   "span": [
+    0.2,
+    55.6
+   ]
+  }
+ },
+ "ours": {
+  "score": 0.2,
+  "n_dd": 10,
+  "n_off": 2,
+  "flagged": false,
+  "med_lag_ms": -162.5,
+  "med_c0": 0.205,
+  "rows": [
+   {
+    "bar": 226,
+    "lag_ms": 0.0,
+    "c_peak": 0.212,
+    "c0": 0.212,
+    "off": false
+   },
+   {
+    "bar": 227,
+    "lag_ms": -5.8,
+    "c_peak": 0.254,
+    "c0": 0.254,
+    "off": false
+   },
+   {
+    "bar": 228,
+    "lag_ms": -5.8,
+    "c_peak": 0.255,
+    "c0": 0.255,
+    "off": false
+   },
+   {
+    "bar": 229,
+    "lag_ms": -168.3,
+    "c_peak": 0.218,
+    "c0": 0.175,
+    "off": false
+   },
+   {
+    "bar": 230,
+    "lag_ms": 0.0,
+    "c_peak": 0.229,
+    "c0": 0.229,
+    "off": false
+   },
+   {
+    "bar": 231,
+    "lag_ms": 0.0,
+    "c_peak": 0.197,
+    "c0": 0.197,
+    "off": false
+   },
+   {
+    "bar": 232,
+    "lag_ms": -162.5,
+    "c_peak": 0.22,
+    "c0": 0.148,
+    "off": true
+   },
+   {
+    "bar": 233,
+    "lag_ms": -162.5,
+    "c_peak": 0.248,
+    "c0": 0.127,
+    "off": true
+   },
+   {
+    "bar": 234,
+    "lag_ms": -5.8,
+    "c_peak": 0.171,
+    "c0": 0.171,
+    "off": false
+   },
+   {
+    "bar": 235,
+    "lag_ms": -5.8,
+    "c_peak": 0.258,
+    "c0": 0.258,
+    "off": false
+   }
+  ],
+  "win": [
+   "n",
+   240,
+   null,
+   0,
+   16
+  ],
+  "lock": {
+   "lag_ms": null,
+   "n": 3,
+   "n_loud": 3,
+   "bars": [
+    232,
+    233,
+    234
+   ],
+   "offs": [
+    -62.4,
+    39.2,
+    107.4
+   ],
+   "applied": false,
+   "why": "inconsistent / too few agreeing bars"
+  },
+  "meta": "/tmp/protrans_bench/dcal2660284_DpYdXERlkFk_k-7z5X0ATEc_meta.json"
+ }
+}

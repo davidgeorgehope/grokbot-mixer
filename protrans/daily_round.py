@@ -69,11 +69,17 @@ def main(pick_id, base_variant, cands):
         print('DIAG skipped:', type(e).__name__, str(e)[-200:], flush=True)
 
 if __name__ == '__main__':
-    # 2026-11-19 list (base n1118_base: rules.json incl. TAIL_EXIT 6 + BLEND_LOCK 1, unchanged since).
-    # Only general knobs/values never tried on this scorer cohort.
-    # round 2 (round 1: length_pref 12 lifted pick 32.29->37.21 but overfit 34.07->31.04; tail_exit_5 32.85 next best)
+    # 2026-11-20 list (base n1120_base: rules.json incl. TAIL_EXIT 6 + BLEND_LOCK 1, unchanged since 11-17).
+    # Pick hybrid_minds_ukf__09: pro keeps the outgoing ~11 bars after its bass swap (ours ~6 after the tail exit),
+    # swaps bass earlier, and blends longer. General knobs/values never tried on this scorer cohort.
+    # EXITPOS (epg_*) arms are on the nightly promotion track (no rules.json writes) and were already no-ops here (n1120 ckpt).
+    # round 3 (round 2: hint_family 1 (+hint_weight 0.3) -> hint_short 14.71; window_planner 1, loop_fam_pen 0.5 no-ops;
+    # length_pref 32 -> nat_long 17.70). Event gap on the pick: pro bass swap ~5 bars earlier than ours and the pro
+    # outgoing lingers ~13 bars longer. Try the general FADE=long fader-shape knobs that move those two events.
     CANDS = [
-        ('length_pref_14', {'length_pref': 14}),
-        ('tail_exit_5', {'TAIL_EXIT': 5}),
+        ('long_swap_off', {'LONG_SWAP': ''}),
+        ('long_rise_3', {'LONG_RISE': 3}),
+        ('tail_exit_0', {'TAIL_EXIT': 0}),
+        ('long_exit_10', {'LONG_EXIT': 10}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

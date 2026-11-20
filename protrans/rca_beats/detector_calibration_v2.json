@@ -1,0 +1,785 @@
+{
+ "pro": {
+  "wilkinson_boomtown2026__33": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 3,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.494,
+    "b": 0.676
+   }
+  },
+  "joe_syntax_hospital__01": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 1,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "why": "no drum-on-drum overlap (< 3 bars)",
+   "r": {
+    "a": 0.194,
+    "b": 0.463
+   }
+  },
+  "joe_syntax_hospital__08": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 21,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.702,
+    "b": 0.751
+   }
+  },
+  "hybrid_minds_ukf__08": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 21,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.675,
+    "b": 0.7
+   }
+  },
+  "hybrid_minds_ukf__11": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 44,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.533,
+    "b": 0.7
+   }
+  },
+  "hybrid_minds_ukf__12": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 30,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.565,
+    "b": 0.311
+   }
+  },
+  "hybrid_minds_ukf__19": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 17,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.677,
+    "b": 0.76
+   }
+  },
+  "hybrid_minds_ukf__25": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 31,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.583,
+    "b": 0.755
+   }
+  },
+  "hybrid_minds_ukf__45": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 24,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.808,
+    "b": 0.626
+   }
+  },
+  "netsky_hospital_classics__02": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.82,
+    "b": 0.253
+   }
+  },
+  "netsky_hospital_classics__06": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 16,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.724,
+    "b": 0.731
+   }
+  },
+  "netsky_hospital_classics__17": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 18,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.681,
+    "b": 0.523
+   }
+  },
+  "joe_syntax_hospital__11": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 17,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.745,
+    "b": 0.826
+   }
+  },
+  "joe_syntax_hospital__12": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 27,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.819,
+    "b": 0.596
+   }
+  },
+  "joe_syntax_hospital__13": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 21,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.722,
+    "b": 0.609
+   }
+  },
+  "hybrid_minds_ukf__00": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 23,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.476,
+    "b": 0.25
+   }
+  },
+  "hybrid_minds_ukf__09": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 38,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.573,
+    "b": 0.826
+   }
+  },
+  "hybrid_minds_ukf__10": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 15,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.667,
+    "b": 0.789
+   }
+  },
+  "hybrid_minds_ukf__28": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 30,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.803,
+    "b": 0.73
+   }
+  },
+  "hybrid_minds_ukf__40": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 18,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.751,
+    "b": 0.725
+   }
+  },
+  "joe_syntax_hospital__00": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 7,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.587,
+    "b": 0.744
+   }
+  },
+  "joe_syntax_hospital__09": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 22,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.82,
+    "b": 0.521
+   }
+  },
+  "joe_syntax_hospital__14": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 14,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.218,
+    "b": 0.285
+   }
+  },
+  "hybrid_minds_ukf__13": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 36,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.518,
+    "b": 0.749
+   }
+  },
+  "hybrid_minds_ukf__23": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 24,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.558,
+    "b": 0.844
+   }
+  },
+  "netsky_hospital_classics__15": {
+   "error": "deck a not located",
+   "r": 0.043
+  },
+  "netsky_hospital_classics__23": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 3,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.949,
+    "b": 0.795
+   }
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.459,
+    "b": 0.491
+   }
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 5,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.456,
+    "b": 0.637
+   }
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "error": "deck a not located",
+   "r": null
+  },
+  "pola_bryson_puzzlewood__00": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 8,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.456,
+    "b": 0.635
+   }
+  },
+  "pola_bryson_puzzlewood__02": {
+   "score": 0.071,
+   "confidence": 0.071,
+   "level": "clean",
+   "n_dd": 28,
+   "n_off": 3,
+   "flagged": false,
+   "cluster_lag_ms": -30.4,
+   "r": {
+    "a": 0.298,
+    "b": 0.453
+   }
+  },
+  "pola_bryson_puzzlewood__04": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 14,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "r": {
+    "a": 0.669,
+    "b": 0.519
+   }
+  }
+ },
+ "ours": {
+  "hybrid_minds_ukf__25": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "netsky_hospital_classics__17": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__10": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 6,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "joe_syntax_hospital__13": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 14,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__45": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 2,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "why": "no drum-on-drum overlap (< 3 bars)"
+  },
+  "hybrid_minds_ukf__19": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "netsky_hospital_classics__02": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 8,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "joe_syntax_hospital__08": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 8,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__23": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "joe_syntax_hospital__11": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "joe_syntax_hospital__12": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "pola_bryson_puzzlewood__02": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__13": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "pola_bryson_puzzlewood__00": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "joe_syntax_hospital__14": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__00": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 4,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "wilkinson_boomtown2026__33": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "netsky_hospital_classics__15": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "joe_syntax_hospital__01": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 7,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__08": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__40": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__11": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "pola_bryson_puzzlewood__04": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "joe_syntax_hospital__00": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 7,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__09": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 5,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__12": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "netsky_hospital_classics__06": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 7,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "hybrid_minds_ukf__28": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "netsky_hospital_classics__23": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "joe_syntax_hospital__09": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  }
+ },
+ "labels": {
+  "11-20 hm09 B (ours)": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 5,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "11-20 JS12 default A": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  },
+  "11-17 WAO->GB B (no lock)": {
+   "score": 0.273,
+   "confidence": 0.273,
+   "level": "gray",
+   "n_dd": 11,
+   "n_off": 3,
+   "flagged": false,
+   "cluster_lag_ms": 124.8
+  },
+  "11-18 hm13 B": {
+   "score": 0.0,
+   "confidence": 0.0,
+   "level": "clean",
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null
+  }
+ },
+ "summary": {
+  "n_pro": 31,
+  "pro_not_located": [
+   "netsky_hospital_classics__15",
+   "maduk_liquicity_lunar2025__05"
+  ],
+  "pro_p95": 0.0,
+  "pro_max": 0.071,
+  "pro_above_high": [],
+  "ours_levels": {},
+  "labels": {
+   "11-20 hm09 B (ours)": [
+    0.0,
+    "clean",
+    null
+   ],
+   "11-20 JS12 default A": [
+    0.0,
+    "clean",
+    null
+   ],
+   "11-17 WAO->GB B (no lock)": [
+    0.273,
+    "gray",
+    124.8
+   ],
+   "11-18 hm13 B": [
+    0.0,
+    "clean",
+    null
+   ]
+  }
+ }
+}

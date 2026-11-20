@@ -1,0 +1,146 @@
+{
+ "2026-11-12": {
+  "pick": null,
+  "blend_start_s": null,
+  "pro": {
+   "global_r": 0.191,
+   "overlap_r": null,
+   "pre_r": null,
+   "overlap_phase_sd": null
+  },
+  "ours": {
+   "global_r": 0.286,
+   "overlap_r": null,
+   "pre_r": null,
+   "overlap_phase_sd": null
+  }
+ },
+ "2026-11-13": {
+  "pick": "hybrid_minds_ukf__12",
+  "blend_start_s": null,
+  "pro": {
+   "global_r": 0.225,
+   "overlap_r": null,
+   "pre_r": null,
+   "overlap_phase_sd": null
+  },
+  "ours": {
+   "global_r": 0.253,
+   "overlap_r": null,
+   "pre_r": null,
+   "overlap_phase_sd": null
+  }
+ },
+ "2026-11-14": {
+  "pick": "hybrid_minds_ukf__19",
+  "blend_start_s": 21.653,
+  "pro": {
+   "global_r": 0.143,
+   "overlap_r": 0.12,
+   "pre_r": 0.34,
+   "overlap_phase_sd": 94.4
+  },
+  "ours": {
+   "global_r": 0.185,
+   "overlap_r": 0.12,
+   "pre_r": 0.17,
+   "overlap_phase_sd": 50.2
+  }
+ },
+ "2026-11-15": {
+  "pick": "hybrid_minds_ukf__25",
+  "blend_start_s": 13.29,
+  "pro": {
+   "global_r": 0.152,
+   "overlap_r": 0.39,
+   "pre_r": 0.14,
+   "overlap_phase_sd": 44.7
+  },
+  "ours": {
+   "global_r": 0.358,
+   "overlap_r": 0.41,
+   "pre_r": 0.17,
+   "overlap_phase_sd": 6.8
+  }
+ },
+ "2026-11-16": {
+  "pick": "hybrid_minds_ukf__45",
+  "blend_start_s": 11.034,
+  "pro": {
+   "global_r": 0.094,
+   "overlap_r": 0.47,
+   "pre_r": 0.48,
+   "overlap_phase_sd": 69.6
+  },
+  "ours": {
+   "global_r": 0.417,
+   "overlap_r": 0.4,
+   "pre_r": 0.45,
+   "overlap_phase_sd": 26.7
+  }
+ },
+ "2026-11-17": {
+  "pick": "joe_syntax_hospital__11",
+  "blend_start_s": 11.034,
+  "pro": {
+   "global_r": 0.073,
+   "overlap_r": 0.27,
+   "pre_r": 0.26,
+   "overlap_phase_sd": 81.4
+  },
+  "ours": {
+   "global_r": 0.071,
+   "overlap_r": 0.2,
+   "pre_r": 0.22,
+   "overlap_phase_sd": 82.0
+  }
+ },
+ "2026-11-18": {
+  "pick": "hybrid_minds_ukf__13",
+  "blend_start_s": 2.141,
+  "pro": {
+   "global_r": 0.113,
+   "overlap_r": 0.24,
+   "pre_r": 0.24,
+   "overlap_phase_sd": 54.3
+  },
+  "ours": {
+   "global_r": 0.152,
+   "overlap_r": 0.14,
+   "pre_r": 0.21,
+   "overlap_phase_sd": 81.6
+  }
+ },
+ "2026-11-19": {
+  "pick": "joe_syntax_hospital__12",
+  "blend_start_s": 11.034,
+  "pro": {
+   "global_r": 0.186,
+   "overlap_r": 0.1,
+   "pre_r": 0.23,
+   "overlap_phase_sd": 41.5
+  },
+  "ours": {
+   "global_r": 0.08,
+   "overlap_r": 0.13,
+   "pre_r": 0.35,
+   "overlap_phase_sd": 72.1
+  }
+ },
+ "2026-11-20": {
+  "pick": "hybrid_minds_ukf__09",
+  "blend_start_s": 2.64,
+  "pro": {
+   "global_r": 0.165,
+   "overlap_r": 0.16,
+   "pre_r": 0.14,
+   "overlap_phase_sd": 75.0
+  },
+  "ours": {
+   "global_r": 0.304,
+   "overlap_r": 0.27,
+   "pre_r": 0.13,
+   "overlap_phase_sd": 16.5
+  }
+ }
+}

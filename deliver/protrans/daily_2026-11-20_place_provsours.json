@@ -1,0 +1,38 @@
+{
+ "pick": "hybrid_minds_ukf__09",
+ "pair": "Hybrid Minds - Listen (ft. Tiffani Juno) -> LSB - The Optimist",
+ "rows": [
+  {
+   "who": "pro",
+   "out_start": 133.6,
+   "out_end": 167.6,
+   "in_start": 52.2,
+   "in_end": 86.2,
+   "out_swap": 139.6,
+   "out_start_section": "breakdown",
+   "in_start_section": "intro",
+   "touches_out_slowdown": false,
+   "in_next_drop_vs_blend_end": -22.2,
+   "out_last_drop_played": "cut 74 bars early",
+   "out_time": "3:04",
+   "mix_time": "15:27",
+   "why": "what the DJ did"
+  },
+  {
+   "who": "ours",
+   "out_start": 192,
+   "out_end": 208,
+   "in_start": 48,
+   "in_end": 64,
+   "out_swap": null,
+   "out_start_section": "drop 2",
+   "in_start_section": "intro",
+   "touches_out_slowdown": false,
+   "in_next_drop_vs_blend_end": 0,
+   "out_last_drop_played": "cut 16 bars early",
+   "out_time": "4:24",
+   "mix_time": null,
+   "why": "outro-over-intro bonus window (A plays its outro, B's first drop lands as A ends)"
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "B": {
+  "clip": "/workspace/mixes/deliver/protrans/ab_2026-11-20_hm09_B.mp3",
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/ab_2026-11-20_hm09_B.png",
+  "lufs": "-14.0 LUFS (linear gain from master, two-pass)",
+  "dur_s": 44.2
+ },
+ "A": {
+  "clip": "/workspace/mixes/deliver/protrans/ab_2026-11-20_hm09_A.mp3",
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/ab_2026-11-20_hm09_A.png",
+  "lufs": "-14.0 LUFS (linear gain from master, two-pass)",
+  "dur_s": 66.2
+ }
+}

@@ -1,0 +1,128 @@
+{
+ "base": {
+  "n": 33,
+  "n_fail": 0,
+  "train_n": 21,
+  "test_n": 12,
+  "train_mean": 32.4,
+  "test_mean": 34.07,
+  "by_dj": {
+   "Hybrid Minds": {
+    "n": 13,
+    "mean": 32.38,
+    "split": "train"
+   },
+   "Joe Syntax": {
+    "n": 8,
+    "mean": 32.44,
+    "split": "train"
+   },
+   "Maduk": {
+    "n": 3,
+    "mean": 30.23,
+    "split": "test"
+   },
+   "Netsky": {
+    "n": 5,
+    "mean": 34.81,
+    "split": "test"
+   },
+   "Pola & Bryson": {
+    "n": 3,
+    "mean": 37.97,
+    "split": "test"
+   },
+   "Wilkinson": {
+    "n": 1,
+    "mean": 30.2,
+    "split": "test"
+   }
+  },
+  "stem_kind": "bands"
+ },
+ "dclash": {
+  "n": 33,
+  "n_fail": 0,
+  "train_n": 21,
+  "test_n": 12,
+  "train_mean": 31.06,
+  "test_mean": 34.07,
+  "by_dj": {
+   "Hybrid Minds": {
+    "n": 13,
+    "mean": 32.38,
+    "split": "train"
+   },
+   "Joe Syntax": {
+    "n": 8,
+    "mean": 28.91,
+    "split": "train"
+   },
+   "Maduk": {
+    "n": 3,
+    "mean": 30.23,
+    "split": "test"
+   },
+   "Netsky": {
+    "n": 5,
+    "mean": 34.81,
+    "split": "test"
+   },
+   "Pola & Bryson": {
+    "n": 3,
+    "mean": 37.97,
+    "split": "test"
+   },
+   "Wilkinson": {
+    "n": 1,
+    "mean": 30.2,
+    "split": "test"
+   }
+  },
+  "stem_kind": "bands"
+ },
+ "changed": [
+  {
+   "id": "joe_syntax_hospital__08",
+   "split": "train",
+   "base": 30.08,
+   "new": 24.99,
+   "base_win": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ],
+   "new_win": [
+    "lx",
+    224,
+    208,
+    48,
+    16
+   ],
+   "fam": "lx_beat"
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "split": "train",
+   "base": 60.51,
+   "new": 37.4,
+   "base_win": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ],
+   "new_win": [
+    "n",
+    240,
+    null,
+    0,
+    32
+   ],
+   "fam": "cue_early"
+  }
+ ]
+}

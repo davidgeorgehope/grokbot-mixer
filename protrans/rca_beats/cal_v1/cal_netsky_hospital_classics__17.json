@@ -1,0 +1,278 @@
+{
+ "id": "netsky_hospital_classics__17",
+ "split": "test",
+ "pro": {
+  "score": 0.944,
+  "n_dd": 18,
+  "n_off": 17,
+  "flagged": true,
+  "med_lag_ms": -46.4,
+  "med_c0": 0.068,
+  "rows": [
+   {
+    "bar": 0,
+    "lag_ms": -110.3,
+    "c_peak": 0.47,
+    "c0": 0.076,
+    "off": true
+   },
+   {
+    "bar": 1,
+    "lag_ms": -110.3,
+    "c_peak": 0.468,
+    "c0": -0.02,
+    "off": true
+   },
+   {
+    "bar": 5,
+    "lag_ms": -150.9,
+    "c_peak": 0.386,
+    "c0": 0.033,
+    "off": true
+   },
+   {
+    "bar": 8,
+    "lag_ms": 168.3,
+    "c_peak": 0.312,
+    "c0": 0.125,
+    "off": true
+   },
+   {
+    "bar": 9,
+    "lag_ms": 162.5,
+    "c_peak": 0.286,
+    "c0": 0.148,
+    "off": true
+   },
+   {
+    "bar": 12,
+    "lag_ms": 133.5,
+    "c_peak": 0.274,
+    "c0": -0.064,
+    "off": true
+   },
+   {
+    "bar": 13,
+    "lag_ms": 121.9,
+    "c_peak": 0.301,
+    "c0": -0.046,
+    "off": true
+   },
+   {
+    "bar": 14,
+    "lag_ms": 116.1,
+    "c_peak": 0.248,
+    "c0": 0.078,
+    "off": true
+   },
+   {
+    "bar": 15,
+    "lag_ms": 110.3,
+    "c_peak": 0.249,
+    "c0": 0.171,
+    "off": false
+   },
+   {
+    "bar": 16,
+    "lag_ms": -81.3,
+    "c_peak": 0.183,
+    "c0": 0.123,
+    "off": true
+   },
+   {
+    "bar": 17,
+    "lag_ms": 92.9,
+    "c_peak": 0.153,
+    "c0": 0.092,
+    "off": true
+   },
+   {
+    "bar": 18,
+    "lag_ms": 69.7,
+    "c_peak": 0.16,
+    "c0": 0.082,
+    "off": true
+   },
+   {
+    "bar": 19,
+    "lag_ms": 69.7,
+    "c_peak": 0.151,
+    "c0": 0.08,
+    "off": true
+   },
+   {
+    "bar": 32,
+    "lag_ms": -46.4,
+    "c_peak": 0.283,
+    "c0": -0.042,
+    "off": true
+   },
+   {
+    "bar": 33,
+    "lag_ms": -52.2,
+    "c_peak": 0.279,
+    "c0": -0.049,
+    "off": true
+   },
+   {
+    "bar": 39,
+    "lag_ms": -110.3,
+    "c_peak": 0.093,
+    "c0": 0.059,
+    "off": true
+   },
+   {
+    "bar": 41,
+    "lag_ms": -110.3,
+    "c_peak": 0.127,
+    "c0": -0.001,
+    "off": true
+   },
+   {
+    "bar": 42,
+    "lag_ms": -127.7,
+    "c_peak": 0.201,
+    "c0": 0.035,
+    "off": true
+   }
+  ],
+  "lines": [
+   {
+    "a": -130.93513429075367,
+    "s": 1.0052325581395372,
+    "r": 0.681,
+    "span": [
+     1.6,
+     23.6
+    ]
+   },
+   {
+    "a": -20.19278517320369,
+    "s": 1.0059218008549362,
+    "r": 0.523,
+    "span": [
+     22.0,
+     62.1
+    ]
+   }
+  ]
+ },
+ "ours": {
+  "score": 0.0,
+  "n_dd": 11,
+  "n_off": 0,
+  "flagged": false,
+  "med_lag_ms": null,
+  "med_c0": 0.418,
+  "rows": [
+   {
+    "bar": 241,
+    "lag_ms": 0.0,
+    "c_peak": 0.486,
+    "c0": 0.486,
+    "off": false
+   },
+   {
+    "bar": 242,
+    "lag_ms": 0.0,
+    "c_peak": 0.418,
+    "c0": 0.418,
+    "off": false
+   },
+   {
+    "bar": 243,
+    "lag_ms": 0.0,
+    "c_peak": 0.373,
+    "c0": 0.373,
+    "off": false
+   },
+   {
+    "bar": 244,
+    "lag_ms": 5.8,
+    "c_peak": 0.407,
+    "c0": 0.407,
+    "off": false
+   },
+   {
+    "bar": 245,
+    "lag_ms": 5.8,
+    "c_peak": 0.446,
+    "c0": 0.446,
+    "off": false
+   },
+   {
+    "bar": 246,
+    "lag_ms": 0.0,
+    "c_peak": 0.429,
+    "c0": 0.429,
+    "off": false
+   },
+   {
+    "bar": 247,
+    "lag_ms": 0.0,
+    "c_peak": 0.379,
+    "c0": 0.379,
+    "off": false
+   },
+   {
+    "bar": 248,
+    "lag_ms": 0.0,
+    "c_peak": 0.326,
+    "c0": 0.326,
+    "off": false
+   },
+   {
+    "bar": 249,
+    "lag_ms": 0.0,
+    "c_peak": 0.493,
+    "c0": 0.493,
+    "off": false
+   },
+   {
+    "bar": 250,
+    "lag_ms": 0.0,
+    "c_peak": 0.423,
+    "c0": 0.423,
+    "off": false
+   },
+   {
+    "bar": 251,
+    "lag_ms": 0.0,
+    "c_peak": 0.301,
+    "c0": 0.301,
+    "off": false
+   }
+  ],
+  "win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "lock": {
+   "lag_ms": null,
+   "n": 6,
+   "n_loud": 6,
+   "bars": [
+    243,
+    244,
+    245,
+    246,
+    247,
+    248
+   ],
+   "offs": [
+    -165.4,
+    58.0,
+    -59.5,
+    -168.3,
+    114.6,
+    49.3
+   ],
+   "applied": false,
+   "why": "inconsistent / too few agreeing bars"
+  },
+  "meta": "/tmp/protrans_bench/dcal2660284_3f-XOhfDhxk_Mzgh0cLopck_meta.json"
+ }
+}

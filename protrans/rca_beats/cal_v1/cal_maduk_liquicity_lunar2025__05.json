@@ -1,0 +1,124 @@
+{
+ "id": "maduk_liquicity_lunar2025__05",
+ "split": "test",
+ "pro": {
+  "error": "deck not located a",
+  "line": null
+ },
+ "ours": {
+  "score": 1.0,
+  "n_dd": 11,
+  "n_off": 11,
+  "flagged": true,
+  "med_lag_ms": 92.9,
+  "med_c0": 0.093,
+  "rows": [
+   {
+    "bar": 225,
+    "lag_ms": 92.9,
+    "c_peak": 0.1,
+    "c0": 0.094,
+    "off": true
+   },
+   {
+    "bar": 226,
+    "lag_ms": 168.3,
+    "c_peak": 0.126,
+    "c0": 0.047,
+    "off": true
+   },
+   {
+    "bar": 227,
+    "lag_ms": 162.5,
+    "c_peak": 0.172,
+    "c0": 0.061,
+    "off": true
+   },
+   {
+    "bar": 228,
+    "lag_ms": -17.4,
+    "c_peak": 0.093,
+    "c0": 0.07,
+    "off": true
+   },
+   {
+    "bar": 229,
+    "lag_ms": 0.0,
+    "c_peak": 0.118,
+    "c0": 0.118,
+    "off": true
+   },
+   {
+    "bar": 230,
+    "lag_ms": -168.3,
+    "c_peak": 0.128,
+    "c0": 0.128,
+    "off": true
+   },
+   {
+    "bar": 231,
+    "lag_ms": -5.8,
+    "c_peak": 0.124,
+    "c0": 0.124,
+    "off": true
+   },
+   {
+    "bar": 232,
+    "lag_ms": 162.5,
+    "c_peak": 0.129,
+    "c0": 0.051,
+    "off": true
+   },
+   {
+    "bar": 233,
+    "lag_ms": 92.9,
+    "c_peak": 0.114,
+    "c0": 0.046,
+    "off": true
+   },
+   {
+    "bar": 234,
+    "lag_ms": 75.5,
+    "c_peak": 0.124,
+    "c0": 0.093,
+    "off": true
+   },
+   {
+    "bar": 235,
+    "lag_ms": 5.8,
+    "c_peak": 0.15,
+    "c0": 0.15,
+    "off": true
+   }
+  ],
+  "win": [
+   "n",
+   240,
+   null,
+   32,
+   16
+  ],
+  "lock": {
+   "lag_ms": null,
+   "n": 5,
+   "n_loud": 5,
+   "bars": [
+    227,
+    228,
+    229,
+    230,
+    231
+   ],
+   "offs": [
+    -5.8,
+    -82.7,
+    -23.2,
+    17.4,
+    -10.2
+   ],
+   "applied": false,
+   "why": "inconsistent / too few agreeing bars"
+  },
+  "meta": "/tmp/protrans_bench/dcal2660284_cG7cRDcPY3k_EpHrodtTiK0_meta.json"
+ }
+}

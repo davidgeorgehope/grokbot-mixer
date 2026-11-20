@@ -1,0 +1,310 @@
+{
+ "id": "maduk_liquicity_lunar2025__03",
+ "split": "test",
+ "pro": {
+  "score": 0.952,
+  "n_dd": 21,
+  "n_off": 20,
+  "flagged": true,
+  "med_lag_ms": 11.6,
+  "med_c0": 0.025,
+  "rows": [
+   {
+    "bar": 8,
+    "lag_ms": -87.1,
+    "c_peak": 0.152,
+    "c0": 0.025,
+    "off": true
+   },
+   {
+    "bar": 9,
+    "lag_ms": 81.3,
+    "c_peak": 0.123,
+    "c0": 0.005,
+    "off": true
+   },
+   {
+    "bar": 10,
+    "lag_ms": 52.2,
+    "c_peak": 0.194,
+    "c0": 0.002,
+    "off": true
+   },
+   {
+    "bar": 15,
+    "lag_ms": -92.9,
+    "c_peak": 0.168,
+    "c0": -0.018,
+    "off": true
+   },
+   {
+    "bar": 16,
+    "lag_ms": -92.9,
+    "c_peak": 0.194,
+    "c0": 0.022,
+    "off": true
+   },
+   {
+    "bar": 17,
+    "lag_ms": -92.9,
+    "c_peak": 0.135,
+    "c0": 0.085,
+    "off": true
+   },
+   {
+    "bar": 18,
+    "lag_ms": -121.9,
+    "c_peak": 0.121,
+    "c0": 0.029,
+    "off": true
+   },
+   {
+    "bar": 19,
+    "lag_ms": -145.1,
+    "c_peak": 0.105,
+    "c0": 0.014,
+    "off": true
+   },
+   {
+    "bar": 21,
+    "lag_ms": -116.1,
+    "c_peak": 0.111,
+    "c0": 0.032,
+    "off": true
+   },
+   {
+    "bar": 22,
+    "lag_ms": -87.1,
+    "c_peak": 0.127,
+    "c0": 0.009,
+    "off": true
+   },
+   {
+    "bar": 23,
+    "lag_ms": -29.0,
+    "c_peak": 0.121,
+    "c0": -0.007,
+    "off": true
+   },
+   {
+    "bar": 24,
+    "lag_ms": 92.9,
+    "c_peak": 0.139,
+    "c0": 0.009,
+    "off": true
+   },
+   {
+    "bar": 25,
+    "lag_ms": 92.9,
+    "c_peak": 0.16,
+    "c0": 0.04,
+    "off": true
+   },
+   {
+    "bar": 26,
+    "lag_ms": 145.1,
+    "c_peak": 0.083,
+    "c0": 0.001,
+    "off": true
+   },
+   {
+    "bar": 27,
+    "lag_ms": 133.5,
+    "c_peak": 0.101,
+    "c0": -0.002,
+    "off": true
+   },
+   {
+    "bar": 29,
+    "lag_ms": -92.9,
+    "c_peak": 0.095,
+    "c0": 0.061,
+    "off": true
+   },
+   {
+    "bar": 40,
+    "lag_ms": 156.7,
+    "c_peak": 0.187,
+    "c0": 0.123,
+    "off": true
+   },
+   {
+    "bar": 41,
+    "lag_ms": 162.5,
+    "c_peak": 0.287,
+    "c0": 0.141,
+    "off": true
+   },
+   {
+    "bar": 42,
+    "lag_ms": 162.5,
+    "c_peak": 0.368,
+    "c0": 0.238,
+    "off": true
+   },
+   {
+    "bar": 43,
+    "lag_ms": 162.5,
+    "c_peak": 0.351,
+    "c0": 0.263,
+    "off": false
+   },
+   {
+    "bar": 44,
+    "lag_ms": 168.3,
+    "c_peak": 0.363,
+    "c0": 0.261,
+    "off": true
+   }
+  ],
+  "lines": [
+   {
+    "a": -105.02619886310681,
+    "s": 0.9794520547945202,
+    "r": 0.456,
+    "span": [
+     0.5,
+     24.1
+    ]
+   },
+   {
+    "a": -0.8768125927062481,
+    "s": 0.977217753686542,
+    "r": 0.637,
+    "span": [
+     22.5,
+     63.6
+    ]
+   }
+  ]
+ },
+ "ours": {
+  "score": 0.083,
+  "n_dd": 12,
+  "n_off": 1,
+  "flagged": false,
+  "med_lag_ms": 139.3,
+  "med_c0": 0.275,
+  "rows": [
+   {
+    "bar": 161,
+    "lag_ms": -168.3,
+    "c_peak": 0.206,
+    "c0": 0.181,
+    "off": false
+   },
+   {
+    "bar": 162,
+    "lag_ms": 139.3,
+    "c_peak": 0.125,
+    "c0": 0.051,
+    "off": true
+   },
+   {
+    "bar": 163,
+    "lag_ms": -11.6,
+    "c_peak": 0.182,
+    "c0": 0.182,
+    "off": false
+   },
+   {
+    "bar": 164,
+    "lag_ms": -11.6,
+    "c_peak": 0.238,
+    "c0": 0.238,
+    "off": false
+   },
+   {
+    "bar": 165,
+    "lag_ms": -11.6,
+    "c_peak": 0.199,
+    "c0": 0.199,
+    "off": false
+   },
+   {
+    "bar": 166,
+    "lag_ms": -5.8,
+    "c_peak": 0.241,
+    "c0": 0.241,
+    "off": false
+   },
+   {
+    "bar": 167,
+    "lag_ms": -5.8,
+    "c_peak": 0.31,
+    "c0": 0.31,
+    "off": false
+   },
+   {
+    "bar": 168,
+    "lag_ms": -5.8,
+    "c_peak": 0.376,
+    "c0": 0.376,
+    "off": false
+   },
+   {
+    "bar": 169,
+    "lag_ms": 0.0,
+    "c_peak": 0.43,
+    "c0": 0.43,
+    "off": false
+   },
+   {
+    "bar": 170,
+    "lag_ms": 0.0,
+    "c_peak": 0.446,
+    "c0": 0.446,
+    "off": false
+   },
+   {
+    "bar": 171,
+    "lag_ms": -5.8,
+    "c_peak": 0.515,
+    "c0": 0.515,
+    "off": false
+   },
+   {
+    "bar": 172,
+    "lag_ms": -5.8,
+    "c_peak": 0.499,
+    "c0": 0.499,
+    "off": false
+   }
+  ],
+  "win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "lock": {
+   "lag_ms": null,
+   "n": 8,
+   "n_loud": 8,
+   "bars": [
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169
+   ],
+   "offs": [
+    45.0,
+    -146.6,
+    63.9,
+    -24.7,
+    101.6,
+    97.2,
+    110.3,
+    -30.5
+   ],
+   "applied": false,
+   "why": "inconsistent / too few agreeing bars"
+  },
+  "meta": "/tmp/protrans_bench/dcal2660284_smXG7OvMrFI_11SJZqMmzQ0_meta.json"
+ }
+}

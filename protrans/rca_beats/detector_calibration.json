@@ -1,0 +1,528 @@
+{
+ "pro_p95": 0.21209999999999996,
+ "pro": {
+  "hybrid_minds_ukf__00": {
+   "score": 0.061,
+   "n_dd": 33,
+   "n_off": 6,
+   "flagged": false,
+   "cluster_lag_ms": 81.3,
+   "med_c0": 0.012
+  },
+  "hybrid_minds_ukf__08": {
+   "score": 0.043,
+   "n_dd": 46,
+   "n_off": 7,
+   "flagged": false,
+   "cluster_lag_ms": 52.2,
+   "med_c0": 0.04
+  },
+  "hybrid_minds_ukf__09": {
+   "score": 0.071,
+   "n_dd": 42,
+   "n_off": 13,
+   "flagged": false,
+   "cluster_lag_ms": -87.1,
+   "med_c0": 0.038
+  },
+  "hybrid_minds_ukf__10": {
+   "score": 0.0,
+   "n_dd": 18,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.263
+  },
+  "hybrid_minds_ukf__11": {
+   "score": 0.05,
+   "n_dd": 40,
+   "n_off": 11,
+   "flagged": false,
+   "cluster_lag_ms": -121.9,
+   "med_c0": 0.042
+  },
+  "hybrid_minds_ukf__12": {
+   "score": 0.065,
+   "n_dd": 46,
+   "n_off": 4,
+   "flagged": false,
+   "cluster_lag_ms": 34.8,
+   "med_c0": 0.05
+  },
+  "hybrid_minds_ukf__13": {
+   "score": 0.0,
+   "n_dd": 36,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.398
+  },
+  "hybrid_minds_ukf__19": {
+   "score": 0.158,
+   "n_dd": 19,
+   "n_off": 5,
+   "flagged": false,
+   "cluster_lag_ms": 116.1,
+   "med_c0": 0.098
+  },
+  "hybrid_minds_ukf__23": {
+   "score": 0.086,
+   "n_dd": 35,
+   "n_off": 19,
+   "flagged": false,
+   "cluster_lag_ms": 63.9,
+   "med_c0": 0.051
+  },
+  "hybrid_minds_ukf__25": {
+   "score": 0.047,
+   "n_dd": 43,
+   "n_off": 6,
+   "flagged": false,
+   "cluster_lag_ms": -156.7,
+   "med_c0": 0.022
+  },
+  "hybrid_minds_ukf__28": {
+   "score": 0.129,
+   "n_dd": 31,
+   "n_off": 10,
+   "flagged": false,
+   "cluster_lag_ms": 49.3,
+   "med_c0": 0.032
+  },
+  "hybrid_minds_ukf__40": {
+   "score": 0.268,
+   "n_dd": 41,
+   "n_off": 13,
+   "flagged": true,
+   "cluster_lag_ms": -127.7,
+   "med_c0": 0.046
+  },
+  "hybrid_minds_ukf__45": {
+   "score": 0.121,
+   "n_dd": 33,
+   "n_off": 21,
+   "flagged": false,
+   "cluster_lag_ms": 156.7,
+   "med_c0": 0.016
+  },
+  "joe_syntax_hospital__00": {
+   "score": 0.188,
+   "n_dd": 16,
+   "n_off": 8,
+   "flagged": true,
+   "cluster_lag_ms": 34.8,
+   "med_c0": 0.089
+  },
+  "joe_syntax_hospital__08": {
+   "score": 0.136,
+   "n_dd": 44,
+   "n_off": 27,
+   "flagged": false,
+   "cluster_lag_ms": 95.8,
+   "med_c0": 0.006
+  },
+  "joe_syntax_hospital__09": {
+   "score": 0.16,
+   "n_dd": 25,
+   "n_off": 11,
+   "flagged": false,
+   "cluster_lag_ms": 162.5,
+   "med_c0": 0.004
+  },
+  "joe_syntax_hospital__11": {
+   "score": 0.056,
+   "n_dd": 18,
+   "n_off": 1,
+   "flagged": false,
+   "cluster_lag_ms": -168.3,
+   "med_c0": 0.276
+  },
+  "joe_syntax_hospital__12": {
+   "score": 0.162,
+   "n_dd": 37,
+   "n_off": 23,
+   "flagged": false,
+   "cluster_lag_ms": 81.3,
+   "med_c0": 0.005
+  },
+  "joe_syntax_hospital__13": {
+   "score": 0.2,
+   "n_dd": 35,
+   "n_off": 18,
+   "flagged": true,
+   "cluster_lag_ms": -139.3,
+   "med_c0": 0.038
+  },
+  "joe_syntax_hospital__14": {
+   "score": 0.054,
+   "n_dd": 37,
+   "n_off": 7,
+   "flagged": false,
+   "cluster_lag_ms": -40.6,
+   "med_c0": 0.049
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "score": 0.071,
+   "n_dd": 28,
+   "n_off": 7,
+   "flagged": false,
+   "cluster_lag_ms": -127.7,
+   "med_c0": 0.029
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "score": 0.143,
+   "n_dd": 21,
+   "n_off": 3,
+   "flagged": false,
+   "cluster_lag_ms": 162.5,
+   "med_c0": 0.025
+  },
+  "netsky_hospital_classics__02": {
+   "score": 0.1,
+   "n_dd": 20,
+   "n_off": 5,
+   "flagged": false,
+   "cluster_lag_ms": -75.5,
+   "med_c0": 0.055
+  },
+  "netsky_hospital_classics__06": {
+   "score": 0.146,
+   "n_dd": 41,
+   "n_off": 31,
+   "flagged": false,
+   "cluster_lag_ms": -90.0,
+   "med_c0": 0.043
+  },
+  "netsky_hospital_classics__17": {
+   "score": 0.167,
+   "n_dd": 18,
+   "n_off": 11,
+   "flagged": false,
+   "cluster_lag_ms": 121.9,
+   "med_c0": 0.068
+  },
+  "netsky_hospital_classics__23": {
+   "score": 0.222,
+   "n_dd": 18,
+   "n_off": 11,
+   "flagged": true,
+   "cluster_lag_ms": -81.3,
+   "med_c0": 0.079
+  },
+  "pola_bryson_puzzlewood__00": {
+   "score": 0.022,
+   "n_dd": 45,
+   "n_off": 1,
+   "flagged": false,
+   "cluster_lag_ms": 121.9,
+   "med_c0": 0.443
+  },
+  "pola_bryson_puzzlewood__02": {
+   "score": 0.109,
+   "n_dd": 46,
+   "n_off": 16,
+   "flagged": false,
+   "cluster_lag_ms": 145.1,
+   "med_c0": 0.046
+  },
+  "pola_bryson_puzzlewood__04": {
+   "score": 0.111,
+   "n_dd": 18,
+   "n_off": 3,
+   "flagged": false,
+   "cluster_lag_ms": 150.9,
+   "med_c0": 0.005
+  },
+  "wilkinson_boomtown2026__33": {
+   "score": 0.0,
+   "n_dd": 5,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.058
+  }
+ },
+ "ours": {
+  "hybrid_minds_ukf__00": {
+   "score": 0.0,
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.012
+  },
+  "hybrid_minds_ukf__08": {
+   "score": 0.143,
+   "n_dd": 7,
+   "n_off": 1,
+   "flagged": false,
+   "cluster_lag_ms": 110.3,
+   "med_c0": 0.047
+  },
+  "hybrid_minds_ukf__09": {
+   "score": 0.0,
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.056
+  },
+  "hybrid_minds_ukf__10": {
+   "score": 0.0,
+   "n_dd": 6,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.127
+  },
+  "hybrid_minds_ukf__11": {
+   "score": 0.0,
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.058
+  },
+  "hybrid_minds_ukf__12": {
+   "score": 0.0,
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.284
+  },
+  "hybrid_minds_ukf__13": {
+   "score": 0.0,
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.167
+  },
+  "hybrid_minds_ukf__19": {
+   "score": 0.0,
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.076
+  },
+  "hybrid_minds_ukf__23": {
+   "score": 0.0,
+   "n_dd": 8,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.062
+  },
+  "hybrid_minds_ukf__25": {
+   "score": 0.0,
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.473
+  },
+  "hybrid_minds_ukf__28": {
+   "score": 0.0,
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.522
+  },
+  "hybrid_minds_ukf__40": {
+   "score": 0.0,
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.119
+  },
+  "hybrid_minds_ukf__45": {
+   "score": 0.0,
+   "n_dd": 5,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.262
+  },
+  "joe_syntax_hospital__00": {
+   "score": 0.0,
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.334
+  },
+  "joe_syntax_hospital__01": {
+   "score": 0.0,
+   "n_dd": 8,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.102
+  },
+  "joe_syntax_hospital__08": {
+   "score": 0.222,
+   "n_dd": 9,
+   "n_off": 3,
+   "flagged": true,
+   "cluster_lag_ms": -142.2,
+   "med_c0": 0.024
+  },
+  "joe_syntax_hospital__09": {
+   "score": 0.0,
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.33
+  },
+  "joe_syntax_hospital__11": {
+   "score": 0.3,
+   "n_dd": 10,
+   "n_off": 3,
+   "flagged": true,
+   "cluster_lag_ms": 162.5,
+   "med_c0": 0.238
+  },
+  "joe_syntax_hospital__12": {
+   "score": 0.0,
+   "n_dd": 13,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.512
+  },
+  "joe_syntax_hospital__13": {
+   "score": 0.0,
+   "n_dd": 14,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.215
+  },
+  "joe_syntax_hospital__14": {
+   "score": 0.0,
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.396
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "score": 0.0,
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.213
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "score": 0.0,
+   "n_dd": 12,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.275
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "score": 0.0,
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.093
+  },
+  "netsky_hospital_classics__02": {
+   "score": 0.0,
+   "n_dd": 8,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.343
+  },
+  "netsky_hospital_classics__06": {
+   "score": 0.0,
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.226
+  },
+  "netsky_hospital_classics__15": {
+   "score": 0.1,
+   "n_dd": 10,
+   "n_off": 1,
+   "flagged": false,
+   "cluster_lag_ms": -162.5,
+   "med_c0": 0.205
+  },
+  "netsky_hospital_classics__17": {
+   "score": 0.0,
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.418
+  },
+  "netsky_hospital_classics__23": {
+   "score": 0.0,
+   "n_dd": 9,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.144
+  },
+  "pola_bryson_puzzlewood__00": {
+   "score": 0.0,
+   "n_dd": 11,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.319
+  },
+  "pola_bryson_puzzlewood__02": {
+   "score": 0.0,
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.422
+  },
+  "pola_bryson_puzzlewood__04": {
+   "score": 0.0,
+   "n_dd": 10,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.032
+  },
+  "wilkinson_boomtown2026__33": {
+   "score": 0.0,
+   "n_dd": 14,
+   "n_off": 0,
+   "flagged": false,
+   "cluster_lag_ms": null,
+   "med_c0": 0.184
+  }
+ },
+ "not_located": {
+  "pro": [
+   [
+    "joe_syntax_hospital__01",
+    "deck not located a"
+   ],
+   [
+    "maduk_liquicity_lunar2025__05",
+    "deck not located a"
+   ],
+   [
+    "netsky_hospital_classics__15",
+    "deck not located a"
+   ]
+  ],
+  "ours": []
+ }
+}

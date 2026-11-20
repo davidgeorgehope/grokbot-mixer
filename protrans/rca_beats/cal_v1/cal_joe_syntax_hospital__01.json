@@ -1,0 +1,109 @@
+{
+ "id": "joe_syntax_hospital__01",
+ "split": "train",
+ "pro": {
+  "error": "deck not located a",
+  "line": {
+   "a": -152.60054195011259,
+   "s": 0.9999999999999956,
+   "r": 0.194,
+   "span": [
+    1.2,
+    23.1
+   ]
+  }
+ },
+ "ours": {
+  "score": 1.0,
+  "n_dd": 8,
+  "n_off": 8,
+  "flagged": true,
+  "med_lag_ms": -101.6,
+  "med_c0": 0.102,
+  "rows": [
+   {
+    "bar": 145,
+    "lag_ms": 87.1,
+    "c_peak": 0.106,
+    "c0": 0.096,
+    "off": true
+   },
+   {
+    "bar": 146,
+    "lag_ms": -81.3,
+    "c_peak": 0.149,
+    "c0": 0.125,
+    "off": true
+   },
+   {
+    "bar": 148,
+    "lag_ms": -121.9,
+    "c_peak": 0.083,
+    "c0": 0.019,
+    "off": true
+   },
+   {
+    "bar": 149,
+    "lag_ms": -121.9,
+    "c_peak": 0.145,
+    "c0": 0.042,
+    "off": true
+   },
+   {
+    "bar": 150,
+    "lag_ms": -5.8,
+    "c_peak": 0.107,
+    "c0": 0.107,
+    "off": true
+   },
+   {
+    "bar": 151,
+    "lag_ms": -5.8,
+    "c_peak": 0.129,
+    "c0": 0.129,
+    "off": true
+   },
+   {
+    "bar": 152,
+    "lag_ms": 0.0,
+    "c_peak": 0.123,
+    "c0": 0.123,
+    "off": true
+   },
+   {
+    "bar": 153,
+    "lag_ms": -23.2,
+    "c_peak": 0.114,
+    "c0": 0.047,
+    "off": true
+   }
+  ],
+  "win": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ],
+  "lock": {
+   "lag_ms": null,
+   "n": 4,
+   "n_loud": 5,
+   "bars": [
+    148,
+    149,
+    150,
+    151
+   ],
+   "offs": [
+    137.9,
+    42.1,
+    23.2,
+    56.6
+   ],
+   "applied": false,
+   "why": "inconsistent / too few agreeing bars"
+  },
+  "meta": "/tmp/protrans_bench/dcal2660284_dOJp7bsjuyU_zM6au9qc2XQ_meta.json"
+ }
+}

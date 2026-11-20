@@ -136,6 +136,7 @@ def _worker(payload):
                  score=sc, ours=info.get('ours'), pro=rec['pro_clip'], created=created)
         if info.get('consonance') is not None:row['consonance']=info['consonance']  # CONSONANCE research (2026-11-19, off by default)
         if info.get('slowpair') is not None:row['slowpair']=info['slowpair']  # SLOWPAIR research (2026-11-20, off by default)
+        if info.get('drumclash') is not None:row['drumclash']=info['drumclash']  # DRUMCLASH (2026-11-20 beats RCA, off by default)
         append_ckpt(variant, row)
         return dict(ok=True, row=row)
     except Exception as e:

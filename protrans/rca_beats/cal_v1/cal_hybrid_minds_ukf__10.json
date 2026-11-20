@@ -1,0 +1,243 @@
+{
+ "id": "hybrid_minds_ukf__10",
+ "split": "train",
+ "pro": {
+  "score": 0.278,
+  "n_dd": 18,
+  "n_off": 5,
+  "flagged": false,
+  "med_lag_ms": 11.7,
+  "med_c0": 0.263,
+  "rows": [
+   {
+    "bar": 2,
+    "lag_ms": 5.8,
+    "c_peak": 0.495,
+    "c0": 0.495,
+    "off": false
+   },
+   {
+    "bar": 3,
+    "lag_ms": 5.8,
+    "c_peak": 0.489,
+    "c0": 0.489,
+    "off": false
+   },
+   {
+    "bar": 4,
+    "lag_ms": 0.0,
+    "c_peak": 0.52,
+    "c0": 0.52,
+    "off": false
+   },
+   {
+    "bar": 5,
+    "lag_ms": 0.0,
+    "c_peak": 0.443,
+    "c0": 0.443,
+    "off": false
+   },
+   {
+    "bar": 6,
+    "lag_ms": 5.8,
+    "c_peak": 0.425,
+    "c0": 0.425,
+    "off": false
+   },
+   {
+    "bar": 7,
+    "lag_ms": 0.0,
+    "c_peak": 0.401,
+    "c0": 0.401,
+    "off": false
+   },
+   {
+    "bar": 8,
+    "lag_ms": 0.0,
+    "c_peak": 0.468,
+    "c0": 0.468,
+    "off": false
+   },
+   {
+    "bar": 9,
+    "lag_ms": 0.0,
+    "c_peak": 0.41,
+    "c0": 0.41,
+    "off": false
+   },
+   {
+    "bar": 10,
+    "lag_ms": 0.0,
+    "c_peak": 0.282,
+    "c0": 0.282,
+    "off": false
+   },
+   {
+    "bar": 11,
+    "lag_ms": 0.0,
+    "c_peak": 0.232,
+    "c0": 0.232,
+    "off": false
+   },
+   {
+    "bar": 12,
+    "lag_ms": 0.0,
+    "c_peak": 0.207,
+    "c0": 0.207,
+    "off": false
+   },
+   {
+    "bar": 13,
+    "lag_ms": 5.8,
+    "c_peak": 0.19,
+    "c0": 0.19,
+    "off": false
+   },
+   {
+    "bar": 14,
+    "lag_ms": 5.8,
+    "c_peak": 0.244,
+    "c0": 0.244,
+    "off": false
+   },
+   {
+    "bar": 15,
+    "lag_ms": 5.8,
+    "c_peak": 0.147,
+    "c0": 0.147,
+    "off": true
+   },
+   {
+    "bar": 16,
+    "lag_ms": 104.5,
+    "c_peak": 0.14,
+    "c0": 0.075,
+    "off": true
+   },
+   {
+    "bar": 17,
+    "lag_ms": -127.7,
+    "c_peak": 0.134,
+    "c0": 0.054,
+    "off": true
+   },
+   {
+    "bar": 20,
+    "lag_ms": -46.4,
+    "c_peak": 0.148,
+    "c0": 0.057,
+    "off": true
+   },
+   {
+    "bar": 22,
+    "lag_ms": 69.7,
+    "c_peak": 0.091,
+    "c0": 0.031,
+    "off": true
+   }
+  ],
+  "lines": [
+   {
+    "a": -173.08368432987172,
+    "s": 0.993941248470009,
+    "r": 0.667,
+    "span": [
+     1.6,
+     27.4
+    ]
+   },
+   {
+    "a": -25.037180474446565,
+    "s": 0.994387409927696,
+    "r": 0.789,
+    "span": [
+     2.7,
+     62.4
+    ]
+   }
+  ]
+ },
+ "ours": {
+  "score": 0.667,
+  "n_dd": 6,
+  "n_off": 4,
+  "flagged": true,
+  "med_lag_ms": -124.8,
+  "med_c0": 0.127,
+  "rows": [
+   {
+    "bar": 241,
+    "lag_ms": 11.6,
+    "c_peak": 0.247,
+    "c0": 0.247,
+    "off": false
+   },
+   {
+    "bar": 242,
+    "lag_ms": -162.5,
+    "c_peak": 0.165,
+    "c0": 0.139,
+    "off": true
+   },
+   {
+    "bar": 243,
+    "lag_ms": -87.1,
+    "c_peak": 0.114,
+    "c0": 0.098,
+    "off": true
+   },
+   {
+    "bar": 244,
+    "lag_ms": -162.5,
+    "c_peak": 0.122,
+    "c0": 0.078,
+    "off": true
+   },
+   {
+    "bar": 245,
+    "lag_ms": 29.0,
+    "c_peak": 0.121,
+    "c0": 0.115,
+    "off": true
+   },
+   {
+    "bar": 246,
+    "lag_ms": -5.8,
+    "c_peak": 0.159,
+    "c0": 0.159,
+    "off": false
+   }
+  ],
+  "win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "lock": {
+   "lag_ms": null,
+   "n": 6,
+   "n_loud": 6,
+   "bars": [
+    241,
+    242,
+    243,
+    244,
+    245,
+    246
+   ],
+   "offs": [
+    139.3,
+    91.4,
+    10.2,
+    -4.4,
+    91.4,
+    -33.4
+   ],
+   "applied": false,
+   "why": "inconsistent / too few agreeing bars"
+  },
+  "meta": "/tmp/protrans_bench/dcal2660284_ksVDZt9_0J4_Vwb-3pAvOVk_meta.json"
+ }
+}

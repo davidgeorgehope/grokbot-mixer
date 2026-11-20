@@ -1,0 +1,350 @@
+{
+ "base": {
+  "n": 33,
+  "n_fail": 0,
+  "train_n": 21,
+  "test_n": 12,
+  "train_mean": 32.4,
+  "test_mean": 34.07,
+  "by_dj": {
+   "Hybrid Minds": {
+    "n": 13,
+    "mean": 32.38,
+    "split": "train"
+   },
+   "Joe Syntax": {
+    "n": 8,
+    "mean": 32.44,
+    "split": "train"
+   },
+   "Maduk": {
+    "n": 3,
+    "mean": 30.23,
+    "split": "test"
+   },
+   "Netsky": {
+    "n": 5,
+    "mean": 34.81,
+    "split": "test"
+   },
+   "Pola & Bryson": {
+    "n": 3,
+    "mean": 37.97,
+    "split": "test"
+   },
+   "Wilkinson": {
+    "n": 1,
+    "mean": 30.2,
+    "split": "test"
+   }
+  },
+  "stem_kind": "bands"
+ },
+ "dclash": {
+  "n": 33,
+  "n_fail": 0,
+  "train_n": 21,
+  "test_n": 12,
+  "train_mean": 32.08,
+  "test_mean": 33.67,
+  "by_dj": {
+   "Hybrid Minds": {
+    "n": 13,
+    "mean": 31.68,
+    "split": "train"
+   },
+   "Joe Syntax": {
+    "n": 8,
+    "mean": 32.74,
+    "split": "train"
+   },
+   "Maduk": {
+    "n": 3,
+    "mean": 30.23,
+    "split": "test"
+   },
+   "Netsky": {
+    "n": 5,
+    "mean": 34.81,
+    "split": "test"
+   },
+   "Pola & Bryson": {
+    "n": 3,
+    "mean": 36.38,
+    "split": "test"
+   },
+   "Wilkinson": {
+    "n": 1,
+    "mean": 30.2,
+    "split": "test"
+   }
+  },
+  "stem_kind": "bands"
+ },
+ "changed": [
+  {
+   "id": "joe_syntax_hospital__08",
+   "split": "train",
+   "base": 30.08,
+   "new": 32.5,
+   "base_win": [
+    "n",
+    240,
+    null,
+    40,
+    16
+   ],
+   "new_win": [
+    "n",
+    224,
+    null,
+    80,
+    32
+   ],
+   "fam": "clash_alt"
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "split": "train",
+   "base": 32.58,
+   "new": 28.69,
+   "base_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "new_win": [
+    "n",
+    176,
+    null,
+    64,
+    32
+   ],
+   "fam": "clash_alt"
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "split": "train",
+   "base": 31.79,
+   "new": 28.86,
+   "base_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "new_win": [
+    "n",
+    224,
+    null,
+    32,
+    32
+   ],
+   "fam": "clash_alt"
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "split": "test",
+   "base": 34.12,
+   "new": 29.34,
+   "base_win": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "new_win": [
+    "n",
+    224,
+    null,
+    64,
+    32
+   ],
+   "fam": "clash_alt"
+  }
+ ],
+ "gray": [
+  "hybrid_minds_ukf__11",
+  "joe_syntax_hospital__11",
+  "hybrid_minds_ukf__00",
+  "maduk_liquicity_lunar2025__05"
+ ],
+ "render_clash": [
+  {
+   "id": "joe_syntax_hospital__08",
+   "hard": {
+    "fam": "nat_short",
+    "win": [
+     "n",
+     240,
+     null,
+     40,
+     16
+    ],
+    "flagged": true,
+    "level": "clash",
+    "confidence": 0.75,
+    "fallback": null,
+    "replaced_by": {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      224,
+      null,
+      80,
+      32
+     ]
+    }
+   },
+   "retries": [
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      224,
+      null,
+      80,
+      32
+     ],
+     "flagged": false,
+     "level": "clean",
+     "kind": "lattice",
+     "confidence": 0.0
+    }
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "hard": {
+    "fam": "nat_short",
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ],
+    "flagged": true,
+    "level": "clash",
+    "confidence": 0.6,
+    "fallback": null,
+    "replaced_by": {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      176,
+      null,
+      64,
+      32
+     ]
+    }
+   },
+   "retries": [
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      176,
+      null,
+      64,
+      32
+     ],
+     "flagged": false,
+     "level": "clean",
+     "kind": "lattice",
+     "confidence": 0.0
+    }
+   ]
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "hard": {
+    "fam": "nat_short",
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ],
+    "flagged": true,
+    "level": "clash",
+    "confidence": 1.0,
+    "fallback": null,
+    "replaced_by": {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      224,
+      null,
+      32,
+      32
+     ]
+    }
+   },
+   "retries": [
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      224,
+      null,
+      32,
+      32
+     ],
+     "flagged": false,
+     "level": "clean",
+     "kind": "lattice",
+     "confidence": 0.0
+    }
+   ]
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "hard": {
+    "fam": "nat_short",
+    "win": [
+     "n",
+     224,
+     null,
+     40,
+     16
+    ],
+    "flagged": true,
+    "level": "clash",
+    "confidence": 0.667,
+    "fallback": null,
+    "replaced_by": {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      224,
+      null,
+      64,
+      32
+     ]
+    }
+   },
+   "retries": [
+    {
+     "fam": "clash_alt",
+     "win": [
+      "n",
+      224,
+      null,
+      64,
+      32
+     ],
+     "flagged": false,
+     "level": "clean",
+     "kind": "lattice",
+     "confidence": 0.0
+    }
+   ]
+  }
+ ]
+}

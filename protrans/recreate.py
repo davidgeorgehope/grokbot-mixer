@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -390,6 +390,45 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                 cost += family_cost(fam, rules)
                 return cost
             scored, sp_info = _SP.plan_pair(cs, min(scored, key=lambda x: x[0])[1]['win'], a, b, scored=scored, base_cost=_sp_cost)
+        # DRUMCLASH=1 (off by default, 2026-11-20 beats RCA; src2/drumclash.py): confidence-gated drum-on-drum train-wreck detector on
+        # each family's window (decks' own percussive kick/snare onsets as the engine places them; lock fallback applied, residual
+        # decides). level 'clash' (> HIGH, majority of bars agree) gets DRUMCLASH_W x (1 + confidence), very heavy; 'gray' (pro p95..HIGH)
+        # gets DRUMCLASH_GRAY_W x confidence; 'clean' is never touched. When every family is 'clash' the
+        # lowest-engine-cost unflagged natural window from cs (one deck carries the drums, or the decks lock) is nominated as 'clash_alt'.
+        clash_info = None
+        if _flag_on(env.get('DRUMCLASH') or rules.get('DRUMCLASH') or os.environ.get('DRUMCLASH')):
+            import drumclash as _DC
+            _W = float(rules.get('DRUMCLASH_W') or os.environ.get('DRUMCLASH_W') or 5.0)
+            _GW = float(rules.get('DRUMCLASH_GRAY_W') or os.environ.get('DRUMCLASH_GRAY_W') or 0.1)
+            clash_info = dict(w=_W, gray_w=_GW, terms={})
+            _new = []
+            for cost, c in scored:
+                v = (_DC.window_eval_pt if _DC.KIND == 'lattice' else _DC.window_eval)(a, b, c['win'])
+                if v is not None:
+                    clash_info['terms'][c['fam']] = dict(win=list(c['win']), confidence=v['confidence'], level=v['level'], flagged=v['flagged'],
+                                                         raw=v['raw']['confidence'], fallback_lock_ms=v.get('fallback_lock_ms'), kind=v['raw'].get('kind'))
+                    if _DC.KIND == 'lattice':
+                        # pick time is an upper bound (unity levels, no fader): mild only; the render hard check below is the veto
+                        if v['level'] != 'clean':
+                            cost += _GW * v['confidence']
+                    elif v['level'] == 'clash':      # v2: majority of drum-on-drum bars agree on one kick+snare offset: veto-level
+                        cost += _W * (1.0 + v['confidence'])
+                    elif v['level'] == 'gray':     # above the pro p95 but not a majority: mild, near-tie breaker only
+                        cost += _GW * v['confidence']
+                _new.append((cost, c))
+            scored = _new
+            if clash_info['terms'] and all(t['level'] == 'clash' for t in clash_info['terms'].values()):
+                _have = {tuple(c['win']) for _, c in scored}
+                _alts = sorted((c for c in cs if (c.get('win') or [''])[0] == 'n' and tuple(c['win']) not in _have and not c.get('planner_extra')),
+                               key=lambda c: c['cost'])
+                _base = min(x for x, _ in scored) - _W  # best clashing family's cost without the clash penalty
+                for c in _alts[:40]:
+                    v = (_DC.window_eval_pt if _DC.KIND == 'lattice' else _DC.window_eval)(a, b, c['win'])
+                    if v is not None and v['level'] == 'clean':
+                        _alt = dict(fam='clash_alt', win=list(c['win']), env={})
+                        scored.append((max(_base, 0.0) + 0.3 + family_cost('nat_short', rules), _alt))
+                        clash_info['clash_alt'] = dict(win=list(c['win']), confidence=v['confidence'], n_dd=v['n_dd'], engine_cost=round(float(c['cost']), 4))
+                        break
         scored.sort(key=lambda x: x[0])
         pick = scored[0][1]
         if cons_info is not None:
@@ -532,6 +571,55 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
         if str((rules or {}).get('FADE'))=='graphcut' or env.get('GRAPH_CUT')=='1':
             pick['env']['FADE']='graphcut'; pick['env']['GRAPH_CUT']='1'
         dk, M = BB.render(pick, a, b, tag)
+        # DRUMCLASH hard check (rendered decks, after BLEND_LOCK + its drum-onset fallback): a confident train wreck is never kept
+        # when another scored window renders clean; the next-cheapest unflagged family is rendered instead.
+        if clash_info is not None:
+            _hc = (M['trans'][0].get('drumclash') or {})
+            clash_info['hard'] = dict(fam=pick.get('fam'), win=list(pick.get('win') or []), flagged=_hc.get('flagged'), level=_hc.get('level'),
+                                      confidence=_hc.get('confidence'), fallback=_hc.get('applied'))
+            if _hc.get('level') == 'gray':
+                clash_info['gray'] = True   # listed for an A/B, never re-picked
+            if _hc.get('flagged'):
+                # veto -> re-rank EVERY natural window in cs (all exits incl. breakdown exits, all cues, 16/32 bars) plus the scored
+                # families, keep the ones pick time does not read as a clash, and order them by structural mismatch first: the share
+                # of overlap bars where exactly one deck is inside a drop (one straight beat against the other's intro/build/
+                # breakdown, the hm09 fault). 0 = both decks in drops (drum swap / double drop, lattice-checked on render) or
+                # neither (fading over a breakdown, what the pro did on hm09). Then the engine's own cost. First render that is not
+                # a clash wins (at most 4 extra renders). the listener's ear is the judge of the replacement, not this ordering.
+                import sections as _SECd
+                _sa, _sb = _SECd.get(a), _SECd.get(b)
+                def _indrop(sec, k):
+                    return any(lo <= k < hi for lo, hi in (sec.get('drops') or []))
+                def _mismatch(w):
+                    X = int(w[4]); ka = int(w[1]) - X; kb = int(w[3])
+                    return sum(1 for j in range(X) if _indrop(_sa, ka + j) != _indrop(_sb, kb + j)) / max(X, 1)
+                _ecost = {}
+                for c in cs:
+                    if (c.get('win') or [''])[0] == 'n' and not c.get('planner_extra'):
+                        _ecost[tuple(c['win'])] = min(_ecost.get(tuple(c['win']), 1e9), float(c['cost']))
+                _pool = {}
+                for _cost, _c in sorted(scored, key=lambda x: x[0]):
+                    if (_c.get('win') or [''])[0] == 'n' and tuple(_c['win']) not in _pool: _pool[tuple(_c['win'])] = _c
+                for w in _ecost:
+                    if w not in _pool: _pool[w] = dict(fam='clash_alt', win=list(w), env={})
+                _pool.pop(tuple(pick['win']), None)
+                _rank = []
+                for w, _c in _pool.items():
+                    _v = _DC.window_eval_pt(a, b, list(w)) if _DC.KIND == 'lattice' else None
+                    if _v is not None and _v['level'] == 'clash': continue
+                    _mm = _mismatch(w); _rank.append((float(np.ceil(_mm * 4) / 4), _ecost.get(w, 1e9), _c, round(_mm, 3)))
+                _rank.sort(key=lambda x: (x[0], x[1]))
+                clash_info['fallback_rank'] = [dict(win=list(x[2]['win']), fam=x[2]['fam'], mismatch=x[3], engine_cost=round(x[1], 2)) for x in _rank[:6]]
+                _cands = [x[2] for x in _rank]
+                for _c in _cands[:4]:
+                    _p2 = dict(_c); _p2['env'] = {**env, **dict(_c.get('env') or {})}
+                    _dk2, _M2 = BB.render(_p2, a, b, tag)
+                    _h2 = (_M2['trans'][0].get('drumclash') or {})
+                    clash_info.setdefault('retries', []).append(dict(fam=_c['fam'], win=list(_c['win']), flagged=_h2.get('flagged'), level=_h2.get('level'),
+                                                                     kind=_h2.get('kind'), confidence=_h2.get('confidence')))
+                    if not _h2.get('flagged'):
+                        pick, dk, M = _p2, _dk2, _M2; clash_info['hard']['replaced_by'] = dict(fam=_c['fam'], win=list(_c['win']))
+                        break
         ours = pick.get('mp3')
         meta_path = os.path.join('/tmp/protrans_bench', f'{tag}_{a}_{b}_meta.json')   # for blend_diag (daily diagnostics)
         try:
@@ -544,7 +632,7 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'),
                     planner=(planner_choice if planner_choice else pick.get('planner')),
                     ranker=(ranker_info if ranker_on else None), replica=replica_info, dropcand=drop_info, picker=picker_info,
-                    consonance=cons_info, slowpair=sp_info)
+                    consonance=cons_info, slowpair=sp_info, drumclash=clash_info)
         return info
     finally:
         os.chdir(oldcwd)

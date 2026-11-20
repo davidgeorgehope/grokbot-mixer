@@ -296,3 +296,42 @@ def lock_decks(decks, trans):
         inc['blend_lock_ms'] = round(float(inc.get('blend_lock_ms') or 0) + lag, 1)
         report['applied'] = True
         report['blend_lock_ms'] = inc['blend_lock_ms']
+    if dc_flag_on():
+        lock_fallback(decks, trans)
+
+
+def dc_flag_on():
+    import drumclash
+    return drumclash.flag_on()
+
+
+def lock_fallback(decks, trans):
+    """DRUMCLASH=1 (2026-11-20 RCA): when the incoming's hits sit off the outgoing's 16th lattice by one constant offset
+    (a flam the kick+snare-lag lock missed: 'inconsistent / too few agreeing bars') move the incoming by that offset, keep the
+    move only if the off-lattice confidence drops, and record the verdict (t['drumclash']) for the hard check.
+    Same sign as blend_lock_ms (A minus B, + = A late -> delay B)."""
+    import blend_diag as D
+    import drumclash as DC
+    ev = DC.rendered_combined if DC.KIND == 'lattice' else DC.rendered_eval
+    for i, t in enumerate(trans):
+        if i + 1 >= len(decks):
+            continue
+        s0, yA, yB = D.crop_decks(dict(decks=decks, trans=trans), i)
+        v = ev(yA, yB, s0, float(t['start_bar']), float(t['end_bar'])); v.pop('rows', None)
+        rep = dict(before=v)
+        lag = DC._lock_add(v.get('lattice', v)) if DC.KIND == 'lattice' else v.get('cluster_lag_ms')
+        # only a lattice clash (constant flam) can be fixed by moving the deck; a pulse clash cannot
+        if v['flagged'] and (v.get('kind') != 'pulse') and lag is not None and abs(float(decks[i + 1].get('blend_lock_ms') or 0) + lag) <= LOCK_MAX_MS:
+            inc = decks[i + 1]
+            inc['blend_lock_ms'] = round(float(inc.get('blend_lock_ms') or 0) + lag, 1)
+            s0, yA, yB = D.crop_decks(dict(decks=decks, trans=trans), i)
+            v2 = ev(yA, yB, s0, float(t['start_bar']), float(t['end_bar'])); v2.pop('rows', None)
+            rep.update(applied=True, add_ms=lag, blend_lock_ms=inc['blend_lock_ms'], after=v2)
+            if v2['confidence'] >= v['confidence']:  # did not help: undo, keep the original verdict
+                inc['blend_lock_ms'] = round(float(inc['blend_lock_ms']) - lag, 1) or None
+                if not inc['blend_lock_ms']: inc.pop('blend_lock_ms', None)
+                rep.update(applied=False, why='fallback did not reduce the clash; undone')
+                v2 = v
+            v = v2
+        rep.update(flagged=v['flagged'], level=v.get('level'), confidence=v.get('confidence'), kind=v.get('kind'))
+        t['drumclash'] = rep

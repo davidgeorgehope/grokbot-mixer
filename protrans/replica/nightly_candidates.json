@@ -114,6 +114,23 @@
     "the listener's ear picks on the drop-fade pattern remain in favour (already 5/5) and epg_strict's alpha__03 pref is kept"
    ],
    "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
+  },
+  {
+   "name": "dclash_land6",
+   "delta": {
+    "DRUMCLASH": 1,
+    "DRUMCLASH_RISK": 1,
+    "DRUMCLASH_LAND": 1
+   }
+  },
+  {
+   "name": "dclash_land7",
+   "delta": {
+    "DRUMCLASH": 1,
+    "DRUMCLASH_RISK": 1,
+    "DRUMCLASH_LAND": 1,
+    "PLAN_LAND": 1
+   }
   }
  ]
 }

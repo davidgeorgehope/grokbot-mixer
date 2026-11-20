@@ -631,6 +631,25 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     _byc = {}
                     for x in _rank: _byc.setdefault(0 if x[0] == 0 else (1 if x[0] == 1 else 2), []).append(x)
                     _try = sorted([x for k in sorted(_byc) for x in _byc[k][:2]], key=lambda x: (x[0], x[1]))
+                    # dclash6 (DRUMCLASH_LAND=1; the listener 3:45 PM rated hm09 144/48/16 4/5 > 144/32/32 3.5 > default clash 2.5; the pro
+                    # did the same): 'landing' breakdown fades = the outgoing exits exactly where its breakdown ends (out_end = start
+                    # of one of A's drops, every A overlap bar outside a drop) and the incoming's drop lands there (in_begin + X =
+                    # start of one of B's drops, every B overlap bar outside a drop). All allowed ones in cs are rendered (cap 6),
+                    # shortest overlap first (the pro brought only B's last build bars in), and the first that renders CLEAN wins;
+                    # otherwise the dclash5 risk-weighted pick stands.
+                    _land_on = _flag_on(rules.get('DRUMCLASH_LAND') or os.environ.get('DRUMCLASH_LAND'))
+                    _land = []
+                    if _land_on:
+                        _da = [lo for lo, hi in (_sa.get('drops') or [])]; _db = [lo for lo, hi in (_sb.get('drops') or [])]
+                        for x in _rank:
+                            w = x[2]['win']; X = int(w[4])
+                            if x[0] == 0 and int(w[1]) in _da and int(w[3]) + X in _db:
+                                _land.append(x)
+                        _land.sort(key=lambda x: (int(x[2]['win'][4]), x[1])); _land = _land[:6]
+                        _seenw = {tuple(x[2]['win']) for x in _land}
+                        _try = _land + [x for x in _try if tuple(x[2]['win']) not in _seenw]
+                        clash_info['landing'] = [dict(win=list(x[2]['win']), engine_cost=round(x[1], 2)) for x in _land]
+                    _landbest = None
                     _best = None
                     for _ti, x in enumerate(_try):
                         _c = x[2]; _p2 = dict(_c); _p2['env'] = {**env, **dict(_c.get('env') or {})}
@@ -646,6 +665,10 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                                                                          risk=None if _risk is None else round(_risk, 1), total=None if _tot is None else round(_tot, 1)))
                         if _tot is not None and (_best is None or _tot < _best[0]):
                             _best = (_tot, _p2, _dk2, _M2)
+                        if _land_on and _landbest is None and _lv == 'clean' and any(x is y for y in _land):
+                            _landbest = (_tot, _p2, _dk2, _M2); break   # landing renders come first: stop at the first clean one
+                    if _landbest is not None:
+                        _best = _landbest; clash_info['landing_pick'] = list(_landbest[1]['win'])
                     if _best is not None:
                         _, pick, dk, M = _best; clash_info['hard']['replaced_by'] = dict(fam=pick['fam'], win=list(pick['win']), total=round(_best[0], 1))
                 else:

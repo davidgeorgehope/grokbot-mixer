@@ -593,6 +593,9 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                 def _mismatch(w):
                     X = int(w[4]); ka = int(w[1]) - X; kb = int(w[3])
                     return sum(1 for j in range(X) if _indrop(_sa, ka + j) != _indrop(_sb, kb + j)) / max(X, 1)
+                def _bothdrop(w):
+                    X = int(w[4]); ka = int(w[1]) - X; kb = int(w[3])
+                    return sum(1 for j in range(X) if _indrop(_sa, ka + j) and _indrop(_sb, kb + j)) / max(X, 1)
                 _ecost = {}
                 for c in cs:
                     if (c.get('win') or [''])[0] == 'n' and not c.get('planner_extra'):
@@ -607,19 +610,54 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                 for w, _c in _pool.items():
                     _v = _DC.window_eval_pt(a, b, list(w)) if _DC.KIND == 'lattice' else None
                     if _v is not None and _v['level'] == 'clash': continue
-                    _mm = _mismatch(w); _rank.append((float(np.ceil(_mm * 4) / 4), _ecost.get(w, 1e9), _c, round(_mm, 3)))
+                    _mm = _mismatch(w); _bd = _bothdrop(w)
+                    # class 0: neither deck in a drop on any overlap bar (fade over a breakdown / instrumental: the pro's hm09 exit,
+                    # the listener 11:29 'even fading over an instrumental / breakdown'); 1: no mismatch but both in drops (double drop /
+                    # drum swap); 2+: the rest by mismatch quarter
+                    _cls = 0 if (_mm == 0 and _bd == 0) else (1 if _mm == 0 else 2 + float(np.ceil(_mm * 4) / 4))
+                    _rank.append((_cls, _ecost.get(w, 1e9), _c, round(_mm, 3), round(_bd, 3)))
                 _rank.sort(key=lambda x: (x[0], x[1]))
-                clash_info['fallback_rank'] = [dict(win=list(x[2]['win']), fam=x[2]['fam'], mismatch=x[3], engine_cost=round(x[1], 2)) for x in _rank[:6]]
+                clash_info['fallback_rank'] = [dict(win=list(x[2]['win']), fam=x[2]['fam'], cls=x[0], mismatch=x[3], both_drop=x[4], engine_cost=round(x[1], 2)) for x in _rank[:6]]
                 _cands = [x[2] for x in _rank]
-                for _c in _cands[:4]:
-                    _p2 = dict(_c); _p2['env'] = {**env, **dict(_c.get('env') or {})}
-                    _dk2, _M2 = BB.render(_p2, a, b, tag)
-                    _h2 = (_M2['trans'][0].get('drumclash') or {})
-                    clash_info.setdefault('retries', []).append(dict(fam=_c['fam'], win=list(_c['win']), flagged=_h2.get('flagged'), level=_h2.get('level'),
-                                                                     kind=_h2.get('kind'), confidence=_h2.get('confidence')))
-                    if not _h2.get('flagged'):
-                        pick, dk, M = _p2, _dk2, _M2; clash_info['hard']['replaced_by'] = dict(fam=_c['fam'], win=list(_c['win']))
-                        break
+                if _flag_on(rules.get('DRUMCLASH_RISK') or os.environ.get('DRUMCLASH_RISK')):
+                    # dclash5 (the listener 2:55 PM: 'depends how big the risk of a train wreck is with a drop ... I didn't rule it out if
+                    # it's safe'): render the 2 cheapest of each class (breakdown fade, double drop, rest), then pick by
+                    # engine cost + risk. risk = RISK_W x r for a clean render (r = rendered confidence / its pro-p95 flag, worse
+                    # of lattice and pulse, <= 1) and GRAY_PEN + RISK_W x r for a gray render; a clash render is out. A confidently
+                    # clean double drop competes on cost; a gray one loses to a clean breakdown fade; if nothing renders clean the
+                    # least risky (the breakdown fade, usually) is kept.
+                    _RW = float(rules.get('DRUMCLASH_RISK_W') or os.environ.get('DRUMCLASH_RISK_W') or 100.0)
+                    _GP = float(rules.get('DRUMCLASH_GRAY_PEN') or os.environ.get('DRUMCLASH_GRAY_PEN') or 500.0)
+                    _byc = {}
+                    for x in _rank: _byc.setdefault(0 if x[0] == 0 else (1 if x[0] == 1 else 2), []).append(x)
+                    _try = sorted([x for k in sorted(_byc) for x in _byc[k][:2]], key=lambda x: (x[0], x[1]))
+                    _best = None
+                    for _ti, x in enumerate(_try):
+                        _c = x[2]; _p2 = dict(_c); _p2['env'] = {**env, **dict(_c.get('env') or {})}
+                        _dk2, _M2 = BB.render(_p2, a, b, f'{tag}r{_ti}')   # own tag: every render must keep its own mp3
+                        _h2 = (_M2['trans'][0].get('drumclash') or {}); _fin = _h2.get('after') or _h2.get('before') or {}
+                        _lc = float((_fin.get('lattice') or {}).get('confidence') or 0); _pc = float((_fin.get('pulse') or {}).get('confidence') or 0)
+                        _r = max(_lc / max(_DC.FLAG3, 1e-3), _pc / max(_DC.PULSE_FLAG, 1e-3))
+                        _lv = _h2.get('level')
+                        _risk = None if _lv == 'clash' else (_RW * min(_r, 1.0) + (_GP + _RW * (_r - 1.0) if _lv == 'gray' else 0.0))
+                        _tot = None if _risk is None else x[1] + _risk
+                        clash_info.setdefault('retries', []).append(dict(fam=_c['fam'], win=list(_c['win']), cls=x[0], level=_lv, kind=_h2.get('kind'),
+                                                                         lattice=_lc, pulse=_pc, engine_cost=round(x[1], 2),
+                                                                         risk=None if _risk is None else round(_risk, 1), total=None if _tot is None else round(_tot, 1)))
+                        if _tot is not None and (_best is None or _tot < _best[0]):
+                            _best = (_tot, _p2, _dk2, _M2)
+                    if _best is not None:
+                        _, pick, dk, M = _best; clash_info['hard']['replaced_by'] = dict(fam=pick['fam'], win=list(pick['win']), total=round(_best[0], 1))
+                else:
+                    for _c in _cands[:4]:
+                        _p2 = dict(_c); _p2['env'] = {**env, **dict(_c.get('env') or {})}
+                        _dk2, _M2 = BB.render(_p2, a, b, tag)
+                        _h2 = (_M2['trans'][0].get('drumclash') or {})
+                        clash_info.setdefault('retries', []).append(dict(fam=_c['fam'], win=list(_c['win']), flagged=_h2.get('flagged'), level=_h2.get('level'),
+                                                                         kind=_h2.get('kind'), confidence=_h2.get('confidence')))
+                        if not _h2.get('flagged'):
+                            pick, dk, M = _p2, _dk2, _M2; clash_info['hard']['replaced_by'] = dict(fam=_c['fam'], win=list(_c['win']))
+                            break
         ours = pick.get('mp3')
         meta_path = os.path.join('/tmp/protrans_bench', f'{tag}_{a}_{b}_meta.json')   # for blend_diag (daily diagnostics)
         try:

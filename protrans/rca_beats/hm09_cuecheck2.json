@@ -1,0 +1,58 @@
+[
+ {
+  "win": [
+   "n",
+   160,
+   null,
+   48,
+   32
+  ],
+  "pro_match": 42.24,
+  "level": "clean",
+  "kind": "lattice",
+  "lattice": 0.167,
+  "pulse": 0.0
+ },
+ {
+  "win": [
+   "n",
+   144,
+   null,
+   48,
+   32
+  ],
+  "pro_match": 35.82,
+  "level": "clean",
+  "kind": "lattice",
+  "lattice": 0.0,
+  "pulse": 0.0
+ },
+ {
+  "win": [
+   "n",
+   160,
+   null,
+   64,
+   16
+  ],
+  "pro_match": 35.24,
+  "level": "clean",
+  "kind": "lattice",
+  "lattice": 0.0,
+  "pulse": 0.0
+ },
+ {
+  "win": [
+   "n",
+   160,
+   null,
+   48,
+   16
+  ],
+  "pro_match": 31.48,
+  "level": "clash",
+  "kind": "pulse",
+  "lattice": 0.111,
+  "pulse": 0.667
+ }
+]

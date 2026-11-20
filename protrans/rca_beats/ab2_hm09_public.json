@@ -1,0 +1,14 @@
+{
+ "A": {
+  "clip": "/workspace/mixes/deliver/protrans/ab2_2026-11-20_hm09_A.mp3",
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/ab2_2026-11-20_hm09_A.png",
+  "lufs": "-14.0 LUFS integrated on the final mp3 (loudnorm meter; linear gain -3.92 dB from master)",
+  "dur_s": 66.2
+ },
+ "B": {
+  "clip": "/workspace/mixes/deliver/protrans/ab2_2026-11-20_hm09_B.mp3",
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/ab2_2026-11-20_hm09_B.png",
+  "lufs": "-14.0 LUFS integrated on the final mp3 (loudnorm meter; linear gain -2.69 dB from master)",
+  "dur_s": 66.2
+ }
+}

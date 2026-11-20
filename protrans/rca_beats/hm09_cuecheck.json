@@ -1,0 +1,70 @@
+[
+ {
+  "win": [
+   "n",
+   144,
+   null,
+   32,
+   32
+  ],
+  "pro_match": 21.54,
+  "level": "clean",
+  "kind": "lattice",
+  "lattice": 0.0,
+  "pulse": 0.067
+ },
+ {
+  "win": [
+   "n",
+   144,
+   null,
+   48,
+   16
+  ],
+  "pro_match": 44.29,
+  "level": "clean",
+  "kind": "lattice",
+  "lattice": 0.0,
+  "pulse": 0.0
+ },
+ {
+  "win": [
+   "n",
+   140,
+   null,
+   52,
+   16
+  ],
+  "error": "RuntimeError: .py --plan /tmp/protrans_bench/cuechk2_plan.json --out /tmp/protrans_bench/cuechk2 --dry: plan window ['n', 140, None, 52, 16] for J3oTRY7AdE4>ksVDZt9_0J4 is no longer allowed : re-run plan_search.py\n"
+ },
+ {
+  "win": [
+   "n",
+   148,
+   null,
+   52,
+   16
+  ],
+  "error": "RuntimeError: .py --plan /tmp/protrans_bench/cuechk3_plan.json --out /tmp/protrans_bench/cuechk3 --dry: plan window ['n', 148, None, 52, 16] for J3oTRY7AdE4>ksVDZt9_0J4 is no longer allowed : re-run plan_search.py\n"
+ },
+ {
+  "win": [
+   "n",
+   152,
+   null,
+   52,
+   16
+  ],
+  "error": "RuntimeError: .py --plan /tmp/protrans_bench/cuechk4_plan.json --out /tmp/protrans_bench/cuechk4 --dry: plan window ['n', 152, None, 52, 16] for J3oTRY7AdE4>ksVDZt9_0J4 is no longer allowed : re-run plan_search.py\n"
+ },
+ {
+  "win": [
+   "n",
+   152,
+   null,
+   48,
+   32
+  ],
+  "error": "RuntimeError: .py --plan /tmp/protrans_bench/cuechk5_plan.json --out /tmp/protrans_bench/cuechk5 --dry: plan window ['n', 152, None, 48, 32] for J3oTRY7AdE4>ksVDZt9_0J4 is no longer allowed : re-run plan_search.py\n"
+ }
+]

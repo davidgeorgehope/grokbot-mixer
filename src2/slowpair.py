@@ -25,6 +25,8 @@ cost and nominates one 'slowpair' alternative from already-scored engine candida
      is at or after the last 8 bars of A's last drop (payoff guard)
   B only: same exit if possible, a cue with Case B overlap < OVERLAP, preferring B's drop in
      the window
+SLOWPAIR_EXIT=1 (off by default) is the exit-only arm: only Case A is a clash, so cue moves
+are never applied. Both flags stay out of rules.json.
 Engine-cost slack is PEN_SLACK (15), same idea as CONSONANCE, except a same-exit Case B
 cue move is allowed to lose the 300 outro-over-intro engine bonus. Not in rules.json.
 """
@@ -45,6 +47,16 @@ HT = '/workspace/mixes/protrans/replica/halftime'
 def flag_on(v=None):
     v = os.environ.get('SLOWPAIR') if v is None else v
     return str(v or '').strip().lower() not in ('', '0', 'false', 'none', 'no', 'off')
+
+
+def exit_only(v=None):
+    """SLOWPAIR_EXIT=1: Case A (exit moves) only; Case B cue moves are off."""
+    v = os.environ.get('SLOWPAIR_EXIT') if v is None else v
+    return str(v or '').strip().lower() not in ('', '0', 'false', 'none', 'no', 'off')
+
+
+def allowed_cases(v=None):
+    return ('A',) if exit_only(v) else ('A', 'B')
 
 
 def overlap_bars(s0, e0, s1, e1):
@@ -142,21 +154,25 @@ def case_a_hits(spans, a0, a1):
     return hits
 
 
-def window_clash(win, a_spans, b_spans, a_sec):
-    """Return a clash dict or None. Pure; no I/O."""
+def window_clash(win, a_spans, b_spans, a_sec, cases=None):
+    """Return a clash dict or None. Pure; no I/O.
+
+    `cases` defaults to allowed_cases() (both A and B, or only A when SLOWPAIR_EXIT=1).
+    """
     kind, a0, a1, b0, b1, X, ea, ib = win_ranges(win)
-    cases = {}
+    allow = set(cases if cases is not None else allowed_cases())
+    found = {}
     a_hits = case_a_hits(a_spans, a0, a1)
-    if a_hits:
-        cases['A'] = a_hits
+    if a_hits and 'A' in allow:
+        found['A'] = a_hits
     # Case B: incoming hard span under a still-hot outgoing drop.
-    if outgoing_hot(a0, a1, a_sec):
+    if 'B' in allow and outgoing_hot(a0, a1, a_sec):
         b_hits = _hits(b_spans, b0, b1, want_labels=None)
         if b_hits:
-            cases['B'] = b_hits
-    if not cases:
+            found['B'] = b_hits
+    if not found:
         return None
-    return dict(cases=sorted(cases), A=cases.get('A'), B=cases.get('B'))
+    return dict(cases=sorted(found), A=found.get('A'), B=found.get('B'))
 
 
 def payoff_floor(sec):
@@ -179,9 +195,9 @@ def _engine_cost(cs, win):
     return min(c['cost'] for c in hits) if hits else None
 
 
-def pick_alt(cs, default_win, a_spans, b_spans, a_sec, b_sec, slack=PEN_SLACK):
+def pick_alt(cs, default_win, a_spans, b_spans, a_sec, b_sec, slack=PEN_SLACK, cases=None):
     """Choose one already-scored natural alternative, or None."""
-    clash = window_clash(default_win, a_spans, b_spans, a_sec)
+    clash = window_clash(default_win, a_spans, b_spans, a_sec, cases=cases)
     if not clash:
         return None, dict(reason='default_ok')
     kind, a0, a1, b0, b1, X, ea, ib = win_ranges(default_win)
@@ -204,7 +220,7 @@ def pick_alt(cs, default_win, a_spans, b_spans, a_sec, b_sec, slack=PEN_SLACK):
         if not (we == ea and 'B' in clash['cases'] and 'A' not in clash['cases']):
             if ref is not None and c['cost'] > ref + slack:
                 continue
-        if window_clash(w, a_spans, b_spans, a_sec):
+        if window_clash(w, a_spans, b_spans, a_sec, cases=cases):
             continue
         pool.append(c)
     if not pool:
@@ -222,13 +238,13 @@ def pick_alt(cs, default_win, a_spans, b_spans, a_sec, b_sec, slack=PEN_SLACK):
     return list(best['win']), dict(reason='ok', clash=clash, n_alt=len(pool), engine=best['cost'])
 
 
-def rerank(scored, cs, a_spans, b_spans, a_sec, b_sec, base_cost=None):
+def rerank(scored, cs, a_spans, b_spans, a_sec, b_sec, base_cost=None, cases=None):
     """scored: list of (cost, dict with fam/win). Returns (new_scored, info)."""
     if not scored:
         return scored, dict(reason='no_scored')
     default = min(scored, key=lambda x: x[0])
     def_win = list(default[1]['win'])
-    alt, info = pick_alt(cs, def_win, a_spans, b_spans, a_sec, b_sec)
+    alt, info = pick_alt(cs, def_win, a_spans, b_spans, a_sec, b_sec, cases=cases)
     info['default_fam'] = default[1].get('fam')
     info['default_win'] = def_win
     scored = list(scored)
@@ -239,7 +255,7 @@ def rerank(scored, cs, a_spans, b_spans, a_sec, b_sec, base_cost=None):
     new = []
     terms = {}
     for cost, c in scored:
-        cl = window_clash(c['win'], a_spans, b_spans, a_sec)
+        cl = window_clash(c['win'], a_spans, b_spans, a_sec, cases=cases)
         t = COST if cl else 0.0
         terms[c.get('fam', '?')] = dict(term=t, base=round(float(cost), 4), clash=cl is not None, win=list(c['win']))
         new.append((cost + t, c))
@@ -285,16 +301,20 @@ def _span_dicts(yt):
     return [dict(start=a, end=b, kind=k, labels=list(labs)) for a, b, k, labs in spans_for(yt)]
 
 
-def plan_pair(cs, default_win, a, b, scored=None, base_cost=None):
+def plan_pair(cs, default_win, a, b, scored=None, base_cost=None, cases=None):
     """High-level hook used by recreate.py. a, b are YouTube ids."""
+    if cases is None:
+        cases = allowed_cases()
     a_sec, b_sec = _sections(a), _sections(b)
     a_sp, b_sp = _span_dicts(a), _span_dicts(b)
     if scored is None:
-        alt, info = pick_alt(cs, default_win, a_sp, b_sp, a_sec, b_sec)
+        alt, info = pick_alt(cs, default_win, a_sp, b_sp, a_sec, b_sec, cases=cases)
         info['a_hard'] = a_sp
         info['b_hard'] = b_sp
+        info['cases'] = list(cases)
         return alt, info
-    new, info = rerank(scored, cs, a_sp, b_sp, a_sec, b_sec, base_cost=base_cost)
+    new, info = rerank(scored, cs, a_sp, b_sp, a_sec, b_sec, base_cost=base_cost, cases=cases)
     info['a_hard'] = a_sp
     info['b_hard'] = b_sp
+    info['cases'] = list(cases)
     return new, info

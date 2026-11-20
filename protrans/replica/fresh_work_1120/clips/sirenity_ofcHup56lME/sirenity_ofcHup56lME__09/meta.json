@@ -1,0 +1,29 @@
+{
+  "id": "sirenity_ofcHup56lME__09",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "a": {
+    "title": "LSB - The Hurting",
+    "yt": "lyLf5BItBsI",
+    "t": 774.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=lyLf5BItBsI"
+  },
+  "b": {
+    "title": "Command Strange - This Night",
+    "yt": "1ygshoZw75Y",
+    "t": 884.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=1ygshoZw75Y"
+  },
+  "window": {
+    "mix_t_a": 774.0,
+    "mix_t_b": 884.0,
+    "mix_t_next": 950.0,
+    "hint_a_played_sec": 110.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__09/pro.wav",
+  "pro_clip_start": 860.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__09"
+}

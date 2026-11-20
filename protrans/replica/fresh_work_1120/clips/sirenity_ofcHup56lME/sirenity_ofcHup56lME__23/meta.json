@@ -1,0 +1,29 @@
+{
+  "id": "sirenity_ofcHup56lME__23",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "a": {
+    "title": "Technimatic - Unity",
+    "yt": "DZwnpKDxF9U",
+    "t": 2230.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=DZwnpKDxF9U"
+  },
+  "b": {
+    "title": "Technimatic & A Little Sound - Lakota (LSB Remix)",
+    "yt": "cAVqGkGJKYs",
+    "t": 2406.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=cAVqGkGJKYs"
+  },
+  "window": {
+    "mix_t_a": 2230.0,
+    "mix_t_b": 2406.0,
+    "mix_t_next": 2473.0,
+    "hint_a_played_sec": 176.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__23/pro.wav",
+  "pro_clip_start": 2382.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__23"
+}

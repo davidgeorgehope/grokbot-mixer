@@ -1,0 +1,29 @@
+{
+  "id": "sirenity_ofcHup56lME__12",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "a": {
+    "title": "Hybrid Minds, Alexa Harley - Phoenix",
+    "yt": "bxtbR6InYVw",
+    "t": 1016.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=bxtbR6InYVw"
+  },
+  "b": {
+    "title": "Maduk & Vandera - Never Stop Loving You",
+    "yt": "SLaMe4W7wSw",
+    "t": 1149.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=SLaMe4W7wSw"
+  },
+  "window": {
+    "mix_t_a": 1016.0,
+    "mix_t_b": 1149.0,
+    "mix_t_next": 1237.0,
+    "hint_a_played_sec": 133.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__12/pro.wav",
+  "pro_clip_start": 1125.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__12"
+}

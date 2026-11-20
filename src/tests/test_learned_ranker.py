@@ -92,3 +92,23 @@ def test_backup_excludes_corpus_runtime_state():
     assert 'protrans/corpus_v2/progress.json' in gi
     pub = open('/workspace/publish_mixer_public.sh').read()
     assert 'queue.json' in pub
+
+
+def test_slowpair_features_do_not_change_v0_width():
+    sa = dict(drops=[[48, 112], [144, 192]], music_end=235, drop1=48, n_bars=235, intro_end=40, outro_start=198)
+    sb = dict(drops=[[64, 128]], music_end=224, drop1=64, n_bars=224, intro_end=64)
+    opt = dict(type='outro_intro', win=['n', 224, None, 48, 16], snap_in=False, tail_exit=6, fade='long')
+    x = LR.option_vec(sa, sb, opt)
+    assert len(x) == len(LR.FEATURE_NAMES)
+    # Ghetto Blaster-shaped outgoing hard outro
+    import slowpair as S
+    a_sp = S.hard_spans(slow=[[198, 235]], ht=[], sec=sa)
+    v = LR.slowpair_vec(opt['win'], a_sp, [], sa)
+    assert len(v) == len(LR.SLOWPAIR_FEATURE_NAMES)
+    d = LR.slowpair_feature_dict(opt['win'], a_sp, [], sa)
+    assert d['sp_case_a'] == 1.0 and d['sp_case_b'] == 0.0
+    assert d['sp_out_start_inside'] == 1.0
+    ext = LR.option_vec_with_slowpair(sa, sb, opt, a_spans=a_sp, b_spans=[])
+    assert len(ext) == len(LR.FEATURE_NAMES) + len(LR.SLOWPAIR_FEATURE_NAMES)
+    assert ext[:len(x)] == x
+

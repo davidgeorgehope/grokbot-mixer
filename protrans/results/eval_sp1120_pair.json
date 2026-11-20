@@ -1,0 +1,315 @@
+{
+  "variant": "sp1120_pair",
+  "bass_fill": false,
+  "slowpair": true,
+  "v3": {
+    "train": 32.33,
+    "test": 32.11,
+    "n": 33,
+    "n_fail": 0
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 13,
+      "mean": 31.46,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 8,
+      "mean": 33.76,
+      "split": "train"
+    },
+    "Maduk": {
+      "n": 3,
+      "mean": 26.38,
+      "split": "test"
+    },
+    "Netsky": {
+      "n": 5,
+      "mean": 31.56,
+      "split": "test"
+    },
+    "Pola & Bryson": {
+      "n": 3,
+      "mean": 39.4,
+      "split": "test"
+    },
+    "Wilkinson": {
+      "n": 1,
+      "mean": 30.2,
+      "split": "test"
+    }
+  },
+  "base": {
+    "variant": "bfb1120_base",
+    "v3": {
+      "train": 32.4,
+      "test": 34.07,
+      "n": 33,
+      "n_fail": 0
+    }
+  },
+  "arm": {
+    "variant": "sp1120_pair",
+    "v3": {
+      "train": 32.33,
+      "test": 32.11,
+      "n": 33,
+      "n_fail": 0
+    }
+  },
+  "n_clash": 11,
+  "n_clash_A": 3,
+  "n_clash_B": 8,
+  "n_clash_test": 7,
+  "n_changed": 11,
+  "n_changed_test": 7,
+  "changed": [
+    {
+      "id": "hybrid_minds_ukf__11",
+      "split": "train",
+      "pair": "Hybrid Minds - Secret Place (ft. Tiffani Juno) -> Sabre - These Simple Things",
+      "case": "B",
+      "default_win": [
+        "n",
+        208,
+        null,
+        64,
+        16
+      ],
+      "win": [
+        "n",
+        208,
+        null,
+        80,
+        16
+      ],
+      "base_score": 34.15,
+      "arm_score": 18.51
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "split": "train",
+      "pair": "Sabre - These Simple Things -> Hybrid Minds - Pretend (ft. Rocky Nti)",
+      "case": "B",
+      "default_win": [
+        "n",
+        304,
+        null,
+        32,
+        16
+      ],
+      "win": [
+        "n",
+        304,
+        null,
+        48,
+        16
+      ],
+      "base_score": 12.03,
+      "arm_score": 11.81
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "split": "test",
+      "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+      "case": "A",
+      "default_win": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "win": [
+        "la",
+        240,
+        224,
+        64,
+        16
+      ],
+      "base_score": 33.35,
+      "arm_score": 20.39
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "split": "train",
+      "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+      "case": "A",
+      "default_win": [
+        "n",
+        224,
+        null,
+        48,
+        16
+      ],
+      "win": [
+        "la",
+        176,
+        160,
+        16,
+        16
+      ],
+      "base_score": 32.29,
+      "arm_score": 42.85
+    },
+    {
+      "id": "hybrid_minds_ukf__13",
+      "split": "train",
+      "pair": "Hybrid Minds - Pretend (ft. Rocky Nti) -> Logistics - Wanderlust",
+      "case": "B",
+      "default_win": [
+        "n",
+        192,
+        null,
+        32,
+        16
+      ],
+      "win": [
+        "n",
+        192,
+        null,
+        48,
+        16
+      ],
+      "base_score": 33.72,
+      "arm_score": 37.57
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "split": "test",
+      "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+      "case": "A",
+      "default_win": [
+        "n",
+        240,
+        null,
+        0,
+        16
+      ],
+      "win": [
+        "la",
+        192,
+        176,
+        16,
+        16
+      ],
+      "base_score": 40.9,
+      "arm_score": 32.43
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "split": "test",
+      "pair": "Netsky - Porcelain -> Nu:Logic - Morning Light",
+      "case": "B",
+      "default_win": [
+        "n",
+        192,
+        null,
+        16,
+        16
+      ],
+      "win": [
+        "n",
+        192,
+        null,
+        32,
+        16
+      ],
+      "base_score": 28.45,
+      "arm_score": 33.64
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__02",
+      "split": "test",
+      "pair": "Camo & Krooked - Afterlife (BCee Remix) -> Sub Focus & Wilkinson - Freedom (High Contrast Remix)",
+      "case": "B",
+      "default_win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "base_score": 27.78,
+      "arm_score": 31.18
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__03",
+      "split": "test",
+      "pair": "Sub Focus & Wilkinson - Freedom (High Contrast Remix) -> LSB - New Day",
+      "case": "B",
+      "default_win": [
+        "n",
+        176,
+        null,
+        16,
+        16
+      ],
+      "win": [
+        "n",
+        176,
+        null,
+        48,
+        16
+      ],
+      "base_score": 39.32,
+      "arm_score": 21.92
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__05",
+      "split": "test",
+      "pair": "Netsky - Memory Lane -> Maduk - Miles Apart",
+      "case": "B",
+      "default_win": [
+        "n",
+        240,
+        null,
+        32,
+        16
+      ],
+      "win": [
+        "n",
+        240,
+        null,
+        48,
+        16
+      ],
+      "base_score": 23.58,
+      "arm_score": 26.04
+    },
+    {
+      "id": "pola_bryson_puzzlewood__04",
+      "split": "test",
+      "pair": "Pola & Bryson - Abandon -> Pola & Bryson feat. Lauren Archer - Under",
+      "case": "B",
+      "default_win": [
+        "n",
+        224,
+        null,
+        40,
+        16
+      ],
+      "win": [
+        "n",
+        224,
+        null,
+        80,
+        16
+      ],
+      "base_score": 34.12,
+      "arm_score": 38.42
+    }
+  ],
+  "clashed_unmoved": [],
+  "decision": "lose",
+  "why": "Held-out 32.11 vs 34.07 (-1.96). 11 picks moved (6 gained, 5 lost on the similarity score); 0 clashing defaults had no legal alternative. Worst held-out move: `maduk_liquicity_lunar2025__03` 39.32 \u2192 21.92 (Sub Focus & Wilkinson - Freedom (High Contrast Remix) -> LSB - New Day). Case B cue moves (skip a hard incoming intro while the outgoing is still in a drop) are the likely drag: they fight the outro-over-intro default on pairs where the scorer still likes the later bars of a long intro. Case A exit moves also lost on at least one pair.",
+  "ts": "2026-11-20 06:03:25 EST"
+}

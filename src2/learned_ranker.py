@@ -38,6 +38,61 @@ FEATURE_NAMES = [
     'inc_bass_ok', 'in_drop_idx', 'ib_is_start',
 ]
 
+# 2026-11-20 hard-span / slow-pair flags for the next ranker retrain. Not
+# appended to FEATURE_NAMES (the live v0 model has a fixed width).
+SLOWPAIR_FEATURE_NAMES = [
+    'sp_case_a', 'sp_case_b',
+    'sp_out_hard_cover', 'sp_out_start_inside',
+    'sp_in_hard_overlap', 'sp_out_hot',
+    'sp_out_ht', 'sp_in_ht',
+    'sp_out_hard_outro', 'sp_out_hard_indrop',
+    'sp_in_hard_intro',
+]
+
+
+def slowpair_feature_dict(win, a_spans, b_spans, a_sec):
+    """Flags for one window vs pre-declared hard spans. Always uses both cases."""
+    import slowpair as SP
+    _kind, a0, a1, b0, b1, _X, _ea, _ib = SP.win_ranges(win)
+    cl = SP.window_clash(win, a_spans, b_spans, a_sec, cases=('A', 'B'))
+    a_hits = SP.case_a_hits(a_spans, a0, a1)
+    b_hits = SP._hits(b_spans, b0, b1, want_labels=None)
+    def has_lab(spans, labels, kind=None):
+        for s in spans or []:
+            if kind is not None and s.get('kind') != kind:
+                continue
+            if set(s.get('labels') or []).intersection(labels):
+                return 1.0
+        return 0.0
+    return dict(
+        sp_case_a=1.0 if cl and 'A' in cl['cases'] else 0.0,
+        sp_case_b=1.0 if cl and 'B' in cl['cases'] else 0.0,
+        sp_out_hard_cover=float(max((h['overlap'] for h in a_hits), default=0)),
+        sp_out_start_inside=1.0 if any(h.get('start_inside') for h in a_hits) else 0.0,
+        sp_in_hard_overlap=float(max((h['overlap'] for h in b_hits), default=0)),
+        sp_out_hot=1.0 if SP.outgoing_hot(a0, a1, a_sec) else 0.0,
+        sp_out_ht=has_lab(a_spans, {'ht'}, kind='ht') or has_lab(a_spans, {'ht'}),
+        sp_in_ht=has_lab(b_spans, {'ht'}, kind='ht') or has_lab(b_spans, {'ht'}),
+        sp_out_hard_outro=has_lab(a_spans, {'outro'}),
+        sp_out_hard_indrop=has_lab(a_spans, {'in_drop'}),
+        sp_in_hard_intro=has_lab(b_spans, {'intro'}),
+    )
+
+
+def slowpair_vec(win, a_spans, b_spans, a_sec):
+    d = slowpair_feature_dict(win, a_spans, b_spans, a_sec)
+    return [float(d[k]) for k in SLOWPAIR_FEATURE_NAMES]
+
+
+def option_vec_with_slowpair(sa, sb, opt, lo_a=None, lo_b=None, gap=9.84,
+                             a_spans=None, b_spans=None):
+    """Live v0 features plus slow-pair flags. For retrain only; do not pass to the v0 model."""
+    x = list(option_vec(sa, sb, opt, lo_a=lo_a, lo_b=lo_b, gap=gap))
+    win = list(opt.get('win') or ['n', 0, None, 0, 16])
+    extra = slowpair_vec(win, a_spans or [], b_spans or [], sa)
+    return x + extra
+
+
 
 def flag_on(v=None):
     if v is None:

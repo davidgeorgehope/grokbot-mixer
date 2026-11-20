@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -367,7 +367,8 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             scored = new_scored
         # SLOWPAIR=1 (off by default, 2026-11-20 research): pair-aware hard slowdown / half-time
         # handling (src2/slowpair.py). Adds COST to a clashing family and nominates one 'slowpair'
-        # alternative from already-scored engine candidates. Not in rules.json.
+        # alternative from already-scored engine candidates. SLOWPAIR_EXIT=1 keeps only Case A
+        # (exit moves; no cue moves). Not in rules.json.
         sp_info = None
         if _flag_on(env.get('SLOWPAIR') or rules.get('SLOWPAIR') or os.environ.get('SLOWPAIR')):
             import slowpair as _SP

@@ -1,0 +1,29 @@
+{
+  "id": "sirenity_ofcHup56lME__20",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "a": {
+    "title": "London Elektricity - Remember The Future",
+    "yt": "YAkLKKWYorc",
+    "t": 1789.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=YAkLKKWYorc"
+  },
+  "b": {
+    "title": "Logistics - Everything Is Illuminated",
+    "yt": "6oanFFXvyF8",
+    "t": 1987.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=6oanFFXvyF8"
+  },
+  "window": {
+    "mix_t_a": 1789.0,
+    "mix_t_b": 1987.0,
+    "mix_t_next": 2141.0,
+    "hint_a_played_sec": 198.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__20/pro.wav",
+  "pro_clip_start": 1963.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__20"
+}

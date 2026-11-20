@@ -1,0 +1,29 @@
+{
+  "id": "sirenity_ofcHup56lME__14",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "a": {
+    "title": "Alix Perez & Javeon - Missing Pieces",
+    "yt": "k6XcijC98Ag",
+    "t": 1237.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=k6XcijC98Ag"
+  },
+  "b": {
+    "title": "Etherwood, Hybrid Minds - The Time Is Here At Last",
+    "yt": "gEmkoY14KOE",
+    "t": 1347.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=gEmkoY14KOE"
+  },
+  "window": {
+    "mix_t_a": 1237.0,
+    "mix_t_b": 1347.0,
+    "mix_t_next": 1435.0,
+    "hint_a_played_sec": 110.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__14/pro.wav",
+  "pro_clip_start": 1323.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__14"
+}

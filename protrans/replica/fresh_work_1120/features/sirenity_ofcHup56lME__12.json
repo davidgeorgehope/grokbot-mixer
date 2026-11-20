@@ -1,0 +1,1026 @@
+{
+  "id": "sirenity_ofcHup56lME__12",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "pair": "Hybrid Minds, Alexa Harley - Phoenix -> Maduk & Vandera - Never Stop Loving You",
+  "video_id": "ofcHup56lME",
+  "cue": {
+    "incoming_bar": 63.83,
+    "incoming_section": "build",
+    "outgoing_bar": 143.19,
+    "outgoing_section": "breakdown",
+    "blend_list_s": 133.0,
+    "locate_a": {
+      "z": 8.344,
+      "cc": 0.6292,
+      "mix_t": 27.191,
+      "track_t": 200.69,
+      "n": 99
+    },
+    "locate_b": {
+      "z": 7.163,
+      "cc": 0.66,
+      "mix_t": 19.83,
+      "track_t": 83.87,
+      "n": 83
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.115,
+      "hold_db": -9.81,
+      "tail_bars": 46.21,
+      "out_p90": -9.23,
+      "in_p90": -6.39
+    },
+    "bass": {
+      "rise_db_per_beat": -0.26,
+      "hold_db": -8.03,
+      "tail_bars": 45.31,
+      "out_p90": -3.46,
+      "in_p90": -5.04
+    },
+    "highs": {
+      "rise_db_per_beat": -0.185,
+      "hold_db": -7.77,
+      "tail_bars": 46.21,
+      "out_p90": -5.52,
+      "in_p90": -7.21
+    },
+    "mids": {
+      "rise_db_per_beat": 0.026,
+      "hold_db": -9.76,
+      "tail_bars": 46.21,
+      "out_p90": -8.54,
+      "in_p90": -6.74
+    }
+  },
+  "overlap_bars": 45.308,
+  "track_a": {
+    "sections": {
+      "n_bars": 218,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 44,
+      "drop2": 144,
+      "outro_start": 206,
+      "music_end": 218,
+      "drops": [
+        [
+          48,
+          128
+        ],
+        [
+          144,
+          206
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 27
+        },
+        {
+          "name": "build",
+          "start": 27,
+          "end": 44
+        },
+        {
+          "name": "breakdown",
+          "start": 44,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 128
+        },
+        {
+          "name": "breakdown",
+          "start": 128,
+          "end": 144
+        },
+        {
+          "name": "drop",
+          "start": 144,
+          "end": 206
+        },
+        {
+          "name": "outro",
+          "start": 206,
+          "end": 218
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -32.03,
+          "drums": -17.69,
+          "energy": -17.69
+        },
+        "build": {
+          "bass": -16.82,
+          "drums": -11.82,
+          "energy": -11.82
+        },
+        "breakdown": {
+          "bass": -39.75,
+          "drums": -16.67,
+          "energy": -16.67
+        },
+        "drop": {
+          "bass": -10.0,
+          "drums": -8.28,
+          "energy": -8.28
+        },
+        "outro": {
+          "bass": -52.67,
+          "drums": -38.18,
+          "energy": -38.18
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 174.99,
+    "yt": "bxtbR6InYVw",
+    "title": "Hybrid Minds, Alexa Harley - Phoenix"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 184,
+      "intro_end": 64,
+      "drop1": 64,
+      "breakdown": 113,
+      "drop2": 144,
+      "outro_start": 183,
+      "music_end": 184,
+      "drops": [
+        [
+          64,
+          112
+        ],
+        [
+          144,
+          183
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 1
+        },
+        {
+          "name": "build",
+          "start": 1,
+          "end": 64
+        },
+        {
+          "name": "drop",
+          "start": 64,
+          "end": 112
+        },
+        {
+          "name": "build",
+          "start": 112,
+          "end": 113
+        },
+        {
+          "name": "breakdown",
+          "start": 113,
+          "end": 144
+        },
+        {
+          "name": "drop",
+          "start": 144,
+          "end": 183
+        },
+        {
+          "name": "outro",
+          "start": 183,
+          "end": 184
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -16.72,
+          "drums": -14.08,
+          "energy": -14.08
+        },
+        "build": {
+          "bass": -17.49,
+          "drums": -12.46,
+          "energy": -12.46
+        },
+        "drop": {
+          "bass": -9.92,
+          "drums": -8.67,
+          "energy": -8.67
+        },
+        "breakdown": {
+          "bass": -30.61,
+          "drums": -17.24,
+          "energy": -17.24
+        },
+        "outro": {
+          "bass": -21.04,
+          "drums": -19.94,
+          "energy": -19.94
+        }
+      },
+      "intro_len": 64,
+      "n_drops": 2
+    },
+    "bpm": 175.0,
+    "yt": "SLaMe4W7wSw",
+    "title": "Maduk & Vandera - Never Stop Loving You"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 143.19,
+    "outgoing_section": "breakdown",
+    "outgoing_bars_into_section": 15.19,
+    "outgoing_bars_left": 74.81,
+    "outgoing_bars_to_outro": 62.81,
+    "incoming_cue_bar": 63.83,
+    "incoming_section": "build",
+    "incoming_bars_into_section": 62.83,
+    "incoming_rel_drop1": -0.17,
+    "bass_swap_bar": 0.0
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -9.91,
+        -9.51,
+        -8.72,
+        -9.2,
+        -10.96,
+        -9.97,
+        -10.16,
+        -11.87,
+        -12.62,
+        -9.98,
+        -9.88,
+        -10.16,
+        -9.47,
+        -9.3,
+        -9.52,
+        -9.89,
+        -10.23,
+        -11.43,
+        -12.8,
+        -12.78,
+        -11.69,
+        -13.56,
+        -14.1,
+        -12.47,
+        -15.25,
+        -13.18,
+        -11.87,
+        -12.52,
+        -12.49,
+        -14.69,
+        -16.54,
+        -14.34,
+        -17.06,
+        -13.76,
+        -13.96,
+        -15.13,
+        -15.82,
+        -16.88,
+        -18.22,
+        -18.47,
+        -17.79,
+        -13.09,
+        -14.66,
+        -16.71,
+        -16.52,
+        -18.07
+      ],
+      "b": [
+        -5.9,
+        -9.57,
+        -5.95,
+        -7.44,
+        -6.25,
+        -6.99,
+        -6.13,
+        -6.31,
+        -6.42,
+        -6.67,
+        -7.09,
+        -6.48,
+        -7.74,
+        -7.69,
+        -8.62,
+        -8.99,
+        -8.74,
+        -10.0,
+        -8.68,
+        -9.84,
+        -9.79,
+        -8.32,
+        -7.84,
+        -9.22,
+        -9.17,
+        -10.94,
+        -11.35,
+        -10.89,
+        -10.84,
+        -8.15,
+        -7.84,
+        -9.08,
+        -8.54,
+        -10.88,
+        -10.34,
+        -9.06,
+        -8.83,
+        -8.78,
+        -9.11,
+        -9.24,
+        -9.52,
+        -11.52,
+        -10.66,
+        -9.54,
+        -9.91,
+        -9.63
+      ]
+    },
+    "bass": {
+      "a": [
+        -11.28,
+        -9.45,
+        -8.86,
+        -5.15,
+        -11.46,
+        -15.44,
+        -16.49,
+        -10.58,
+        -9.81,
+        -8.67,
+        -5.07,
+        -5.51,
+        -1.91,
+        -6.37,
+        -2.25,
+        -1.65,
+        0.76,
+        -10.81,
+        -14.4,
+        -15.33,
+        -14.13,
+        -16.93,
+        -23.88,
+        -15.58,
+        -19.06,
+        -13.87,
+        -12.4,
+        -14.93,
+        -15.72,
+        -18.05,
+        -20.35,
+        -16.77,
+        -24.25,
+        -16.97,
+        -14.91,
+        -16.92,
+        -20.05,
+        -19.05,
+        -21.06,
+        -21.0,
+        -20.46,
+        -13.51,
+        -14.91,
+        -16.88,
+        -19.85,
+        -21.29
+      ],
+      "b": [
+        -1.96,
+        -7.46,
+        -4.44,
+        -7.09,
+        -5.42,
+        -6.69,
+        -5.29,
+        -5.86,
+        -5.72,
+        -5.63,
+        -6.17,
+        -4.46,
+        -6.32,
+        -4.61,
+        -6.99,
+        -5.78,
+        -5.16,
+        -7.93,
+        -8.04,
+        -8.98,
+        -8.72,
+        -8.15,
+        -7.07,
+        -8.75,
+        -8.35,
+        -10.59,
+        -10.99,
+        -9.67,
+        -9.15,
+        -7.9,
+        -7.29,
+        -8.53,
+        -6.89,
+        -8.66,
+        -9.7,
+        -8.32,
+        -8.16,
+        -8.06,
+        -8.44,
+        -8.31,
+        -9.19,
+        -10.15,
+        -10.67,
+        -8.94,
+        -9.81,
+        -8.84
+      ]
+    },
+    "mids": {
+      "a": [
+        -10.35,
+        -8.39,
+        -8.06,
+        -9.52,
+        -10.6,
+        -9.53,
+        -8.64,
+        -11.31,
+        -12.07,
+        -10.1,
+        -10.08,
+        -9.92,
+        -9.7,
+        -9.07,
+        -9.48,
+        -9.43,
+        -10.11,
+        -11.24,
+        -11.29,
+        -10.57,
+        -9.35,
+        -9.71,
+        -8.32,
+        -8.98,
+        -8.98,
+        -9.31,
+        -8.47,
+        -9.11,
+        -9.06,
+        -9.87,
+        -9.77,
+        -9.98,
+        -10.1,
+        -11.35,
+        -9.3,
+        -11.01,
+        -13.32,
+        -12.41,
+        -10.69,
+        -10.14,
+        -12.27,
+        -11.68,
+        -10.96,
+        -13.62,
+        -13.81,
+        -13.06
+      ],
+      "b": [
+        -7.6,
+        -8.71,
+        -6.67,
+        -7.02,
+        -6.64,
+        -7.1,
+        -6.8,
+        -6.57,
+        -6.74,
+        -6.91,
+        -7.19,
+        -7.12,
+        -7.46,
+        -8.45,
+        -8.74,
+        -9.62,
+        -8.79,
+        -8.34,
+        -8.15,
+        -8.27,
+        -9.83,
+        -9.47,
+        -12.49,
+        -11.61,
+        -11.92,
+        -11.63,
+        -13.37,
+        -11.7,
+        -13.2,
+        -10.7,
+        -11.07,
+        -11.3,
+        -11.46,
+        -12.04,
+        -10.52,
+        -11.26,
+        -7.21,
+        -10.85,
+        -10.09,
+        -11.35,
+        -9.49,
+        -10.61,
+        -9.1,
+        -10.14,
+        -8.2,
+        -10.91
+      ]
+    },
+    "highs": {
+      "a": [
+        -10.76,
+        -8.31,
+        -5.63,
+        -4.96,
+        -5.89,
+        -9.96,
+        -10.77,
+        -7.51,
+        -3.03,
+        8.06,
+        -4.44,
+        -7.03,
+        -9.82,
+        -4.29,
+        -8.36,
+        -9.93,
+        -10.32,
+        -8.26,
+        -8.39,
+        -8.27,
+        -7.93,
+        -8.09,
+        -8.22,
+        -8.33,
+        -7.06,
+        -7.43,
+        -6.66,
+        -8.08,
+        -7.07,
+        -8.24,
+        -6.9,
+        -8.47,
+        -8.0,
+        -8.43,
+        -6.85,
+        -8.67,
+        -7.23,
+        -8.87,
+        -7.66,
+        -9.17,
+        -8.04,
+        -8.79,
+        -7.75,
+        -8.53,
+        -8.84,
+        -9.26
+      ],
+      "b": [
+        -6.22,
+        -11.04,
+        -11.63,
+        -11.84,
+        -5.52,
+        -9.9,
+        -7.37,
+        -9.12,
+        -9.2,
+        -8.72,
+        -8.32,
+        -4.8,
+        -4.55,
+        -8.66,
+        -8.16,
+        -8.39,
+        -8.74,
+        -12.09,
+        -10.14,
+        -11.41,
+        -10.56,
+        -11.87,
+        -10.02,
+        -11.42,
+        -11.14,
+        -12.4,
+        -11.22,
+        -12.03,
+        -10.43,
+        -11.54,
+        -10.25,
+        -11.66,
+        -9.83,
+        -10.78,
+        -9.7,
+        -10.69,
+        -9.55,
+        -10.22,
+        -9.4,
+        -10.0,
+        -9.85,
+        -9.43,
+        -9.73,
+        -9.98,
+        -10.07,
+        -9.48
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        216,
+        null,
+        48,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.83,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 24.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 24.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 24.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 24.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 24.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 24.17,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 24.17,
+      "section_match": false,
+      "relevance": 0
+    }
+  ]
+}

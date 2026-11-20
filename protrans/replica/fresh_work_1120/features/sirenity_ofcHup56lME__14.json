@@ -1,0 +1,819 @@
+{
+  "id": "sirenity_ofcHup56lME__14",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "pair": "Alix Perez & Javeon - Missing Pieces -> Etherwood, Hybrid Minds - The Time Is Here At Last",
+  "video_id": "ofcHup56lME",
+  "cue": {
+    "incoming_bar": 32.45,
+    "incoming_section": "breakdown",
+    "outgoing_bar": 128.89,
+    "outgoing_section": "breakdown",
+    "blend_list_s": 110.0,
+    "locate_a": {
+      "z": 7.352,
+      "cc": 0.6161,
+      "mix_t": 1.974,
+      "track_t": 155.759,
+      "n": 98
+    },
+    "locate_b": {
+      "z": 9.883,
+      "cc": 0.7717,
+      "mix_t": 48.135,
+      "track_t": 68.894,
+      "n": 92
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.01,
+      "hold_db": -5.44,
+      "tail_bars": 33.53,
+      "out_p90": -4.58,
+      "in_p90": -6.43
+    },
+    "bass": {
+      "rise_db_per_beat": -1.161,
+      "hold_db": -5.46,
+      "tail_bars": 33.89,
+      "out_p90": -4.01,
+      "in_p90": -0.65
+    },
+    "highs": {
+      "rise_db_per_beat": -0.359,
+      "hold_db": -6.47,
+      "tail_bars": 45.49,
+      "out_p90": 2.75,
+      "in_p90": -3.95
+    },
+    "mids": {
+      "rise_db_per_beat": 0.08,
+      "hold_db": -6.68,
+      "tail_bars": 45.85,
+      "out_p90": -5.67,
+      "in_p90": -6.14
+    }
+  },
+  "overlap_bars": 23.198,
+  "track_a": {
+    "sections": {
+      "n_bars": 213,
+      "intro_end": 4,
+      "drop1": 4,
+      "breakdown": 32,
+      "drop2": 48,
+      "outro_start": 208,
+      "music_end": 213,
+      "drops": [
+        [
+          4,
+          32
+        ],
+        [
+          48,
+          128
+        ],
+        [
+          144,
+          208
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 1
+        },
+        {
+          "name": "build",
+          "start": 1,
+          "end": 4
+        },
+        {
+          "name": "drop",
+          "start": 4,
+          "end": 32
+        },
+        {
+          "name": "breakdown",
+          "start": 32,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 128
+        },
+        {
+          "name": "breakdown",
+          "start": 128,
+          "end": 144
+        },
+        {
+          "name": "drop",
+          "start": 144,
+          "end": 208
+        },
+        {
+          "name": "outro",
+          "start": 208,
+          "end": 213
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -16.11,
+          "drums": -13.41,
+          "energy": -13.41
+        },
+        "build": {
+          "bass": -16.26,
+          "drums": -13.5,
+          "energy": -13.5
+        },
+        "drop": {
+          "bass": -10.94,
+          "drums": -10.05,
+          "energy": -10.05
+        },
+        "breakdown": {
+          "bass": -42.45,
+          "drums": -22.33,
+          "energy": -22.33
+        },
+        "outro": {
+          "bass": -75.27,
+          "drums": -60.2,
+          "energy": -60.2
+        }
+      },
+      "intro_len": 4,
+      "n_drops": 3
+    },
+    "bpm": 172.005,
+    "yt": "k6XcijC98Ag",
+    "title": "Alix Perez & Javeon - Missing Pieces"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 200,
+      "intro_end": 64,
+      "drop1": 64,
+      "breakdown": 32,
+      "drop2": 160,
+      "outro_start": 198,
+      "music_end": 200,
+      "drops": [
+        [
+          64,
+          128
+        ],
+        [
+          160,
+          198
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 16
+        },
+        {
+          "name": "build",
+          "start": 16,
+          "end": 32
+        },
+        {
+          "name": "breakdown",
+          "start": 32,
+          "end": 64
+        },
+        {
+          "name": "drop",
+          "start": 64,
+          "end": 128
+        },
+        {
+          "name": "build",
+          "start": 128,
+          "end": 129
+        },
+        {
+          "name": "breakdown",
+          "start": 129,
+          "end": 160
+        },
+        {
+          "name": "drop",
+          "start": 160,
+          "end": 198
+        },
+        {
+          "name": "outro",
+          "start": 198,
+          "end": 200
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -44.89,
+          "drums": -16.82,
+          "energy": -16.82
+        },
+        "build": {
+          "bass": -17.66,
+          "drums": -14.22,
+          "energy": -14.22
+        },
+        "breakdown": {
+          "bass": -38.9,
+          "drums": -16.52,
+          "energy": -16.52
+        },
+        "drop": {
+          "bass": -10.61,
+          "drums": -8.78,
+          "energy": -8.78
+        },
+        "outro": {
+          "bass": -21.74,
+          "drums": -20.66,
+          "energy": -20.66
+        }
+      },
+      "intro_len": 64,
+      "n_drops": 2
+    },
+    "bpm": 171.995,
+    "yt": "gEmkoY14KOE",
+    "title": "Etherwood, Hybrid Minds - The Time Is Here At Last"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 128.89,
+    "outgoing_section": "breakdown",
+    "outgoing_bars_into_section": 0.89,
+    "outgoing_bars_left": 84.11,
+    "outgoing_bars_to_outro": 79.11,
+    "incoming_cue_bar": 32.45,
+    "incoming_section": "breakdown",
+    "incoming_bars_into_section": 0.45,
+    "incoming_rel_drop1": -31.55,
+    "bass_swap_bar": 0.0
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -8.41,
+        -5.18,
+        -6.27,
+        -3.54,
+        -5.68,
+        -4.27,
+        -4.19,
+        -4.62,
+        -4.43,
+        -5.01,
+        -5.37,
+        -7.14,
+        -6.65,
+        -6.72,
+        -6.43,
+        -8.64,
+        -7.13,
+        -8.1,
+        -8.75,
+        -7.26,
+        -9.85,
+        -11.95,
+        -19.94,
+        -19.38,
+        -16.0,
+        -16.67,
+        -20.06,
+        -17.24,
+        -12.76,
+        -18.82,
+        -24.35,
+        -20.17,
+        -19.26,
+        -17.28,
+        -30.52,
+        -25.31,
+        -29.8,
+        -27.83,
+        -33.49,
+        -30.25,
+        -28.66,
+        -31.81,
+        -33.59,
+        -27.14,
+        -23.51,
+        -26.34
+      ],
+      "b": [
+        -12.08,
+        -22.5,
+        -15.02,
+        -18.85,
+        -14.79,
+        -14.46,
+        -18.6,
+        -14.12,
+        -16.59,
+        -13.87,
+        -11.6,
+        -9.69,
+        -9.03,
+        -8.4,
+        -9.7,
+        -5.38,
+        -9.6,
+        -6.14,
+        -6.02,
+        -6.94,
+        -7.25,
+        -7.37,
+        -6.81,
+        -6.45,
+        -8.06,
+        -7.28,
+        -6.71,
+        -7.09,
+        -8.46,
+        -8.75,
+        -6.56,
+        -6.78,
+        -7.13,
+        -7.0,
+        -7.29,
+        -8.82,
+        -9.01,
+        -8.63,
+        -7.92,
+        -8.19,
+        -8.53,
+        -9.09,
+        -7.07,
+        -8.2,
+        -9.8,
+        -9.81
+      ]
+    },
+    "bass": {
+      "a": [
+        -8.8,
+        -4.6,
+        -6.07,
+        -3.24,
+        -5.63,
+        -4.33,
+        -4.22,
+        -4.47,
+        -4.1,
+        -4.6,
+        -5.72,
+        -6.73,
+        -6.39,
+        -8.55,
+        -5.85,
+        -7.4,
+        -5.1,
+        -6.08,
+        -5.99,
+        -7.7,
+        -11.08,
+        -14.95,
+        -10.93,
+        -2.73,
+        -10.39,
+        -18.7,
+        -4.37,
+        -4.25,
+        -4.27,
+        -7.88,
+        -10.36,
+        -10.01,
+        -7.91,
+        -9.64,
+        -49.61,
+        -56.08,
+        -59.0,
+        -58.49,
+        -58.46,
+        -54.34,
+        -54.29,
+        -59.06,
+        -66.5,
+        -54.79,
+        -54.64,
+        -51.84
+      ],
+      "b": [
+        -2.03,
+        -4.5,
+        -4.77,
+        -19.65,
+        2.34,
+        -5.06,
+        -4.12,
+        -12.9,
+        -30.65,
+        -21.63,
+        -8.19,
+        -7.56,
+        -2.28,
+        1.87,
+        -11.8,
+        -3.03,
+        -10.18,
+        -1.35,
+        -8.62,
+        -5.54,
+        -5.87,
+        -2.65,
+        -4.67,
+        -6.18,
+        -5.86,
+        -4.91,
+        -7.69,
+        -6.19,
+        -5.93,
+        -4.09,
+        -5.79,
+        -5.59,
+        -2.87,
+        -3.06,
+        -2.62,
+        -4.22,
+        -6.69,
+        -5.69,
+        -3.96,
+        -5.74,
+        -8.12,
+        -4.01,
+        -3.48,
+        -4.51,
+        -6.4,
+        -5.99
+      ]
+    },
+    "mids": {
+      "a": [
+        -5.01,
+        -7.37,
+        -6.56,
+        -5.21,
+        -5.55,
+        -2.36,
+        -5.96,
+        -5.32,
+        -5.72,
+        -6.48,
+        -6.56,
+        -8.5,
+        -9.06,
+        -7.97,
+        -11.95,
+        -11.3,
+        -10.81,
+        -7.4,
+        -10.2,
+        -7.62,
+        -10.12,
+        -12.11,
+        -20.16,
+        -19.44,
+        -16.1,
+        -16.88,
+        -20.67,
+        -17.63,
+        -12.92,
+        -19.33,
+        -24.99,
+        -20.43,
+        -19.65,
+        -16.85,
+        -17.59,
+        -12.68,
+        -17.9,
+        -14.72,
+        -17.09,
+        -15.5,
+        -16.01,
+        -16.09,
+        -17.27,
+        -11.35,
+        -13.71,
+        -12.55
+      ],
+      "b": [
+        -12.64,
+        -14.69,
+        -11.12,
+        -14.18,
+        -11.99,
+        -13.39,
+        -14.53,
+        -12.38,
+        -13.16,
+        -11.17,
+        -10.22,
+        -9.45,
+        -7.62,
+        -7.7,
+        -6.41,
+        -5.02,
+        -5.92,
+        -5.59,
+        -5.86,
+        -6.9,
+        -7.2,
+        -7.31,
+        -6.81,
+        -6.38,
+        -8.0,
+        -7.2,
+        -6.62,
+        -7.0,
+        -8.44,
+        -8.53,
+        -6.4,
+        -6.71,
+        -7.11,
+        -7.05,
+        -7.77,
+        -9.86,
+        -9.46,
+        -9.33,
+        -8.67,
+        -8.41,
+        -8.88,
+        -9.42,
+        -7.77,
+        -9.47,
+        -10.85,
+        -10.53
+      ]
+    },
+    "highs": {
+      "a": [
+        -4.23,
+        -8.12,
+        -5.04,
+        -7.01,
+        -5.07,
+        -6.05,
+        -6.31,
+        -6.1,
+        -6.16,
+        -7.5,
+        -5.7,
+        -8.98,
+        -6.03,
+        -9.4,
+        -8.19,
+        -8.9,
+        -9.42,
+        -7.49,
+        -4.99,
+        -2.93,
+        2.07,
+        1.71,
+        1.8,
+        3.72,
+        5.59,
+        7.46,
+        -5.31,
+        -4.48,
+        3.6,
+        1.61,
+        -10.13,
+        -9.75,
+        -9.66,
+        -10.68,
+        -18.97,
+        -14.64,
+        -10.42,
+        -14.13,
+        -16.27,
+        -6.81,
+        -12.94,
+        -10.74,
+        -22.95,
+        -13.95,
+        -10.97,
+        -17.1
+      ],
+      "b": [
+        -4.4,
+        -5.36,
+        -12.48,
+        -15.94,
+        -14.65,
+        -17.41,
+        -16.41,
+        -16.48,
+        -16.5,
+        -14.5,
+        -15.42,
+        -13.4,
+        -12.42,
+        -12.68,
+        -9.94,
+        -11.85,
+        -8.83,
+        -5.32,
+        -4.19,
+        -7.03,
+        -8.56,
+        -9.61,
+        -7.07,
+        -3.53,
+        -5.88,
+        -5.55,
+        -8.8,
+        -9.6,
+        -7.43,
+        -10.57,
+        -11.71,
+        -14.34,
+        -12.5,
+        -12.04,
+        -17.41,
+        -14.41,
+        -11.8,
+        -10.92,
+        -8.43,
+        -9.37,
+        -10.91,
+        -12.05,
+        -10.93,
+        -11.05,
+        -9.77,
+        -11.07
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        208,
+        null,
+        48,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.55,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.55,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 63.55,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.55,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 31.55,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 31.55,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 63.55,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 63.55,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 63.55,
+      "section_match": false,
+      "relevance": 0
+    }
+  ]
+}

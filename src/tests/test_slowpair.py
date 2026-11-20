@@ -141,3 +141,46 @@ def test_case_a_still_respects_engine_slack():
     alt, info = S.pick_alt(cs, default, a_sp, [], a_sec, b_sec, slack=15)
     assert alt is None and info['reason'] == 'no_alt'
 
+def test_exit_only_flag_off_by_default(monkeypatch):
+    monkeypatch.delenv('SLOWPAIR_EXIT', raising=False)
+    assert S.exit_only() is False
+    assert S.allowed_cases() == ('A', 'B')
+    assert S.exit_only('1') is True and S.exit_only('0') is False
+    assert S.allowed_cases('1') == ('A',)
+
+
+def test_rules_json_does_not_enable_slowpair_exit():
+    rules = json.load(open(os.path.join(os.path.dirname(__file__), '..', '..', 'protrans', 'rules.json')))
+    assert 'SLOWPAIR_EXIT' not in rules
+    assert 'SLOWPAIR' not in rules
+
+
+def test_exit_only_ignores_case_b_keeps_default():
+    a_sec = _sec([[48, 128], [160, 240]], 242)
+    b_sec = _sec([[48, 96]], 169)
+    b_sp = S.hard_spans(slow=[[2, 48]], ht=[], sec=b_sec)
+    default = ['n', 240, None, 32, 16]
+    later = ['n', 240, None, 48, 16]
+    assert S.window_clash(default, [], b_sp, a_sec)['cases'] == ['B']
+    assert S.window_clash(default, [], b_sp, a_sec, cases=('A',)) is None
+    cs = [dict(win=default, cost=0.0), dict(win=later, cost=3.0)]
+    alt, info = S.pick_alt(cs, default, [], b_sp, a_sec, b_sec, cases=('A',))
+    assert alt is None and info['reason'] == 'default_ok'
+
+
+def test_exit_only_still_moves_case_a():
+    a_sec = _sec([[40, 128], [144, 192]], 235)
+    a_sp = S.hard_spans(slow=[[198, 235]], ht=[], sec=a_sec)
+    b_sec = _sec([[64, 128]], 224)
+    default = ['n', 224, None, 48, 16]
+    early = ['n', 208, None, 48, 16]
+    assert S.window_clash(default, a_sp, [], a_sec, cases=('A',))['cases'] == ['A']
+    cs = [dict(win=default, cost=0.0), dict(win=early, cost=2.0)]
+    alt, info = S.pick_alt(cs, default, a_sp, [], a_sec, b_sec, cases=('A',))
+    assert alt == early and info['reason'] == 'ok'
+    scored = [(0.01, dict(fam='nat_short', win=default, env={})),
+              (0.15, dict(fam='nat_long', win=['n', 224, None, 48, 32], env={}))]
+    new, info = S.rerank(scored, cs, a_sp, [], a_sec, b_sec, base_cost=lambda w, f: 0.01, cases=('A',))
+    assert info['changed'] is True
+    assert list(new[0][1]['win']) == early
+

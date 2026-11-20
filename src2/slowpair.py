@@ -26,7 +26,11 @@ cost and nominates one 'slowpair' alternative from already-scored engine candida
   B only: same exit if possible, a cue with Case B overlap < OVERLAP, preferring B's drop in
      the window
 SLOWPAIR_EXIT=1 (off by default) is the exit-only arm: only Case A is a clash, so cue moves
-are never applied. Both flags stay out of rules.json.
+are never applied. SLOWPAIR_COND=1 (off by default) is the conditional arm: Case A only
+fires when the outgoing track ends with a hard outro after the last drop (not an in-drop
+slowdown) and the incoming track has a drop that can land in the blend — the Ghetto Blaster
+shape, where a DJ leaves in the last drop rather than riding the hard outro. All flags stay
+out of rules.json.
 Engine-cost slack is PEN_SLACK (15), same idea as CONSONANCE, except a same-exit Case B
 cue move is allowed to lose the 300 outro-over-intro engine bonus. Not in rules.json.
 """
@@ -56,7 +60,43 @@ def exit_only(v=None):
 
 
 def allowed_cases(v=None):
-    return ('A',) if exit_only(v) else ('A', 'B')
+    return ('A',) if exit_only(v) or cond_on(v) else ('A', 'B')
+
+
+def cond_on(v=None):
+    """SLOWPAIR_COND=1: Case A only on the drop-leave / hard-outro shape."""
+    v = os.environ.get('SLOWPAIR_COND') if v is None else v
+    return str(v or '').strip().lower() not in ('', '0', 'false', 'none', 'no', 'off')
+
+
+def incoming_drop_can_land(b_sec, X=16):
+    """True if some incoming cue lets a drop start sit in an X-bar blend (at least 4 bars)."""
+    starts = []
+    if (b_sec or {}).get('drop1') is not None:
+        starts.append(int(b_sec['drop1']))
+    for x, _y in (b_sec or {}).get('drops') or []:
+        starts.append(int(x))
+    X = int(X or 16)
+    for d1 in starts:
+        # ib = max(0, d1 - (X - 4)) places the drop in the window when d1 >= 0
+        if d1 >= 0:
+            return True
+    return False
+
+
+def looks_like_drop_leave(a_sec, a_spans, b_sec, X=16):
+    """Outgoing ends with a hard outro after the last drop (not an in-drop slowdown),
+    and the incoming has a drop that can land in the blend."""
+    drops = list((a_sec or {}).get('drops') or [])
+    last_end = drops[-1][1] if drops else None
+    pure_outro = False
+    for s in a_spans or []:
+        labs = set(s.get('labels') or [])
+        if 'outro' in labs and 'in_drop' not in labs:
+            if last_end is None or int(s['start']) >= int(last_end) - 2:
+                pure_outro = True
+                break
+    return bool(pure_outro and incoming_drop_can_land(b_sec, X=X))
 
 
 def overlap_bars(s0, e0, s1, e1):
@@ -154,17 +194,24 @@ def case_a_hits(spans, a0, a1):
     return hits
 
 
-def window_clash(win, a_spans, b_spans, a_sec, cases=None):
+def window_clash(win, a_spans, b_spans, a_sec, cases=None, b_sec=None, require_drop_leave=None):
     """Return a clash dict or None. Pure; no I/O.
 
-    `cases` defaults to allowed_cases() (both A and B, or only A when SLOWPAIR_EXIT=1).
+    `cases` defaults to allowed_cases() (both A and B, or only A when SLOWPAIR_EXIT=1
+    or SLOWPAIR_COND=1). When require_drop_leave is true (default: cond_on()), Case A
+    only counts if looks_like_drop_leave(a_sec, a_spans, b_sec).
     """
     kind, a0, a1, b0, b1, X, ea, ib = win_ranges(win)
     allow = set(cases if cases is not None else allowed_cases())
+    if require_drop_leave is None:
+        require_drop_leave = cond_on()
     found = {}
     a_hits = case_a_hits(a_spans, a0, a1)
     if a_hits and 'A' in allow:
-        found['A'] = a_hits
+        if require_drop_leave and not looks_like_drop_leave(a_sec, a_spans, b_sec, X=X):
+            a_hits = []
+        if a_hits:
+            found['A'] = a_hits
     # Case B: incoming hard span under a still-hot outgoing drop.
     if 'B' in allow and outgoing_hot(a0, a1, a_sec):
         b_hits = _hits(b_spans, b0, b1, want_labels=None)
@@ -195,9 +242,9 @@ def _engine_cost(cs, win):
     return min(c['cost'] for c in hits) if hits else None
 
 
-def pick_alt(cs, default_win, a_spans, b_spans, a_sec, b_sec, slack=PEN_SLACK, cases=None):
+def pick_alt(cs, default_win, a_spans, b_spans, a_sec, b_sec, slack=PEN_SLACK, cases=None, require_drop_leave=None):
     """Choose one already-scored natural alternative, or None."""
-    clash = window_clash(default_win, a_spans, b_spans, a_sec, cases=cases)
+    clash = window_clash(default_win, a_spans, b_spans, a_sec, cases=cases, b_sec=b_sec, require_drop_leave=require_drop_leave)
     if not clash:
         return None, dict(reason='default_ok')
     kind, a0, a1, b0, b1, X, ea, ib = win_ranges(default_win)
@@ -220,7 +267,7 @@ def pick_alt(cs, default_win, a_spans, b_spans, a_sec, b_sec, slack=PEN_SLACK, c
         if not (we == ea and 'B' in clash['cases'] and 'A' not in clash['cases']):
             if ref is not None and c['cost'] > ref + slack:
                 continue
-        if window_clash(w, a_spans, b_spans, a_sec, cases=cases):
+        if window_clash(w, a_spans, b_spans, a_sec, cases=cases, b_sec=b_sec, require_drop_leave=require_drop_leave):
             continue
         pool.append(c)
     if not pool:
@@ -238,13 +285,13 @@ def pick_alt(cs, default_win, a_spans, b_spans, a_sec, b_sec, slack=PEN_SLACK, c
     return list(best['win']), dict(reason='ok', clash=clash, n_alt=len(pool), engine=best['cost'])
 
 
-def rerank(scored, cs, a_spans, b_spans, a_sec, b_sec, base_cost=None, cases=None):
+def rerank(scored, cs, a_spans, b_spans, a_sec, b_sec, base_cost=None, cases=None, require_drop_leave=None):
     """scored: list of (cost, dict with fam/win). Returns (new_scored, info)."""
     if not scored:
         return scored, dict(reason='no_scored')
     default = min(scored, key=lambda x: x[0])
     def_win = list(default[1]['win'])
-    alt, info = pick_alt(cs, def_win, a_spans, b_spans, a_sec, b_sec, cases=cases)
+    alt, info = pick_alt(cs, def_win, a_spans, b_spans, a_sec, b_sec, cases=cases, require_drop_leave=require_drop_leave)
     info['default_fam'] = default[1].get('fam')
     info['default_win'] = def_win
     scored = list(scored)
@@ -255,7 +302,7 @@ def rerank(scored, cs, a_spans, b_spans, a_sec, b_sec, base_cost=None, cases=Non
     new = []
     terms = {}
     for cost, c in scored:
-        cl = window_clash(c['win'], a_spans, b_spans, a_sec, cases=cases)
+        cl = window_clash(c['win'], a_spans, b_spans, a_sec, cases=cases, b_sec=b_sec, require_drop_leave=require_drop_leave)
         t = COST if cl else 0.0
         terms[c.get('fam', '?')] = dict(term=t, base=round(float(cost), 4), clash=cl is not None, win=list(c['win']))
         new.append((cost + t, c))
@@ -301,20 +348,24 @@ def _span_dicts(yt):
     return [dict(start=a, end=b, kind=k, labels=list(labs)) for a, b, k, labs in spans_for(yt)]
 
 
-def plan_pair(cs, default_win, a, b, scored=None, base_cost=None, cases=None):
+def plan_pair(cs, default_win, a, b, scored=None, base_cost=None, cases=None, require_drop_leave=None):
     """High-level hook used by recreate.py. a, b are YouTube ids."""
     if cases is None:
         cases = allowed_cases()
+    if require_drop_leave is None:
+        require_drop_leave = cond_on()
     a_sec, b_sec = _sections(a), _sections(b)
     a_sp, b_sp = _span_dicts(a), _span_dicts(b)
     if scored is None:
-        alt, info = pick_alt(cs, default_win, a_sp, b_sp, a_sec, b_sec, cases=cases)
+        alt, info = pick_alt(cs, default_win, a_sp, b_sp, a_sec, b_sec, cases=cases, require_drop_leave=require_drop_leave)
         info['a_hard'] = a_sp
         info['b_hard'] = b_sp
         info['cases'] = list(cases)
+        info['drop_leave'] = looks_like_drop_leave(a_sec, a_sp, b_sec)
         return alt, info
-    new, info = rerank(scored, cs, a_sp, b_sp, a_sec, b_sec, base_cost=base_cost, cases=cases)
+    new, info = rerank(scored, cs, a_sp, b_sp, a_sec, b_sec, base_cost=base_cost, cases=cases, require_drop_leave=require_drop_leave)
     info['a_hard'] = a_sp
     info['b_hard'] = b_sp
     info['cases'] = list(cases)
+    info['drop_leave'] = looks_like_drop_leave(a_sec, a_sp, b_sec)
     return new, info

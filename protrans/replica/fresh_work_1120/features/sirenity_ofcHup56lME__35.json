@@ -1,0 +1,999 @@
+{
+  "id": "sirenity_ofcHup56lME__35",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "pair": "Technimatic - Help You Stay (ft. Ruth Royall) -> Technimatic - Once It Was",
+  "video_id": "ofcHup56lME",
+  "cue": {
+    "incoming_bar": 135.38,
+    "incoming_section": "drop",
+    "outgoing_bar": 135.36,
+    "outgoing_section": "breakdown",
+    "blend_list_s": 99.0,
+    "locate_a": {
+      "z": 9.546,
+      "cc": 0.6491,
+      "mix_t": 14.025,
+      "track_t": 176.727,
+      "n": 90
+    },
+    "locate_b": {
+      "z": 7.397,
+      "cc": 0.6777,
+      "mix_t": 52.941,
+      "track_t": 215.667,
+      "n": 84
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.162,
+      "hold_db": -4.98,
+      "tail_bars": 45.85,
+      "out_p90": -4.52,
+      "in_p90": -7.2
+    },
+    "bass": {
+      "rise_db_per_beat": -0.467,
+      "hold_db": -4.87,
+      "tail_bars": 39.15,
+      "out_p90": -0.48,
+      "in_p90": -6.51
+    },
+    "highs": {
+      "rise_db_per_beat": -0.527,
+      "hold_db": -4.96,
+      "tail_bars": 46.21,
+      "out_p90": -4.15,
+      "in_p90": -9.94
+    },
+    "mids": {
+      "rise_db_per_beat": 0.182,
+      "hold_db": -5.29,
+      "tail_bars": 46.03,
+      "out_p90": -4.85,
+      "in_p90": -8.99
+    }
+  },
+  "overlap_bars": 8.518,
+  "track_a": {
+    "sections": {
+      "n_bars": 199,
+      "intro_end": 64,
+      "drop1": 64,
+      "breakdown": 129,
+      "drop2": 144,
+      "outro_start": 183,
+      "music_end": 199,
+      "drops": [
+        [
+          64,
+          128
+        ],
+        [
+          144,
+          183
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 32
+        },
+        {
+          "name": "build",
+          "start": 32,
+          "end": 64
+        },
+        {
+          "name": "drop",
+          "start": 64,
+          "end": 128
+        },
+        {
+          "name": "build",
+          "start": 128,
+          "end": 129
+        },
+        {
+          "name": "breakdown",
+          "start": 129,
+          "end": 144
+        },
+        {
+          "name": "drop",
+          "start": 144,
+          "end": 183
+        },
+        {
+          "name": "outro",
+          "start": 183,
+          "end": 199
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -37.14,
+          "drums": -24.94,
+          "energy": -24.94
+        },
+        "build": {
+          "bass": -19.1,
+          "drums": -14.47,
+          "energy": -14.47
+        },
+        "drop": {
+          "bass": -9.81,
+          "drums": -8.6,
+          "energy": -8.6
+        },
+        "breakdown": {
+          "bass": -28.65,
+          "drums": -14.77,
+          "energy": -14.77
+        },
+        "outro": {
+          "bass": -33.65,
+          "drums": -30.58,
+          "energy": -30.58
+        }
+      },
+      "intro_len": 64,
+      "n_drops": 2
+    },
+    "bpm": 173.983,
+    "yt": "Gh4orS2SPoE",
+    "title": "Technimatic - Help You Stay (ft. Ruth Royall)"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 185,
+      "intro_end": 40,
+      "drop1": 40,
+      "breakdown": null,
+      "drop2": 120,
+      "outro_start": 176,
+      "music_end": 185,
+      "drops": [
+        [
+          40,
+          112
+        ],
+        [
+          120,
+          176
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 16
+        },
+        {
+          "name": "build",
+          "start": 16,
+          "end": 40
+        },
+        {
+          "name": "drop",
+          "start": 40,
+          "end": 112
+        },
+        {
+          "name": "build",
+          "start": 112,
+          "end": 120
+        },
+        {
+          "name": "drop",
+          "start": 120,
+          "end": 176
+        },
+        {
+          "name": "outro",
+          "start": 176,
+          "end": 185
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -23.22,
+          "drums": -21.22,
+          "energy": -21.22
+        },
+        "build": {
+          "bass": -19.08,
+          "drums": -16.61,
+          "energy": -16.61
+        },
+        "drop": {
+          "bass": -10.12,
+          "drums": -8.39,
+          "energy": -8.39
+        },
+        "outro": {
+          "bass": -67.45,
+          "drums": -51.03,
+          "energy": -51.03
+        }
+      },
+      "intro_len": 40,
+      "n_drops": 2
+    },
+    "bpm": 173.984,
+    "yt": "xWjAuzOs5gg",
+    "title": "Technimatic - Once It Was"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 135.36,
+    "outgoing_section": "breakdown",
+    "outgoing_bars_into_section": 6.36,
+    "outgoing_bars_left": 63.64,
+    "outgoing_bars_to_outro": 47.64,
+    "incoming_cue_bar": 135.38,
+    "incoming_section": "drop",
+    "incoming_bars_into_section": 15.38,
+    "incoming_rel_drop1": 95.38,
+    "bass_swap_bar": 26.1
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -4.97,
+        -4.99,
+        -4.99,
+        -4.96,
+        -5.05,
+        -4.93,
+        -5.08,
+        -5.2,
+        -5.16,
+        -5.12,
+        -4.2,
+        -4.26,
+        -3.77,
+        -4.58,
+        -4.62,
+        -4.25,
+        -4.17,
+        -4.86,
+        -4.81,
+        -5.59,
+        -6.38,
+        -6.7,
+        -6.15,
+        -5.64,
+        -7.25,
+        -9.04,
+        -20.54,
+        -24.94,
+        -26.74,
+        -24.17,
+        -21.47,
+        -23.43,
+        -21.6,
+        -24.93,
+        -24.48,
+        -27.27,
+        -26.02,
+        -21.52,
+        -15.33,
+        -16.91,
+        -20.9,
+        -20.58,
+        -22.96,
+        -20.87,
+        -23.66,
+        -24.12
+      ],
+      "b": [
+        -24.07,
+        -23.13,
+        -26.0,
+        -27.96,
+        -28.52,
+        -30.58,
+        -31.48,
+        -30.73,
+        -26.56,
+        -18.06,
+        -23.89,
+        -27.55,
+        -31.54,
+        -27.3,
+        -28.27,
+        -25.32,
+        -28.01,
+        -27.66,
+        -17.11,
+        -15.59,
+        -14.76,
+        -15.49,
+        -13.52,
+        -14.75,
+        -20.76,
+        -16.19,
+        -7.58,
+        -7.27,
+        -6.98,
+        -7.43,
+        -7.32,
+        -7.5,
+        -7.09,
+        -7.47,
+        -7.37,
+        -7.4,
+        -7.41,
+        -8.77,
+        -11.58,
+        -10.24,
+        -8.01,
+        -7.79,
+        -7.5,
+        -7.38,
+        -7.44,
+        -7.28
+      ]
+    },
+    "bass": {
+      "a": [
+        -4.88,
+        -4.99,
+        -4.83,
+        -4.94,
+        -4.9,
+        -4.85,
+        -4.95,
+        -5.06,
+        -5.0,
+        -5.08,
+        -4.14,
+        -3.05,
+        -3.23,
+        -2.13,
+        -2.47,
+        -3.97,
+        0.41,
+        -1.22,
+        -4.52,
+        -6.16,
+        -6.25,
+        -4.83,
+        0.36,
+        3.86,
+        8.44,
+        7.67,
+        -23.08,
+        -33.93,
+        -31.96,
+        -32.16,
+        -29.75,
+        -29.07,
+        -31.65,
+        -35.25,
+        -37.75,
+        -35.7,
+        -35.65,
+        -27.57,
+        -18.14,
+        -18.96,
+        -32.13,
+        -32.66,
+        -30.42,
+        -34.35,
+        -39.46,
+        -47.65
+      ],
+      "b": [
+        -22.28,
+        -23.8,
+        -31.57,
+        -28.47,
+        -31.97,
+        -26.6,
+        -37.04,
+        -32.59,
+        -30.38,
+        -18.33,
+        -25.05,
+        -32.27,
+        -39.93,
+        -32.92,
+        -37.67,
+        -29.68,
+        -38.31,
+        -30.42,
+        -17.26,
+        -15.67,
+        -15.82,
+        -16.31,
+        -13.24,
+        -17.07,
+        -33.14,
+        -18.16,
+        -6.98,
+        -6.91,
+        -7.12,
+        -7.18,
+        -6.93,
+        -7.11,
+        -6.66,
+        -6.89,
+        -6.66,
+        -6.88,
+        -6.85,
+        -7.87,
+        -11.8,
+        -10.36,
+        -7.37,
+        -6.7,
+        -6.63,
+        -6.41,
+        -6.46,
+        -6.64
+      ]
+    },
+    "mids": {
+      "a": [
+        -5.13,
+        -5.0,
+        -5.56,
+        -5.11,
+        -5.8,
+        -5.09,
+        -5.33,
+        -5.87,
+        -5.58,
+        -5.59,
+        -5.09,
+        -4.98,
+        -4.76,
+        -5.46,
+        -5.22,
+        -4.76,
+        -4.83,
+        -5.2,
+        -5.52,
+        -6.39,
+        -6.89,
+        -7.64,
+        -7.53,
+        -7.94,
+        -9.29,
+        -9.01,
+        -10.55,
+        -12.51,
+        -12.81,
+        -11.82,
+        -13.25,
+        -13.39,
+        -12.24,
+        -12.9,
+        -11.4,
+        -13.82,
+        -14.31,
+        -13.23,
+        -12.41,
+        -11.87,
+        -12.28,
+        -11.83,
+        -12.94,
+        -13.01,
+        -13.18,
+        -12.57
+      ],
+      "b": [
+        -23.55,
+        -20.01,
+        -19.17,
+        -25.29,
+        -20.26,
+        -29.55,
+        -23.83,
+        -20.24,
+        -19.54,
+        -16.91,
+        -16.25,
+        -20.26,
+        -20.42,
+        -19.85,
+        -21.7,
+        -20.88,
+        -19.82,
+        -20.79,
+        -15.32,
+        -12.56,
+        -11.34,
+        -10.64,
+        -12.34,
+        -12.03,
+        -12.11,
+        -12.57,
+        -10.32,
+        -9.3,
+        -8.07,
+        -9.52,
+        -8.19,
+        -9.53,
+        -8.49,
+        -10.19,
+        -9.25,
+        -9.71,
+        -9.0,
+        -10.64,
+        -9.93,
+        -10.88,
+        -10.21,
+        -9.89,
+        -9.0,
+        -9.47,
+        -9.46,
+        -9.78
+      ]
+    },
+    "highs": {
+      "a": [
+        -5.03,
+        -4.7,
+        -4.66,
+        -4.57,
+        -4.79,
+        -4.49,
+        -4.93,
+        -4.86,
+        -5.23,
+        -5.19,
+        -5.1,
+        -5.13,
+        -4.83,
+        -4.34,
+        -4.8,
+        -5.46,
+        -4.22,
+        -4.29,
+        -3.53,
+        -4.62,
+        -4.37,
+        -5.17,
+        1.67,
+        0.72,
+        -7.08,
+        -6.31,
+        -7.41,
+        -8.59,
+        -8.88,
+        -10.45,
+        -10.04,
+        -10.38,
+        -9.48,
+        -11.78,
+        -10.63,
+        -11.02,
+        -10.38,
+        -10.05,
+        -8.4,
+        -8.15,
+        -8.21,
+        -8.07,
+        -10.59,
+        -11.17,
+        -10.76,
+        -9.8
+      ],
+      "b": [
+        -9.32,
+        -10.49,
+        -12.2,
+        -13.67,
+        -12.06,
+        -15.23,
+        -21.25,
+        -25.12,
+        -23.63,
+        -18.59,
+        -28.19,
+        -35.13,
+        -35.95,
+        -37.71,
+        -35.06,
+        -33.06,
+        -36.06,
+        -35.2,
+        -33.18,
+        -32.87,
+        -30.09,
+        -25.79,
+        -19.88,
+        -12.73,
+        -12.86,
+        -20.04,
+        -12.17,
+        -10.56,
+        -10.58,
+        -10.39,
+        -10.75,
+        -10.31,
+        -10.58,
+        -9.86,
+        -10.53,
+        -10.8,
+        -10.56,
+        -11.0,
+        -10.38,
+        -10.54,
+        -11.01,
+        -11.11,
+        -9.54,
+        -9.76,
+        -10.48,
+        -10.07
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        192,
+        null,
+        24,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 111.38,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        40,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 95.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 63.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        104,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.38,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 55.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        128,
+        null,
+        120,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        40,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 95.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        40,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 95.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        40,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 95.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 63.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 63.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 63.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        104,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.38,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        104,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 31.38,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        104,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 31.38,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 55.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 55.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 55.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        120,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        120,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 15.38,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        120,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 15.38,
+      "section_match": true,
+      "relevance": 1
+    }
+  ]
+}

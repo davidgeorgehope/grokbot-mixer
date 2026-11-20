@@ -1,0 +1,1259 @@
+{
+  "id": "sirenity_ofcHup56lME__23",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "pair": "Technimatic - Unity -> Technimatic & A Little Sound - Lakota (LSB Remix)",
+  "video_id": "ofcHup56lME",
+  "cue": {
+    "incoming_bar": 79.37,
+    "incoming_section": "drop",
+    "outgoing_bar": 159.37,
+    "outgoing_section": "drop",
+    "blend_list_s": 176.0,
+    "locate_a": {
+      "z": 7.254,
+      "cc": 0.6707,
+      "mix_t": 19.853,
+      "track_t": 215.667,
+      "n": 90
+    },
+    "locate_b": {
+      "z": 8.527,
+      "cc": 0.8522,
+      "mix_t": 40.333,
+      "track_t": 125.806,
+      "n": 93
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.397,
+      "hold_db": -5.57,
+      "tail_bars": 45.31,
+      "out_p90": -5.42,
+      "in_p90": -5.85
+    },
+    "bass": {
+      "rise_db_per_beat": -0.306,
+      "hold_db": -5.42,
+      "tail_bars": 45.13,
+      "out_p90": -5.25,
+      "in_p90": -5.72
+    },
+    "highs": {
+      "rise_db_per_beat": -0.043,
+      "hold_db": -6.78,
+      "tail_bars": 46.21,
+      "out_p90": -6.71,
+      "in_p90": -7.97
+    },
+    "mids": {
+      "rise_db_per_beat": -0.08,
+      "hold_db": -6.63,
+      "tail_bars": 46.21,
+      "out_p90": -6.54,
+      "in_p90": -6.13
+    }
+  },
+  "overlap_bars": 8.518,
+  "track_a": {
+    "sections": {
+      "n_bars": 199,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 97,
+      "drop2": 128,
+      "outro_start": 191,
+      "music_end": 199,
+      "drops": [
+        [
+          48,
+          95
+        ],
+        [
+          128,
+          191
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 40
+        },
+        {
+          "name": "build",
+          "start": 40,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 95
+        },
+        {
+          "name": "build",
+          "start": 95,
+          "end": 97
+        },
+        {
+          "name": "breakdown",
+          "start": 97,
+          "end": 126
+        },
+        {
+          "name": "build",
+          "start": 126,
+          "end": 128
+        },
+        {
+          "name": "drop",
+          "start": 128,
+          "end": 191
+        },
+        {
+          "name": "outro",
+          "start": 191,
+          "end": 199
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -35.78,
+          "drums": -24.36,
+          "energy": -24.36
+        },
+        "build": {
+          "bass": -17.66,
+          "drums": -10.95,
+          "energy": -10.95
+        },
+        "drop": {
+          "bass": -11.71,
+          "drums": -9.66,
+          "energy": -9.66
+        },
+        "breakdown": {
+          "bass": -25.48,
+          "drums": -19.21,
+          "energy": -19.21
+        },
+        "outro": {
+          "bass": -63.54,
+          "drums": -52.39,
+          "energy": -52.39
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 173.989,
+    "yt": "DZwnpKDxF9U",
+    "title": "Technimatic - Unity"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 208,
+      "intro_end": 34,
+      "drop1": 34,
+      "breakdown": null,
+      "drop2": 128,
+      "outro_start": 190,
+      "music_end": 208,
+      "drops": [
+        [
+          34,
+          110
+        ],
+        [
+          128,
+          190
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 20
+        },
+        {
+          "name": "build",
+          "start": 20,
+          "end": 34
+        },
+        {
+          "name": "drop",
+          "start": 34,
+          "end": 110
+        },
+        {
+          "name": "build",
+          "start": 110,
+          "end": 128
+        },
+        {
+          "name": "drop",
+          "start": 128,
+          "end": 190
+        },
+        {
+          "name": "outro",
+          "start": 190,
+          "end": 208
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -53.06,
+          "drums": -23.85,
+          "energy": -23.85
+        },
+        "build": {
+          "bass": -24.17,
+          "drums": -13.56,
+          "energy": -13.56
+        },
+        "drop": {
+          "bass": -11.64,
+          "drums": -9.46,
+          "energy": -9.46
+        },
+        "outro": {
+          "bass": -45.01,
+          "drums": -36.23,
+          "energy": -36.23
+        }
+      },
+      "intro_len": 34,
+      "n_drops": 2
+    },
+    "bpm": 174.026,
+    "yt": "cAVqGkGJKYs",
+    "title": "Technimatic & A Little Sound - Lakota (LSB Remix)"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 159.37,
+    "outgoing_section": "drop",
+    "outgoing_bars_into_section": 31.37,
+    "outgoing_bars_left": 39.63,
+    "outgoing_bars_to_outro": 31.63,
+    "incoming_cue_bar": 79.37,
+    "incoming_section": "drop",
+    "incoming_bars_into_section": 45.37,
+    "incoming_rel_drop1": 45.37,
+    "bass_swap_bar": 17.22
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -6.04,
+        -5.96,
+        -6.2,
+        -6.09,
+        -5.62,
+        -5.45,
+        -5.42,
+        -5.22,
+        -5.31,
+        -5.33,
+        -5.38,
+        -5.46,
+        -5.64,
+        -5.64,
+        -6.71,
+        -8.02,
+        -7.59,
+        -9.03,
+        -20.85,
+        -25.86,
+        -23.04,
+        -25.56,
+        -23.98,
+        -25.77,
+        -22.93,
+        -24.46,
+        -22.24,
+        -23.88,
+        -22.44,
+        -23.3,
+        -22.51,
+        -22.65,
+        -18.93,
+        -19.13,
+        -18.56,
+        -20.88,
+        -19.41,
+        -20.51,
+        -19.17,
+        -19.04,
+        -17.84,
+        -19.06,
+        -16.84,
+        -19.67,
+        -18.52,
+        -18.19
+      ],
+      "b": [
+        -12.21,
+        -15.33,
+        -17.97,
+        -20.58,
+        -22.67,
+        -23.62,
+        -22.42,
+        -22.03,
+        -21.62,
+        -21.95,
+        -22.32,
+        -24.2,
+        -21.73,
+        -22.94,
+        -18.97,
+        -14.75,
+        -11.63,
+        -7.32,
+        -5.99,
+        -5.82,
+        -5.92,
+        -5.86,
+        -5.91,
+        -5.85,
+        -5.85,
+        -6.04,
+        -6.05,
+        -6.01,
+        -6.1,
+        -5.96,
+        -6.03,
+        -5.93,
+        -5.9,
+        -6.04,
+        -6.11,
+        -5.98,
+        -6.23,
+        -5.89,
+        -5.99,
+        -5.91,
+        -6.22,
+        -6.0,
+        -6.02,
+        -6.61,
+        -6.54,
+        -6.57
+      ]
+    },
+    "bass": {
+      "a": [
+        -5.43,
+        -5.57,
+        -5.8,
+        -5.98,
+        -5.49,
+        -5.18,
+        -5.31,
+        -5.13,
+        -5.26,
+        -5.16,
+        -5.39,
+        -5.25,
+        -5.5,
+        -5.4,
+        -7.04,
+        -9.05,
+        -7.71,
+        -9.12,
+        -28.3,
+        -33.5,
+        -32.37,
+        -33.28,
+        -33.53,
+        -33.22,
+        -32.88,
+        -34.32,
+        -32.2,
+        -33.36,
+        -33.05,
+        -32.47,
+        -33.55,
+        -33.97,
+        -34.75,
+        -29.32,
+        -18.64,
+        -10.39,
+        -11.73,
+        -10.76,
+        -15.4,
+        -11.63,
+        -14.55,
+        -23.88,
+        -19.42,
+        -17.42,
+        -11.39,
+        -19.24
+      ],
+      "b": [
+        -26.2,
+        -23.33,
+        -24.23,
+        -25.96,
+        -31.28,
+        -32.41,
+        -30.7,
+        -34.36,
+        -36.1,
+        -29.62,
+        -34.27,
+        -34.04,
+        -31.59,
+        -29.73,
+        -22.85,
+        -16.47,
+        -14.35,
+        -6.76,
+        -5.56,
+        -5.86,
+        -5.81,
+        -5.81,
+        -5.83,
+        -5.75,
+        -5.72,
+        -5.89,
+        -5.9,
+        -5.85,
+        -5.83,
+        -5.73,
+        -5.83,
+        -5.76,
+        -5.55,
+        -5.94,
+        -5.87,
+        -5.83,
+        -6.05,
+        -5.79,
+        -5.84,
+        -5.82,
+        -6.03,
+        -5.87,
+        -5.92,
+        -6.5,
+        -6.4,
+        -6.38
+      ]
+    },
+    "mids": {
+      "a": [
+        -7.37,
+        -6.43,
+        -6.71,
+        -6.33,
+        -6.48,
+        -6.54,
+        -6.8,
+        -6.52,
+        -6.95,
+        -5.96,
+        -6.42,
+        -6.54,
+        -6.97,
+        -6.75,
+        -7.13,
+        -7.11,
+        -7.14,
+        -7.77,
+        -12.39,
+        -16.21,
+        -14.83,
+        -15.23,
+        -17.4,
+        -15.63,
+        -15.45,
+        -13.52,
+        -13.9,
+        -14.32,
+        -15.87,
+        -15.8,
+        -17.44,
+        -18.21,
+        -14.94,
+        -15.02,
+        -15.54,
+        -17.69,
+        -15.78,
+        -17.14,
+        -15.84,
+        -13.92,
+        -14.85,
+        -16.31,
+        -14.65,
+        -17.22,
+        -16.28,
+        -15.45
+      ],
+      "b": [
+        -10.07,
+        -11.04,
+        -11.15,
+        -13.89,
+        -12.07,
+        -13.2,
+        -11.9,
+        -11.28,
+        -10.56,
+        -14.29,
+        -11.32,
+        -13.28,
+        -12.45,
+        -13.59,
+        -11.0,
+        -10.47,
+        -9.95,
+        -7.37,
+        -6.82,
+        -6.26,
+        -6.6,
+        -6.62,
+        -6.19,
+        -6.31,
+        -6.47,
+        -6.67,
+        -6.97,
+        -6.64,
+        -6.63,
+        -6.65,
+        -6.39,
+        -6.01,
+        -6.19,
+        -6.21,
+        -6.35,
+        -6.2,
+        -6.61,
+        -6.13,
+        -6.25,
+        -6.32,
+        -6.75,
+        -6.24,
+        -6.16,
+        -6.81,
+        -6.94,
+        -6.89
+      ]
+    },
+    "highs": {
+      "a": [
+        -6.91,
+        -6.7,
+        -6.81,
+        -6.85,
+        -6.78,
+        -6.83,
+        -6.76,
+        -6.86,
+        -6.79,
+        -6.73,
+        -6.65,
+        -6.92,
+        -6.78,
+        -6.69,
+        -6.83,
+        -7.11,
+        -7.15,
+        -9.01,
+        -10.3,
+        -10.45,
+        -10.27,
+        -10.9,
+        -10.64,
+        -10.87,
+        -10.72,
+        -11.16,
+        -10.56,
+        -10.44,
+        -10.83,
+        -10.93,
+        -11.08,
+        -11.81,
+        -11.52,
+        -13.11,
+        -14.23,
+        -13.5,
+        -15.17,
+        -15.1,
+        -14.97,
+        -14.97,
+        -14.52,
+        -14.12,
+        -13.14,
+        -13.1,
+        -13.08,
+        -13.36
+      ],
+      "b": [
+        -12.75,
+        -13.68,
+        -13.62,
+        -13.88,
+        -13.41,
+        -13.0,
+        -13.69,
+        -13.2,
+        -13.52,
+        -13.78,
+        -13.71,
+        -13.76,
+        -13.65,
+        -13.8,
+        -13.32,
+        -11.91,
+        -10.9,
+        -9.19,
+        -10.43,
+        -10.55,
+        -11.23,
+        -10.24,
+        -10.5,
+        -10.11,
+        -10.35,
+        -9.59,
+        -10.66,
+        -10.26,
+        -10.86,
+        -10.48,
+        -10.18,
+        -9.47,
+        -9.75,
+        -8.91,
+        -8.88,
+        -9.55,
+        -9.29,
+        -8.59,
+        -8.41,
+        -7.65,
+        -7.32,
+        -7.44,
+        -7.96,
+        -8.6,
+        -8.22,
+        -7.83
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        192,
+        null,
+        16,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 63.37,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.37,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 7.37,
+      "section_match": true,
+      "relevance": 2
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 48.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.37,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 15.37,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 15.37,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 16.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 16.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 7.37,
+      "section_match": true,
+      "relevance": 2
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 7.37,
+      "section_match": true,
+      "relevance": 2
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 7.37,
+      "section_match": true,
+      "relevance": 2
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 48.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 48.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 48.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 80.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 80.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.37,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 15.37,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 15.37,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 16.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 16.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 7.37,
+      "section_match": true,
+      "relevance": 2
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 7.37,
+      "section_match": true,
+      "relevance": 2
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 7.37,
+      "section_match": true,
+      "relevance": 2
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 48.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 48.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 48.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 80.63,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 80.63,
+      "section_match": true,
+      "relevance": 1
+    }
+  ]
+}

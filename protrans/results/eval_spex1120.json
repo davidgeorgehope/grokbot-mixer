@@ -1,0 +1,784 @@
+{
+  "variant": "spex1120",
+  "slowpair_exit": true,
+  "floor": {
+    "test": 34.07,
+    "train": 32.4
+  },
+  "def_arm": {
+    "name": "spex1120_def",
+    "v3": {
+      "train": 32.91,
+      "test": 32.28,
+      "n": 33,
+      "n_fail": 0
+    },
+    "parent": {
+      "variant": "bfb1120_base",
+      "v3": {
+        "train": 32.4,
+        "test": 34.07,
+        "n": 33,
+        "n_fail": 0
+      }
+    },
+    "ci_test": {
+      "n": 12,
+      "n_mix": 4,
+      "mean_delta": -1.786,
+      "ci": [
+        -3.572,
+        0.0
+      ],
+      "includes_zero": true
+    },
+    "ci_train": {
+      "n": 21,
+      "n_mix": 2,
+      "mean_delta": 0.503,
+      "ci": [
+        0.0,
+        1.32
+      ],
+      "includes_zero": true
+    },
+    "n_clash_a": 3,
+    "n_clash_a_test": 2,
+    "n_changed": 3,
+    "n_changed_test": 2,
+    "changed": [
+      {
+        "id": "netsky_hospital_classics__17",
+        "split": "test",
+        "dj": "Netsky",
+        "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+        "case": "A",
+        "parent_win": [
+          "n",
+          256,
+          null,
+          32,
+          16
+        ],
+        "win": [
+          "la",
+          240,
+          224,
+          64,
+          16
+        ],
+        "parent_score": 33.35,
+        "arm_score": 20.39
+      },
+      {
+        "id": "joe_syntax_hospital__12",
+        "split": "train",
+        "dj": "Joe Syntax",
+        "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+        "case": "A",
+        "parent_win": [
+          "n",
+          224,
+          null,
+          48,
+          16
+        ],
+        "win": [
+          "la",
+          176,
+          160,
+          16,
+          16
+        ],
+        "parent_score": 32.29,
+        "arm_score": 42.85
+      },
+      {
+        "id": "netsky_hospital_classics__15",
+        "split": "test",
+        "dj": "Netsky",
+        "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+        "case": "A",
+        "parent_win": [
+          "n",
+          240,
+          null,
+          0,
+          16
+        ],
+        "win": [
+          "la",
+          192,
+          176,
+          16,
+          16
+        ],
+        "parent_score": 40.9,
+        "arm_score": 32.43
+      }
+    ],
+    "clashed_unmoved": [],
+    "hc": {
+      "n_known": 33,
+      "n_unknown": 0,
+      "parent_HC_A": 7,
+      "parent_HC_B": 6,
+      "arm_HC_A": 6,
+      "arm_HC_B": 6,
+      "parent_fail": 8,
+      "arm_fail": 7,
+      "new_fails": [],
+      "fixed": [
+        "joe_syntax_hospital__12"
+      ],
+      "added_hard_fails": false,
+      "lodo_range": [
+        -0.05,
+        0.0
+      ],
+      "changed_only": [
+        {
+          "id": "netsky_hospital_classics__17",
+          "split": "test",
+          "dj": "Netsky",
+          "moved": true,
+          "parent_HC_A": false,
+          "parent_HC_B": false,
+          "arm_HC_A": false,
+          "arm_HC_B": false,
+          "parent_fail": false,
+          "arm_fail": false,
+          "src_parent": "cache",
+          "src_arm": "render",
+          "parent_flags": {
+            "HC_A": false,
+            "HC_B": false,
+            "hole_v2": false,
+            "clash_v1": false,
+            "clash_v2": false,
+            "halfbeat": false,
+            "pump": false,
+            "hole_score": 0.0,
+            "med_lag": 0.0
+          },
+          "arm_flags": {
+            "HC_A": false,
+            "HC_B": false,
+            "hole_v2": false,
+            "clash_v1": false,
+            "clash_v2": false,
+            "halfbeat": false,
+            "pump": false,
+            "hole_score": 0.0,
+            "med_lag": 5.8
+          }
+        },
+        {
+          "id": "joe_syntax_hospital__12",
+          "split": "train",
+          "dj": "Joe Syntax",
+          "moved": true,
+          "parent_HC_A": true,
+          "parent_HC_B": false,
+          "arm_HC_A": false,
+          "arm_HC_B": false,
+          "parent_fail": true,
+          "arm_fail": false,
+          "src_parent": "cache",
+          "src_arm": "render",
+          "parent_flags": {
+            "HC_A": true,
+            "HC_B": false,
+            "hole_v2": false,
+            "clash_v1": true,
+            "clash_v2": false,
+            "halfbeat": false,
+            "pump": false,
+            "hole_score": 0.0,
+            "med_lag": 0.0
+          },
+          "arm_flags": {
+            "HC_A": false,
+            "HC_B": false,
+            "hole_v2": false,
+            "clash_v1": false,
+            "clash_v2": false,
+            "halfbeat": false,
+            "pump": false,
+            "hole_score": 0.0,
+            "med_lag": 11.6
+          }
+        },
+        {
+          "id": "netsky_hospital_classics__15",
+          "split": "test",
+          "dj": "Netsky",
+          "moved": true,
+          "parent_HC_A": false,
+          "parent_HC_B": false,
+          "arm_HC_A": false,
+          "arm_HC_B": false,
+          "parent_fail": false,
+          "arm_fail": false,
+          "src_parent": "cache",
+          "src_arm": "render",
+          "parent_flags": {
+            "HC_A": false,
+            "HC_B": false,
+            "hole_v2": false,
+            "clash_v1": false,
+            "clash_v2": false,
+            "halfbeat": false,
+            "pump": false,
+            "hole_score": 0.0,
+            "med_lag": 0.0
+          },
+          "arm_flags": {
+            "HC_A": false,
+            "HC_B": false,
+            "hole_v2": false,
+            "clash_v1": false,
+            "clash_v2": false,
+            "halfbeat": false,
+            "pump": false,
+            "hole_score": 0.0,
+            "med_lag": 2.9
+          }
+        }
+      ]
+    },
+    "placement": [
+      {
+        "id": "netsky_hospital_classics__17",
+        "split": "test",
+        "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+        "parent_score": 33.35,
+        "arm_score": 20.39,
+        "pro": {
+          "who": "pro",
+          "out_start": 94.4,
+          "out_end": 128.4,
+          "in_start": 14.6,
+          "in_end": 48.6,
+          "out_swap": 94.4,
+          "out_start_section": "drop 2",
+          "in_start_section": "intro",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": -0.6,
+          "out_last_drop_played": "cut 146 bars early",
+          "out_time": "2:10",
+          "mix_time": "45:14",
+          "why": "what the DJ did",
+          "win": null,
+          "exit_bar": 128.4,
+          "cue_bar": 14.6,
+          "blend_start_bar": 94.4,
+          "out_exit_time": "2:57",
+          "in_time": "0:20",
+          "ht_out": [
+            "slowdown 114-122 overlaps 8 bars",
+            "slowdown 125-159 overlaps 3.4000000000000057 bars"
+          ],
+          "ht_in": [
+            "slowdown 46-62 overlaps 2.6000000000000014 bars"
+          ]
+        },
+        "ours": {
+          "who": "bfb1120_base",
+          "out_start": 240,
+          "out_end": 256,
+          "in_start": 32,
+          "in_end": 48,
+          "out_swap": null,
+          "out_start_section": "outro + slowdown/half-time",
+          "in_start_section": "intro",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": 0,
+          "out_last_drop_played": "all",
+          "out_time": "5:31",
+          "mix_time": null,
+          "why": "outgoing hard slow 234-257 (in_drop,outro), overlap 16 bars, blend starts inside it",
+          "win": [
+            "n",
+            256,
+            null,
+            32,
+            16
+          ],
+          "exit_bar": 256,
+          "cue_bar": 32,
+          "blend_start_bar": 240,
+          "out_exit_time": "5:53",
+          "in_time": "0:44",
+          "ht_out": [
+            "slowdown 234-257 overlaps 16 bars"
+          ],
+          "ht_in": [
+            "slowdown 46-62 overlaps 2 bars"
+          ]
+        },
+        "variant": {
+          "who": "spex1120_def",
+          "out_start": 224,
+          "out_end": 240,
+          "in_start": 64,
+          "in_end": 80,
+          "out_swap": null,
+          "out_start_section": "drop 3 + slowdown/half-time",
+          "in_start_section": "drop 1",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": null,
+          "out_last_drop_played": "cut 16 bars early",
+          "out_time": "5:08",
+          "mix_time": null,
+          "why": "outgoing slow 234-257 grazes 6 bars (under the Case A cover)",
+          "win": [
+            "la",
+            240,
+            224,
+            64,
+            16
+          ],
+          "exit_bar": 240,
+          "cue_bar": 64,
+          "blend_start_bar": 224,
+          "out_exit_time": "5:31",
+          "in_time": "1:28",
+          "ht_out": [
+            "slowdown 218-231 overlaps 7 bars",
+            "slowdown 234-257 overlaps 6 bars"
+          ],
+          "ht_in": []
+        }
+      },
+      {
+        "id": "joe_syntax_hospital__12",
+        "split": "train",
+        "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+        "parent_score": 32.29,
+        "arm_score": 42.85,
+        "pro": {
+          "who": "pro",
+          "out_start": 189.0,
+          "out_end": 208.0,
+          "in_start": 140.0,
+          "in_end": 159.0,
+          "out_swap": 193.0,
+          "out_start_section": "drop 2",
+          "in_start_section": "breakdown + slowdown/half-time",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": 1.0,
+          "out_last_drop_played": "blend starts 3 bars before its end",
+          "out_time": "4:20",
+          "mix_time": "34:52",
+          "why": "what the DJ did",
+          "win": null,
+          "exit_bar": 208.0,
+          "cue_bar": 140.0,
+          "blend_start_bar": 189.0,
+          "out_exit_time": "4:46",
+          "in_time": "3:13",
+          "ht_out": [
+            "slowdown 198-235 overlaps 10.0 bars"
+          ],
+          "ht_in": [
+            "slowdown 129-162 overlaps 19.0 bars"
+          ]
+        },
+        "ours": {
+          "who": "bfb1120_base",
+          "out_start": 208,
+          "out_end": 224,
+          "in_start": 48,
+          "in_end": 64,
+          "out_swap": null,
+          "out_start_section": "outro + slowdown/half-time",
+          "in_start_section": "intro",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": 0,
+          "out_last_drop_played": "all",
+          "out_time": "4:46",
+          "mix_time": null,
+          "why": "outgoing hard slow 198-235 (outro), overlap 16 bars, blend starts inside it",
+          "win": [
+            "n",
+            224,
+            null,
+            48,
+            16
+          ],
+          "exit_bar": 224,
+          "cue_bar": 48,
+          "blend_start_bar": 208,
+          "out_exit_time": "5:08",
+          "in_time": "1:06",
+          "ht_out": [
+            "slowdown 198-235 overlaps 16 bars"
+          ],
+          "ht_in": []
+        },
+        "variant": {
+          "who": "spex1120_def",
+          "out_start": 160,
+          "out_end": 176,
+          "in_start": 16,
+          "in_end": 32,
+          "out_swap": null,
+          "out_start_section": "drop 2",
+          "in_start_section": "intro",
+          "touches_out_slowdown": false,
+          "in_next_drop_vs_blend_end": 32,
+          "out_last_drop_played": "cut 32 bars early",
+          "out_time": "3:40",
+          "mix_time": null,
+          "why": "no hard-span clash",
+          "win": [
+            "la",
+            176,
+            160,
+            16,
+            16
+          ],
+          "exit_bar": 176,
+          "cue_bar": 16,
+          "blend_start_bar": 160,
+          "out_exit_time": "4:02",
+          "in_time": "0:22",
+          "ht_out": [],
+          "ht_in": []
+        }
+      },
+      {
+        "id": "netsky_hospital_classics__15",
+        "split": "test",
+        "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+        "parent_score": 40.9,
+        "arm_score": 32.43,
+        "pro": {
+          "who": "pro",
+          "out_start": 203.4,
+          "out_end": 243.4,
+          "in_start": 0.2,
+          "in_end": 40.2,
+          "out_swap": 201.4,
+          "out_start_section": "drop 2",
+          "in_start_section": "intro",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": -24.2,
+          "out_last_drop_played": "blend starts 37 bars before its end",
+          "out_time": "4:40",
+          "mix_time": "38:59",
+          "why": "what the DJ did",
+          "win": null,
+          "exit_bar": 243.4,
+          "cue_bar": 0.2,
+          "blend_start_bar": 203.4,
+          "out_exit_time": "5:35",
+          "in_time": "0:00",
+          "ht_out": [
+            "slowdown 222-242 overlaps 20 bars"
+          ],
+          "ht_in": []
+        },
+        "ours": {
+          "who": "bfb1120_base",
+          "out_start": 224,
+          "out_end": 240,
+          "in_start": 0,
+          "in_end": 16,
+          "out_swap": null,
+          "out_start_section": "drop 2 + slowdown/half-time",
+          "in_start_section": "intro",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": 0,
+          "out_last_drop_played": "cut 16 bars early",
+          "out_time": "5:08",
+          "mix_time": null,
+          "why": "outgoing hard slow 222-242 (in_drop,outro), overlap 16 bars, blend starts inside it",
+          "win": [
+            "n",
+            240,
+            null,
+            0,
+            16
+          ],
+          "exit_bar": 240,
+          "cue_bar": 0,
+          "blend_start_bar": 224,
+          "out_exit_time": "5:31",
+          "in_time": "0:00",
+          "ht_out": [
+            "slowdown 222-242 overlaps 16 bars"
+          ],
+          "ht_in": []
+        },
+        "variant": {
+          "who": "spex1120_def",
+          "out_start": 176,
+          "out_end": 192,
+          "in_start": 16,
+          "in_end": 32,
+          "out_swap": null,
+          "out_start_section": "drop 2 + slowdown/half-time",
+          "in_start_section": "drop 1",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": -16,
+          "out_last_drop_played": "cut 64 bars early",
+          "out_time": "4:02",
+          "mix_time": null,
+          "why": "no hard-span clash",
+          "win": [
+            "la",
+            192,
+            176,
+            16,
+            16
+          ],
+          "exit_bar": 192,
+          "cue_bar": 16,
+          "blend_start_bar": 176,
+          "out_exit_time": "4:24",
+          "in_time": "0:22",
+          "ht_out": [
+            "slowdown 166-177 overlaps 1 bars"
+          ],
+          "ht_in": []
+        }
+      }
+    ],
+    "decision": "lose",
+    "not_worse_held": false,
+    "not_worse_parent": false,
+    "added_hard_fails": false
+  },
+  "stk_arm": {
+    "name": "spex1120_stk",
+    "v3": {
+      "train": 32.97,
+      "test": 33.2,
+      "n": 33,
+      "n_fail": 0
+    },
+    "parent": {
+      "variant": "n1120_epg_stack",
+      "v3": {
+        "train": 32.97,
+        "test": 33.91,
+        "n": 33,
+        "n_fail": 0
+      }
+    },
+    "ci_test": {
+      "n": 12,
+      "n_mix": 4,
+      "mean_delta": -0.706,
+      "ci": [
+        -1.412,
+        0.0
+      ],
+      "includes_zero": true
+    },
+    "ci_train": {
+      "n": 21,
+      "n_mix": 2,
+      "mean_delta": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "includes_zero": true
+    },
+    "n_clash_a": 1,
+    "n_clash_a_test": 1,
+    "n_changed": 1,
+    "n_changed_test": 1,
+    "changed": [
+      {
+        "id": "netsky_hospital_classics__15",
+        "split": "test",
+        "dj": "Netsky",
+        "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+        "case": "A",
+        "parent_win": [
+          "n",
+          240,
+          null,
+          0,
+          16
+        ],
+        "win": [
+          "la",
+          192,
+          176,
+          16,
+          16
+        ],
+        "parent_score": 40.9,
+        "arm_score": 32.43
+      }
+    ],
+    "clashed_unmoved": [],
+    "hc": {
+      "n_known": 33,
+      "n_unknown": 0,
+      "parent_HC_A": 4,
+      "parent_HC_B": 5,
+      "arm_HC_A": 4,
+      "arm_HC_B": 5,
+      "parent_fail": 5,
+      "arm_fail": 5,
+      "new_fails": [],
+      "fixed": [],
+      "added_hard_fails": false,
+      "lodo_range": [
+        0.0,
+        0.0
+      ],
+      "changed_only": [
+        {
+          "id": "netsky_hospital_classics__15",
+          "split": "test",
+          "dj": "Netsky",
+          "moved": true,
+          "parent_HC_A": false,
+          "parent_HC_B": false,
+          "arm_HC_A": false,
+          "arm_HC_B": false,
+          "parent_fail": false,
+          "arm_fail": false,
+          "src_parent": "cache",
+          "src_arm": "cache",
+          "parent_flags": {
+            "HC_A": false,
+            "HC_B": false,
+            "hole_v2": false,
+            "clash_v1": false,
+            "clash_v2": false,
+            "halfbeat": false,
+            "pump": false,
+            "hole_score": 0.0,
+            "med_lag": 0.0
+          },
+          "arm_flags": {
+            "HC_A": false,
+            "HC_B": false,
+            "hole_v2": false,
+            "clash_v1": false,
+            "clash_v2": false,
+            "halfbeat": false,
+            "pump": false,
+            "hole_score": 0.0,
+            "med_lag": 2.9
+          }
+        }
+      ]
+    },
+    "placement": [
+      {
+        "id": "netsky_hospital_classics__15",
+        "split": "test",
+        "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+        "parent_score": 40.9,
+        "arm_score": 32.43,
+        "pro": {
+          "who": "pro",
+          "out_start": 203.4,
+          "out_end": 243.4,
+          "in_start": 0.2,
+          "in_end": 40.2,
+          "out_swap": 201.4,
+          "out_start_section": "drop 2",
+          "in_start_section": "intro",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": -24.2,
+          "out_last_drop_played": "blend starts 37 bars before its end",
+          "out_time": "4:40",
+          "mix_time": "38:59",
+          "why": "what the DJ did",
+          "win": null,
+          "exit_bar": 243.4,
+          "cue_bar": 0.2,
+          "blend_start_bar": 203.4,
+          "out_exit_time": "5:35",
+          "in_time": "0:00",
+          "ht_out": [
+            "slowdown 222-242 overlaps 20 bars"
+          ],
+          "ht_in": []
+        },
+        "ours": {
+          "who": "n1120_epg_stack",
+          "out_start": 224,
+          "out_end": 240,
+          "in_start": 0,
+          "in_end": 16,
+          "out_swap": null,
+          "out_start_section": "drop 2 + slowdown/half-time",
+          "in_start_section": "intro",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": 0,
+          "out_last_drop_played": "cut 16 bars early",
+          "out_time": "5:08",
+          "mix_time": null,
+          "why": "outgoing hard slow 222-242 (in_drop,outro), overlap 16 bars, blend starts inside it",
+          "win": [
+            "n",
+            240,
+            null,
+            0,
+            16
+          ],
+          "exit_bar": 240,
+          "cue_bar": 0,
+          "blend_start_bar": 224,
+          "out_exit_time": "5:31",
+          "in_time": "0:00",
+          "ht_out": [
+            "slowdown 222-242 overlaps 16 bars"
+          ],
+          "ht_in": []
+        },
+        "variant": {
+          "who": "spex1120_stk",
+          "out_start": 176,
+          "out_end": 192,
+          "in_start": 16,
+          "in_end": 32,
+          "out_swap": null,
+          "out_start_section": "drop 2 + slowdown/half-time",
+          "in_start_section": "drop 1",
+          "touches_out_slowdown": true,
+          "in_next_drop_vs_blend_end": -16,
+          "out_last_drop_played": "cut 64 bars early",
+          "out_time": "4:02",
+          "mix_time": null,
+          "why": "no hard-span clash",
+          "win": [
+            "la",
+            192,
+            176,
+            16,
+            16
+          ],
+          "exit_bar": 192,
+          "cue_bar": 16,
+          "blend_start_bar": 176,
+          "out_exit_time": "4:24",
+          "in_time": "0:22",
+          "ht_out": [
+            "slowdown 166-177 overlaps 1 bars"
+          ],
+          "ht_in": []
+        }
+      }
+    ],
+    "decision": "lose",
+    "not_worse_held": false,
+    "not_worse_parent": false,
+    "added_hard_fails": false
+  },
+  "features": "/workspace/mixes/protrans/ranker/slowpair_features_1120.json",
+  "clips": null,
+  "clip_skipped": "No clips: neither arm was not-worse on held-out against the 34.07 floor with no new hard fails, or no pair moved.",
+  "ts": "2026-11-20 06:17:48 EST"
+}

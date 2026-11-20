@@ -1,0 +1,1178 @@
+{
+  "id": "sirenity_ofcHup56lME__28",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "pair": "Motiv - Butternut Squash -> Cnof - Yauza (Command Strange Remix)",
+  "video_id": "ofcHup56lME",
+  "cue": {
+    "incoming_bar": 47.95,
+    "incoming_section": "breakdown",
+    "outgoing_bar": 111.94,
+    "outgoing_section": "breakdown",
+    "blend_list_s": 111.0,
+    "locate_a": {
+      "z": 7.335,
+      "cc": 0.5757,
+      "mix_t": 10.379,
+      "track_t": 140.783,
+      "n": 89
+    },
+    "locate_b": {
+      "z": 6.687,
+      "cc": 0.8502,
+      "mix_t": 44.722,
+      "track_t": 86.866,
+      "n": 96
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.177,
+      "hold_db": -9.45,
+      "tail_bars": 31.9,
+      "out_p90": -8.89,
+      "in_p90": -3.6
+    },
+    "bass": {
+      "rise_db_per_beat": 0.042,
+      "hold_db": -10.58,
+      "tail_bars": 42.95,
+      "out_p90": -8.8,
+      "in_p90": -3.58
+    },
+    "highs": {
+      "rise_db_per_beat": 0.398,
+      "hold_db": -8.2,
+      "tail_bars": 32.8,
+      "out_p90": -7.84,
+      "in_p90": -4.2
+    },
+    "mids": {
+      "rise_db_per_beat": 0.118,
+      "hold_db": -10.42,
+      "tail_bars": 44.95,
+      "out_p90": -9.8,
+      "in_p90": -3.69
+    }
+  },
+  "overlap_bars": 28.454,
+  "track_a": {
+    "sections": {
+      "n_bars": 196,
+      "intro_end": 32,
+      "drop1": 32,
+      "breakdown": 95,
+      "drop2": 128,
+      "outro_start": 191,
+      "music_end": 196,
+      "drops": [
+        [
+          32,
+          95
+        ],
+        [
+          128,
+          191
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 7
+        },
+        {
+          "name": "build",
+          "start": 7,
+          "end": 32
+        },
+        {
+          "name": "drop",
+          "start": 32,
+          "end": 95
+        },
+        {
+          "name": "breakdown",
+          "start": 95,
+          "end": 124
+        },
+        {
+          "name": "build",
+          "start": 124,
+          "end": 128
+        },
+        {
+          "name": "drop",
+          "start": 128,
+          "end": 191
+        },
+        {
+          "name": "outro",
+          "start": 191,
+          "end": 196
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -18.12,
+          "drums": -11.81,
+          "energy": -11.81
+        },
+        "build": {
+          "bass": -27.02,
+          "drums": -15.71,
+          "energy": -15.71
+        },
+        "drop": {
+          "bass": -10.35,
+          "drums": -8.26,
+          "energy": -8.26
+        },
+        "breakdown": {
+          "bass": -34.19,
+          "drums": -17.09,
+          "energy": -17.09
+        },
+        "outro": {
+          "bass": -64.55,
+          "drums": -41.42,
+          "energy": -41.42
+        }
+      },
+      "intro_len": 32,
+      "n_drops": 2
+    },
+    "bpm": 174.004,
+    "yt": "soundcloud_1185796261",
+    "title": "Motiv - Butternut Squash"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 212,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 30,
+      "drop2": 80,
+      "outro_start": 184,
+      "music_end": 212,
+      "drops": [
+        [
+          48,
+          76
+        ],
+        [
+          80,
+          104
+        ],
+        [
+          128,
+          156
+        ],
+        [
+          160,
+          184
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 4
+        },
+        {
+          "name": "build",
+          "start": 4,
+          "end": 30
+        },
+        {
+          "name": "breakdown",
+          "start": 30,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 76
+        },
+        {
+          "name": "build",
+          "start": 76,
+          "end": 80
+        },
+        {
+          "name": "drop",
+          "start": 80,
+          "end": 104
+        },
+        {
+          "name": "build",
+          "start": 104,
+          "end": 110
+        },
+        {
+          "name": "breakdown",
+          "start": 110,
+          "end": 128
+        },
+        {
+          "name": "drop",
+          "start": 128,
+          "end": 156
+        },
+        {
+          "name": "build",
+          "start": 156,
+          "end": 160
+        },
+        {
+          "name": "drop",
+          "start": 160,
+          "end": 184
+        },
+        {
+          "name": "outro",
+          "start": 184,
+          "end": 212
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -40.15,
+          "drums": -18.13,
+          "energy": -18.13
+        },
+        "build": {
+          "bass": -28.24,
+          "drums": -16.52,
+          "energy": -16.52
+        },
+        "breakdown": {
+          "bass": -42.76,
+          "drums": -22.96,
+          "energy": -22.96
+        },
+        "drop": {
+          "bass": -11.39,
+          "drums": -9.66,
+          "energy": -9.66
+        },
+        "outro": {
+          "bass": -55.51,
+          "drums": -32.11,
+          "energy": -32.11
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 4
+    },
+    "bpm": 173.999,
+    "yt": "OarvSHiFOb8",
+    "title": "Cnof - Yauza (Command Strange Remix)"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 111.94,
+    "outgoing_section": "breakdown",
+    "outgoing_bars_into_section": 16.94,
+    "outgoing_bars_left": 84.06,
+    "outgoing_bars_to_outro": 79.06,
+    "incoming_cue_bar": 47.95,
+    "incoming_section": "breakdown",
+    "incoming_bars_into_section": 17.95,
+    "incoming_rel_drop1": -0.05,
+    "bass_swap_bar": 0.0
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -8.79,
+        -9.81,
+        -10.98,
+        -9.6,
+        -9.51,
+        -9.12,
+        -9.66,
+        -8.72,
+        -9.41,
+        -9.07,
+        -9.07,
+        -8.87,
+        -8.71,
+        -9.13,
+        -10.03,
+        -10.08,
+        -10.55,
+        -15.32,
+        -18.59,
+        -17.12,
+        -17.1,
+        -19.41,
+        -18.05,
+        -19.58,
+        -19.32,
+        -20.45,
+        -19.95,
+        -20.83,
+        -18.48,
+        -22.73,
+        -21.26,
+        -20.54,
+        -22.63,
+        -30.39,
+        -41.37,
+        -39.76,
+        -39.15,
+        -39.69,
+        -36.1,
+        -38.41,
+        -35.2,
+        -37.14,
+        -37.76,
+        -37.86,
+        -40.19,
+        -36.92
+      ],
+      "b": [
+        -8.05,
+        -5.96,
+        -4.63,
+        -5.29,
+        -4.15,
+        -4.68,
+        -4.22,
+        -5.16,
+        -5.59,
+        -6.28,
+        -4.49,
+        -4.59,
+        -5.13,
+        -5.52,
+        -5.64,
+        -7.14,
+        -9.45,
+        -7.4,
+        -3.98,
+        -3.99,
+        -3.82,
+        -4.02,
+        -3.68,
+        -4.04,
+        -4.12,
+        -4.04,
+        -4.32,
+        -4.25,
+        -4.21,
+        -3.99,
+        -4.25,
+        -4.22,
+        -4.0,
+        -4.15,
+        -3.59,
+        -3.64,
+        -3.58,
+        -3.61,
+        -3.65,
+        -3.61,
+        -3.75,
+        -3.67,
+        -3.67,
+        -3.68,
+        -3.58,
+        -3.55
+      ]
+    },
+    "bass": {
+      "a": [
+        -7.97,
+        -9.78,
+        -12.96,
+        -10.13,
+        -9.33,
+        -10.76,
+        -14.05,
+        -10.55,
+        -13.71,
+        -10.33,
+        -13.04,
+        -9.68,
+        -13.58,
+        -10.03,
+        -12.52,
+        -10.03,
+        -11.46,
+        -15.45,
+        -5.87,
+        -13.18,
+        -9.48,
+        -20.35,
+        -6.38,
+        -15.18,
+        -19.26,
+        -33.84,
+        -30.78,
+        -22.3,
+        -26.91,
+        -33.6,
+        -33.77,
+        -30.19,
+        -18.36,
+        -31.9,
+        -35.41,
+        -50.7,
+        -32.02,
+        -43.9,
+        -28.3,
+        -41.66,
+        -38.98,
+        -42.43,
+        -21.98,
+        -42.43,
+        -30.31,
+        -46.59
+      ],
+      "b": [
+        -6.91,
+        -4.67,
+        -4.05,
+        -4.02,
+        -4.5,
+        -3.97,
+        -3.83,
+        -4.06,
+        -4.48,
+        -4.55,
+        -3.99,
+        -4.04,
+        -3.94,
+        -3.92,
+        -3.73,
+        -3.85,
+        -4.71,
+        -5.08,
+        -3.79,
+        -4.0,
+        -3.69,
+        -3.85,
+        -3.44,
+        -3.91,
+        -3.89,
+        -3.81,
+        -3.82,
+        -3.99,
+        -3.73,
+        -3.64,
+        -3.66,
+        -3.84,
+        -3.7,
+        -3.77,
+        -3.6,
+        -3.64,
+        -3.59,
+        -3.63,
+        -3.66,
+        -3.61,
+        -3.75,
+        -3.67,
+        -3.68,
+        -3.68,
+        -3.59,
+        -3.75
+      ]
+    },
+    "mids": {
+      "a": [
+        -9.16,
+        -10.02,
+        -15.44,
+        -12.04,
+        -13.12,
+        -11.95,
+        -12.44,
+        -10.75,
+        -10.84,
+        -9.2,
+        -9.79,
+        -9.69,
+        -10.79,
+        -10.6,
+        -10.46,
+        -11.06,
+        -10.76,
+        -14.42,
+        -15.74,
+        -15.03,
+        -14.58,
+        -15.69,
+        -14.71,
+        -15.99,
+        -14.98,
+        -15.08,
+        -15.43,
+        -16.01,
+        -13.91,
+        -15.12,
+        -15.49,
+        -16.89,
+        -23.7,
+        -25.93,
+        -33.83,
+        -29.87,
+        -31.49,
+        -30.07,
+        -29.54,
+        -26.51,
+        -30.5,
+        -30.89,
+        -26.98,
+        -23.88,
+        -26.18,
+        -24.22
+      ],
+      "b": [
+        -7.73,
+        -6.05,
+        -4.42,
+        -5.16,
+        -4.03,
+        -4.62,
+        -4.09,
+        -5.11,
+        -5.56,
+        -6.37,
+        -4.4,
+        -4.53,
+        -4.98,
+        -5.5,
+        -5.76,
+        -7.86,
+        -10.81,
+        -8.65,
+        -5.04,
+        -4.91,
+        -5.12,
+        -5.26,
+        -4.8,
+        -5.35,
+        -5.48,
+        -5.77,
+        -5.41,
+        -5.49,
+        -5.81,
+        -5.91,
+        -5.27,
+        -4.83,
+        -3.9,
+        -4.44,
+        -3.7,
+        -3.79,
+        -3.68,
+        -3.75,
+        -3.68,
+        -3.83,
+        -3.79,
+        -3.73,
+        -3.95,
+        -3.88,
+        -3.61,
+        -3.65
+      ]
+    },
+    "highs": {
+      "a": [
+        -10.48,
+        -8.93,
+        -8.8,
+        -8.32,
+        -7.65,
+        -7.82,
+        -7.31,
+        -7.69,
+        -7.77,
+        -8.15,
+        -8.0,
+        -8.22,
+        -8.2,
+        -10.14,
+        -10.14,
+        -9.73,
+        -9.97,
+        -13.99,
+        -19.62,
+        -23.59,
+        -25.04,
+        -24.35,
+        -24.8,
+        -20.51,
+        -21.35,
+        -25.14,
+        -24.56,
+        -26.22,
+        -24.33,
+        -24.38,
+        -24.85,
+        -20.37,
+        -16.02,
+        -24.58,
+        -25.08,
+        -26.96,
+        -25.42,
+        -26.69,
+        -25.99,
+        -27.07,
+        -25.53,
+        -26.21,
+        -27.01,
+        -26.93,
+        -26.99,
+        -25.6
+      ],
+      "b": [
+        -7.05,
+        -7.18,
+        -7.87,
+        -8.89,
+        -7.31,
+        -6.89,
+        -8.38,
+        -6.11,
+        7.22,
+        1.87,
+        -8.67,
+        -8.35,
+        -1.39,
+        0.65,
+        -7.42,
+        -8.36,
+        -9.13,
+        -7.56,
+        -5.17,
+        -4.27,
+        -4.58,
+        -4.4,
+        -4.67,
+        -4.57,
+        -5.04,
+        -4.57,
+        -5.03,
+        -4.89,
+        -4.99,
+        -4.72,
+        -4.71,
+        -4.71,
+        -4.54,
+        -4.53,
+        -4.34,
+        -4.33,
+        -4.3,
+        -4.35,
+        -4.23,
+        -4.39,
+        -4.39,
+        -4.34,
+        -4.22,
+        -4.46,
+        -4.21,
+        -4.51
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        192,
+        null,
+        32,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.95,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 3,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 4,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 112.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 3,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 3,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 80.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 3,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 80.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 4,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 112.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 4,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 112.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 4,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 112.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 3,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 3,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 80.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 3,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 80.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 4,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 112.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 4,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 112.05,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        128,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 4,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 112.05,
+      "section_match": false,
+      "relevance": 0
+    }
+  ]
+}

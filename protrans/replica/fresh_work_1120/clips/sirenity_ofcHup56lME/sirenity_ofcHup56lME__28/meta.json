@@ -1,0 +1,29 @@
+{
+  "id": "sirenity_ofcHup56lME__28",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "a": {
+    "title": "Motiv - Butternut Squash",
+    "yt": "soundcloud_1185796261",
+    "t": 2671.0,
+    "source": "soundcloud",
+    "url": "https://soundcloud.com/motiv-7/motiv-butternut-squash"
+  },
+  "b": {
+    "title": "Cnof - Yauza (Command Strange Remix)",
+    "yt": "OarvSHiFOb8",
+    "t": 2782.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=OarvSHiFOb8"
+  },
+  "window": {
+    "mix_t_a": 2671.0,
+    "mix_t_b": 2782.0,
+    "mix_t_next": 2826.0,
+    "hint_a_played_sec": 111.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__28/pro.wav",
+  "pro_clip_start": 2758.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__28"
+}

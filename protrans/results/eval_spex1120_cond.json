@@ -1,0 +1,255 @@
+{
+  "variant": "spex1120_cond",
+  "slowpair_cond": true,
+  "v3": {
+    "train": 32.91,
+    "test": 34.07,
+    "n": 33,
+    "n_fail": 0
+  },
+  "arm": {
+    "variant": "spex1120_cond",
+    "v3": {
+      "train": 32.91,
+      "test": 34.07,
+      "n": 33,
+      "n_fail": 0
+    }
+  },
+  "base": {
+    "variant": "bfb1120_base",
+    "v3": {
+      "train": 32.4,
+      "test": 34.07,
+      "n": 33,
+      "n_fail": 0
+    }
+  },
+  "exit_only": {
+    "train": 32.91,
+    "test": 32.28,
+    "n": 33,
+    "n_fail": 0,
+    "n_changed": 3
+  },
+  "ci_test": {
+    "n": 12,
+    "n_mix": 4,
+    "mean_delta": 0.0,
+    "ci": [
+      0.0,
+      0.0
+    ],
+    "includes_zero": true
+  },
+  "ci_train": {
+    "n": 21,
+    "n_mix": 2,
+    "mean_delta": 0.503,
+    "ci": [
+      0.0,
+      1.32
+    ],
+    "includes_zero": true
+  },
+  "n_case_a": 3,
+  "n_fired": 1,
+  "n_changed": 1,
+  "changed": [
+    {
+      "id": "joe_syntax_hospital__12",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "pair": "Cyantific - Ghetto Blaster -> S.P.Y - Seconds To Midnight",
+      "parent_win": [
+        "n",
+        224,
+        null,
+        48,
+        16
+      ],
+      "win": [
+        "la",
+        176,
+        160,
+        16,
+        16
+      ],
+      "parent_score": 32.29,
+      "arm_score": 42.85,
+      "drop_leave": true,
+      "case_a": true,
+      "why": "hard outro after the last drop, not in-drop; incoming drop can land in the blend"
+    }
+  ],
+  "case_a_held": [
+    {
+      "id": "netsky_hospital_classics__17",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Logistics - Together -> Apex - Just One Second (London Elektricity Remix)",
+      "parent_win": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "win": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "parent_score": 33.35,
+      "arm_score": 33.35,
+      "drop_leave": false,
+      "case_a": true,
+      "why": "in-drop slowdown (not a pure hard outro after the last drop)"
+    },
+    {
+      "id": "netsky_hospital_classics__15",
+      "split": "test",
+      "dj": "Netsky",
+      "pair": "Netsky - Memory Lane -> Netsky - The Whistle Song",
+      "parent_win": [
+        "n",
+        240,
+        null,
+        0,
+        16
+      ],
+      "win": [
+        "n",
+        240,
+        null,
+        0,
+        16
+      ],
+      "parent_score": 40.9,
+      "arm_score": 40.9,
+      "drop_leave": false,
+      "case_a": true,
+      "why": "in-drop slowdown (not a pure hard outro after the last drop)"
+    }
+  ],
+  "hc": {
+    "parent_fail": 8,
+    "arm_fail": 7,
+    "parent_HC_A": 7,
+    "parent_HC_B": 6,
+    "arm_HC_A": 6,
+    "arm_HC_B": 6,
+    "new_fails": [],
+    "fixed": [
+      "joe_syntax_hospital__12"
+    ],
+    "lodo_range": [
+      -0.05,
+      0.0
+    ]
+  },
+  "lodo": {
+    "Hybrid Minds": {
+      "held_dj": {
+        "train": 32.38,
+        "test": null,
+        "n": 13,
+        "n_moved": 0
+      },
+      "rest": {
+        "train": 33.76,
+        "test": 34.07,
+        "n": 20,
+        "n_moved": 1
+      },
+      "rest_delta": 0.528,
+      "held_delta": 0.0
+    },
+    "Joe Syntax": {
+      "held_dj": {
+        "train": 33.76,
+        "test": null,
+        "n": 8,
+        "n_moved": 1
+      },
+      "rest": {
+        "train": 32.38,
+        "test": 34.07,
+        "n": 25,
+        "n_moved": 0
+      },
+      "rest_delta": 0.0,
+      "held_delta": 1.32
+    },
+    "Maduk": {
+      "held_dj": {
+        "train": null,
+        "test": 30.23,
+        "n": 3,
+        "n_moved": 0
+      },
+      "rest": {
+        "train": 32.91,
+        "test": 35.35,
+        "n": 30,
+        "n_moved": 1
+      },
+      "rest_delta": 0.352,
+      "held_delta": 0.0
+    },
+    "Netsky": {
+      "held_dj": {
+        "train": null,
+        "test": 34.81,
+        "n": 5,
+        "n_moved": 0
+      },
+      "rest": {
+        "train": 32.91,
+        "test": 33.54,
+        "n": 28,
+        "n_moved": 1
+      },
+      "rest_delta": 0.377,
+      "held_delta": 0.0
+    },
+    "Pola & Bryson": {
+      "held_dj": {
+        "train": null,
+        "test": 37.97,
+        "n": 3,
+        "n_moved": 0
+      },
+      "rest": {
+        "train": 32.91,
+        "test": 32.77,
+        "n": 30,
+        "n_moved": 1
+      },
+      "rest_delta": 0.352,
+      "held_delta": 0.0
+    },
+    "Wilkinson": {
+      "held_dj": {
+        "train": null,
+        "test": 30.2,
+        "n": 1,
+        "n_moved": 0
+      },
+      "rest": {
+        "train": 32.91,
+        "test": 34.42,
+        "n": 32,
+        "n_moved": 1
+      },
+      "rest_delta": 0.33,
+      "held_delta": 0.0
+    }
+  },
+  "decision": "match_or_beat_floor",
+  "not_worse_held": true,
+  "added_hard_fails": false,
+  "ts": "2026-11-20 06:21:43 EST"
+}

@@ -184,3 +184,48 @@ def test_exit_only_still_moves_case_a():
     assert info['changed'] is True
     assert list(new[0][1]['win']) == early
 
+def test_cond_flag_off_by_default(monkeypatch):
+    monkeypatch.delenv('SLOWPAIR_COND', raising=False)
+    assert S.cond_on() is False
+    assert S.cond_on('1') is True and S.cond_on('0') is False
+    assert 'SLOWPAIR_COND' not in json.load(open(os.path.join(os.path.dirname(__file__), '..', '..', 'protrans', 'rules.json')))
+
+
+def test_looks_like_drop_leave_pure_outro_not_indrop():
+    # Ghetto Blaster shape: hard outro after last drop, incoming drop can land.
+    a_sec = _sec([[40, 128], [144, 192]], 235)
+    a_sp = S.hard_spans(slow=[[198, 235]], ht=[], sec=a_sec)
+    b_sec = _sec([[64, 128]], 224)
+    assert S.looks_like_drop_leave(a_sec, a_sp, b_sec) is True
+    assert S.incoming_drop_can_land(b_sec, 16) is True
+    # in-drop + outro (the two Netsky Case A losses) is not this shape
+    n_sec = _sec([[48, 112], [160, 240]], 257)
+    n_sp = S.hard_spans(slow=[[234, 257]], ht=[], sec=n_sec)
+    assert 'in_drop' in n_sp[0]['labels'] and 'outro' in n_sp[0]['labels']
+    assert S.looks_like_drop_leave(n_sec, n_sp, b_sec) is False
+
+
+def test_cond_applies_case_a_only_on_drop_leave_shape():
+    a_sec = _sec([[40, 128], [144, 192]], 235)
+    a_sp = S.hard_spans(slow=[[198, 235]], ht=[], sec=a_sec)
+    b_sec = _sec([[64, 128]], 224)
+    default = ['n', 224, None, 48, 16]
+    early = ['n', 208, None, 48, 16]
+    # same clash without the gate
+    assert S.window_clash(default, a_sp, [], a_sec, cases=('A',), require_drop_leave=False)['cases'] == ['A']
+    # with the gate, Ghetto Blaster still clashes and can move
+    assert S.window_clash(default, a_sp, [], a_sec, cases=('A',), b_sec=b_sec, require_drop_leave=True)['cases'] == ['A']
+    cs = [dict(win=default, cost=0.0), dict(win=early, cost=2.0)]
+    alt, info = S.pick_alt(cs, default, a_sp, [], a_sec, b_sec, cases=('A',), require_drop_leave=True)
+    assert alt == early and info['reason'] == 'ok'
+    # in-drop+outro Case A is ignored under the gate, so the default stays
+    n_sec = _sec([[48, 112], [160, 256]], 257)
+    n_sp = S.hard_spans(slow=[[234, 257]], ht=[], sec=n_sec)
+    n_def = ['n', 256, None, 32, 16]
+    n_alt = ['n', 240, None, 32, 16]
+    assert S.window_clash(n_def, n_sp, [], n_sec, cases=('A',), require_drop_leave=False)['cases'] == ['A']
+    assert S.window_clash(n_def, n_sp, [], n_sec, cases=('A',), b_sec=b_sec, require_drop_leave=True) is None
+    cs2 = [dict(win=n_def, cost=0.0), dict(win=n_alt, cost=2.0)]
+    alt2, info2 = S.pick_alt(cs2, n_def, n_sp, [], n_sec, b_sec, cases=('A',), require_drop_leave=True)
+    assert alt2 is None and info2['reason'] == 'default_ok'
+

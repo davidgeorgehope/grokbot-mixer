@@ -29,3 +29,82 @@ def test_sung_sources_pass_and_talk_flags():
     r2 = T.assess(talky, a, b)
     assert r2['flagged'], r2
     assert r2['talk_s'] >= 4.0, r2
+
+def test_thresholds_unchanged():
+    assert T.TALK_MIN_S == 4.0
+    assert T.TALK_MIN_FRAC == 0.15
+
+
+def test_separate_budget_allows_work_under_the_cap():
+    assert T._separate_budget(1, 1.0, dur_s=64.0, n_limit=32, t_limit=900) == 1.0
+    assert T._separate_budget(32, 900.0, dur_s=64.0, n_limit=32, t_limit=900) == 900.0
+
+
+def test_separate_budget_raises_on_too_many_chunks():
+    try:
+        T._separate_budget(33, 1.0, dur_s=64.0, n_limit=32, t_limit=900)
+    except T.TalkoverSeparateError as e:
+        assert 'talkover_separate_budget' in str(e)
+        assert 'chunks=33' in str(e)
+    else:
+        raise AssertionError('expected TalkoverSeparateError')
+
+
+def test_separate_budget_raises_on_timeout():
+    try:
+        T._separate_budget(3, 901.0, dur_s=64.0, n_limit=32, t_limit=900)
+    except T.TalkoverSeparateError as e:
+        assert 'talkover_separate_timeout' in str(e)
+        assert 'after 901s' in str(e)
+    else:
+        raise AssertionError('expected TalkoverSeparateError')
+
+
+def test_check_clip_rejects_on_separate_timeout(monkeypatch, tmp_path):
+    pro = tmp_path / 'clip' / 'pro.wav'
+    pro.parent.mkdir()
+    pro.write_bytes(b'')
+    monkeypatch.setattr(T, 'check_clip', T.check_clip)  # keep real function
+    import score
+    monkeypatch.setattr(score, '_load', lambda *a, **k: np.zeros(44100, np.float32))
+    monkeypatch.setattr(score, 'locate_offset', lambda *a, **k: 0.0)
+    def boom(*a, **k):
+        raise T.TalkoverSeparateError('talkover_separate_timeout after 900s chunks=3 audio=64.0s')
+    monkeypatch.setattr(T, '_vocals', boom)
+    r = T.check_clip(str(pro), str(tmp_path / 'a.m4a'), str(tmp_path / 'b.m4a'))
+    assert r.get('flagged') is False
+    assert 'talkover_separate_timeout' in r.get('error', '')
+
+
+def test_wait_or_kill_terminates_a_stuck_worker():
+    import subprocess, sys
+    proc = subprocess.Popen([sys.executable, '-c', 'import time; time.sleep(3600)'])
+    try:
+        T._wait_or_kill(proc, 0.4, label='test', dur_s=64.0)
+    except T.TalkoverSeparateError as e:
+        assert 'talkover_separate_timeout' in str(e)
+    else:
+        raise AssertionError('expected TalkoverSeparateError')
+    finally:
+        if proc.poll() is None:
+            proc.kill(); proc.wait(timeout=2)
+    assert proc.poll() is not None
+
+
+def test_stem_worker_is_standalone_script():
+    path = T._stem_worker_path()
+    assert path.endswith('talkover_stem_worker.py')
+    assert os.path.isfile(path)
+    src = open(path).read()
+    assert "if __name__ == '__main__'" in src
+    assert 'T._IN_VOCALS_WORKER = True' in src
+
+
+def test_vocals_rejects_overlong_audio():
+    y = np.zeros(int(T.TALK_MAX_AUDIO_S * 44100) + 44100, np.float32)
+    try:
+        T._vocals(y, label='long')
+    except T.TalkoverSeparateError as e:
+        assert 'talkover_input_too_long' in str(e)
+    else:
+        raise AssertionError('expected TalkoverSeparateError')

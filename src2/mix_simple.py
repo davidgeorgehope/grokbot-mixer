@@ -720,6 +720,13 @@ if GC:
 # always plans with --dry and then engine.render_deck. If the lock is only applied
 # on the full-mix path, dry_meta never gets blend_lock_ms and the official clip
 # is a no-op (2026-11-17 RCA, We Are One -> Ghetto Blaster stayed 123 ms apart).
+# BASS_FILL (2026-11-20 midnight research, off by default): src2/bass_fill.py. Render-only; windows, swap and fader unchanged.
+if int(os.environ.get('BASS_FILL',0) or 0) and not GC:
+  import bass_fill as _BF
+  def _bf_lows(x):
+    g=track(x)['g']['bar'];return g.get('low',g['all'])
+  BF_LOG=_BF.apply(decks,trans,_bf_lows,db=float(os.environ.get('BASS_FILL_DB',6) or 6),skip=set(PIN),secs_of=lambda x:sections.get(x))
+  for _r in BF_LOG:print('BASS_FILL',_r,file=sys.stderr)
 import finephase as _FP
 if _FP.lock_flag_on():
   _FP.lock_decks(decks,trans)

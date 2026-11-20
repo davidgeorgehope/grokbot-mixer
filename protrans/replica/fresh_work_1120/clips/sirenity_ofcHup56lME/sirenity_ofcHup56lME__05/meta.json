@@ -1,0 +1,29 @@
+{
+  "id": "sirenity_ofcHup56lME__05",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "a": {
+    "title": "Robert Manos, Bigchoc - Memories (Funktional Remix)",
+    "yt": "V3WIyvz8elo",
+    "t": 399.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=V3WIyvz8elo"
+  },
+  "b": {
+    "title": "Etherwood - Komorebi",
+    "yt": "yxeJtcYQpIM",
+    "t": 510.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=yxeJtcYQpIM"
+  },
+  "window": {
+    "mix_t_a": 399.0,
+    "mix_t_b": 510.0,
+    "mix_t_next": 597.0,
+    "hint_a_played_sec": 111.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__05/pro.wav",
+  "pro_clip_start": 486.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__05"
+}

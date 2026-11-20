@@ -1,0 +1,74 @@
+{
+ "hole_v2 (T0=30, official)": {
+  "dev": {
+   "clean": 0.014,
+   "hole4": 0.274,
+   "hole8": 0.932,
+   "clash60": 0.014,
+   "clash110": 0.014,
+   "pump": 0.014
+  },
+  "heldout": {
+   "clean": 0.0,
+   "hole4": 0.3,
+   "hole8": 0.9,
+   "clash60": 0.0,
+   "clash110": 0.0,
+   "pump": 0.033
+  }
+ },
+ "hole_v3 (T0=38)": {
+  "dev": {
+   "clean": 0.027,
+   "hole4": 0.808,
+   "hole8": 0.973,
+   "clash60": 0.027,
+   "clash110": 0.027,
+   "pump": 0.027
+  },
+  "heldout": {
+   "clean": 0.067,
+   "hole4": 0.8,
+   "hole8": 0.967,
+   "clash60": 0.067,
+   "clash110": 0.067,
+   "pump": 0.067
+  }
+ },
+ "clash_v2 (median lag, official)": {
+  "dev": {
+   "clean": 0.027,
+   "hole4": 0.014,
+   "hole8": 0.014,
+   "clash60": 0.151,
+   "clash110": 0.397,
+   "pump": 0.027
+  },
+  "heldout": {
+   "clean": 0.033,
+   "hole4": 0.033,
+   "hole8": 0.0,
+   "clash60": 0.167,
+   "clash110": 0.567,
+   "pump": 0.033
+  }
+ },
+ "clash_frac (new 11-20)": {
+  "dev": {
+   "clean": 0.027,
+   "hole4": 0.041,
+   "hole8": 0.0,
+   "clash60": 0.534,
+   "clash110": 0.644,
+   "pump": 0.027
+  },
+  "heldout": {
+   "clean": 0.033,
+   "hole4": 0.033,
+   "hole8": 0.033,
+   "clash60": 0.667,
+   "clash110": 0.733,
+   "pump": 0.0
+  }
+ }
+}

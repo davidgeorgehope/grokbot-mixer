@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -145,7 +145,7 @@ FAMILY_COST = {'nat_long': 0.0, 'nat_short': 0.01, 'out_loop': 0.02, 'in_loop': 
                'cue_early': 0.05, 'cue_late': 0.06, 'phrase_cut': 0.07, 'swap_early': 0.08, 'swap_late': 0.09,
                'sneak_in': 0.10, 'rated': 0.0, 'hint_long': 0.0, 'hint_short': 0.01,
                'plan_breakdown_drop': 0.01, 'plan_drop1_end': 0.01,
-               'cons_cue': 0.05}  # cons_cue: 2026-11-19 CONSONANCE research family (same cost as cue_early); only offered when CONSONANCE=1  # plan_*: 2026-11-15 window planner, same costs as nat_short; only offered when window_planner is on
+               'cons_cue': 0.05, 'slowpair': 0.01}  # cons_cue: 2026-11-19 CONSONANCE research family (same cost as cue_early); only offered when CONSONANCE=1  # slowpair: 2026-11-20 SLOWPAIR research family (same cost as nat_short); only offered when SLOWPAIR=1  # plan_*: 2026-11-15 window planner, same costs as nat_short; only offered when window_planner is on
 
 def family_cost(fam, rules=None):
     over = (rules or {}).get('family_cost') or {}
@@ -365,6 +365,29 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                 cons_info['terms'][c['fam']] = dict(r=r, term=round(t, 4), base=round(cost, 4))
                 new_scored.append((cost + t, c))
             scored = new_scored
+        # SLOWPAIR=1 (off by default, 2026-11-20 research): pair-aware hard slowdown / half-time
+        # handling (src2/slowpair.py). Adds COST to a clashing family and nominates one 'slowpair'
+        # alternative from already-scored engine candidates. Not in rules.json.
+        sp_info = None
+        if _flag_on(env.get('SLOWPAIR') or rules.get('SLOWPAIR') or os.environ.get('SLOWPAIR')):
+            import slowpair as _SP
+            def _sp_cost(win, fam):
+                c = dict(fam=fam, win=list(win), env={})
+                cost = 0.0
+                if hw and hb is not None:
+                    cost += hw * abs(float(win[1]) - hb) / max(nb, 1)
+                if lp and win[4] != lp:
+                    cost += 0.15
+                if pref and not str(fam).startswith(str(pref)):
+                    cost += float(rules.get('family_prior_w') or 0)
+                if win[0] in ('la', 'lb', 'ab', 'lx'):
+                    cost += float(rules.get('loop_fam_pen') or 0)
+                _pw = float(rules.get('phase_pref_w') or 0); _lw = float(rules.get('linger_pen_w') or 0); _bw = float(rules.get('breakdown_pen_w') or 0)
+                if _pw or _lw or _bw:
+                    cost += _phase_pick_cost(a, b, win, _pw, _lw, _bw)
+                cost += family_cost(fam, rules)
+                return cost
+            scored, sp_info = _SP.plan_pair(cs, min(scored, key=lambda x: x[0])[1]['win'], a, b, scored=scored, base_cost=_sp_cost)
         scored.sort(key=lambda x: x[0])
         pick = scored[0][1]
         if cons_info is not None:
@@ -519,7 +542,7 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'),
                     planner=(planner_choice if planner_choice else pick.get('planner')),
                     ranker=(ranker_info if ranker_on else None), replica=replica_info, dropcand=drop_info, picker=picker_info,
-                    consonance=cons_info)
+                    consonance=cons_info, slowpair=sp_info)
         return info
     finally:
         os.chdir(oldcwd)

@@ -1,0 +1,22 @@
+{
+  "variant": "bfs1120_smoke",
+  "bass_fill": true,
+  "v3": {
+    "train": 27.21,
+    "test": null,
+    "n": 2,
+    "n_fail": 0
+  },
+  "by_dj": {
+    "Hybrid Minds": {
+      "n": 1,
+      "mean": 24.43,
+      "split": "train"
+    },
+    "Joe Syntax": {
+      "n": 1,
+      "mean": 29.99,
+      "split": "train"
+    }
+  }
+}

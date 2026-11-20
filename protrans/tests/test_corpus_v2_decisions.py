@@ -65,3 +65,23 @@ if __name__ == '__main__':
     test_pro_decision_relatives()
     test_bass_swap_and_per_bar()
     print('ok')
+
+
+def test_process_pair_rejects_talkover_timeout(tmp_path, monkeypatch):
+    """A Demucs time/iteration bound is a reject, not an admit. Thresholds unchanged."""
+    import talkover
+    monkeypatch.setattr(P, 'cut_clip_v2', lambda rec, mix: {**rec, 'pro_clip': str(tmp_path / 'pro.wav')})
+    monkeypatch.setattr(P, 'ensure_source_v2', lambda *a, **k: str(tmp_path / 'src.m4a'))
+    monkeypatch.setattr(P.admit, 'needed_source_duration', lambda *a, **k: 60)
+    monkeypatch.setattr(P.version_match, 'match_pair', lambda *a, **k: dict(passed=True, reasons=[]))
+    monkeypatch.setattr(talkover, 'check_clip', lambda *a, **k: dict(
+        error='talkover_separate_timeout after 900s chunks=3 audio=64.0s', flagged=False))
+    c = dict(id='sirenity_ofcHup56lME__08', mix_id='sirenity_ofcHup56lME', dj='Sirenity',
+             t_a=663.0, t_b=774.0, t_next=884.0, video_id='ofcHup56lME',
+             a=dict(title='Degs, Poly & Bryson - Sleepless', yt='a'),
+             b=dict(title='LSB - The Hurting', yt='b'))
+    row, rec, sa, sb = P.process_pair_v2(c, str(tmp_path / 'mix.m4a'))
+    assert row['verdict'] == 'reject'
+    assert 'talkover_separate_timeout' in (row.get('reason') or '')
+    assert talkover.TALK_MIN_S == 4.0
+    assert talkover.TALK_MIN_FRAC == 0.15

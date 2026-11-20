@@ -114,6 +114,8 @@ def render_deck(d):
     y=y*(1-w[:,None])+yb*w[:,None]
   ib=d.get('ib')
   if ib:y=y+_ib_layer(tr,d,m,n,y)  # incoming beat loop under its beatless intro (beatmelody.py), before the bass lane so the swap gates it
+  if d.get('bassfill'):  # BASS_FILL (2026-11-20 research, off by default): incoming's own drop bass under its thin intro, before the bass lane
+    import bass_fill as _BF;y=_BF.render(y,tr,d,_bars,BS,SR,XO)
   ds=d.get('dswap')
   if ds and 'beat' not in src:  # drum swap: outgoing drums+bass stem out over ds['xf'] bars from mix bar ds['bar']; melody keeps the crossfader tail
     yb=_bars(tr,m,tr['st']['beat'],n,extra=EX);w=np.clip((np.arange(n)/BS+d['start_bar']-ds['bar'])/max(ds['xf'],1e-9),0,1).astype(np.float32)

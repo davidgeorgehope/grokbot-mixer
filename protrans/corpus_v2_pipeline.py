@@ -590,8 +590,13 @@ def process_pair_v2(c, mix_audio):
     )
     if gate.get('passed'):
         tk = talkover.check_clip(rec['pro_clip'], sa, sb)
-        row['talkover'] = {k: tk.get(k) for k in ('talk_s', 'talk_frac', 'flagged')}
-        if tk.get('flagged'):
+        row['talkover'] = {k: tk.get(k) for k in ('talk_s', 'talk_frac', 'flagged', 'error')}
+        if tk.get('error'):
+            # Fail closed: a bound or separator failure is not an admit.
+            row['verdict'] = 'reject'
+            row['reason'] = str(tk['error'])[:300]
+            gate['passed'] = False
+        elif tk.get('flagged'):
             row['verdict'] = 'reject'
             row['reason'] = f"dj_talkover {tk.get('talk_s')}s"
             gate['passed'] = False

@@ -12,7 +12,7 @@ Results are cached in results/talkover.json; flagged ids are excluded by
 admit.load_admitted(filtered=True) and run_admitted_tune.load_recs().
 """
 from __future__ import annotations
-import json, os, sys, shutil, tempfile
+import json, os, sys, shutil, tempfile, time, subprocess
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import paths
@@ -28,7 +28,30 @@ SRC_QUIET_DB = -15.0           # source vocal 'quiet' vs its own 95th pct
 UNEXPLAINED = 0.6             # unexplained energy share to count a frame as talk
 TALK_MIN_S = 4.0
 TALK_MIN_FRAC = 0.15
+# Bounds for Demucs vocal separation. HTDemucs on CPU can run for hours on a
+# 64s clip (3 stems, ~11 chunks each) with no log line, which froze ingest.
+# Thresholds above are unchanged; these only cap work and fail closed.
+TALK_STEM_TIMEOUT_S = float(os.environ.get('TALK_STEM_TIMEOUT_S', '900'))  # 15 min / stem
+TALK_MAX_CHUNKS = int(os.environ.get('TALK_MAX_CHUNKS', '32'))
+TALK_MAX_AUDIO_S = float(os.environ.get('TALK_MAX_AUDIO_S', '96'))  # official clips are 64s
 CACHE_JSON = os.path.join(paths.RESULTS, 'talkover.json')
+
+
+class TalkoverSeparateError(RuntimeError):
+    """Vocal separation exceeded a time or iteration bound."""
+
+
+def _separate_budget(n_chunks, elapsed, *, dur_s=0.0, n_limit=None, t_limit=None):
+    """Raise TalkoverSeparateError if chunk count or wall time is over the cap."""
+    n_limit = TALK_MAX_CHUNKS if n_limit is None else int(n_limit)
+    t_limit = TALK_STEM_TIMEOUT_S if t_limit is None else float(t_limit)
+    if n_chunks > n_limit:
+        raise TalkoverSeparateError(
+            f'talkover_separate_budget chunks={n_chunks} limit={n_limit} audio={dur_s:.1f}s')
+    if elapsed > t_limit:
+        raise TalkoverSeparateError(
+            f'talkover_separate_timeout after {elapsed:.0f}s chunks={n_chunks} audio={dur_s:.1f}s')
+    return elapsed
 
 def _mag(y):
     from scipy.signal import stft
@@ -122,20 +145,97 @@ def assess(pro_voc, a_voc, b_voc):
 
 # ---------- separation / alignment ----------
 _MODEL = None
-def _vocals(y44):
+_IN_VOCALS_WORKER = False
+
+
+def _wait_or_kill(proc, timeout, *, label='stem', dur_s=0.0):
+    """Wait for a stem subprocess; kill it and raise if it exceeds the wall bound."""
+    timeout = float(timeout)
+    try:
+        rc = proc.wait(timeout=timeout)
+    except subprocess.TimeoutExpired:
+        proc.terminate()
+        try:
+            proc.wait(timeout=15)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            proc.wait(timeout=5)
+        raise TalkoverSeparateError(
+            f'talkover_separate_timeout after {timeout:.0f}s chunks=? audio={dur_s:.1f}s label={label}')
+    return rc
+
+
+def _stem_worker_path():
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'talkover_stem_worker.py')
+
+
+def _vocals_impl(y44, label='stem'):
     """Demucs htdemucs vocal stem of a mono 44.1k signal -> mono 16k."""
     global _MODEL
     import torch
     from demucs.pretrained import get_model
     from demucs.apply import apply_model
     from scipy.signal import resample_poly
+    nthreads = os.environ.get('TALK_THREADS')
+    if nthreads:
+        torch.set_num_threads(max(1, int(nthreads)))
+    y44 = np.asarray(y44, dtype=np.float32).reshape(-1)
+    dur_s = len(y44) / 44100.0
+    if dur_s > TALK_MAX_AUDIO_S:
+        raise TalkoverSeparateError(
+            f'talkover_input_too_long {dur_s:.1f}s limit={TALK_MAX_AUDIO_S:.1f}s')
     if _MODEL is None:
         _MODEL = get_model('htdemucs'); _MODEL.eval()
     x = torch.tensor(np.stack([y44, y44])[None], dtype=torch.float32)
+    t0 = time.monotonic()
+    n_chunks = 0
+    def _cb(d):
+        nonlocal n_chunks
+        if (d or {}).get('state') == 'start':
+            n_chunks += 1
+            elapsed = time.monotonic() - t0
+            print(f'talkover separate {label} chunk {n_chunks} elapsed={elapsed:.0f}s audio={dur_s:.1f}s', flush=True)
+            _separate_budget(n_chunks, elapsed, dur_s=dur_s)
+    print(f'talkover separate {label} {dur_s:.1f}s start', flush=True)
     with torch.no_grad():
-        out = apply_model(_MODEL, x, device='cpu', progress=False, num_workers=0)[0]
+        out = apply_model(_MODEL, x, device='cpu', progress=False, num_workers=0, callback=_cb)[0]
+    _separate_budget(max(n_chunks, 1), time.monotonic() - t0, dur_s=dur_s)
+    print(f'talkover separate {label} done in {time.monotonic() - t0:.1f}s chunks={n_chunks}', flush=True)
     v = out[_MODEL.sources.index('vocals')].mean(0).numpy()
     return resample_poly(v, 160, 441).astype(np.float32)
+
+
+
+def _vocals(y44, label='stem'):
+    """Vocal stem with a killable wall-clock bound around each Demucs call.
+
+    Uses a standalone worker script (subprocess), not multiprocessing spawn,
+    so an unguarded caller __main__ is never re-imported.
+    """
+    y44 = np.asarray(y44, dtype=np.float32).reshape(-1)
+    dur_s = len(y44) / 44100.0
+    if dur_s > TALK_MAX_AUDIO_S:
+        raise TalkoverSeparateError(
+            f'talkover_input_too_long {dur_s:.1f}s limit={TALK_MAX_AUDIO_S:.1f}s')
+    if _IN_VOCALS_WORKER or os.environ.get('TALK_NO_SUBPROCESS') == '1':
+        return _vocals_impl(y44, label)
+    worker = _stem_worker_path()
+    with tempfile.TemporaryDirectory(prefix='talkover_stem_') as td:
+        inp = os.path.join(td, 'in.npz')
+        outp = os.path.join(td, 'out.npz')
+        errp = os.path.join(td, 'err.txt')
+        np.savez(inp, y=y44)
+        proc = subprocess.Popen(
+            [sys.executable, worker, inp, outp, label, errp],
+            cwd=os.path.dirname(worker),
+        )
+        rc = _wait_or_kill(proc, TALK_STEM_TIMEOUT_S, label=label, dur_s=dur_s)
+        if rc != 0:
+            err = open(errp).read().strip() if os.path.exists(errp) else ''
+            raise TalkoverSeparateError(err or f'talkover_separate_failed exit={rc} label={label}')
+        if not os.path.exists(outp):
+            raise TalkoverSeparateError(f'talkover_separate_failed no output label={label}')
+        return np.load(outp)['v'].astype(np.float32)
 
 def _cut(src, off_s, n, sr):
     i0 = int(round(-off_s * sr))
@@ -160,7 +260,14 @@ def check_clip(pro_path, src_a, src_b):
     if f and os.path.exists(f):
         z = np.load(f); vp, va, vb = z['p'], z['a'], z['b']
     else:
-        va = _vocals(_cut(ya, oa, n, sr)); vb = _vocals(_cut(yb, ob, n, sr)); vp = _vocals(yp)
+        try:
+            print(f'talkover check {key} start n={n} sr={sr}', flush=True)
+            va = _vocals(_cut(ya, oa, n, sr), label=f'{key}:a')
+            vb = _vocals(_cut(yb, ob, n, sr), label=f'{key}:b')
+            vp = _vocals(yp, label=f'{key}:pro')
+        except TalkoverSeparateError as e:
+            print('talkover reject', key, e, flush=True)
+            return dict(error=str(e), flagged=False)
         if f: np.savez(f, p=vp, a=va, b=vb)
     r = assess(vp, va, vb)
     r.update(off_a=round(oa, 2), off_b=round(ob, 2))

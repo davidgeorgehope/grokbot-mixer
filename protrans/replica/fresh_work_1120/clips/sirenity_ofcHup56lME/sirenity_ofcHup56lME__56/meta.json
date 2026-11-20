@@ -1,0 +1,29 @@
+{
+  "id": "sirenity_ofcHup56lME__56",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "a": {
+    "title": "London Elektricity - The Great Drum & Bass Swindle (Logistics Remix)",
+    "yt": "BWAwgUDxM6c",
+    "t": 5193.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=BWAwgUDxM6c"
+  },
+  "b": {
+    "title": "Netsky, Darrison - Escape",
+    "yt": "na79dfVHpp0",
+    "t": 5386.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=na79dfVHpp0"
+  },
+  "window": {
+    "mix_t_a": 5193.0,
+    "mix_t_b": 5386.0,
+    "mix_t_next": 5518.0,
+    "hint_a_played_sec": 193.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__56/pro.wav",
+  "pro_clip_start": 5362.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__56"
+}

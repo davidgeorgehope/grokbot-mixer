@@ -1,0 +1,29 @@
+{
+  "id": "sirenity_ofcHup56lME__57",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "a": {
+    "title": "Netsky, Darrison - Escape",
+    "yt": "na79dfVHpp0",
+    "t": 5386.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=na79dfVHpp0"
+  },
+  "b": {
+    "title": "Danny Byrd, Maduk, I-Kay - Better Life",
+    "yt": "mkSENmI48VQ",
+    "t": 5518.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=mkSENmI48VQ"
+  },
+  "window": {
+    "mix_t_a": 5386.0,
+    "mix_t_b": 5518.0,
+    "mix_t_next": 5584.0,
+    "hint_a_played_sec": 132.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__57/pro.wav",
+  "pro_clip_start": 5494.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1120/clips/sirenity_ofcHup56lME/sirenity_ofcHup56lME__57"
+}

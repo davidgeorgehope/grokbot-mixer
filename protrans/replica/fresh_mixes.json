@@ -48,12 +48,13 @@
    "dj": "Sirenity",
    "url": "https://www.youtube.com/watch?v=ofcHup56lME",
    "title": "Liquid Drum & Bass Mix ft. Etherwood, Alix Perez, LSB & More | Sirenity Sessions #009",
-   "n_admit": 0,
+   "n_admit": 12,
    "for_night": "2026-11-20",
    "queued": true,
    "queued_on": "2026-11-19 4:40 PM ET",
    "spent": false,
-   "note": "New DJ, not in the 9-DJ corpus-v2 dev set (MrMoMMusic, UKF Drum & Bass, Alpha Rhythm, Sound Territory, SuicideSheeep, John B, TheHeshBesh, KushSessions, Fryett), not in the locked Liquicity/Hospital holdout, not previously spent, 0 accepted rows. Queued for EPG strict-gate fresh validation. Ingest in an isolated work dir and keep sources until renders are done. Do not rewrite corpus_v2/queue.json."
+   "note": "New DJ, not in the 9-DJ corpus-v2 dev set (MrMoMMusic, UKF Drum & Bass, Alpha Rhythm, Sound Territory, SuicideSheeep, John B, TheHeshBesh, KushSessions, Fryett), not in the locked Liquicity/Hospital holdout, not previously spent, 0 accepted rows. Queued for EPG strict-gate fresh validation. Ingest in an isolated work dir and keep sources until renders are done. Do not rewrite corpus_v2/queue.json.",
+   "ingested": "2026-11-20 nightly, isolated in replica/fresh_work_1120"
   }
  ],
  "tried": [
@@ -61,6 +62,7 @@
   "kushsessions_yaWXrFBRYrM",
   "offbeatdooter_L0O51m1Ow7I",
   "alpha_rhythm_u3OiUhgnfkE",
-  "liquiddnbftw_m6m836_Ic7M"
+  "liquiddnbftw_m6m836_Ic7M",
+  "sirenity_ofcHup56lME"
  ]
 }

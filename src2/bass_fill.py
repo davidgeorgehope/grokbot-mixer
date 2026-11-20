@@ -4,16 +4,18 @@ Carry-over "later bass handoff when the incoming has no bass in the window" (doc
 lost: BASS_COVER (no swap, lows ride the fader), graph-cut fader-follow bass, DROP_SWAP (re-cue so drop1 lands on the swap),
 STRUCT_THIN / THIN_DROPCUE. A later swap inside a 16-bar window is capped by X1 (swap centre at crossfader x <= 0.65) and the
 gradual-tail rule to about 1 bar later than the exit-start swap, while the incoming's bass arrives at bar >= 14 or not at all in
-26 of the 33 default windows. So instead of moving the swap, give it something to land on: from one bar before the swap until the
+26 of the 33 default windows. So instead of moving the swap, give it something to land on: from the swap end until the
 incoming's real bass arrives, the incoming's < BASS_XO (150 Hz) band is replaced by the same band of its first steady-bass phrase
 (phrase-aligned loop of 8 or 4 bars counted back from the drop, so bar positions in the chord cycle match). This is the bass-only,
 stem-free version of the 'ib' fix the listener picked on 2026-11-02 (loop the incoming's own drums+bass under its beatless intro).
 
 Gate (per blend, not a blanket rule): a bass swap exists; every incoming bar from the swap start to the real-bass bar sits
 >= BASS_FILL_DB (6, the existing thin line) under the incoming's own body (75th pct of its per-bar lows); the real-bass bar
-(first deck bar with 2 bars running at body-6) is within the deck's first X+16 bars and at least 2 bars after the swap start;
-the loop phrase starting there is steady (every bar at body-6). The swap shape, crossfader, X1 and every test threshold are
-unchanged; the fill sits under the incoming low lane, so the existing handoff ramps it in.
+(first deck bar with 2 bars running at body-6) is within the deck's first X+16 bars and at least 2 bars after the swap end;
+the loop phrase starting there is steady (every bar at body-6). The fill starts at the swap end, not a bar before the swap:
+the 2026-11-20 cohort's new L1 fails were all mid-handoff (summed lows 3.06 to 5.05 dB over the louder deck) because the loop
+put drop bass under the incoming lane while the outgoing lane was still up. The swap shape, crossfader, X1 and every test
+threshold are unchanged; the fill sits under the incoming low lane after the handoff has finished.
 """
 import numpy as np
 
@@ -33,19 +35,20 @@ def plan_one(t, B, lo, db=6.0, secs=None):
     src = lambda k: fm[k][0] if 0 <= k < len(fm) and fm[k][1] == 'mix' else None
     v = lambda sb: float(lo[sb]) if sb is not None and 0 <= sb < len(lo) and np.isfinite(lo[sb]) else -120.0
     k_sw = int(np.floor(float(t['bass_swap'][0]) - s))  # deck bar where the low lanes start moving
+    k_sw1 = int(np.ceil(float(t['bass_swap'][1]) - s))  # first bar at or after the handoff ends
     k1 = None
     for k in range(max(0, k_sw), min(len(fm) - 1, X + 16)):
         if v(src(k)) >= thr and v(src(k + 1)) >= thr: k1 = k; break
     if k1 is None: return None, 'no real bass within X+16'
-    if k1 - k_sw < 2: return None, f'bass arrives at deck bar {k1}, swap starts {k_sw}'
-    if any(src(k) is None for k in range(max(0, k_sw - 1), k1)): return None, 'loop/beat bars in fill region'
+    if k1 - k_sw1 < 2: return None, f'bass arrives at deck bar {k1}, swap ends {k_sw1}'
+    k0 = max(0, k_sw1)
+    if any(src(k) is None for k in range(k0, k1)): return None, 'loop/beat bars in fill region'
     if any(v(src(k)) >= thr for k in range(max(0, k_sw), k1)): return None, 'not thin through the handoff'
     p = src(k1)
     for d0 in sorted((secs or {}).get('drops') or [], key=lambda x: x[0]):  # real bass starts on a pre-drop riser: loop from the drop itself
         if 0 <= d0[0] - p <= 2: p = int(d0[0]); break
     L = next((L for L in (8, 4) if all(v(p + j) >= thr for j in range(L))), None)
     if not L: return None, 'drop phrase not steady'
-    k0 = max(0, k_sw - 1)
     m2 = {k: int(p + ((src(k) - p) % L)) for k in range(k0, k1)}
     return dict(k0=k0, k1=k1, p=int(p), L=int(L), xf=0.25, map={str(k): sb for k, sb in m2.items()},
                 body=round(body, 2), thin_med=round(float(np.median([v(src(k)) for k in range(k0, k1)])) - body, 2)), 'ok'

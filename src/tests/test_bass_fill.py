@@ -19,9 +19,20 @@ def test_flag_off_by_default(monkeypatch):
 
 def test_fills_thin_intro_up_to_drop():
     bf, why = BF.plan_one(_t(), _deck(32), _lows())
-    assert why == 'ok' and bf['k0'] == 3 and bf['k1'] == 16 and bf['p'] == 48 and bf['L'] == 8
-    # phrase-aligned: deck bar 8 is source 40 = drop - 8 -> loop bar 48; deck bar 3 = source 35 -> 48 + (35-48) % 8 = 51
-    assert bf['map']['8'] == 48 and bf['map']['3'] == 51 and '16' not in bf['map']
+    # swap ends at mix bar 109, deck start 100 -> k0 = 9; drop at source 48 is deck bar 16
+    assert why == 'ok' and bf['k0'] == 9 and bf['k1'] == 16 and bf['p'] == 48 and bf['L'] == 8
+    # phrase-aligned: deck bar 9 is source 41 -> 48 + (41-48) % 8 = 49; fill does not cover mid-swap (deck bars 4-8)
+    assert bf['map']['9'] == 49 and '4' not in bf['map'] and '8' not in bf['map'] and '16' not in bf['map']
+
+def test_fill_starts_at_swap_end_not_before():
+    bf, why = BF.plan_one(_t(), _deck(32), _lows())
+    assert why == 'ok' and bf['k0'] == 9
+    assert all(int(k) >= 9 for k in bf['map'])
+
+def test_no_fill_when_bass_arrives_at_swap_end():
+    # real bass at source 42 = deck bar 10, swap ends at deck bar 9; only 1 bar of post-swap thin
+    bf, why = BF.plan_one(_t(), _deck(32), _lows(drop=42))
+    assert bf is None
 
 def test_no_fill_when_incoming_has_bass():
     bf, why = BF.plan_one(_t(), _deck(32), _lows(drop=0))

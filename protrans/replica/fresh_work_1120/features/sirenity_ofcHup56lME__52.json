@@ -1,0 +1,1354 @@
+{
+  "id": "sirenity_ofcHup56lME__52",
+  "mix_id": "sirenity_ofcHup56lME",
+  "dj": "Sirenity",
+  "pair": "BCee, Degs - Magic Words (Levela Remix) -> BCee - Sacrifice (ft. Lomax)",
+  "video_id": "ofcHup56lME",
+  "cue": {
+    "incoming_bar": 66.44,
+    "incoming_section": "drop",
+    "outgoing_bar": 111.45,
+    "outgoing_section": "drop",
+    "blend_list_s": 109.0,
+    "locate_a": {
+      "z": 7.743,
+      "cc": 0.6631,
+      "mix_t": 2.067,
+      "track_t": 131.796,
+      "n": 81
+    },
+    "locate_b": {
+      "z": 6.789,
+      "cc": 0.7366,
+      "mix_t": 43.189,
+      "track_t": 110.829,
+      "n": 119
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": -0.174,
+      "hold_db": -8.3,
+      "tail_bars": 46.21,
+      "out_p90": -8.19,
+      "in_p90": -5.44
+    },
+    "bass": {
+      "rise_db_per_beat": -0.622,
+      "hold_db": -8.11,
+      "tail_bars": 46.03,
+      "out_p90": -7.84,
+      "in_p90": -4.83
+    },
+    "highs": {
+      "rise_db_per_beat": 0.028,
+      "hold_db": -9.91,
+      "tail_bars": 46.21,
+      "out_p90": -9.25,
+      "in_p90": -6.21
+    },
+    "mids": {
+      "rise_db_per_beat": -0.112,
+      "hold_db": -8.21,
+      "tail_bars": 46.21,
+      "out_p90": -7.93,
+      "in_p90": -6.41
+    }
+  },
+  "overlap_bars": 16.855,
+  "track_a": {
+    "sections": {
+      "n_bars": 180,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 32,
+      "drop2": null,
+      "outro_start": 176,
+      "music_end": 180,
+      "drops": [
+        [
+          48,
+          176
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 16
+        },
+        {
+          "name": "build",
+          "start": 16,
+          "end": 32
+        },
+        {
+          "name": "breakdown",
+          "start": 32,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 176
+        },
+        {
+          "name": "outro",
+          "start": 176,
+          "end": 180
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -15.65,
+          "drums": -11.68,
+          "energy": -11.68
+        },
+        "build": {
+          "bass": -15.74,
+          "drums": -10.73,
+          "energy": -10.73
+        },
+        "breakdown": {
+          "bass": -28.18,
+          "drums": -16.26,
+          "energy": -16.26
+        },
+        "drop": {
+          "bass": -8.53,
+          "drums": -6.91,
+          "energy": -6.91
+        },
+        "outro": {
+          "bass": -77.66,
+          "drums": -43.47,
+          "energy": -43.47
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 1
+    },
+    "bpm": 174.001,
+    "yt": "EskXoK6MF9w",
+    "title": "BCee, Degs - Magic Words (Levela Remix)"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 258,
+      "intro_end": 2,
+      "drop1": 2,
+      "breakdown": 130,
+      "drop2": 176,
+      "outro_start": 255,
+      "music_end": 258,
+      "drops": [
+        [
+          2,
+          130
+        ],
+        [
+          176,
+          255
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 2
+        },
+        {
+          "name": "drop",
+          "start": 2,
+          "end": 130
+        },
+        {
+          "name": "breakdown",
+          "start": 130,
+          "end": 176
+        },
+        {
+          "name": "drop",
+          "start": 176,
+          "end": 255
+        },
+        {
+          "name": "outro",
+          "start": 255,
+          "end": 258
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -100.0,
+          "drums": -100.0,
+          "energy": -100.0
+        },
+        "drop": {
+          "bass": -13.67,
+          "drums": -10.75,
+          "energy": -10.75
+        },
+        "breakdown": {
+          "bass": -38.27,
+          "drums": -21.79,
+          "energy": -21.79
+        },
+        "outro": {
+          "bass": -24.05,
+          "drums": -20.87,
+          "energy": -20.87
+        }
+      },
+      "intro_len": 2,
+      "n_drops": 2
+    },
+    "bpm": 171.979,
+    "yt": "qjD6FBZmEJ0",
+    "title": "BCee - Sacrifice (ft. Lomax)"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 111.45,
+    "outgoing_section": "drop",
+    "outgoing_bars_into_section": 63.45,
+    "outgoing_bars_left": 68.55,
+    "outgoing_bars_to_outro": 64.55,
+    "incoming_cue_bar": 66.44,
+    "incoming_section": "drop",
+    "incoming_bars_into_section": 64.44,
+    "incoming_rel_drop1": 64.44,
+    "bass_swap_bar": 15.04
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -8.18,
+        -8.17,
+        -8.11,
+        -8.11,
+        -8.3,
+        -8.31,
+        -8.54,
+        -8.66,
+        -8.3,
+        -8.25,
+        -8.24,
+        -8.22,
+        -8.34,
+        -8.25,
+        -10.52,
+        -13.68,
+        -12.92,
+        -13.93,
+        -23.79,
+        -23.43,
+        -25.59,
+        -27.17,
+        -28.26,
+        -27.65,
+        -27.74,
+        -25.76,
+        -24.38,
+        -21.13,
+        -21.28,
+        -20.9,
+        -21.31,
+        -17.38,
+        -21.82,
+        -20.22,
+        -24.1,
+        -21.49,
+        -21.73,
+        -18.42,
+        -19.8,
+        -17.2,
+        -18.23,
+        -16.42,
+        -17.98,
+        -17.31,
+        -17.38,
+        -15.14
+      ],
+      "b": [
+        -23.75,
+        -27.65,
+        -27.67,
+        -27.51,
+        -21.96,
+        -22.72,
+        -21.98,
+        -22.42,
+        -22.31,
+        -24.28,
+        -21.39,
+        -23.07,
+        -20.13,
+        -21.2,
+        -14.89,
+        -11.39,
+        -8.07,
+        -6.59,
+        -6.02,
+        -6.02,
+        -5.59,
+        -4.98,
+        -4.9,
+        -4.93,
+        -4.72,
+        -5.92,
+        -6.04,
+        -7.32,
+        -7.38,
+        -7.95,
+        -8.19,
+        -9.14,
+        -7.81,
+        -7.34,
+        -7.51,
+        -9.36,
+        -7.71,
+        -9.81,
+        -8.86,
+        -10.32,
+        -9.76,
+        -9.94,
+        -11.26,
+        -10.11,
+        -9.78,
+        -10.11
+      ]
+    },
+    "bass": {
+      "a": [
+        -7.83,
+        -8.08,
+        -8.05,
+        -7.98,
+        -7.87,
+        -8.2,
+        -8.43,
+        -8.63,
+        -7.98,
+        -8.19,
+        -7.93,
+        -8.09,
+        -7.99,
+        -8.21,
+        -10.72,
+        -14.3,
+        -63.78,
+        -46.56,
+        -26.72,
+        -14.75,
+        -21.55,
+        -30.51,
+        -33.09,
+        -16.43,
+        -26.54,
+        -35.09,
+        -32.95,
+        -24.98,
+        -26.58,
+        -25.85,
+        -25.41,
+        -11.34,
+        -20.92,
+        -25.5,
+        -25.73,
+        -23.73,
+        -23.77,
+        -23.01,
+        -21.36,
+        -21.65,
+        -19.73,
+        -20.68,
+        -20.05,
+        -19.86,
+        -18.21,
+        -12.09
+      ],
+      "b": [
+        -18.97,
+        -36.22,
+        -46.58,
+        -40.62,
+        -21.72,
+        -27.5,
+        -23.61,
+        -24.3,
+        -25.02,
+        -28.85,
+        -28.17,
+        -30.3,
+        -24.68,
+        -18.9,
+        -15.75,
+        -12.87,
+        -7.41,
+        -5.43,
+        -5.71,
+        -5.4,
+        -5.12,
+        -4.75,
+        -4.59,
+        -4.59,
+        -4.61,
+        -5.04,
+        -5.31,
+        -6.49,
+        -6.04,
+        -5.63,
+        -6.64,
+        -8.55,
+        -5.7,
+        -5.84,
+        -5.79,
+        -8.29,
+        -7.06,
+        -7.2,
+        -7.3,
+        -7.94,
+        -8.63,
+        -8.28,
+        -8.43,
+        -10.13,
+        -9.09,
+        -10.47
+      ]
+    },
+    "mids": {
+      "a": [
+        -8.54,
+        -8.24,
+        -7.91,
+        -7.95,
+        -8.58,
+        -8.37,
+        -8.07,
+        -8.1,
+        -8.15,
+        -8.06,
+        -8.33,
+        -7.86,
+        -8.03,
+        -7.87,
+        -8.72,
+        -8.18,
+        -7.56,
+        -9.56,
+        -13.07,
+        -12.68,
+        -17.46,
+        -16.87,
+        -17.47,
+        -18.43,
+        -15.75,
+        -16.25,
+        -13.78,
+        -14.28,
+        -13.05,
+        -12.64,
+        -11.43,
+        -12.15,
+        -13.35,
+        -14.81,
+        -13.84,
+        -11.53,
+        -13.89,
+        -12.29,
+        -13.59,
+        -12.37,
+        -14.46,
+        -13.55,
+        -11.85,
+        -11.57,
+        -12.85,
+        -11.62
+      ],
+      "b": [
+        -21.23,
+        -28.37,
+        -46.85,
+        -30.9,
+        -17.1,
+        -21.05,
+        -20.41,
+        -18.8,
+        -19.7,
+        -21.15,
+        -19.67,
+        -18.94,
+        -17.72,
+        -20.08,
+        -15.76,
+        -12.38,
+        -9.6,
+        -9.36,
+        -6.96,
+        -7.69,
+        -6.38,
+        -5.32,
+        -6.25,
+        -6.05,
+        -5.75,
+        -7.79,
+        -7.6,
+        -8.58,
+        -9.84,
+        -10.63,
+        -12.6,
+        -10.55,
+        -11.86,
+        -9.62,
+        -9.91,
+        -10.05,
+        -10.21,
+        -12.86,
+        -10.88,
+        -13.32,
+        -10.99,
+        -10.4,
+        -13.47,
+        -10.9,
+        -10.55,
+        -10.08
+      ]
+    },
+    "highs": {
+      "a": [
+        -10.01,
+        -9.55,
+        -8.1,
+        -7.55,
+        -10.07,
+        -9.71,
+        -10.28,
+        -9.88,
+        -10.33,
+        -9.91,
+        -10.19,
+        -9.83,
+        -10.63,
+        -9.67,
+        -9.99,
+        -9.27,
+        -9.26,
+        -5.43,
+        -12.6,
+        -14.34,
+        -15.27,
+        -17.02,
+        -19.54,
+        -18.07,
+        -17.38,
+        -15.53,
+        -15.38,
+        -12.06,
+        -13.3,
+        -11.35,
+        -12.74,
+        -10.97,
+        -10.79,
+        -11.62,
+        -11.18,
+        -11.34,
+        -12.27,
+        -12.65,
+        -12.87,
+        -12.8,
+        -13.02,
+        -13.44,
+        -14.37,
+        -13.8,
+        -14.71,
+        -14.06
+      ],
+      "b": [
+        -14.33,
+        -12.73,
+        -10.3,
+        -12.02,
+        -13.44,
+        -12.43,
+        -12.89,
+        -14.73,
+        -13.47,
+        -12.03,
+        -14.46,
+        -11.82,
+        -12.77,
+        -13.33,
+        -11.58,
+        -10.13,
+        -8.98,
+        -9.08,
+        -7.55,
+        -7.88,
+        -6.32,
+        -5.77,
+        -5.52,
+        -5.96,
+        -5.84,
+        -7.49,
+        -6.27,
+        -9.0,
+        -8.22,
+        -9.92,
+        -9.12,
+        -10.18,
+        -9.93,
+        -9.31,
+        -8.51,
+        -8.92,
+        -9.67,
+        -9.51,
+        -8.64,
+        -9.42,
+        -8.16,
+        -9.08,
+        -8.91,
+        -8.45,
+        -8.23,
+        -7.58
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        176,
+        null,
+        0,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 66.44,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 34.44,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 2.44,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 29.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 61.56,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 109.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        32,
+        null,
+        208,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 141.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 34.44,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 34.44,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 34.44,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 2.44,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 2.44,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 2.44,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 29.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 29.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 29.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 61.56,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 61.56,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 61.56,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 109.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 109.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 109.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        208,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 141.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        208,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 141.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        48,
+        null,
+        208,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 141.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 34.44,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 34.44,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 34.44,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 2.44,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 2.44,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 2.44,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 29.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 29.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 29.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 61.56,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 61.56,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 61.56,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 109.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 109.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        176,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 109.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        208,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 141.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        208,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 141.56,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        176,
+        null,
+        208,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 141.56,
+      "section_match": true,
+      "relevance": 1
+    }
+  ]
+}

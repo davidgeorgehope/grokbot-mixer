@@ -1,5 +1,5 @@
 {
-  "written": "2026-11-23 9:50 PM ET, for the 2026-11-24 1:11 AM ET nightly (tag n1124)",
+  "written": "2026-11-24 10:55 AM ET, for the next nightly after n1124",
   "note": "The nightly reads this file (see protrans/nightly_hill_climb.py and promotion_judge.py). Do not write rules.json. epg_strict and epg_drop are co-candidates earning consecutive wins under their own judges; epg_stack is a third arm that runs both hooks on the windows each one owns. Not an auto-adopt keep.",
   "consecutive_wins_required": 2,
   "adopt_to_defaults": false,
@@ -116,12 +116,17 @@
       "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
     },
     {
-      "name": "dclash_land6",
+      "name": "picker_style_gated",
+      "promotion": false,
+      "shadow": false,
+      "flags_off_by_default": true,
+      "wired": true,
       "delta": {
-        "DRUMCLASH": 1,
-        "DRUMCLASH_RISK": 1,
-        "DRUMCLASH_LAND": 1
-      }
+        "PICKER_STYLE_GATED": 1
+      },
+      "label": "Style-gated learned picker (PICKER_STYLE_GATED=1). Loads replica/picker_style_gated_windows.json (trained on 762 dev, applied to official 33). Off by default. Not a promotion arm on its first night. Do not write rules.json.",
+      "map": "replica/picker_style_gated_windows.json",
+      "do_not": "write rules.json, change defaults, or treat the 762-mix CV as an official promotion"
     },
     {
       "name": "struct_mid_tight",
@@ -252,5 +257,13 @@
     "default": 0,
     "in_tonight_six": false,
     "note": "Gate restored in recreate.py after n1124 lost it (always-on fallback shifted the floor). Off by default. Promotion candidate on its own. Do not write rules.json."
+  },
+  "dclash_land6_replaced": " dclash_land6 was replaced by picker_style_gated for the next nightly (2026-11-24 10:55 AM ET). struct_mid_tight and thin_dropcue stay. Cap remains 6. Do not write rules.json.",
+  "official_st_pin": {
+    "written": "2026-11-24 10:55 AM ET",
+    "note": "like1124 baseline did not reproduce the published floor because Mix 10 vocfix (2026-11-21 2:08 AM ET) rewrote bar features in live src2/st json for I9QGpHScGug, SqzxwPEa-DI, zEvLsOVhg0I, EpHrodtTiK0, and J3oTRY7AdE4 after n1121. That flipped wilkinson_boomtown2026__33 from nat_long 96/0/32 (30.2) to nat_short 144/8/16 (25.45) and drifted official scores on the same windows for joe_syntax_hospital__13, hybrid_minds_ukf__12, and maduk_liquicity_lunar2025__05. Not a HARD_FALLBACK side effect. Nightly now sets PROTRANS_SRC2 to a sibling shadow with n1121-era json from git d05db72 (protrans/st_pin.py). Mix 10 keeps live src2. Do not write rules.json.",
+    "shadow": "/workspace/mixes/src2_pin_n1121",
+    "pin": "protrans/replica/st_pin_n1121",
+    "rev": "d05db72"
   }
 }

@@ -1,0 +1,327 @@
+{
+  "written": "2026-11-24 10:55 AM ET",
+  "scorer": "gain-events-v3-beatid",
+  "higher_is_better": true,
+  "note": "CIs are vs the drifted like1124 baseline (33.30/33.92), not the published floor 32.40/34.07. Mix-grouped bootstrap, seed 20261119, 4000 draws. Official similarity, arm minus baseline.",
+  "baseline": {
+    "train": 33.3,
+    "test": 33.92,
+    "n_fail": 0
+  },
+  "floor_published": {
+    "train": 32.4,
+    "test": 34.07
+  },
+  "arms": {
+    "epg_strict": {
+      "train": {
+        "n": 21,
+        "n_mix": 2,
+        "mean_delta": 0.785,
+        "ci": [
+          0.0,
+          2.061
+        ],
+        "includes_zero": true
+      },
+      "test": {
+        "n": 12,
+        "n_mix": 4,
+        "mean_delta": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "includes_zero": true
+      }
+    },
+    "epg_drop": {
+      "train": {
+        "n": 21,
+        "n_mix": 2,
+        "mean_delta": -0.66,
+        "ci": [
+          -1.281,
+          0.348
+        ],
+        "includes_zero": true
+      },
+      "test": {
+        "n": 12,
+        "n_mix": 4,
+        "mean_delta": -0.161,
+        "ci": [
+          -1.743,
+          2.133
+        ],
+        "includes_zero": true
+      }
+    },
+    "epg_stack": {
+      "train": {
+        "n": 21,
+        "n_mix": 2,
+        "mean_delta": 0.125,
+        "ci": [
+          -1.281,
+          2.409
+        ],
+        "includes_zero": true
+      },
+      "test": {
+        "n": 12,
+        "n_mix": 4,
+        "mean_delta": -0.161,
+        "ci": [
+          -1.743,
+          2.133
+        ],
+        "includes_zero": true
+      }
+    },
+    "thin_dropcue": {
+      "train": {
+        "n": 21,
+        "n_mix": 2,
+        "mean_delta": -2.0,
+        "ci": [
+          -3.427,
+          0.318
+        ],
+        "includes_zero": true
+      },
+      "test": {
+        "n": 12,
+        "n_mix": 4,
+        "mean_delta": 1.559,
+        "ci": [
+          0.0,
+          3.625
+        ],
+        "includes_zero": true
+      }
+    }
+  },
+  "thin_movers": [
+    {
+      "id": "netsky_hospital_classics__17",
+      "split": "test",
+      "dj": "Netsky",
+      "delta": -9.96,
+      "base_win": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "base_score": 33.35,
+      "thin_win": [
+        "n",
+        256,
+        null,
+        48,
+        16
+      ],
+      "thin_score": 23.39
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "split": "test",
+      "dj": "Netsky",
+      "delta": 14.17,
+      "base_win": [
+        "n",
+        176,
+        null,
+        0,
+        16
+      ],
+      "base_score": 43.75,
+      "thin_win": [
+        "n",
+        176,
+        null,
+        16,
+        16
+      ],
+      "thin_score": 57.92
+    },
+    {
+      "id": "pola_bryson_puzzlewood__02",
+      "split": "test",
+      "dj": "Pola & Bryson",
+      "delta": 14.5,
+      "base_win": [
+        "n",
+        208,
+        null,
+        16,
+        16
+      ],
+      "base_score": 20.54,
+      "thin_win": [
+        "n",
+        208,
+        null,
+        32,
+        16
+      ],
+      "thin_score": 35.04
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "delta": -19.9,
+      "base_win": [
+        "n",
+        224,
+        null,
+        32,
+        16
+      ],
+      "base_score": 42.98,
+      "thin_win": [
+        "n",
+        224,
+        null,
+        48,
+        16
+      ],
+      "thin_score": 23.08
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "delta": -11.9,
+      "base_win": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ],
+      "base_score": 36.67,
+      "thin_win": [
+        "n",
+        256,
+        null,
+        48,
+        16
+      ],
+      "thin_score": 24.77
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "delta": -7.21,
+      "base_win": [
+        "n",
+        240,
+        null,
+        16,
+        16
+      ],
+      "base_score": 40.68,
+      "thin_win": [
+        "n",
+        240,
+        null,
+        32,
+        16
+      ],
+      "thin_score": 33.47
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "split": "train",
+      "dj": "Hybrid Minds",
+      "delta": -5.54,
+      "base_win": [
+        "n",
+        128,
+        null,
+        32,
+        16
+      ],
+      "base_score": 41.6,
+      "thin_win": [
+        "n",
+        128,
+        null,
+        48,
+        16
+      ],
+      "thin_score": 36.06
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "delta": -0.94,
+      "base_win": [
+        "n",
+        160,
+        null,
+        32,
+        16
+      ],
+      "base_score": 30.24,
+      "thin_win": [
+        "n",
+        160,
+        null,
+        48,
+        16
+      ],
+      "thin_score": 29.3
+    },
+    {
+      "id": "joe_syntax_hospital__12",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "delta": 0.85,
+      "base_win": [
+        "n",
+        224,
+        null,
+        48,
+        16
+      ],
+      "base_score": 32.29,
+      "thin_win": [
+        "n",
+        224,
+        null,
+        64,
+        16
+      ],
+      "thin_score": 33.14
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "split": "train",
+      "dj": "Joe Syntax",
+      "delta": 2.63,
+      "base_win": [
+        "n",
+        256,
+        null,
+        48,
+        16
+      ],
+      "base_score": 29.77,
+      "thin_win": [
+        "n",
+        256,
+        null,
+        64,
+        16
+      ],
+      "thin_score": 32.4
+    }
+  ]
+}

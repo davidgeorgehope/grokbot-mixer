@@ -1,0 +1,206 @@
+{
+  "written": "2026-11-23 9:45 PM ET",
+  "error_direction": "exit and cue are errors; lower is better; a rise in the mean is WORSE",
+  "loose_gate_STRUCT_MID_on_19": {
+    "trigger": "gap>=16 or 8 bars of half-time in the gap (first struct_mid.pocket)",
+    "pocket_trigger_vs_mid32": {
+      "tp": 4,
+      "fp": 14,
+      "fn": 1,
+      "tn": 0,
+      "precision": 0.222,
+      "recall": 0.8,
+      "note": "Fired on 18 of 19. The one miss is outer_bass__02, a single long drop with no inter-drop gap."
+    },
+    "window_moved_vs_mid32": {
+      "tp": 3,
+      "fp": 8,
+      "fn": 2,
+      "tn": 6,
+      "precision": 0.273,
+      "recall": 0.6,
+      "note": "11 of 19 windows moved. Only 3 of the 5 mid-track pros moved (havey__00, outer__15, yolowich__09). outer__24 fired but kept the default window; outer__02 never fired."
+    },
+    "overall_19": {
+      "default_exit": 30.7,
+      "arm_exit": 55.58,
+      "d_exit": 24.89,
+      "verdict": "WORSE",
+      "default_cue": 25.76,
+      "arm_cue": 26.19,
+      "d_cue": 0.42
+    },
+    "mid_track_5": {
+      "default_exit": 72.56,
+      "arm_exit": 43.09,
+      "d_exit": -29.47,
+      "verdict": "BETTER",
+      "ids": [
+        "nicky_havey_1xpuWyKZ4R0__00",
+        "outer_bass_3Tt7qDw8uaQ__02",
+        "outer_bass_3Tt7qDw8uaQ__15",
+        "outer_bass_3Tt7qDw8uaQ__24",
+        "yolowich_FIdBhH3SuXk__09"
+      ],
+      "moved_better": {
+        "nicky_havey_1xpuWyKZ4R0__00": "111.79 -> 31.79",
+        "outer_bass_3Tt7qDw8uaQ__15": "33.67 -> 30.33",
+        "yolowich_FIdBhH3SuXk__09": "88.71 -> 24.71"
+      },
+      "unchanged": [
+        "outer_bass_3Tt7qDw8uaQ__02",
+        "outer_bass_3Tt7qDw8uaQ__24"
+      ]
+    },
+    "false_moves_8_all_worse": {
+      "nicky_havey_1xpuWyKZ4R0__03": "8.29 -> 103.71",
+      "outer_bass_3Tt7qDw8uaQ__11": "30.76 -> 126.76",
+      "outer_bass_3Tt7qDw8uaQ__12": "1.63 -> 62.37",
+      "outer_bass_3Tt7qDw8uaQ__14": "15.55 -> 111.55",
+      "outer_bass_3Tt7qDw8uaQ__20": "14.37 -> 94.37",
+      "yolowich_FIdBhH3SuXk__01": "15.25 -> 95.25",
+      "yolowich_FIdBhH3SuXk__03": "15.79 -> 79.79",
+      "yolowich_FIdBhH3SuXk__04": "17.44 -> 65.44",
+      "mean_exit": {
+        "default": 14.88,
+        "arm": 92.41
+      }
+    },
+    "js13": {
+      "mid_track": true,
+      "exit": "118.1 -> 25.9 BETTER",
+      "cue": "20.9 -> 11.1 BETTER",
+      "hard": "NEW fail, pumping 5.2 dB vs the official vdip p95; lows_dip 39.8 dB; not a beat clash",
+      "win": "256/48/16 -> 128/16/32 (drop-1 end)"
+    }
+  },
+  "features_true5_vs_false8": {
+    "note": "Outgoing post-drop gap length and half-time overlap separate the helped mid-track cases from the 8 false moves better than energy drop or incoming lead-in, which overlap.",
+    "outgoing_gap_bars": {
+      "true5_mean": 22.4,
+      "true5_values": {
+        "havey__00": 48,
+        "outer__15": 32,
+        "outer__24": 16,
+        "yolo__09": 16,
+        "outer__02": 0
+      },
+      "false8_mean": 18.0,
+      "false8_typical": 16,
+      "false8_only_32": "yolowich__03 (but 0 bars of half-time in the gap)"
+    },
+    "outgoing_halftime_bars_in_gap": {
+      "true_helped": {
+        "havey__00": 24,
+        "outer__15": 25,
+        "yolo__09": 0
+      },
+      "true_unchanged": {
+        "outer__24": 15,
+        "outer__02": 0
+      },
+      "false8_max": 16,
+      "false8_mean": 8.6,
+      "separator": "The two mid-track cases that actually improved and kept a hard-ok window both have >=24 bars of half-time in a >=32-bar gap. None of the 8 false moves do. yolowich__09 improved (88.71 -> 24.71, hard ok) with only a 16-bar gap and 0 half-time; a tight half-time gate misses it."
+    },
+    "energy_drop_db_gap_vs_drop": {
+      "true5_on_four_with_gap": {
+        "mean": 10.8,
+        "range": [
+          6.4,
+          14.3
+        ]
+      },
+      "false8": {
+        "mean": 9.1,
+        "range": [
+          4.3,
+          11.7
+        ]
+      },
+      "overlap": "Yes. Not a clean separator."
+    },
+    "incoming_lead_in": {
+      "B_intro_true5_mean": 30.4,
+      "B_intro_false8_mean": 40.0,
+      "B_sd_intro_true5_mean": 24.2,
+      "B_sd_intro_false8_mean": 18.1,
+      "note": "yolowich__09 incoming has a long half-time lead-in (sd_intro 42, sd in B's gap 30), which is suggestive, but outer__14 (false move) has B sd_intro 48. Not used in the tight gate."
+    }
+  },
+  "lomo": {
+    "n": 52,
+    "n_protrans": 33,
+    "n_fresh": 19,
+    "n_mixes": 9,
+    "target": "mid32 = pro leaves more than 32 bars before engine outro_start (labels are targets only, never pick-time inputs)",
+    "grid": "min gap in {16,24,32} x min half-time-in-gap in {0,8,16,24}",
+    "selection": "on each train fold, maximize tp - 3*fp (false fires cost more because they raised exit error by 48-96 bars on the 8 movers)",
+    "chosen": {
+      "(16, 24)": "8 of 9 held-out mixes",
+      "(24, 16)": "1 of 9 (Joe Syntax held out)"
+    },
+    "protrans_33_at_16_24": {
+      "precision": 1.0,
+      "recall": 0.32,
+      "tp": 8,
+      "fp": 0,
+      "fn": 17
+    },
+    "fresh_19_at_16_24": {
+      "precision": 0.5,
+      "recall": 0.4,
+      "tp": 2,
+      "fp": 2,
+      "fn": 3,
+      "fp_note": "The 2 false fires are havey__07 and havey__11, which already kept the default window under STRUCT_MID, so the policy does not move them."
+    }
+  },
+  "tight_gate": {
+    "STRUCT_MID_MIN_GAP": 16,
+    "STRUCT_MID_MIN_HT": 24,
+    "module": "protrans/replica/halftime/struct_mid.py",
+    "policy_on_fresh_19_using_existing_renders": {
+      "note": "If the tight gate fires, take the already-rendered STRUCT_MID window; otherwise keep default. No re-render needed: remaining fires have the same bonuses.",
+      "overall_exit": {
+        "default": 30.7,
+        "tight": 26.31,
+        "d": -4.39,
+        "verdict": "BETTER"
+      },
+      "overall_cue": {
+        "default": 25.76,
+        "tight": 25.84,
+        "d": 0.08,
+        "verdict": "about the same"
+      },
+      "mid_track_5_exit": {
+        "default": 72.56,
+        "tight": 55.89,
+        "d": -16.67,
+        "verdict": "BETTER"
+      },
+      "helped": [
+        "nicky_havey_1xpuWyKZ4R0__00 (111.79 -> 31.79)",
+        "outer_bass_3Tt7qDw8uaQ__15 (33.67 -> 30.33)"
+      ],
+      "hurt": [],
+      "new_hard_fails": [],
+      "missed_mid_track": {
+        "yolowich_FIdBhH3SuXk__09": "Loose STRUCT_MID would have improved exit 88.71 -> 24.71 with no hard fail; the tight gate leaves the default. gap 16, 0 half-time bars in the gap.",
+        "outer_bass_3Tt7qDw8uaQ__02": "No inter-drop gap (single drop). Never fired.",
+        "outer_bass_3Tt7qDw8uaQ__24": "gap 16, 15 half-time bars; loose gate fired but the window did not move."
+      }
+    },
+    "js13_still_fires": {
+      "placement": "BETTER, exit 118.1 -> 25.9, cue 20.9 -> 11.1, window 128/16/32",
+      "hard": "pumping fail (5.2 dB). Do not promote this window."
+    }
+  },
+  "decision": {
+    "promote": false,
+    "keep_default_in_rules_json": true,
+    "keep_tight_STRUCT_MID_as_flag": true,
+    "why": "The tightened flag, applied only where the leave-one-mix-out gate fires, improves the 19-pair mean exit error (30.7 -> 26.31) and the 5 mid-track cases (72.56 -> 55.89) with no false moves and no new hard fails on those 19. It is still a flag, off by default: official 33-pair scores were not rerun, recall is only 2/5 mid-track transitions, and JS13 (the RCA pair) still hard-fails on pumping. Do not write rules.json."
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "id": "joe_syntax_hospital__13",
+  "natural_tight_first_pick_current_defaults": {
+    "fam": "nat_long",
+    "win": [
+      "n",
+      256,
+      null,
+      32,
+      32
+    ],
+    "hard_fail": false,
+    "pump_db": 1.4,
+    "note": "Under current default fade (tail, SWAP_POS 0.35) the STRUCT_MID tight first pick is already this passing outro window."
+  },
+  "current_defaults_forced_128": {
+    "win": [
+      "n",
+      128,
+      null,
+      16,
+      32
+    ],
+    "pump_db": 4.2,
+    "pumping": false,
+    "hard_fail": false,
+    "note": "Same window under current default fade is 4.2 dB, under the 4.54 p95, so official HC does not fail it."
+  },
+  "verify_recipe": {
+    "FADE": "long",
+    "SWAP_POS": 0.21,
+    "LOOP32": 0,
+    "why": "matches the recorded JS13 STRUCT_MID mid-track fail (gfmid0: pump 5.2 dB, lows_dip 39.8)"
+  },
+  "forced_first_win": [
+    "n",
+    128,
+    null,
+    16,
+    32
+  ],
+  "hard_fallback": {
+    "first": {
+      "fam": "nat_long",
+      "win": [
+        "n",
+        128,
+        null,
+        16,
+        32
+      ],
+      "hard_fail": true,
+      "pumping": true,
+      "pump_db": 4.9,
+      "beat_clash": false,
+      "bass_hole": false,
+      "lows_dip_db": 36.8
+    },
+    "replaced_by": {
+      "fam": "nat_short",
+      "win": [
+        "n",
+        160,
+        null,
+        64,
+        16
+      ],
+      "hard_fail": false,
+      "pumping": false,
+      "pump_db": 1.8,
+      "beat_clash": false,
+      "bass_hole": false,
+      "lows_dip_db": 2.8
+    },
+    "retries": [
+      {
+        "fam": "nat_short",
+        "win": [
+          "n",
+          160,
+          null,
+          64,
+          16
+        ],
+        "hard_fail": false,
+        "pumping": false,
+        "pump_db": 1.8,
+        "beat_clash": false,
+        "bass_hole": false,
+        "lows_dip_db": 2.8
+      }
+    ]
+  },
+  "final_fam": "nat_short",
+  "final_win": [
+    "n",
+    160,
+    null,
+    64,
+    16
+  ],
+  "final_hard": {
+    "hard_fail": false,
+    "pumping": false,
+    "pump_db": 1.8,
+    "beat_clash": false,
+    "bass_hole": false,
+    "lows_dip_db": 2.8,
+    "residual_lag_ms": null,
+    "halfbeat_fail": false
+  },
+  "passed": true
+}

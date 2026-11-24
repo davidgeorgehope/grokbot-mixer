@@ -1,10 +1,43 @@
 {
- "mix": "yolowich_FIdBhH3SuXk",
- "url": "https://www.youtube.com/watch?v=FIdBhH3SuXk",
- "title": "Hybrid Minds - Drum n Bass Listening Liquid Set",
- "dj": "YoloWich",
- "n": 6,
+ "mixes": [
+  {
+   "mix_id": "nicky_havey_1xpuWyKZ4R0",
+   "url": "https://www.youtube.com/watch?v=1xpuWyKZ4R0",
+   "title": "Liquid Drum & Bass Mix - January 2026",
+   "dj": "Nicky Havey",
+   "n": 4
+  },
+  {
+   "mix_id": "outer_bass_3Tt7qDw8uaQ",
+   "url": "https://www.youtube.com/watch?v=3Tt7qDw8uaQ",
+   "title": "2026 Liquid Drum and Bass Mix",
+   "dj": "Outer Bass",
+   "n": 9
+  },
+  {
+   "mix_id": "yolowich_FIdBhH3SuXk",
+   "url": "https://www.youtube.com/watch?v=FIdBhH3SuXk",
+   "title": "Hybrid Minds - Drum n Bass Listening Liquid Set",
+   "dj": "YoloWich",
+   "n": 6
+  }
+ ],
+ "n": 19,
+ "n_mix": 3,
  "ids": [
+  "nicky_havey_1xpuWyKZ4R0__00",
+  "nicky_havey_1xpuWyKZ4R0__03",
+  "nicky_havey_1xpuWyKZ4R0__07",
+  "nicky_havey_1xpuWyKZ4R0__11",
+  "outer_bass_3Tt7qDw8uaQ__01",
+  "outer_bass_3Tt7qDw8uaQ__02",
+  "outer_bass_3Tt7qDw8uaQ__11",
+  "outer_bass_3Tt7qDw8uaQ__12",
+  "outer_bass_3Tt7qDw8uaQ__14",
+  "outer_bass_3Tt7qDw8uaQ__15",
+  "outer_bass_3Tt7qDw8uaQ__20",
+  "outer_bass_3Tt7qDw8uaQ__24",
+  "outer_bass_3Tt7qDw8uaQ__25",
   "yolowich_FIdBhH3SuXk__00",
   "yolowich_FIdBhH3SuXk__01",
   "yolowich_FIdBhH3SuXk__03",
@@ -12,19 +45,20 @@
   "yolowich_FIdBhH3SuXk__06",
   "yolowich_FIdBhH3SuXk__09"
  ],
- "locked_holdout": "not reopened (promotion_criteria_1120.json: already opened 2026-11-19; not required for these flag candidates)",
+ "locked_holdout": "not reopened (promotion_criteria_1120.json: already opened 2026-11-19; not required for these flag candidates; a further look would be a repeated opening)",
+ "wiring_check": "joe_syntax_hospital__13 via the same eval_gate path: epg_drop/stack change 256/48/16 -> 224/48/16; epg_strict abstains. YoloWich identical windows were abstention, not a wiring miss. See js13_epg_picks_1123.json.",
  "arms": {
   "default": {
    "hard_fail": 1,
    "new_fails": [],
    "fixed": [],
    "changed": [],
-   "exit_err": 30.68,
-   "cue_err": 19.23,
-   "overlap_err": 4.57,
-   "swap_err": 18.92,
-   "fade_err": 4.567,
-   "exit_cue_mean": 49.92,
+   "exit_err": 30.7,
+   "cue_err": 25.76,
+   "overlap_err": 7.06,
+   "swap_err": 10.89,
+   "fade_err": 5.316,
+   "exit_cue_mean": 56.46,
    "checks": {
     "hole_v2": 0,
     "clash_v1": 0,
@@ -38,13 +72,15 @@
    "hard_fail": 1,
    "new_fails": [],
    "fixed": [],
-   "changed": [],
-   "exit_err": 30.68,
-   "cue_err": 19.23,
-   "overlap_err": 4.57,
-   "swap_err": 18.92,
-   "fade_err": 4.567,
-   "exit_cue_mean": 49.92,
+   "changed": [
+    "nicky_havey_1xpuWyKZ4R0__03"
+   ],
+   "exit_err": 30.67,
+   "cue_err": 25.76,
+   "overlap_err": 7.06,
+   "swap_err": 10.89,
+   "fade_err": 5.316,
+   "exit_cue_mean": 56.43,
    "checks": {
     "hole_v2": 0,
     "clash_v1": 0,
@@ -54,24 +90,24 @@
    },
    "zero_new_hard_fails": true,
    "delta_exit_cue_mix_grouped": {
-    "n": 6,
-    "n_groups": 1,
+    "n": 19,
+    "n_groups": 3,
     "group": "mix",
-    "mean_delta": 0.0,
+    "mean_delta": -0.031,
     "ci": [
-     0.0,
+     -0.145,
      0.0
     ],
     "includes_zero": true,
-    "note": "mix-grouped CI is degenerate with a single mix (every draw is the observed mean)"
+    "note": null
    },
    "delta_exit_cue_pair": {
-    "n": 6,
-    "n_groups": 6,
+    "n": 19,
+    "n_groups": 19,
     "group": "pair",
-    "mean_delta": 0.0,
+    "mean_delta": -0.031,
     "ci": [
-     0.0,
+     -0.092,
      0.0
     ],
     "includes_zero": true,
@@ -82,13 +118,18 @@
    "hard_fail": 1,
    "new_fails": [],
    "fixed": [],
-   "changed": [],
-   "exit_err": 30.68,
-   "cue_err": 19.23,
-   "overlap_err": 4.57,
-   "swap_err": 18.92,
-   "fade_err": 4.567,
-   "exit_cue_mean": 49.92,
+   "changed": [
+    "nicky_havey_1xpuWyKZ4R0__03",
+    "nicky_havey_1xpuWyKZ4R0__11",
+    "outer_bass_3Tt7qDw8uaQ__14",
+    "outer_bass_3Tt7qDw8uaQ__24"
+   ],
+   "exit_err": 32.05,
+   "cue_err": 25.76,
+   "overlap_err": 7.06,
+   "swap_err": 10.89,
+   "fade_err": 5.316,
+   "exit_cue_mean": 57.82,
    "checks": {
     "hole_v2": 0,
     "clash_v1": 0,
@@ -98,25 +139,25 @@
    },
    "zero_new_hard_fails": true,
    "delta_exit_cue_mix_grouped": {
-    "n": 6,
-    "n_groups": 1,
+    "n": 19,
+    "n_groups": 3,
     "group": "mix",
-    "mean_delta": 0.0,
+    "mean_delta": 1.356,
     "ci": [
-     0.0,
-     0.0
+     -0.0,
+     6.44
     ],
     "includes_zero": true,
-    "note": "mix-grouped CI is degenerate with a single mix (every draw is the observed mean)"
+    "note": null
    },
    "delta_exit_cue_pair": {
-    "n": 6,
-    "n_groups": 6,
+    "n": 19,
+    "n_groups": 19,
     "group": "pair",
-    "mean_delta": 0.0,
+    "mean_delta": 1.356,
     "ci": [
-     0.0,
-     0.0
+     -1.684,
+     4.426
     ],
     "includes_zero": true,
     "note": null
@@ -126,13 +167,18 @@
    "hard_fail": 1,
    "new_fails": [],
    "fixed": [],
-   "changed": [],
-   "exit_err": 30.68,
-   "cue_err": 19.23,
-   "overlap_err": 4.57,
-   "swap_err": 18.92,
-   "fade_err": 4.567,
-   "exit_cue_mean": 49.92,
+   "changed": [
+    "nicky_havey_1xpuWyKZ4R0__03",
+    "nicky_havey_1xpuWyKZ4R0__11",
+    "outer_bass_3Tt7qDw8uaQ__14",
+    "outer_bass_3Tt7qDw8uaQ__24"
+   ],
+   "exit_err": 32.05,
+   "cue_err": 25.76,
+   "overlap_err": 7.06,
+   "swap_err": 10.89,
+   "fade_err": 5.316,
+   "exit_cue_mean": 57.82,
    "checks": {
     "hole_v2": 0,
     "clash_v1": 0,
@@ -142,25 +188,25 @@
    },
    "zero_new_hard_fails": true,
    "delta_exit_cue_mix_grouped": {
-    "n": 6,
-    "n_groups": 1,
+    "n": 19,
+    "n_groups": 3,
     "group": "mix",
-    "mean_delta": 0.0,
+    "mean_delta": 1.356,
     "ci": [
-     0.0,
-     0.0
+     -0.0,
+     6.44
     ],
     "includes_zero": true,
-    "note": "mix-grouped CI is degenerate with a single mix (every draw is the observed mean)"
+    "note": null
    },
    "delta_exit_cue_pair": {
-    "n": 6,
-    "n_groups": 6,
+    "n": 19,
+    "n_groups": 19,
     "group": "pair",
-    "mean_delta": 0.0,
+    "mean_delta": 1.356,
     "ci": [
-     0.0,
-     0.0
+     -1.684,
+     4.426
     ],
     "includes_zero": true,
     "note": null

@@ -71,7 +71,7 @@
    "ingested": "2026-11-23 isolated in replica/fresh_work_1123",
    "status": "done",
    "spent": true,
-   "spent_on": "2026-11-23 19:49 ET (n1123 epg candidates, once, n=6)"
+   "spent_on": "2026-11-23 21:16 ET (n1123 epg candidates, once, n=6 of 19 across 3 mixes)"
   },
   {
    "mix_id": "nicky_havey_1xpuWyKZ4R0",
@@ -85,18 +85,25 @@
    "note": "New DJ, not in corpus-v2 accepted DJs, not in the locked Liquicity/Hospital holdout, not previously spent. Isolated ingest in replica/fresh_work_1123. Do not rewrite corpus_v2/queue.json.",
    "n_reject": 12,
    "ingested": "2026-11-23 isolated in replica/fresh_work_1123",
-   "status": "done"
+   "status": "done",
+   "spent": true,
+   "spent_on": "2026-11-23 21:16 ET (n1123 epg candidates, once, n=4 of 19 across 3 mixes)"
   },
   {
    "mix_id": "outer_bass_3Tt7qDw8uaQ",
    "dj": "Outer Bass",
    "url": "https://www.youtube.com/watch?v=3Tt7qDw8uaQ",
    "title": "2026 Liquid Drum and Bass Mix",
-   "n_admit": 0,
+   "n_admit": 12,
    "for_night": "2026-11-23",
    "queued": true,
    "queued_on": "2026-11-23 20:09 ET",
-   "note": "New DJ, not in corpus-v2 accepted DJs, not in the locked Liquicity/Hospital holdout, not previously spent. Isolated ingest in replica/fresh_work_1123. Do not rewrite corpus_v2/queue.json."
+   "note": "New DJ, not in corpus-v2 accepted DJs, not in the locked Liquicity/Hospital holdout, not previously spent. Isolated ingest in replica/fresh_work_1123. Do not rewrite corpus_v2/queue.json.",
+   "n_reject": 16,
+   "ingested": "2026-11-23 isolated in replica/fresh_work_1123",
+   "status": "done",
+   "spent": true,
+   "spent_on": "2026-11-23 21:16 ET (n1123 epg candidates, once, n=9 of 19 across 3 mixes)"
   }
  ],
  "tried": [

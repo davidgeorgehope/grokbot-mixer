@@ -262,6 +262,19 @@ def exitpos_term(a,b,ea,ib,X,emx=None):
   except Exception as ex:
     print('EXITPOS failed',a,b,ex,file=sys.stderr);return 0.0
 STRUCTB=float(os.environ.get('STRUCTB',STRUCTW));STRUCT_COND=int(os.environ.get('STRUCT_COND',0));_SCC={}
+# STRUCT_MID=1 (2026-11-23, research, off by default): when the outgoing track has a post-drop
+# breakdown with at least STRUCT_MID_MIN_HT (24) bars of half-time in a gap of at least
+# STRUCT_MID_MIN_GAP (16) (protrans/replica/halftime/struct_mid.py; S.P.Y bars 128-160 is the
+# prototype), the outro-over-intro bonus is STRUCT_MID_B (100) instead of STRUCTB, and exits at
+# drop-1 end or breakdown end get a competing STRUCT_MID_W (100) bonus. The first loose gate
+# (gap>=16 or 8 bars of HT) raised exit error 30.7->55.58 on the 19 fresh pairs (errors; lower
+# is better) and was tightened by leave-one-mix-out. Pick time uses track structure only; pro
+# labels are never inputs. Not all-or-nothing (STRUCTB=0 also made overall error worse).
+STRUCT_MID=int(os.environ.get('STRUCT_MID',0));STRUCT_MID_B=float(os.environ.get('STRUCT_MID_B',100));STRUCT_MID_W=float(os.environ.get('STRUCT_MID_W',100))
+_SM=None
+if STRUCT_MID:
+  sys.path.insert(0,'/workspace/mixes/protrans/replica/halftime')
+  import struct_mid as _SM
 def struct_full(a,s,e):
   k=(a,s,e)
   if k in _SCC:return _SCC[k]
@@ -437,12 +450,15 @@ def pair_cands(i,ia0):
       if LDE is not None and ea-X<LDE:sc=(sc[0]+STRUCTW,)+sc[1:]  # STRUCT_THIN payoff guard (2026-11-19): blend may not start before A's last drop has played (its last 8 bars may overlap)
       if _k6 in STRK:
         _bw=STRUCTB if not (STRUCT_COND and not struct_full(a,ea-X,ea)) else 0.0
+        if STRUCT_MID and _SM is not None and _SM.pocket(a) is not None and _bw>0:_bw=STRUCT_MID_B
         if EXITPOS:_bw=0.0
         if OUTRO_QC and _bw>0:_bw*=1-outro_qc(a,ea-X,ea)
         if _k6 in THINK and THIN_DROPCUE and DCUE:_bw=0.0  # THIN_DROPCUE: the bonus moves to the drop-in-overlap cue(s)
         elif _k6 in THINK and STRUCT_THIN:_bw=STRUCTW*STRUCT_THIN_W
         sc=(sc[0]-_bw-(float(os.environ.get('LOOPPEN',40)) if kind=='lb' and _bw>0 else 0),)+sc[1:]
       elif _k6 in DCUE and not EXITPOS:sc=(sc[0]-STRUCTW,)+sc[1:]  # blend length chosen per pair from structure + fit (the listener 2026-10-31)
+      if STRUCT_MID and _SM is not None and kind in ('n','lb') and _SM.mid_exit(a,ea):
+        sc=(sc[0]-STRUCT_MID_W,)+sc[1:]
       res.append((sc,kind,(e,p) if kind in('la','ab','lx') else e,ib,r,X))
   X=XMAX;res.sort(key=lambda t:t[0])
   if EXITPOS and EXITPOS_GATE and EXITPOS_DROP and res:

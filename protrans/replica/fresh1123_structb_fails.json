@@ -1,0 +1,167 @@
+{
+  "written": "2026-11-23 9:35 PM ET",
+  "keep_default": true,
+  "promote": false,
+  "structb0": {
+    "n": 19,
+    "exit": {
+      "default": 30.7,
+      "arm": 42.95,
+      "delta": 12.25
+    },
+    "cue": {
+      "default": 25.76,
+      "arm": 27.73,
+      "delta": 1.97
+    },
+    "mid_track_pro_exit": {
+      "n": 5,
+      "default": 72.56,
+      "arm": 46.29,
+      "delta": -26.27
+    },
+    "new_hard_fails": [
+      "nicky_havey_1xpuWyKZ4R0__07",
+      "outer_bass_3Tt7qDw8uaQ__25",
+      "yolowich_FIdBhH3SuXk__09"
+    ],
+    "fixed_hard_fails": [
+      "yolowich_FIdBhH3SuXk__01"
+    ],
+    "js13": {
+      "default_win": [
+        "n",
+        256,
+        null,
+        48,
+        16
+      ],
+      "arm_win": [
+        "n",
+        256,
+        null,
+        80,
+        16
+      ],
+      "exit": 118.1,
+      "cue": {
+        "default": 20.9,
+        "arm": 52.9
+      },
+      "new_hard_fail": true,
+      "note": "Exit stayed on the outro-over-intro pin. Cue 48->80 caused beat_clash, residual lag 165.4 ms."
+    }
+  },
+  "why_the_three_fails_broke": {
+    "nicky_havey_1xpuWyKZ4R0__07": {
+      "pair": "In:Most - Doshaburi -> K Motionz - Tell You",
+      "pro_out": 207.66,
+      "pro_in": 15.7,
+      "bars_to_outro": -7.66,
+      "default_win": [
+        "n",
+        208,
+        null,
+        32,
+        16
+      ],
+      "default_exit_err": 14.66,
+      "default_hard": false,
+      "arm_win": [
+        "n",
+        160,
+        null,
+        16,
+        16
+      ],
+      "arm_exit_err": 62.66,
+      "arm_hard": true,
+      "hard": {
+        "beat_clash": true,
+        "residual_lag_ms": -166.89,
+        "halfbeat_fail": false
+      },
+      "why": "The pro already leaves at the outro. STRUCTB=0 dropped the 300-point bonus and the picker jumped to a mid-track window at the breakdown/last-drop start (160). Official beat_clash fired on a -166.9 ms residual lag (about half a beat). The outgoing track still has a S.P.Y-like 32-bar half-time breakdown [113, 145] between two 64-bar drops, so a 'has breakdown' rule alone would also have fired here."
+    },
+    "outer_bass_3Tt7qDw8uaQ__25": {
+      "pair": "Bop - Space 2 Breathe -> Outer Bass & Alpha Rhythm - Asteroidea",
+      "pro_out": 213.29,
+      "pro_in": 31.81,
+      "bars_to_outro": -5.29,
+      "default_win": [
+        "n",
+        224,
+        null,
+        16,
+        16
+      ],
+      "default_exit_err": 4.29,
+      "default_hard": false,
+      "arm_win": [
+        "n",
+        160,
+        null,
+        0,
+        16
+      ],
+      "arm_exit_err": 68.29,
+      "arm_hard": true,
+      "hard": {
+        "beat_clash": true,
+        "halfbeat_fail": true,
+        "residual_lag_ms": null
+      },
+      "why": "The pro already leaves at the end of a long last drop (drops [16, 48] and [64, 216]). STRUCTB=0 jumped to 160/0/16: mid last-drop, incoming cue at bar 0. Official beat_clash and halfbeat_fail both fired. This is not even the breakdown pocket (48-64); zeroing the bonus let an unrelated mid-track window win."
+    },
+    "yolowich_FIdBhH3SuXk__09": {
+      "pair": "Jome - Cinnamon (Hybrid Minds Remix) -> Hybrid Minds - That Way",
+      "pro_out": 88.29,
+      "pro_in": 15.13,
+      "bars_to_outro": 95.71,
+      "default_win": [
+        "n",
+        192,
+        null,
+        32,
+        16
+      ],
+      "default_exit_err": 88.71,
+      "default_hard": false,
+      "arm_win": [
+        "n",
+        144,
+        null,
+        48,
+        16
+      ],
+      "arm_exit_err": 40.71,
+      "arm_hard": true,
+      "hard": {
+        "beat_clash": true,
+        "residual_lag_ms": 3.63,
+        "halfbeat_fail": false,
+        "lows_dip_db": -21.8
+      },
+      "why": "This is a true mid-track pro (exit ~88). STRUCTB=0 moved earlier (192->144) and cut exit error 88.7->40.7, but official beat_clash fired because hardcheck treats any non-None residual lag as a clash. The measured lag is 3.6 ms \u2014 well inside a beat, not a half-beat wreck. It still counts as a new official hard fail, so the arm cannot pass."
+    }
+  },
+  "lomo_predictor": {
+    "note": "A logistic regressor was trained on outgoing+incoming section and slowdown features to predict mid-track vs outro pro exits (target mid32: bars_to_outro>32). Pro labels were targets only, never candidate inputs.",
+    "n": 52,
+    "n_protrans": 33,
+    "n_fresh": 19,
+    "n_mixes": 9,
+    "mid32_base_rate": "30/52 overall, 25/33 protrans, 5/19 fresh",
+    "lomo_pooled_precision_at_0.5": 0.53,
+    "lomo_note": "Leave-one-mix-out precision stays about 0.5 at every threshold. Joe Syntax held-out: S.P.Y p=0.72. Fresh (trained on the 33 only): nicky_havey__07 (outro-exit, the first fail) scored p=0.94 mid \u2014 a false fire. S.P.Y and Doshaburi (havey__07 outgoing) both have a 32-bar half-time breakdown between two 64-bar drops; track geometry does not tell them apart.",
+    "decision": "Do not use a predicted-exit model at pick time. STRUCT_MID is a track-structure condition plus a reduced (not zero) outro bonus and a competing mid-pocket bonus."
+  },
+  "struct_mid_flag": {
+    "STRUCT_MID": 1,
+    "STRUCT_MID_B": 100,
+    "STRUCT_MID_W": 100,
+    "module": "protrans/replica/halftime/struct_mid.py",
+    "defaults_off": true,
+    "rules_json": "not written"
+  }
+}

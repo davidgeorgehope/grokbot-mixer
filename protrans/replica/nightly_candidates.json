@@ -1,5 +1,5 @@
 {
-  "written": "2026-11-19 5:30 PM ET, for the 2026-11-20 1 AM ET nightly (tag n1120)",
+  "written": "2026-11-23 9:50 PM ET, for the 2026-11-24 1:11 AM ET nightly (tag n1124)",
   "note": "The nightly reads this file (see protrans/nightly_hill_climb.py and promotion_judge.py). Do not write rules.json. epg_strict and epg_drop are co-candidates earning consecutive wins under their own judges; epg_stack is a third arm that runs both hooks on the windows each one owns. Not an auto-adopt keep.",
   "consecutive_wins_required": 2,
   "adopt_to_defaults": false,
@@ -124,13 +124,22 @@
       }
     },
     {
-      "name": "dclash_land7",
+      "name": "struct_mid_tight",
+      "promotion": false,
+      "shadow": false,
       "delta": {
-        "DRUMCLASH": 1,
-        "DRUMCLASH_RISK": 1,
-        "DRUMCLASH_LAND": 1,
-        "PLAN_LAND": 1
-      }
+        "STRUCT_MID": 1,
+        "STRUCT_MID_MIN_GAP": 16,
+        "STRUCT_MID_MIN_HT": 24
+      },
+      "label": "STRUCT_MID tight gate (min gap 16, min half-time in the gap 24): reduce the outro-over-intro bonus to 100 and give a competing 100-point bonus to drop-1-end / breakdown-end exits when the outgoing track has a long post-drop half-time pocket (S.P.Y 128-160 is the prototype). Leave-one-mix-out chose this gate. Official hard checks veto a pumping first pick and fall back to the next clean candidate. Not a promotion arm on this first night. Do not write rules.json.",
+      "flags_off_by_default": true,
+      "already_scored_2026_11_23": {
+        "loose_gate_on_fresh_19": "exit error 30.7 -> 55.58 (worse); mid-track 5: 72.56 -> 43.09 (better)",
+        "tight_gate_policy_on_fresh_19": "exit error 30.7 -> 26.31 (better); mid-track 5: 72.56 -> 55.89 (better); 0 false moves, 0 new hard fails",
+        "eval": "replica/fresh1123_struct_mid_tight.json"
+      },
+      "do_not": "write rules.json, change defaults, displace the other five arms, or treat this as a promotion arm tonight"
     },
     {
       "name": "thin_dropcue",
@@ -159,5 +168,46 @@
       "do_not": "write rules.json, change defaults, or treat this as a promotion arm"
     }
   ],
-  "rca_note_2026_11_23": "Added shadow arm thin_dropcue after the 11-23 js13 RCA (piano at Meteorites bar 48). The epg_* and dclash_* promotion arms are unchanged. Nightly max is 6, so this fills the last slot."
+  "rca_note_2026_11_23": "Added shadow arm thin_dropcue after the 11-23 js13 RCA (piano at Meteorites bar 48). The epg_* and dclash_* promotion arms are unchanged. Nightly max is 6, so this fills the last slot.",
+  "future_nightly_arm_candidates": {
+    "written": "2026-11-23 9:20 PM ET",
+    "note": "The 2026-11-23 S.P.Y -> Meteorites RCA flags stay off by default and are not in tonight's six nightly slots (epg_strict, epg_drop, epg_stack, dclash_land6, dclash_land7, and the thin_dropcue shadow). Recorded here as candidates for a future nightly arm when a slot is free. Do not write rules.json. Do not adopt on a fresh-mix tie. STRUCTB is a separate placement diagnostic (bonus size only; see docs/OUTROQC_2026-11-19.md and replica/fresh1123_structb_eval.json), not one of these RCA flags.",
+    "flags": [
+      {
+        "name": "LEADIN_LOCK",
+        "delta": {
+          "LEADIN_LOCK": 1
+        },
+        "from": "docs/RCA_2026-11-23.md",
+        "label": "Section-local lead-in lock on the S.P.Y post-drop-1 breakdown; applied +86.2 ms on the STRUCT_BREAK window."
+      },
+      {
+        "name": "BREAKDOWN_PHASE_EST",
+        "delta": {
+          "BREAKDOWN_PHASE_EST": 1
+        },
+        "from": "docs/RCA_2026-11-23.md",
+        "label": "Listen-clip alignment check uses isolated snares and/or on-beat kicks when the outgoing overlap is a post-drop half-time breakdown. Pass line stays 40 ms. Official blend_diag kick+snare is unchanged."
+      },
+      {
+        "name": "BASS_FILL_GAPS",
+        "delta": {
+          "BASS_FILL_GAPS": 1
+        },
+        "from": "docs/RCA_2026-11-23.md",
+        "label": "Bass-fill gap coverage used with the STRUCT_BREAK listen clip. Piano mid-band jump is the right sensor; the old lows-jump check is not."
+      },
+      {
+        "name": "STRUCT_BREAK",
+        "delta": {
+          "STRUCT_BREAK": 1
+        },
+        "from": "docs/RCA_2026-11-23.md",
+        "label": "Picked the 160/32/32 breakdown-end window on joe_syntax_hospital__13. Stays flagged with the three flags above. Optional grouping, not a required fourth arm."
+      }
+    ],
+    "do_not": "write rules.json, displace tonight's six arms, loosen thresholds, or promote on a tie"
+  },
+  "rca_note_2026_11_23_future_arms": "LEADIN_LOCK, BREAKDOWN_PHASE_EST, BASS_FILL_GAPS (and STRUCT_BREAK) recorded in future_nightly_arm_candidates. Not in the current six slots.",
+  "dclash_land7_replaced": "dclash_land7 (DRUMCLASH+RISK+LAND+PLAN_LAND) was twice-rejected and is out of the six nightly slots. Its slot is now struct_mid_tight. dclash_land6 stays. thin_dropcue stays as the shadow arm. A struct_mid_tight+epg_stack combo was not added: the nightly cap is 6 and the other five arms stay; a seventh arm would be sliced off."
 }

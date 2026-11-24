@@ -6,6 +6,14 @@
   "src": "11-10 daily",
   "v1": 35.13,
   "v2": 33.98,
+  "v1_breakdown": {
+   "stem_curves": 45.0,
+   "deck_curves": 37.58,
+   "beat_align": 41.38,
+   "bass_swap": 23.64,
+   "outgoing_cut": 12.85,
+   "blend_length": 34.39
+  },
   "place": {
    "entry": 21.29,
    "gone": 20.0,
@@ -59,6 +67,14 @@
   "src": "11-11 daily",
   "v1": 26.96,
   "v2": 32.44,
+  "v1_breakdown": {
+   "stem_curves": 45.71,
+   "deck_curves": 30.57,
+   "beat_align": 13.36,
+   "bass_swap": 18.54,
+   "outgoing_cut": 5.31,
+   "blend_length": 23.81
+  },
   "place": {
    "entry": 27.22,
    "gone": 32.76,
@@ -112,6 +128,14 @@
   "src": "11-20 ab2 default",
   "v1": 13.62,
   "v2": 20.16,
+  "v1_breakdown": {
+   "stem_curves": 14.85,
+   "deck_curves": 11.43,
+   "beat_align": 8.77,
+   "bass_swap": 0.39,
+   "outgoing_cut": 44.65,
+   "blend_length": 2.22
+  },
   "place": {
    "entry": 45.61,
    "gone": 14.03,
@@ -165,6 +189,14 @@
   "src": "11-20 ab2 breakdown_exit",
   "v1": 21.54,
   "v2": 25.11,
+  "v1_breakdown": {
+   "stem_curves": 28.15,
+   "deck_curves": 20.96,
+   "beat_align": 24.75,
+   "bass_swap": 9.26,
+   "outgoing_cut": 10.66,
+   "blend_length": 28.53
+  },
   "place": {
    "entry": 33.96,
    "gone": 0.72,
@@ -218,6 +250,14 @@
   "src": "11-20 15:44 \"more like a 4\"",
   "v1": 46.22,
   "v2": 58.64,
+  "v1_breakdown": {
+   "stem_curves": 63.88,
+   "deck_curves": 64.19,
+   "beat_align": 42.19,
+   "bass_swap": 17.07,
+   "outgoing_cut": 17.07,
+   "blend_length": 36.15
+  },
   "place": {
    "entry": 91.19,
    "gone": 2.84,
@@ -270,11 +310,19 @@
   "rating": 2.0,
   "src": "11-23 daily",
   "v1": 29.79,
-  "v2": 22.17,
+  "v2": 23.55,
+  "v1_breakdown": {
+   "stem_curves": 22.19,
+   "deck_curves": 11.43,
+   "beat_align": 52.15,
+   "bass_swap": 18.18,
+   "outgoing_cut": 49.42,
+   "blend_length": 49.42
+  },
   "place": {
-   "entry": 13.0,
+   "entry": 20.0,
    "gone": 20.0,
-   "swap": 14.78
+   "swap": 20.0
   },
   "ours_events": {
    "entry": {
@@ -324,6 +372,14 @@
   "src": "11-24 daily",
   "v1": 36.7,
   "v2": 37.87,
+  "v1_breakdown": {
+   "stem_curves": 59.71,
+   "deck_curves": 39.09,
+   "beat_align": 29.45,
+   "bass_swap": 27.15,
+   "outgoing_cut": 16.47,
+   "blend_length": 14.53
+  },
   "place": {
    "entry": 21.08,
    "gone": 7.67,

@@ -26,17 +26,24 @@ def work(p):
     except Exception as e:
         return dict(id=rec['id'], split=rec['split'], arm=arm, error=traceback.format_exc()[-600:])
 
+def work_and_write(p):
+    import fcntl
+    row = work(p)
+    ck = os.path.join(HERE, f'cohort_{p[0]}.jsonl')
+    with open(ck, 'a') as fh:
+        fcntl.flock(fh, fcntl.LOCK_EX); fh.write(json.dumps(row, default=str) + '\n'); fcntl.flock(fh, fcntl.LOCK_UN)
+    print(p[0], row['id'], row.get('v1'), row.get('v2'), row.get('error', '')[-200:], flush=True)
+    return row['id']
+
 if __name__ == '__main__':
-    from concurrent.futures import ProcessPoolExecutor, as_completed
+    # 2026-11-24: fork-pool result delivery hung (20 renders done, 0 results returned); spawn workers that write their own rows
+    import multiprocessing as mp
     recs = T.load_recs()
     for arm, delta in ARMS:
         ck = os.path.join(HERE, f'cohort_{arm}.jsonl')
         have = {json.loads(l)['id'] for l in open(ck)} if os.path.exists(ck) else set()
         todo = [(arm, delta, i, r) for i, r in enumerate(recs) if r['id'] not in have]
         print(arm, len(have), 'cached', len(todo), 'todo', flush=True)
-        with ProcessPoolExecutor(max_workers=2) as ex:
-            for f in as_completed([ex.submit(work, p) for p in todo]):
-                row = f.result()
-                with open(ck, 'a') as fh: fh.write(json.dumps(row, default=str) + '\n')
-                print(arm, row['id'], row.get('v1'), row.get('v2'), row.get('error', '')[-200:], flush=True)
+        with mp.get_context('spawn').Pool(2, maxtasksperchild=4) as pool:
+            for _ in pool.imap_unordered(work_and_write, todo): pass
     print('COHORT DONE', flush=True)

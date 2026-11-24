@@ -7,3 +7,4 @@
 {"tag": "n1118", "kept": false, "base_test": 34.07, "new_test": null, "kept_name": null, "n_tried": 6}
 {"tag": "n1120", "kept": false, "base_test": 34.07, "new_test": 34.07, "kept_name": null, "night_win": true, "night_win_name": "epg_strict", "night_win_names": ["epg_strict", "epg_drop", "epg_stack"], "n_tried": 3}
 {"tag": "n1121", "kept": false, "base_test": 34.07, "new_test": 34.07, "kept_name": null, "night_win": true, "night_win_name": "epg_strict", "night_win_names": ["epg_strict", "epg_drop", "epg_stack"], "n_tried": 5}
+{"tag": "n1124", "kept": false, "base_test": 31.47, "new_test": 31.47, "kept_name": null, "night_win": true, "night_win_name": "epg_strict", "night_win_names": ["epg_strict", "epg_drop", "epg_stack"], "n_tried": 6}

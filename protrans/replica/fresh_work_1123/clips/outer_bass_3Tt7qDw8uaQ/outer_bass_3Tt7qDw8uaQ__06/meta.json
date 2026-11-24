@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__06",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Seba - Too Much Too Soon",
+    "yt": "IxPSVxoa-4w",
+    "t": 1412.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=IxPSVxoa-4w"
+  },
+  "b": {
+    "title": "Atelier - Virtual Faith",
+    "yt": "soundcloud_2304384563",
+    "t": 1677.0,
+    "source": "soundcloud",
+    "url": "https://soundcloud.com/future-engineers/atelier-virtual-faith"
+  },
+  "window": {
+    "mix_t_a": 1412.0,
+    "mix_t_b": 1677.0,
+    "mix_t_next": 1898.0,
+    "hint_a_played_sec": 265.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__06/pro.wav",
+  "pro_clip_start": 1653.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__06"
+}

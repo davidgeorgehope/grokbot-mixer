@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__24",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Alix Perez - Crooklyn",
+    "yt": "xH_QZNQwr9k",
+    "t": 5048.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=xH_QZNQwr9k"
+  },
+  "b": {
+    "title": "Bop - Space 2 Breathe",
+    "yt": "lwjf4GM1g00",
+    "t": 5159.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=lwjf4GM1g00"
+  },
+  "window": {
+    "mix_t_a": 5048.0,
+    "mix_t_b": 5159.0,
+    "mix_t_next": 5357.0,
+    "hint_a_played_sec": 111.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__24/pro.wav",
+  "pro_clip_start": 5135.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__24"
+}

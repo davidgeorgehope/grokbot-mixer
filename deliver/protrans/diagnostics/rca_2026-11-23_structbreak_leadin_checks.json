@@ -1,0 +1,82 @@
+{
+  "win": [
+    "n",
+    160,
+    null,
+    32,
+    32
+  ],
+  "score": 55.52,
+  "flag": "LEADIN_LOCK=1",
+  "blend_lock": {
+    "lag_ms": null,
+    "n": 5,
+    "n_loud": 5,
+    "bars": [
+      130,
+      131,
+      132,
+      133,
+      134
+    ],
+    "offs": [
+      132.1,
+      79.8,
+      82.7,
+      -59.5,
+      153.8
+    ],
+    "applied": true,
+    "why": "lead-in phrase phase (incoming lead-in as anchor)",
+    "leadin": {
+      "cue": 32,
+      "ev": 48,
+      "both": 14,
+      "A": {
+        "bars": [
+          128,
+          135
+        ],
+        "phase": 0.0625,
+        "strength": 3.621069338222102,
+        "n": 8
+      },
+      "B": {
+        "bars": [
+          32,
+          39
+        ],
+        "phase": -0.1875,
+        "strength": 3.6060945616567848,
+        "n": 8
+      },
+      "lag_ms": 86.2,
+      "applied": true
+    },
+    "blend_lock_ms": 86.2
+  },
+  "halfbeat_fail": false,
+  "halfbeat": {
+    "r0": 0.706,
+    "rh": 0.395,
+    "lag_ms": 0.0,
+    "bars": 2,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+  },
+  "offset_ms_median": 146.6,
+  "offset_pass_ms": 40.0,
+  "near_halfbeat": true,
+  "halfbeat_ms": 172.41379310344828,
+  "lows_dip_db": 38.2,
+  "clash_bars": 6.06,
+  "hard": {},
+  "hard_fail": false,
+  "piano_leadin_ok": true,
+  "piano_lead_mid_db": -30.661434715155558,
+  "piano_pre_low_db": -40.8225834287048,
+  "piano_ev_low_db": -31.87189064939021,
+  "align_ok": false,
+  "pass_listen_clip": false
+}

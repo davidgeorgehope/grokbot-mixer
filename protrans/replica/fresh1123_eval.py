@@ -17,9 +17,18 @@ import final_eval as FE
 import pickle
 
 V = dict(default='fdef1123', epg_strict='fepgs1123', epg_drop='fepgd1123', epg_stack='fepgk1123')
-MIX = 'yolowich_FIdBhH3SuXk'
+MIXES_EXPECTED = (
+    'yolowich_FIdBhH3SuXk',
+    'nicky_havey_1xpuWyKZ4R0',
+    'outer_bass_3Tt7qDw8uaQ',
+)
 SEED = 20261119
 N_BOOT = 4000
+URLS = {
+    'yolowich_FIdBhH3SuXk': ('https://www.youtube.com/watch?v=FIdBhH3SuXk', 'Hybrid Minds - Drum n Bass Listening Liquid Set', 'YoloWich'),
+    'nicky_havey_1xpuWyKZ4R0': ('https://www.youtube.com/watch?v=1xpuWyKZ4R0', 'Liquid Drum & Bass Mix - January 2026', 'Nicky Havey'),
+    'outer_bass_3Tt7qDw8uaQ': ('https://www.youtube.com/watch?v=3Tt7qDw8uaQ', '2026 Liquid Drum and Bass Mix', 'Outer Bass'),
+}
 
 
 def rows(v):
@@ -82,14 +91,16 @@ R = {k: rows(v) for k, v in V.items()}
 A = {k: arrs(v) for k, v in V.items()}
 ids = sorted(set.intersection(*[set(R[k]) & set(A[k]) for k in V]))
 F = {k: {i: FE.flags(A[k][i]) for i in ids} for k in V}
+mix_ids = sorted({i.rsplit('__', 1)[0] for i in ids})
 res = dict(
-    mix=MIX,
-    url='https://www.youtube.com/watch?v=FIdBhH3SuXk',
-    title='Hybrid Minds - Drum n Bass Listening Liquid Set',
-    dj='YoloWich',
+    mixes=[{'mix_id': m, 'url': URLS.get(m, ('', '', ''))[0],
+            'title': URLS.get(m, ('', '', ''))[1], 'dj': URLS.get(m, ('', '', ''))[2],
+            'n': sum(1 for i in ids if i.startswith(m + '__'))} for m in mix_ids],
     n=len(ids),
+    n_mix=len(mix_ids),
     ids=ids,
-    locked_holdout='not reopened (promotion_criteria_1120.json: already opened 2026-11-19; not required for these flag candidates)',
+    locked_holdout='not reopened (promotion_criteria_1120.json: already opened 2026-11-19; not required for these flag candidates; a further look would be a repeated opening)',
+    wiring_check='joe_syntax_hospital__13 via the same eval_gate path: epg_drop/stack change 256/48/16 -> 224/48/16; epg_strict abstains. YoloWich identical windows were abstention, not a wiring miss. See js13_epg_picks_1123.json.',
     arms={},
 )
 
@@ -127,9 +138,11 @@ res['pass'] = {k: res['arms'][k]['zero_new_hard_fails'] for k in V if k != 'defa
 json.dump(res, open(os.path.join(H, 'fresh1123_eval.json'), 'w'), indent=1)
 
 fm = json.load(open(os.path.join(H, 'fresh_mixes.json')))
+stamp = time.strftime('%Y-%m-%d %H:%M ET')
 for x in fm['mixes']:
-    if x['mix_id'] == MIX:
+    if x['mix_id'] in mix_ids:
+        n_m = sum(1 for i in ids if i.startswith(x['mix_id'] + '__'))
         x['spent'] = True
-        x['spent_on'] = time.strftime('%Y-%m-%d %H:%M ET') + f' (n1123 epg candidates, once, n={len(ids)})'
+        x['spent_on'] = stamp + f' (n1123 epg candidates, once, n={n_m} of {len(ids)} across {len(mix_ids)} mixes)'
 json.dump(fm, open(os.path.join(H, 'fresh_mixes.json'), 'w'), indent=1)
-print('SPENT', MIX, 'n', len(ids), 'pass', res['pass'], flush=True)
+print('SPENT', mix_ids, 'n', len(ids), 'n_mix', len(mix_ids), 'pass', res['pass'], flush=True)

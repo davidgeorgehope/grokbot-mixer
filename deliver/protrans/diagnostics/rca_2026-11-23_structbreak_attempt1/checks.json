@@ -1,0 +1,34 @@
+{
+  "win": [
+    "n",
+    160,
+    null,
+    32,
+    32
+  ],
+  "score": 45.86,
+  "halfbeat_fail": false,
+  "halfbeat": {
+    "r0": 0.706,
+    "rh": 0.395,
+    "lag_ms": 0.0,
+    "bars": 2,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+  },
+  "few_drum_on_drum": true,
+  "offset_ms_median": -81.3,
+  "offset_pass_ms": 40.0,
+  "near_halfbeat": true,
+  "halfbeat_ms": 172.41379310344828,
+  "lows_dip_db": 38.1,
+  "clash_bars": 6.06,
+  "hard": {},
+  "hard_fail": false,
+  "piano_xcorr_expected": -0.10173237562770261,
+  "piano_xcorr_start": -0.01201950119797674,
+  "piano_leadin_ok": false,
+  "align_ok": false,
+  "pass_listen_clip": false
+}

@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__29",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Alpha Rhythm - Tranquility",
+    "yt": "YaDwXxH-b4A",
+    "t": 5909.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=YaDwXxH-b4A"
+  },
+  "b": {
+    "title": "Euqsarosa - Dream Of You",
+    "yt": "bandcamp_2667996042",
+    "t": 6173.0,
+    "source": "bandcamp",
+    "url": "https://fourcornersmusic1.bandcamp.com/track/dream-of-you"
+  },
+  "window": {
+    "mix_t_a": 5909.0,
+    "mix_t_b": 6173.0,
+    "mix_t_next": 6659.0,
+    "hint_a_played_sec": 264.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__29/pro.wav",
+  "pro_clip_start": 6149.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__29"
+}

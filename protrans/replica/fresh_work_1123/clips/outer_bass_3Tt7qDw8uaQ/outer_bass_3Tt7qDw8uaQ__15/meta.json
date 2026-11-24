@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__15",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Etherwood & LSB - Evermade",
+    "yt": "tupwLO2xG1c",
+    "t": 3267.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=tupwLO2xG1c"
+  },
+  "b": {
+    "title": "Tokyo Prose - Tremble feat. Nether",
+    "yt": "xgMqpnWlWrY",
+    "t": 3486.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=xgMqpnWlWrY"
+  },
+  "window": {
+    "mix_t_a": 3267.0,
+    "mix_t_b": 3486.0,
+    "mix_t_next": 3685.0,
+    "hint_a_played_sec": 219.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__15/pro.wav",
+  "pro_clip_start": 3462.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__15"
+}

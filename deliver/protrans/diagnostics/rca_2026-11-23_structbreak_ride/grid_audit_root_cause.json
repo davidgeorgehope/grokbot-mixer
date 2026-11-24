@@ -1,0 +1,190 @@
+{
+  "written_et": "2026-11-23 20:28 America/New_York",
+  "pair": "joe_syntax_hospital__13",
+  "ids": {
+    "out": "u6cggHmZEAs",
+    "in": "SqzxwPEa-DI"
+  },
+  "official_offset_ms": 146.6,
+  "half_beat_ms": 172.4138,
+  "root_cause": "The stable ~147 ms official median is not a constant half-beat flip of either track's stored grid, and it is not tempo/BPM drift. S.P.Y's post-drop-1 breakdown [128, 160] is a section-local half-time groove on an otherwise correct drop-locked 174 metronome: isolated kicks in that region sit near half a beat off the stored downbeats, while snares stay near the grid, and the kick-on-1 / snare-on-2-and-4 template prefers a half-beat shift only in this region (margin +1.21, above the existing 0.5 line). Prep's half-beat check is global and is dominated by the on-grid drops, so half_off stays false and the grid is never shifted \u2014 correctly, because flipping it would break drop 1, drop 2, and the snares. Official blend_diag then takes a 2-bar kick+snare xcorr on the five loud overlap bars 130-134 (values 91.4, -111.7, 161.1, 161.1, 146.6) and reports the median 146.6. A 1-bar window on the same bars is 88.5 ms (the breakdown phase walking from +21 ms on 128-135 toward +129 ms on 136-143), not a clean half-beat lock. The pro clip shows the same breakdown-kick displacement against the same stored grid (4 of 6 strong kicks near half a beat, abs median 155 ms). After alignment, beat_identity diff is 7.3 ms: our LEADIN_LOCK placement already matches the pro. ONBEAT_RIDE correctly refused to apply (only 3 bars had kicks from both decks within 40 ms of the downbeat). Loosening that confidence floor, or chasing 147 ms with another constant lock, would ride Meteorites off its on-grid piano phrase and away from the pro.",
+  "grid_vs_onsets": {
+    "SPY_global": {
+      "half_off": false,
+      "margin": -0.587,
+      "offbeat_ratio": 0.889,
+      "drop1_kick_peak_beat": 0.0,
+      "drop2_kick_peak_beat": 0.0,
+      "verdict": "drops are on the stored downbeats; do not flip the track grid"
+    },
+    "SPY_breakdown_128_160": {
+      "half_off_region": true,
+      "margin": 1.21,
+      "offbeat_ratio": 1.367,
+      "kick_peak_beat": 2.5,
+      "snare_peak_beat": 1.44,
+      "deck_phase_beats": 0.4375,
+      "deck_phase_ms": 150.9,
+      "strength": 2.042,
+      "phrase_walk": [
+        {
+          "bars": [
+            128,
+            135
+          ],
+          "phase_ms": 21.6,
+          "strength": 3.621,
+          "note": "LEADIN_LOCK anchor; on grid"
+        },
+        {
+          "bars": [
+            132,
+            139
+          ],
+          "phase_ms": 129.3,
+          "strength": 2.934
+        },
+        {
+          "bars": [
+            136,
+            143
+          ],
+          "phase_ms": 129.3,
+          "strength": 3.781
+        },
+        {
+          "bars": [
+            148,
+            155
+          ],
+          "phase_ms": -172.4,
+          "strength": 1.38
+        },
+        {
+          "bars": [
+            152,
+            159
+          ],
+          "phase_ms": -43.1,
+          "strength": 2.551,
+          "note": "recovers into drop 2"
+        }
+      ]
+    },
+    "Meteorites_global": {
+      "half_off": false,
+      "margin": -5.629,
+      "offbeat_ratio": 1.382,
+      "note": "high offbeat_ratio is syncopated drop kicks; snares clearly on 2 and 4, template strongly prefers the stored grid"
+    },
+    "Meteorites_leadin_32_48": {
+      "kick_on_vs_and": 0.508,
+      "offbeat_ratio": 2.032,
+      "phase_ms": -43.1,
+      "strength": 0.789,
+      "note": "messy lead-in; LEADIN_LOCK used 32-39 at -64.7 ms, strength 3.61"
+    },
+    "Meteorites_piano_48_61": {
+      "kick_peak_beat": 0.12,
+      "offbeat_ratio": 0.476,
+      "phase_ms": -21.6,
+      "strength": 5.125,
+      "note": "on the stored grid"
+    },
+    "Meteorites_drop1": {
+      "margin": -5.34,
+      "snare_24_vs_13": 1.949,
+      "phase_ms": 0.0,
+      "strength": 5.338
+    }
+  },
+  "official_xcorr": {
+    "loud_mix_bars": [
+      130,
+      131,
+      132,
+      133,
+      134
+    ],
+    "win2": {
+      "values_ms": [
+        91.4,
+        -111.7,
+        161.1,
+        161.1,
+        146.6
+      ],
+      "median": 146.6
+    },
+    "win1": {
+      "values_ms": [
+        91.4,
+        88.5,
+        100.1,
+        82.7,
+        -164.0
+      ],
+      "median": 88.5
+    },
+    "win1_prefer_interior": {
+      "values_ms": [
+        91.4,
+        88.5,
+        100.1,
+        82.7,
+        -23.2
+      ],
+      "median": 88.5
+    },
+    "note": "2-bar kick+snare hops toward a half-beat; 1-bar still ~88 ms because the outgoing phase is walking, not because Meteorites is flipped."
+  },
+  "vs_pro": {
+    "pro_clip_s": 64.0,
+    "beat_identity_aligned_diff_ms": 7.3,
+    "pro_phase_beats": -0.497,
+    "ours_phase_beats": 0.4817,
+    "SPY_breakdown_kicks_in_pro": {
+      "n_strong": 6,
+      "n_near_half": 4,
+      "n_onbeat": 2,
+      "strong_abs_median_ms": 155.2,
+      "near_half_bars": [
+        128,
+        130,
+        131,
+        132
+      ],
+      "onbeat_bars": [
+        129,
+        133
+      ]
+    },
+    "SPY_breakdown_snares_in_pro": {
+      "n_onbeat": 4,
+      "onbeat_median_ms": -31.0,
+      "n_near_half": 0
+    },
+    "verdict": "The pro leaves S.P.Y's breakdown kicks off the drop-locked downbeats the same way the source does. Our constant lead-in lock already matches that relationship."
+  },
+  "ride_and_checks": {
+    "onbeat_ride": "skipped; 3 confident bars (need 4); not loosened",
+    "confident_residuals_ms": [
+      16.1,
+      -46.4,
+      -20.3
+    ],
+    "bass_ok": true,
+    "hole_db": -18.5,
+    "piano_leadin_ok": false,
+    "piano_note": "False fail: BASS_FILL_GAPS already has lows up at mix 140-144 (pre_low -26.9 vs ev_low -25.0, need +3 dB). Mid band at 144 still rises (-24.1 vs lead-in mid -30.6). The piano is present; the lows jump was used as a proxy and the fill removed it.",
+    "hard_fail": false,
+    "clip": false
+  },
+  "what_not_to_do": [
+    "Do not flip either track's stored grid (drops and Meteorites snares are correct; a global or pinned half-beat shift would break them).",
+    "Do not loosen ONBEAT_RIDE's 4-bar / 40 ms confidence floor to force a ride.",
+    "Do not apply another constant lock to chase the 146.6 ms official median (that number is a 2-bar hop plus the outgoing breakdown's later +129 ms kick phase).",
+    "Do not ride Meteorites to follow S.P.Y's later breakdown kicks: that would unalign the on-grid piano phrase and diverge from the pro (currently 7.3 ms)."
+  ],
+  "general_analysis_fix": "Treat official kick+snare xcorr as untrusted when the outgoing overlap is a post-drop half-time breakdown (section-local half-beat template margin >= 0.5, or an existing half-time section). Use isolated snares and/or on-beat-only kick lags, and compare to the pro with beat_identity. Prep's half-beat check should stay global (do not re-grid a breakdown independently of its drops). Incoming lock should stay anchored to the lead-in phrase, not to later outgoing kick syncopation."
+}

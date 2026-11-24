@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__11",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Sereni7 - Focus",
+    "yt": "SIoCDQPpgeA",
+    "t": 2405.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=SIoCDQPpgeA"
+  },
+  "b": {
+    "title": "Scatterbrain - Far Away",
+    "yt": "qhbQmMYVgyk",
+    "t": 2648.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=qhbQmMYVgyk"
+  },
+  "window": {
+    "mix_t_a": 2405.0,
+    "mix_t_b": 2648.0,
+    "mix_t_next": 2824.0,
+    "hint_a_played_sec": 243.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__11/pro.wav",
+  "pro_clip_start": 2624.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__11"
+}

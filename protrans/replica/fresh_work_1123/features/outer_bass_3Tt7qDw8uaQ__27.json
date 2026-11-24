@@ -1,0 +1,1135 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__27",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "pair": "Outer Bass - Hyper Light Drifter -> Alpha Rhythm & Actrasier - Silent Dawn",
+  "video_id": "3Tt7qDw8uaQ",
+  "cue": {
+    "incoming_bar": 47.67,
+    "incoming_section": "build",
+    "outgoing_bar": 159.75,
+    "outgoing_section": "drop",
+    "blend_list_s": 177.0,
+    "locate_a": {
+      "z": 6.902,
+      "cc": 0.8748,
+      "mix_t": 1.347,
+      "track_t": 197.695,
+      "n": 90
+    },
+    "locate_b": {
+      "z": 8.368,
+      "cc": 0.9121,
+      "mix_t": 45.116,
+      "track_t": 86.866,
+      "n": 114
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.006,
+      "hold_db": -2.22,
+      "tail_bars": 17.76,
+      "out_p90": -2.07,
+      "in_p90": -2.03
+    },
+    "bass": {
+      "rise_db_per_beat": -0.208,
+      "hold_db": -2.07,
+      "tail_bars": 15.77,
+      "out_p90": -1.99,
+      "in_p90": -1.97
+    },
+    "highs": {
+      "rise_db_per_beat": 0.044,
+      "hold_db": -5.19,
+      "tail_bars": 35.88,
+      "out_p90": -4.67,
+      "in_p90": -2.76
+    },
+    "mids": {
+      "rise_db_per_beat": 0.086,
+      "hold_db": -3.57,
+      "tail_bars": 31.17,
+      "out_p90": -3.16,
+      "in_p90": -2.17
+    }
+  },
+  "overlap_bars": 14.317,
+  "track_a": {
+    "sections": {
+      "n_bars": 198,
+      "intro_end": 32,
+      "drop1": 32,
+      "breakdown": 97,
+      "drop2": 112,
+      "outro_start": 192,
+      "music_end": 198,
+      "drops": [
+        [
+          32,
+          96
+        ],
+        [
+          112,
+          192
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 32
+        },
+        {
+          "name": "drop",
+          "start": 32,
+          "end": 96
+        },
+        {
+          "name": "build",
+          "start": 96,
+          "end": 97
+        },
+        {
+          "name": "breakdown",
+          "start": 97,
+          "end": 112
+        },
+        {
+          "name": "drop",
+          "start": 112,
+          "end": 192
+        },
+        {
+          "name": "outro",
+          "start": 192,
+          "end": 198
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -25.56,
+          "drums": -14.44,
+          "energy": -14.44
+        },
+        "drop": {
+          "bass": -9.05,
+          "drums": -7.79,
+          "energy": -7.79
+        },
+        "build": {
+          "bass": -16.52,
+          "drums": -13.22,
+          "energy": -13.22
+        },
+        "breakdown": {
+          "bass": -42.4,
+          "drums": -16.54,
+          "energy": -16.54
+        },
+        "outro": {
+          "bass": -78.74,
+          "drums": -45.03,
+          "energy": -45.03
+        }
+      },
+      "intro_len": 32,
+      "n_drops": 2
+    },
+    "bpm": 173.99,
+    "yt": "iNbUFfSNzl8",
+    "title": "Outer Bass - Hyper Light Drifter"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 250,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 128,
+      "drop2": 160,
+      "outro_start": 240,
+      "music_end": 250,
+      "drops": [
+        [
+          48,
+          128
+        ],
+        [
+          160,
+          240
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 32
+        },
+        {
+          "name": "build",
+          "start": 32,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 128
+        },
+        {
+          "name": "breakdown",
+          "start": 128,
+          "end": 160
+        },
+        {
+          "name": "drop",
+          "start": 160,
+          "end": 240
+        },
+        {
+          "name": "outro",
+          "start": 240,
+          "end": 250
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -42.53,
+          "drums": -22.24,
+          "energy": -22.24
+        },
+        "build": {
+          "bass": -17.55,
+          "drums": -13.24,
+          "energy": -13.24
+        },
+        "drop": {
+          "bass": -10.21,
+          "drums": -8.7,
+          "energy": -8.7
+        },
+        "breakdown": {
+          "bass": -39.93,
+          "drums": -21.14,
+          "energy": -21.14
+        },
+        "outro": {
+          "bass": -68.07,
+          "drums": -32.15,
+          "energy": -32.15
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 173.991,
+    "yt": "soundcloud_2209934711",
+    "title": "Alpha Rhythm & Actrasier - Silent Dawn"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 159.75,
+    "outgoing_section": "drop",
+    "outgoing_bars_into_section": 47.75,
+    "outgoing_bars_left": 38.25,
+    "outgoing_bars_to_outro": 32.25,
+    "incoming_cue_bar": 47.67,
+    "incoming_section": "build",
+    "incoming_bars_into_section": 15.67,
+    "incoming_rel_drop1": -0.33,
+    "bass_swap_bar": 11.6
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -2.01,
+        -2.09,
+        -1.91,
+        -2.24,
+        -2.08,
+        -2.22,
+        -2.03,
+        -2.19,
+        -2.1,
+        -2.25,
+        -2.28,
+        -2.46,
+        -2.59,
+        -2.86,
+        -2.72,
+        -3.26,
+        -5.28,
+        -9.32,
+        -26.52,
+        -27.58,
+        -28.76,
+        -31.16,
+        -31.89,
+        -30.59,
+        -32.49,
+        -26.24,
+        -32.37,
+        -33.46,
+        -35.62,
+        -33.55,
+        -35.69,
+        -36.8,
+        -40.94,
+        -33.78,
+        -44.1,
+        -42.23,
+        -42.18,
+        -45.35,
+        -52.31,
+        -48.35,
+        -54.19,
+        -48.25,
+        -47.17,
+        -51.7,
+        -47.38,
+        -50.7
+      ],
+      "b": [
+        -13.63,
+        -12.13,
+        -16.07,
+        -13.74,
+        -14.5,
+        -12.67,
+        -14.27,
+        -11.7,
+        -12.61,
+        -10.14,
+        -13.27,
+        -10.39,
+        -11.97,
+        -8.74,
+        -11.15,
+        -8.77,
+        -6.59,
+        -3.49,
+        -2.07,
+        -2.01,
+        -2.17,
+        -2.02,
+        -2.08,
+        -2.08,
+        -2.1,
+        -1.99,
+        -2.05,
+        -2.03,
+        -2.1,
+        -2.07,
+        -2.08,
+        -2.05,
+        -2.04,
+        -2.04,
+        -2.09,
+        -2.05,
+        -2.11,
+        -2.07,
+        -2.08,
+        -2.06,
+        -2.04,
+        -2.11,
+        -2.05,
+        -2.09,
+        -2.08,
+        -2.09
+      ]
+    },
+    "bass": {
+      "a": [
+        -1.92,
+        -1.93,
+        -1.89,
+        -2.04,
+        -2.05,
+        -2.0,
+        -1.99,
+        -1.99,
+        -2.05,
+        -2.1,
+        -2.11,
+        -2.25,
+        -2.42,
+        -2.49,
+        -2.55,
+        -3.31,
+        -13.39,
+        -35.39,
+        -60.08,
+        -54.54,
+        -53.76,
+        -58.27,
+        -58.41,
+        -51.04,
+        -58.2,
+        -56.03,
+        -65.2,
+        -51.64,
+        -51.49,
+        -51.34,
+        -56.98,
+        -56.48,
+        -65.38,
+        -52.34,
+        -52.14,
+        -51.6,
+        -46.72,
+        -56.04,
+        -64.51,
+        -94.59,
+        -61.8,
+        -59.07,
+        -51.78,
+        -58.64,
+        -53.24,
+        -52.8
+      ],
+      "b": [
+        -42.66,
+        -38.52,
+        -16.67,
+        -28.58,
+        -12.16,
+        -69.44,
+        -81.63,
+        -20.16,
+        -20.41,
+        -6.27,
+        -40.99,
+        -4.42,
+        -23.2,
+        -10.33,
+        -61.62,
+        -9.98,
+        -49.9,
+        -6.84,
+        -2.09,
+        -1.95,
+        -2.07,
+        -1.97,
+        -2.06,
+        -1.99,
+        -2.07,
+        -1.94,
+        -2.06,
+        -2.0,
+        -2.1,
+        -2.02,
+        -2.07,
+        -2.0,
+        -2.08,
+        -1.91,
+        -2.05,
+        -2.03,
+        -2.12,
+        -2.05,
+        -2.04,
+        -2.02,
+        -1.96,
+        -2.07,
+        -1.96,
+        -2.05,
+        -2.0,
+        -2.05
+      ]
+    },
+    "mids": {
+      "a": [
+        -2.71,
+        -3.4,
+        -3.1,
+        -3.74,
+        -2.83,
+        -3.05,
+        -3.21,
+        -3.69,
+        -3.12,
+        -3.61,
+        -3.73,
+        -4.2,
+        -3.94,
+        -4.01,
+        -4.35,
+        -5.16,
+        -6.07,
+        -7.0,
+        -8.58,
+        -7.67,
+        -11.18,
+        -11.25,
+        -11.93,
+        -11.21,
+        -12.59,
+        -9.48,
+        -11.85,
+        -14.01,
+        -14.86,
+        -14.69,
+        -14.9,
+        -18.99,
+        -19.17,
+        -19.18,
+        -28.84,
+        -27.89,
+        -28.74,
+        -28.96,
+        -28.7,
+        -29.85,
+        -29.15,
+        -32.91,
+        -31.84,
+        -38.17,
+        -46.21,
+        -45.13
+      ],
+      "b": [
+        -10.47,
+        -8.82,
+        -10.5,
+        -9.52,
+        -10.32,
+        -10.37,
+        -9.15,
+        -8.01,
+        -8.1,
+        -7.21,
+        -8.41,
+        -6.69,
+        -7.7,
+        -5.96,
+        -6.7,
+        -5.61,
+        -5.03,
+        -3.88,
+        -3.92,
+        -4.2,
+        -3.49,
+        -3.42,
+        -3.43,
+        -3.03,
+        -3.14,
+        -3.58,
+        -3.64,
+        -2.98,
+        -2.97,
+        -2.74,
+        -2.98,
+        -2.57,
+        -2.53,
+        -2.42,
+        -2.24,
+        -2.17,
+        -2.16,
+        -2.21,
+        -2.23,
+        -2.18,
+        -2.29,
+        -2.19,
+        -2.19,
+        -2.16,
+        -2.14,
+        -2.2
+      ]
+    },
+    "highs": {
+      "a": [
+        -2.5,
+        -3.38,
+        -4.62,
+        -5.3,
+        -5.14,
+        -5.55,
+        -5.31,
+        -5.61,
+        -5.39,
+        -5.95,
+        -5.67,
+        -5.83,
+        -4.73,
+        -5.51,
+        -4.96,
+        -4.79,
+        -4.33,
+        -5.28,
+        -6.96,
+        -8.25,
+        -7.96,
+        -8.71,
+        -9.48,
+        -10.15,
+        -11.02,
+        -10.22,
+        -11.71,
+        -12.48,
+        -12.76,
+        -13.49,
+        -14.27,
+        -14.09,
+        -14.44,
+        -13.66,
+        -17.29,
+        -17.22,
+        -17.92,
+        -18.8,
+        -21.5,
+        -21.65,
+        -23.61,
+        -22.37,
+        -24.27,
+        -23.73,
+        -25.04,
+        -25.19
+      ],
+      "b": [
+        -8.76,
+        -10.33,
+        -7.58,
+        -7.18,
+        -7.15,
+        -6.33,
+        -6.15,
+        -5.99,
+        -5.9,
+        -5.59,
+        -5.45,
+        -5.4,
+        -5.72,
+        -5.2,
+        -5.5,
+        -5.98,
+        -6.14,
+        -5.81,
+        -4.87,
+        -4.29,
+        -4.51,
+        -4.07,
+        -4.11,
+        -3.84,
+        -3.6,
+        -3.8,
+        -3.71,
+        -3.55,
+        -3.51,
+        -3.44,
+        -3.36,
+        -3.31,
+        -3.59,
+        -3.9,
+        -3.22,
+        -3.18,
+        -3.03,
+        -3.05,
+        -2.81,
+        -2.82,
+        -2.62,
+        -2.82,
+        -2.74,
+        -2.88,
+        -2.69,
+        -2.66
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        192,
+        null,
+        32,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.67,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 40.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 112.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 144.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        200,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 152.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 64.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 64.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 40.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 40.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 40.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 112.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 112.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 112.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 144.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 144.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 144.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        200,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 152.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        200,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 152.33,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        200,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 152.33,
+      "section_match": false,
+      "relevance": 0
+    }
+  ]
+}

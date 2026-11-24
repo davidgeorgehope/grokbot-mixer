@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__14",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Inch M - Fading Echo",
+    "yt": "E8wd19iFZns",
+    "t": 3045.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=E8wd19iFZns"
+  },
+  "b": {
+    "title": "Etherwood & LSB - Evermade",
+    "yt": "tupwLO2xG1c",
+    "t": 3267.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=tupwLO2xG1c"
+  },
+  "window": {
+    "mix_t_a": 3045.0,
+    "mix_t_b": 3267.0,
+    "mix_t_next": 3486.0,
+    "hint_a_played_sec": 222.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__14/pro.wav",
+  "pro_clip_start": 3243.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__14"
+}

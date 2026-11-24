@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__27",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Outer Bass - Hyper Light Drifter",
+    "yt": "iNbUFfSNzl8",
+    "t": 5555.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=iNbUFfSNzl8"
+  },
+  "b": {
+    "title": "Alpha Rhythm & Actrasier - Silent Dawn",
+    "yt": "soundcloud_2209934711",
+    "t": 5732.0,
+    "source": "soundcloud",
+    "url": "https://soundcloud.com/liquicityrecords/alpha-rhythm-actraiser-silent-dawn-1"
+  },
+  "window": {
+    "mix_t_a": 5555.0,
+    "mix_t_b": 5732.0,
+    "mix_t_next": 5909.0,
+    "hint_a_played_sec": 177.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__27/pro.wav",
+  "pro_clip_start": 5708.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__27"
+}

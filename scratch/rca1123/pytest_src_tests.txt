@@ -1,0 +1,14 @@
+........................ss.............................................. [ 18%]
+...............FFFF.......F............................................. [ 37%]
+........................................................................ [ 56%]
+...................................F.................................... [ 75%]
+........................................................................ [ 94%]
+....................                                                     [100%]
+=========================== short test summary info ============================
+FAILED src/tests/test_fade_graphcut.py::test_min_cut_prefers_cheap_time_edge
+FAILED src/tests/test_fade_graphcut.py::test_seams_are_monotonic_and_anchored
+FAILED src/tests/test_fade_graphcut.py::test_bass_gap_is_not_chosen_when_a_legal_cut_exists
+FAILED src/tests/test_fade_graphcut.py::test_clash_makes_a_cut_cheaper_than_a_compatible_region
+FAILED src/tests/test_fade_graphcut.py::test_outgoing_bass_follows_fader_when_incoming_never_covers
+FAILED src/tests/test_resolve_sources.py::test_non_youtube_url_uses_other_downloader
+6 failed, 372 passed, 2 skipped in 66.42s (0:01:06)

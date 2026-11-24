@@ -1,0 +1,85 @@
+{
+ "id": "joe_syntax_hospital__13",
+ "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+ "note": "Wiring check 2026-11-23 7:54 PM ET via the same eval_gate path as the YoloWich fresh run. Flags do reach the planner: epg_drop/stack change the window, epg_strict abstains and keeps the default. YoloWich identical scores were gate abstention, not a wiring miss.",
+ "pro": {
+  "out_bar_at_entry": 122.9,
+  "in_bar_at_entry": 28.1,
+  "overlap_bars": 33,
+  "outgoing_drop1": [
+   63,
+   128
+  ],
+  "outgoing_last_drop": [
+   159,
+   223
+  ],
+  "outgoing_outro_start": 223,
+  "music_end": 263,
+  "why": "pro leaves at the end of drop 1 (~bar 123)"
+ },
+ "arms": {
+  "default": {
+   "win": [
+    "n",
+    256,
+    null,
+    48,
+    16
+   ],
+   "fam": "nat_short",
+   "exit_err": 118,
+   "cue_err": 21,
+   "hard": "ok",
+   "meaning": "outro-over-intro, ~133 bars after the pro"
+  },
+  "epg_strict": {
+   "win": [
+    "n",
+    256,
+    null,
+    48,
+    16
+   ],
+   "fam": "nat_short",
+   "exit_err": 118,
+   "cue_err": 21,
+   "hard": "ok",
+   "meaning": "gate kept the outro-over-intro default"
+  },
+  "epg_drop": {
+   "win": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "fam": "nat_short",
+   "exit_err": 86,
+   "cue_err": 21,
+   "hard": "ok",
+   "meaning": "exits at the end of the last drop (224 / outro_start 223), still ~101 bars after the pro drop-1 end"
+  },
+  "epg_stack": {
+   "win": [
+    "n",
+    224,
+    null,
+    48,
+    16
+   ],
+   "fam": "nat_short",
+   "exit_err": 86,
+   "cue_err": 21,
+   "hard": "ok",
+   "meaning": "drop hook takes the window; same as epg_drop"
+  }
+ },
+ "eval_gate_variants": [
+  "js13def",
+  "js13s",
+  "js13d",
+  "js13k"
+ ]
+}

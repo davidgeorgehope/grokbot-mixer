@@ -1,0 +1,1057 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__12",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "pair": "Scatterbrain - Far Away -> Marble Elephant & Cooper Stites - Breathe (Scatterbrain Remix)",
+  "video_id": "3Tt7qDw8uaQ",
+  "cue": {
+    "incoming_bar": 47.36,
+    "incoming_section": "drop",
+    "outgoing_bar": 159.37,
+    "outgoing_section": "drop",
+    "blend_list_s": 176.0,
+    "locate_a": {
+      "z": 8.357,
+      "cc": 0.8622,
+      "mix_t": 1.881,
+      "track_t": 197.695,
+      "n": 83
+    },
+    "locate_b": {
+      "z": 7.375,
+      "cc": 0.9345,
+      "mix_t": 42.539,
+      "track_t": 83.87,
+      "n": 97
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.531,
+      "hold_db": -20.83,
+      "tail_bars": 29.18,
+      "out_p90": -1.8,
+      "in_p90": -1.68
+    },
+    "bass": {
+      "rise_db_per_beat": -0.41,
+      "hold_db": -1.8,
+      "tail_bars": 42.77,
+      "out_p90": 1.58,
+      "in_p90": -1.62
+    },
+    "highs": {
+      "rise_db_per_beat": 0.077,
+      "hold_db": -3.27,
+      "tail_bars": 41.32,
+      "out_p90": 4.51,
+      "in_p90": 0.1
+    },
+    "mids": {
+      "rise_db_per_beat": 0.488,
+      "hold_db": -7.71,
+      "tail_bars": 32.26,
+      "out_p90": -1.72,
+      "in_p90": -1.63
+    }
+  },
+  "overlap_bars": 7.249,
+  "track_a": {
+    "sections": {
+      "n_bars": 183,
+      "intro_end": 31,
+      "drop1": 31,
+      "breakdown": 95,
+      "drop2": 112,
+      "outro_start": 175,
+      "music_end": 183,
+      "drops": [
+        [
+          31,
+          95
+        ],
+        [
+          112,
+          175
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 24
+        },
+        {
+          "name": "build",
+          "start": 24,
+          "end": 31
+        },
+        {
+          "name": "drop",
+          "start": 31,
+          "end": 95
+        },
+        {
+          "name": "breakdown",
+          "start": 95,
+          "end": 112
+        },
+        {
+          "name": "drop",
+          "start": 112,
+          "end": 175
+        },
+        {
+          "name": "outro",
+          "start": 175,
+          "end": 183
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -50.46,
+          "drums": -24.23,
+          "energy": -24.23
+        },
+        "build": {
+          "bass": -19.55,
+          "drums": -13.62,
+          "energy": -13.62
+        },
+        "drop": {
+          "bass": -13.09,
+          "drums": -10.44,
+          "energy": -10.44
+        },
+        "breakdown": {
+          "bass": -38.42,
+          "drums": -18.45,
+          "energy": -18.45
+        },
+        "outro": {
+          "bass": -62.36,
+          "drums": -40.03,
+          "energy": -40.03
+        }
+      },
+      "intro_len": 31,
+      "n_drops": 2
+    },
+    "bpm": 173.994,
+    "yt": "qhbQmMYVgyk",
+    "title": "Scatterbrain - Far Away"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 213,
+      "intro_end": 32,
+      "drop1": 32,
+      "breakdown": 112,
+      "drop2": 128,
+      "outro_start": 208,
+      "music_end": 213,
+      "drops": [
+        [
+          32,
+          112
+        ],
+        [
+          128,
+          208
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 32
+        },
+        {
+          "name": "drop",
+          "start": 32,
+          "end": 112
+        },
+        {
+          "name": "breakdown",
+          "start": 112,
+          "end": 128
+        },
+        {
+          "name": "drop",
+          "start": 128,
+          "end": 208
+        },
+        {
+          "name": "outro",
+          "start": 208,
+          "end": 213
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -49.82,
+          "drums": -22.91,
+          "energy": -22.91
+        },
+        "drop": {
+          "bass": -11.42,
+          "drums": -9.22,
+          "energy": -9.22
+        },
+        "breakdown": {
+          "bass": -45.68,
+          "drums": -25.54,
+          "energy": -25.54
+        },
+        "outro": {
+          "bass": -79.53,
+          "drums": -53.29,
+          "energy": -53.29
+        }
+      },
+      "intro_len": 32,
+      "n_drops": 2
+    },
+    "bpm": 174.019,
+    "yt": "H-766-vxH0c",
+    "title": "Marble Elephant & Cooper Stites - Breathe (Scatterbrain Remix)"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 159.37,
+    "outgoing_section": "drop",
+    "outgoing_bars_into_section": 47.37,
+    "outgoing_bars_left": 23.63,
+    "outgoing_bars_to_outro": 15.63,
+    "incoming_cue_bar": 47.36,
+    "incoming_section": "drop",
+    "incoming_bars_into_section": 15.36,
+    "incoming_rel_drop1": 15.36,
+    "bass_swap_bar": 17.58
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -1.82,
+        -2.1,
+        -1.79,
+        -1.87,
+        -1.8,
+        -1.89,
+        -1.84,
+        -1.95,
+        -1.82,
+        -1.88,
+        -1.88,
+        -1.99,
+        -2.27,
+        -2.59,
+        -3.25,
+        -3.64,
+        -3.54,
+        -7.07,
+        -17.84,
+        -20.72,
+        -24.09,
+        -23.18,
+        -22.8,
+        -21.26,
+        -24.5,
+        -25.36,
+        -27.7,
+        -26.49,
+        -29.43,
+        -28.67,
+        -31.3,
+        -33.2,
+        -35.88,
+        -35.56,
+        -39.1,
+        -34.95,
+        -22.94,
+        -20.66,
+        -5.91,
+        -0.35,
+        5.89,
+        -107.14,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -38.17,
+        -36.5,
+        -34.3,
+        -41.91,
+        -35.1,
+        -38.89,
+        -30.26,
+        -31.8,
+        -28.72,
+        -33.15,
+        -23.83,
+        -24.08,
+        -16.78,
+        -16.41,
+        -12.22,
+        -10.4,
+        -8.77,
+        -5.26,
+        -1.88,
+        -1.85,
+        -1.79,
+        -1.86,
+        -1.86,
+        -1.89,
+        -1.85,
+        -1.83,
+        -1.78,
+        -1.8,
+        -1.84,
+        -1.79,
+        -1.83,
+        -1.83,
+        -1.78,
+        -1.7,
+        -2.0,
+        -2.0,
+        -1.74,
+        -1.66,
+        -1.7,
+        -1.7,
+        -1.68,
+        -1.65,
+        -1.7,
+        -1.69,
+        -1.71,
+        -1.64
+      ]
+    },
+    "bass": {
+      "a": [
+        -1.77,
+        -2.24,
+        -1.81,
+        -1.74,
+        -1.74,
+        -1.72,
+        -1.81,
+        -1.79,
+        -1.76,
+        -1.72,
+        -1.76,
+        -1.77,
+        -2.05,
+        -2.18,
+        -2.48,
+        -2.7,
+        -2.95,
+        -7.25,
+        -32.66,
+        -38.94,
+        -43.31,
+        -37.05,
+        -37.73,
+        -36.3,
+        -36.63,
+        -38.68,
+        -39.45,
+        -39.34,
+        -42.46,
+        -37.13,
+        -44.19,
+        -44.17,
+        -56.2,
+        -11.24,
+        -17.17,
+        -15.84,
+        -4.82,
+        6.9,
+        2.59,
+        4.18,
+        4.9,
+        7.83,
+        1.08,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -13.31,
+        -25.3,
+        -20.34,
+        -79.55,
+        -86.78,
+        -71.49,
+        -28.77,
+        -39.01,
+        -19.69,
+        -43.2,
+        -74.88,
+        -67.01,
+        -59.18,
+        -34.72,
+        -31.72,
+        -32.27,
+        -40.12,
+        -15.68,
+        -1.86,
+        -1.75,
+        -1.69,
+        -1.73,
+        -1.71,
+        -1.7,
+        -1.7,
+        -1.63,
+        -1.68,
+        -1.69,
+        -1.76,
+        -1.7,
+        -1.7,
+        -1.78,
+        -1.73,
+        -1.51,
+        -1.65,
+        -2.06,
+        -1.74,
+        -1.6,
+        -1.65,
+        -1.65,
+        -1.64,
+        -1.63,
+        -1.7,
+        -1.67,
+        -1.64,
+        -1.61
+      ]
+    },
+    "mids": {
+      "a": [
+        -1.84,
+        -2.03,
+        -1.72,
+        -1.99,
+        -1.82,
+        -1.98,
+        -1.71,
+        -2.04,
+        -1.73,
+        -2.05,
+        -2.09,
+        -2.39,
+        -2.81,
+        -3.3,
+        -3.74,
+        -4.3,
+        -4.46,
+        -6.02,
+        -7.91,
+        -9.24,
+        -10.67,
+        -11.81,
+        -12.85,
+        -12.36,
+        -15.49,
+        -16.99,
+        -17.92,
+        -15.99,
+        -18.9,
+        -20.56,
+        -23.78,
+        -24.82,
+        -26.5,
+        -31.56,
+        -39.21,
+        -37.39,
+        -27.86,
+        -19.94,
+        -4.42,
+        -5.12,
+        7.02,
+        7.6,
+        1.08,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -40.65,
+        -39.83,
+        -34.19,
+        -35.43,
+        -32.84,
+        -35.8,
+        -30.97,
+        -30.5,
+        -27.8,
+        -28.53,
+        -20.4,
+        -18.99,
+        -12.81,
+        -12.36,
+        -8.61,
+        -6.97,
+        -5.22,
+        -3.85,
+        -3.29,
+        -3.34,
+        -2.81,
+        -2.84,
+        -2.56,
+        -2.65,
+        -2.3,
+        -2.32,
+        -2.24,
+        -2.52,
+        -2.31,
+        -2.06,
+        -2.03,
+        -1.93,
+        -1.86,
+        -1.8,
+        -2.01,
+        -1.98,
+        -1.69,
+        -1.64,
+        -1.67,
+        -1.69,
+        -1.64,
+        -1.63,
+        -1.61,
+        -1.56,
+        -1.63,
+        -1.58
+      ]
+    },
+    "highs": {
+      "a": [
+        -3.42,
+        -3.71,
+        -2.94,
+        -3.04,
+        -2.83,
+        -3.09,
+        -2.86,
+        -3.0,
+        -3.02,
+        -3.07,
+        -3.0,
+        -3.5,
+        -3.55,
+        -4.15,
+        -4.56,
+        -5.38,
+        -7.06,
+        -7.07,
+        -9.25,
+        -9.45,
+        -9.9,
+        -10.58,
+        -11.46,
+        -11.88,
+        -13.65,
+        -13.71,
+        -15.36,
+        -15.84,
+        -15.25,
+        -15.16,
+        -17.73,
+        -16.52,
+        -8.71,
+        -9.36,
+        -18.22,
+        -14.25,
+        5.39,
+        8.77,
+        8.83,
+        9.54,
+        9.15,
+        -79.62,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -0.91,
+        -13.69,
+        -4.07,
+        2.28,
+        0.26,
+        -1.07,
+        -0.1,
+        0.84,
+        1.41,
+        -1.12,
+        -3.89,
+        -5.11,
+        -9.45,
+        -9.71,
+        -9.89,
+        -7.84,
+        -4.53,
+        -4.55,
+        -3.82,
+        -3.9,
+        -3.85,
+        -3.74,
+        -3.81,
+        -3.46,
+        -3.52,
+        -3.28,
+        -3.26,
+        -3.16,
+        -3.22,
+        -3.13,
+        -3.16,
+        -2.97,
+        -2.77,
+        -2.87,
+        -3.39,
+        -2.94,
+        -2.84,
+        -2.75,
+        -2.82,
+        -2.68,
+        -2.61,
+        -2.44,
+        -2.26,
+        -2.31,
+        -2.3,
+        -2.17
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        176,
+        null,
+        16,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.36,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.36,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 48.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 24.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 112.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 15.36,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 15.36,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 15.36,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 16.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        64,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 16.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 48.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 48.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        96,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 48.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 24.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 24.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        72,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 24.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 80.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 80.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        128,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 80.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 112.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 112.64,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 112.64,
+      "section_match": true,
+      "relevance": 1
+    }
+  ]
+}

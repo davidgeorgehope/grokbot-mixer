@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__07",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Atelier - Virtual Faith",
+    "yt": "soundcloud_2304384563",
+    "t": 1677.0,
+    "source": "soundcloud",
+    "url": "https://soundcloud.com/future-engineers/atelier-virtual-faith"
+  },
+  "b": {
+    "title": "Artificial Intelligence - Inwards",
+    "yt": "bPVjCP9htuk",
+    "t": 1898.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=bPVjCP9htuk"
+  },
+  "window": {
+    "mix_t_a": 1677.0,
+    "mix_t_b": 1898.0,
+    "mix_t_next": 2008.0,
+    "hint_a_played_sec": 221.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__07/pro.wav",
+  "pro_clip_start": 1874.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__07"
+}

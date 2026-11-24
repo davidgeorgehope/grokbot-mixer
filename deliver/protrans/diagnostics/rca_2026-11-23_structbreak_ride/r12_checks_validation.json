@@ -1,0 +1,40 @@
+{
+  "r12": {
+    "tag": "mix07r12 Daydreaming\u2192Parallel heard trainwreck",
+    "expect_fail": true,
+    "n_rows": 33,
+    "n_fail": 2,
+    "n_tail_mix": 2,
+    "n_mix": 2,
+    "fails": [
+      {
+        "bar": 1115,
+        "deck": "2s3M6oX2lfo",
+        "lag_0": -24,
+        "corr_0": 0.62,
+        "tail": true,
+        "kind": "mix"
+      },
+      {
+        "bar": 1116,
+        "deck": "2s3M6oX2lfo",
+        "lag_0": -14,
+        "corr_0": 0.73,
+        "tail": true,
+        "kind": "mix"
+      }
+    ],
+    "verdict_ok": true
+  },
+  "r17": {
+    "tag": "mix07r17 Daydreaming\u2192Parallel heard OK",
+    "expect_fail": false,
+    "n_rows": 33,
+    "n_fail": 0,
+    "n_tail_mix": 0,
+    "n_mix": 0,
+    "fails": [],
+    "verdict_ok": true
+  },
+  "note": "Labelled regression is checks.alignment_failures (tail mix-vs-source |lag_0|>10 ms), not the 40 ms overlap-median."
+}

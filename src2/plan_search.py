@@ -135,9 +135,41 @@ def windows(kind,e,p,ib,X,b_out=None):
 def crate():
   K=C.keys();cf=os.environ.get('CRATE_FILE');pin=set(open(cf).read().split()) if cf else None  # 2026-11-13 Mix 09: optional pinned crate so another job restoring stems can't widen it mid-build
   return sorted(b for b in (os.path.basename(f)[:-5] for f in glob.glob('st/*.json')) if b in K and glob.glob(f'st/{b}*.wav') and (pin is None or b in pin))
-def table_key(base):
+def _feat_sig(ids=None):
+  """Vocal/drum identity of crate tracks, for table_key.
+
+  A vocfix (real bar.voc where it was missing) must invalidate the cached pair
+  table; file mtimes must not, because other jobs rewrite st json for sections
+  or bar proxies without changing features. Mix 10 r4 reused pair_table_10.json
+  after a vocfix and admitted windows the dry vocal test then failed."""
+  out=[]
+  for b in (ids if ids is not None else crate()):
+    p=f'st/{b}.json'
+    if not os.path.exists(p):
+      out.append((b,None));continue
+    bar=(json.load(open(p)).get('bar') or {})
+    voc=bar.get('voc');n=len(bar.get('all') or voc or [])
+    if not voc:
+      out.append((b,'no_voc',n,'drums' in bar));continue
+    v=np.asarray(voc,float)
+    out.append((b,'voc',len(v),round(float(np.percentile(v,95)),1),len(set(np.round(v,2)))>3,'drums' in bar))
+  return out
+def vocal_xfade_count(vA,rvA,wa,vB,rvB,wb,rel=12,gain_min=0.3):
+  """Bars both decks have audible vocal under an equal-power crossfader.
+  Same thresholds as checks.vocal_bars (VOC_REL_DB=12, VOC_GAIN=0.3) and
+  mix_simple's V term when mid/high/voc lane gains are unity (the table
+  scorer's model). wa/wb are source-bar maps from windows()."""
+  X=len(wa);n=0
+  for k,(xa,xb) in enumerate(zip(wa,wb)):
+    ga=float(np.cos((k+.5)/X*np.pi/2));gb=float(np.sin((k+.5)/X*np.pi/2))
+    if (0<=xa<len(vA) and vA[xa]>rvA-rel and ga>gain_min and
+        0<=xb<len(vB) and vB[xb]>rvB-rel and gb>gain_min):
+      n+=1
+  return n
+def table_key(base,ids=None):
   h=[os.environ.get(k) for k in SCORER_ENV]+[os.path.getmtime(f) for f in('mix_simple.py','cue_model.json','pair_feats.py','plan_search.py')]+[os.environ.get('TABLE_K','40')]
-  return json.dumps([h,[(p['id'],p.get('anchor'),p.get('anchor_in'),p.get('out_max')) for p in json.load(open(base))],crate()],default=str)
+  ids=list(ids) if ids is not None else crate()
+  return json.dumps([h,[(p['id'],p.get('anchor'),p.get('anchor_in'),p.get('out_max')) for p in json.load(open(base))],ids,_feat_sig(ids)],default=str)
 def clash(fa,fb,wa,wb):
   """melodic + grid clash of one window, from the pair_feats per-bar features, over the bars where both crossfader gains are >= 0.38
   (the middle ~50% of an equal-power blend): mel = bars where both decks' harmonic layer is above that track's median, rub = mean chord rub on

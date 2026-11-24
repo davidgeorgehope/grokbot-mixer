@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__01",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Matt View - Blue Haze",
+    "yt": "ALmsV0LvHCM",
+    "t": 187.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=ALmsV0LvHCM"
+  },
+  "b": {
+    "title": "Aftertones & Aleyum - Gentle Living",
+    "yt": "Z2ifrl-81o8",
+    "t": 320.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=Z2ifrl-81o8"
+  },
+  "window": {
+    "mix_t_a": 187.0,
+    "mix_t_b": 320.0,
+    "mix_t_next": 518.0,
+    "hint_a_played_sec": 133.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__01/pro.wav",
+  "pro_clip_start": 296.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__01"
+}

@@ -1,0 +1,53 @@
+{
+  "blend": 0,
+  "a": "u6cggHmZEAs",
+  "b": "SqzxwPEa-DI",
+  "start_bar": 128.0,
+  "end_bar": 160.0,
+  "png": "/tmp/rca1123/break_leadin_diag/rca_2026-11-23_structbreak.png",
+  "halfbeat": {
+    "r0": 0.706,
+    "rh": 0.395,
+    "lag_ms": 0.0,
+    "bars": 2,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+  },
+  "pro_lock": {
+    "pro": {
+      "phase_beats": -0.497,
+      "rate": 1.0,
+      "r_a": 0.722,
+      "r_b": 0.458
+    },
+    "ours": {
+      "phase_beats": 0.4788,
+      "rate": 1.0,
+      "r_a": 0.853,
+      "r_b": 0.658
+    },
+    "diff_beats": -0.0242,
+    "diff_ms": 8.3
+  },
+  "offset_ms_median": 146.6,
+  "offset_bars": 5,
+  "clash_bars": 6.06,
+  "sum_lows_dip_db": 38.2,
+  "bass_swap": [
+    131.0,
+    136.0
+  ],
+  "phrase_cut": null,
+  "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.028067,
+    "pcty": 3.381005,
+    "Scol": 0.8322,
+    "Scty": 0.6445,
+    "banger_clash_rate": 0.0275,
+    "start_s": 11.034,
+    "end_s": 55.172,
+    "continuity_fallback": false
+  }
+}

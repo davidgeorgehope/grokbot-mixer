@@ -1,0 +1,873 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__14",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "pair": "Inch M - Fading Echo -> Etherwood & LSB - Evermade",
+  "video_id": "3Tt7qDw8uaQ",
+  "cue": {
+    "incoming_bar": 48.54,
+    "incoming_section": "drop",
+    "outgoing_bar": 192.55,
+    "outgoing_section": "outro",
+    "blend_list_s": 222.0,
+    "locate_a": {
+      "z": 6.496,
+      "cc": 0.6671,
+      "mix_t": 1.045,
+      "track_t": 242.625,
+      "n": 89
+    },
+    "locate_b": {
+      "z": 7.467,
+      "cc": 0.7504,
+      "mix_t": 19.946,
+      "track_t": 62.903,
+      "n": 104
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.274,
+      "hold_db": -2.57,
+      "tail_bars": 19.94,
+      "out_p90": -2.24,
+      "in_p90": -1.81
+    },
+    "bass": {
+      "rise_db_per_beat": 0.559,
+      "hold_db": -160.0,
+      "tail_bars": 30.45,
+      "out_p90": 1.58,
+      "in_p90": -1.96
+    },
+    "highs": {
+      "rise_db_per_beat": 0.332,
+      "hold_db": -3.95,
+      "tail_bars": 19.39,
+      "out_p90": -3.33,
+      "in_p90": -1.04
+    },
+    "mids": {
+      "rise_db_per_beat": 0.315,
+      "hold_db": -2.74,
+      "tail_bars": 21.39,
+      "out_p90": -2.2,
+      "in_p90": -1.94
+    }
+  },
+  "overlap_bars": 15.405,
+  "track_a": {
+    "sections": {
+      "n_bars": 196,
+      "intro_end": 32,
+      "drop1": 32,
+      "breakdown": 96,
+      "drop2": 112,
+      "outro_start": 175,
+      "music_end": 196,
+      "drops": [
+        [
+          32,
+          95
+        ],
+        [
+          112,
+          175
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 17
+        },
+        {
+          "name": "build",
+          "start": 17,
+          "end": 32
+        },
+        {
+          "name": "drop",
+          "start": 32,
+          "end": 95
+        },
+        {
+          "name": "build",
+          "start": 95,
+          "end": 96
+        },
+        {
+          "name": "breakdown",
+          "start": 96,
+          "end": 112
+        },
+        {
+          "name": "drop",
+          "start": 112,
+          "end": 175
+        },
+        {
+          "name": "outro",
+          "start": 175,
+          "end": 196
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -25.99,
+          "drums": -19.64,
+          "energy": -19.64
+        },
+        "build": {
+          "bass": -21.9,
+          "drums": -16.09,
+          "energy": -16.09
+        },
+        "drop": {
+          "bass": -12.39,
+          "drums": -10.09,
+          "energy": -10.09
+        },
+        "breakdown": {
+          "bass": -34.55,
+          "drums": -20.38,
+          "energy": -20.38
+        },
+        "outro": {
+          "bass": -41.63,
+          "drums": -26.78,
+          "energy": -26.78
+        }
+      },
+      "intro_len": 32,
+      "n_drops": 2
+    },
+    "bpm": 173.987,
+    "yt": "E8wd19iFZns",
+    "title": "Inch M - Fading Echo"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 229,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 112,
+      "drop2": 160,
+      "outro_start": 207,
+      "music_end": 229,
+      "drops": [
+        [
+          48,
+          112
+        ],
+        [
+          160,
+          207
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 16
+        },
+        {
+          "name": "build",
+          "start": 16,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 112
+        },
+        {
+          "name": "breakdown",
+          "start": 112,
+          "end": 144
+        },
+        {
+          "name": "build",
+          "start": 144,
+          "end": 160
+        },
+        {
+          "name": "drop",
+          "start": 160,
+          "end": 207
+        },
+        {
+          "name": "outro",
+          "start": 207,
+          "end": 229
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -39.51,
+          "drums": -26.27,
+          "energy": -26.27
+        },
+        "build": {
+          "bass": -12.35,
+          "drums": -10.41,
+          "energy": -10.41
+        },
+        "drop": {
+          "bass": -10.4,
+          "drums": -9.41,
+          "energy": -9.41
+        },
+        "breakdown": {
+          "bass": -35.63,
+          "drums": -23.08,
+          "energy": -23.08
+        },
+        "outro": {
+          "bass": -49.13,
+          "drums": -35.14,
+          "energy": -35.14
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 173.973,
+    "yt": "tupwLO2xG1c",
+    "title": "Etherwood & LSB - Evermade"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 192.55,
+    "outgoing_section": "outro",
+    "outgoing_bars_into_section": 17.55,
+    "outgoing_bars_left": 3.45,
+    "outgoing_bars_to_outro": -17.55,
+    "incoming_cue_bar": 48.54,
+    "incoming_section": "drop",
+    "incoming_bars_into_section": 0.54,
+    "incoming_rel_drop1": 0.54,
+    "bass_swap_bar": 16.31
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -2.13,
+        -2.27,
+        -2.24,
+        -2.31,
+        -2.36,
+        -2.35,
+        -2.27,
+        -2.46,
+        -2.46,
+        -2.77,
+        -2.78,
+        -2.75,
+        -3.21,
+        -3.96,
+        -3.68,
+        -4.51,
+        -5.92,
+        -6.64,
+        -3.33,
+        6.29,
+        6.95,
+        -128.89,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -21.75,
+        -16.18,
+        -14.66,
+        -16.4,
+        -16.91,
+        -15.86,
+        -14.65,
+        -9.62,
+        -9.02,
+        -8.23,
+        -7.12,
+        -7.52,
+        -6.61,
+        -5.69,
+        -5.2,
+        -5.24,
+        -3.4,
+        -2.03,
+        -1.75,
+        -1.81,
+        -1.95,
+        -1.97,
+        -1.92,
+        -1.84,
+        -1.82,
+        -1.93,
+        -1.8,
+        -1.76,
+        -1.97,
+        -1.99,
+        -1.97,
+        -1.9,
+        -2.01,
+        -1.91,
+        -1.82,
+        -1.81,
+        -2.01,
+        -1.94,
+        -1.97,
+        -1.77,
+        -1.99,
+        -1.93,
+        -1.89,
+        -1.9,
+        -1.98,
+        -1.93
+      ]
+    },
+    "bass": {
+      "a": [
+        -1.93,
+        -2.11,
+        -2.21,
+        -2.03,
+        -1.9,
+        -1.97,
+        -2.09,
+        -2.04,
+        -2.27,
+        -1.67,
+        -2.48,
+        -2.21,
+        -1.62,
+        -1.84,
+        -1.91,
+        -3.13,
+        -4.85,
+        3.7,
+        7.83,
+        1.08,
+        6.35,
+        4.4,
+        -52.69,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -47.81,
+        -49.49,
+        -44.12,
+        -42.57,
+        -50.34,
+        -76.07,
+        -40.89,
+        -41.54,
+        -33.25,
+        -39.79,
+        -49.25,
+        -35.87,
+        -46.99,
+        -40.22,
+        -34.53,
+        -28.73,
+        -8.72,
+        -2.04,
+        -1.97,
+        -1.96,
+        -1.99,
+        -1.99,
+        -2.0,
+        -1.95,
+        -1.95,
+        -1.99,
+        -2.02,
+        -1.96,
+        -2.0,
+        -2.02,
+        -2.02,
+        -1.96,
+        -2.04,
+        -1.98,
+        -2.02,
+        -1.99,
+        -2.01,
+        -1.98,
+        -2.0,
+        -1.97,
+        -2.11,
+        -2.01,
+        -2.0,
+        -2.01,
+        -1.99,
+        -1.97
+      ]
+    },
+    "mids": {
+      "a": [
+        -2.04,
+        -2.25,
+        -2.23,
+        -2.31,
+        -2.49,
+        -2.53,
+        -2.33,
+        -2.53,
+        -2.57,
+        -2.89,
+        -3.05,
+        -2.82,
+        -3.93,
+        -4.67,
+        -5.05,
+        -5.0,
+        -7.06,
+        -9.72,
+        -5.64,
+        6.54,
+        1.31,
+        -0.12,
+        -52.69,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -22.05,
+        -16.77,
+        -14.56,
+        -15.84,
+        -15.56,
+        -13.82,
+        -13.33,
+        -9.12,
+        -8.52,
+        -7.67,
+        -6.72,
+        -7.22,
+        -5.96,
+        -4.96,
+        -4.38,
+        -4.73,
+        -3.16,
+        -2.21,
+        -1.96,
+        -2.15,
+        -1.96,
+        -2.11,
+        -1.99,
+        -2.19,
+        -1.95,
+        -2.07,
+        -1.98,
+        -2.08,
+        -2.04,
+        -2.11,
+        -2.04,
+        -1.99,
+        -2.03,
+        -2.0,
+        -2.01,
+        -2.1,
+        -2.16,
+        -2.06,
+        -2.07,
+        -1.89,
+        -2.05,
+        -1.95,
+        -2.09,
+        -2.13,
+        -2.19,
+        -1.92
+      ]
+    },
+    "highs": {
+      "a": [
+        -3.96,
+        -5.02,
+        -3.75,
+        -3.66,
+        -2.94,
+        -3.13,
+        -2.66,
+        -3.15,
+        -3.0,
+        -4.24,
+        -3.68,
+        -4.93,
+        -5.17,
+        -6.1,
+        -5.08,
+        -5.77,
+        -6.56,
+        -14.41,
+        -28.27,
+        -72.24,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -12.95,
+        -9.96,
+        -7.97,
+        -5.1,
+        -1.94,
+        -1.9,
+        -1.26,
+        -0.72,
+        -1.06,
+        -5.28,
+        -4.42,
+        -4.17,
+        -4.42,
+        -3.85,
+        -3.79,
+        -3.94,
+        -3.33,
+        -1.35,
+        -1.14,
+        -1.22,
+        -1.19,
+        -1.16,
+        -1.11,
+        -1.11,
+        -1.12,
+        -1.1,
+        -1.13,
+        -1.13,
+        -1.1,
+        -1.1,
+        -1.16,
+        -1.21,
+        -1.29,
+        -1.12,
+        -1.14,
+        -1.09,
+        -1.19,
+        -1.11,
+        -1.17,
+        -1.05,
+        -1.13,
+        -1.05,
+        -1.12,
+        -1.15,
+        -1.19,
+        -1.16
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        192,
+        null,
+        32,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.54,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.54,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.46,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        96,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 111.46,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 0.54,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 0.54,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 0.54,
+      "section_match": true,
+      "relevance": 3
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 31.46,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 31.46,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 31.46,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 111.46,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 111.46,
+      "section_match": true,
+      "relevance": 1
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        112,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 111.46,
+      "section_match": true,
+      "relevance": 1
+    }
+  ]
+}

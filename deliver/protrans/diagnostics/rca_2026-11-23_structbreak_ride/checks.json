@@ -1,0 +1,141 @@
+{
+  "win": [
+    "n",
+    160,
+    null,
+    32,
+    32
+  ],
+  "score": 47.87,
+  "score_v2": 46.54,
+  "flags": "LEADIN_LOCK=1 ONBEAT_RIDE=1 BASS_FILL_GAPS=1",
+  "scratch": "/workspace/mixes/scratch/rca1123/ride",
+  "meta": "/workspace/mixes/scratch/rca1123/ride/rca23ride_u6cggHmZEAs_SqzxwPEa-DI_meta.json",
+  "blend_lock": {
+    "lag_ms": null,
+    "n": 5,
+    "n_loud": 5,
+    "bars": [
+      130,
+      131,
+      132,
+      133,
+      134
+    ],
+    "offs": [
+      132.1,
+      79.8,
+      82.7,
+      -59.5,
+      153.8
+    ],
+    "applied": true,
+    "why": "lead-in phrase phase (incoming lead-in as anchor)",
+    "leadin": {
+      "cue": 32,
+      "ev": 48,
+      "both": 14,
+      "A": {
+        "bars": [
+          128,
+          135
+        ],
+        "phase": 0.0625,
+        "strength": 3.621069338222102,
+        "n": 8
+      },
+      "B": {
+        "bars": [
+          32,
+          39
+        ],
+        "phase": -0.1875,
+        "strength": 3.6060945616567848,
+        "n": 8
+      },
+      "lag_ms": 86.2,
+      "applied": true
+    },
+    "blend_lock_ms": 86.2
+  },
+  "onbeat_ride": {
+    "applied": null,
+    "why": "too few confident bars (3 < 4)",
+    "n_conf": 3,
+    "median_abs": null,
+    "max_abs": null,
+    "after": null
+  },
+  "bass_fill": {
+    "k0": 8,
+    "k1": 28,
+    "p": 60,
+    "L": 8,
+    "thin_med": -9.84,
+    "skip_ks": [
+      16,
+      24
+    ],
+    "variant": "BASS_FILL_GAPS"
+  },
+  "halfbeat_fail": false,
+  "halfbeat": {
+    "r0": 0.706,
+    "rh": 0.395,
+    "lag_ms": 0.0,
+    "bars": 2,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+  },
+  "offset_ms_median": 146.6,
+  "offset_1bar_ms": null,
+  "offset_interior_ms": null,
+  "offset_pass_ms": 40.0,
+  "onbeat_n": 3,
+  "onbeat_median_ms": -20.3,
+  "onbeat_max_abs_ms": 46.4,
+  "onbeat_std_ms": 25.6,
+  "onbeat_rows": [
+    {
+      "mix_bar": 131,
+      "a_ms": 23.8,
+      "b_ms": 7.6,
+      "residual_ms": 16.1,
+      "conf": true
+    },
+    {
+      "mix_bar": 133,
+      "a_ms": -12.5,
+      "b_ms": 34.0,
+      "residual_ms": -46.4,
+      "conf": true
+    },
+    {
+      "mix_bar": 135,
+      "a_ms": 0.8,
+      "b_ms": 21.1,
+      "residual_ms": -20.3,
+      "conf": true
+    }
+  ],
+  "halfbeat_ms": 172.41379310344828,
+  "lows_dip_db": 38.2,
+  "lows_dip_recomputed": 33.4,
+  "hole_db": -18.5,
+  "hole_pass_db": 6.0,
+  "min_post_low_db": -28.8,
+  "min_post_bar": 140,
+  "clash_bars": 6.06,
+  "hard": {},
+  "hard_fail": false,
+  "piano_leadin_ok": false,
+  "piano_lead_mid_db": -30.64831736558053,
+  "piano_pre_low_db": -26.85259159818367,
+  "piano_ev_low_db": -24.95908960346004,
+  "onbeat_ok": false,
+  "interior_ok": false,
+  "bass_ok": true,
+  "align_ok": false,
+  "pass_listen_clip": false
+}

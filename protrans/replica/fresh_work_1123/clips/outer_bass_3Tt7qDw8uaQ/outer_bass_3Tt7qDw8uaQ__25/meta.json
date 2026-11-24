@@ -1,0 +1,29 @@
+{
+  "id": "outer_bass_3Tt7qDw8uaQ__25",
+  "mix_id": "outer_bass_3Tt7qDw8uaQ",
+  "dj": "Outer Bass",
+  "a": {
+    "title": "Bop - Space 2 Breathe",
+    "yt": "lwjf4GM1g00",
+    "t": 5159.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=lwjf4GM1g00"
+  },
+  "b": {
+    "title": "Outer Bass & Alpha Rhythm - Asteroidea",
+    "yt": "cWHfHEYjQkU",
+    "t": 5357.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=cWHfHEYjQkU"
+  },
+  "window": {
+    "mix_t_a": 5159.0,
+    "mix_t_b": 5357.0,
+    "mix_t_next": 5555.0,
+    "hint_a_played_sec": 198.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__25/pro.wav",
+  "pro_clip_start": 5333.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/outer_bass_3Tt7qDw8uaQ/outer_bass_3Tt7qDw8uaQ__25"
+}

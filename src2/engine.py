@@ -25,8 +25,17 @@ def track(b):
   _cache[b]=info;return info
 _NF=os.environ.get('NUDGE','nudge.json');NUDGE=json.load(open(_NF)) if os.path.exists(_NF) else {}  # per-source-bar warp nudges (ms)
 _LOCK={}  # incoming deck id -> constant ms (BLEND_LOCK, 2026-11-17 RCA); same sign as nudge
+_TRACK_NUDGE={}
+def _track_nudge(tid):
+  """per-bar ms offsets stored next to the track grid (st/<id>.nudge.json), from n1_grid_align.py"""
+  p=os.path.join(os.path.dirname(os.path.abspath(__file__)),'st',f'{tid}.nudge.json')
+  if not os.path.exists(p):return {}
+  m=os.path.getmtime(p);c=_TRACK_NUDGE.get(tid)
+  if c and c[0]==m:return c[1]
+  d={str(k):float(v) for k,v in json.load(open(p)).items() if str(k).lstrip('-').isdigit()}
+  _TRACK_NUDGE[tid]=(m,d);return d
 def nudge(tr,k):
-  v=NUDGE.get(tr['id'],{}).get(str(k),0)
+  v=NUDGE.get(tr['id'],{}).get(str(k),0)+_track_nudge(tr['id']).get(str(k),0)
   import finephase  # 2026-11-17 RCA: per-phrase grid phase, off unless FINE_PHASE is on
   if finephase.flag_on():
     v=v+finephase.nudge_ms(tr['id'],k)

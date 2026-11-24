@@ -66,8 +66,9 @@ def code_hash():
 @functools.lru_cache(None)
 def feat_hash(tid):
   """content of the track's features (st json) + identity of its audio (size, mtime): a vocfix/re-prep changes the key"""
-  h=hashlib.sha1();j=os.path.join(HERE,'st',f'{tid}.json');w=os.path.join(HERE,'st',f'{tid}.wav')
+  h=hashlib.sha1();j=os.path.join(HERE,'st',f'{tid}.json');w=os.path.join(HERE,'st',f'{tid}.wav');ng=os.path.join(HERE,'st',f'{tid}.nudge.json')
   if os.path.exists(j):h.update(open(j,'rb').read())
+  if os.path.exists(ng):h.update(open(ng,'rb').read())
   if os.path.exists(w):s=os.stat(w);h.update(f'{s.st_size}:{int(s.st_mtime)}'.encode())
   return h.hexdigest()[:16]
 def _nudge_for(ids,nudge):

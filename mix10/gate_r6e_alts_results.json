@@ -1,0 +1,249 @@
+{
+ "gain": 9.0,
+ "nudge": "nudge08_r9c.json",
+ "started": "2026-11-24T10:24:18",
+ "baseline": [
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_no_bass_gap_in_overlaps"
+   ],
+   "mix_level": [],
+   "secs": 48.7,
+   "cached": false,
+   "window": [
+    "lb",
+    240,
+    null,
+    32,
+    16
+   ],
+   "a": "3f-XOhfDhxk",
+   "b": "-n50uo8so4U",
+   "msgs": [
+    "bass gaps (trans,mix bar,bars): [(0, 29, 3)]"
+   ],
+   "name": "Together>In The Night",
+   "role": "baseline"
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 35.8,
+   "cached": false,
+   "window": [
+    "n",
+    128,
+    null,
+    0,
+    32
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "[{'bar': 35, 'deck': '7Itbo72XEz4', 'lag': -11, 'corr': 0.71, 'beat_off': -0.03, 'lag_0': -11, 'corr_0': 0.71, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 48, 'tail': False, 'window_bars': 2}]"
+   ],
+   "name": "Out Of Control>When My Love",
+   "role": "baseline"
+  }
+ ],
+ "candidates": [
+  {
+   "ok": true,
+   "blend_fails": [],
+   "mix_level": [],
+   "secs": 48.0,
+   "cached": false,
+   "window": [
+    "n",
+    240,
+    null,
+    48,
+    16
+   ],
+   "a": "3f-XOhfDhxk",
+   "b": "-n50uo8so4U",
+   "msgs": [],
+   "name": "Together>In The Night",
+   "role": "candidate",
+   "dry_s": 19.5,
+   "ok_gate": true
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "N1",
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 32.7,
+   "cached": false,
+   "window": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "7Itbo72XEz4 enters -19 ms off the grid",
+    "[{'bar': 23, 'deck': '7Itbo72XEz4', 'lag': -701, 'corr': 0.77, 'beat_off': -2.03, 'lag_0': -11, 'corr_0': 0.75, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}]"
+   ],
+   "name": "Out Of Control>When My Love",
+   "role": "candidate",
+   "dry_s": 13.2,
+   "ok_gate": false
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "N1",
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 39.8,
+   "cached": false,
+   "window": [
+    "la",
+    128,
+    112,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "7Itbo72XEz4 enters -19 ms off the grid",
+    "[{'bar': 23, 'deck': '7Itbo72XEz4', 'lag': -701, 'corr': 0.77, 'beat_off': -2.03, 'lag_0': -11, 'corr_0': 0.75, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}]"
+   ],
+   "name": "Out Of Control>When My Love",
+   "role": "candidate",
+   "dry_s": 7.1,
+   "ok_gate": false
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "N1",
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 32.7,
+   "cached": true,
+   "window": [
+    "lb",
+    128,
+    null,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "7Itbo72XEz4 enters -19 ms off the grid",
+    "[{'bar': 23, 'deck': '7Itbo72XEz4', 'lag': -701, 'corr': 0.77, 'beat_off': -2.03, 'lag_0': -11, 'corr_0': 0.75, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}]"
+   ],
+   "name": "Out Of Control>When My Love",
+   "role": "candidate",
+   "dry_s": 14.6,
+   "ok_gate": false
+  },
+  {
+   "name": "Out Of Control>When My Love",
+   "role": "candidate",
+   "window": [
+    "n",
+    64,
+    null,
+    16,
+    16
+   ],
+   "ok": false,
+   "error": "RuntimeError: mix_simple --dry failed: plan window ['n', 64, None, 16, 16] for jIqXQ8EbKNY>7Itbo72XEz4 is no longer allowed : re-run plan_search.py"
+  },
+  {
+   "name": "Out Of Control>When My Love",
+   "role": "candidate",
+   "window": [
+    "la",
+    64,
+    48,
+    16,
+    16
+   ],
+   "ok": false,
+   "error": "RuntimeError: mix_simple --dry failed: plan window ['la', 64, 48, 16, 16] for jIqXQ8EbKNY>7Itbo72XEz4 is no longer allowed : re-run plan_search.py"
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "N1",
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 30.8,
+   "cached": false,
+   "window": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "7Itbo72XEz4 enters -19 ms off the grid",
+    "[{'bar': 20, 'deck': '7Itbo72XEz4', 'lag': -1394, 'corr': 0.69, 'beat_off': -4.04, 'lag_0': -15, 'corr_0': 0.68, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}, {'bar': 21, 'deck': '7Itbo72XEz4', 'la"
+   ],
+   "name": "Out Of Control>When My Love",
+   "role": "candidate",
+   "dry_s": 7.1,
+   "ok_gate": false
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "N1",
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 30.4,
+   "cached": false,
+   "window": [
+    "n",
+    80,
+    null,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "7Itbo72XEz4 enters -19 ms off the grid",
+    "[{'bar': 22, 'deck': '7Itbo72XEz4', 'lag': 1369, 'corr': 0.73, 'beat_off': 3.97, 'lag_0': -13, 'corr_0': 0.7, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}, {'bar': 23, 'deck': '7Itbo72XEz4', 'lag':"
+   ],
+   "name": "Out Of Control>When My Love",
+   "role": "candidate",
+   "dry_s": 12.7,
+   "ok_gate": false
+  }
+ ],
+ "picks": {
+  "3f-XOhfDhxk>-n50uo8so4U": [
+   "n",
+   240,
+   null,
+   48,
+   16
+  ],
+  "jIqXQ8EbKNY>7Itbo72XEz4": null
+ },
+ "ok": false,
+ "stop": "no passing window for at least one pair"
+}

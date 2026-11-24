@@ -1,0 +1,62 @@
+{
+ "note": "r6i fix1: later OOC exits, keep WML ib=16; 104 not in pair table",
+ "candidates": [
+  {
+   "ok": true,
+   "blend_fails": [],
+   "secs": 26.3,
+   "cached": true,
+   "window": [
+    "n",
+    96,
+    null,
+    16,
+    16
+   ],
+   "msgs": [],
+   "role": "candidate",
+   "dry_s": 9.2
+  },
+  {
+   "ok": true,
+   "blend_fails": [],
+   "secs": 21.7,
+   "cached": false,
+   "window": [
+    "la",
+    96,
+    80,
+    16,
+    16
+   ],
+   "msgs": [],
+   "role": "candidate",
+   "dry_s": 10.6
+  },
+  {
+   "ok": true,
+   "blend_fails": [],
+   "secs": 26.3,
+   "cached": true,
+   "window": [
+    "lb",
+    96,
+    null,
+    16,
+    16
+   ],
+   "msgs": [],
+   "role": "candidate",
+   "dry_s": 8.2
+  }
+ ],
+ "pick": [
+  "n",
+  96,
+  null,
+  16,
+  16
+ ],
+ "ok": true,
+ "finished": "2026-11-24T10:59:17"
+}

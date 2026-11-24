@@ -291,14 +291,17 @@ def test_youtube_download_path_unchanged_for_youtu_be(monkeypatch):
 
 def test_non_youtube_url_uses_other_downloader(monkeypatch):
     called = {}
-    def fake_other(host, url, dest, rid):
+    def fake_other(url, dest, rid):
+        # production ytdlp_remote calls _ytdlp_remote_other(url, dest, rid); hosts are chosen inside that helper
         called['url'] = url
+        called['dest'] = dest
         called['rid'] = rid
         return dest
     monkeypatch.setattr(fetch, '_ytdlp_remote_other', fake_other)
     monkeypatch.setattr(fetch, '_host', lambda: 'download-host')
     out = fetch.ytdlp_remote('https://soundcloud.com/redmanta/not-alone', '/tmp/x.m4a')
     assert called['url'] == 'https://soundcloud.com/redmanta/not-alone'
+    assert called['rid'] == 'x'
     assert out == '/tmp/x.m4a'
 
 

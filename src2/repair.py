@@ -13,7 +13,7 @@ import os,re,sys,json,time,itertools
 LOOPS=('la','ab','lx','lb')
 PHASE_CODES={'G1','F1','downbeats','beat_aligned'}   # beat-phase failures: a looped outgoing deck is the usual cause (r9c 37:31)
 TAIL_CODES={'tail','A1'}                              # abrupt outgoing tail: avoid the same exit bar
-ENERGY_CODES={'bassgap','swapdip','N1'}          # Mix 08 r10bb: mid-blend swap into a bass-less intro, or a quiet/early incoming start; rewindow only (X1 still caps the handoff at x<=0.65)
+ENERGY_CODES={'bassgap','swapdip','N1','entry_cliff'}  # Mix 08 r10bb: mid-blend swap into a bass-less intro, or a quiet/early incoming start; Mix 10 r6: entry_cliff uses a longer blend / earlier cue / looped intro. Rewindow only (X1 still caps the handoff at x<=0.65). Does not soften any check.
 IBMAX=int(os.environ.get('IBMAX',80))
 NO_LX=int(os.environ.get('REPAIR_NO_LX',1))  # Mix 08: beat-stem loop exits slipped +8 ms (G1) on two different tracks (r9c Stars, r10x Shadows): re-picks never use lx
 LXPEN=float(os.environ.get('REPAIR_LXPEN',30))  # Mix 08 r9c: a beat-stem loop (lx) exit slipped +8 ms (G1); re-picked windows prefer plain/la exits
@@ -85,9 +85,10 @@ def render_bad_windows(name,log=None,src='.'):
   W={p['id']:p.get('out_win') for p in json.load(open(mp))['plan']}
   return {(a,b,tuple(W[a])) for a,b,_ in render_culprits(name,log,src) if W.get(a)}
 def dry_culprits(p):
-  """[(a,b,code)] for dry failures that name a pair (vocal clash, key clash, see-saw)"""
+  """[(a,b,code)] for dry failures that name a pair (vocal clash, key clash, see-saw, entry cliff)"""
   r=[(c['a'],c['b'],'vocal') for c in p.get('vocal_clash',[])]+[(a,b,'keys') for a,b in p.get('key_clash',[])]
-  r+=[tuple(k.split('>'))+('seesaw',) for k in p.get('seesaw_fail',[])];return r
+  r+=[tuple(k.split('>'))+('seesaw',) for k in p.get('seesaw_fail',[])]
+  r+=[(c['a'],c['b'],'entry_cliff') for c in p.get('entry_cliffs',[])];return r
 def passes(p):return bool(p) and not p.get('error') and p.get('all_ok') and p.get('len_min',0)>=MIN_LEN
 
 # ---------- window choice (planner's SOFT=0 rules) ----------
@@ -114,6 +115,7 @@ def _ps_ok():
     if w['step']>PS.STEPMAX and PR.get(k,3)<4:return False
     if w['w'] in BADW.get(k,[]) or ib>IBMAX:return False
     if not PS._valid(T['tracks'][a],w['w'],ia):return False
+    if _window_entry_cliff(a,w['w'])>PS.ENTRY_CLIFF_DB:return False
     return PS._drums_solo_ok(dict(a=a,b=b,**w))
   return ok
 def _ps_soft():
@@ -126,6 +128,7 @@ def _ps_soft():
     k=f'{a}>{b}';ib=w['w'][3]
     if w['w'] in BADW.get(k,[]) or ib>IBMAX or w['boff']>PS.BOFFMAX:return None
     if not PS._valid(T['tracks'][a],w['w'],ia) or not PS._drums_solo_ok(dict(a=a,b=b,**w)):return None
+    if _window_entry_cliff(a,w['w'])>PS.ENTRY_CLIFF_DB:return None
     return PS.soft_cost(k,w,PR)
   return soft
 def _ps_cost():
@@ -134,6 +137,42 @@ def _ps_cost():
     d=dict(a=a,b=b,**w)
     return PS.PROW*100*PS.pro_shape(w)+w['pen']/100+PS.X16PEN*(w['w'][4]<32)+PS.DROPPEN*(not PS._drop_ok(d))+PS.OUTPEN*(not PS._outro_ok(d))
   return cost
+def _window_entry_cliff(a,w):
+  """plan_search.entry_cliff for window w of outgoing a; 0 if stems are missing (tests, dry tables)."""
+  import plan_search as PS
+  kind,e,p,ib,X=w
+  try:
+    al=PS.C.src_bars(a)
+  except Exception:
+    return 0.0
+  if al is None or len(al)==0:return 0.0
+  wa,_=PS.windows(kind,e,p,ib,X,a)
+  return PS.entry_cliff(al,PS.entry_prev(kind,e,wa))
+def _blend_start(w):
+  """outgoing source bar the blend begins on (the bar after entry_prev). Looped exits start at the loop phrase."""
+  kind,e,p,ib,X=w
+  return ('loop',int(e)) if kind in('la','ab','lx') else ('lin',int(e-X))
+def pair_budget(left_s,left_d,remain):
+  """Equal share of leftover seconds and dry attempts for one of `remain` pairs still to do (including the current one).
+  A pair never consumes the whole budget: leftover goes to the next pairs. If leftover dries are fewer than remaining
+  pairs, the current pair still gets 1 try so later pairs are not the only ones starved."""
+  if remain<=0:return 0.0,0
+  s=left_s/remain
+  if left_d<=0:d=0
+  elif left_d<remain:d=1
+  else:d=left_d//remain
+  return s,d
+def _gentle_entry_cost(old_w,w):
+  """Rank a longer blend, an earlier incoming cue, or a looped intro (lb) ahead of an otherwise equal window.
+  Used when repairing entry_cliff/N1. Does not change any test threshold."""
+  if not w:return 0.0
+  kind,e,p,ib,X=w;c=0.0
+  if old_w:
+    if X>old_w[4]:c-=2.0
+    if ib<old_w[3]:c-=2.0
+  if kind=='lb':c-=2.0
+  elif kind in('la','ab'):c-=1.0
+  return c
 def _airtime(w):
   """rough bars a window adds to the mix: later exit, earlier incoming entry, outgoing loop bars; overlap counted once"""
   k,e,p,ib,X=w;return e-ib-X+(X if k in('la','ab','lx') else 0)+(16 if k in('lb','ab') else 0)
@@ -157,6 +196,10 @@ def _avoid(old_w,codes):
   if old_w and set(codes)&TAIL_CODES:f.append(lambda w,e=old_w[1]:w[1]==e)
   if old_w and set(codes)&ENERGY_CODES:
     f.append(lambda w,o=tuple(old_w):(w[1],w[3],w[4])==(o[1],o[3],o[4]))  # keep the pair only if exit, incoming start, or length changes
+  if old_w and set(codes)&{'N1','entry_cliff'}:
+    # the Mix 10 r5 N1 fail was a 16-bar and a 32-bar window that both *started* on outgoing bar 80 (the bar after a 12.9 dB drop).
+    # Changing only e/X together can keep that start; require a different blend start or a looped exit (la/lb).
+    f.append(lambda w,s=_blend_start(old_w):_blend_start(w)==s)
   return f
 def _step(pid,w,base=None):
   d=dict(base or {'id':pid,'kw':{'pre':16,'build':True},'anchor':False});d['id']=pid;d['tech']='blend'
@@ -214,7 +257,9 @@ def candidates(ctx,plan,i,codes,ban=()):
     # a bass gap / swap dip / entry step a different exit, incoming start, or length (the mid-blend handoff stays inside X1)
     for alt in range(REWINDOW_ALTS):  # every legal exit of the same pair (a plain or la exit replacing a slipped beat-stem loop), cheapest first
       r=build(ctx,plan,ids,avoid,set(ban)-{(ids[i],ids[i+1])},alt,force=a,fill=True)
-      if r:out.append((r[0]+MOVEPEN['rewindow'],'rewindow',ids[i+1],r[1]))
+      if r:
+        w=(r[1][i].get('out_win') if i<len(r[1]) else None)
+        out.append((r[0]+MOVEPEN['rewindow']+_gentle_entry_cost(plan[i].get('out_win'),w),'rewindow',ids[i+1],r[1]))
   out.sort(key=lambda x:x[0]);return out
 
 # ---------- the loop ----------
@@ -234,13 +279,17 @@ def repair(plan,culprits,ctx,budget_s=1800,max_dry=150,log=print,tag='repair',ba
     i=next((k for k in range(len(ids)-1) if ids[k]==a and ids[k+1]==b),None)
     if i is None:hist.append(dict(pair=f'{a}>{b}',codes=codes,action='gone (an earlier swap removed it)'));continue
     h=dict(pair=f'{a}>{b}',codes=codes,action='unresolved',tries=0,**({'pass':2} if pas else {}));hist.append(h)
+    remain=len(todo)+1
+    slice_s,slice_d=pair_budget(max(0.0,budget_s-(time.time()-t0)),max(0,max_dry-n[0]),remain)
+    pair_deadline=time.time()+slice_s;pair_dry_cap=n[0]+slice_d
     cands=candidates(ctx,cur,i,codes,ban);h['candidates']=len(cands);deeper=[];pads=[];best=[None];av_a=_avoid(cur[i].get('out_win'),codes)
     def attempt(lst,depth):
       for cost,move,c,P in lst:
         sig=json.dumps([(p['id'],p.get('out_win')) for p in P])
         if sig in tried:continue
         tried.add(sig)
-        if n[0]>=max_dry or time.time()-t0>budget_s:h['action']='budget';return None
+        # per-pair slice of the leftover budget so a hard first culprit cannot starve the rest (Mix 10 r6: 43 tries / 0 / 0)
+        if n[0]>=pair_dry_cap or time.time()>pair_deadline or n[0]>=max_dry or time.time()-t0>budget_s:h['action']='budget';return None
         r=dry(P);h['tries']+=1;fl={k for k,v in (r.get('tests') or {}).items() if not v}
         log(f"  {a}>{b} {move} {c} cost {cost:.1f}: all_ok={r.get('all_ok')} len={r.get('len_min')} fails={sorted(fl)} {r.get('error') or ''}")
         if passes(r):h.update(action=move,track=c,order=[p['id'] for p in P],len_min=r['len_min']);return P,r

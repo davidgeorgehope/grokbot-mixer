@@ -443,6 +443,8 @@ def pair_cands(i,ia0):
       if CUEW>0:r['cue']=round(cue_pen(a,ea),3);r['pen']+=CUEW*r['cue']
       sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',40))*{'n':0,'la':1,'lb':1,'ab':2,'lx':0}[kind]+(LXPEN if kind=='lx' else 0),-ea,str(ib))
       _k6=(kind,a,b,ea,ib,X)
+      if __import__('energy_stab').on():  # ESTAB (2026-11-24 midnight research, off by default): predicted energy-dip cost, src2/energy_stab.py
+        _ec,_ed=__import__('energy_stab').cost(track(a)['g']['bar'],track(b)['g']['bar'],list(wa),list(wb));r['estab_dip']=round(_ed,2);sc=(sc[0]+_ec,)+sc[1:]
       if SLOWS and kind in ('n','lb') and any(x<=ea-X<y for x,y in SLOWS):sc=(sc[0]+STRUCTW,)+sc[1:]  # SLOWDOWN: blend may not start inside the outgoing's outro / in-drop slowdown
       if SLOWALT and _k6 in SLOWALT and not EXITPOS:sc=(sc[0]-STRUCTW,)+sc[1:]
       if EXITPOS:sc=(sc[0]+exitpos_term(a,b,ea,ib,X,e_max),)+sc[1:]

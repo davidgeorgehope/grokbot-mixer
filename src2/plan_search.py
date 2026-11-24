@@ -22,6 +22,7 @@ RELAXR=set(x for x in os.environ.get('RELAXR','').split(',') if x)  # pairs whos
 COVPEN=float(os.environ.get('COVPEN',50))  # per-blend cost for a closed deck playing under 85% of its loud bars
 STEPMAX=float(os.environ.get('STEPMAX',9.5))  # predicted entry level step cap (guardrail N1): renders failed at +9.8/+10.2/+14.8; the one pass above it (+10.7) is Parallel->Bad To Me, which a render proved fine, so pairs the listener rated 4+ are exempt
 STEPPEN=float(os.environ.get('STEPPEN',0))   # optional cost per dB of predicted entry step above 6 dB
+ENTRY_CLIFF_DB=float(os.environ.get('ENTRY_CLIFF_DB',8))  # reject a window whose outgoing last pre-entry bar is this far under the 8 bars before it. Mix 10 r5 N1 (+3.8 dB master step at 18:45) was a 12.9 dB outgoing cliff (Strings Of Life bar 79); a 7.1 dB cliff on the same mix rendered clean, so 8 dB is the split. Does not change guardrail N1_db=3.83.
 PREFW=float(os.environ.get('PREFW',60))       # cost x techniques.pref_score (5 good=-60, 4 OK=0, <=3 bad=+60..+120); was centred on 3, which made 3/5 neutral (the listener 2026-10-31)
 SIL_DB=20                                     # a source beat this far under the track's median is near-silent (guardrail E2 when it plays solo)
 import techniques as TQ
@@ -113,10 +114,11 @@ def predict(name):
     cov_mean=round(float(np.mean(list(cov.values()))),3),cov_min=min(cov.values()),cov_low=[k for k,v in cov.items() if v<0.5],
     drums_only_ok=ok(T2.test_no_long_drums_only_stretch),anchors_ok=ok(TM.test_anchor_tracks_long_enough),
     vocal_clash=[c for c in C.vocal_clashes() if not c['whitelisted'] and c['bars']>=1],key_clash=keyclash,E4=e4,
+    entry_cliffs=plan_entry_cliffs(M),
     len_min=round(max(d['end_bar'] for d in D)*C.BAR/60,2),drum_runs=[b for b,_,_ in r])
   # bob16/x32 >= half are warnings (test_release_mix02_traits, the listener 2026-11-01), not all_ok gates; Mix 07 r17 shipped at 6/22 x32.
   p['tests']=dict(beatless=p['beatless']<=n/3,coverage=p['cov_mean']>=0.8 and p['cov_min']>=0.5,
-    drums_only=p['drums_only_ok'],anchors=p['anchors_ok'],vocal=not p['vocal_clash'],keys=not keyclash,E4=not e4,
+    drums_only=p['drums_only_ok'],anchors=p['anchors_ok'],vocal=not p['vocal_clash'],keys=not keyclash,E4=not e4,entry_cliff=not p['entry_cliffs'],
     structure=ok(TS.test_plan_respects_outro_and_intro),fader_tail=ok(TS.test_outgoing_fader_tail_is_gradual),lengths_vary=ok(TS.test_blend_lengths_vary),seesaw=not any(r['fails'] for r in __import__('seesaw').check(M)),variety=all(ok(getattr(TV,f)) for f in dir(TV) if f.startswith('test_') and f!='test_menu_lists_supported'))
   p['warn']=dict(bob16=p['bob16']<n/2,x32=p['x32']<n/2)
   p['seesaw_fail']=[f"{r['a']}>{r['b']}" for r in __import__('seesaw').check(M) if r['fails']]
@@ -191,6 +193,26 @@ def entry_step(beats,wa,prev):
   beats of the source bar it played just before (the incoming deck is still at gain 0)"""
   g=lambda s,q:beats[s*4+q] if 0<=s*4+q<len(beats) else -120.
   return round(float(np.median([g(wa[0],q) for q in range(3)])-np.median([g(prev,q) for q in (1,2,3)])),1)
+def entry_prev(kind,e,wa):
+  """outgoing source bar immediately before the blend, same rule as entry_step's prev"""
+  return (e-1) if kind in('la','ab','lx') else wa[0]-1
+def entry_cliff(al,prev):
+  """dB the outgoing drops in its last pre-entry source bar vs the median of the 8 bars before that (0 if unknown)."""
+  if prev is None or prev<1 or prev>=len(al):return 0.0
+  body=float(np.median(al[max(0,prev-8):prev]))
+  return round(body-float(al[prev]),1)
+def plan_entry_cliffs(M):
+  """blends whose outgoing last pre-entry source bar exceeds ENTRY_CLIFF_DB (planner proxy for guardrail N1)."""
+  out=[]
+  for t in M['trans']:
+    d=next((d for d in M['decks'] if d['id']==t['a'] and d['start_bar']<=t['start_bar']<=d['end_bar']),None)
+    if not d:continue
+    idx=int(t['start_bar']-d['start_bar']-1)
+    if idx<0 or idx>=len(d['full_map']):continue
+    src=d['full_map'][idx][0]
+    c=entry_cliff(C.src_bars(t['a']),src)
+    if c>ENTRY_CLIFF_DB:out.append(dict(a=t['a'],b=t['b'],src=int(src),cliff=c))
+  return out
 def table(base,path=os.environ.get('PAIR_TABLE','pair_table.json'),K=int(os.environ.get('TABLE_K',40))):
   """every ordered pair of crate tracks: key compatibility, and for key-compatible pairs the K best windows (scored as if the outgoing
   track started at bar 0; search re-checks each window against the real start) with predicted beat-on-beat run, beatless bars, vocal clash
@@ -392,7 +414,7 @@ def search(base,lo=58,hi=62,beam=300,BW=(0,60,200),fix_open=True,exclude=(),ban=
             if f'{a}>{b}' in PINW and w['w']!=PINW[f'{a}>{b}']:continue  # pinned window (the 5/5 gold blend)
             kind,e,p,ib,X=w['w']
             _k=f'{a}>{b}';_bc=badw_cost(_k,w['w']) if SOFT else (None if w['w'] in BADW.get(_k,[]) else 0)
-            _why=('boff' if w['boff']>BOFFMAX else 'badw' if _bc is None else 'valid' if not _valid(tr[a],w['w'],ia) else None) if SOFT else ('voc' if w['voc'] else 'both' if w['both']<BOTHMIN else 'R' if (w['R']<0.2 and _k not in RELAXR) else 'mel' if w['mel']>MELMAX else 'boff' if w['boff']>BOFFMAX else 'badw' if _bc is None else 'step' if (w['step']>STEPMAX and PR.get(_k,3)<4) else 'valid' if not _valid(tr[a],w['w'],ia) else None)
+            _why=('boff' if w['boff']>BOFFMAX else 'badw' if _bc is None else 'valid' if not _valid(tr[a],w['w'],ia) else None) if SOFT else ('voc' if w['voc'] else 'both' if w['both']<BOTHMIN else 'R' if (w['R']<0.2 and _k not in RELAXR) else 'mel' if w['mel']>MELMAX else 'boff' if w['boff']>BOFFMAX else 'badw' if _bc is None else 'step' if (w['step']>STEPMAX and PR.get(_k,3)<4) else 'cliff' if entry_cliff(K.al[a],entry_prev(kind,e,windows(kind,e,p,ib,X,a)[0]))>ENTRY_CLIFF_DB else 'valid' if not _valid(tr[a],w['w'],ia) else None)
             if KILL is not None:KILL[(a[:4]+'>'+b[:4],'seen')]+=1
             _pin=f'{a}>{b}' in PINW or PREFWIN.get(f'{a}>{b}')==w['w']  # pinned = already proven by a render (Mix 05 anchor / gold / closed-loop strategy): table filters don't apply
             if _pin:_why=None

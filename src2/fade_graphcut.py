@@ -48,13 +48,15 @@ CLASH_W_BARS = 2.0
 
 def _source_side(G, S, Tgt):
     """Source side of the s-t cut of least capacity: preflow-push max flow, drop saturated residual edges,
-    and keep the nodes that can no longer reach the sink (same construction networkx uses internally)."""
+    and keep the nodes that can no longer reach the sink (same construction networkx uses internally).
+    Returns (source_set, cut_value). cut_value is the max-flow / min-cut capacity."""
     import networkx as nx
     from networkx.algorithms.flow import preflow_push
-    R = preflow_push(G, S, Tgt, capacity='capacity', value_only=True)
+    R = preflow_push(G, S, Tgt, capacity='capacity')
+    value = float(R.graph['flow_value'])
     R.remove_edges_from([(u, v) for u, v, d in R.edges(data=True) if d['flow'] == d['capacity']])
     to_sink = set(nx.shortest_path_length(R, target=Tgt))
-    return set(G) - to_sink
+    return set(G) - to_sink, value
 
 def _db(e, eps=SS.EPS):
     return 10.0 * np.log10(np.maximum(np.asarray(e, float), eps))
@@ -209,14 +211,14 @@ def min_cut_seams(time_cost, freq_cost):
             cap = float(freq_cost[t, b])
             G.add_edge(nid(t, b), nid(t, b + 1), capacity=cap)
             G.add_edge(nid(t, b + 1), nid(t, b), capacity=cap)
-    reach = _source_side(G, S, Tgt)
+    reach, cut_value = _source_side(G, S, Tgt)
     seams = np.full(B, T - 1, int)
     for b in range(B):
         for t in range(T):
             if nid(t, b) not in reach:
                 seams[b] = t
                 break
-    return seams, float(_value)
+    return seams, float(cut_value)
 
 
 def raise_cos_ramp(center, width, up, steps=16):

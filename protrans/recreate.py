@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','HARD_FALLBACK'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -685,12 +685,9 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                         if not _h2.get('flagged'):
                             pick, dk, M = _p2, _dk2, _M2; clash_info['hard']['replaced_by'] = dict(fam=_c['fam'], win=list(_c['win']))
                             break
-        # Official hard-check fallback is off by default (HARD_FALLBACK=0) so the
-        # baseline floor stays like-for-like (train 32.40 / held-out 34.07). It is a
-        # promotion candidate on its own; do not write rules.json. Test hook
-        # HARDCHECK_TEST_FORCE_WIN is also ignored unless the flag is on.
-        _hc_on = _flag_on(env.get('HARD_FALLBACK') or (rules or {}).get('HARD_FALLBACK') or os.environ.get('HARD_FALLBACK'))
-        _fw = os.environ.get('HARDCHECK_TEST_FORCE_WIN') if _hc_on else None
+        # Test hook (unset in nightly): start the official hard-check fallback from a
+        # nominated first window, so a JS13-style pumping pick can be verified.
+        _fw = os.environ.get('HARDCHECK_TEST_FORCE_WIN')
         if _fw:
             _parts = []
             for _i, _p in enumerate(_fw.split(',')):
@@ -710,53 +707,52 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                 dk, M = BB.render(pick, a, b, tag + 'f')
         # Official hard checks (pumping, beat_clash, bass_hole) veto a failing first
         # pick when a later scored candidate renders clean (2026-11-23 JS13 STRUCT_MID
-        # 128/16/32 pumped at 5.2 dB over the 4.54 p95). Cap extra renders. Gated on
-        # HARD_FALLBACK=1; default is off. Does not write rules.json.
-        _hc_fb = dict(enabled=False)
-        if _hc_on:
-            try:
-                _rdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica')
-                if _rdir not in sys.path: sys.path.insert(0, _rdir)
-                import hardcheck as _HC
-                def _hc_of(_M, _tg):
-                    _mp = os.path.join('/tmp/protrans_bench', f'{_tg}_{a}_{b}_hc.json')
-                    json.dump(_M, open(_mp, 'w'), default=str)
-                    return _HC.check(_mp)
-                _h0 = _hc_of(M, tag)
-                _hc_fb = dict(enabled=True, first=dict(fam=pick.get('fam'), win=list(pick.get('win') or []),
-                                         hard_fail=bool(_h0.get('hard_fail')), pumping=_h0.get('pumping'),
-                                         pump_db=_h0.get('pump_db'), beat_clash=_h0.get('beat_clash'),
-                                         bass_hole=_h0.get('bass_hole'), lows_dip_db=_h0.get('lows_dip_db')))
-                if _h0.get('hard_fail'):
-                    _seen = {tuple(pick.get('win') or [])}
-                    _alts = []
-                    for _cost, _c in scored:
-                        _w = tuple(_c.get('win') or [])
-                        if _w in _seen: continue
-                        _seen.add(_w); _alts.append(_c)
-                    for _c in sorted((c for c in cs if (c.get('win') or [''])[0] == 'n' and not c.get('planner_extra') and not c.get('land_extra')),
-                                     key=lambda c: c.get('cost', 1e9)):
-                        _w = tuple(_c['win'])
-                        if _w in _seen: continue
-                        _seen.add(_w); _alts.append(dict(fam=_c.get('fam') or 'hc_alt', win=list(_c['win']), env={}))
-                    _tries = []
-                    for _ti, _c in enumerate(_alts[:6]):
-                        _p2 = dict(_c); _p2['env'] = {**env, **dict(_c.get('env') or {})}
-                        _dk2, _M2 = BB.render(_p2, a, b, f'{tag}h{_ti}')
-                        _h2 = _hc_of(_M2, f'{tag}h{_ti}')
-                        _tries.append(dict(fam=_p2.get('fam'), win=list(_p2.get('win') or []),
-                                           hard_fail=bool(_h2.get('hard_fail')), pumping=_h2.get('pumping'),
-                                           pump_db=_h2.get('pump_db'), beat_clash=_h2.get('beat_clash'),
-                                           bass_hole=_h2.get('bass_hole'), lows_dip_db=_h2.get('lows_dip_db')))
-                        if not _h2.get('hard_fail'):
-                            pick, dk, M = _p2, _dk2, _M2
-                            _hc_fb['replaced_by'] = _tries[-1]
-                            break
-                    _hc_fb['retries'] = _tries
-                    if 'replaced_by' not in _hc_fb:
-                        _hc_fb['kept_failing'] = True
-            except Exception as ex:
-                _hc_fb = dict(enabled=True, error=f'{type(ex).__name__}: {ex}')
+        # 128/16/32 pumped at 5.2 dB over the 4.54 p95). Cap extra renders. Does not
+        # write rules.json; the first pick is kept only if nothing else passes.
+        _hc_fb = None
+        try:
+            _rdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica')
+            if _rdir not in sys.path: sys.path.insert(0, _rdir)
+            import hardcheck as _HC
+            def _hc_of(_M, _tg):
+                _mp = os.path.join('/tmp/protrans_bench', f'{_tg}_{a}_{b}_hc.json')
+                json.dump(_M, open(_mp, 'w'), default=str)
+                return _HC.check(_mp)
+            _h0 = _hc_of(M, tag)
+            _hc_fb = dict(first=dict(fam=pick.get('fam'), win=list(pick.get('win') or []),
+                                     hard_fail=bool(_h0.get('hard_fail')), pumping=_h0.get('pumping'),
+                                     pump_db=_h0.get('pump_db'), beat_clash=_h0.get('beat_clash'),
+                                     bass_hole=_h0.get('bass_hole'), lows_dip_db=_h0.get('lows_dip_db')))
+            if _h0.get('hard_fail'):
+                _seen = {tuple(pick.get('win') or [])}
+                _alts = []
+                for _cost, _c in scored:
+                    _w = tuple(_c.get('win') or [])
+                    if _w in _seen: continue
+                    _seen.add(_w); _alts.append(_c)
+                for _c in sorted((c for c in cs if (c.get('win') or [''])[0] == 'n' and not c.get('planner_extra') and not c.get('land_extra')),
+                                 key=lambda c: c.get('cost', 1e9)):
+                    _w = tuple(_c['win'])
+                    if _w in _seen: continue
+                    _seen.add(_w); _alts.append(dict(fam=_c.get('fam') or 'hc_alt', win=list(_c['win']), env={}))
+                _tries = []
+                for _ti, _c in enumerate(_alts[:6]):
+                    _p2 = dict(_c); _p2['env'] = {**env, **dict(_c.get('env') or {})}
+                    _dk2, _M2 = BB.render(_p2, a, b, f'{tag}h{_ti}')
+                    _h2 = _hc_of(_M2, f'{tag}h{_ti}')
+                    _tries.append(dict(fam=_p2.get('fam'), win=list(_p2.get('win') or []),
+                                       hard_fail=bool(_h2.get('hard_fail')), pumping=_h2.get('pumping'),
+                                       pump_db=_h2.get('pump_db'), beat_clash=_h2.get('beat_clash'),
+                                       bass_hole=_h2.get('bass_hole'), lows_dip_db=_h2.get('lows_dip_db')))
+                    if not _h2.get('hard_fail'):
+                        pick, dk, M = _p2, _dk2, _M2
+                        _hc_fb['replaced_by'] = _tries[-1]
+                        break
+                _hc_fb['retries'] = _tries
+                if 'replaced_by' not in _hc_fb:
+                    _hc_fb['kept_failing'] = True
+        except Exception as ex:
+            _hc_fb = dict(error=f'{type(ex).__name__}: {ex}')
         ours = pick.get('mp3')
         meta_path = os.path.join('/tmp/protrans_bench', f'{tag}_{a}_{b}_meta.json')   # for blend_diag (daily diagnostics)
         try:

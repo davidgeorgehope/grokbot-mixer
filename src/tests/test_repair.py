@@ -158,3 +158,49 @@ def test_energy_failure_can_rewindow_same_pair():
   ctx=R.Ctx(T,['A','B'],ok=ok,cost=lambda T,a,b,w:0 if w['w'][3]==16 else 10,dry=dry)
   P,res,hist=R.repair(plan,[('A','B','swapdip')],ctx,log=lambda *_:None)
   assert hist[0]['action']=='rewindow' and P[0]['out_win'][3]==16 and R.passes(res)
+
+def test_pair_budget_splits_leftover_evenly_and_never_starves_early_pairs():
+  # 3 pairs, 149 leftover dries (after the initial dry of the current plan): 49 / 50 / 50 as leftovers flow
+  s,d=R.pair_budget(1800,149,3)
+  assert abs(s-600)<1e-9 and d==49
+  s,d=R.pair_budget(1200,100,2)
+  assert abs(s-600)<1e-9 and d==50
+  s,d=R.pair_budget(600,50,1)
+  assert abs(s-600)<1e-9 and d==50
+  # fewer dries than remaining pairs: the current pair still gets one try
+  assert R.pair_budget(10,2,3)==(10/3,1)
+  assert R.pair_budget(10,0,3)==(10/3,0)
+
+def test_every_culprit_gets_tries_when_the_first_pair_cannot_be_fixed():
+  """Mix 10 r6 bug: the first culprit burned the whole max_dry, later pairs reported tries=0."""
+  T=table({'A>B':[W()],'B>C':[W()],'C>D':[W()],
+           'A>X':[W()],'X>C':[W()],'C>Y':[W()],'Y>D':[W()],
+           'A>Y':[W()],'Y>C':[W()],'C>X':[W()],'X>D':[W()]})
+  plan=[step('A',['n',128,None,32,32]),step('B',['n',128,None,32,32]),step('C',['n',128,None,32,32]),step('D')]
+  # every alternative still dry-fails, so no pair can be resolved; budget must still be shared
+  dry,calls=fake_dry({('A','B'),('A','X'),('A','Y'),('C','D'),('C','Y'),('C','X'),('X','C'),('Y','C'),('X','D'),('Y','D'),('B','C')},length_per_track=21)
+  ctx=R.Ctx(T,['A','B','C','D','X','Y'],ok=ok,cost=cost,dry=dry)
+  _,_,hist=R.repair(plan,[('A','B','L1'),('C','D','L1')],ctx,max_dry=8,log=lambda *_:None)
+  by={h['pair']:h for h in hist}
+  assert by['A>B']['tries']>=1 and by['C>D']['tries']>=1
+  assert by['C>D']['tries']>0  # was 0 when the first pair starved the budget
+
+def test_entry_cliff_rewindow_rejects_same_blend_start():
+  # 16-bar @ e=96 and 32-bar @ e=112 both start at outgoing bar 80 (the r5 N1 fail)
+  old=['n',112,None,80,32]
+  avoid=R._avoid(old,{'N1'})
+  assert any(f(['n',96,None,16,16]) for f in avoid)   # same start 80, rejected
+  assert not any(f(['n',128,None,16,32]) for f in avoid)  # start 96, allowed
+  assert not any(f(['la',96,80,80,16]) for f in avoid)    # looped exit, different start kind
+  assert any(f(['lb',112,None,0,32]) for f in avoid)      # lb still starts at e-X=80, rejected
+
+def test_gentle_entry_cost_prefers_longer_blend_earlier_cue_and_looped_intro():
+  old=['n',112,None,80,16]
+  assert R._gentle_entry_cost(old,['n',128,None,80,32])<R._gentle_entry_cost(old,['n',112,None,80,16])
+  assert R._gentle_entry_cost(old,['n',112,None,16,16])<R._gentle_entry_cost(old,['n',112,None,80,16])
+  assert R._gentle_entry_cost(old,['lb',112,None,80,16])<R._gentle_entry_cost(old,['n',112,None,80,16])
+
+def test_dry_culprits_include_entry_cliffs():
+  p=dict(vocal_clash=[],key_clash=[],seesaw_fail=[],
+         entry_cliffs=[dict(a='AC3eEHeLd8A',b='cxS6yd0UAxw',src=79,cliff=12.9)])
+  assert ('AC3eEHeLd8A','cxS6yd0UAxw','entry_cliff') in R.dry_culprits(p)

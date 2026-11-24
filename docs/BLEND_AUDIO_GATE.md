@@ -38,7 +38,45 @@ Tests: `src/tests/test_blend_gate.py`, `test_breakdown_holes.py`, and `test_gain
 
 ## Validation results
 
-VALIDATION_PLACEHOLDER
+Validation, 2026-11-24 (code as committed 10:05 AM ET; files eval/blend_gate_validation_mix10.json,
+eval/blend_gate_validation_holdout.json, eval/blend_gate_crosscheck.json).
+
+| Mix | Blends | Known faults | Caught | Flagged but labelled clean |
+|---|---|---|---|---|
+| Mix 10 r6 (r6c faults) | 23 | 6 | 6 | 0 |
+| Mix 10 r5 | 23 | 1 (18:45 N1 step) | 1 | 1 (blend 13 tail) |
+| Mix 09 r3 | 22 | 2 | 2 | 2 |
+| Mix 09 r4 | 23 | 1 | 1 | 2 |
+| Mix 09 r5 | 22 | 2 | 2 | 2 |
+| Mix 09 r5b | 22 | 0 | 0 | 2 |
+| Mix 08 r11c (delivered) | 25 | 0 | 0 | 1 |
+| Total | 160 | 12 | 12 | 10 |
+
+The Mix 10 r5 14:24 dip is a solo breakdown hole, not a blend fault: breakdown_holes.py marks it (E1-deep at 14:23).
+
+All 10 "labelled clean" flags come from two track-level faults:
+
+- SqzxwPEa-DI > l4XZ-wqc4vQ, 1 bar of both vocals (V1, test_no_vocal_clash): 4 mixes.
+- n1dOiesZS1g as the outgoing deck, a 6.01 dB one-bar tail step against the 6 dB limit
+  (test_outgoing_audio_tail_never_drops_abruptly): 6 mixes.
+
+blend_gate_crosscheck.py runs the same shared check on each FULL mix meta with today's code and features. It fails on all 10
+(10/10), so the gate agrees with the release test and the labels are stale. Mix 08 r11c blend 19 was checked further:
+
+- the clip and the full mix give identical per-bar values (bar 13 step -6.01 dB), so no window-edge effect;
+- the 11/10 engine gives the same value as today's, and the tail test only gained an unrelated fader constant since then;
+- the delivered MP3 matches today's clip bar by bar (constant offset, shape within 0.05 dB).
+
+The most likely cause is that the stem file st/n1dOiesZS1g.wav, re-decoded 11/20, moved a borderline -5.99 to -6.01. This is not
+proven, because the old stem is not kept. No threshold was changed.
+
+Timing: median 44.6 s per blend (p90 96 s) on Mix 10, n=46; holdout median 48 s (p90 169 s) at box load 15-31; render median 6.5 s.
+
+Wiring status: gated.py check/search/repair and render_gated.sh are done and tested (25 unit tests). plan_search.py and repair.py
+are unedited, and gated.py drives them through SEESAW_BANFILE and ctx.dry/ctx.badwin. A first search smoke (10:35 AM ET) tried no
+plans: every plan in the old r6 pool held a gate-proven bad window and that run allowed no re-search. pool_skips now reports the
+blocking windows, and the next run re-searches once with the bans.
+
 
 ## Wiring it in (next step)
 

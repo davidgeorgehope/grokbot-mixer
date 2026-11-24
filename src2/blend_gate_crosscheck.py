@@ -15,6 +15,7 @@ if 'test_outgoing_audio_tail_never_drops_abruptly' in want:
   import test_release_structure_tail as T
   try:T.test_outgoing_audio_tail_never_drops_abruptly();out['tail']=[]
   except AssertionError as e:out['tail']=eval(str(e).split('\n')[0]) if str(e).startswith('[') else str(e)
+  except BaseException as e:out['tail']='not run: '+type(e).__name__+': '+str(e)[:200]  # pytest.skip (stems missing) is a BaseException
 print('@@'+json.dumps(out,default=str))
 '''
 def main(files):
@@ -32,9 +33,9 @@ def main(files):
         agree={}
         for c in r['fails']:
           if c in('V1','test_no_vocal_clash'):agree[c]=any(a==r['a'] and b==r['b'] or a==r['b'] and b==r['a'] for a,b,*_ in O.get('vocal',[]))
-          elif c=='test_outgoing_audio_tail_never_drops_abruptly':agree[c]=isinstance(O.get('tail'),list) and any(x[0]==r['a'] for x in O['tail'])
+          elif c=='test_outgoing_audio_tail_never_drops_abruptly':agree[c]=(isinstance(O.get('tail'),list) and any(x[0]==r['a'] for x in O['tail'])) if not str(O.get('tail','')).startswith('not run') else None
           else:agree[c]=None
-        res.append(dict(mix=n,trans=r['trans'],a=r['a'],b=r['b'],t=r['t'],fails=r['fails'],full_mix_today=agree,stale_label=all(v is True for v in agree.values())))
+        res.append(dict(note=O.get('tail') if isinstance(O.get('tail'),str) else O.get('error'),mix=n,trans=r['trans'],a=r['a'],b=r['b'],t=r['t'],fails=r['fails'],full_mix_today=agree,stale_label=all(v is True for v in agree.values())))
         print(res[-1],flush=True)
   json.dump(res,open(os.path.join(ROOT,'eval/blend_gate_crosscheck.json'),'w'),indent=1)
   print('stale',sum(r['stale_label'] for r in res),'of',len(res))

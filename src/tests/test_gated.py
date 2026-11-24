@@ -32,3 +32,21 @@ def test_solo_hole_bans_both_windows_around_the_track():
 
 def test_codes_match_repair_render_culprits():
   assert G.CODEMAP['test_no_bass_gap_in_overlaps']=='bassgap' and G.CODEMAP['N1']=='N1' and G.CODEMAP['test_no_level_dip_at_swap']=='swapdip'
+
+
+def test_pool_skips_bans_the_window_not_the_pair():
+  """a ban on one window of a pair skips only plans that use THAT window; another window of the same pair is still tried"""
+  B={'a>b':[['n',176,None,48,16]]}
+  pool=[dict(seq=['a','b'],bl=[dict(a='a',b='b',w=['n',176,None,48,16])]),
+        dict(seq=['a','b'],bl=[dict(a='a',b='b',w=['n',160,None,48,16])]),
+        dict(seq=['x','b'],bl=[dict(a='x',b='b',w=['n',176,None,48,16])])]
+  s=G.pool_skips(pool,B,set())
+  assert s['why']==['banned',None,None] and s['n_banned']==1
+
+
+def test_pool_skips_reports_what_blocks_a_fully_banned_pool():
+  """when every plan is skipped the report names the blocking windows and the exclusion count"""
+  B={'a>b':[['n',1,None,16,16]]}
+  pool=[dict(seq=['a','b','m'],bl=[dict(a='a',b='b',w=['n',1,None,16,16])]),dict(seq=['a','b'],bl=[dict(a='a',b='b',w=['n',1,None,16,16])])]
+  s=G.pool_skips(pool,B,{'m'})
+  assert s['why']==['excluded','banned'] and s['n_excluded']==1 and s['n_banned']==2 and s['top'][0]==("a>b ['n', 1, None, 16, 16]",2)

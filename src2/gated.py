@@ -83,18 +83,27 @@ def _hole_windows(plan,holes):
       if j+1<len(ids):out.append((ids[j],ids[j+1],plan[j].get('out_win')))
   return out
 
+def pool_skips(pool,B,excl):
+  """why each pool plan is skipped before gating: 'excluded' (holds an excluded track) or 'banned' (holds a banned window: same
+  pair AND same window, never the pair alone). Bans and exclusions are both counted so a blocked pool says which windows block it."""
+  import collections;why=[];C=collections.Counter();ne=nb=0
+  for d in pool:
+    bw=[f"{w['a']}>{w['b']} {w['w']}" for w in d['bl'] if list(w['w']) in B.get(f"{w['a']}>{w['b']}",[])]
+    ex=bool(excl&set(d['seq']));C.update(bw);ne+=ex;nb+=bool(bw)
+    why.append('excluded' if ex else 'banned' if bw else None)
+  return dict(why=why,n_excluded=ne,n_banned=nb,top=C.most_common(6))
 def cmd_search(A):
   import plan_search as PS
   B=load_bans();t0=time.time();tried=0;pool_path=A.pool;rounds=0;log=[]
   while True:
     pool=json.load(open(pool_path)) if pool_path and os.path.exists(pool_path) else []
     print(f'[{time.strftime("%H:%M:%S")}] pool {pool_path}: {len(pool)} plans, {sum(len(v) for v in B.values())} banned windows',flush=True)
-    seen=set();excl=set(x for x in A.exclude.split(',') if x)
-    for d in pool:
+    seen=set();excl=set(x for x in A.exclude.split(',') if x);tried0=tried
+    sk=pool_skips(pool,B,excl)
+    for d,why in zip(pool,sk['why']):
       if tried>=A.max_plans:break
       vk=tuple(tuple(w['w']) for w in d['bl'])
-      if vk in seen or excl&set(d['seq']):continue
-      if any(w['w'] in B.get(f"{w['a']}>{w['b']}",[]) for w in d['bl']):continue
+      if why or vk in seen:continue
       seen.add(vk);tried+=1;P=PS.to_plan(d,A.base)
       p=gated_dry(P,f's{tried}',A.gain,A.nudge,A.jobs)
       row=dict(n=tried,tests={k:v for k,v in (p.get('tests') or {}).items() if not v},error=p.get('error'),gate_fails=p.get('gate_fails'),holes=p.get('solo_holes'))
@@ -103,6 +112,11 @@ def cmd_search(A):
         json.dump(P,open(A.out,'w'),indent=1);print(json.dumps(dict(plan=A.out,tried=tried,secs=round(time.time()-t0),log=log),default=str));return 0
       nb=add_bans(B,[(f['a'],f['b'],f['window']) for f in p.get('gate_fails') or []]+_hole_windows(P,p.get('solo_holes') or []))
       if nb:print(f'  banned {nb} windows -> {BANFILE}',flush=True)
+    if tried==tried0:
+      print(f"  pool blocked: {sk['n_excluded']} plans hold an excluded track, {sk['n_banned']} hold a banned window; top blockers:",flush=True)
+      for k,n in sk['top']:print(f'    {n:6d} plans  {k}',flush=True)
+      if not A.search:print('  no --search args: cannot re-search around the bans (pass --search "<plan_search search args>" --rounds N)',flush=True)
+      log.append(dict(round=rounds,blocked=sk['top'],n_excluded=sk['n_excluded'],n_banned=sk['n_banned']))
     if rounds>=A.rounds or not A.search or tried>=A.max_plans:break
     rounds+=1;mb=merged_banfile(B);out=A.out.rsplit('.',1)[0]+f'_gs{rounds}.json'
     cmd=[sys.executable,'plan_search.py','search','--base',A.base,'--out',out]+shlex.split(A.search)

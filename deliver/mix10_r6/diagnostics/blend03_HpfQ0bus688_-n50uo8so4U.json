@@ -1,0 +1,44 @@
+{
+ "blend": 3,
+ "a": "HpfQ0bus688",
+ "b": "-n50uo8so4U",
+ "start_bar": 640.0,
+ "end_bar": 672.0,
+ "png": "/workspace/mixes/deliver/mix10_r6/diagnostics/blend03_HpfQ0bus688_-n50uo8so4U.png",
+ "halfbeat": {
+  "r0": 0.783,
+  "rh": 0.647,
+  "lag_ms": 0.0,
+  "bars": 18,
+  "phase_fail": true,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": 0.0,
+  "phase_b": 0.375,
+  "dphase_beats": -0.375,
+  "dphase_ms": -129.3,
+  "strength": 1.736,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": null,
+ "offset_ms_median": -4.4,
+ "offset_bars": 19,
+ "clash_bars": 11.25,
+ "sum_lows_dip_db": 33.8,
+ "bass_swap": [
+  647.0,
+  651.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.040987,
+  "pcty": 2.254805,
+  "Scol": 0.7648,
+  "Scty": 0.746,
+  "banger_clash_rate": 0.1171,
+  "start_s": 11.034,
+  "end_s": 55.172,
+  "continuity_fallback": false
+ }
+}

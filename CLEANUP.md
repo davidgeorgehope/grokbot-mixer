@@ -164,3 +164,4 @@
 - 2026-11-19 03:2x ET daily cleanup: deleted 952 scratch WAVs in /tmp/protrans_bench (older than 3h). Nothing in src2, no archives needed. Kept all guard_mix*. Free 34G
 - 2026-11-20 03:2x ET daily cleanup: deleted 2424 scratch WAVs in /tmp (mostly /tmp/protrans_bench, ~40G, older than 3h). Nothing in src2, no archives needed. Kept all guard_mix*. Free 30G
 - 2026-11-21 03:2x ET daily cleanup: deleted 224 scratch WAVs in /tmp (~4.2G, older than 3h). Nothing in src2, no archives needed. Kept all guard_mix*, 230 recent /tmp WAVs (<3h). Free 16G
+- 2026-11-24 03:2x ET daily cleanup: archived mix10_r5_master.wav (1.2G) to gdrive:DJ Mixes Archive/src2/ (rclone check ok); deleted it and mix10_r5_raw.wav, plus ~104 scratch /tmp WAVs older than 3h (~1.8G). Kept mix10_r6 raw/master (<3h, r6c build running), 496 recent /tmp WAVs, all guard_mix*. Free 34G

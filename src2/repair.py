@@ -11,7 +11,7 @@ with plan_search.dry(); the first that is all_ok and >= MIN_LEN minutes is kept,
 Nothing here loosens a test: dry() runs the release tests' own functions, and the render still runs every guardrail and pytest."""
 import os,re,sys,json,time,itertools
 LOOPS=('la','ab','lx','lb')
-PHASE_CODES={'G1','F1','downbeats','beat_aligned'}   # beat-phase failures: a looped outgoing deck is the usual cause (r9c 37:31)
+PHASE_CODES={'G1','F1','downbeats','beat_aligned','N1'}  # beat-phase failures: a looped outgoing deck is the usual cause (r9c 37:31). N1's grid branch (enters N ms off the grid) is the same class; the level-step branch still also uses ENERGY_CODES.
 TAIL_CODES={'tail','A1'}                              # abrupt outgoing tail: avoid the same exit bar
 ENERGY_CODES={'bassgap','swapdip','N1','entry_cliff'}  # Mix 08 r10bb: mid-blend swap into a bass-less intro, or a quiet/early incoming start; Mix 10 r6: entry_cliff uses a longer blend / earlier cue / looped intro. Rewindow only (X1 still caps the handoff at x<=0.65). Does not soften any check.
 IBMAX=int(os.environ.get('IBMAX',80))
@@ -46,6 +46,8 @@ def render_culprits(name,log=None,src='.'):
   g=os.path.join(src,f'guard_{name}','guardrails.json')
   if os.path.exists(g):
     for f in json.load(open(g)).get('failures',[]):
+      # P1 true-peak is mix-wide (often sec=0, no trans); snapping it to the first blend is a false culprit
+      if f.get('check') in('P1',) and f.get('trans') is None:continue
       add(f['trans'] if f.get('trans') is not None else _trans_at(M,f['sec']) if f.get('sec') is not None else None,f.get('check'))
   for lp in [x for x in (log,os.path.join(src,f'guard_{name}','pytest.log')) if x and os.path.exists(x)]:
     txt=open(lp,errors='replace').read();cur='pytest';pend=[]  # a tailed log may have lost the test header; the "file.py:N: AssertionError" line follows the E lines
@@ -60,18 +62,28 @@ def render_culprits(name,log=None,src='.'):
         for i in pend:add(i,code)
         pend=[];continue
       if not line.lstrip().startswith('E ') or 'assert not' in line:continue
+      if 'true peak' in line.lower() and 'enters' not in line:continue  # mix-level P1, not a pair
+      if 'overlap_start' in line:  # test_mixdown_beats_aligned: the overlap, not the named deck's outgoing slot
+        pend+=[i for i,t in enumerate(T) for s in re.findall(r"'overlap_start':\s*(\d+)",line) if t['start_bar']<=int(s)<t['end_bar']]
+        continue
       if 'bass gaps (trans' in line:  # test_release_bassgap: (trans index, mix bar, bars)
         pend+=[int(x) for x in re.findall(r'\((\d+),\s*\d+,\s*\d+\)',line)];continue
       pairs=PAIRRE.findall(line)
       if pairs:  # ('a', 'b', ...) tuples name the blend directly (test_release_eq_swap)
         for a,b in pairs:pend+=[i for i,t in enumerate(T) if t['a']==a and t['b']==b][:1]
         continue
+      # "ID enters" (guardrail N1 grid) names the incoming track
+      for inc in re.findall(r"([A-Za-z0-9_-]{11}) enters ",line):
+        pend+=[i for i,t in enumerate(T) if t['b']==inc][:1]
       ids=YT.findall(line);bars=[int(x) for x in re.findall(r"'[A-Za-z0-9_-]{11}',\s*(\d+)",line)]
-      for k,a in enumerate(ids):
-        c=[i for i,t in enumerate(T) if t['a']==a and (k>=len(bars) or t['start_bar']==bars[k])] or [i for i,t in enumerate(T) if t['a']==a]
-        if c:pend.append(c[0])
-      if not ids:
-        for mm,ss in MMSS.findall(line):pend.append(_trans_at(M,int(mm)*60+int(ss)))
+      if ' enters ' not in line:
+        for k,a in enumerate(ids):
+          c=[i for i,t in enumerate(T) if t['a']==a and (k>=len(bars) or t['start_bar']==bars[k])] or [i for i,t in enumerate(T) if t['a']==a]
+          if c:pend.append(c[0])
+      if not ids and ' enters ' not in line:
+        for mm,ss in MMSS.findall(line):
+          if (mm,ss)==('0','00'):continue
+          pend.append(_trans_at(M,int(mm)*60+int(ss)))
     for i in pend:add(i,cur)
   seen=set();res=[]
   for a,b,c in out:
@@ -193,6 +205,9 @@ def pick(ctx,a,b,ia,avoid=(),k=4,fill=False):
 def _avoid(old_w,codes):
   f=[]
   if old_w and set(codes)&PHASE_CODES and old_w[0] in LOOPS:f.append(lambda w,k=old_w[0]:w[0] in(k,'lx'))  # the looped kind that slipped, and the beat-stem loop; plain or la still allowed
+  if old_w and set(codes)&{'beat_aligned','N1','downbeats','F1'}:
+    # incoming cue (ib) is what drifted on Mix 10 r6c N1 / beat_aligned; do not re-offer the same start + ib
+    f.append(lambda w,o=tuple(old_w):(w[3],)+_blend_start(w)==(o[3],)+_blend_start(o))
   if old_w and set(codes)&TAIL_CODES:f.append(lambda w,e=old_w[1]:w[1]==e)
   if old_w and set(codes)&ENERGY_CODES:
     f.append(lambda w,o=tuple(old_w):(w[1],w[3],w[4])==(o[1],o[3],o[4]))  # keep the pair only if exit, incoming start, or length changes

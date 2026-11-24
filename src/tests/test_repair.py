@@ -204,3 +204,39 @@ def test_dry_culprits_include_entry_cliffs():
   p=dict(vocal_clash=[],key_clash=[],seesaw_fail=[],
          entry_cliffs=[dict(a='AC3eEHeLd8A',b='cxS6yd0UAxw',src=79,cliff=12.9)])
   assert ('AC3eEHeLd8A','cxS6yd0UAxw','entry_cliff') in R.dry_culprits(p)
+
+
+def test_render_culprits_skips_mixwide_true_peak_and_maps_n1_enter_to_incoming(tmp_path):
+  """Mix 10 r6c: P1 true peak was snapped to the first blend; 'ID enters' is the incoming track."""
+  M=dict(bar_sec=1.38,trans=[
+    dict(a='AAAAAAAAAAA',b='BBBBBBBBBBB',start_bar=0,end_bar=32),
+    dict(a='BBBBBBBBBBB',b='CCCCCCCCCCC',start_bar=200,end_bar=232),
+  ])
+  (tmp_path/'m_meta.json').write_text(json.dumps(M));(tmp_path/'guard_m').mkdir()
+  (tmp_path/'guard_m'/'guardrails.json').write_text(json.dumps(dict(failures=[
+    dict(check='P1',t='0:00',t_end='67:58',sec=0,msg='true peak -0.8 dBTP'),
+    dict(check='N1',t='21:22',t_end='21:25',sec=200*1.38+2,msg='CCCCCCCCCCC enters -19 ms off the grid',trans=1),
+  ])))
+  (tmp_path/'guard_m'/'pytest.log').write_text(
+    "____ test_guardrails_zero_failures ____\n"
+    "E     AssertionError: [('P1', '0:00', 'true peak -0.8 dBTP'), ('N1', '21:22', 'CCCCCCCCCCC enters -19 ms off the grid')]\n"
+    "../src/build_qa/test_release_guardrails.py:11: AssertionError\n")
+  c=R.render_culprits('m',src=str(tmp_path))
+  pairs={(a,b) for a,b,_ in c}
+  assert ('AAAAAAAAAAA','BBBBBBBBBBB') not in pairs
+  assert ('BBBBBBBBBBB','CCCCCCCCCCC','N1') in c
+
+def test_render_culprits_beat_aligned_uses_overlap_not_named_outgoing(tmp_path):
+  """The named deck is often the incoming one; overlap_start is the blend."""
+  M=dict(bar_sec=1.38,trans=[
+    dict(a='AAAAAAAAAAA',b='BBBBBBBBBBB',start_bar=496,end_bar=528),
+    dict(a='BBBBBBBBBBB',b='CCCCCCCCCCC',start_bar=640,end_bar=672),
+  ])
+  (tmp_path/'m_meta.json').write_text(json.dumps(M));(tmp_path/'guard_m').mkdir()
+  (tmp_path/'guard_m'/'pytest.log').write_text(
+    "____ test_mixdown_beats_aligned_every_overlap_bar ____\n"
+    "E     AssertionError: 1/1214 overlap bars fail beat/phase (>10ms lag on an audible bar, including tail drift): "
+    "[{'bar': 510, 'deck': 'BBBBBBBBBBB', 'lag': -27, 'corr': 0.7, 'kind': 'mix', 'overlap_start': 496, 'overlap_end': 528, 'tail': False, 'window_bars': 2}]\n")
+  c=R.render_culprits('m',src=str(tmp_path))
+  assert ('AAAAAAAAAAA','BBBBBBBBBBB','beat_aligned') in c
+  assert ('BBBBBBBBBBB','CCCCCCCCCCC') not in {(a,b) for a,b,_ in c}

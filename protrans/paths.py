@@ -2,7 +2,7 @@
 import os
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 MIXES = os.path.abspath(os.path.join(ROOT, '..'))
-SRC2 = os.path.join(MIXES, 'src2')
+SRC2 = os.environ.get('PROTRANS_SRC2') or os.path.join(MIXES, 'src2')
 DELIVER = os.path.join(MIXES, 'deliver', 'protrans')
 CACHE = os.path.join(ROOT, 'cache')
 LIB = os.path.join(ROOT, 'lib')

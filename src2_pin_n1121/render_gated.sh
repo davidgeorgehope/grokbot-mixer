@@ -1,0 +1,1 @@
+/workspace/mixes/src2/render_gated.sh

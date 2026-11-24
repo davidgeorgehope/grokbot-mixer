@@ -32,10 +32,14 @@ def apply_rules(rules):
 
 def _ensure_bar_proxies(st_js):
     """Fill drums/bass so mix_simple can run without demucs stems.
-    drums ~ hat+low (else full-band) energy; bass ~ low band; voc is left out when unknown."""
+    drums ~ hat+low (else full-band) energy; bass ~ low band; voc is left out when unknown.
+    Only writes the file when a missing drums/bass key was actually filled. A no-op
+    rewrite used to bump mtimes on every official recreate and race Mix 10 jobs
+    that own live src2/st json (2026-11-24)."""
     import json
     g=json.load(open(st_js)); bar=g.get('bar') or {}
     al=bar.get('all') or []
+    changed=False
     if 'drums' not in bar and al:
         # hat+low as a kick/hat stand-in when both exist, else all
         if bar.get('hat') and bar.get('low') and len(bar['hat'])==len(al):
@@ -46,10 +50,14 @@ def _ensure_bar_proxies(st_js):
             bar['drums']=drums
         else:
             bar['drums']=list(al)
+        changed=True
     if 'bass' not in bar and bar.get('low'):
         bar['bass']=list(bar['low'])
+        changed=True
     # No vocal stand-in any more (2026-11-11 RCA): the old constant -100 'voc' made every bar count as vocal in
     # mix_simple's V term. Without vocal data mix_simple now switches the V term off for that deck and says so.
+    if not changed:
+        return
     g['bar']=bar
     tmp=st_js+f'.tmp{os.getpid()}'
     with open(tmp,'w') as f: json.dump(g, f)

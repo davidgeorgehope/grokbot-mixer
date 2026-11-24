@@ -8,6 +8,8 @@ os.environ['HARD_FALLBACK'] = '0'
 os.environ.pop('HARDCHECK_TEST_FORCE_WIN', None)
 os.environ.pop('PICKER_STYLE_GATED', None)
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import st_pin
+os.environ['PROTRANS_SRC2'] = st_pin.ensure_shadow()
 import cleanup, paths, score
 import run_admitted_tune as T
 import promotion_judge as PJ

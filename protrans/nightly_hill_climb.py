@@ -1,3 +1,9 @@
+from __future__ import annotations
+import os, sys
+# Official scoring uses a pinned src2 shadow (n1121-era st json). Mix 10 keeps live src2.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import st_pin
+os.environ['PROTRANS_SRC2'] = st_pin.ensure_shadow()
 """One bounded nightly hill-climb round over GENERAL engine rules.
 
 Fresh baseline on the admitted corpus, then up to 6 candidates in the
@@ -5,7 +11,6 @@ gap_diagnosis priority order. Keep the first candidate whose held-out (test DJ)
 mean strictly beats the baseline; stop there. Never touches score.py weights.
 Writes results/hill_climb_<date>.json and appends results/hill_climb_nights.jsonl.
 """
-from __future__ import annotations
 import copy, json, os, sys, time, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import paths, tune, score, cleanup

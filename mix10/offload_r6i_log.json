@@ -1,0 +1,145 @@
+{
+ "finished": "2026-11-24T11:32:21",
+ "secs": 344.4,
+ "moved": [
+  {
+   "local": "/workspace/mixes/deliver/mix10_r6i/dj-mix-10-r6i-chat48k.mp3",
+   "remote": "gdrive:DJ Mixes Archive/mix10/dj-mix-10-r6i-chat48k.mp3",
+   "bytes": 21697506,
+   "remote_bytes": 21697506,
+   "remote_md5": "63f91fc59ee11f4482e45b0625c063da",
+   "local_md5": "63f91fc59ee11f4482e45b0625c063da",
+   "action": "archived_kept_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix10_r5.mp3",
+   "remote": "gdrive:DJ Mixes Archive/mix10/rounds/mix10_r5.mp3",
+   "bytes": 144428973,
+   "remote_bytes": 144428973,
+   "remote_md5": "4250df629b1b7ca2eae24bfbc2514399",
+   "local_md5": "4250df629b1b7ca2eae24bfbc2514399",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix10_r6.mp3",
+   "remote": "gdrive:DJ Mixes Archive/mix10/rounds/mix10_r6.mp3",
+   "bytes": 163186981,
+   "remote_bytes": 163186981,
+   "remote_md5": "fd75621cdd5bd0ee8266ffe0a1e86b38",
+   "local_md5": "fd75621cdd5bd0ee8266ffe0a1e86b38",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix10_r6_master.wav",
+   "remote": "gdrive:DJ Mixes Archive/src2/mix10_r6_master.wav",
+   "bytes": 1439290268,
+   "remote_bytes": 1439290268,
+   "remote_md5": "d3cc83c6f7159740a0de4c95ff029ebb",
+   "local_md5": "d3cc83c6f7159740a0de4c95ff029ebb",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix10_r6_raw.wav",
+   "remote": "gdrive:DJ Mixes Archive/src2/mix10_r6_raw.wav",
+   "bytes": 1439290264,
+   "remote_bytes": 1439290264,
+   "remote_md5": "1247741f7ed54338040ea40705bc61b8",
+   "local_md5": "1247741f7ed54338040ea40705bc61b8",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix10_r6e.mp3",
+   "remote": "gdrive:DJ Mixes Archive/mix10/rounds/mix10_r6e.mp3",
+   "bytes": 147298263,
+   "remote_bytes": 147298263,
+   "remote_md5": "95425e95f66396112513a95b58e1f808",
+   "local_md5": "95425e95f66396112513a95b58e1f808",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix10_r6e_master.wav",
+   "remote": "gdrive:DJ Mixes Archive/src2/mix10_r6e_master.wav",
+   "bytes": 1299143508,
+   "remote_bytes": 1299143508,
+   "remote_md5": "c6d274bb1717a684fa2265de17fbdcd6",
+   "local_md5": "c6d274bb1717a684fa2265de17fbdcd6",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix10_r6e_raw.wav",
+   "remote": "gdrive:DJ Mixes Archive/src2/mix10_r6e_raw.wav",
+   "bytes": 1299143504,
+   "remote_bytes": 1299143504,
+   "remote_md5": "118e353ee005ae410efa272cf34db861",
+   "local_md5": "118e353ee005ae410efa272cf34db861",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix10_r6i_master.wav",
+   "remote": "gdrive:DJ Mixes Archive/src2/mix10_r6i_master.wav",
+   "bytes": 1275785716,
+   "remote_bytes": 1275785716,
+   "remote_md5": "5e53f773a2ac2d4c5c1eed29345b7011",
+   "local_md5": "5e53f773a2ac2d4c5c1eed29345b7011",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix10_r6i_raw.wav",
+   "remote": "gdrive:DJ Mixes Archive/src2/mix10_r6i_raw.wav",
+   "bytes": 1275785712,
+   "remote_bytes": 1275785712,
+   "remote_md5": "445220eeabac67b441b36c07bb55e387",
+   "local_md5": "445220eeabac67b441b36c07bb55e387",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix08_r11c.mp3",
+   "remote": "gdrive:DJ Mixes Archive/src2/mix08_r11c.mp3",
+   "bytes": 149670181,
+   "remote_bytes": 149670181,
+   "remote_md5": "23cec17f7a1d561996e72105b6acfabf",
+   "local_md5": "23cec17f7a1d561996e72105b6acfabf",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/src2/mix08_long1h.mp3",
+   "remote": "gdrive:DJ Mixes Archive/src2/mix08_long1h.mp3",
+   "bytes": 149670181,
+   "remote_bytes": 149670181,
+   "remote_md5": "1c9b356e6ac26edca228b362f4d40e1f",
+   "local_md5": "1c9b356e6ac26edca228b362f4d40e1f",
+   "action": "archived_deleted_local"
+  },
+  {
+   "local": "/workspace/mixes/visuals/dj-mix-09-visuals-1080p30.mp4",
+   "remote": "gdrive:DJ Mixes Archive/mix09/dj-mix-09-visuals-1080p30.mp4",
+   "bytes": 2787498785,
+   "remote_bytes": 2787498785,
+   "remote_md5": "2ca0925f28d911528ea5b567b6101f99",
+   "local_md5": "2ca0925f28d911528ea5b567b6101f99",
+   "action": "archived_deleted_local"
+  }
+ ],
+ "deleted_junk": [
+  {
+   "local": "/workspace/mixes/src2/_bg_dbg19.mp3",
+   "bytes": 2210002,
+   "action": "deleted_junk"
+  },
+  {
+   "local": "/workspace/mixes/src2/_bg_dbg19_raw.wav",
+   "bytes": 19464912,
+   "action": "deleted_junk"
+  },
+  {
+   "local": "/workspace/mixes/src2/_bg_dbg19_master.wav",
+   "bytes": 19464916,
+   "action": "deleted_junk"
+  }
+ ],
+ "skipped": [],
+ "errors": [],
+ "archived_and_freed_bytes": 11570192336,
+ "junk_freed_bytes": 41139830,
+ "freed_bytes": 11611332166
+}

@@ -1,0 +1,142 @@
+{
+ "default": {
+  "win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short",
+  "score": 36.67,
+  "breakdown": {
+   "stem_curves": 59.65,
+   "deck_curves": 39.09,
+   "beat_align": 29.39,
+   "bass_swap": 27.14,
+   "outgoing_cut": 16.46,
+   "blend_length": 14.53,
+   "events_pro": {
+    "bass_swap": 12,
+    "outgoing_cut": 14,
+    "blend_length": 13
+   },
+   "events_ours": {
+    "bass_swap": 8,
+    "outgoing_cut": 8,
+    "blend_length": 0
+   },
+   "align": {
+    "lag_samples": 171008,
+    "lag_ms": 7755.46,
+    "peak": 0.2374,
+    "win_sec": 44.138
+   }
+  }
+ },
+ "replica_on": {
+  "win": [
+   "n",
+   160,
+   null,
+   16,
+   32
+  ],
+  "fam": "replica_bd_drop",
+  "score": 32.7,
+  "breakdown": {
+   "stem_curves": 34.61,
+   "deck_curves": 34.34,
+   "beat_align": 41.79,
+   "bass_swap": 34.87,
+   "outgoing_cut": 21.15,
+   "blend_length": 21.15,
+   "events_pro": {
+    "bass_swap": 17,
+    "outgoing_cut": 19,
+    "blend_length": 11
+   },
+   "events_ours": {
+    "bass_swap": 19,
+    "outgoing_cut": 23,
+    "blend_length": 19
+   },
+   "align": {
+    "lag_samples": -188416,
+    "lag_ms": -8544.94,
+    "peak": 0.3306,
+    "win_sec": 57.662
+   }
+  }
+ },
+ "replica_x16": {
+  "win": [
+   "n",
+   144,
+   null,
+   32,
+   16
+  ],
+  "fam": "replica_bd_drop",
+  "score": 39.87,
+  "breakdown": {
+   "stem_curves": 53.58,
+   "deck_curves": 35.58,
+   "beat_align": 28.5,
+   "bass_swap": 42.35,
+   "outgoing_cut": 32.98,
+   "blend_length": 32.98,
+   "events_pro": {
+    "bass_swap": 12,
+    "outgoing_cut": 14,
+    "blend_length": 13
+   },
+   "events_ours": {
+    "bass_swap": 14,
+    "outgoing_cut": 17,
+    "blend_length": 7
+   },
+   "align": {
+    "lag_samples": 171008,
+    "lag_ms": 7755.46,
+    "peak": 0.2264,
+    "win_sec": 44.138
+   }
+  }
+ },
+ "dropcand_exit": {
+  "win": [
+   "n",
+   128,
+   null,
+   32,
+   16
+  ],
+  "fam": "drop_exit",
+  "score": 39.94,
+  "breakdown": {
+   "stem_curves": 47.13,
+   "deck_curves": 35.19,
+   "beat_align": 25.47,
+   "bass_swap": 39.81,
+   "outgoing_cut": 65.63,
+   "blend_length": 21.31,
+   "events_pro": {
+    "bass_swap": 12,
+    "outgoing_cut": 14,
+    "blend_length": 13
+   },
+   "events_ours": {
+    "bass_swap": 14,
+    "outgoing_cut": 14,
+    "blend_length": 4
+   },
+   "align": {
+    "lag_samples": 171008,
+    "lag_ms": 7755.46,
+    "peak": 0.1886,
+    "win_sec": 44.138
+   }
+  }
+ }
+}

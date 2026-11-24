@@ -1,0 +1,373 @@
+[
+ {
+  "pair": "joe_syntax_hospital__01",
+  "clip": "daily_2026-11-10_A.mp3",
+  "rating": 4.0,
+  "src": "11-10 daily",
+  "v1": 35.13,
+  "v2": 33.98,
+  "place": {
+   "entry": 21.29,
+   "gone": 20.0,
+   "swap": 18.27
+  },
+  "ours_events": {
+   "entry": {
+    "a": 138.5,
+    "b": 26.6,
+    "sec_a": "drop2",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 160.5,
+    "b": 48.6,
+    "sec_a": "outro",
+    "sec_b": "drop1"
+   },
+   "swap": {
+    "a": 143.5,
+    "b": 31.6,
+    "sec_a": "drop2",
+    "sec_b": "intro"
+   }
+  },
+  "pro_events": {
+   "entry": {
+    "a": 126.5,
+    "b": 62.5,
+    "sec_a": "drop2",
+    "sec_b": "drop1"
+   },
+   "gone": {
+    "a": null,
+    "b": null,
+    "sec_a": null,
+    "sec_b": null
+   },
+   "swap": {
+    "a": 127.5,
+    "b": 63.5,
+    "sec_a": "drop2",
+    "sec_b": "drop1"
+   }
+  }
+ },
+ {
+  "pair": "joe_syntax_hospital__08",
+  "clip": "daily_2026-11-11_A.mp3",
+  "rating": 2.0,
+  "src": "11-11 daily",
+  "v1": 26.96,
+  "v2": 32.44,
+  "place": {
+   "entry": 27.22,
+   "gone": 32.76,
+   "swap": 32.76
+  },
+  "ours_events": {
+   "entry": {
+    "a": 218.9,
+    "b": 35.5,
+    "sec_a": "drop1",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 226.9,
+    "b": 43.5,
+    "sec_a": "drop1",
+    "sec_b": "intro"
+   },
+   "swap": {
+    "a": 226.9,
+    "b": 43.5,
+    "sec_a": "drop1",
+    "sec_b": "intro"
+   }
+  },
+  "pro_events": {
+   "entry": {
+    "a": 108.4,
+    "b": 12.9,
+    "sec_a": "drop1",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 126.4,
+    "b": 30.9,
+    "sec_a": "drop1",
+    "sec_b": "intro"
+   },
+   "swap": {
+    "a": 126.4,
+    "b": 30.9,
+    "sec_a": "drop1",
+    "sec_b": "intro"
+   }
+  }
+ },
+ {
+  "pair": "hybrid_minds_ukf__09",
+  "clip": "ab2_2026-11-20_hm09_A.mp3",
+  "rating": 2.5,
+  "src": "11-20 ab2 default",
+  "v1": 13.62,
+  "v2": 20.16,
+  "place": {
+   "entry": 45.61,
+   "gone": 14.03,
+   "swap": 45.61
+  },
+  "ours_events": {
+   "entry": {
+    "a": 194.0,
+    "b": 50.0,
+    "sec_a": "drop2",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 200.0,
+    "b": 56.0,
+    "sec_a": "drop2",
+    "sec_b": "intro"
+   },
+   "swap": {
+    "a": 200.0,
+    "b": 56.0,
+    "sec_a": "drop2",
+    "sec_b": "intro"
+   }
+  },
+  "pro_events": {
+   "entry": {
+    "a": 131.0,
+    "b": 51.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 164.2,
+    "b": 84.2,
+    "sec_a": "drop2",
+    "sec_b": "drop1"
+   },
+   "swap": {
+    "a": 137.0,
+    "b": 57.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   }
+  }
+ },
+ {
+  "pair": "hybrid_minds_ukf__09",
+  "clip": "ab2_2026-11-20_hm09_B.mp3",
+  "rating": 3.5,
+  "src": "11-20 ab2 breakdown_exit",
+  "v1": 21.54,
+  "v2": 25.11,
+  "place": {
+   "entry": 33.96,
+   "gone": 0.72,
+   "swap": 41.73
+  },
+  "ours_events": {
+   "entry": {
+    "a": 114.0,
+    "b": 34.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 127.0,
+    "b": 47.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "swap": {
+    "a": 125.0,
+    "b": 45.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   }
+  },
+  "pro_events": {
+   "entry": {
+    "a": 131.0,
+    "b": 51.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 164.2,
+    "b": 84.2,
+    "sec_a": "drop2",
+    "sec_b": "drop1"
+   },
+   "swap": {
+    "a": 137.0,
+    "b": 57.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   }
+  }
+ },
+ {
+  "pair": "hybrid_minds_ukf__09",
+  "clip": "rca_2026-11-20_hm09_fixed.mp3",
+  "rating": 4.0,
+  "src": "11-20 15:44 \"more like a 4\"",
+  "v1": 46.22,
+  "v2": 58.64,
+  "place": {
+   "entry": 91.19,
+   "gone": 2.84,
+   "swap": 83.41
+  },
+  "ours_events": {
+   "entry": {
+    "a": 130.0,
+    "b": 50.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 138.0,
+    "b": 58.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "swap": {
+    "a": 135.0,
+    "b": 55.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   }
+  },
+  "pro_events": {
+   "entry": {
+    "a": 131.0,
+    "b": 51.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 164.2,
+    "b": 84.2,
+    "sec_a": "drop2",
+    "sec_b": "drop1"
+   },
+   "swap": {
+    "a": 137.0,
+    "b": 57.0,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   }
+  }
+ },
+ {
+  "pair": "joe_syntax_hospital__13",
+  "clip": "daily_2026-11-23_B.mp3",
+  "rating": 2.0,
+  "src": "11-23 daily",
+  "v1": 29.79,
+  "v2": 22.17,
+  "place": {
+   "entry": 13.0,
+   "gone": 20.0,
+   "swap": 14.78
+  },
+  "ours_events": {
+   "entry": {
+    "a": 241.0,
+    "b": 49.0,
+    "sec_a": "outro",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": null,
+    "b": null,
+    "sec_a": null,
+    "sec_b": null
+   },
+   "swap": {
+    "a": 246.0,
+    "b": 54.0,
+    "sec_a": "outro",
+    "sec_b": "intro"
+   }
+  },
+  "pro_events": {
+   "entry": {
+    "a": 110.0,
+    "b": 14.5,
+    "sec_a": "drop1",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 128.0,
+    "b": 32.6,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "swap": {
+    "a": 127.0,
+    "b": 31.6,
+    "sec_a": "drop1",
+    "sec_b": "intro"
+   }
+  }
+ },
+ {
+  "pair": "hybrid_minds_ukf__10",
+  "clip": "daily_2026-11-24_B.mp3",
+  "rating": 4.0,
+  "src": "11-24 daily",
+  "v1": 36.7,
+  "v2": 37.87,
+  "place": {
+   "entry": 21.08,
+   "gone": 7.67,
+   "swap": 39.26
+  },
+  "ours_events": {
+   "entry": {
+    "a": 241.0,
+    "b": 33.0,
+    "sec_a": "outro",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 262.0,
+    "b": 54.0,
+    "sec_a": "outro",
+    "sec_b": "drop1"
+   },
+   "swap": {
+    "a": 246.0,
+    "b": 38.0,
+    "sec_a": "outro",
+    "sec_b": "intro"
+   }
+  },
+  "pro_events": {
+   "entry": {
+    "a": 129.2,
+    "b": 21.2,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "gone": {
+    "a": 149.3,
+    "b": 41.3,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   },
+   "swap": {
+    "a": 143.3,
+    "b": 35.3,
+    "sec_a": "breakdown",
+    "sec_b": "intro"
+   }
+  }
+ }
+]

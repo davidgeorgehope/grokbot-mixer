@@ -1,0 +1,118 @@
+{
+ "0": {
+  "n": 33,
+  "vetoed": 4,
+  "vetoed_ids": [
+   "hybrid_minds_ukf__09",
+   "hybrid_minds_ukf__23",
+   "joe_syntax_hospital__08",
+   "pola_bryson_puzzlewood__04"
+  ],
+  "veto_share": 0.121,
+  "breakdown_exits": 2,
+  "breakdown_exit_ids": [
+   "hybrid_minds_ukf__09",
+   "hybrid_minds_ukf__23"
+  ],
+  "breakdown_exit_share": 0.061,
+  "base_vetoed": 0,
+  "base_veto_share": 0.0,
+  "base_breakdown_exits": 0,
+  "base_breakdown_exit_share": 0.0,
+  "vetoes": [
+   {
+    "id": "hybrid_minds_ukf__09",
+    "confidence": 0.6,
+    "level": "clash",
+    "landing_pick": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ],
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ],
+    "base_win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ]
+   },
+   {
+    "id": "hybrid_minds_ukf__23",
+    "confidence": 1.0,
+    "level": "clash",
+    "landing_pick": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ],
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ],
+    "base_win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ]
+   },
+   {
+    "id": "joe_syntax_hospital__08",
+    "confidence": 0.75,
+    "level": "clash",
+    "landing_pick": null,
+    "win": [
+     "n",
+     240,
+     null,
+     40,
+     16
+    ],
+    "base_win": [
+     "n",
+     240,
+     null,
+     40,
+     16
+    ]
+   },
+   {
+    "id": "pola_bryson_puzzlewood__04",
+    "confidence": 0.667,
+    "level": "clash",
+    "landing_pick": null,
+    "win": [
+     "n",
+     224,
+     null,
+     40,
+     16
+    ],
+    "base_win": [
+     "n",
+     224,
+     null,
+     40,
+     16
+    ]
+   }
+  ],
+  "regression_breakdown_spread_to_nonvetoed": []
+ }
+}

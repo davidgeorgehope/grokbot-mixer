@@ -240,3 +240,35 @@ def test_render_culprits_beat_aligned_uses_overlap_not_named_outgoing(tmp_path):
   c=R.render_culprits('m',src=str(tmp_path))
   assert ('AAAAAAAAAAA','BBBBBBBBBBB','beat_aligned') in c
   assert ('BBBBBBBBBBB','CCCCCCCCCCC') not in {(a,b) for a,b,_ in c}
+
+def test_later_pairs_get_a_try_even_after_wall_clock_is_exhausted():
+  """Mix 10 r6d: five slow dries burned budget_s; the last three pairs were marked budget with tries=0.
+  Every culprit must get at least one try even if that slightly exceeds budget_s, and no pair should
+  get many tries before the others have had one (fewest-tries-first)."""
+  T=table({'A>B':[W()],'B>C':[W()],'C>D':[W()],'D>E':[W()],'E>F':[W()],
+           'A>X':[W()],'X>C':[W()],'C>Y':[W()],'Y>E':[W()],'E>Z':[W()],'Z>F':[W()],
+           'A>Y':[W()],'Y>C':[W()],'C>X':[W()],'X>E':[W()],'E>Y':[W()],'Y>F':[W()]})
+  plan=[step('A',['n',128,None,32,32]),step('B',['n',128,None,32,32]),step('C',['n',128,None,32,32]),
+        step('D',['n',128,None,32,32]),step('E',['n',128,None,32,32]),step('F')]
+  # only the three culprits and every alternative route fail dry; neighbours stay legal so the
+  # initial dry does not ban the whole chain and leave the first pairs with 0 candidates
+  bad={('A','B'),('A','X'),('A','Y'),('C','D'),('C','Y'),('C','X'),('E','F'),('E','Z'),('E','Y'),
+       ('X','C'),('Y','C'),('X','E'),('Y','E'),('Z','F'),('Y','F')}
+  dry,_=fake_dry(bad,length_per_track=21)
+  ctx=R.Ctx(T,['A','B','C','D','E','F','X','Y','Z'],ok=ok,cost=cost,dry=dry)
+  _,_,hist=R.repair(plan,[('A','B','L1'),('C','D','L1'),('E','F','L1')],ctx,budget_s=0,max_dry=20,log=lambda *_:None)
+  by={h['pair']:h for h in hist if not h.get('pass')}
+  assert by['A>B']['tries']>=1 and by['C>D']['tries']>=1 and by['E>F']['tries']>=1
+  # with budget_s already gone, each pair gets its guaranteed first try and then stops — no starvation, no hoarding
+  assert by['A>B']['tries']==1 and by['C>D']['tries']==1 and by['E>F']['tries']==1
+  assert {by[k]['action'] for k in ('A>B','C>D','E>F')}=={'budget'}
+
+def test_write_repair_out_persists_partial_plan_and_history(tmp_path):
+  plan=[step('A',['n',128,None,32,32]),step('B')]
+  hist=[dict(pair='A>B',codes=['bassgap'],action='budget',tries=0,candidates=55)]
+  res=dict(all_ok=True,len_min=66.87,tests={'coverage':True},warn=[])
+  out=tmp_path/'plan.json'
+  hp=R.write_repair_out(str(out),plan,res,hist,ok=False)
+  assert json.loads(out.read_text())[0]['id']=='A'
+  d=json.loads(pathlib.Path(hp).read_text())
+  assert d['resolved'] is False and d['all_ok'] is True and d['hist'][0]['tries']==0

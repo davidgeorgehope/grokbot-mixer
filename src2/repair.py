@@ -280,7 +280,12 @@ def candidates(ctx,plan,i,codes,ban=()):
 # ---------- the loop ----------
 def repair(plan,culprits,ctx,budget_s=1800,max_dry=150,log=print,tag='repair',ban=()):
   """returns (plan, result, history). Every culprit pair is banned from the new plan (it failed a gate: render or dry),
-  so a pass means each one got a different incoming (or outgoing) track. history: one dict per culprit."""
+  so a pass means each one got a different incoming (or outgoing) track. history: one dict per culprit.
+
+  Tries go round-robin to the open pair with the fewest attempts so far: every failing pair gets a turn before
+  any pair gets many. A pair that has not yet been tried always gets one dry, even if budget_s has already run
+  out (Mix 10 r6d: leftover time was 0 with 145 dries left, and the last three pairs were marked budget with
+  tries=0)."""
   t0=time.time();n=[0];hist=[];tried=set();ban=set(ban)|{(a,b) for a,b,_ in culprits}
   def dry(P):
     n[0]+=1;return ctx.dry(P,f'{tag}{n[0]}')
@@ -288,65 +293,142 @@ def repair(plan,culprits,ctx,budget_s=1800,max_dry=150,log=print,tag='repair',ba
   if not passes(res):culprits=list(culprits)+dry_culprits(res);ban|={(a,b) for a,b,_ in culprits}
   by={}
   for a,b,c in culprits:by.setdefault((a,b),[]).append(c)
-  todo=[(k,v,0) for k,v in by.items()]
-  while todo:
-    (a,b),codes,pas=todo.pop(0);ids=[p['id'] for p in cur]
+  def blank(key,codes,pas):
+    return dict(key=key,codes=codes,pas=pas,h=None,cands=[],deeper=[],pads=[],more2=[],more3=[],best=None,phase='cands',done=False,plan_sig=None,av_a=None,i=None,cands_counted=False)
+  work=[blank(k,v,0) for k,v in by.items()]
+  def ids_of(P):return [p['id'] for p in P]
+  def sig_of(P):return json.dumps([(p['id'],p.get('out_win')) for p in P])
+  def plan_sig():return sig_of(cur)
+  def refresh(w):
+    """Rebuild this pair's candidate queues against the current plan."""
+    a,b=w['key'];ids=ids_of(cur)
     i=next((k for k in range(len(ids)-1) if ids[k]==a and ids[k+1]==b),None)
-    if i is None:hist.append(dict(pair=f'{a}>{b}',codes=codes,action='gone (an earlier swap removed it)'));continue
-    h=dict(pair=f'{a}>{b}',codes=codes,action='unresolved',tries=0,**({'pass':2} if pas else {}));hist.append(h)
-    remain=len(todo)+1
-    slice_s,slice_d=pair_budget(max(0.0,budget_s-(time.time()-t0)),max(0,max_dry-n[0]),remain)
-    pair_deadline=time.time()+slice_s;pair_dry_cap=n[0]+slice_d
-    cands=candidates(ctx,cur,i,codes,ban);h['candidates']=len(cands);deeper=[];pads=[];best=[None];av_a=_avoid(cur[i].get('out_win'),codes)
-    def attempt(lst,depth):
-      for cost,move,c,P in lst:
-        sig=json.dumps([(p['id'],p.get('out_win')) for p in P])
-        if sig in tried:continue
-        tried.add(sig)
-        # per-pair slice of the leftover budget so a hard first culprit cannot starve the rest (Mix 10 r6: 43 tries / 0 / 0)
-        if n[0]>=pair_dry_cap or time.time()>pair_deadline or n[0]>=max_dry or time.time()-t0>budget_s:h['action']='budget';return None
-        r=dry(P);h['tries']+=1;fl={k for k,v in (r.get('tests') or {}).items() if not v}
-        log(f"  {a}>{b} {move} {c} cost {cost:.1f}: all_ok={r.get('all_ok')} len={r.get('len_min')} fails={sorted(fl)} {r.get('error') or ''}")
-        if passes(r):h.update(action=move,track=c,order=[p['id'] for p in P],len_min=r['len_min']);return P,r
-        sc=(bool(r.get('all_ok')),-len(fl),r.get('len_min') or 0)
-        if not r.get('error') and (best[0] is None or sc>best[0][0]):best[0]=(sc,move,c,r)
-        new=[(x,y) for x,y,_ in dry_culprits(r)]
-        if depth==1 and fl and fl<=PAIR_TESTS and new and (r.get('len_min') or 0)>=MIN_LEN-1:deeper.append((cost,move,c,P,new))
-        if depth<3 and not fl and not r.get('error') and MIN_LEN-PAD_MAX<=(r.get('len_min') or 0)<MIN_LEN:pads.append((cost,move,c,P))
-      return None
-    got=attempt(cands,1)
-    while got is None and deeper and h['action']!='budget':
-      # depth 2: a near miss that only broke a new pair (vocal/key/see-saw clash names it) gets that pair repaired too
-      cost,move,c,P0,pairs=deeper.pop(0);more=[]
-      for a2,b2 in pairs:
-        j=next((k for k in range(len(P0)-1) if P0[k]['id']==a2 and P0[k+1]['id']==b2),None)
-        if j is not None:more+=[(c2+cost,f'{move}+{m2}',f'{c}+{x2}',P2) for c2,m2,x2,P2 in candidates(ctx,P0,j,['dry'],set(ban)|set(pairs)|{(a,b)})[:DEPTH2_K]]
-      h['candidates']+=len(more);got=attempt(more,2)
-    while got is None and pads and h['action']!='budget':
-      # all_ok but a little short of MIN_LEN: lengthen one other blend (a later exit / earlier entry), never the repaired one
-      cost,move,c,P0=pads.pop(0);more=[]
-      for j in range(len(P0)-1):
-        tj,nj=P0[j]['id'],P0[j+1]['id']
-        if a in(tj,nj) or b in(tj,nj) or c in(tj,nj):continue
-        w0=P0[j]['out_win'];alts=pick(ctx,tj,nj,ia_of(P0,j),(),6)
-        for k,(c2,w2) in enumerate(alts):
-          if w2!=w0 and _airtime(w2)>_airtime(w0):
-            r2=build(ctx,P0,[p['id'] for p in P0],{a:av_a},ban,k,force=tj)
-            if r2:more.append((cost+r2[0],f'{move}+pad',f'{c}+{tj}',r2[1]))
-      if len(P0)>2:  # or insert an unused crate track somewhere else (bigger shortfalls: a dropped track)
-        ids0=[p['id'] for p in P0];un=[t for t in ctx.crate if t not in ids0]
-        for j in range(1,len(P0)):
-          for t in un:
-            r2=build(ctx,P0,ids0[:j]+[t]+ids0[j:],{a:av_a},ban)
-            if r2:more.append((cost+r2[0]+MOVEPEN['insert'],f'{move}+pad_insert',f'{c}+{t}',r2[1]))
-      more.sort(key=lambda x:x[0]);h['candidates']+=min(len(more),PAD_K);got=attempt(more[:PAD_K],3)
-    if got:
-      cur,res=got
-      for k,(h0,key,cd) in enumerate([(h0,tuple(h0['pair'].split('>')),h0['codes']) for h0 in hist[:-1] if h0['action']=='unresolved' and not h0.get('requeued')]):
-        h0['requeued']=True;todo.append((key,cd,1))   # a later fix changed the plan (length, neighbours): give earlier misses one more pass
-    best=best[0]
-    if h['action'] in('unresolved','budget') and best:h['closest']=dict(move=best[1],track=best[2],all_ok=best[3].get('all_ok'),len_min=best[3].get('len_min'),fails=[k for k,v in (best[3].get('tests') or {}).items() if not v])
+    w['i']=i;w['plan_sig']=plan_sig();w['deeper']=[];w['pads']=[];w['more2']=[];w['more3']=[];w['phase']='cands'
+    if i is None:
+      w['cands']=[];return False
+    w['av_a']=_avoid(cur[i].get('out_win'),w['codes'])
+    w['cands']=candidates(ctx,cur,i,w['codes'],ban)
+    if w['h'] is not None:
+      if w['cands_counted']:w['h']['candidates']=w['h'].get('candidates',0)+len(w['cands'])
+      else:w['h']['candidates']=len(w['cands']);w['cands_counted']=True
+    return True
+  def ensure(w):
+    if w['h'] is None:
+      a,b=w['key']
+      h=dict(pair=f'{a}>{b}',codes=w['codes'],action='unresolved',tries=0,**({'pass':2} if w['pas'] else {}))
+      hist.append(h);w['h']=h
+      if not refresh(w):
+        h['action']='gone (an earlier swap removed it)';h['candidates']=0;w['done']=True;return False
+      w['cands_counted']=True;h['candidates']=len(w['cands']);return True
+    if w['plan_sig']!=plan_sig() and not w['done']:
+      if not refresh(w):
+        w['h']['action']='gone (an earlier swap removed it)';w['done']=True;return False
+    return not w['done']
+  def expand_deeper(w):
+    more=[]
+    if not w['deeper']:return more
+    cost,move,c,P0,pairs=w['deeper'].pop(0)
+    for a2,b2 in pairs:
+      j=next((k for k in range(len(P0)-1) if P0[k]['id']==a2 and P0[k+1]['id']==b2),None)
+      if j is not None:more+=[(c2+cost,f'{move}+{m2}',f'{c}+{x2}',P2) for c2,m2,x2,P2 in candidates(ctx,P0,j,['dry'],set(ban)|set(pairs)|{w['key']})[:DEPTH2_K]]
+    w['h']['candidates']+=len(more);return more
+  def expand_pads(w):
+    more=[];a,b=w['key']
+    if not w['pads']:return more
+    cost,move,c,P0=w['pads'].pop(0)
+    for j in range(len(P0)-1):
+      tj,nj=P0[j]['id'],P0[j+1]['id']
+      if a in(tj,nj) or b in(tj,nj) or c in(tj,nj):continue
+      w0=P0[j]['out_win'];alts=pick(ctx,tj,nj,ia_of(P0,j),(),6)
+      for k,(_,w2) in enumerate(alts):
+        if w2!=w0 and _airtime(w2)>_airtime(w0):
+          r2=build(ctx,P0,[p['id'] for p in P0],{a:w['av_a']},ban,k,force=tj)
+          if r2:more.append((cost+r2[0],f'{move}+pad',f'{c}+{tj}',r2[1]))
+    if len(P0)>2:
+      ids0=[p['id'] for p in P0];un=[t for t in ctx.crate if t not in ids0]
+      for j in range(1,len(P0)):
+        for t in un:
+          r2=build(ctx,P0,ids0[:j]+[t]+ids0[j:],{a:w['av_a']},ban)
+          if r2:more.append((cost+r2[0]+MOVEPEN['insert'],f'{move}+pad_insert',f'{c}+{t}',r2[1]))
+    more.sort(key=lambda x:x[0]);chunk=more[:PAD_K];w['h']['candidates']+=len(chunk);return chunk
+  def next_item(w):
+    """Next untried candidate, expanding the depth-2 / pad queues when the current phase is empty."""
+    while True:
+      if w['phase']=='cands':
+        while w['cands']:
+          item=w['cands'].pop(0)
+          if sig_of(item[3]) in tried:continue
+          tried.add(sig_of(item[3]));return item+(1,)
+        w['phase']='deeper'
+      if w['phase']=='deeper':
+        if not w['more2']:
+          if w['deeper']:
+            w['more2']=expand_deeper(w);continue
+          w['phase']='pads';continue
+        while w['more2']:
+          item=w['more2'].pop(0)
+          if sig_of(item[3]) in tried:continue
+          tried.add(sig_of(item[3]));return item+(2,)
+        continue
+      if w['phase']=='pads':
+        if not w['more3']:
+          if w['pads']:
+            w['more3']=expand_pads(w);continue
+          return None
+        while w['more3']:
+          item=w['more3'].pop(0)
+          if sig_of(item[3]) in tried:continue
+          tried.add(sig_of(item[3]));return item+(3,)
+        continue
+  def open_work():
+    return [w for w in work if not w['done'] and (w['h'] is None or w['h']['action']=='unresolved')]
+  def pick_work():
+    ow=open_work()
+    if not ow:return None
+    return min(ow,key=lambda w:(0 if w['h'] is None else w['h']['tries'], work.index(w)))
+  def untried_others(cur_w):
+    return sum(1 for w in open_work() if w is not cur_w and (w['h'] is None or w['h']['tries']==0))
+  def over_budget(w):
+    """Stop further tries on this pair. A never-tried pair is never stopped (first try may exceed budget_s / max_dry)."""
+    if w['h']['tries']==0:return False
+    if n[0]>=max_dry:return True
+    if time.time()-t0>budget_s:return True
+    if n[0]>=max_dry-untried_others(w):return True
+    remain=len(open_work())
+    _,slice_d=pair_budget(max(0.0,budget_s-(time.time()-t0)),max(0,max_dry-n[0]),remain)
+    return slice_d<=0
+  def record_closest(w):
+    h,best=w['h'],w['best']
+    if h and h['action'] in('unresolved','budget') and best and 'closest' not in h:
+      h['closest']=dict(move=best[1],track=best[2],all_ok=best[3].get('all_ok'),len_min=best[3].get('len_min'),fails=[k for k,v in (best[3].get('tests') or {}).items() if not v])
+  while True:
+    w=pick_work()
+    if w is None:break
+    if not ensure(w):continue
+    if over_budget(w):
+      w['h']['action']='budget';w['done']=True;record_closest(w);continue
+    item=next_item(w)
+    if item is None:
+      record_closest(w);w['done']=True;continue
+    cost,move,c,P,depth=item
+    r=dry(P);w['h']['tries']+=1
+    fl={k for k,v in (r.get('tests') or {}).items() if not v}
+    a,b=w['key']
+    log(f"  {a}>{b} {move} {c} cost {cost:.1f}: all_ok={r.get('all_ok')} len={r.get('len_min')} fails={sorted(fl)} {r.get('error') or ''}")
+    if passes(r):
+      w['h'].update(action=move,track=c,order=ids_of(P),len_min=r['len_min']);cur,res=P,r;w['done']=True
+      for h0 in hist:
+        if h0 is w['h'] or h0['action']!='unresolved' or h0.get('requeued'):continue
+        h0['requeued']=True;work.append(blank(tuple(h0['pair'].split('>')),h0['codes'],1))
+      continue
+    sc=(bool(r.get('all_ok')),-len(fl),r.get('len_min') or 0)
+    if not r.get('error') and (w['best'] is None or sc>w['best'][0]):w['best']=(sc,move,c,r)
+    new=[(x,y) for x,y,_ in dry_culprits(r)]
+    if depth==1 and fl and fl<=PAIR_TESTS and new and (r.get('len_min') or 0)>=MIN_LEN-1:w['deeper'].append((cost,move,c,P,new))
+    if depth<3 and not fl and not r.get('error') and MIN_LEN-PAD_MAX<=(r.get('len_min') or 0)<MIN_LEN:w['pads'].append((cost,move,c,P))
+  for w in work:record_closest(w)
   return cur,res,hist
+
 def resolved(hist):
   """every culprit pair fixed; a first-pass miss counts as fixed when its second pass worked"""
   last={}
@@ -382,6 +464,13 @@ def render08(script,name,gain,nudge,plan_out):
     os.remove(lg);print(f'render {nm} rc={rc} culprits={cul}',flush=True);return rc==0,cul
   return render
 
+def write_repair_out(path,P,res,hist,ok=False):
+  """Always persist the best plan so far plus the history, even when repair exhausted the budget."""
+  json.dump(P,open(path,'w'),indent=1)
+  hp=path[:-5]+'.hist.json' if path.endswith('.json') else path+'.hist.json'
+  json.dump(dict(hist=hist,all_ok=res.get('all_ok'),len_min=res.get('len_min'),tests=res.get('tests'),warn=res.get('warn'),resolved=bool(ok)),open(hp,'w'),indent=1)
+  return hp
+
 def main():
   import argparse;ap=argparse.ArgumentParser()
   ap.add_argument('--plan',required=True);ap.add_argument('--out',required=True);ap.add_argument('--render',default=None);ap.add_argument('--log',default=None)
@@ -408,7 +497,9 @@ def main():
     P,R,ok=loop(plan,cul,ctx,render08(A.render_script,A.render_name,A.gain,A.nudge,A.out),A.rounds,tag=A.tag,budget_s=A.budget_s,max_dry=A.max_dry)
     print(json.dumps(dict(passed=ok,rounds=R),indent=1,default=str));sys.exit(0 if ok else 2)
   P,res,hist=repair(plan,cul,ctx,A.budget_s,A.max_dry,tag=A.tag)
-  print(json.dumps(dict(hist=hist,all_ok=res.get('all_ok'),len_min=res.get('len_min'),tests=res.get('tests'),warn=res.get('warn')),indent=1))
-  if passes(res) and resolved(hist):json.dump(P,open(A.out,'w'),indent=1);print('wrote',A.out)
-  else:sys.exit(2)
+  ok=passes(res) and resolved(hist)
+  print(json.dumps(dict(hist=hist,all_ok=res.get('all_ok'),len_min=res.get('len_min'),tests=res.get('tests'),warn=res.get('warn'),resolved=ok),indent=1))
+  hp=write_repair_out(A.out,P,res,hist,ok)
+  print('wrote',A.out,'and',hp,'' if ok else '(partial; culprits remain)')
+  if not ok:sys.exit(2)
 if __name__=='__main__':main()

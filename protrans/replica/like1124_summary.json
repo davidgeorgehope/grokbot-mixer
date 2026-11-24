@@ -1,0 +1,326 @@
+{
+  "tag": "like1124",
+  "HARD_FALLBACK": 0,
+  "scorer": "gain-events-v3-beatid",
+  "baseline": {
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 33.3,
+    "test_mean": 33.92,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 33.07,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 33.69,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 31.22,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 34.81,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 37.97,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 25.45,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "floor_target": {
+    "train": 32.4,
+    "test": 34.07
+  },
+  "baseline_matches_floor": false,
+  "windows_match_default_jsonl": false,
+  "window_diffs": [
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "split": "test",
+      "ref_win": [
+        "n",
+        96,
+        null,
+        0,
+        32
+      ],
+      "ref_fam": "nat_long",
+      "win": [
+        "n",
+        144,
+        null,
+        8,
+        16
+      ],
+      "fam": "nat_short",
+      "hard": {
+        "hard_fail": null,
+        "pumping": null,
+        "pump_db": null,
+        "beat_clash": null,
+        "bass_hole": null
+      }
+    }
+  ],
+  "official_hard_fail_baseline": 0,
+  "arms": [
+    {
+      "name": "epg_strict",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_GATE": 1
+      },
+      "train_mean": 34.09,
+      "test_mean": 33.92,
+      "n_fail": 0,
+      "label": "NIGHT-WIN",
+      "why": "promotion night-win: held-out 33.92 -> 33.92, train 33.3 -> 34.09",
+      "promotion": true,
+      "night_win": true,
+      "dclash": {
+        "n": 33,
+        "vetoed": 0,
+        "vetoed_ids": [],
+        "veto_share": 0.0,
+        "breakdown_exits": 0,
+        "breakdown_exit_ids": [],
+        "breakdown_exit_share": 0.0,
+        "base_vetoed": 0,
+        "base_veto_share": 0.0,
+        "base_breakdown_exits": 0,
+        "base_breakdown_exit_share": 0.0,
+        "vetoes": []
+      },
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 33.07,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 35.75,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 34.81,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 37.97,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 25.45,
+          "split": "test"
+        }
+      }
+    },
+    {
+      "name": "epg_drop",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_DROP": 1
+      },
+      "train_mean": 32.64,
+      "test_mean": 33.76,
+      "n_fail": 0,
+      "label": "NIGHT-WIN",
+      "why": "listening judge: held-out delta {'n': 12, 'n_mix': 4, 'mean_delta': -0.161, 'ci': [-1.743, 2.133], 'includes_zero': True} train {'n': 21, 'n_mix': 2, 'mean_delta': -0.66, 'ci': [-1.281, 0.348], 'includes_zero': True}; render-fails 0 -> 0",
+      "promotion": true,
+      "night_win": true,
+      "dclash": {
+        "n": 33,
+        "vetoed": 0,
+        "vetoed_ids": [],
+        "veto_share": 0.0,
+        "breakdown_exits": 0,
+        "breakdown_exit_ids": [],
+        "breakdown_exit_share": 0.0,
+        "base_vetoed": 0,
+        "base_veto_share": 0.0,
+        "base_breakdown_exits": 0,
+        "base_breakdown_exit_share": 0.0,
+        "vetoes": []
+      },
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 31.79,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 34.03,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 32.71,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 40.81,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 25.45,
+          "split": "test"
+        }
+      }
+    },
+    {
+      "name": "epg_stack",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_GATE": 1,
+        "EXITPOS_DROP": 1
+      },
+      "train_mean": 33.43,
+      "test_mean": 33.76,
+      "n_fail": 0,
+      "label": "NIGHT-WIN",
+      "why": "listening judge: held-out delta {'n': 12, 'n_mix': 4, 'mean_delta': -0.161, 'ci': [-1.743, 2.133], 'includes_zero': True} train {'n': 21, 'n_mix': 2, 'mean_delta': 0.125, 'ci': [-1.281, 2.409], 'includes_zero': True}; render-fails 0 -> 0",
+      "promotion": true,
+      "night_win": true,
+      "dclash": {
+        "n": 33,
+        "vetoed": 0,
+        "vetoed_ids": [],
+        "veto_share": 0.0,
+        "breakdown_exits": 0,
+        "breakdown_exit_ids": [],
+        "breakdown_exit_share": 0.0,
+        "base_vetoed": 0,
+        "base_veto_share": 0.0,
+        "base_breakdown_exits": 0,
+        "base_breakdown_exit_share": 0.0,
+        "vetoes": []
+      },
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 31.79,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 36.09,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 32.71,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 40.81,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 25.45,
+          "split": "test"
+        }
+      }
+    },
+    {
+      "name": "thin_dropcue",
+      "delta": {
+        "THIN_DROPCUE": 1
+      },
+      "train_mean": 31.3,
+      "test_mean": 35.48,
+      "n_fail": 0,
+      "label": "KEEP?",
+      "why": "held-out improved 33.92 -> 35.48",
+      "promotion": false,
+      "night_win": false,
+      "dclash": {
+        "n": 33,
+        "vetoed": 0,
+        "vetoed_ids": [],
+        "veto_share": 0.0,
+        "breakdown_exits": 0,
+        "breakdown_exit_ids": [],
+        "breakdown_exit_share": 0.0,
+        "base_vetoed": 0,
+        "base_veto_share": 0.0,
+        "base_breakdown_exits": 0,
+        "base_breakdown_exit_share": 0.0,
+        "vetoes": []
+      },
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 29.64,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 34.0,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 35.65,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 42.8,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 25.45,
+          "split": "test"
+        }
+      }
+    }
+  ],
+  "rules_json_changed": false,
+  "adopted": false
+}

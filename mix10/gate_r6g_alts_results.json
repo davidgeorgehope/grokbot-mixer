@@ -1,0 +1,156 @@
+{
+ "together": [
+  "n",
+  240,
+  null,
+  48,
+  16
+ ],
+ "candidates": [
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 41.3,
+   "cached": false,
+   "window": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "[{'bar': 22, 'deck': '7Itbo72XEz4', 'lag': 678, 'corr': 0.71, 'beat_off': 1.97, 'lag_0': -13, 'corr_0': 0.69, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}, {'bar': 23, 'deck': '7Itbo72XEz4', 'lag':"
+   ],
+   "role": "candidate",
+   "dry_s": 10.7
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 44.6,
+   "cached": false,
+   "window": [
+    "la",
+    128,
+    112,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "[{'bar': 22, 'deck': '7Itbo72XEz4', 'lag': 678, 'corr': 0.71, 'beat_off': 1.97, 'lag_0': -13, 'corr_0': 0.69, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}, {'bar': 23, 'deck': '7Itbo72XEz4', 'lag':"
+   ],
+   "role": "candidate",
+   "dry_s": 10.7
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 41.3,
+   "cached": true,
+   "window": [
+    "lb",
+    128,
+    null,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "[{'bar': 22, 'deck': '7Itbo72XEz4', 'lag': 678, 'corr': 0.71, 'beat_off': 1.97, 'lag_0': -13, 'corr_0': 0.69, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}, {'bar': 23, 'deck': '7Itbo72XEz4', 'lag':"
+   ],
+   "role": "candidate",
+   "dry_s": 9.5
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [],
+   "secs": 77.1,
+   "cached": false,
+   "window": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "[{'bar': 20, 'deck': '7Itbo72XEz4', 'lag': -1394, 'corr': 0.69, 'beat_off': -4.04, 'lag_0': -15, 'corr_0': 0.68, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}, {'bar': 21, 'deck': '7Itbo72XEz4', 'la"
+   ],
+   "role": "candidate",
+   "dry_s": 11.5
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "mix_level": [
+    "test_global_grid_no_drift"
+   ],
+   "secs": 72.4,
+   "cached": false,
+   "window": [
+    "n",
+    80,
+    null,
+    16,
+    16
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "[{'bar': 20, 'deck': '7Itbo72XEz4', 'lag': -1390, 'corr': 0.72, 'beat_off': -4.03, 'lag_0': -12, 'corr_0': 0.66, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}, {'bar': 22, 'deck': '7Itbo72XEz4', 'la"
+   ],
+   "role": "candidate",
+   "dry_s": 12.4
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "V1",
+    "test_no_vocal_clash"
+   ],
+   "mix_level": [],
+   "secs": 39.5,
+   "cached": false,
+   "window": [
+    "n",
+    128,
+    null,
+    16,
+    32
+   ],
+   "a": "jIqXQ8EbKNY",
+   "b": "7Itbo72XEz4",
+   "msgs": [
+    "jIqXQ8EbKNY & 7Itbo72XEz4 both singing 5 bars from 0:44",
+    "[{'a': 'jIqXQ8EbKNY', 'b': '7Itbo72XEz4', 'bars': 5, 't': '0:44', 'acapella': False, 'whitelisted': False}]"
+   ],
+   "role": "candidate",
+   "dry_s": 14.8
+  }
+ ],
+ "pick": null,
+ "ok": false,
+ "started": "2026-11-24T10:43:34"
+}

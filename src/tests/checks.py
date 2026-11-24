@@ -141,7 +141,20 @@ def src_onset(b):
 @functools.lru_cache()
 def _nudges():
   f=os.path.join(SRC,os.environ.get('NUDGE','nudge.json'));return json.load(open(f)) if os.path.exists(f) else {}
-def nudge_ms(b,k):return _nudges().get(b,{}).get(str(k),0)
+_TRACK_NUDGE={}
+def _track_nudge(tid):
+  """Same sidecar the engine applies: st/<id>.nudge.json, values in milliseconds."""
+  p=os.path.join(SRC,'st',f'{tid}.nudge.json')
+  if not os.path.exists(p):return {}
+  m=os.path.getmtime(p);c=_TRACK_NUDGE.get(tid)
+  if c and c[0]==m:return c[1]
+  d={str(k):float(v) for k,v in json.load(open(p)).items() if str(k).lstrip('-').isdigit()}
+  _TRACK_NUDGE[tid]=(m,d);return d
+def nudge_ms(b,k):
+  # Must match engine.nudge(): NUDGE file + per-track sidecar, both in ms.
+  # Omitting the sidecar made mix-vs-source lag_0 look ~19 ms off (and the
+  # wide search then preferred a 2- or 4-beat DnB alias) after a 19 ms intro fix.
+  return _nudges().get(b,{}).get(str(k),0)+_track_nudge(b).get(str(k),0)
 def deck_alignment(d,bar,nb=8,span_ms=None,center_ms=0):
   """Cross-correlate the mix against the deck's own source at the bar it should be playing.
   Returns lag (ms) of best match; 0 beats & |ms|<=10 means the downbeat/bar is where the plan says.

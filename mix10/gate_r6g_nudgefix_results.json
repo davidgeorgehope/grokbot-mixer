@@ -1,0 +1,90 @@
+{
+ "note": "re-gate after checks.nudge_ms applies st/<id>.nudge.json",
+ "candidates": [
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "secs": 23.6,
+   "cached": false,
+   "window": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "msgs": [
+    "[{'bar': 24, 'deck': '7Itbo72XEz4', 'lag': 11, 'corr': 0.73, 'beat_off': 0.03, 'lag_0': 11, 'corr_0': 0.73, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}, {'bar': 25, 'deck': '7Itbo72XEz4', 'lag': 701, 'corr': 0.71, 'beat_off': 2.03, 'lag_0': 12, 'corr_0': 0"
+   ],
+   "role": "candidate",
+   "dry_s": 8.6
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "secs": 28.6,
+   "cached": false,
+   "window": [
+    "la",
+    128,
+    112,
+    16,
+    16
+   ],
+   "msgs": [
+    "[{'bar': 24, 'deck': '7Itbo72XEz4', 'lag': 11, 'corr': 0.73, 'beat_off': 0.03, 'lag_0': 11, 'corr_0': 0.73, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}, {'bar': 25, 'deck': '7Itbo72XEz4', 'lag': 701, 'corr': 0.71, 'beat_off': 2.03, 'lag_0': 12, 'corr_0': 0"
+   ],
+   "role": "candidate",
+   "dry_s": 9.7
+  },
+  {
+   "ok": false,
+   "blend_fails": [
+    "test_mixdown_beats_aligned_every_overlap_bar"
+   ],
+   "secs": 23.3,
+   "cached": false,
+   "window": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "msgs": [
+    "[{'bar': 24, 'deck': '7Itbo72XEz4', 'lag': 11, 'corr': 0.71, 'beat_off': 0.03, 'lag_0': 11, 'corr_0': 0.71, 'kind': 'mix', 'overlap_start': 16, 'overlap_end': 32, 'tail': False, 'window_bars': 2}]"
+   ],
+   "role": "candidate",
+   "dry_s": 10.2
+  },
+  {
+   "ok": true,
+   "blend_fails": [],
+   "secs": 25.1,
+   "cached": false,
+   "window": [
+    "n",
+    80,
+    null,
+    16,
+    16
+   ],
+   "msgs": [],
+   "role": "candidate",
+   "dry_s": 9.7
+  }
+ ],
+ "pick": [
+  "n",
+  80,
+  null,
+  16,
+  16
+ ],
+ "ok": true,
+ "finished": "2026-11-24T10:48:53"
+}

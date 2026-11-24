@@ -1,0 +1,739 @@
+{
+  "written": "2026-11-24",
+  "model": "picker_1124 style-gated, trained on 762 dev, applied to official 33",
+  "train_n": 762,
+  "apply_n": 33,
+  "n_windows": 33,
+  "n_abstain": 0,
+  "by_yt": {
+    "uP0KAzefX8Y|I9QGpHScGug": [
+      "n",
+      152,
+      null,
+      32,
+      16
+    ],
+    "dOJp7bsjuyU|zM6au9qc2XQ": [
+      "n",
+      168,
+      null,
+      64,
+      16
+    ],
+    "NjwN3B617tg|Dy3qi_gCP9k": [
+      "n",
+      240,
+      null,
+      48,
+      16
+    ],
+    "suPgRyRLVC4|J3oTRY7AdE4": [
+      "n",
+      144,
+      null,
+      32,
+      32
+    ],
+    "Vwb-3pAvOVk|M4UU1xn_K4s": [
+      "n",
+      144,
+      null,
+      32,
+      32
+    ],
+    "M4UU1xn_K4s|zEvLsOVhg0I": [
+      "n",
+      216,
+      null,
+      32,
+      32
+    ],
+    "HP7Q0vDU9vI|5YG-HKjtiHM": [
+      "n",
+      144,
+      null,
+      32,
+      32
+    ],
+    "9oBXWTlTPMw|3f-XOhfDhxk": [
+      "n",
+      144,
+      null,
+      32,
+      32
+    ],
+    "xv0Qw1QZT8I|0oxJBc__U0c": [
+      "n",
+      128,
+      null,
+      32,
+      32
+    ],
+    "0fjPvcfMJWk|XUX0ebuFh7Y": [
+      "n",
+      176,
+      null,
+      32,
+      16
+    ],
+    "CX4UFb_LlU4|na79dfVHpp0": [
+      "n",
+      216,
+      null,
+      48,
+      32
+    ],
+    "3f-XOhfDhxk|Mzgh0cLopck": [
+      "n",
+      176,
+      null,
+      32,
+      32
+    ],
+    "wUVt_GsvMzw|tCyYwek-o28": [
+      "n",
+      160,
+      null,
+      24,
+      32
+    ],
+    "tCyYwek-o28|u6cggHmZEAs": [
+      "n",
+      224,
+      null,
+      48,
+      32
+    ],
+    "u6cggHmZEAs|SqzxwPEa-DI": [
+      "n",
+      160,
+      null,
+      48,
+      32
+    ],
+    "pzFgQ7iIfXQ|qeXTBEtGUtk": [
+      "n",
+      224,
+      null,
+      24,
+      16
+    ],
+    "J3oTRY7AdE4|ksVDZt9_0J4": [
+      "n",
+      152,
+      null,
+      48,
+      32
+    ],
+    "ksVDZt9_0J4|Vwb-3pAvOVk": [
+      "n",
+      160,
+      null,
+      32,
+      32
+    ],
+    "bnRTUL2jnk0|Op886B0sd4Q": [
+      "n",
+      144,
+      null,
+      16,
+      32
+    ],
+    "pqqjaLUk-MY|oySqE3z99AE": [
+      "n",
+      192,
+      null,
+      32,
+      32
+    ],
+    "R06kP42RFRo|dOJp7bsjuyU": [
+      "n",
+      112,
+      null,
+      32,
+      16
+    ],
+    "Dy3qi_gCP9k|fApyZbwuAjM": [
+      "n",
+      144,
+      null,
+      16,
+      32
+    ],
+    "SqzxwPEa-DI|q3WVxTT01dY": [
+      "n",
+      160,
+      null,
+      16,
+      32
+    ],
+    "zEvLsOVhg0I|W77cCOreg_0": [
+      "n",
+      144,
+      null,
+      32,
+      32
+    ],
+    "INaNIcQ4S7k|HpfQ0bus688": [
+      "n",
+      160,
+      null,
+      16,
+      32
+    ],
+    "DpYdXERlkFk|k-7z5X0ATEc": [
+      "n",
+      160,
+      null,
+      8,
+      32
+    ],
+    "gCkKc2LuCuM|KP8jwoWF44Y": [
+      "n",
+      128,
+      null,
+      16,
+      32
+    ],
+    "U1VSQ7SRtX0|smXG7OvMrFI": [
+      "n",
+      120,
+      null,
+      32,
+      16
+    ],
+    "smXG7OvMrFI|11SJZqMmzQ0": [
+      "n",
+      128,
+      null,
+      16,
+      32
+    ],
+    "cG7cRDcPY3k|EpHrodtTiK0": [
+      "n",
+      160,
+      null,
+      16,
+      32
+    ],
+    "_IgqP6Hv3fs|wyl3hVnB1dQ": [
+      "n",
+      192,
+      null,
+      32,
+      16
+    ],
+    "5VtwlyaYohs|fvSe3ZmZRPs": [
+      "n",
+      144,
+      null,
+      16,
+      32
+    ],
+    "ogXFi8wa56w|nNXHqtByO-A": [
+      "n",
+      160,
+      null,
+      40,
+      32
+    ]
+  },
+  "by_id": {
+    "wilkinson_boomtown2026__33": {
+      "id": "wilkinson_boomtown2026__33",
+      "win": [
+        "n",
+        152,
+        null,
+        32,
+        16
+      ],
+      "exit": 137.0,
+      "cue": 33.0,
+      "X": 16,
+      "abstain": false,
+      "yt_key": "uP0KAzefX8Y|I9QGpHScGug"
+    },
+    "joe_syntax_hospital__01": {
+      "id": "joe_syntax_hospital__01",
+      "win": [
+        "n",
+        168,
+        null,
+        64,
+        16
+      ],
+      "exit": 153.0,
+      "cue": 65.0,
+      "X": 16,
+      "abstain": false,
+      "yt_key": "dOJp7bsjuyU|zM6au9qc2XQ"
+    },
+    "joe_syntax_hospital__08": {
+      "id": "joe_syntax_hospital__08",
+      "win": [
+        "n",
+        240,
+        null,
+        48,
+        16
+      ],
+      "exit": 225.0,
+      "cue": 49.0,
+      "X": 16,
+      "abstain": false,
+      "yt_key": "NjwN3B617tg|Dy3qi_gCP9k"
+    },
+    "hybrid_minds_ukf__08": {
+      "id": "hybrid_minds_ukf__08",
+      "win": [
+        "n",
+        144,
+        null,
+        32,
+        32
+      ],
+      "exit": 113.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "suPgRyRLVC4|J3oTRY7AdE4"
+    },
+    "hybrid_minds_ukf__11": {
+      "id": "hybrid_minds_ukf__11",
+      "win": [
+        "n",
+        144,
+        null,
+        32,
+        32
+      ],
+      "exit": 113.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "Vwb-3pAvOVk|M4UU1xn_K4s"
+    },
+    "hybrid_minds_ukf__12": {
+      "id": "hybrid_minds_ukf__12",
+      "win": [
+        "n",
+        216,
+        null,
+        32,
+        32
+      ],
+      "exit": 185.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "M4UU1xn_K4s|zEvLsOVhg0I"
+    },
+    "hybrid_minds_ukf__19": {
+      "id": "hybrid_minds_ukf__19",
+      "win": [
+        "n",
+        144,
+        null,
+        32,
+        32
+      ],
+      "exit": 113.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "HP7Q0vDU9vI|5YG-HKjtiHM"
+    },
+    "hybrid_minds_ukf__25": {
+      "id": "hybrid_minds_ukf__25",
+      "win": [
+        "n",
+        144,
+        null,
+        32,
+        32
+      ],
+      "exit": 113.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "9oBXWTlTPMw|3f-XOhfDhxk"
+    },
+    "hybrid_minds_ukf__45": {
+      "id": "hybrid_minds_ukf__45",
+      "win": [
+        "n",
+        128,
+        null,
+        32,
+        32
+      ],
+      "exit": 97.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "xv0Qw1QZT8I|0oxJBc__U0c"
+    },
+    "netsky_hospital_classics__02": {
+      "id": "netsky_hospital_classics__02",
+      "win": [
+        "n",
+        176,
+        null,
+        32,
+        16
+      ],
+      "exit": 161.0,
+      "cue": 33.0,
+      "X": 16,
+      "abstain": false,
+      "yt_key": "0fjPvcfMJWk|XUX0ebuFh7Y"
+    },
+    "netsky_hospital_classics__06": {
+      "id": "netsky_hospital_classics__06",
+      "win": [
+        "n",
+        216,
+        null,
+        48,
+        32
+      ],
+      "exit": 185.0,
+      "cue": 49.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "CX4UFb_LlU4|na79dfVHpp0"
+    },
+    "netsky_hospital_classics__17": {
+      "id": "netsky_hospital_classics__17",
+      "win": [
+        "n",
+        176,
+        null,
+        32,
+        32
+      ],
+      "exit": 145.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "3f-XOhfDhxk|Mzgh0cLopck"
+    },
+    "joe_syntax_hospital__11": {
+      "id": "joe_syntax_hospital__11",
+      "win": [
+        "n",
+        160,
+        null,
+        24,
+        32
+      ],
+      "exit": 129.0,
+      "cue": 25.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "wUVt_GsvMzw|tCyYwek-o28"
+    },
+    "joe_syntax_hospital__12": {
+      "id": "joe_syntax_hospital__12",
+      "win": [
+        "n",
+        224,
+        null,
+        48,
+        32
+      ],
+      "exit": 193.0,
+      "cue": 49.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "tCyYwek-o28|u6cggHmZEAs"
+    },
+    "joe_syntax_hospital__13": {
+      "id": "joe_syntax_hospital__13",
+      "win": [
+        "n",
+        160,
+        null,
+        48,
+        32
+      ],
+      "exit": 129.0,
+      "cue": 49.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "u6cggHmZEAs|SqzxwPEa-DI"
+    },
+    "hybrid_minds_ukf__00": {
+      "id": "hybrid_minds_ukf__00",
+      "win": [
+        "n",
+        224,
+        null,
+        24,
+        16
+      ],
+      "exit": 209.0,
+      "cue": 25.0,
+      "X": 16,
+      "abstain": false,
+      "yt_key": "pzFgQ7iIfXQ|qeXTBEtGUtk"
+    },
+    "hybrid_minds_ukf__09": {
+      "id": "hybrid_minds_ukf__09",
+      "win": [
+        "n",
+        152,
+        null,
+        48,
+        32
+      ],
+      "exit": 121.0,
+      "cue": 49.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "J3oTRY7AdE4|ksVDZt9_0J4"
+    },
+    "hybrid_minds_ukf__10": {
+      "id": "hybrid_minds_ukf__10",
+      "win": [
+        "n",
+        160,
+        null,
+        32,
+        32
+      ],
+      "exit": 129.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "ksVDZt9_0J4|Vwb-3pAvOVk"
+    },
+    "hybrid_minds_ukf__28": {
+      "id": "hybrid_minds_ukf__28",
+      "win": [
+        "n",
+        144,
+        null,
+        16,
+        32
+      ],
+      "exit": 113.0,
+      "cue": 17.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "bnRTUL2jnk0|Op886B0sd4Q"
+    },
+    "hybrid_minds_ukf__40": {
+      "id": "hybrid_minds_ukf__40",
+      "win": [
+        "n",
+        192,
+        null,
+        32,
+        32
+      ],
+      "exit": 161.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "pqqjaLUk-MY|oySqE3z99AE"
+    },
+    "joe_syntax_hospital__00": {
+      "id": "joe_syntax_hospital__00",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "exit": 97.0,
+      "cue": 33.0,
+      "X": 16,
+      "abstain": false,
+      "yt_key": "R06kP42RFRo|dOJp7bsjuyU"
+    },
+    "joe_syntax_hospital__09": {
+      "id": "joe_syntax_hospital__09",
+      "win": [
+        "n",
+        144,
+        null,
+        16,
+        32
+      ],
+      "exit": 113.0,
+      "cue": 17.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "Dy3qi_gCP9k|fApyZbwuAjM"
+    },
+    "joe_syntax_hospital__14": {
+      "id": "joe_syntax_hospital__14",
+      "win": [
+        "n",
+        160,
+        null,
+        16,
+        32
+      ],
+      "exit": 129.0,
+      "cue": 17.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "SqzxwPEa-DI|q3WVxTT01dY"
+    },
+    "hybrid_minds_ukf__13": {
+      "id": "hybrid_minds_ukf__13",
+      "win": [
+        "n",
+        144,
+        null,
+        32,
+        32
+      ],
+      "exit": 113.0,
+      "cue": 33.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "zEvLsOVhg0I|W77cCOreg_0"
+    },
+    "hybrid_minds_ukf__23": {
+      "id": "hybrid_minds_ukf__23",
+      "win": [
+        "n",
+        160,
+        null,
+        16,
+        32
+      ],
+      "exit": 129.0,
+      "cue": 17.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "INaNIcQ4S7k|HpfQ0bus688"
+    },
+    "netsky_hospital_classics__15": {
+      "id": "netsky_hospital_classics__15",
+      "win": [
+        "n",
+        160,
+        null,
+        8,
+        32
+      ],
+      "exit": 129.0,
+      "cue": 9.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "DpYdXERlkFk|k-7z5X0ATEc"
+    },
+    "netsky_hospital_classics__23": {
+      "id": "netsky_hospital_classics__23",
+      "win": [
+        "n",
+        128,
+        null,
+        16,
+        32
+      ],
+      "exit": 97.0,
+      "cue": 17.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "gCkKc2LuCuM|KP8jwoWF44Y"
+    },
+    "maduk_liquicity_lunar2025__02": {
+      "id": "maduk_liquicity_lunar2025__02",
+      "win": [
+        "n",
+        120,
+        null,
+        32,
+        16
+      ],
+      "exit": 105.0,
+      "cue": 33.0,
+      "X": 16,
+      "abstain": false,
+      "yt_key": "U1VSQ7SRtX0|smXG7OvMrFI"
+    },
+    "maduk_liquicity_lunar2025__03": {
+      "id": "maduk_liquicity_lunar2025__03",
+      "win": [
+        "n",
+        128,
+        null,
+        16,
+        32
+      ],
+      "exit": 97.0,
+      "cue": 17.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "smXG7OvMrFI|11SJZqMmzQ0"
+    },
+    "maduk_liquicity_lunar2025__05": {
+      "id": "maduk_liquicity_lunar2025__05",
+      "win": [
+        "n",
+        160,
+        null,
+        16,
+        32
+      ],
+      "exit": 129.0,
+      "cue": 17.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "cG7cRDcPY3k|EpHrodtTiK0"
+    },
+    "pola_bryson_puzzlewood__00": {
+      "id": "pola_bryson_puzzlewood__00",
+      "win": [
+        "n",
+        192,
+        null,
+        32,
+        16
+      ],
+      "exit": 177.0,
+      "cue": 33.0,
+      "X": 16,
+      "abstain": false,
+      "yt_key": "_IgqP6Hv3fs|wyl3hVnB1dQ"
+    },
+    "pola_bryson_puzzlewood__02": {
+      "id": "pola_bryson_puzzlewood__02",
+      "win": [
+        "n",
+        144,
+        null,
+        16,
+        32
+      ],
+      "exit": 113.0,
+      "cue": 17.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "5VtwlyaYohs|fvSe3ZmZRPs"
+    },
+    "pola_bryson_puzzlewood__04": {
+      "id": "pola_bryson_puzzlewood__04",
+      "win": [
+        "n",
+        160,
+        null,
+        40,
+        32
+      ],
+      "exit": 129.0,
+      "cue": 41.0,
+      "X": 32,
+      "abstain": false,
+      "yt_key": "ogXFi8wa56w|nNXHqtByO-A"
+    }
+  },
+  "do_not": "write rules.json or treat this map as a promotion"
+}

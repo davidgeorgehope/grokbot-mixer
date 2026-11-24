@@ -211,8 +211,8 @@
   "rca_note_2026_11_23_future_arms": "LEADIN_LOCK, BREAKDOWN_PHASE_EST, BASS_FILL_GAPS (and STRUCT_BREAK) recorded in future_nightly_arm_candidates. Not in the current six slots.",
   "dclash_land7_replaced": "dclash_land7 (DRUMCLASH+RISK+LAND+PLAN_LAND) was twice-rejected and is out of the six nightly slots. Its slot is now struct_mid_tight. dclash_land6 stays. thin_dropcue stays as the shadow arm. A struct_mid_tight+epg_stack combo was not added: the nightly cap is 6 and the other five arms stay; a seventh arm would be sliced off.",
   "next_nightly_arm_candidates": {
-    "written": "2026-11-24 2:17 AM ET",
-    "note": "For the next nightly after n1124, not tonight's running card. The six-arm cap is full (epg_strict, epg_drop, epg_stack, dclash_land6, struct_mid_tight, thin_dropcue). Do not write rules.json. Do not change defaults.",
+    "written": "2026-11-24 8:30 AM ET",
+    "note": "For the next nightly after n1124, not the like-for-like re-score card. The six-arm cap is still the current file's candidates list. PICKER_STYLE_GATED is now a real apply_rules flag (off by default) and loads replica/picker_style_gated_windows.json (style-gated model trained on 762 dev, applied to the official 33). Do not write rules.json. Do not change defaults.",
     "flags": [
       {
         "name": "picker_style_gated",
@@ -222,10 +222,22 @@
         "delta": {
           "PICKER_STYLE_GATED": 1
         },
-        "label": "Style-gated learned picker from picker-cv-1124 (replica/picker_1124.py, replica/picker_1124_cv.json). Leave-one-DJ-out on 762 dev mixes: exit+cue 28.4 vs default 37.19, dEC -8.79, mix-grouped CI [-11.09, -6.51] excludes 0. This is placement error on the grown corpus, not an official 33-pair similarity score. Live pick-time hook today is PICKER_WIN (a window map path), not a rules delta; wire PICKER_STYLE_GATED (off by default) before this arm sits in the six. Do not write rules.json.",
+        "label": "Style-gated learned picker. Flag PICKER_STYLE_GATED=1 is in apply_rules and recreate (fam picker_style_gated when the mapped window is in the engine set). Map: trained on 762 dev, applied to the official 33 (not in that train set). CV on 762 was 28.4 vs default 37.19, CI [-11.09, -6.51] excludes 0 (placement error, not official similarity). Do not write rules.json.",
         "eval": "jobs/picker-cv-1124.log, replica/picker_1124_cv.json, replica/picker_1124_analysis.json",
-        "do_not": "add this to tonight's n1124 card, exceed MAX_CANDS=6, write rules.json, or treat the 762-mix CV as an official promotion"
+        "do_not": "add this to a card that already has six arms, write rules.json, or treat the 762-mix CV as an official promotion",
+        "wired": true,
+        "map": "replica/picker_style_gated_windows.json"
       }
     ]
+  },
+  "hard_fallback_promotion_candidate": {
+    "written": "2026-11-24 8:30 AM ET",
+    "name": "hard_fallback",
+    "delta": {
+      "HARD_FALLBACK": 1
+    },
+    "default": 0,
+    "in_tonight_six": false,
+    "note": "Gate restored in recreate.py after n1124 lost it (always-on fallback shifted the floor). Off by default. Promotion candidate on its own. Do not write rules.json."
   }
 }

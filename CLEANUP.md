@@ -163,3 +163,4 @@
 - 2026-11-18 03:2x ET daily cleanup: deleted 132 scratch WAVs in /tmp/protrans_bench (hill-climb bench renders, older than 3h). Nothing in src2, no archives needed. Kept all guard_mix*. Free 58G.
 - 2026-11-19 03:2x ET daily cleanup: deleted 952 scratch WAVs in /tmp/protrans_bench (older than 3h). Nothing in src2, no archives needed. Kept all guard_mix*. Free 34G
 - 2026-11-20 03:2x ET daily cleanup: deleted 2424 scratch WAVs in /tmp (mostly /tmp/protrans_bench, ~40G, older than 3h). Nothing in src2, no archives needed. Kept all guard_mix*. Free 30G
+- 2026-11-21 03:2x ET daily cleanup: deleted 224 scratch WAVs in /tmp (~4.2G, older than 3h). Nothing in src2, no archives needed. Kept all guard_mix*, 230 recent /tmp WAVs (<3h). Free 16G

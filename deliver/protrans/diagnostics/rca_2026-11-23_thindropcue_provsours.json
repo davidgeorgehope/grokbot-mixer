@@ -1,0 +1,38 @@
+{
+ "pick": "joe_syntax_hospital__13",
+ "pair": "S.P.Y - Seconds To Midnight -> London Elektricity - Meteorites (Danny Byrd Remix)",
+ "rows": [
+  {
+   "who": "pro",
+   "out_start": 122.9,
+   "out_end": 155.9,
+   "in_start": 28.1,
+   "in_end": 61.1,
+   "out_swap": 126.9,
+   "out_start_section": "drop 1",
+   "in_start_section": "intro",
+   "touches_out_slowdown": true,
+   "in_next_drop_vs_blend_end": 2.9,
+   "out_last_drop_played": "cut 101 bars early",
+   "out_time": "2:49",
+   "mix_time": "36:40",
+   "why": "what the DJ did"
+  },
+  {
+   "who": "THIN_DROPCUE",
+   "out_start": 240,
+   "out_end": 256,
+   "in_start": 64,
+   "in_end": 80,
+   "out_swap": null,
+   "out_start_section": "outro",
+   "in_start_section": "drop 1",
+   "touches_out_slowdown": false,
+   "in_next_drop_vs_blend_end": -16,
+   "out_last_drop_played": "all",
+   "out_time": "5:31",
+   "mix_time": null,
+   "why": "B's first drop lands inside the blend"
+  }
+ ]
+}

@@ -1,0 +1,137 @@
+{
+ "blend": 0,
+ "a": "u6cggHmZEAs",
+ "b": "SqzxwPEa-DI",
+ "start_bar": 240.0,
+ "end_bar": 256.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-23.png",
+ "halfbeat": {
+  "r0": 0.771,
+  "rh": 0.671,
+  "lag_ms": 0.0,
+  "bars": 1,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": null,
+  "ours": null,
+  "why": "deck not located (onset r < 0.2)"
+ },
+ "offset_ms_median": -19.6,
+ "offset_bars": 10,
+ "clash_bars": 6.06,
+ "sum_lows_dip_db": 9.3,
+ "bass_swap": [
+  243.0,
+  248.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.046758,
+  "pcty": 1.840225,
+  "Scol": 0.7364,
+  "Scty": 0.7873,
+  "banger_clash_rate": 0.1329,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ },
+ "pick_id": "joe_syntax_hospital__13",
+ "fam": "nat_short",
+ "win": [
+  "n",
+  256,
+  null,
+  48,
+  16
+ ],
+ "score": 29.77,
+ "score_v2": 29.77,
+ "breakdown": {
+  "stem_curves": 22.14,
+  "deck_curves": 11.42,
+  "beat_align": 52.17,
+  "bass_swap": 18.17,
+  "outgoing_cut": 49.39,
+  "blend_length": 49.39,
+  "stems": {
+   "drums": 24.77,
+   "bass": 16.23,
+   "vocals": 10.86,
+   "melody": 36.71
+  },
+  "beat_off_ms": 0.0,
+  "beat_align_v2": 52.17,
+  "beat_identity": null,
+  "beat_lock": {
+   "pro": null,
+   "ours": null,
+   "why": "deck not located (onset r < 0.2)"
+  },
+  "events_pro": {
+   "bass_swap": 6,
+   "outgoing_cut": null,
+   "blend_length": 16
+  },
+  "events_ours": {
+   "bass_swap": 2,
+   "outgoing_cut": null,
+   "blend_length": 16
+  },
+  "stem_kind": [
+   "bands",
+   "bands"
+  ],
+  "deck": {
+   "per_stem_deck": 11.42
+  },
+  "align": {
+   "lag_samples": -474112,
+   "lag_ms": -21501.68,
+   "peak": 0.1758,
+   "win_sec": 22.636
+  }
+ },
+ "ours": "/tmp/protrans_bench/diag737485.mp3",
+ "provsours": {
+  "md": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-23_provsours.md",
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-23_provsours.png",
+  "rows": [
+   {
+    "who": "pro",
+    "out_start": 122.9,
+    "out_end": 155.9,
+    "in_start": 28.1,
+    "in_end": 61.1,
+    "out_swap": 126.9,
+    "out_start_section": "drop 1",
+    "in_start_section": "intro",
+    "touches_out_slowdown": true,
+    "in_next_drop_vs_blend_end": 2.9,
+    "out_last_drop_played": "cut 101 bars early",
+    "out_time": "2:49",
+    "mix_time": "36:40",
+    "why": "what the DJ did"
+   },
+   {
+    "who": "ours",
+    "out_start": 240,
+    "out_end": 256,
+    "in_start": 48,
+    "in_end": 64,
+    "out_swap": null,
+    "out_start_section": "outro",
+    "in_start_section": "intro + slowdown/half-time",
+    "touches_out_slowdown": false,
+    "in_next_drop_vs_blend_end": 0,
+    "out_last_drop_played": "all",
+    "out_time": "5:31",
+    "mix_time": null,
+    "why": "outro-over-intro bonus window (A plays its outro, B's first drop lands as A ends)"
+   }
+  ]
+ }
+}

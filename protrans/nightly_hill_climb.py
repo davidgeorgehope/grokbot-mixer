@@ -11,6 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import paths, tune, score, cleanup
 import run_admitted_tune as T
 import promotion_judge as PJ
+import dclash_report as DC
 
 MAX_CANDS = 6
 CANDS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica', 'nightly_candidates.json')
@@ -65,11 +66,15 @@ def main():
                    else f'held-out did not improve ({base["test_mean"]} -> {sm["test_mean"]})')
             label = 'KEEP?' if ok else 'reject'
         print(f'  {name} {delta}: train={sm["train_mean"]} test={sm["test_mean"]} fails={sm["n_fail"]} -> {label}', flush=True)
+        dclash = None
+        if any(k == 'DRUMCLASH' or str(k).startswith('DRUMCLASH') or k == 'PLAN_LAND' for k in delta):
+            dclash = DC.summarize(r, rows)
+            print(DC.format_line(name, dclash), flush=True)
         row = dict(name=f'{tag}_{name}', delta=delta, train_mean=sm['train_mean'], test_mean=sm['test_mean'],
                    by_dj=sm['by_dj'], kept=bool(ok and (not meta.get('promotion') or adopt)),
                    promotion=bool(meta.get('promotion')), night_win=bool(ok and meta.get('promotion')),
                    floor_test=base['test_mean'], why=why,
-                   scorer_version=score.SCORER_VERSION, nightly=tag)
+                   scorer_version=score.SCORER_VERSION, nightly=tag, dclash=dclash)
         tune.log_row(row); tried.append(row)
         if ok and meta.get('promotion'):
             night_wins.append(dict(name=name, delta=delta, summary=sm, why=why))

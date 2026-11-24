@@ -1,0 +1,1383 @@
+{
+  "id": "yolowich_FIdBhH3SuXk__01",
+  "mix_id": "yolowich_FIdBhH3SuXk",
+  "dj": "YoloWich",
+  "pair": "Hybrid Minds - Phoenix (ft. Alexa Harley) -> Jareth - Kaleidoscope (Hybrid Minds Remix)",
+  "video_id": "FIdBhH3SuXk",
+  "cue": {
+    "incoming_bar": 15.38,
+    "incoming_section": "intro",
+    "outgoing_bar": 208.25,
+    "outgoing_section": "outro",
+    "blend_list_s": 266.0,
+    "locate_a": {
+      "z": 8.624,
+      "cc": 0.5685,
+      "mix_t": 9.334,
+      "track_t": 272.579,
+      "n": 99
+    },
+    "locate_b": {
+      "z": 11.396,
+      "cc": 0.883,
+      "mix_t": 56.703,
+      "track_t": 53.917,
+      "n": 109
+    }
+  },
+  "rise_tail": {
+    "all": {
+      "rise_db_per_beat": 0.546,
+      "hold_db": -13.29,
+      "tail_bars": 11.78,
+      "out_p90": 0.04,
+      "in_p90": 0.16
+    },
+    "bass": {
+      "rise_db_per_beat": -0.457,
+      "hold_db": -0.03,
+      "tail_bars": 27.91,
+      "out_p90": 1.88,
+      "in_p90": 0.2
+    },
+    "highs": {
+      "rise_db_per_beat": 0.211,
+      "hold_db": -0.2,
+      "tail_bars": 25.01,
+      "out_p90": 9.54,
+      "in_p90": 7.99
+    },
+    "mids": {
+      "rise_db_per_beat": -0.723,
+      "hold_db": 0.09,
+      "tail_bars": 27.91,
+      "out_p90": 0.18,
+      "in_p90": 0.27
+    }
+  },
+  "overlap_bars": 4.531,
+  "track_a": {
+    "sections": {
+      "n_bars": 218,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 44,
+      "drop2": 144,
+      "outro_start": 206,
+      "music_end": 218,
+      "drops": [
+        [
+          48,
+          128
+        ],
+        [
+          144,
+          206
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 27
+        },
+        {
+          "name": "build",
+          "start": 27,
+          "end": 44
+        },
+        {
+          "name": "breakdown",
+          "start": 44,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 128
+        },
+        {
+          "name": "breakdown",
+          "start": 128,
+          "end": 144
+        },
+        {
+          "name": "drop",
+          "start": 144,
+          "end": 206
+        },
+        {
+          "name": "outro",
+          "start": 206,
+          "end": 218
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -32.03,
+          "drums": -17.69,
+          "energy": -17.69
+        },
+        "build": {
+          "bass": -16.82,
+          "drums": -11.82,
+          "energy": -11.82
+        },
+        "breakdown": {
+          "bass": -39.75,
+          "drums": -16.67,
+          "energy": -16.67
+        },
+        "drop": {
+          "bass": -10.0,
+          "drums": -8.28,
+          "energy": -8.28
+        },
+        "outro": {
+          "bass": -52.67,
+          "drums": -38.18,
+          "energy": -38.18
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 174.99,
+    "yt": "bxtbR6InYVw",
+    "title": "Hybrid Minds - Phoenix (ft. Alexa Harley)"
+  },
+  "track_b": {
+    "sections": {
+      "n_bars": 242,
+      "intro_end": 48,
+      "drop1": 48,
+      "breakdown": 127,
+      "drop2": 160,
+      "outro_start": 222,
+      "music_end": 242,
+      "drops": [
+        [
+          48,
+          126
+        ],
+        [
+          160,
+          222
+        ]
+      ],
+      "phases": [
+        {
+          "name": "intro",
+          "start": 0,
+          "end": 16
+        },
+        {
+          "name": "build",
+          "start": 16,
+          "end": 48
+        },
+        {
+          "name": "drop",
+          "start": 48,
+          "end": 126
+        },
+        {
+          "name": "build",
+          "start": 126,
+          "end": 127
+        },
+        {
+          "name": "breakdown",
+          "start": 127,
+          "end": 160
+        },
+        {
+          "name": "drop",
+          "start": 160,
+          "end": 222
+        },
+        {
+          "name": "outro",
+          "start": 222,
+          "end": 242
+        }
+      ],
+      "bass_by_section": {
+        "intro": {
+          "bass": -33.87,
+          "drums": -22.82,
+          "energy": -22.82
+        },
+        "build": {
+          "bass": -19.24,
+          "drums": -14.26,
+          "energy": -14.26
+        },
+        "drop": {
+          "bass": -10.14,
+          "drums": -7.85,
+          "energy": -7.85
+        },
+        "breakdown": {
+          "bass": -26.44,
+          "drums": -17.96,
+          "energy": -17.96
+        },
+        "outro": {
+          "bass": -26.47,
+          "drums": -20.55,
+          "energy": -20.55
+        }
+      },
+      "intro_len": 48,
+      "n_drops": 2
+    },
+    "bpm": 175.011,
+    "yt": "4wDw6su4DtM",
+    "title": "Jareth - Kaleidoscope (Hybrid Minds Remix)"
+  },
+  "error": null,
+  "pro_decision": {
+    "outgoing_exit_bar": 208.25,
+    "outgoing_section": "outro",
+    "outgoing_bars_into_section": 2.25,
+    "outgoing_bars_left": 9.75,
+    "outgoing_bars_to_outro": -2.25,
+    "incoming_cue_bar": 15.38,
+    "incoming_section": "intro",
+    "incoming_bars_into_section": 15.38,
+    "incoming_rel_drop1": -32.62,
+    "bass_swap_bar": 0.54
+  },
+  "deck_levels": {
+    "bar_sec": 1.3793,
+    "hop": 5512,
+    "sr": 22050,
+    "all": {
+      "a": [
+        -0.01,
+        0.02,
+        -0.0,
+        0.05,
+        -0.02,
+        0.04,
+        0.04,
+        0.01,
+        -0.0,
+        0.04,
+        0.0,
+        -0.0,
+        0.03,
+        0.01,
+        -0.04,
+        -0.09,
+        -0.36,
+        -4.6,
+        -13.23,
+        -13.47,
+        -13.15,
+        -18.63,
+        -7.38,
+        -16.03,
+        -20.48,
+        -3.25,
+        -23.43,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -160.0,
+        -108.02,
+        -29.03,
+        -33.62,
+        -32.19,
+        -39.71,
+        -29.96,
+        -26.34,
+        -23.76,
+        -21.01,
+        -25.12,
+        -23.17,
+        -23.72,
+        -20.88,
+        -18.46,
+        -14.99,
+        -15.39,
+        -6.91,
+        -0.2,
+        0.09,
+        0.21,
+        0.16,
+        0.01,
+        0.04,
+        0.11,
+        0.54,
+        0.1,
+        0.13,
+        0.13,
+        0.06,
+        0.05,
+        0.04,
+        0.03,
+        0.01,
+        0.02,
+        0.07,
+        0.08,
+        0.13,
+        0.08,
+        0.12,
+        0.11,
+        0.18,
+        0.11,
+        0.04,
+        0.09,
+        0.12
+      ]
+    },
+    "bass": {
+      "a": [
+        -0.03,
+        -0.02,
+        -0.04,
+        -0.03,
+        -0.06,
+        -0.03,
+        0.01,
+        -0.04,
+        -0.04,
+        -0.02,
+        -0.06,
+        -0.07,
+        -0.02,
+        0.02,
+        -0.03,
+        -0.02,
+        -1.28,
+        -5.29,
+        -4.23,
+        -3.8,
+        -0.57,
+        -4.84,
+        3.17,
+        1.08,
+        1.24,
+        5.43,
+        9.54,
+        8.27,
+        -107.14,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -25.76,
+        7.27,
+        -5.12,
+        -21.82,
+        -14.99,
+        -8.43,
+        -19.83,
+        -28.56,
+        -19.54,
+        -24.7,
+        -23.18,
+        -23.11,
+        -24.34,
+        -22.25,
+        -26.36,
+        -24.39,
+        -20.13,
+        -7.45,
+        -0.37,
+        0.05,
+        0.0,
+        -0.06,
+        -0.12,
+        0.03,
+        -0.03,
+        0.03,
+        -0.06,
+        0.16,
+        0.09,
+        -0.06,
+        -0.01,
+        0.04,
+        -0.02,
+        0.01,
+        0.03,
+        0.17,
+        0.11,
+        0.04,
+        0.02,
+        0.14,
+        0.02,
+        0.03,
+        0.15,
+        0.21,
+        0.19,
+        0.11
+      ]
+    },
+    "mids": {
+      "a": [
+        0.08,
+        0.15,
+        0.1,
+        0.13,
+        -0.0,
+        0.21,
+        0.16,
+        0.13,
+        0.08,
+        0.17,
+        0.08,
+        0.11,
+        0.1,
+        -0.02,
+        -0.05,
+        -0.13,
+        -0.44,
+        -4.96,
+        -13.79,
+        -14.69,
+        -14.77,
+        -19.06,
+        -9.5,
+        -17.86,
+        -27.45,
+        -4.54,
+        8.25,
+        7.88,
+        -107.14,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -23.43,
+        6.32,
+        -23.6,
+        -37.09,
+        -33.86,
+        -49.89,
+        -32.12,
+        -27.86,
+        -26.82,
+        -22.43,
+        -25.67,
+        -24.27,
+        -25.17,
+        -20.66,
+        -16.36,
+        -13.47,
+        -10.96,
+        -4.02,
+        -0.03,
+        0.1,
+        0.25,
+        0.18,
+        0.02,
+        0.03,
+        0.29,
+        0.72,
+        0.09,
+        0.14,
+        0.11,
+        0.07,
+        0.04,
+        0.03,
+        0.09,
+        0.01,
+        0.02,
+        0.09,
+        0.07,
+        0.15,
+        0.11,
+        0.08,
+        0.14,
+        0.33,
+        0.1,
+        0.03,
+        0.09,
+        0.2
+      ]
+    },
+    "highs": {
+      "a": [
+        -160.0,
+        -100.43,
+        -1.26,
+        -0.21,
+        -0.22,
+        -0.2,
+        -0.01,
+        -0.05,
+        -0.22,
+        -0.03,
+        0.01,
+        -0.01,
+        -0.19,
+        -0.38,
+        -1.19,
+        -0.94,
+        -1.25,
+        -1.81,
+        6.77,
+        9.54,
+        9.54,
+        9.54,
+        9.54,
+        9.38,
+        9.54,
+        9.54,
+        -23.43,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0,
+        -160.0
+      ],
+      "b": [
+        -160.0,
+        -96.57,
+        8.3,
+        7.93,
+        9.15,
+        8.16,
+        4.2,
+        2.31,
+        2.9,
+        1.71,
+        0.5,
+        6.33,
+        8.84,
+        8.35,
+        2.12,
+        -5.62,
+        -5.65,
+        -4.59,
+        -1.41,
+        -1.1,
+        -1.03,
+        -0.91,
+        -1.19,
+        -0.83,
+        -1.67,
+        -0.89,
+        -0.8,
+        -0.96,
+        -0.66,
+        -0.81,
+        -0.8,
+        -0.93,
+        -0.83,
+        -0.94,
+        -0.84,
+        -0.82,
+        -0.63,
+        -0.85,
+        -0.81,
+        -0.56,
+        -0.35,
+        -0.75,
+        -0.75,
+        -1.02,
+        -0.92,
+        -0.75
+      ]
+    },
+    "n_bars": 46
+  },
+  "candidates": [
+    {
+      "type": "outro_intro",
+      "win": [
+        "n",
+        216,
+        null,
+        32,
+        16
+      ],
+      "in_drop": null,
+      "ib_is_start": null,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 16.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 72.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 144.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "drop1_end",
+      "win": [
+        "n",
+        48,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 176.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 64.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 64.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 96.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 96.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 72.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 72.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 72.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 144.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 144.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 144.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 176.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 176.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        64,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 176.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 32.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 32.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        48,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 32.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 64.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 64.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        80,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 64.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 96.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 96.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        112,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 96.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 72.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 72.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        88,
+        16
+      ],
+      "in_drop": 1,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 72.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 144.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 144.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        160,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": true,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 144.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": false,
+      "snap_in_hold": false,
+      "delta_bars": 176.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": false,
+      "delta_bars": 176.62,
+      "section_match": false,
+      "relevance": 0
+    },
+    {
+      "type": "breakdown_drop",
+      "win": [
+        "n",
+        144,
+        null,
+        192,
+        16
+      ],
+      "in_drop": 2,
+      "ib_is_start": false,
+      "snap_in": true,
+      "snap_in_hold": true,
+      "delta_bars": 176.62,
+      "section_match": false,
+      "relevance": 0
+    }
+  ]
+}

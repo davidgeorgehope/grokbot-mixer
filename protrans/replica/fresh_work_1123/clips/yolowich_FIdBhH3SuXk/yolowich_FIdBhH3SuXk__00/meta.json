@@ -1,0 +1,29 @@
+{
+  "id": "yolowich_FIdBhH3SuXk__00",
+  "mix_id": "yolowich_FIdBhH3SuXk",
+  "dj": "YoloWich",
+  "a": {
+    "title": "Hybrid Minds - Lost",
+    "yt": "WjKRNVf_BwY",
+    "t": 0.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=WjKRNVf_BwY"
+  },
+  "b": {
+    "title": "Hybrid Minds - Phoenix (ft. Alexa Harley)",
+    "yt": "bxtbR6InYVw",
+    "t": 205.0,
+    "source": "youtube",
+    "url": "https://www.youtube.com/watch?v=bxtbR6InYVw"
+  },
+  "window": {
+    "mix_t_a": 0.0,
+    "mix_t_b": 205.0,
+    "mix_t_next": 471.0,
+    "hint_a_played_sec": 205.0
+  },
+  "pro_clip": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/yolowich_FIdBhH3SuXk/yolowich_FIdBhH3SuXk__00/pro.wav",
+  "pro_clip_start": 181.0,
+  "pro_clip_dur": 64.0,
+  "dir": "/workspace/mixes/protrans/replica/fresh_work_1123/clips/yolowich_FIdBhH3SuXk/yolowich_FIdBhH3SuXk__00"
+}

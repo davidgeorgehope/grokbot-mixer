@@ -1,0 +1,42 @@
+{
+ "blend": 0,
+ "a": "u6cggHmZEAs",
+ "b": "SqzxwPEa-DI",
+ "start_bar": 240.0,
+ "end_bar": 256.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-23_thindropcue.png",
+ "halfbeat": {
+  "r0": 0.887,
+  "rh": 0.77,
+  "lag_ms": 0.0,
+  "bars": 1,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": null,
+  "ours": null,
+  "why": "deck not located (onset r < 0.2)"
+ },
+ "offset_ms_median": 164.7,
+ "offset_bars": 10,
+ "clash_bars": 6.06,
+ "sum_lows_dip_db": 5.0,
+ "bass_swap": [
+  243.0,
+  248.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.043914,
+  "pcty": 1.830376,
+  "Scol": 0.7502,
+  "Scty": 0.7883,
+  "banger_clash_rate": 0.1722,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ }
+}

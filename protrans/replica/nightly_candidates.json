@@ -1,136 +1,163 @@
 {
- "written": "2026-11-19 5:30 PM ET, for the 2026-11-20 1 AM ET nightly (tag n1120)",
- "note": "The nightly reads this file (see protrans/nightly_hill_climb.py and promotion_judge.py). Do not write rules.json. epg_strict and epg_drop are co-candidates earning consecutive wins under their own judges; epg_stack is a third arm that runs both hooks on the windows each one owns. Not an auto-adopt keep.",
- "consecutive_wins_required": 2,
- "adopt_to_defaults": false,
- "fresh_mix_ledger": "protrans/replica/fresh_mixes.json",
- "fresh_for_night": "2026-11-20",
- "candidates": [
-  {
-   "name": "epg_strict",
-   "promotion": true,
-   "shadow": false,
-   "judge": "not_worse_than_floor_mean",
-   "delta": {
-    "EXITPOS": 1,
-    "EXITPOS_GATE": 1
-   },
-   "label": "EXITPOS_GATE strict: last drop fully played before the blend starts",
-   "flags_off_by_default": true,
-   "already_scored_2026_11_19": {
-    "held_out": 34.07,
-    "train": 33.19,
-    "floor_held_out": 34.07,
-    "floor_train": 32.4,
-    "dev_changed": [
-     "alpha_rhythm_imZjEt78YXs__03",
-     "joe_syntax_hospital__12",
-     "theheshbesh_zHf8cC9ViuA__05"
-    ],
-    "hard_fails": "2 to 0 on the 3 changed dev pairs (default beat-clash on alpha_rhythm__03 and joe_syntax__12; theheshbesh__05 is a clean earlier-outro move at 208)",
-    "eval": "epg3_eval_1119.json / cs_epg3_1119",
-    "ear": "the listener preferred epg_strict on alpha_rhythm_imZjEt78YXs__03"
-   },
-   "night_win_if": [
-    "held-out mean not worse than the 34.07 floor",
-    "train mean not worse than the 32.40 floor",
-    "hard-fail not worse, leave-one-DJ-out and per DJ (pairs the default already fails are not counted against it)",
-    "zero new hard fails on the Sirenity fresh mix (for_night 2026-11-20 in fresh_mixes.json), once ingested"
-   ],
-   "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
-  },
-  {
-   "name": "epg_drop",
-   "promotion": true,
-   "shadow": false,
-   "judge": "pro_match_within_floor_ci",
-   "delta": {
-    "EXITPOS": 1,
-    "EXITPOS_DROP": 1
-   },
-   "label": "EXITPOS_DROP: exit at the end of the last drop when drop 1 is in the blend, there is no hard fail, and the outro is quieter or thinner than the drop; block when pro data shows the outro carried the blend. Exiting at last-drop end is the behaviour the listener wants; do not rein it in.",
-   "flags_off_by_default": true,
-   "judge_change": "Deliberate change of judge made on the listener's direct listening, not a loosened threshold. See docs/PROCESS.md and promotion_criteria_1120.json.",
-   "already_scored_2026_11_19": {
-    "held_out": 33.91,
-    "train": 32.18,
-    "floor_held_out": 34.07,
-    "floor_train": 32.4,
-    "pro_match_delta_ci_mix_grouped_4000_seed_20261119": {
-     "held_out": {
-      "mean_delta": -0.161,
-      "ci": [
-       -1.743,
-       2.133
+  "written": "2026-11-19 5:30 PM ET, for the 2026-11-20 1 AM ET nightly (tag n1120)",
+  "note": "The nightly reads this file (see protrans/nightly_hill_climb.py and promotion_judge.py). Do not write rules.json. epg_strict and epg_drop are co-candidates earning consecutive wins under their own judges; epg_stack is a third arm that runs both hooks on the windows each one owns. Not an auto-adopt keep.",
+  "consecutive_wins_required": 2,
+  "adopt_to_defaults": false,
+  "fresh_mix_ledger": "protrans/replica/fresh_mixes.json",
+  "fresh_for_night": "2026-11-20",
+  "candidates": [
+    {
+      "name": "epg_strict",
+      "promotion": true,
+      "shadow": false,
+      "judge": "not_worse_than_floor_mean",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_GATE": 1
+      },
+      "label": "EXITPOS_GATE strict: last drop fully played before the blend starts",
+      "flags_off_by_default": true,
+      "already_scored_2026_11_19": {
+        "held_out": 34.07,
+        "train": 33.19,
+        "floor_held_out": 34.07,
+        "floor_train": 32.4,
+        "dev_changed": [
+          "alpha_rhythm_imZjEt78YXs__03",
+          "joe_syntax_hospital__12",
+          "theheshbesh_zHf8cC9ViuA__05"
+        ],
+        "hard_fails": "2 to 0 on the 3 changed dev pairs (default beat-clash on alpha_rhythm__03 and joe_syntax__12; theheshbesh__05 is a clean earlier-outro move at 208)",
+        "eval": "epg3_eval_1119.json / cs_epg3_1119",
+        "ear": "the listener preferred epg_strict on alpha_rhythm_imZjEt78YXs__03"
+      },
+      "night_win_if": [
+        "held-out mean not worse than the 34.07 floor",
+        "train mean not worse than the 32.40 floor",
+        "hard-fail not worse, leave-one-DJ-out and per DJ (pairs the default already fails are not counted against it)",
+        "zero new hard fails on the Sirenity fresh mix (for_night 2026-11-20 in fresh_mixes.json), once ingested"
       ],
-      "includes_zero": true
-     },
-     "train": {
-      "mean_delta": -0.222,
-      "ci": [
-       -1.281,
-       1.499
+      "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
+    },
+    {
+      "name": "epg_drop",
+      "promotion": true,
+      "shadow": false,
+      "judge": "pro_match_within_floor_ci",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_DROP": 1
+      },
+      "label": "EXITPOS_DROP: exit at the end of the last drop when drop 1 is in the blend, there is no hard fail, and the outro is quieter or thinner than the drop; block when pro data shows the outro carried the blend. Exiting at last-drop end is the behaviour the listener wants; do not rein it in.",
+      "flags_off_by_default": true,
+      "judge_change": "Deliberate change of judge made on the listener's direct listening, not a loosened threshold. See docs/PROCESS.md and promotion_criteria_1120.json.",
+      "already_scored_2026_11_19": {
+        "held_out": 33.91,
+        "train": 32.18,
+        "floor_held_out": 34.07,
+        "floor_train": 32.4,
+        "pro_match_delta_ci_mix_grouped_4000_seed_20261119": {
+          "held_out": {
+            "mean_delta": -0.161,
+            "ci": [
+              -1.743,
+              2.133
+            ],
+            "includes_zero": true
+          },
+          "train": {
+            "mean_delta": -0.222,
+            "ci": [
+              -1.281,
+              1.499
+            ],
+            "includes_zero": true
+          }
+        },
+        "hard_fail_with_gated_d": {
+          "delta": -0.125,
+          "ci": [
+            -0.296,
+            0.0
+          ],
+          "base": 4,
+          "arm": 1
+        },
+        "eval": "epgdrop-1119 / epgdrop_eval_1119.json / cs_epgdrop_1119",
+        "ear_picks": "5/5 on drop-fade exits; log.jsonl: JS01, netsky__02, JS13, HM00 (JS13 and HM00 quote [pt558u])"
+      },
+      "night_win_if": [
+        "hard-fail not worse, leave-one-DJ-out and per DJ",
+        "zero new hard fails on the Sirenity fresh mix, once ingested",
+        "the listener's ear picks favouring it, already 5/5 (a contrary new pref would stop promotion; the nightly does not re-run A/B)",
+        "pro-match allowed to sit within the mix-grouped bootstrap CI of the floor (CI of arm minus floor includes 0 on held-out and train). Not required to beat the 34.07 / 32.40 means."
       ],
-      "includes_zero": true
-     }
+      "do_not": "write rules.json, change defaults, reuse a spent fresh mix, or cap/rein in last-drop-end exits"
     },
-    "hard_fail_with_gated_d": {
-     "delta": -0.125,
-     "ci": [
-      -0.296,
-      0.0
-     ],
-     "base": 4,
-     "arm": 1
+    {
+      "name": "epg_stack",
+      "promotion": true,
+      "shadow": false,
+      "judge": "pro_match_within_floor_ci",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_GATE": 1,
+        "EXITPOS_DROP": 1
+      },
+      "label": "Stacked EXITPOS_GATE + EXITPOS_DROP: each hook on the windows it owns. Drop takes last-drop-end exits first; if it is blocked (pro_outro or known hard fail), strict may take a post-drop earlier-outro exit. They never claim the same window.",
+      "flags_off_by_default": true,
+      "coherence": "Proven 2026-11-19: JS01/JS13/HM00/netsky__02 take drop; JS12 and alpha__03 take strict; HM45 stays default; theheshbesh__05 takes strict 208 (drop 192 is a known official hard fail and is blocked). Predicted 33-pair pro-match is drop plus JS12's +16.49 (train about 32.97, held-out 33.91). Not yet a full official 105-dev eval.",
+      "night_win_if": [
+        "same listening judge as epg_drop for pro-match (within the CI of the floor, not required to beat it)",
+        "hard-fail not worse, leave-one-DJ-out and per DJ",
+        "zero new hard fails on the Sirenity fresh mix, once ingested",
+        "the listener's ear picks on the drop-fade pattern remain in favour (already 5/5) and epg_strict's alpha__03 pref is kept"
+      ],
+      "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
     },
-    "eval": "epgdrop-1119 / epgdrop_eval_1119.json / cs_epgdrop_1119",
-    "ear_picks": "5/5 on drop-fade exits; log.jsonl: JS01, netsky__02, JS13, HM00 (JS13 and HM00 quote [pt558u])"
-   },
-   "night_win_if": [
-    "hard-fail not worse, leave-one-DJ-out and per DJ",
-    "zero new hard fails on the Sirenity fresh mix, once ingested",
-    "the listener's ear picks favouring it, already 5/5 (a contrary new pref would stop promotion; the nightly does not re-run A/B)",
-    "pro-match allowed to sit within the mix-grouped bootstrap CI of the floor (CI of arm minus floor includes 0 on held-out and train). Not required to beat the 34.07 / 32.40 means."
-   ],
-   "do_not": "write rules.json, change defaults, reuse a spent fresh mix, or cap/rein in last-drop-end exits"
-  },
-  {
-   "name": "epg_stack",
-   "promotion": true,
-   "shadow": false,
-   "judge": "pro_match_within_floor_ci",
-   "delta": {
-    "EXITPOS": 1,
-    "EXITPOS_GATE": 1,
-    "EXITPOS_DROP": 1
-   },
-   "label": "Stacked EXITPOS_GATE + EXITPOS_DROP: each hook on the windows it owns. Drop takes last-drop-end exits first; if it is blocked (pro_outro or known hard fail), strict may take a post-drop earlier-outro exit. They never claim the same window.",
-   "flags_off_by_default": true,
-   "coherence": "Proven 2026-11-19: JS01/JS13/HM00/netsky__02 take drop; JS12 and alpha__03 take strict; HM45 stays default; theheshbesh__05 takes strict 208 (drop 192 is a known official hard fail and is blocked). Predicted 33-pair pro-match is drop plus JS12's +16.49 (train about 32.97, held-out 33.91). Not yet a full official 105-dev eval.",
-   "night_win_if": [
-    "same listening judge as epg_drop for pro-match (within the CI of the floor, not required to beat it)",
-    "hard-fail not worse, leave-one-DJ-out and per DJ",
-    "zero new hard fails on the Sirenity fresh mix, once ingested",
-    "the listener's ear picks on the drop-fade pattern remain in favour (already 5/5) and epg_strict's alpha__03 pref is kept"
-   ],
-   "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
-  },
-  {
-   "name": "dclash_land6",
-   "delta": {
-    "DRUMCLASH": 1,
-    "DRUMCLASH_RISK": 1,
-    "DRUMCLASH_LAND": 1
-   }
-  },
-  {
-   "name": "dclash_land7",
-   "delta": {
-    "DRUMCLASH": 1,
-    "DRUMCLASH_RISK": 1,
-    "DRUMCLASH_LAND": 1,
-    "PLAN_LAND": 1
-   }
-  }
- ]
+    {
+      "name": "dclash_land6",
+      "delta": {
+        "DRUMCLASH": 1,
+        "DRUMCLASH_RISK": 1,
+        "DRUMCLASH_LAND": 1
+      }
+    },
+    {
+      "name": "dclash_land7",
+      "delta": {
+        "DRUMCLASH": 1,
+        "DRUMCLASH_RISK": 1,
+        "DRUMCLASH_LAND": 1,
+        "PLAN_LAND": 1
+      }
+    },
+    {
+      "name": "thin_dropcue",
+      "promotion": false,
+      "shadow": true,
+      "delta": {
+        "THIN_DROPCUE": 1
+      },
+      "label": "THIN_DROPCUE: on a thin outro-over-intro window, move the STRUCT bonus to the same-exit cue whose incoming drop lands inside the blend. 2026-11-23 RCA js13: default cue 48 started Meteorites in its half-time piano (listener: random piano, 2/5); this flag cues at drop 1 (bar 64), pair score 29.77 fresh / 19.81 ckpt -> 32.40. Listen for a possible half-beat leftover (offset median 164.7 ms). Do not write rules.json.",
+      "flags_off_by_default": true,
+      "already_scored_2026_11_23": {
+        "pick": "joe_syntax_hospital__13",
+        "window": [
+          "n",
+          256,
+          null,
+          64,
+          16
+        ],
+        "pick_score": 32.4,
+        "default_fresh": 29.77,
+        "default_ckpt": 19.81,
+        "lows_dip_db": 5.0,
+        "offset_ms_median": 164.7
+      },
+      "do_not": "write rules.json, change defaults, or treat this as a promotion arm"
+    }
+  ],
+  "rca_note_2026_11_23": "Added shadow arm thin_dropcue after the 11-23 js13 RCA (piano at Meteorites bar 48). The epg_* and dclash_* promotion arms are unchanged. Nightly max is 6, so this fills the last slot."
 }

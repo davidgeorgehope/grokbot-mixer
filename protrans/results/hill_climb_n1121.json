@@ -1,0 +1,467 @@
+{
+  "tag": "n1121",
+  "baseline": {
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 32.4,
+    "test_mean": 34.07,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 32.38,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 32.44,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 30.23,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 34.81,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 37.97,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 30.2,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "base_rules": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp. BLEND_LOCK (2026-11-17 RCA) is on by default: incoming-only lock when loud overlap has a confident 15-150 ms lag.",
+    "FADE": "long",
+    "BASS_SWAP_BARS": 3,
+    "SWAP_POS": 0.21,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 8,
+    "STRUCT": 1,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 16,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0,
+    "LONG_SOLO": 16,
+    "LONG_SWAP": "exit",
+    "LONG_SOLO_STRUCT": 1,
+    "linger_pen_w": 0.15,
+    "LONG_XP": 0.45,
+    "TAIL_EXIT": 6,
+    "BLEND_LOCK": 1
+  },
+  "tried": [
+    {
+      "name": "n1121_epg_strict",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_GATE": 1
+      },
+      "train_mean": 33.19,
+      "test_mean": 34.07,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 32.38,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 34.5,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 30.23,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 34.81,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 37.97,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 30.2,
+          "split": "test"
+        }
+      },
+      "kept": false,
+      "promotion": true,
+      "night_win": true,
+      "floor_test": 34.07,
+      "why": "promotion night-win: held-out 34.07 -> 34.07, train 32.4 -> 33.19",
+      "scorer_version": "gain-events-v3-beatid",
+      "nightly": "n1121"
+    },
+    {
+      "name": "n1121_epg_drop",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_DROP": 1
+      },
+      "train_mean": 32.18,
+      "test_mean": 34.16,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 31.1,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 33.94,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 32.71,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 40.81,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 30.2,
+          "split": "test"
+        }
+      },
+      "kept": false,
+      "promotion": true,
+      "night_win": true,
+      "floor_test": 34.07,
+      "why": "listening judge: held-out delta {'n': 12, 'n_mix': 4, 'mean_delta': 0.088, 'ci': [-1.743, 2.381], 'includes_zero': True} train {'n': 21, 'n_mix': 2, 'mean_delta': -0.222, 'ci': [-1.281, 1.499], 'includes_zero': True}; render-fails 0 -> 0",
+      "scorer_version": "gain-events-v3-beatid",
+      "nightly": "n1121"
+    },
+    {
+      "name": "n1121_epg_stack",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_GATE": 1,
+        "EXITPOS_DROP": 1
+      },
+      "train_mean": 33.43,
+      "test_mean": 33.76,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 31.79,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 36.09,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 32.71,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 40.81,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 25.45,
+          "split": "test"
+        }
+      },
+      "kept": false,
+      "promotion": true,
+      "night_win": true,
+      "floor_test": 34.07,
+      "why": "listening judge: held-out delta {'n': 12, 'n_mix': 4, 'mean_delta': -0.308, 'ci': [-2.535, 2.084], 'includes_zero': True} train {'n': 21, 'n_mix': 2, 'mean_delta': 1.027, 'ci': [-0.59, 3.654], 'includes_zero': True}; render-fails 0 -> 0",
+      "scorer_version": "gain-events-v3-beatid",
+      "nightly": "n1121"
+    },
+    {
+      "name": "n1121_dclash_land6",
+      "delta": {
+        "DRUMCLASH": 1,
+        "DRUMCLASH_RISK": 1,
+        "DRUMCLASH_LAND": 1
+      },
+      "train_mean": 34.23,
+      "test_mean": 33.52,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 34.37,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 33.99,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 34.81,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 36.38,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 25.45,
+          "split": "test"
+        }
+      },
+      "kept": false,
+      "promotion": false,
+      "night_win": false,
+      "floor_test": 34.07,
+      "why": "held-out did not improve (34.07 -> 33.52)",
+      "scorer_version": "gain-events-v3-beatid",
+      "nightly": "n1121"
+    },
+    {
+      "name": "n1121_dclash_land7",
+      "delta": {
+        "DRUMCLASH": 1,
+        "DRUMCLASH_RISK": 1,
+        "DRUMCLASH_LAND": 1,
+        "PLAN_LAND": 1
+      },
+      "train_mean": 34.23,
+      "test_mean": 32.46,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 34.37,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 33.99,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 34.81,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 32.14,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 25.45,
+          "split": "test"
+        }
+      },
+      "kept": false,
+      "promotion": false,
+      "night_win": false,
+      "floor_test": 34.07,
+      "why": "held-out did not improve (34.07 -> 32.46)",
+      "scorer_version": "gain-events-v3-beatid",
+      "nightly": "n1121"
+    }
+  ],
+  "kept": null,
+  "night_wins": [
+    {
+      "name": "epg_strict",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_GATE": 1
+      },
+      "summary": {
+        "n": 33,
+        "n_fail": 0,
+        "train_n": 21,
+        "test_n": 12,
+        "train_mean": 33.19,
+        "test_mean": 34.07,
+        "by_dj": {
+          "Hybrid Minds": {
+            "n": 13,
+            "mean": 32.38,
+            "split": "train"
+          },
+          "Joe Syntax": {
+            "n": 8,
+            "mean": 34.5,
+            "split": "train"
+          },
+          "Maduk": {
+            "n": 3,
+            "mean": 30.23,
+            "split": "test"
+          },
+          "Netsky": {
+            "n": 5,
+            "mean": 34.81,
+            "split": "test"
+          },
+          "Pola & Bryson": {
+            "n": 3,
+            "mean": 37.97,
+            "split": "test"
+          },
+          "Wilkinson": {
+            "n": 1,
+            "mean": 30.2,
+            "split": "test"
+          }
+        },
+        "stem_kind": "bands"
+      },
+      "why": "promotion night-win: held-out 34.07 -> 34.07, train 32.4 -> 33.19"
+    },
+    {
+      "name": "epg_drop",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_DROP": 1
+      },
+      "summary": {
+        "n": 33,
+        "n_fail": 0,
+        "train_n": 21,
+        "test_n": 12,
+        "train_mean": 32.18,
+        "test_mean": 34.16,
+        "by_dj": {
+          "Hybrid Minds": {
+            "n": 13,
+            "mean": 31.1,
+            "split": "train"
+          },
+          "Joe Syntax": {
+            "n": 8,
+            "mean": 33.94,
+            "split": "train"
+          },
+          "Maduk": {
+            "n": 3,
+            "mean": 31.22,
+            "split": "test"
+          },
+          "Netsky": {
+            "n": 5,
+            "mean": 32.71,
+            "split": "test"
+          },
+          "Pola & Bryson": {
+            "n": 3,
+            "mean": 40.81,
+            "split": "test"
+          },
+          "Wilkinson": {
+            "n": 1,
+            "mean": 30.2,
+            "split": "test"
+          }
+        },
+        "stem_kind": "bands"
+      },
+      "why": "listening judge: held-out delta {'n': 12, 'n_mix': 4, 'mean_delta': 0.088, 'ci': [-1.743, 2.381], 'includes_zero': True} train {'n': 21, 'n_mix': 2, 'mean_delta': -0.222, 'ci': [-1.281, 1.499], 'includes_zero': True}; render-fails 0 -> 0"
+    },
+    {
+      "name": "epg_stack",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_GATE": 1,
+        "EXITPOS_DROP": 1
+      },
+      "summary": {
+        "n": 33,
+        "n_fail": 0,
+        "train_n": 21,
+        "test_n": 12,
+        "train_mean": 33.43,
+        "test_mean": 33.76,
+        "by_dj": {
+          "Hybrid Minds": {
+            "n": 13,
+            "mean": 31.79,
+            "split": "train"
+          },
+          "Joe Syntax": {
+            "n": 8,
+            "mean": 36.09,
+            "split": "train"
+          },
+          "Maduk": {
+            "n": 3,
+            "mean": 31.22,
+            "split": "test"
+          },
+          "Netsky": {
+            "n": 5,
+            "mean": 32.71,
+            "split": "test"
+          },
+          "Pola & Bryson": {
+            "n": 3,
+            "mean": 40.81,
+            "split": "test"
+          },
+          "Wilkinson": {
+            "n": 1,
+            "mean": 25.45,
+            "split": "test"
+          }
+        },
+        "stem_kind": "bands"
+      },
+      "why": "listening judge: held-out delta {'n': 12, 'n_mix': 4, 'mean_delta': -0.308, 'ci': [-2.535, 2.084], 'includes_zero': True} train {'n': 21, 'n_mix': 2, 'mean_delta': 1.027, 'ci': [-0.59, 3.654], 'includes_zero': True}; render-fails 0 -> 0"
+    }
+  ],
+  "promoted": false,
+  "rules_json_changed": false,
+  "ts": "2026-11-23 08:55 EST"
+}

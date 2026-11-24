@@ -69,17 +69,19 @@ def main(pick_id, base_variant, cands):
         print('DIAG skipped:', type(e).__name__, str(e)[-200:], flush=True)
 
 if __name__ == '__main__':
-    # 2026-11-20 list (base n1120_base: rules.json incl. TAIL_EXIT 6 + BLEND_LOCK 1, unchanged since 11-17).
-    # Pick hybrid_minds_ukf__09: pro keeps the outgoing ~11 bars after its bass swap (ours ~6 after the tail exit),
-    # swaps bass earlier, and blends longer. General knobs/values never tried on this scorer cohort.
-    # EXITPOS (epg_*) arms are on the nightly promotion track (no rules.json writes) and were already no-ops here (n1120 ckpt).
-    # round 3 (round 2: hint_family 1 (+hint_weight 0.3) -> hint_short 14.71; window_planner 1, loop_fam_pen 0.5 no-ops;
-    # length_pref 32 -> nat_long 17.70). Event gap on the pick: pro bass swap ~5 bars earlier than ours and the pro
-    # outgoing lingers ~13 bars longer. Try the general FADE=long fader-shape knobs that move those two events.
+    # 2026-11-23 list (base n1121_base: rules.json incl. TAIL_EXIT 6 + BLEND_LOCK 1, unchanged since 11-17).
+    # Pick joe_syntax_hospital__13: next unused TRAIN (first unused Joe Syntax after 11-20 hm09).
+    # Pro starts at out bar ~123 (end of drop 1 into the breakdown), cues B at bar ~28, overlaps ~33 bars
+    # (gone ~156). Ours takes the outro-over-intro window (exit 256 / cue 48 / 16 bars). Score 19.81.
+    # Event terms on that default window: pro bass swap later in the scored window (6 vs 2) and a longer
+    # detected blend (15 vs 9); beat_align is weak (12.34) and the decks were not located.
+    # EXITPOS (epg_*) stays on the nightly promotion track (no rules.json writes here). the listener already
+    # preferred the drop-fade (exit 224) on this pair in an 11-19 ours-vs-ours A/B; that is not this list.
+    # Try general window-selection knobs that can offer a mid-track or longer blend.
     CANDS = [
-        ('long_swap_off', {'LONG_SWAP': ''}),
-        ('long_rise_3', {'LONG_RISE': 3}),
-        ('tail_exit_0', {'TAIL_EXIT': 0}),
-        ('long_exit_10', {'LONG_EXIT': 10}),
+        ('window_planner_1', {'window_planner': 1}),
+        ('length_pref_32', {'length_pref': 32}),
+        ('linger_pen_040', {'linger_pen_w': 0.4}),
+        ('wp_len32', {'window_planner': 1, 'length_pref': 32}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

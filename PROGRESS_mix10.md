@@ -1,0 +1,27 @@
+# Mix 10 progress
+Weekly build started 2026-11-20 late ET; this file is the takeover log from 2026-11-21 ~01:54 ET (America/New_York).
+Env (same as Mix 09 delivery): STRUCT=1 FADE=tail LOOP32=0 ECHO_MAX=2 PREF_W=0 SWAP_PHRASE=1 HIGH_SWAP=1 BASS_SWAP_BARS=3 HIGH_OFS=8 LINGERW=0.15 LX=0. Master gain not yet chosen.
+
+- 23:39–23:50 ET 11/20: prep-mix10 (10 Logistics tracks, real voc/drums/bass) and restore-mix10 both done.
+- 01:53 ET 11/21: search-mix10-r1 / chain-mix10 finished rc=0, infeasible. 97403 complete, 83068 table-feasible. All 4 dry-runs failed drums_only + vocal + seesaw. Two tracks have no 16-bar beat-on-beat entry: pUUrJH7jzAQ (Dimension – Saviour), ujjImKRMX-M (Hybrid Minds – Tear Drops). They appear in only 3065/83068 feasible plans.
+- Note on r1 "near misses failed only drop_end (8–9)": that number is the count of drop-ok blends, not "bars past a limit". With DROP_FRAC=0.333, 8/25 and 9/28 sit just under the table fraction. Limits were not loosened.
+- 01:56 ET: takeover. Confirmed no search still running. Started search-mix10-r2 (crate_r2 = 81 tracks, those two dropped; same limits; NPAR=2, nice 15) so the Saturday nightly hill-climb is not starved.
+- 01:57–02:02 ET: r1 RCA. The 4 dry plans (and every one of the 83068 table-feasible plans) share the same opening chain and the same four failing windows, none of which involve Saviour/Tear Drops:
+  - drums_only: Logistics Devotion > Cloudwater entering at source bar 0 (8 drums-only bars ending 6:56)
+  - vocal: Cloudwater > Miles Apart (8 bars at 8:59) and Miles Apart > Ignite (13 bars at 10:48)
+  - seesaw: Ignite > Lost In U window [n,192,None,64,32] (TRADE, 3 lead flips) — already in seesaw_ban_10.json
+  Root cause of the vocal misses (same class as Mix 09 r2): EpHrodtTiK0 (Miles Apart) has no `bar.voc`. Planner VOCOFF (V=0, cheap windows). Dry `vocal_bars` fills missing voc with -100, p95=-100, so every bar counts as vocal. Also missing voc (crate): Afterglow I9QGpHScGug, Meteorites SqzxwPEa-DI, Pretend zEvLsOVhg0I, Listen J3oTRY7AdE4 — the Mix 09 vocfix/new-prep set; features later lost. table_key ignores st json content/mtimes, so pair_table_10.json will keep admitting those windows even after a vocfix unless a new PAIR_TABLE is built. r2 cannot escape this (same table, same chain).
+- Next: vocfix those 5 tracks (demucs+barfeats, no threshold change), rebuild pair_table_10r3.json, stop r2, search-mix10-r3 on crate_r2. Seesaw banfile kept.
+
+- 02:07 ET: stopped search-mix10-r2 (rc=143) once the r1 RCA showed it could not escape the voc-blind Logistics chain. Load was 21 on 8 cores (nightly + r2 + vocfix). vocfix-mix10-r3 and chain-mix10-r3 left running.
+
+- 02:20 ET: vocfix-mix10-r3 done rc=0. Real voc on all five: Miles Apart voc max -21.9 (164 unique), Afterglow -18.6, Meteorites -24.9, Pretend -20.1, Listen -24.1. chain-mix10-r3 started pair_table_10r3.json at 02:20:30 ET (previous table took 26 min).
+
+- 10:22 ET 11/23: search-mix10-r3 done rc=0, infeasible. 134769 complete, 118788 table-feasible. All 6 dry-runs failed drums_only + vocal (seesaw clear). Search wall-clock was long because of the 11/21–11/23 usage outage (depth 3 jumped 12s→19196s; depth 20 jumped 25816s→108200s).
+- 19:15 ET 11/23: takeover after the outage. No mix10 search running. Voc still present on the five vocfixed tracks (crate_r2 has 0 missing voc).
+- 19:20 ET: r3 RCA (dry of pool plan 0, shared by all 6 unique dry orders; all 118788 feasible plans contain all three failing pairs; only two prefixes, Not Alone vs Inside, then the same chain):
+  - drums_only: Devotion (GSzweUBnRYM) > Cloudwater (B8diXfhUkjI) entering at source bar 0, window [n,176,None,0,32], 8 drums-only bars ending 6:56 (mix bars 272–304). Cloudwater source bars 16–30 are drums-only (all−drums < 2 dB). The search path check counts both decks as audible for the whole blend, so Devotion’s non-drums-only bars reset the run and the window is admitted; the dry test drops the faded outgoing deck and the run stands. Not a stem-feature bug.
+  - vocal: Cloudwater > Miles Apart (EpHrodtTiK0) window [n,144,None,48,32], 8 clash bars at 8:59 (planner V=10 on the same bars). Miles Apart > Lost In U (GgG1Cd9zITE) window [n,160,None,64,32], 7 clash bars at 10:49 (planner V=7, exact). Both tracks have real voc data (vocal_data true). This is not the Mix 09 missing-voc bug. Those windows are not in the cached table top-40 (Cloudwater>Miles has voc on 28/40 other windows; Miles>Lost In U has voc=0 on its stored 40), but the search still wrote them into every feasible plan.
+  Fix (no threshold change): r4 --exclude Cloudwater and Miles Apart, and --ban the four dry-proven pairs (those two plus r1’s Miles Apart>Ignite). Reuse pair_table_10r3. Same limits, NPAR=2, nice 15.
+
+- 19:19 ET: first search-mix10-r4 start was killed on purpose (rc=143, empty log). Unquoted `--ban a>b,...` was parsed as shell redirects; stdout went to a 31-byte junk file `src2/q_cZZY0BehE` (real `.m4a`/st json/wav untouched). Removed four junk redirect files, quoted the ban list, restarted at 19:20:09 ET (nice 15, NPAR=2, same excludes/bans/limits). Argv confirmed. Voc still present on the five vocfixed tracks.

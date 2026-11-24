@@ -1,0 +1,68 @@
+{
+  "id": "joe_syntax_hospital__13",
+  "flag": "THIN_DROPCUE=1",
+  "fam": "nat_short",
+  "win": [
+    "n",
+    256,
+    null,
+    64,
+    16
+  ],
+  "score": 32.4,
+  "score_v2": 32.4,
+  "breakdown": {
+    "stem_curves": 21.23,
+    "deck_curves": 30.71,
+    "beat_align": 40.7,
+    "bass_swap": 48.8,
+    "outgoing_cut": 48.8,
+    "blend_length": 13.98,
+    "stems": {
+      "drums": 22.46,
+      "bass": 12.93,
+      "vocals": 13.05,
+      "melody": 36.47
+    },
+    "beat_off_ms": 2.9,
+    "beat_align_v2": 40.7,
+    "beat_identity": null,
+    "beat_lock": {
+      "pro": null,
+      "ours": null,
+      "why": "deck not located (onset r < 0.2)"
+    },
+    "events_pro": {
+      "bass_swap": null,
+      "outgoing_cut": null,
+      "blend_length": 17
+    },
+    "events_ours": {
+      "bass_swap": null,
+      "outgoing_cut": null,
+      "blend_length": 7
+    },
+    "stem_kind": [
+      "bands",
+      "bands"
+    ],
+    "deck": {
+      "per_stem_deck": 30.71
+    },
+    "align": {
+      "lag_samples": -443648,
+      "lag_ms": -20120.09,
+      "peak": 0.1965,
+      "win_sec": 24.018
+    }
+  },
+  "mp3": "/workspace/mixes/deliver/protrans/rca_2026-11-23_thindropcue.mp3",
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/rca_2026-11-23_thindropcue.png",
+  "duration_s": 44.138,
+  "tick_s": 11.034,
+  "tick_timestamp": "0:11",
+  "lufs_before": -10.037693509398876,
+  "gain_db": -3.962306490601124,
+  "src": "/tmp/protrans_bench/rca23thin.mp3",
+  "lufs": -14.0
+}

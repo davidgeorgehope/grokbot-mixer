@@ -1,0 +1,175 @@
+{
+ "mix": "yolowich_FIdBhH3SuXk",
+ "url": "https://www.youtube.com/watch?v=FIdBhH3SuXk",
+ "title": "Hybrid Minds - Drum n Bass Listening Liquid Set",
+ "dj": "YoloWich",
+ "n": 6,
+ "ids": [
+  "yolowich_FIdBhH3SuXk__00",
+  "yolowich_FIdBhH3SuXk__01",
+  "yolowich_FIdBhH3SuXk__03",
+  "yolowich_FIdBhH3SuXk__04",
+  "yolowich_FIdBhH3SuXk__06",
+  "yolowich_FIdBhH3SuXk__09"
+ ],
+ "locked_holdout": "not reopened (promotion_criteria_1120.json: already opened 2026-11-19; not required for these flag candidates)",
+ "arms": {
+  "default": {
+   "hard_fail": 1,
+   "new_fails": [],
+   "fixed": [],
+   "changed": [],
+   "exit_err": 30.68,
+   "cue_err": 19.23,
+   "overlap_err": 4.57,
+   "swap_err": 18.92,
+   "fade_err": 4.567,
+   "exit_cue_mean": 49.92,
+   "checks": {
+    "hole_v2": 0,
+    "clash_v1": 0,
+    "clash_v2": 0,
+    "halfbeat": 0,
+    "pump": 1
+   },
+   "zero_new_hard_fails": true
+  },
+  "epg_strict": {
+   "hard_fail": 1,
+   "new_fails": [],
+   "fixed": [],
+   "changed": [],
+   "exit_err": 30.68,
+   "cue_err": 19.23,
+   "overlap_err": 4.57,
+   "swap_err": 18.92,
+   "fade_err": 4.567,
+   "exit_cue_mean": 49.92,
+   "checks": {
+    "hole_v2": 0,
+    "clash_v1": 0,
+    "clash_v2": 0,
+    "halfbeat": 0,
+    "pump": 1
+   },
+   "zero_new_hard_fails": true,
+   "delta_exit_cue_mix_grouped": {
+    "n": 6,
+    "n_groups": 1,
+    "group": "mix",
+    "mean_delta": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "includes_zero": true,
+    "note": "mix-grouped CI is degenerate with a single mix (every draw is the observed mean)"
+   },
+   "delta_exit_cue_pair": {
+    "n": 6,
+    "n_groups": 6,
+    "group": "pair",
+    "mean_delta": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "includes_zero": true,
+    "note": null
+   }
+  },
+  "epg_drop": {
+   "hard_fail": 1,
+   "new_fails": [],
+   "fixed": [],
+   "changed": [],
+   "exit_err": 30.68,
+   "cue_err": 19.23,
+   "overlap_err": 4.57,
+   "swap_err": 18.92,
+   "fade_err": 4.567,
+   "exit_cue_mean": 49.92,
+   "checks": {
+    "hole_v2": 0,
+    "clash_v1": 0,
+    "clash_v2": 0,
+    "halfbeat": 0,
+    "pump": 1
+   },
+   "zero_new_hard_fails": true,
+   "delta_exit_cue_mix_grouped": {
+    "n": 6,
+    "n_groups": 1,
+    "group": "mix",
+    "mean_delta": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "includes_zero": true,
+    "note": "mix-grouped CI is degenerate with a single mix (every draw is the observed mean)"
+   },
+   "delta_exit_cue_pair": {
+    "n": 6,
+    "n_groups": 6,
+    "group": "pair",
+    "mean_delta": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "includes_zero": true,
+    "note": null
+   }
+  },
+  "epg_stack": {
+   "hard_fail": 1,
+   "new_fails": [],
+   "fixed": [],
+   "changed": [],
+   "exit_err": 30.68,
+   "cue_err": 19.23,
+   "overlap_err": 4.57,
+   "swap_err": 18.92,
+   "fade_err": 4.567,
+   "exit_cue_mean": 49.92,
+   "checks": {
+    "hole_v2": 0,
+    "clash_v1": 0,
+    "clash_v2": 0,
+    "halfbeat": 0,
+    "pump": 1
+   },
+   "zero_new_hard_fails": true,
+   "delta_exit_cue_mix_grouped": {
+    "n": 6,
+    "n_groups": 1,
+    "group": "mix",
+    "mean_delta": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "includes_zero": true,
+    "note": "mix-grouped CI is degenerate with a single mix (every draw is the observed mean)"
+   },
+   "delta_exit_cue_pair": {
+    "n": 6,
+    "n_groups": 6,
+    "group": "pair",
+    "mean_delta": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ],
+    "includes_zero": true,
+    "note": null
+   }
+  }
+ },
+ "pass": {
+  "epg_strict": true,
+  "epg_drop": true,
+  "epg_stack": true
+ }
+}

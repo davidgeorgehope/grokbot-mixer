@@ -1,0 +1,157 @@
+{
+ "blend": 0,
+ "a": "ksVDZt9_0J4",
+ "b": "Vwb-3pAvOVk",
+ "start_bar": 240.0,
+ "end_bar": 256.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-24.png",
+ "halfbeat": {
+  "r0": 1.0,
+  "rh": 0.0,
+  "lag_ms": 0.0,
+  "bars": 0,
+  "fail": false,
+  "basis": "drum-phase+lag",
+  "note": "< 4 drum-on-drum bars"
+ },
+ "pro_lock": {
+  "pro": {
+   "phase_beats": -0.2588,
+   "rate": 1.0,
+   "r_a": 0.113,
+   "r_b": 0.63
+  },
+  "ours": {
+   "phase_beats": -0.0174,
+   "rate": 1.0,
+   "r_a": 0.949,
+   "r_b": 0.886
+  },
+  "why": "deck not located (onset r < 0.2)"
+ },
+ "offset_ms_median": 52.2,
+ "offset_bars": 6,
+ "clash_bars": 6.06,
+ "sum_lows_dip_db": 39.3,
+ "bass_swap": [
+  243.0,
+  248.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.055288,
+  "pcty": 2.929641,
+  "Scol": 0.6964,
+  "Scty": 0.6834,
+  "banger_clash_rate": 0.0305,
+  "start_s": 11.034,
+  "end_s": 33.103,
+  "continuity_fallback": false
+ },
+ "pick_id": "hybrid_minds_ukf__10",
+ "fam": "nat_short",
+ "win": [
+  "n",
+  256,
+  null,
+  32,
+  16
+ ],
+ "score": 36.67,
+ "score_v2": 36.67,
+ "breakdown": {
+  "stem_curves": 59.65,
+  "deck_curves": 39.09,
+  "beat_align": 29.39,
+  "bass_swap": 27.14,
+  "outgoing_cut": 16.46,
+  "blend_length": 14.53,
+  "stems": {
+   "drums": 65.97,
+   "bass": 66.57,
+   "vocals": 43.94,
+   "melody": 62.12
+  },
+  "beat_off_ms": 17.41,
+  "beat_align_v2": 29.39,
+  "beat_identity": null,
+  "beat_lock": {
+   "pro": {
+    "phase_beats": -0.2588,
+    "rate": 1.0,
+    "r_a": 0.113,
+    "r_b": 0.63
+   },
+   "ours": {
+    "phase_beats": -0.0174,
+    "rate": 1.0,
+    "r_a": 0.949,
+    "r_b": 0.886
+   },
+   "why": "deck not located (onset r < 0.2)"
+  },
+  "events_pro": {
+   "bass_swap": 12,
+   "outgoing_cut": 14,
+   "blend_length": 13
+  },
+  "events_ours": {
+   "bass_swap": 8,
+   "outgoing_cut": 8,
+   "blend_length": 0
+  },
+  "stem_kind": [
+   "bands",
+   "bands"
+  ],
+  "deck": {
+   "per_stem_deck": 39.09
+  },
+  "align": {
+   "lag_samples": 171008,
+   "lag_ms": 7755.46,
+   "peak": 0.2374,
+   "win_sec": 44.138
+  }
+ },
+ "ours": "/tmp/protrans_bench/diag458664.mp3",
+ "provsours": {
+  "md": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-24_provsours.md",
+  "png": "/workspace/mixes/deliver/protrans/diagnostics/daily_2026-11-24_provsours.png",
+  "rows": [
+   {
+    "who": "pro",
+    "out_start": 133.3,
+    "out_end": 145.3,
+    "in_start": 25.5,
+    "in_end": 37.5,
+    "out_swap": 144.3,
+    "out_start_section": "breakdown",
+    "in_start_section": "intro",
+    "touches_out_slowdown": true,
+    "in_next_drop_vs_blend_end": 10.5,
+    "out_last_drop_played": "cut 107 bars early",
+    "out_time": "3:03",
+    "mix_time": "17:18",
+    "why": "what the DJ did"
+   },
+   {
+    "who": "ours",
+    "out_start": 240,
+    "out_end": 256,
+    "in_start": 32,
+    "in_end": 48,
+    "out_swap": null,
+    "out_start_section": "outro + slowdown/half-time",
+    "in_start_section": "intro",
+    "touches_out_slowdown": true,
+    "in_next_drop_vs_blend_end": 0,
+    "out_last_drop_played": "all",
+    "out_time": "5:31",
+    "mix_time": null,
+    "why": "outro-over-intro bonus window (A plays its outro, B's first drop lands as A ends); blend starts inside the outgoing slowdown"
+   }
+  ]
+ }
+}

@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB','HARD_FALLBACK','PICKER_STYLE_GATED'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB','HARD_FALLBACK','PICKER_STYLE_GATED','BREAK_EXIT'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -144,7 +144,7 @@ def _phase_pick_cost(a_yt, b_yt, win, phase_pref_w, linger_pen_w, breakdown_pen_
 FAMILY_COST = {'nat_long': 0.0, 'nat_short': 0.01, 'out_loop': 0.02, 'in_loop': 0.03, 'lx_beat': 0.04,
                'cue_early': 0.05, 'cue_late': 0.06, 'phrase_cut': 0.07, 'swap_early': 0.08, 'swap_late': 0.09,
                'sneak_in': 0.10, 'rated': 0.0, 'hint_long': 0.0, 'hint_short': 0.01,
-               'plan_breakdown_drop': 0.01, 'plan_drop1_end': 0.01,
+               'plan_breakdown_drop': 0.01, 'plan_drop1_end': 0.01, 'break_exit': 0.01,
                'cons_cue': 0.05, 'slowpair': 0.01}  # cons_cue: 2026-11-19 CONSONANCE research family (same cost as cue_early); only offered when CONSONANCE=1  # slowpair: 2026-11-20 SLOWPAIR research family (same cost as nat_short); only offered when SLOWPAIR=1  # plan_*: 2026-11-15 window planner, same costs as nat_short; only offered when window_planner is on
 
 def family_cost(fam, rules=None):
@@ -241,6 +241,72 @@ def _bar_low(yt):
     except Exception:
         return None
 
+def break_exit_on(rules=None, env=None):
+    """Nominate drop-1-end / post-drop-gap-end exits as a family. Off by default.
+    The engine or official score still chooses; this does not force the pick.
+    Do not write rules.json."""
+    env = env or {}
+    rules = rules or {}
+    return _flag_on(env.get('BREAK_EXIT') or rules.get('BREAK_EXIT') or os.environ.get('BREAK_EXIT'))
+
+def break_exit_anchors(a_yt):
+    """Outgoing drop-1 end and the start of the next drop (end of the post-drop
+    breakdown / half-time gap). Track structure only; pro labels are not inputs."""
+    sa = {}
+    try:
+        st = os.path.join(getattr(__import__('paths'), 'SRC2', '/workspace/mixes/src2'), 'st', f'{a_yt}.sections.json')
+        if os.path.exists(st):
+            sa = json.load(open(st)) or {}
+        else:
+            import sys
+            src2 = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'src2')
+            if src2 not in sys.path:
+                sys.path.insert(0, src2)
+            import sections as _SEC
+            sa = _SEC.get(a_yt) or {}
+    except Exception:
+        return []
+    anchors = []
+    drops = sa.get('drops') or []
+    if drops:
+        anchors.append(int(drops[0][1]))
+        if len(drops) > 1:
+            anchors.append(int(drops[1][0]))
+    elif sa.get('breakdown'):
+        anchors.append(int(sa['breakdown']))
+    return sorted({int(x) for x in anchors if x})
+
+def _win_out_bar(win):
+    if not win or win[0] != 'n' or win[1] is None or win[4] is None:
+        return None
+    return int(win[1]) - int(win[4]) + 1
+
+def add_break_exit_families(fams, cs, a_yt, enabled=False, tol=8):
+    """Append a break_exit family per anchor when a natural window in cs exits
+    within tol bars. Already-nominated windows are skipped. Never replaces the
+    default first pick by itself."""
+    if not enabled:
+        return list(fams)
+    anchors = break_exit_anchors(a_yt)
+    if not anchors:
+        return list(fams)
+    fams = list(fams)
+    have = {tuple(c.get('win') or []) for c in fams}
+    nats = [c for c in cs if (c.get('win') or [''])[0] == 'n'
+            and not c.get('planner_extra') and not c.get('land_extra')]
+    for anc in anchors:
+        cands = [c for c in nats if _win_out_bar(c.get('win')) is not None
+                 and abs(_win_out_bar(c['win']) - anc) <= tol]
+        if not cands:
+            continue
+        best = min(cands, key=lambda c: c.get('cost', 1e9))
+        key = tuple(best['win'])
+        if key in have:
+            continue
+        fams.append(dict(fam='break_exit', win=list(best['win']), env={}))
+        have.add(key)
+    return fams
+
 def add_hint_families(fams, cs, hint_bar, near_bars=32, enabled=False,
                       lo_a=None, lo_b=None, gap=9.84):
     """Append hint_short / hint_long when enabled, skipping windows already nominated.
@@ -321,6 +387,15 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             pass
         fams = add_hint_families(fams, cs, hb, nb, enabled=_flag_on(rules.get('hint_family')),
                                  lo_a=_bar_low(a), lo_b=_bar_low(b), gap=gap)
+        # BREAK_EXIT=1 (off by default, 2026-11-24): nominate drop-1-end /
+        # post-drop-gap-end exits as a family so the engine or official score
+        # can choose them (ukf__10: pro left at breakdown ~133, default stayed
+        # on the outro at 241). Does not force the pick. Do not write rules.json.
+        be_info = None
+        if break_exit_on(rules, env):
+            be_info = dict(enabled=True, anchors=break_exit_anchors(a))
+            fams = add_break_exit_families(fams, cs, a, enabled=True)
+            be_info['nominated'] = [c['win'] for c in fams if c.get('fam') == 'break_exit']
         # window_planner is off by default: nominates mid-track section windows
         # and chooses per pair from track features (2026-11-15). Not a blanket swap.
         # The default window is whatever this cost loop already picks (usually
@@ -811,7 +886,8 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'),
                     planner=(planner_choice if planner_choice else pick.get('planner')),
                     ranker=(ranker_info if ranker_on else None), replica=replica_info, dropcand=drop_info, picker=picker_info,
-                    consonance=cons_info, slowpair=sp_info, drumclash=clash_info, hard_fallback=_hc_fb)
+                    consonance=cons_info, slowpair=sp_info, drumclash=clash_info, hard_fallback=_hc_fb,
+                    break_exit=(None if be_info is None else dict(be_info, picked=(pick.get('fam')=='break_exit'), pick_win=list(pick.get('win') or []))))
         return info
     finally:
         os.chdir(oldcwd)

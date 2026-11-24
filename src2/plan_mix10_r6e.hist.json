@@ -1,0 +1,429 @@
+{
+ "hist": [
+  {
+   "pair": "kKu3fIOTiHk>7Itbo72XEz4",
+   "codes": [
+    "N1",
+    "test_guardrails_zero_failures"
+   ],
+   "action": "rewindow",
+   "tries": 2,
+   "candidates": 194,
+   "requeued": true,
+   "track": "7Itbo72XEz4",
+   "order": [
+    "yogt46dJJ4g",
+    "j9AuFRpLk7U",
+    "3f-XOhfDhxk",
+    "HpfQ0bus688",
+    "-n50uo8so4U",
+    "onLHBSeOOJg",
+    "kKu3fIOTiHk",
+    "7Itbo72XEz4",
+    "GSzweUBnRYM",
+    "04459SswOpM",
+    "3BOWFQBhzhU",
+    "GgG1Cd9zITE",
+    "2s3M6oX2lfo",
+    "PVa_LRlOqBE",
+    "sObzaBqaBRQ",
+    "zGBn-IJ1isg",
+    "OPuVVhbkicU",
+    "KDRPfuZfNYw",
+    "q_IuTV23x7Q",
+    "YFMvngI33oE",
+    "SqzxwPEa-DI",
+    "gbD9mt0T10g",
+    "1WOi5IRuO7Y",
+    "4AKSpPkZAuE"
+   ],
+   "len_min": 65.77
+  },
+  {
+   "pair": "HpfQ0bus688>-n50uo8so4U",
+   "codes": [
+    "bassgap"
+   ],
+   "action": "rewindow",
+   "tries": 1,
+   "candidates": 73,
+   "track": "-n50uo8so4U",
+   "order": [
+    "yogt46dJJ4g",
+    "j9AuFRpLk7U",
+    "3f-XOhfDhxk",
+    "HpfQ0bus688",
+    "-n50uo8so4U",
+    "onLHBSeOOJg",
+    "kKu3fIOTiHk",
+    "7Itbo72XEz4",
+    "GSzweUBnRYM",
+    "04459SswOpM",
+    "3BOWFQBhzhU",
+    "GgG1Cd9zITE",
+    "2s3M6oX2lfo",
+    "PVa_LRlOqBE",
+    "sObzaBqaBRQ",
+    "zGBn-IJ1isg",
+    "OPuVVhbkicU",
+    "KDRPfuZfNYw",
+    "q_IuTV23x7Q",
+    "YFMvngI33oE",
+    "SqzxwPEa-DI",
+    "gbD9mt0T10g",
+    "1WOi5IRuO7Y",
+    "4AKSpPkZAuE"
+   ],
+   "len_min": 66.87
+  },
+  {
+   "pair": "PVa_LRlOqBE>sObzaBqaBRQ",
+   "codes": [
+    "bassgap"
+   ],
+   "action": "rewindow",
+   "tries": 1,
+   "candidates": 55,
+   "track": "sObzaBqaBRQ",
+   "order": [
+    "yogt46dJJ4g",
+    "j9AuFRpLk7U",
+    "3f-XOhfDhxk",
+    "HpfQ0bus688",
+    "-n50uo8so4U",
+    "onLHBSeOOJg",
+    "kKu3fIOTiHk",
+    "7Itbo72XEz4",
+    "GSzweUBnRYM",
+    "04459SswOpM",
+    "3BOWFQBhzhU",
+    "GgG1Cd9zITE",
+    "2s3M6oX2lfo",
+    "PVa_LRlOqBE",
+    "sObzaBqaBRQ",
+    "zGBn-IJ1isg",
+    "OPuVVhbkicU",
+    "KDRPfuZfNYw",
+    "q_IuTV23x7Q",
+    "YFMvngI33oE",
+    "SqzxwPEa-DI",
+    "gbD9mt0T10g",
+    "1WOi5IRuO7Y",
+    "4AKSpPkZAuE"
+   ],
+   "len_min": 67.24
+  },
+  {
+   "pair": "04459SswOpM>3BOWFQBhzhU",
+   "codes": [
+    "swapdip"
+   ],
+   "action": "gone (an earlier swap removed it)",
+   "tries": 3,
+   "candidates": 222,
+   "requeued": true
+  },
+  {
+   "pair": "3f-XOhfDhxk>HpfQ0bus688",
+   "codes": [
+    "beat_aligned"
+   ],
+   "action": "drop_in",
+   "tries": 3,
+   "candidates": 291,
+   "requeued": true,
+   "track": "HpfQ0bus688",
+   "order": [
+    "yogt46dJJ4g",
+    "j9AuFRpLk7U",
+    "3f-XOhfDhxk",
+    "-n50uo8so4U",
+    "onLHBSeOOJg",
+    "kKu3fIOTiHk",
+    "jIqXQ8EbKNY",
+    "7Itbo72XEz4",
+    "GSzweUBnRYM",
+    "04459SswOpM",
+    "3BOWFQBhzhU",
+    "GgG1Cd9zITE",
+    "2s3M6oX2lfo",
+    "PVa_LRlOqBE",
+    "sObzaBqaBRQ",
+    "zGBn-IJ1isg",
+    "OPuVVhbkicU",
+    "KDRPfuZfNYw",
+    "q_IuTV23x7Q",
+    "YFMvngI33oE",
+    "SqzxwPEa-DI",
+    "gbD9mt0T10g",
+    "1WOi5IRuO7Y",
+    "4AKSpPkZAuE"
+   ],
+   "len_min": 64.67
+  },
+  {
+   "pair": "q_IuTV23x7Q>YFMvngI33oE",
+   "codes": [
+    "tail"
+   ],
+   "action": "rewindow",
+   "tries": 1,
+   "candidates": 80,
+   "track": "YFMvngI33oE",
+   "order": [
+    "yogt46dJJ4g",
+    "j9AuFRpLk7U",
+    "3f-XOhfDhxk",
+    "HpfQ0bus688",
+    "-n50uo8so4U",
+    "onLHBSeOOJg",
+    "kKu3fIOTiHk",
+    "7Itbo72XEz4",
+    "GSzweUBnRYM",
+    "04459SswOpM",
+    "3BOWFQBhzhU",
+    "GgG1Cd9zITE",
+    "2s3M6oX2lfo",
+    "PVa_LRlOqBE",
+    "sObzaBqaBRQ",
+    "zGBn-IJ1isg",
+    "OPuVVhbkicU",
+    "KDRPfuZfNYw",
+    "q_IuTV23x7Q",
+    "YFMvngI33oE",
+    "SqzxwPEa-DI",
+    "gbD9mt0T10g",
+    "1WOi5IRuO7Y",
+    "4AKSpPkZAuE"
+   ],
+   "len_min": 66.14
+  },
+  {
+   "pair": "kKu3fIOTiHk>7Itbo72XEz4",
+   "codes": [
+    "N1",
+    "test_guardrails_zero_failures"
+   ],
+   "action": "gone (an earlier swap removed it)",
+   "tries": 1,
+   "pass": 2,
+   "candidates": 97,
+   "requeued": true
+  },
+  {
+   "pair": "04459SswOpM>3BOWFQBhzhU",
+   "codes": [
+    "swapdip"
+   ],
+   "action": "gone (an earlier swap removed it)",
+   "tries": 3,
+   "pass": 2,
+   "candidates": 222,
+   "requeued": true
+  },
+  {
+   "pair": "3f-XOhfDhxk>HpfQ0bus688",
+   "codes": [
+    "beat_aligned"
+   ],
+   "action": "rewindow",
+   "tries": 2,
+   "pass": 2,
+   "candidates": 194,
+   "requeued": true,
+   "track": "HpfQ0bus688",
+   "order": [
+    "yogt46dJJ4g",
+    "j9AuFRpLk7U",
+    "3f-XOhfDhxk",
+    "HpfQ0bus688",
+    "-n50uo8so4U",
+    "onLHBSeOOJg",
+    "kKu3fIOTiHk",
+    "jIqXQ8EbKNY",
+    "7Itbo72XEz4",
+    "GSzweUBnRYM",
+    "04459SswOpM",
+    "3BOWFQBhzhU",
+    "GgG1Cd9zITE",
+    "2s3M6oX2lfo",
+    "PVa_LRlOqBE",
+    "sObzaBqaBRQ",
+    "zGBn-IJ1isg",
+    "OPuVVhbkicU",
+    "KDRPfuZfNYw",
+    "q_IuTV23x7Q",
+    "YFMvngI33oE",
+    "SqzxwPEa-DI",
+    "gbD9mt0T10g",
+    "1WOi5IRuO7Y",
+    "4AKSpPkZAuE"
+   ],
+   "len_min": 68.71
+  },
+  {
+   "pair": "kKu3fIOTiHk>7Itbo72XEz4",
+   "codes": [
+    "N1",
+    "test_guardrails_zero_failures"
+   ],
+   "action": "insert",
+   "tries": 1,
+   "pass": 2,
+   "candidates": 97,
+   "track": "jIqXQ8EbKNY",
+   "order": [
+    "yogt46dJJ4g",
+    "j9AuFRpLk7U",
+    "3f-XOhfDhxk",
+    "HpfQ0bus688",
+    "-n50uo8so4U",
+    "onLHBSeOOJg",
+    "kKu3fIOTiHk",
+    "jIqXQ8EbKNY",
+    "7Itbo72XEz4",
+    "GSzweUBnRYM",
+    "04459SswOpM",
+    "3BOWFQBhzhU",
+    "GgG1Cd9zITE",
+    "2s3M6oX2lfo",
+    "PVa_LRlOqBE",
+    "sObzaBqaBRQ",
+    "zGBn-IJ1isg",
+    "OPuVVhbkicU",
+    "KDRPfuZfNYw",
+    "q_IuTV23x7Q",
+    "YFMvngI33oE",
+    "SqzxwPEa-DI",
+    "gbD9mt0T10g",
+    "1WOi5IRuO7Y",
+    "4AKSpPkZAuE"
+   ],
+   "len_min": 67.98
+  },
+  {
+   "pair": "04459SswOpM>3BOWFQBhzhU",
+   "codes": [
+    "swapdip"
+   ],
+   "action": "gone (an earlier swap removed it)",
+   "tries": 3,
+   "pass": 2,
+   "candidates": 222,
+   "requeued": true
+  },
+  {
+   "pair": "3f-XOhfDhxk>HpfQ0bus688",
+   "codes": [
+    "beat_aligned"
+   ],
+   "action": "gone (an earlier swap removed it)",
+   "tries": 2,
+   "pass": 2,
+   "candidates": 194,
+   "requeued": true
+  },
+  {
+   "pair": "04459SswOpM>3BOWFQBhzhU",
+   "codes": [
+    "swapdip"
+   ],
+   "action": "drop_in",
+   "tries": 3,
+   "pass": 2,
+   "candidates": 148,
+   "requeued": true,
+   "track": "3BOWFQBhzhU",
+   "order": [
+    "yogt46dJJ4g",
+    "j9AuFRpLk7U",
+    "3f-XOhfDhxk",
+    "-n50uo8so4U",
+    "onLHBSeOOJg",
+    "kKu3fIOTiHk",
+    "jIqXQ8EbKNY",
+    "7Itbo72XEz4",
+    "GSzweUBnRYM",
+    "04459SswOpM",
+    "GgG1Cd9zITE",
+    "2s3M6oX2lfo",
+    "PVa_LRlOqBE",
+    "sObzaBqaBRQ",
+    "zGBn-IJ1isg",
+    "OPuVVhbkicU",
+    "KDRPfuZfNYw",
+    "q_IuTV23x7Q",
+    "YFMvngI33oE",
+    "SqzxwPEa-DI",
+    "gbD9mt0T10g",
+    "1WOi5IRuO7Y",
+    "4AKSpPkZAuE"
+   ],
+   "len_min": 61.36
+  },
+  {
+   "pair": "3f-XOhfDhxk>HpfQ0bus688",
+   "codes": [
+    "beat_aligned"
+   ],
+   "action": "gone (an earlier swap removed it)",
+   "tries": 2,
+   "pass": 2,
+   "candidates": 97,
+   "requeued": true
+  },
+  {
+   "pair": "04459SswOpM>3BOWFQBhzhU",
+   "codes": [
+    "swapdip"
+   ],
+   "action": "gone (an earlier swap removed it)",
+   "tries": 2,
+   "pass": 2,
+   "candidates": 74,
+   "requeued": true
+  },
+  {
+   "pair": "3f-XOhfDhxk>HpfQ0bus688",
+   "codes": [
+    "beat_aligned"
+   ],
+   "action": "gone (an earlier swap removed it)",
+   "tries": 0,
+   "pass": 2,
+   "candidates": 0
+  },
+  {
+   "pair": "04459SswOpM>3BOWFQBhzhU",
+   "codes": [
+    "swapdip"
+   ],
+   "action": "gone (an earlier swap removed it)",
+   "tries": 0,
+   "pass": 2,
+   "candidates": 0
+  }
+ ],
+ "all_ok": true,
+ "len_min": 61.36,
+ "tests": {
+  "beatless": true,
+  "coverage": true,
+  "drums_only": true,
+  "anchors": true,
+  "vocal": true,
+  "keys": true,
+  "E4": true,
+  "entry_cliff": true,
+  "structure": true,
+  "fader_tail": true,
+  "lengths_vary": true,
+  "seesaw": true,
+  "variety": true
+ },
+ "warn": {
+  "bob16": false,
+  "x32": false
+ },
+ "resolved": true
+}

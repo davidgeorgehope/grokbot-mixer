@@ -1,0 +1,48 @@
+{
+ "mix": "blend_gate_clips/bg_0931fff5c0e1e523dd3e_c",
+ "mp3": "blend_gate_clips/bg_0931fff5c0e1e523dd3e_c.mp3",
+ "thresholds": {
+  "E1_db": 6,
+  "E2_lufs": -35,
+  "N1_ms": 10,
+  "N1_db": 3.83,
+  "F1_ms": 15,
+  "G1_jit_ms": 8,
+  "G1_abs_ms": 15,
+  "K1_steps": 2,
+  "L1_db": 3,
+  "P1_tp": -1.0,
+  "P1_dc": 0.005,
+  "S1_db": 20,
+  "R1_xcorr": 0.2,
+  "T1_dnb_min": 0.45,
+  "T1_breaks_min": 0.5,
+  "J1_db": 6.5,
+  "E4_db": 6,
+  "E4_bars": 8
+ },
+ "info": {
+  "integrated_lufs": -8.2,
+  "true_peak_dbtp": -1.5,
+  "dc": 0.0009036899427883327,
+  "grid": []
+ },
+ "n_fail": 0,
+ "by_check": {},
+ "failures": [],
+ "warnings": [],
+ "n_warn": 0,
+ "transitions": [
+  {
+   "i": 0,
+   "t": "0:22",
+   "swap": "0:27",
+   "a": "PVa_LRlOqBE",
+   "b": "EpHrodtTiK0",
+   "tech": "16-bar crossfader blend (equal-power, single control) + 3-bar bass handoff",
+   "keys": "5B->4B",
+   "flam_max": 4.0,
+   "fails": []
+  }
+ ]
+}

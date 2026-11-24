@@ -69,19 +69,19 @@ def main(pick_id, base_variant, cands):
         print('DIAG skipped:', type(e).__name__, str(e)[-200:], flush=True)
 
 if __name__ == '__main__':
-    # 2026-11-23 list (base n1121_base: rules.json incl. TAIL_EXIT 6 + BLEND_LOCK 1, unchanged since 11-17).
-    # Pick joe_syntax_hospital__13: next unused TRAIN (first unused Joe Syntax after 11-20 hm09).
-    # Pro starts at out bar ~123 (end of drop 1 into the breakdown), cues B at bar ~28, overlaps ~33 bars
-    # (gone ~156). Ours takes the outro-over-intro window (exit 256 / cue 48 / 16 bars). Score 19.81.
-    # Event terms on that default window: pro bass swap later in the scored window (6 vs 2) and a longer
-    # detected blend (15 vs 9); beat_align is weak (12.34) and the decks were not located.
-    # EXITPOS (epg_*) stays on the nightly promotion track (no rules.json writes here). the listener already
-    # preferred the drop-fade (exit 224) on this pair in an 11-19 ours-vs-ours A/B; that is not this list.
-    # Try general window-selection knobs that can offer a mid-track or longer blend.
+    # 2026-11-24 list (base like1124_base: clean like-for-like rescore of rules.json, HARD_FALLBACK off, 33 admitted).
+    # Pick hybrid_minds_ukf__10 (LSB - The Optimist -> Hybrid Minds - Secret Place): next unused TRAIN after js13.
+    # Pro enters B (intro bar ~25) while A is at bar ~133, just after A's drop 1 ends (128) in its breakdown,
+    # and A is gone by ~145 (12-bar overlap, bass swap ~11 bars in): A's second drop is skipped. Same shape as
+    # 11-23 js13 (pro started at the end of drop 1 into the breakdown; the listener 2/5 on our outro-over-intro).
+    # Ours (default) is outro-over-intro: exit 256 / cue 32 / 16 bars, score 36.67.
+    # Try general rules that let the engine leave the outgoing in its first breakdown, plus hint-driven mid windows.
+    # EXITPOS stays on the nightly promotion track (not here).
     CANDS = [
-        ('window_planner_1', {'window_planner': 1}),
-        ('length_pref_32', {'length_pref': 32}),
-        ('linger_pen_040', {'linger_pen_w': 0.4}),
-        ('wp_len32', {'window_planner': 1, 'length_pref': 32}),
+        ('replica_on', {'REPLICA': 1}),
+        ('replica_gated', {'REPLICA': 'gated'}),
+        ('dropcand_exit', {'DROPCAND': 'exit'}),
+        ('hintfam_04', {'hint_family': 1, 'hint_weight': 0.4}),
+        ('wp_hintfam', {'window_planner': 1, 'hint_family': 1}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

@@ -211,8 +211,8 @@
   "rca_note_2026_11_23_future_arms": "LEADIN_LOCK, BREAKDOWN_PHASE_EST, BASS_FILL_GAPS (and STRUCT_BREAK) recorded in future_nightly_arm_candidates. Not in the current six slots.",
   "dclash_land7_replaced": "dclash_land7 (DRUMCLASH+RISK+LAND+PLAN_LAND) was twice-rejected and is out of the six nightly slots. Its slot is now struct_mid_tight. dclash_land6 stays. thin_dropcue stays as the shadow arm. A struct_mid_tight+epg_stack combo was not added: the nightly cap is 6 and the other five arms stay; a seventh arm would be sliced off.",
   "next_nightly_arm_candidates": {
-    "written": "2026-11-24 8:30 AM ET",
-    "note": "For the next nightly after n1124, not the like-for-like re-score card. The six-arm cap is still the current file's candidates list. PICKER_STYLE_GATED is now a real apply_rules flag (off by default) and loads replica/picker_style_gated_windows.json (style-gated model trained on 762 dev, applied to the official 33). Do not write rules.json. Do not change defaults.",
+    "written": "2026-11-24 9:45 AM ET",
+    "note": "For the next nightly after n1124, not the like-for-like re-score card. The six-arm cap is still the current file's candidates list. PICKER_STYLE_GATED is now a real apply_rules flag (off by default) and loads replica/picker_style_gated_windows.json (style-gated model trained on 762 dev, applied to the official 33). Do not write rules.json. Do not change defaults. BREAK_EXIT=1 is now a real apply_rules flag (off by default): nominates drop-1-end / post-drop-gap-end exits as family break_exit; the engine or official score chooses. Do not write rules.json. Do not change defaults. Do not add a seventh arm to the current six.",
     "flags": [
       {
         "name": "picker_style_gated",
@@ -227,6 +227,19 @@
         "do_not": "add this to a card that already has six arms, write rules.json, or treat the 762-mix CV as an official promotion",
         "wired": true,
         "map": "replica/picker_style_gated_windows.json"
+      },
+      {
+        "name": "break_exit",
+        "promotion": false,
+        "shadow": false,
+        "flags_off_by_default": true,
+        "wired": true,
+        "delta": {
+          "BREAK_EXIT": 1
+        },
+        "label": "Nominate drop-1-end and post-drop-gap-end exits as family break_exit so the engine or official score can choose them. Off by default. Does not force the pick. On hybrid_minds_ukf__10 (LSB The Optimist -> Hybrid Minds Secret Place) it nominates 160/48/32 (exit 129, near pro 133) and 208/48/32 (exit 177); with default STRUCT and length_pref the engine still picks the outro 256/32/16. Complementary to STRUCT_MID tight (same anchors, that arm reweights engine cost) and overlapping in exit bar with picker_style_gated 160/32/32 and replica_bd_drop 160/16/32, but not with epg_strict (abstains here) or epg_drop (moves this pair to last-drop end 240/32/16). thin_dropcue moves cue only. Do not write rules.json. Do not add to a card that already has six arms.",
+        "eval": "protrans/tests/test_break_exit_flag.py, replica/ukf10_break_exit_verify.json",
+        "do_not": "add this to a card that already has six arms, write rules.json, force the pick, or loosen STRUCT to make it win"
       }
     ]
   },

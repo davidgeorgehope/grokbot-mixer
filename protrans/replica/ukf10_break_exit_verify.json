@@ -1,0 +1,60 @@
+{
+  "pair": "hybrid_minds_ukf__10",
+  "pro_out": 133.3,
+  "default": {
+    "fam": "nat_short",
+    "win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+    ],
+    "official": null,
+    "break_exit": null
+  },
+  "break_exit_flag": {
+    "fam": "nat_short",
+    "win": [
+      "n",
+      256,
+      null,
+      32,
+      16
+    ],
+    "official": null,
+    "break_exit": {
+      "enabled": true,
+      "anchors": [
+        128,
+        176
+      ],
+      "nominated": [
+        [
+          "n",
+          160,
+          null,
+          48,
+          32
+        ],
+        [
+          "n",
+          208,
+          null,
+          48,
+          32
+        ]
+      ],
+      "picked": false,
+      "pick_win": [
+        "n",
+        256,
+        null,
+        32,
+        16
+      ]
+    }
+  },
+  "pick_forced": false,
+  "pick_unchanged": true
+}

@@ -151,90 +151,60 @@
   },
   "tried": [
     {
-      "name": "replica_on",
+      "name": "replica_x16",
       "delta": {
-        "REPLICA": 1
+        "REPLICA": 1,
+        "REPLICA_X": 16
       },
-      "pick_score": 32.7,
+      "pick_score": 39.87,
       "pick_fam": "replica_bd_drop",
       "kept": false,
-      "why": "pick score did not improve (no full-cohort run)"
-    },
-    {
-      "name": "replica_gated",
-      "delta": {
-        "REPLICA": "gated"
-      },
-      "pick_score": 32.7,
-      "pick_fam": "replica_bd_drop",
-      "kept": false,
-      "why": "pick score did not improve (no full-cohort run)"
-    },
-    {
-      "name": "dropcand_exit",
-      "delta": {
-        "DROPCAND": "exit"
-      },
-      "pick_score": 39.94,
-      "pick_fam": "drop_exit",
-      "kept": false,
-      "train_mean": 32.44,
-      "test_mean": 33.0,
+      "train_mean": 36.75,
+      "test_mean": 32.15,
       "by_dj": {
         "Hybrid Minds": {
           "n": 13,
-          "mean": 31.89,
+          "mean": 38.26,
           "split": "train"
         },
         "Joe Syntax": {
           "n": 8,
-          "mean": 33.34,
+          "mean": 34.28,
           "split": "train"
         },
         "Maduk": {
           "n": 3,
-          "mean": 30.12,
+          "mean": 27.47,
           "split": "test"
         },
         "Netsky": {
           "n": 5,
-          "mean": 29.33,
+          "mean": 33.01,
           "split": "test"
         },
         "Pola & Bryson": {
           "n": 3,
-          "mean": 43.23,
+          "mean": 34.87,
           "split": "test"
         },
         "Wilkinson": {
           "n": 1,
-          "mean": 29.3,
+          "mean": 33.77,
           "split": "test"
         }
       },
-      "why": "overfit: held-out dropped 33.92 -> 33.0"
+      "why": "overfit: held-out dropped 33.92 -> 32.15"
     },
     {
-      "name": "hintfam_04",
+      "name": "replica_gated_x16",
       "delta": {
-        "hint_family": 1,
-        "hint_weight": 0.4
+        "REPLICA": "gated",
+        "REPLICA_X": 16
       },
-      "pick_score": 36.67,
-      "pick_fam": "nat_short",
+      "pick_score": 39.87,
+      "pick_fam": "replica_bd_drop",
       "kept": false,
-      "why": "pick score did not improve (no full-cohort run)"
-    },
-    {
-      "name": "wp_hintfam",
-      "delta": {
-        "window_planner": 1,
-        "hint_family": 1
-      },
-      "pick_score": 36.67,
-      "pick_fam": "nat_short",
-      "kept": false,
-      "why": "pick score did not improve (no full-cohort run)"
+      "why": "not the best pick improver (no full-cohort run)"
     }
   ],
   "kept": null,

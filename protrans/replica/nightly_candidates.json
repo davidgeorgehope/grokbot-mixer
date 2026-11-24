@@ -171,7 +171,7 @@
   "rca_note_2026_11_23": "Added shadow arm thin_dropcue after the 11-23 js13 RCA (piano at Meteorites bar 48). The epg_* and dclash_* promotion arms are unchanged. Nightly max is 6, so this fills the last slot.",
   "future_nightly_arm_candidates": {
     "written": "2026-11-23 9:20 PM ET",
-    "note": "The 2026-11-23 S.P.Y -> Meteorites RCA flags stay off by default and are not in tonight's six nightly slots (epg_strict, epg_drop, epg_stack, dclash_land6, dclash_land7, and the thin_dropcue shadow). Recorded here as candidates for a future nightly arm when a slot is free. Do not write rules.json. Do not adopt on a fresh-mix tie. STRUCTB is a separate placement diagnostic (bonus size only; see docs/OUTROQC_2026-11-19.md and replica/fresh1123_structb_eval.json), not one of these RCA flags.",
+    "note": "The 2026-11-23 S.P.Y -> Meteorites RCA flags stay off by default and are not in tonight's six nightly slots (epg_strict, epg_drop, epg_stack, dclash_land6, struct_mid_tight, and the thin_dropcue shadow). Recorded here as candidates for a future nightly arm when a slot is free. Do not write rules.json. Do not adopt on a fresh-mix tie. STRUCTB is a separate placement diagnostic (bonus size only; see docs/OUTROQC_2026-11-19.md and replica/fresh1123_structb_eval.json), not one of these RCA flags.",
     "flags": [
       {
         "name": "LEADIN_LOCK",
@@ -209,5 +209,17 @@
     "do_not": "write rules.json, displace tonight's six arms, loosen thresholds, or promote on a tie"
   },
   "rca_note_2026_11_23_future_arms": "LEADIN_LOCK, BREAKDOWN_PHASE_EST, BASS_FILL_GAPS (and STRUCT_BREAK) recorded in future_nightly_arm_candidates. Not in the current six slots.",
-  "dclash_land7_replaced": "dclash_land7 (DRUMCLASH+RISK+LAND+PLAN_LAND) was twice-rejected and is out of the six nightly slots. Its slot is now struct_mid_tight. dclash_land6 stays. thin_dropcue stays as the shadow arm. A struct_mid_tight+epg_stack combo was not added: the nightly cap is 6 and the other five arms stay; a seventh arm would be sliced off."
+  "dclash_land7_replaced": "dclash_land7 (DRUMCLASH+RISK+LAND+PLAN_LAND) was twice-rejected and is out of the six nightly slots. Its slot is now struct_mid_tight. dclash_land6 stays. thin_dropcue stays as the shadow arm. A struct_mid_tight+epg_stack combo was not added: the nightly cap is 6 and the other five arms stay; a seventh arm would be sliced off.",
+  "hard_fallback_promotion_candidate": {
+    "written": "2026-11-23 9:55 PM ET",
+    "name": "hard_fallback",
+    "delta": {
+      "HARD_FALLBACK": 1
+    },
+    "default": 0,
+    "promotion": false,
+    "in_tonight_six": false,
+    "note": "Official hard-check veto plus fallback (pumping / beat_clash / bass_hole). Off by default so tonight's baseline floor stays train 32.40 / held-out 34.07 and the six arms compare like-for-like. Not in tonight's six slots and not folded into struct_mid_tight. Promotion candidate on its own: two consecutive night wins plus a fresh-mix pass, via this flag only. Do not write rules.json.",
+    "do_not": "write rules.json, turn this on for the baseline, fold it into tonight's arms, or treat it as already promoted"
+  }
 }

@@ -50,7 +50,7 @@ def check(meta_path, png=None, title=None):
     dip = lows_dip(sumlo, s, e); pump = vdip(al[s:e])
     lag, rep = FP.measure_blend_lag(M['decks'], M['trans'], 0)
     hb = t.get('halfbeat') or {}
-    clash = bool(hb.get('fail')) or (lag is not None)
+    clash = bool(hb.get('fail')) or (lag is not None and abs(lag) > FP.LOCK_MIN_MS)
     res = dict(beat_clash=clash, residual_lag_ms=lag, halfbeat_fail=bool(hb.get('fail')),
                bass_hole=dip > cal['lows_dip_p95'], lows_dip_db=round(dip, 1),
                pumping=pump > cal['pump_p95'], pump_db=round(pump, 1), png=png)

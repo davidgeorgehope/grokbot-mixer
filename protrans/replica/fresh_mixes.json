@@ -121,6 +121,38 @@
    "status": "done",
    "spent": true,
    "spent_on": "2026-11-25 1:35 AM ET (n1125 frozen arms cueonly_gated / ridegate / ridegate_cand2, decision-level, scored once; picker_1125_fresh.json)"
+  },
+  {
+   "mix_id": "zaklynskyi_SKL2rC3tcug",
+   "dj": "Euphoria System",
+   "url": "https://www.youtube.com/watch?v=SKL2rC3tcug",
+   "title": "Zaklynskyi Liquid Drum and Bass Mix Vol 5  - Seasons",
+   "n_admit": 2,
+   "for_night": "2026-11-25-fresh",
+   "queued": true,
+   "queued_on": "2026-11-25 04:59 ET",
+   "spent": true,
+   "note": "Unseen DJ (Euphoria System / Zaklynskyi), not in corpus-v2 accepted/queued DJs, not in locked Liquicity/Hospital holdout, not previously spent. Isolated ingest in replica/fresh_work_1125. Do not touch corpus_v2.",
+   "n_reject": 10,
+   "ingested": "2026-11-25 isolated in replica/fresh_work_1125",
+   "status": "done",
+   "spent_on": "2026-11-25 05:50 ET (fresh_1125 epg_stack vs base, once, n=2)"
+  },
+  {
+   "mix_id": "eidan_J5bKdjl2xKo",
+   "dj": "Eidan",
+   "url": "https://www.youtube.com/watch?v=J5bKdjl2xKo",
+   "title": "Liquid Drum and Bass 2025 (Mixed by Eidan)",
+   "n_admit": 11,
+   "for_night": "2026-11-25-fresh",
+   "queued": true,
+   "queued_on": "2026-11-25 05:57 ET",
+   "spent": true,
+   "note": "Unseen DJ (Eidan), not in corpus-v2 accepted/queued DJs, not in locked Liquicity/Hospital holdout, not previously spent. Isolated ingest in replica/fresh_work_1125. Do not touch corpus_v2.",
+   "n_reject": 12,
+   "ingested": "2026-11-25 isolated in replica/fresh_work_1125",
+   "status": "done",
+   "spent_on": "2026-11-25 06:34 ET (fresh_1125 epg_stack vs base, once, n=11)"
   }
  ],
  "tried": [
@@ -133,6 +165,8 @@
   "yolowich_FIdBhH3SuXk",
   "nicky_havey_1xpuWyKZ4R0",
   "outer_bass_3Tt7qDw8uaQ",
-  "kushsessions_z8SnJBUd-0U"
+  "kushsessions_z8SnJBUd-0U",
+  "zaklynskyi_SKL2rC3tcug",
+  "eidan_J5bKdjl2xKo"
  ]
 }

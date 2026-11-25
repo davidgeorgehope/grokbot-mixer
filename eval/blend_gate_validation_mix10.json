@@ -1,5 +1,5 @@
 {
- "started": "2026-11-24 08:49:14 EST",
+ "started": "2026-11-25 04:59:11 EST",
  "mix_level_routing": [
   "E4",
   "P1",
@@ -7,7 +7,7 @@
   "test_global_grid_no_drift",
   "test_true_peak"
  ],
- "code": "8026617893e5c36a",
+ "code": "c96b804d4a22bf9c",
  "mixes": {
   "mix10_r6": {
    "gain": 9.0,
@@ -21,10 +21,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 7.6,
-      "guardrails": 21.7,
-      "tests": 20.8,
-      "total": 50.1
+      "render": 5.4,
+      "guardrails": 12.0,
+      "tests": 17.1,
+      "total": 34.6
      },
      "known": null,
      "expected_check": null,
@@ -41,10 +41,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 7.7,
-      "guardrails": 21.9,
-      "tests": 18.3,
-      "total": 47.8
+      "render": 5.6,
+      "guardrails": 11.4,
+      "tests": 17.3,
+      "total": 34.2
      },
      "known": null,
      "expected_check": null,
@@ -63,10 +63,10 @@
      ],
      "mix_level": [],
      "secs": {
-      "render": 9.8,
-      "guardrails": 22.7,
-      "tests": 16.7,
-      "total": 49.1
+      "render": 5.3,
+      "guardrails": 25.2,
+      "tests": 30.7,
+      "total": 61.2
      },
      "known": "beats not aligned 11:43",
      "expected_check": "test_mixdown_beats_aligned_every_overlap_bar",
@@ -90,10 +90,10 @@
      ],
      "mix_level": [],
      "secs": {
-      "render": 9.4,
-      "guardrails": 21.1,
-      "tests": 15.9,
-      "total": 46.4
+      "render": 5.9,
+      "guardrails": 25.3,
+      "tests": 30.0,
+      "total": 61.2
      },
      "known": "bass gap 15:22",
      "expected_check": "test_no_bass_gap_in_overlaps",
@@ -117,10 +117,10 @@
       "test_global_grid_no_drift"
      ],
      "secs": {
-      "render": 3.2,
-      "guardrails": 9.4,
-      "tests": 13.9,
-      "total": 26.4
+      "render": 5.5,
+      "guardrails": 26.9,
+      "tests": 42.0,
+      "total": 74.3
      },
      "known": null,
      "expected_check": null,
@@ -137,10 +137,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 4.0,
-      "guardrails": 11.0,
-      "tests": 17.6,
-      "total": 32.7
+      "render": 7.1,
+      "guardrails": 37.5,
+      "tests": 42.2,
+      "total": 86.8
      },
      "known": null,
      "expected_check": null,
@@ -153,30 +153,20 @@
      "a": "kKu3fIOTiHk",
      "b": "7Itbo72XEz4",
      "t": "21:20",
-     "ok": false,
-     "fails": [
-      "N1"
-     ],
-     "mix_level": [
-      "test_global_grid_no_drift"
-     ],
+     "ok": true,
+     "fails": [],
+     "mix_level": [],
      "secs": {
-      "render": 8.1,
-      "guardrails": 24.7,
-      "tests": 20.2,
-      "total": 53.0
+      "render": 14.0,
+      "guardrails": 20.2,
+      "tests": 37.9,
+      "total": 72.2
      },
      "known": "N1 off grid 21:22",
      "expected_check": "N1",
-     "caught": true,
+     "caught": false,
      "false_fail": false,
-     "detail": [
-      {
-       "check": "N1",
-       "t": "0:24",
-       "msg": "7Itbo72XEz4 enters -19 ms off the grid"
-      }
-     ]
+     "detail": []
     },
     {
      "trans": 7,
@@ -187,10 +177,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 10.7,
-      "guardrails": 24.5,
-      "tests": 14.2,
-      "total": 49.3
+      "render": 9.9,
+      "guardrails": 32.2,
+      "tests": 20.9,
+      "total": 63.0
      },
      "known": null,
      "expected_check": null,
@@ -207,10 +197,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 3.5,
-      "guardrails": 10.2,
-      "tests": 24.4,
-      "total": 38.1
+      "render": 7.2,
+      "guardrails": 19.6,
+      "tests": 35.4,
+      "total": 62.2
      },
      "known": null,
      "expected_check": null,
@@ -229,10 +219,10 @@
      ],
      "mix_level": [],
      "secs": {
-      "render": 4.8,
-      "guardrails": 13.4,
-      "tests": 30.2,
-      "total": 48.5
+      "render": 7.7,
+      "guardrails": 27.7,
+      "tests": 40.4,
+      "total": 75.8
      },
      "known": "level dip at EQ swap 30:53",
      "expected_check": "test_no_level_dip_at_swap",
@@ -254,10 +244,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 9.0,
-      "guardrails": 14.6,
-      "tests": 17.8,
-      "total": 41.4
+      "render": 14.6,
+      "guardrails": 32.5,
+      "tests": 27.3,
+      "total": 74.4
      },
      "known": null,
      "expected_check": null,
@@ -274,10 +264,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 4.5,
-      "guardrails": 12.1,
-      "tests": 18.6,
-      "total": 35.2
+      "render": 15.0,
+      "guardrails": 27.9,
+      "tests": 23.0,
+      "total": 65.9
      },
      "known": null,
      "expected_check": null,
@@ -294,10 +284,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 6.2,
-      "guardrails": 19.4,
-      "tests": 28.1,
-      "total": 53.7
+      "render": 7.1,
+      "guardrails": 19.3,
+      "tests": 32.8,
+      "total": 59.2
      },
      "known": null,
      "expected_check": null,
@@ -316,10 +306,10 @@
      ],
      "mix_level": [],
      "secs": {
-      "render": 7.5,
-      "guardrails": 26.8,
-      "tests": 16.9,
-      "total": 51.2
+      "render": 7.6,
+      "guardrails": 22.6,
+      "tests": 26.4,
+      "total": 56.7
      },
      "known": "bass gap 40:44",
      "expected_check": "test_no_bass_gap_in_overlaps",
@@ -341,10 +331,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 3.9,
-      "guardrails": 9.6,
-      "tests": 18.7,
-      "total": 32.2
+      "render": 9.1,
+      "guardrails": 27.9,
+      "tests": 43.8,
+      "total": 80.9
      },
      "known": null,
      "expected_check": null,
@@ -361,10 +351,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 3.2,
-      "guardrails": 9.7,
-      "tests": 14.0,
-      "total": 27.0
+      "render": 11.2,
+      "guardrails": 24.7,
+      "tests": 38.2,
+      "total": 74.1
      },
      "known": null,
      "expected_check": null,
@@ -381,10 +371,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 4.7,
-      "guardrails": 20.9,
-      "tests": 28.3,
-      "total": 54.0
+      "render": 6.1,
+      "guardrails": 18.7,
+      "tests": 36.5,
+      "total": 61.3
      },
      "known": null,
      "expected_check": null,
@@ -401,10 +391,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 4.8,
-      "guardrails": 19.7,
-      "tests": 24.8,
-      "total": 49.3
+      "render": 5.4,
+      "guardrails": 17.6,
+      "tests": 34.3,
+      "total": 57.2
      },
      "known": null,
      "expected_check": null,
@@ -426,10 +416,10 @@
       "test_true_peak"
      ],
      "secs": {
-      "render": 4.1,
-      "guardrails": 10.9,
-      "tests": 70.2,
-      "total": 85.2
+      "render": 6.9,
+      "guardrails": 24.2,
+      "tests": 42.8,
+      "total": 73.9
      },
      "known": "abrupt outgoing tail 53:42",
      "expected_check": "test_outgoing_audio_tail_never_drops_abruptly",
@@ -455,10 +445,10 @@
       "test_true_peak"
      ],
      "secs": {
-      "render": 5.4,
-      "guardrails": 70.8,
-      "tests": 19.5,
-      "total": 95.7
+      "render": 10.3,
+      "guardrails": 34.5,
+      "tests": 31.0,
+      "total": 75.8
      },
      "known": null,
      "expected_check": null,
@@ -475,10 +465,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 6.1,
-      "guardrails": 19.5,
-      "tests": 33.0,
-      "total": 58.5
+      "render": 4.4,
+      "guardrails": 15.0,
+      "tests": 33.1,
+      "total": 52.5
      },
      "known": null,
      "expected_check": null,
@@ -495,10 +485,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 13.3,
-      "guardrails": 27.3,
-      "tests": 15.6,
-      "total": 56.1
+      "render": 8.3,
+      "guardrails": 22.3,
+      "tests": 31.6,
+      "total": 62.2
      },
      "known": null,
      "expected_check": null,
@@ -515,10 +505,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 5.5,
-      "guardrails": 11.7,
-      "tests": 16.0,
-      "total": 33.2
+      "render": 9.9,
+      "guardrails": 28.9,
+      "tests": 48.9,
+      "total": 87.7
      },
      "known": null,
      "expected_check": null,
@@ -527,9 +517,9 @@
      "detail": []
     }
    ],
-   "wall_s": 569.2,
+   "wall_s": 791.2,
    "solo_faults": [],
-   "caught": 6,
+   "caught": 5,
    "known": 6,
    "false_fails": 0,
    "clean": 17
@@ -546,10 +536,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 10.6,
-      "guardrails": 172.3,
-      "tests": 15.0,
-      "total": 197.8
+      "render": 8.9,
+      "guardrails": 23.0,
+      "tests": 26.8,
+      "total": 58.6
      },
      "known": null,
      "expected_check": null,
@@ -566,10 +556,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 12.1,
-      "guardrails": 168.3,
-      "tests": 16.9,
-      "total": 197.3
+      "render": 9.3,
+      "guardrails": 19.3,
+      "tests": 31.9,
+      "total": 60.4
      },
      "known": null,
      "expected_check": null,
@@ -586,10 +576,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 4.3,
-      "guardrails": 14.6,
-      "tests": 31.5,
-      "total": 50.4
+      "render": 7.5,
+      "guardrails": 26.6,
+      "tests": 46.9,
+      "total": 81.0
      },
      "known": null,
      "expected_check": null,
@@ -606,10 +596,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 3.9,
-      "guardrails": 11.8,
-      "tests": 28.2,
-      "total": 43.9
+      "render": 6.1,
+      "guardrails": 22.8,
+      "tests": 32.6,
+      "total": 61.5
      },
      "known": null,
      "expected_check": null,
@@ -626,10 +616,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 6.9,
-      "guardrails": 9.8,
-      "tests": 19.3,
-      "total": 36.0
+      "render": 13.6,
+      "guardrails": 25.0,
+      "tests": 31.4,
+      "total": 70.1
      },
      "known": null,
      "expected_check": null,
@@ -646,10 +636,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 3.9,
-      "guardrails": 10.5,
-      "tests": 17.1,
-      "total": 31.5
+      "render": 9.1,
+      "guardrails": 28.3,
+      "tests": 24.3,
+      "total": 61.7
      },
      "known": null,
      "expected_check": null,
@@ -666,10 +656,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 4.9,
-      "guardrails": 16.6,
-      "tests": 22.1,
-      "total": 43.6
+      "render": 8.7,
+      "guardrails": 16.3,
+      "tests": 30.4,
+      "total": 55.4
      },
      "known": null,
      "expected_check": null,
@@ -688,10 +678,10 @@
      ],
      "mix_level": [],
      "secs": {
-      "render": 6.9,
-      "guardrails": 18.5,
-      "tests": 23.6,
-      "total": 49.1
+      "render": 11.2,
+      "guardrails": 24.5,
+      "tests": 29.6,
+      "total": 65.3
      },
      "known": "N1 level step +3.8 dB 18:45",
      "expected_check": "N1",
@@ -714,10 +704,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 6.7,
-      "guardrails": 17.2,
-      "tests": 21.5,
-      "total": 45.3
+      "render": 11.2,
+      "guardrails": 33.1,
+      "tests": 50.2,
+      "total": 94.5
      },
      "known": null,
      "expected_check": null,
@@ -734,10 +724,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 5.3,
-      "guardrails": 14.9,
-      "tests": 20.8,
-      "total": 41.0
+      "render": 16.3,
+      "guardrails": 32.1,
+      "tests": 31.4,
+      "total": 79.9
      },
      "known": null,
      "expected_check": null,
@@ -754,10 +744,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 10.3,
-      "guardrails": 15.2,
-      "tests": 15.1,
-      "total": 40.7
+      "render": 6.9,
+      "guardrails": 16.4,
+      "tests": 26.2,
+      "total": 49.5
      },
      "known": null,
      "expected_check": null,
@@ -774,10 +764,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 10.0,
-      "guardrails": 17.0,
-      "tests": 15.3,
-      "total": 42.3
+      "render": 8.5,
+      "guardrails": 17.7,
+      "tests": 24.5,
+      "total": 50.8
      },
      "known": null,
      "expected_check": null,
@@ -794,10 +784,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 9.2,
-      "guardrails": 17.9,
-      "tests": 20.2,
-      "total": 47.2
+      "render": 8.3,
+      "guardrails": 29.2,
+      "tests": 30.8,
+      "total": 68.2
      },
      "known": null,
      "expected_check": null,
@@ -816,10 +806,10 @@
      ],
      "mix_level": [],
      "secs": {
-      "render": 8.0,
-      "guardrails": 13.9,
-      "tests": 20.8,
-      "total": 42.7
+      "render": 6.5,
+      "guardrails": 25.3,
+      "tests": 28.3,
+      "total": 60.1
      },
      "known": null,
      "expected_check": null,
@@ -843,10 +833,10 @@
       "test_global_grid_no_drift"
      ],
      "secs": {
-      "render": 3.6,
-      "guardrails": 11.2,
-      "tests": 17.1,
-      "total": 31.9
+      "render": 8.1,
+      "guardrails": 14.1,
+      "tests": 21.0,
+      "total": 43.2
      },
      "known": null,
      "expected_check": null,
@@ -863,10 +853,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 4.1,
-      "guardrails": 11.7,
-      "tests": 23.5,
-      "total": 39.3
+      "render": 6.8,
+      "guardrails": 15.6,
+      "tests": 18.8,
+      "total": 41.3
      },
      "known": null,
      "expected_check": null,
@@ -883,10 +873,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 11.4,
-      "guardrails": 14.4,
-      "tests": 15.4,
-      "total": 41.2
+      "render": 4.6,
+      "guardrails": 16.8,
+      "tests": 43.3,
+      "total": 64.7
      },
      "known": null,
      "expected_check": null,
@@ -903,10 +893,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 11.1,
-      "guardrails": 9.6,
-      "tests": 13.6,
-      "total": 34.3
+      "render": 6.1,
+      "guardrails": 16.9,
+      "tests": 31.1,
+      "total": 54.1
      },
      "known": null,
      "expected_check": null,
@@ -923,10 +913,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 245.6,
-      "guardrails": 18.2,
-      "tests": 22.8,
-      "total": 286.6
+      "render": 15.2,
+      "guardrails": 18.8,
+      "tests": 21.0,
+      "total": 54.9
      },
      "known": null,
      "expected_check": null,
@@ -943,10 +933,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 247.9,
-      "guardrails": 23.1,
-      "tests": 18.6,
-      "total": 289.6
+      "render": 15.6,
+      "guardrails": 16.8,
+      "tests": 34.1,
+      "total": 66.4
      },
      "known": null,
      "expected_check": null,
@@ -963,10 +953,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 5.0,
-      "guardrails": 12.1,
-      "tests": 22.9,
-      "total": 39.9
+      "render": 10.1,
+      "guardrails": 26.7,
+      "tests": 27.6,
+      "total": 64.4
      },
      "known": null,
      "expected_check": null,
@@ -983,10 +973,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 3.4,
-      "guardrails": 12.9,
-      "tests": 17.7,
-      "total": 34.1
+      "render": 9.9,
+      "guardrails": 14.0,
+      "tests": 27.4,
+      "total": 51.4
      },
      "known": null,
      "expected_check": null,
@@ -1003,10 +993,10 @@
      "fails": [],
      "mix_level": [],
      "secs": {
-      "render": 11.2,
-      "guardrails": 15.5,
-      "tests": 15.4,
-      "total": 42.1
+      "render": 15.2,
+      "guardrails": 29.3,
+      "tests": 31.6,
+      "total": 76.1
      },
      "known": null,
      "expected_check": null,
@@ -1015,7 +1005,7 @@
      "detail": []
     }
    ],
-   "wall_s": 895.8,
+   "wall_s": 752.5,
    "solo_faults": [
     {
      "fault": "E1 dip 14:24 (Hayling solo breakdown)",
@@ -1029,10 +1019,10 @@
   }
  },
  "per_blend_s": {
-  "median": 44.599999999999994,
-  "p90": 90.45,
-  "max": 289.6,
+  "median": 62.2,
+  "p90": 80.4,
+  "max": 94.5,
   "n": 46,
-  "render_median": 6.45
+  "render_median": 8.3
  }
 }

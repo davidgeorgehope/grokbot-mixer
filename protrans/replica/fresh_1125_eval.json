@@ -1,0 +1,279 @@
+{
+ "mix_ids": [
+  "zaklynskyi_SKL2rC3tcug",
+  "eidan_J5bKdjl2xKo"
+ ],
+ "combined": {
+  "n": 13,
+  "ids": [
+   "eidan_J5bKdjl2xKo__02",
+   "eidan_J5bKdjl2xKo__03",
+   "eidan_J5bKdjl2xKo__11",
+   "eidan_J5bKdjl2xKo__14",
+   "eidan_J5bKdjl2xKo__15",
+   "eidan_J5bKdjl2xKo__23",
+   "eidan_J5bKdjl2xKo__25",
+   "eidan_J5bKdjl2xKo__26",
+   "eidan_J5bKdjl2xKo__27",
+   "eidan_J5bKdjl2xKo__28",
+   "eidan_J5bKdjl2xKo__29",
+   "zaklynskyi_SKL2rC3tcug__01",
+   "zaklynskyi_SKL2rC3tcug__09"
+  ],
+  "arms": {
+   "base": {
+    "hardcheck_v1_fails": 1,
+    "hardcheck_v1_fail_ids": [
+     "eidan_J5bKdjl2xKo__29"
+    ],
+    "new_hardcheck_v1_fails": [],
+    "hardcheck_v1_counts": {
+     "beat_clash": 0,
+     "bass_hole": 0,
+     "pumping": 1
+    },
+    "hc2_fails": 1,
+    "hc2_fail_ids": [
+     "eidan_J5bKdjl2xKo__29"
+    ],
+    "new_hc2_fails": [],
+    "hc2_counts": {
+     "hole_v2": 0,
+     "clash_v1": 0,
+     "clash_v2": 0,
+     "halfbeat": 0,
+     "pump": 1
+    },
+    "zero_new_hard_fails": true,
+    "changed": [],
+    "n_changed": 0,
+    "exit_err": 41.91,
+    "cue_err": 50.53,
+    "exit_cue_mean": 46.22,
+    "overlap_err": 9.67,
+    "swap_err": 10.08,
+    "fade_err": 6.392
+   },
+   "epg_stack": {
+    "hardcheck_v1_fails": 1,
+    "hardcheck_v1_fail_ids": [
+     "eidan_J5bKdjl2xKo__29"
+    ],
+    "new_hardcheck_v1_fails": [],
+    "hardcheck_v1_counts": {
+     "beat_clash": 0,
+     "bass_hole": 0,
+     "pumping": 1
+    },
+    "hc2_fails": 1,
+    "hc2_fail_ids": [
+     "eidan_J5bKdjl2xKo__29"
+    ],
+    "new_hc2_fails": [],
+    "hc2_counts": {
+     "hole_v2": 0,
+     "clash_v1": 0,
+     "clash_v2": 0,
+     "halfbeat": 0,
+     "pump": 1
+    },
+    "zero_new_hard_fails": true,
+    "changed": [
+     "eidan_J5bKdjl2xKo__23"
+    ],
+    "n_changed": 1,
+    "exit_err": 40.75,
+    "cue_err": 50.53,
+    "exit_cue_mean": 45.64,
+    "overlap_err": 9.67,
+    "swap_err": 10.08,
+    "fade_err": 6.392,
+    "delta_exit_cue_pair": {
+     "n": 13,
+     "mean_delta": -0.58,
+     "ci": [
+      -1.74,
+      0.0
+     ],
+     "includes_zero": true
+    }
+   }
+  },
+  "pass_zero_new_hard_fails": true
+ },
+ "by_mix": {
+  "zaklynskyi_SKL2rC3tcug": {
+   "n": 2,
+   "ids": [
+    "zaklynskyi_SKL2rC3tcug__01",
+    "zaklynskyi_SKL2rC3tcug__09"
+   ],
+   "arms": {
+    "base": {
+     "hardcheck_v1_fails": 0,
+     "hardcheck_v1_fail_ids": [],
+     "new_hardcheck_v1_fails": [],
+     "hardcheck_v1_counts": {
+      "beat_clash": 0,
+      "bass_hole": 0,
+      "pumping": 0
+     },
+     "hc2_fails": 0,
+     "hc2_fail_ids": [],
+     "new_hc2_fails": [],
+     "hc2_counts": {
+      "hole_v2": 0,
+      "clash_v1": 0,
+      "clash_v2": 0,
+      "halfbeat": 0,
+      "pump": 0
+     },
+     "zero_new_hard_fails": true,
+     "changed": [],
+     "n_changed": 0,
+     "exit_err": 25.0,
+     "cue_err": 7.76,
+     "exit_cue_mean": 16.38,
+     "overlap_err": 2.54,
+     "swap_err": 13.25,
+     "fade_err": 3.495
+    },
+    "epg_stack": {
+     "hardcheck_v1_fails": 0,
+     "hardcheck_v1_fail_ids": [],
+     "new_hardcheck_v1_fails": [],
+     "hardcheck_v1_counts": {
+      "beat_clash": 0,
+      "bass_hole": 0,
+      "pumping": 0
+     },
+     "hc2_fails": 0,
+     "hc2_fail_ids": [],
+     "new_hc2_fails": [],
+     "hc2_counts": {
+      "hole_v2": 0,
+      "clash_v1": 0,
+      "clash_v2": 0,
+      "halfbeat": 0,
+      "pump": 0
+     },
+     "zero_new_hard_fails": true,
+     "changed": [],
+     "n_changed": 0,
+     "exit_err": 25.0,
+     "cue_err": 7.76,
+     "exit_cue_mean": 16.38,
+     "overlap_err": 2.54,
+     "swap_err": 13.25,
+     "fade_err": 3.495,
+     "delta_exit_cue_pair": {
+      "n": 2,
+      "mean_delta": 0.0,
+      "ci": [
+       0.0,
+       0.0
+      ],
+      "includes_zero": true
+     }
+    }
+   },
+   "pass_zero_new_hard_fails": true
+  },
+  "eidan_J5bKdjl2xKo": {
+   "n": 11,
+   "ids": [
+    "eidan_J5bKdjl2xKo__02",
+    "eidan_J5bKdjl2xKo__03",
+    "eidan_J5bKdjl2xKo__11",
+    "eidan_J5bKdjl2xKo__14",
+    "eidan_J5bKdjl2xKo__15",
+    "eidan_J5bKdjl2xKo__23",
+    "eidan_J5bKdjl2xKo__25",
+    "eidan_J5bKdjl2xKo__26",
+    "eidan_J5bKdjl2xKo__27",
+    "eidan_J5bKdjl2xKo__28",
+    "eidan_J5bKdjl2xKo__29"
+   ],
+   "arms": {
+    "base": {
+     "hardcheck_v1_fails": 1,
+     "hardcheck_v1_fail_ids": [
+      "eidan_J5bKdjl2xKo__29"
+     ],
+     "new_hardcheck_v1_fails": [],
+     "hardcheck_v1_counts": {
+      "beat_clash": 0,
+      "bass_hole": 0,
+      "pumping": 1
+     },
+     "hc2_fails": 1,
+     "hc2_fail_ids": [
+      "eidan_J5bKdjl2xKo__29"
+     ],
+     "new_hc2_fails": [],
+     "hc2_counts": {
+      "hole_v2": 0,
+      "clash_v1": 0,
+      "clash_v2": 0,
+      "halfbeat": 0,
+      "pump": 1
+     },
+     "zero_new_hard_fails": true,
+     "changed": [],
+     "n_changed": 0,
+     "exit_err": 44.98,
+     "cue_err": 58.31,
+     "exit_cue_mean": 51.65,
+     "overlap_err": 10.96,
+     "swap_err": 9.51,
+     "fade_err": 6.919
+    },
+    "epg_stack": {
+     "hardcheck_v1_fails": 1,
+     "hardcheck_v1_fail_ids": [
+      "eidan_J5bKdjl2xKo__29"
+     ],
+     "new_hardcheck_v1_fails": [],
+     "hardcheck_v1_counts": {
+      "beat_clash": 0,
+      "bass_hole": 0,
+      "pumping": 1
+     },
+     "hc2_fails": 1,
+     "hc2_fail_ids": [
+      "eidan_J5bKdjl2xKo__29"
+     ],
+     "new_hc2_fails": [],
+     "hc2_counts": {
+      "hole_v2": 0,
+      "clash_v1": 0,
+      "clash_v2": 0,
+      "halfbeat": 0,
+      "pump": 1
+     },
+     "zero_new_hard_fails": true,
+     "changed": [
+      "eidan_J5bKdjl2xKo__23"
+     ],
+     "n_changed": 1,
+     "exit_err": 43.61,
+     "cue_err": 58.31,
+     "exit_cue_mean": 50.96,
+     "overlap_err": 10.96,
+     "swap_err": 9.51,
+     "fade_err": 6.919,
+     "delta_exit_cue_pair": {
+      "n": 11,
+      "mean_delta": -0.685,
+      "ci": [
+       -2.056,
+       0.0
+      ],
+      "includes_zero": true
+     }
+    }
+   },
+   "pass_zero_new_hard_fails": true
+  }
+ }
+}

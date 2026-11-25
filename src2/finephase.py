@@ -19,7 +19,7 @@ Off by default (FINE_PHASE=0). Not a loosened guardrail: X1, GAP_DB, HALFBEAT_* 
 thresholds are unchanged. A weak or short phrase is left alone.
 """
 from __future__ import annotations
-import json, os
+import json, math, os
 import numpy as np
 import halfbeat as HB
 
@@ -110,6 +110,7 @@ def nudge_ms(tid, bar):
 # leaves ~1.5 ms on the clash bars and a 9.7 ms pro-lock (under the 15 ms F1 line).
 LOCK_MIN_MS = float(os.environ.get('BLEND_LOCK_MIN_MS', 15))   # already locked (F1 threshold)
 LOCK_MAX_MS = float(os.environ.get('BLEND_LOCK_MAX_MS', 150))  # leave half-beat cases to halfbeat.py (~172 ms)
+HB_LOCK_MAX_MS = float(os.environ.get('HALFBEAT_LOCK_MAX_MS', BEAT_MS / 2 + 25))
 
 
 def lock_flag_on(val=None):
@@ -274,10 +275,112 @@ def measure_blend_lag(decks, trans, i):
     return lag, report
 
 
+def hb_lock_flag_on(val=None):
+    v = os.environ.get('HALFBEAT_LOCK', '0') if val is None else val
+    if v is None:
+        return False
+    s = str(v).strip().lower()
+    return s not in ('', '0', 'false', 'off', 'no')
+
+
+def _halfbeat_ks_confirm(decks, trans, i, half_ms, bars=None):
+    """Confirm on kick+snare (30-150 Hz + 1500-5000 Hz) bar-folded envelopes over the loud
+    overlap bars that shifting incoming deck i+1 by half_ms improves (or preserves when one
+    deck is drum-quiet) alignment over 0 ms.
+    Guards against false half-beat shifts when 150-1500 Hz mid synths in bar_offsets pick a
+    spurious half-beat peak while kick+snare is already dead-aligned (e.g. ukf__28 r0=0.766)."""
+    import blend_diag as D
+    import engine as E
+    M = dict(decks=decks, trans=trans)
+    s0, yA, yB = D.crop_decks(M, i)
+    t = trans[i]
+    nb = int(round(len(yA) / E.BS))
+    downs = np.arange(nb) * E.BAR
+    mask = np.zeros(len(downs), dtype=bool)
+    if bars:
+        idxs = [int(b - s0) for b in bars if 0 <= int(b - s0) < nb]
+        if len(idxs) >= 2:
+            mask[idxs] = True
+    if not mask.any():
+        s = max(0, int(round(float(t['start_bar']) - s0)))
+        e = min(nb, int(round(float(t['end_bar']) - s0)))
+        if e - s < 2:
+            return False, dict(why='too_few_bars')
+        mask[s:e] = True
+    ka, sa = HB.drum_envs(yA.mean(1))
+    kb, sb = HB.drum_envs(yB.mean(1))
+    fKA, nA = HB.fold(ka, downs, mask)
+    fSA, _ = HB.fold(sa, downs, mask)
+    fKB, nB = HB.fold(kb, downs, mask)
+    fSB, _ = HB.fold(sb, downs, mask)
+    if nA < 2 or nB < 2:
+        return False, dict(why='insufficient_folds')
+    a_ks = fKA + fSA
+    b_ks = fKB + fSB
+    if np.std(a_ks) <= 1e-9 or np.std(b_ks) <= 1e-9:
+        return False, dict(why='flat_drum_env')
+    r0 = float(np.corrcoef(a_ks, b_ks)[0, 1])
+    shift_bins = int(round((half_ms / 1000.0) / E.BAR * HB.NB))
+    b_sh = np.roll(b_ks, shift_bins)
+    rh = float(np.corrcoef(a_ks, b_sh)[0, 1])
+    phA, stA = HB.beat_phase(fKA, fSA)
+    phB, stB = HB.beat_phase(fKB, fSB)
+    drum_improve = bool(r0 < 0.50 and rh >= max(0.20, r0 + 0.05))
+    quiet_side_improve = bool(r0 < 0.30 and min(float(stA), float(stB)) < 1.5 and rh >= r0)
+    ok = bool(np.isfinite(r0) and np.isfinite(rh) and (drum_improve or quiet_side_improve))
+    return ok, dict(r0=round(r0, 3), rh=round(rh, 3), shift_bins=shift_bins,
+                    phase_a=round(float(phA), 3), str_a=round(float(stA), 2),
+                    phase_b=round(float(phB), 3), str_b=round(float(stB), 2))
+
+
+def _try_halfbeat_lock(decks, trans, i, lag, report):
+    """Principled half-beat re-phase of incoming deck i+1 when lag or halfbeat check indicates
+    a ~half-beat offset, confirmed on kick+snare envelopes and verified after re-measure."""
+    inc = decks[i + 1]
+    hb = trans[i].get('halfbeat') or {}
+    cand_lag = lag
+    if cand_lag is None and hb.get('fail'):
+        cand_lag = hb.get('lag_ms') if hb.get('lag_ms') is not None else hb.get('dphase_ms')
+    if cand_lag is None or abs(cand_lag) <= LOCK_MAX_MS or abs(cand_lag) > HB_LOCK_MAX_MS:
+        return False
+    half_ms = round(math.copysign(BEAT_MS / 2.0, cand_lag), 1)
+    ok, diag = _halfbeat_ks_confirm(decks, trans, i, half_ms, bars=report.get('bars'))
+    report['halfbeat_check'] = diag
+    if not ok:
+        report['why'] = 'half-beat not confirmed on kick+snare; left alone'
+        return False
+    prev = inc.get('blend_lock_ms')
+    inc['blend_lock_ms'] = round(float(prev or 0) + half_ms, 1)
+    lag2, rep2 = measure_blend_lag(decks, trans, i)
+    if lag2 is None or (lag is not None and abs(lag2) >= abs(lag)) or abs(lag2) > LOCK_MAX_MS:
+        if prev is None:
+            inc.pop('blend_lock_ms', None)
+        else:
+            inc['blend_lock_ms'] = prev
+        report['why'] = 'half-beat shift did not resolve lag; reverted'
+        report['after_rejected'] = rep2
+        return False
+    if LOCK_MIN_MS <= abs(lag2) <= LOCK_MAX_MS:
+        mid = inc['blend_lock_ms']
+        inc['blend_lock_ms'] = round(mid + lag2, 1)
+        lag3, rep3 = measure_blend_lag(decks, trans, i)
+        if lag3 is not None and abs(lag3) < abs(lag2):
+            rep2 = rep3
+        else:
+            inc['blend_lock_ms'] = mid
+    report['applied'] = True
+    report['halfbeat_lock'] = True
+    report['halfbeat_shift_ms'] = half_ms
+    report['blend_lock_ms'] = inc['blend_lock_ms']
+    report['after'] = rep2
+    return True
+
+
 def lock_decks(decks, trans):
     """Set incoming decks[i+1]['blend_lock_ms'] from the loud-bar lag of each blend. No-op if the flag is off."""
     if not lock_flag_on():
         return
+    hb_on = hb_lock_flag_on()
     for i, t in enumerate(trans):
         if i + 1 >= len(decks):
             continue
@@ -285,12 +388,20 @@ def lock_decks(decks, trans):
         t['blend_lock'] = report
         if lag is None:
             report['applied'] = False
-            if report.get('offs'):
+            if hb_on and _try_halfbeat_lock(decks, trans, i, None, report):
+                continue
+            if report.get('offs') and 'why' not in report:
                 report['why'] = 'inconsistent / too few agreeing bars'
             continue
-        if abs(lag) < LOCK_MIN_MS or abs(lag) > LOCK_MAX_MS:
+        if abs(lag) < LOCK_MIN_MS:
             report['applied'] = False
-            report['why'] = ('already locked' if abs(lag) < LOCK_MIN_MS else 'near half a beat; left to halfbeat')
+            report['why'] = 'already locked'
+            continue
+        if abs(lag) > LOCK_MAX_MS:
+            report['applied'] = False
+            if hb_on and _try_halfbeat_lock(decks, trans, i, lag, report):
+                continue
+            report.setdefault('why', 'near half a beat; left to halfbeat')
             continue
         inc = decks[i + 1]
         inc['blend_lock_ms'] = round(float(inc.get('blend_lock_ms') or 0) + lag, 1)

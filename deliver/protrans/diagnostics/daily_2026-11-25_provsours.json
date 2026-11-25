@@ -1,0 +1,38 @@
+{
+ "pick": "hybrid_minds_ukf__28",
+ "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+ "rows": [
+  {
+   "who": "pro",
+   "out_start": 126.3,
+   "out_end": 172.3,
+   "in_start": 15.0,
+   "in_end": 61.000000000000014,
+   "out_swap": 126.3,
+   "out_start_section": "breakdown + slowdown/half-time",
+   "in_start_section": "intro",
+   "touches_out_slowdown": true,
+   "in_next_drop_vs_blend_end": -29.0,
+   "out_last_drop_played": "cut 82 bars early",
+   "out_time": "2:54",
+   "mix_time": "48:36",
+   "why": "what the DJ did"
+  },
+  {
+   "who": "ours",
+   "out_start": 224,
+   "out_end": 240,
+   "in_start": 16,
+   "in_end": 32,
+   "out_swap": null,
+   "out_start_section": "outro",
+   "in_start_section": "intro",
+   "touches_out_slowdown": false,
+   "in_next_drop_vs_blend_end": 0,
+   "out_last_drop_played": "all",
+   "out_time": "5:08",
+   "mix_time": null,
+   "why": "outro-over-intro bonus window (A plays its outro, B's first drop lands as A ends)"
+  }
+ ]
+}

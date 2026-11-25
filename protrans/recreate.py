@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','HALFBEAT_LOCK','HALFBEAT_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB','HARD_FALLBACK','PICKER_STYLE_GATED','PICKER_STYLE_GATED_MAP','PICKER_INJECT_CS','BREAK_EXIT','MID_HOLD','MID_HOLD_DB'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','HALFBEAT_LOCK','HALFBEAT_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB','HARD_FALLBACK','PICKER_STYLE_GATED','PICKER_STYLE_GATED_MAP','PICKER_INJECT_CS','BREAK_EXIT','MID_HOLD','MID_HOLD_DB','EARLY_EXIT','EARLY_EXIT_HOLD_DB','EARLY_EXIT_RATE'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -198,16 +198,34 @@ def _picker_style_gated_map_path(env=None):
     return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica', 'picker_style_gated_windows.json')
 
 
+def _effective_compat_pen(c):
+    if not c:
+        return 30.0
+    p = float(c.get('pen', 30.0))
+    # mix_simple adds HARDPEN=60 on an internal BOTHMIN=11 soft threshold even when O1 (>=8) & N1 (seam<=2) pass.
+    # Strip that internal 60-pt surcharge when comparing compatibility unless a seam jump (seam_fail) triggered it.
+    if int(c.get('both', 16)) < 11 and not c.get('seam_fail') and p >= 60.0:
+        p -= 60.0
+    # In post-drop-1 breakdown early-exit blends, Track A deliberately has low/no drums before incoming drops;
+    # R>=0.25 and drumclash still guard rhythm compatibility, so strip DRUMPEN from early_exit pen comparisons.
+    if c.get('early_exit'):
+        if c.get('drum_pen'):
+            p -= float(c.get('drum_pen', 0.0))
+        if c.get('jump_pen'):
+            p -= float(c.get('jump_pen', 0.0))
+    return p
+
+
 def select_compatible_picker_window(a, b, ranked, cs, default_win, dc_eval=None):
     """Pick the highest-ranked window from ranked that passes blend compatibility at that bar
-    (vocal clash V, halfbeat HB, drum-onset R, overlap both, guardrail pen, drumclash detector).
+    (vocal clash V, halfbeat HB, drum-onset R, overlap both, guardrail pen, predicted vdip, drumclash).
     Returns (hit_dict, rank_idx, tried_log) or (None, None, tried_log) to fall back to base."""
     def_c = next((c for c in cs if list(c.get('win') or []) == list(default_win or [])), None)
-    def_pen = float(def_c.get('pen', 30.0)) if def_c else 30.0
+    def_pen_raw = float(def_c.get('pen', 30.0)) if def_c else 30.0
+    def_pen_eff = _effective_compat_pen(def_c)
     def_V = int(def_c.get('V', 0)) if def_c else 0
     def_R = float(def_c.get('R', 0.25)) if def_c else 0.25
-    pen_cap = max(def_pen + 35.0, 90.0)
-    r_floor = min(0.25, def_R)
+    def_both = int(def_c.get('both', 16)) if def_c else 16
     tried = []
     for idx, raw_w in enumerate(ranked or []):
         want = [raw_w[0], int(raw_w[1]), None, int(raw_w[3]), int(raw_w[4])]
@@ -215,6 +233,10 @@ def select_compatible_picker_window(a, b, ranked, cs, default_win, dc_eval=None)
         if hit is None:
             tried.append(dict(rank=idx, win=want, reason='not_in_cs'))
             continue
+        is_ee = bool(hit.get('early_exit'))
+        r_floor = 0.25 if is_ee else min(0.25, def_R)
+        both_floor = min(8, def_both) if is_ee else 11
+        pen_cap = max((def_pen_eff if is_ee else def_pen_raw) + 35.0, 90.0)
         reasons = []
         if int(hit.get('V', 0)) > def_V:
             reasons.append(f'V={hit.get("V")}>{def_V}')
@@ -222,10 +244,15 @@ def select_compatible_picker_window(a, b, ranked, cs, default_win, dc_eval=None)
             reasons.append('HB')
         if float(hit.get('R', 1.0)) < r_floor:
             reasons.append(f'R={hit.get("R"):.2f}<{r_floor:.2f}')
-        if int(hit.get('both', 16)) < 11:
-            reasons.append(f'both={hit.get("both")}<11')
-        if float(hit.get('pen', 0.0)) > pen_cap:
-            reasons.append(f'pen={hit.get("pen"):.1f}>{pen_cap:.1f}')
+        if int(hit.get('both', 16)) < both_floor:
+            reasons.append(f'both={hit.get("both")}<{both_floor}')
+        hit_pen = _effective_compat_pen(hit) if is_ee else float(hit.get('pen', 0.0))
+        if hit_pen > pen_cap:
+            reasons.append(f'pen={hit_pen:.1f}>{pen_cap:.1f}')
+        if is_ee and hit.get('pred_vdip') is not None and float(hit.get('pred_vdip')) > 4.2:
+            reasons.append(f'pred_vdip={hit.get("pred_vdip"):.2f}>4.20')
+        if is_ee and hit.get('pred_ldip') is not None and float(hit.get('pred_ldip')) > 32.0:
+            reasons.append(f'pred_ldip={hit.get("pred_ldip"):.1f}>32.0')
         if not reasons and dc_eval is not None:
             try:
                 dc = dc_eval(a, b, want)

@@ -1,0 +1,321 @@
+{
+  "tag": "d1125",
+  "pick_id": "hybrid_minds_ukf__28",
+  "base_variant": "mhb1125_base",
+  "base": {
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 33.3,
+    "test_mean": 33.92,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 33.07,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 33.69,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 31.22,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 34.81,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 37.97,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 25.45,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "pick_before": 40.68,
+  "base_pick_row": {
+    "id": "hybrid_minds_ukf__28",
+    "split": "train",
+    "dj": "Hybrid Minds",
+    "pair": "Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need",
+    "pick": {
+      "fam": "nat_short",
+      "win": [
+        "n",
+        240,
+        null,
+        16,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "BLEND_LOCK": "1"
+      }
+    },
+    "score": {
+      "score": 40.68,
+      "score_v2": 40.68,
+      "scorer_version": "gain-events-v3-beatid",
+      "breakdown": {
+        "stem_curves": 46.23,
+        "deck_curves": 37.38,
+        "beat_align": 44.88,
+        "bass_swap": 1.53,
+        "outgoing_cut": 50.66,
+        "blend_length": 65.05,
+        "stems": {
+          "drums": 55.75,
+          "bass": 66.05,
+          "vocals": 46.52,
+          "melody": 16.58
+        },
+        "beat_off_ms": 14.51,
+        "beat_align_v2": 44.88,
+        "beat_identity": null,
+        "beat_lock": {
+          "pro": null,
+          "ours": {
+            "phase_beats": 0.0383,
+            "rate": 1.0,
+            "r_a": 0.836,
+            "r_b": 0.795
+          },
+          "why": "deck not located (onset r < 0.2)"
+        },
+        "events_pro": {
+          "bass_swap": 4,
+          "outgoing_cut": 20,
+          "blend_length": 3
+        },
+        "events_ours": {
+          "bass_swap": 19,
+          "outgoing_cut": 19,
+          "blend_length": 3
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 37.38
+        },
+        "align": {
+          "lag_samples": -190208,
+          "lag_ms": -8626.21,
+          "peak": 0.3684,
+          "win_sec": 35.512
+        }
+      },
+      "weights": {
+        "stem_curves": 0.28,
+        "deck_curves": 0.22,
+        "beat_align": 0.15,
+        "bass_swap": 0.13,
+        "outgoing_cut": 0.12,
+        "blend_length": 0.1
+      },
+      "pro": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__28/pro.wav",
+      "ours": "/tmp/protrans_bench/mhb11218.mp3"
+    },
+    "ours": "/tmp/protrans_bench/mhb11218.mp3",
+    "pro": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__28/pro.wav",
+    "created": [],
+    "ts": "2026-11-25 00:10:01 EST"
+  },
+  "tried": [
+    {
+      "name": "wp",
+      "delta": {
+        "window_planner": 1
+      },
+      "pick_score": 40.68,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "wp_hint06",
+      "delta": {
+        "window_planner": 1,
+        "hint_weight": 0.6
+      },
+      "pick_score": 40.68,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "hintfam_08",
+      "delta": {
+        "hint_family": 1,
+        "hint_weight": 0.8
+      },
+      "pick_score": 40.68,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "replica_x16",
+      "delta": {
+        "REPLICA": 1,
+        "REPLICA_X": 16
+      },
+      "pick_score": 34.53,
+      "pick_fam": "replica_bd_drop",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "dropcand_exit",
+      "delta": {
+        "DROPCAND": "exit"
+      },
+      "pick_score": 25.47,
+      "pick_fam": "drop_exit",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "epg_drop",
+      "delta": {
+        "EXITPOS": 1,
+        "EXITPOS_DROP": 1
+      },
+      "pick_score": 25.67,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "struct_mid",
+      "delta": {
+        "STRUCT_MID": 1
+      },
+      "pick_score": 18.92,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    }
+  ],
+  "kept": null,
+  "rules_after": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp. BLEND_LOCK (2026-11-17 RCA) is on by default: incoming-only lock when loud overlap has a confident 15-150 ms lag.",
+    "FADE": "long",
+    "BASS_SWAP_BARS": 3,
+    "SWAP_POS": 0.21,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 8,
+    "STRUCT": 1,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 16,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0,
+    "LONG_SOLO": 16,
+    "LONG_SWAP": "exit",
+    "LONG_SOLO_STRUCT": 1,
+    "linger_pen_w": 0.15,
+    "LONG_XP": 0.45,
+    "TAIL_EXIT": 6,
+    "BLEND_LOCK": 1
+  },
+  "tried_r1": [
+    {
+      "name": "bass_swap_1",
+      "delta": {
+        "BASS_SWAP_BARS": 1
+      },
+      "pick_score": 40.68,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "phrase_cut_pref",
+      "delta": {
+        "prefer_family": "phrase_cut"
+      },
+      "pick_score": 14.81,
+      "pick_fam": "phrase_cut",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "break_exit",
+      "delta": {
+        "BREAK_EXIT": 1
+      },
+      "pick_score": 24.37,
+      "pick_fam": "break_exit",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "snap_in",
+      "delta": {
+        "SNAP_IN": 1
+      },
+      "pick_score": 38.13,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "drop_swap",
+      "delta": {
+        "DROP_SWAP": 1
+      },
+      "pick_score": 34.86,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "length_pref_8",
+      "delta": {
+        "length_pref": 8
+      },
+      "pick_score": 17.43,
+      "pick_fam": "nat_long",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    }
+  ],
+  "tried_r3": [
+    {
+      "name": "halfbeat_lock",
+      "delta": {
+        "HALFBEAT_LOCK": 1
+      },
+      "pick_score": 40.68,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    }
+  ]
+}

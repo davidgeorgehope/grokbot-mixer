@@ -182,22 +182,38 @@
    "do_not": "write rules.json, change defaults, set adopt_to_defaults true, or treat as a promotion arm"
   },
   {
-   "name": "struct_mid_tight",
+   "name": "early_exit",
    "promotion": false,
-   "shadow": false,
-   "delta": {
-    "STRUCT_MID": 1,
-    "STRUCT_MID_MIN_GAP": 16,
-    "STRUCT_MID_MIN_HT": 24
-   },
-   "label": "STRUCT_MID tight gate (min gap 16, min half-time in the gap 24): reduce the outro-over-intro bonus to 100 and give a competing 100-point bonus to drop-1-end / breakdown-end exits when the outgoing track has a long post-drop half-time pocket (S.P.Y 128-160 is the prototype). Leave-one-mix-out chose this gate. Official hard checks veto a pumping first pick and fall back to the next clean candidate. Not a promotion arm on this first night. Do not write rules.json.",
+   "shadow": true,
    "flags_off_by_default": true,
-   "already_scored_2026_11_23": {
-    "loose_gate_on_fresh_19": "exit error 30.7 -> 55.58 (worse); mid-track 5: 72.56 -> 43.09 (better)",
-    "tight_gate_policy_on_fresh_19": "exit error 30.7 -> 26.31 (better); mid-track 5: 72.56 -> 55.89 (better); 0 false moves, 0 new hard fails",
-    "eval": "replica/fresh1123_struct_mid_tight.json"
+   "wired": true,
+   "delta": {
+    "EARLY_EXIT": 1,
+    "PICKER_STYLE_GATED": 1,
+    "PICKER_STYLE_GATED_MAP": "replica/picker_early_exit_windows.json",
+    "PICKER_INJECT_CS": 1
    },
-   "do_not": "write rules.json, change defaults, displace the other five arms, or treat this as a promotion arm tonight"
+   "map": "replica/picker_early_exit_windows.json",
+   "label": "Shadow arm for n1126 (replaces struct_mid_tight in slot 5 of 6). Frozen ee_r6: EARLY_EXIT=1 blend shape (drop1-anchored bass swap, -14 dB hold under incoming drop, <=3 dB/bar gradual exit) + strict post-drop-1 breakdown picker trained strictly on 843 dev (LODO CV: exit 46.82->44.89, ec 37.13->34.34 CI [-3.84,-1.73], non-Kush ec 39.86->37.66 CI [-3.86,-0.38]). Shadow only: do not promote or write rules.json.",
+   "already_scored_2026_11_25_pinned33": {
+    "v1_all": 33.86,
+    "v1_train": 33.46,
+    "v1_test": 34.55,
+    "v2_all": 33.9,
+    "v2_train": 34.76,
+    "v2_test": 32.38,
+    "floor_v1_all": 33.01,
+    "floor_v1_train": 32.4,
+    "floor_v1_test": 34.07,
+    "floor_v2_all": 33.89,
+    "floor_v2_train": 34.09,
+    "floor_v2_test": 33.53,
+    "hard_fails": "6 -> 5 (beat_clash 2 -> 1, bass_hole 1 -> 1, pumping 3 -> 3)",
+    "play_time_arm_mean_sec": "265.5 -> 246.1 (pro 175.8)",
+    "n_applied": 5,
+    "eval": "protrans/replica/picker_1125_early_exit_cv.json, protrans/replica/picker_1125_early_exit_pinned.json"
+   },
+   "do_not": "write rules.json, change defaults, set adopt_to_defaults true, or treat as a promotion arm"
   },
   {
    "name": "thin_dropcue",
@@ -330,5 +346,6 @@
   "note": "Decision-level model arms (not env flags for nightly_hill_climb.py); evaluated by replica/picker_1125.py. Render flag for picks: PICKER_1125=<arm> via a per-pair window map, never rules.json."
  },
  "picker_style_gated_replaced": "2026-11-25 04:05 AM ET: picker_style_gated in slot 4 replaced for tomorrow night by shadow arm djbal_cue_sec_mix (map replica/picker_djbal_sec_mix_windows.json with djbal_cue_asym_mix gate + PICKER_INJECT_CS=1). Written after n1125_run.py already loaded nightly_candidates.json at 03:29 AM ET so n1125 is undisturbed. Shadow only; adopt_to_defaults false; no rules.json changes.",
- "djbal_cue_sec_mix_replaced": "2026-11-25 04:37 AM ET: djbal_cue_sec_mix in slot 4 swapped for djbal_cue_struct_compat (map replica/picker_djbal_struct_compat_windows.json with ranked_by_yt + PICKER_INJECT_CS=1) after beating base on both pinned train (v1 32.98 vs 32.40, v2 34.95 vs 34.09) and held-out test (v1 34.14 vs 34.07, v2 34.08 vs 33.53). Shadow only; adopt_to_defaults false; rules.json untouched."
+ "djbal_cue_sec_mix_replaced": "2026-11-25 04:37 AM ET: djbal_cue_sec_mix in slot 4 swapped for djbal_cue_struct_compat (map replica/picker_djbal_struct_compat_windows.json with ranked_by_yt + PICKER_INJECT_CS=1) after beating base on both pinned train (v1 32.98 vs 32.40, v2 34.95 vs 34.09) and held-out test (v1 34.14 vs 34.07, v2 34.08 vs 33.53). Shadow only; adopt_to_defaults false; rules.json untouched.",
+ "early_exit_shadow_added": "2026-11-25 6:30 PM ET: struct_mid_tight (promotion=false, shadow=false) in slot 5 replaced by frozen early_exit (ee_r6) shadow arm for n1126. Six-arm cap preserved; djbal_cue_struct_compat and thin_dropcue stay; rules.json untouched."
 }

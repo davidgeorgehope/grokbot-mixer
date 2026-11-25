@@ -69,19 +69,20 @@ def main(pick_id, base_variant, cands):
         print('DIAG skipped:', type(e).__name__, str(e)[-200:], flush=True)
 
 if __name__ == '__main__':
-    # 2026-11-24 list (base like1124_base: clean like-for-like rescore of rules.json, HARD_FALLBACK off, 33 admitted).
-    # Pick hybrid_minds_ukf__10 (LSB - The Optimist -> Hybrid Minds - Secret Place): next unused TRAIN after js13.
-    # Pro enters B (intro bar ~25) while A is at bar ~133, just after A's drop 1 ends (128) in its breakdown,
-    # and A is gone by ~145 (12-bar overlap, bass swap ~11 bars in): A's second drop is skipped. Same shape as
-    # 11-23 js13 (pro started at the end of drop 1 into the breakdown; the listener 2/5 on our outro-over-intro).
-    # Ours (default) is outro-over-intro: exit 256 / cue 32 / 16 bars, score 36.67.
-    # Try general rules that let the engine leave the outgoing in its first breakdown, plus hint-driven mid windows.
-    # EXITPOS stays on the nightly promotion track (not here).
+    # 2026-11-25 list (base mhb1125_base: plain eval_cohort on today's code, == like1124_base 33.3/33.92, 33 admitted).
+    # Pick hybrid_minds_ukf__28 (Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need): next unused TRAIN.
+    # Ours (default) nat_short exit 240 / cue 16 / 16 bars, score 40.68. Pro events: bass swap bar 4, A cut bar 20,
+    # blend ~3 bars (short, early bass handoff); tracklist hint says A had played only ~96 bars.
+    # r1 (short/early-swap rules) all <= 40.68: bass_swap_1 40.68, phrase_cut_pref 14.81, break_exit 24.37,
+    # snap_in 38.13, drop_swap 34.86, length_pref_8 17.43. provsours: pro starts at A's breakdown (bar ~126, after
+    # drop 1, half-time), cues B intro bar 15; ours outro 224-240. r2: rules that let the engine leave after drop 1.
     CANDS = [
-        ('replica_on', {'REPLICA': 1}),
-        ('replica_gated', {'REPLICA': 'gated'}),
+        ('wp', {'window_planner': 1}),
+        ('wp_hint06', {'window_planner': 1, 'hint_weight': 0.6}),
+        ('hintfam_08', {'hint_family': 1, 'hint_weight': 0.8}),
+        ('replica_x16', {'REPLICA': 1, 'REPLICA_X': 16}),
         ('dropcand_exit', {'DROPCAND': 'exit'}),
-        ('hintfam_04', {'hint_family': 1, 'hint_weight': 0.4}),
-        ('wp_hintfam', {'window_planner': 1, 'hint_family': 1}),
+        ('epg_drop', {'EXITPOS': 1, 'EXITPOS_DROP': 1}),
+        ('struct_mid', {'STRUCT_MID': 1}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

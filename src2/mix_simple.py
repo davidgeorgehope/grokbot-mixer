@@ -187,23 +187,38 @@ def score(a,b,wa,wb,refA):
   try:return _score(a,b,wa,wb,refA)
   finally:_ctx(None)
 def _score(a,b,wa,wb,refA):
-  c=swap_at(a,b,wa,wb);ce=c+(SW/2 if c!=POS*X else 0);h=high_at(a,b,wa,wb,c,HSW and bob(a,b,wa,wb))
+  _ee_info=None;_ee_pts=None;_sw_eff=SW
+  if __import__('early_exit').flag_on() and X>=__import__('early_exit').MIN_BLEND_BARS and a not in PIN and b not in PIN:
+    _na=A_(a)[4]
+    import early_exit as _EE
+    if _na-(wa[-1]+1)>=_EE.MIN_REM_BARS:
+      _sb=sections.get(b);_d1b=_sb.get('drop1');_ib0=wb[0]
+      _kd=float(_d1b)-float(_ib0) if (_d1b is not None and 8<=_d1b-_ib0<=X-8) else min(16.0,max(8.0,round(X*0.4)))
+      _xs_ee,_ee_info=_EE.build_xfader(0.0,float(X),_kd)
+      _ee_pts=([p[0] for p in _xs_ee],[p[1] for p in _xs_ee])
+      c=_ee_info['sw_c'];ce=_ee_info['sw_c'];_sw_eff=_ee_info['sw'];h=None
+  if _ee_info is None:
+    c=swap_at(a,b,wa,wb);ce=c+(SW/2 if c!=POS*X else 0);h=high_at(a,b,wa,wb,c,HSW and bob(a,b,wa,wb))
   alA,loA,vA,rvA,bA=F(a);alB,loB,vB,rvB,bB=F(b);V=L=C=both=G=SG=0
   dA,dB=drums_on(a),drums_on(b);DT=run=0
   for xa,xb in zip(wa,wb):run=run+1 if xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] else 0;DT=max(DT,run)  # longest straight drums-together run
   for k,(xa,xb) in enumerate(zip(wa,wb)):
-    x=_xpos((k+0.5)/X);ga,gb=np.cos(x*np.pi/2),np.sin(x*np.pi/2);da,dbb=20*np.log10(ga+1e-9),20*np.log10(gb+1e-9)
+    x=float(np.interp(k+0.5,_ee_pts[0],_ee_pts[1])) if _ee_pts is not None else _xpos((k+0.5)/X)
+    ga,gb=np.cos(x*np.pi/2),np.sin(x*np.pi/2);da,dbb=20*np.log10(ga+1e-9),20*np.log10(gb+1e-9)
     LA,LB=alA[xa]+da,alB[xb]+dbb
     if LA>refA-12 and LB>refA-12:both+=1
     if k<X/2 and LA<refA-10:C+=1
     if vA[xa]>rvA-12 and ga>0.3 and vB[xb]>rvB-12 and gb>0.3:V+=1
-    if SW>0:  # with the bass handoff only the swap bars can double up; elsewhere the bassline must not drop out
-      if abs(k+0.5-ce)<SW/2+0.5:
+    if _sw_eff>0:  # with the bass handoff only the swap bars can double up; elsewhere the bassline must not drop out
+      if abs(k+0.5-ce)<_sw_eff/2+0.5:
         if bA[xa] and bB[xb]:L+=1
       elif (k<c and not bA[xa]) or (k>=c and not bB[xb]):
         G+=1;SG+=int(c<=k<c+4)  # incoming has no bass right after the handoff: audible energy drop
     elif loA[xa]-alA[xa]>HEAVY and loB[xb]-alB[xb]>HEAVY and min(loA[xa]+da,loB[xb]+dbb)>refA-12:L+=1
-  return dict(c=c,h=h,V=V,L=L,C=C,both=both,G=G,SG=SG,pen=float(os.environ.get('SGPEN',15))*SG+float(os.environ.get('VPEN',100))*V+4*L+float(os.environ.get('BOTHPEN',15))*max(0,10-both)+3*C+float(os.environ.get('GAPPEN',0.5))*G+DRUMPEN*max(0,16-DT),DT=DT)
+  _pvd=None;_pld=None;_dpen=DRUMPEN*max(0,16-DT)
+  if _ee_info is not None:
+    _pvd,_pld=__import__('early_exit').predict_dips(alA,loA,alB,loB,wa,wb,_ee_pts,_ee_info)
+  return dict(c=c,h=h,V=V,L=L,C=C,both=both,G=G,SG=SG,early_exit=int(_ee_info is not None),pred_vdip=_pvd,pred_ldip=_pld,drum_pen=round(_dpen,2),pen=float(os.environ.get('SGPEN',15))*SG+float(os.environ.get('VPEN',100))*V+4*L+float(os.environ.get('BOTHPEN',15))*max(0,10-both)+3*C+float(os.environ.get('GAPPEN',0.5))*G+_dpen,DT=DT)
 CUEW=float(os.environ.get('CUEW',0))  # pro cue-point term (cue.py, Raveform-trained); 0 = off until the listener hears the A/B
 if CUEW>0:
   import cue;CM=cue.load();_CX={}
@@ -319,59 +334,72 @@ def pair_cands(i,ia0):
   minlen=160 if a in ANCH else 96-X  # anchors: >=160 bars (~220 s) of their own music, blend included
   emin=max(ia+minlen,ia+int((e_max-ia)*0.5));emin+=(-emin)%16;emin=min(emin,e_max)
   XMAX=X
-  for X in sorted({XMAX,16},reverse=True):  # 32-bar blend preferred; 16 is the lowest when no clean 32-bar window exists
+  _ee_xs=set()
+  if __import__('early_exit').flag_on() and os.environ.get('PICKER_INJECT_CS')=='1' and os.environ.get('PICKER_STYLE_GATED_MAP'):
+    try:
+      import json as _js_ee
+      _tab_ee=_js_ee.load(open(os.environ['PICKER_STYLE_GATED_MAP']))
+      _w0_ee=(_tab_ee.get('by_yt') or {}).get(f'{a}|{b}') or _tab_ee.get(f'{a}|{b}')
+      _rk_ee=(_tab_ee.get('ranked_by_yt') or {}).get(f'{a}|{b}') or []
+      for _w_ee in ([_w0_ee] if _w0_ee else [])+list(_rk_ee):
+        if _w_ee and _w_ee[0]=='n' and int(_w_ee[4])>=36:_ee_xs.add(int(_w_ee[4]))
+    except Exception:
+      pass
+  for X in sorted({XMAX,16}|_ee_xs,reverse=True):  # 32-bar blend preferred; 16 is the lowest when no clean 32-bar window exists
+    _std_x=X in (XMAX,16)
     cands=[]
-    for e in range(e_max,emin-1,-16):
-      for ib in range(0,min(81,nb-3*X),16):cands.append(('n',e,ib))
-    if STRUCT:  # outro-over-intro (default 2026-10-31): outgoing plays its whole outro to its music end; incoming starts so its drop lands there
-      SA,SB=sections.get(a),sections.get(b);es=min(e_max,(SA['music_end']//8)*8);ibs=SB['drop1']-X
-      if ibs>=0 and es-X>=ia+16 and ibs+X<nb:cands.append(('n',es,ibs));STRK.add(('n',a,b,es,ibs,X))
-      if __import__('drop_swap').flag_on() and ibs>=0 and es-X>=ia+16:  # DROP_SWAP (2026-11-18 research, off by default): incoming intro has no bass -> also try the cue whose drop lands on the bass swap
-        import drop_swap as _DS;_wa=list(range(es-X,es));_wb=list(range(ibs,ibs+X));_ctx(a,_wa,b,_wb)
-        try:_c=swap_at(a,b,_wa,_wb);_sw=SW
-        finally:_ctx(None)
-        _gb=track(b)['g']['bar'];_ibd=_DS.recue(np.array(_gb.get('low',_gb['all']),float),SB['drop1'],X,ibs,_c,_sw,nb)
-        if _ibd is not None:cands.append(('n',es,_ibd));STRK.add(('n',a,b,es,_ibd,X));print('DROP_SWAP',a,b,'X',X,'cue',ibs,'->',_ibd,'swap',round(_c,2),file=sys.stderr)
-      if SB['drop1']-16>=16 and es-X>=ia+16:cands.append(('lb',es,SB['drop1']-16));STRK.add(('lb',a,b,es,SB['drop1']-16,X))  # gold (the listener 5/5, Mix 05 55:10 -> Just Hold On): incoming loops its last intro phrase, drop lands as the outgoing's music ends
-    if __import__('window_planner').flag_on(os.environ.get('WINDOW_PLANNER')) or __import__('learned_ranker').flag_on(os.environ.get('RANKER')):  # mid-track section windows: planner or RANKER=1 (both off by default)
-      import window_planner as _WP, sections as _SEC
-      have=set(cands)
-      for kind,e,ib in _WP.engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia):
-        if (kind,e,ib) not in have:
-          cands.append((kind,e,ib)); have.add((kind,e,ib))
-          # win_key form for kind 'n': [kind, e, None, ib, X]
-          PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
-    if __import__('replica_rule').flag_on():  # REPLICA v1 pro-replication window (2026-11-18, off by default)
-      import replica_rule as _RR, sections as _SEC
-      have=set(cands)
-      for kind,e,ib in _RR.engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia, a_id=a):
-        if (kind,e,ib) not in have:
-          cands.append((kind,e,ib)); have.add((kind,e,ib)); PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
-    if __import__('replica_rule').drop_mode()!='off':  # DROPCAND drop-exit / drop-cue windows (2026-11-18, off by default)
-      import replica_rule as _RR, sections as _SEC
-      have=set(cands)
-      for kind,e,ib in _RR.drop_engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia):
-        if (kind,e,ib) not in have:
-          cands.append((kind,e,ib)); have.add((kind,e,ib)); PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
-    if os.environ.get('PLAN_LAND','0') not in ('','0'):  # PLAN_LAND (2026-11-20 beats RCA, off by default): 'landing' breakdown fades for the DRUMCLASH veto fallback only
-      # outgoing exits where one of its breakdowns ends (= start of a drop, the X bars before it outside every drop); incoming cue =
-      # one of its drop starts minus X (the X bars before it outside every drop). 8-bar phrase granularity, may be off the 16-bar grid
-      # (pola04: B drop at 56 -> cue 40/24). Marked land_extra: recreate keeps them out of the default families.
-      import sections as _SEC
-      _SA,_SB=_SEC.get(a),_SEC.get(b);_ind=lambda S,k:any(lo<=k<hi for lo,hi in (S.get('drops') or []))
-      have=set(cands)
-      for _e in sorted({lo for lo,hi in (_SA.get('drops') or [])}):
-        if _e%8 or _e>e_max or _e<emin or _e-X<ia+16 or any(_ind(_SA,k) for k in range(_e-X,_e)):continue
-        for _d in sorted({lo for lo,hi in (_SB.get('drops') or [])}):
-          _ib=_d-X
-          if _ib<0 or _ib%8 or _ib+3*X>nb or any(_ind(_SB,k) for k in range(_ib,_d)):continue
-          if ('n',_e,_ib) not in have:
-            cands.append(('n',_e,_ib));have.add(('n',_e,_ib));PLANNER_EXTRA_WINS.add(('n',_e,None,_ib,X));LAND_EXTRA_WINS.add(('n',_e,None,_ib,X))
-    if os.environ.get('PICKER_WIN'):  # PICKER_WIN=<json {"a|b": [kind,e,null,ib,X]}> (2026-11-19 nightly, off by default): learned picker's window as a candidate
-      import json as _js
-      _w=_js.load(open(os.environ['PICKER_WIN'])).get(f'{a}|{b}')
-      if _w and int(_w[4])==X and ('n',int(_w[1]),int(_w[3])) not in set(cands):
-        cands.append(('n',int(_w[1]),int(_w[3]))); PLANNER_EXTRA_WINS.add(('n',int(_w[1]),None,int(_w[3]),X))
+    if _std_x:
+      for e in range(e_max,emin-1,-16):
+        for ib in range(0,min(81,nb-3*X),16):cands.append(('n',e,ib))
+      if STRUCT:  # outro-over-intro (default 2026-10-31): outgoing plays its whole outro to its music end; incoming starts so its drop lands there
+        SA,SB=sections.get(a),sections.get(b);es=min(e_max,(SA['music_end']//8)*8);ibs=SB['drop1']-X
+        if ibs>=0 and es-X>=ia+16 and ibs+X<nb:cands.append(('n',es,ibs));STRK.add(('n',a,b,es,ibs,X))
+        if __import__('drop_swap').flag_on() and ibs>=0 and es-X>=ia+16:  # DROP_SWAP (2026-11-18 research, off by default): incoming intro has no bass -> also try the cue whose drop lands on the bass swap
+          import drop_swap as _DS;_wa=list(range(es-X,es));_wb=list(range(ibs,ibs+X));_ctx(a,_wa,b,_wb)
+          try:_c=swap_at(a,b,_wa,_wb);_sw=SW
+          finally:_ctx(None)
+          _gb=track(b)['g']['bar'];_ibd=_DS.recue(np.array(_gb.get('low',_gb['all']),float),SB['drop1'],X,ibs,_c,_sw,nb)
+          if _ibd is not None:cands.append(('n',es,_ibd));STRK.add(('n',a,b,es,_ibd,X));print('DROP_SWAP',a,b,'X',X,'cue',ibs,'->',_ibd,'swap',round(_c,2),file=sys.stderr)
+        if SB['drop1']-16>=16 and es-X>=ia+16:cands.append(('lb',es,SB['drop1']-16));STRK.add(('lb',a,b,es,SB['drop1']-16,X))  # gold (the listener 5/5, Mix 05 55:10 -> Just Hold On): incoming loops its last intro phrase, drop lands as the outgoing's music ends
+      if __import__('window_planner').flag_on(os.environ.get('WINDOW_PLANNER')) or __import__('learned_ranker').flag_on(os.environ.get('RANKER')):  # mid-track section windows: planner or RANKER=1 (both off by default)
+        import window_planner as _WP, sections as _SEC
+        have=set(cands)
+        for kind,e,ib in _WP.engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia):
+          if (kind,e,ib) not in have:
+            cands.append((kind,e,ib)); have.add((kind,e,ib))
+            # win_key form for kind 'n': [kind, e, None, ib, X]
+            PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
+      if __import__('replica_rule').flag_on():  # REPLICA v1 pro-replication window (2026-11-18, off by default)
+        import replica_rule as _RR, sections as _SEC
+        have=set(cands)
+        for kind,e,ib in _RR.engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia, a_id=a):
+          if (kind,e,ib) not in have:
+            cands.append((kind,e,ib)); have.add((kind,e,ib)); PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
+      if __import__('replica_rule').drop_mode()!='off':  # DROPCAND drop-exit / drop-cue windows (2026-11-18, off by default)
+        import replica_rule as _RR, sections as _SEC
+        have=set(cands)
+        for kind,e,ib in _RR.drop_engine_cands(_SEC.get(a), _SEC.get(b), X, e_max=e_max, ia=ia):
+          if (kind,e,ib) not in have:
+            cands.append((kind,e,ib)); have.add((kind,e,ib)); PLANNER_EXTRA_WINS.add((kind, e, None, ib, X))
+      if os.environ.get('PLAN_LAND','0') not in ('','0'):  # PLAN_LAND (2026-11-20 beats RCA, off by default): 'landing' breakdown fades for the DRUMCLASH veto fallback only
+        # outgoing exits where one of its breakdowns ends (= start of a drop, the X bars before it outside every drop); incoming cue =
+        # one of its drop starts minus X (the X bars before it outside every drop). 8-bar phrase granularity, may be off the 16-bar grid
+        # (pola04: B drop at 56 -> cue 40/24). Marked land_extra: recreate keeps them out of the default families.
+        import sections as _SEC
+        _SA,_SB=_SEC.get(a),_SEC.get(b);_ind=lambda S,k:any(lo<=k<hi for lo,hi in (S.get('drops') or []))
+        have=set(cands)
+        for _e in sorted({lo for lo,hi in (_SA.get('drops') or [])}):
+          if _e%8 or _e>e_max or _e<emin or _e-X<ia+16 or any(_ind(_SA,k) for k in range(_e-X,_e)):continue
+          for _d in sorted({lo for lo,hi in (_SB.get('drops') or [])}):
+            _ib=_d-X
+            if _ib<0 or _ib%8 or _ib+3*X>nb or any(_ind(_SB,k) for k in range(_ib,_d)):continue
+            if ('n',_e,_ib) not in have:
+              cands.append(('n',_e,_ib));have.add(('n',_e,_ib));PLANNER_EXTRA_WINS.add(('n',_e,None,_ib,X));LAND_EXTRA_WINS.add(('n',_e,None,_ib,X))
+      if os.environ.get('PICKER_WIN'):  # PICKER_WIN=<json {"a|b": [kind,e,null,ib,X]}> (2026-11-19 nightly, off by default): learned picker's window as a candidate
+        import json as _js
+        _w=_js.load(open(os.environ['PICKER_WIN'])).get(f'{a}|{b}')
+        if _w and int(_w[4])==X and ('n',int(_w[1]),int(_w[3])) not in set(cands):
+          cands.append(('n',int(_w[1]),int(_w[3]))); PLANNER_EXTRA_WINS.add(('n',int(_w[1]),None,int(_w[3]),X))
     if os.environ.get('PICKER_INJECT_CS')=='1' and os.environ.get('PICKER_STYLE_GATED_MAP'):
       import json as _js
       _tab=_js.load(open(os.environ['PICKER_STYLE_GATED_MAP']))
@@ -384,21 +412,22 @@ def pair_cands(i,ia0):
           _ee,_ib=int(_w[1]),int(_w[3])
           if 16<=_ee-X and _ee<=na and 0<=_ib and _ib+X<=nb-16 and ('n',_ee,_ib) not in _have_pw:
             cands.append(('n',_ee,_ib)); _have_pw.add(('n',_ee,_ib)); PLANNER_EXTRA_WINS.add(('n',_ee,None,_ib,X))
-    eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
-    for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
-      for p in [e-16] if e-16>=max(ia,16) else []:  # a fill/level drop inside the loop is penalised (DIPPEN), not refused
-        if X>16 and not int(os.environ.get('LOOP32',1)):continue  # 32-bar outgoing repeat: allowed again 2026-10-31 12:30 (listener: loops are fine), capped by the variety rule
-        for ib in range(0,min(81,nb-3*X),16):cands.append(('la',(e,p),ib))
-    for e in range(e_max,emin-1,-16):
-      for q in range(16,min(97,nb-4*X),16):cands.append(('lb',e,q))  # incoming plays phrase q first, continues q+16
-    if LX and not (X>16 and not int(os.environ.get('LOOP32',1))):
-      for e in range(e_max,eml-1,-16):
-        for p in beat_phrases(a,e,ia)[:1]:  # nearest clean beat phrase before the out point
-          for ib in range(0,min(81,nb-3*X),16):cands.append(('lx',(e,p),ib))
-    cpa=[p for p in clean_phrases(a) if p>=max(ia,16)];cpb=[q for q in clean_phrases(b) if 16<=q<min(97,nb-4*X)]
-    for e in range(e_max,emin-1,-16):  # both decks loop a clean instrumental phrase (only when neither has vocal-free runway)
-      for p in [p for p in cpa if p==e-16]:
-        for q in cpb:cands.append(('ab',(e,p),q))
+    if _std_x:
+      eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
+      for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
+        for p in [e-16] if e-16>=max(ia,16) else []:  # a fill/level drop inside the loop is penalised (DIPPEN), not refused
+          if X>16 and not int(os.environ.get('LOOP32',1)):continue  # 32-bar outgoing repeat: allowed again 2026-10-31 12:30 (listener: loops are fine), capped by the variety rule
+          for ib in range(0,min(81,nb-3*X),16):cands.append(('la',(e,p),ib))
+      for e in range(e_max,emin-1,-16):
+        for q in range(16,min(97,nb-4*X),16):cands.append(('lb',e,q))  # incoming plays phrase q first, continues q+16
+      if LX and not (X>16 and not int(os.environ.get('LOOP32',1))):
+        for e in range(e_max,eml-1,-16):
+          for p in beat_phrases(a,e,ia)[:1]:  # nearest clean beat phrase before the out point
+            for ib in range(0,min(81,nb-3*X),16):cands.append(('lx',(e,p),ib))
+      cpa=[p for p in clean_phrases(a) if p>=max(ia,16)];cpb=[q for q in clean_phrases(b) if 16<=q<min(97,nb-4*X)]
+      for e in range(e_max,emin-1,-16):  # both decks loop a clean instrumental phrase (only when neither has vocal-free runway)
+        for p in [p for p in cpa if p==e-16]:
+          for q in cpb:cands.append(('ab',(e,p),q))
     if b in ANCH and b not in NOIN:  # incoming anchor: start early enough to keep >=160 bars of its own music
       bmx=min(tail0(alb,bb),nb)-160;cands=[c for c in cands if c[2]<=max(0,bmx)] or cands
     LW=float(os.environ.get('LW',0.4))
@@ -448,10 +477,11 @@ def pair_cands(i,ia0):
       if kind=='ab':r['pen']+=DIPPEN*loop_dip(b,q)
       seq=[(e-1 if kind in('la','ab') else wa[0]-1)]+list(wa)[:X//2+2];seq=[k for k in seq if 0<=k<len(ha)]
       jump=max([abs(ha[seq[k]]-ha[seq[k-1]]) for k in range(1,len(seq))]+[0])  # outgoing level jumps across entry / first half (guardrail N1, C1)
-      r['pen']+=float(os.environ.get('SEAMPEN',8))*max(0,jump-3)
+      _jp=float(os.environ.get('SEAMPEN',8))*max(0,jump-3);r['jump_pen']=round(_jp,2);r['pen']+=_jp
       hole=int(any(alb[k]<float(os.environ.get('HOLE_DB',-31)) for k in range(q+X,min(q+X+96,tail0(alb,bb)))))  # incoming would play a near-silent bar of its own (guardrail E2)
       r['pen']+=float(os.environ.get('HOLEPEN',0))*hole
-      if step>float(os.environ.get('SEAMMAX',2)) or r['both']<int(os.environ.get('BOTHMIN',11)):r['pen']+=float(os.environ.get('HARDPEN',60))  # hard limits: guardrail N1 (3 dB step) and O1 (>=8 bars)
+      _sf=int(step>float(os.environ.get('SEAMMAX',2)));r['seam_fail']=_sf;_bm=min(8,int(os.environ.get('BOTHMIN',11))) if r.get('early_exit') else int(os.environ.get('BOTHMIN',11))
+      if _sf or r['both']<_bm:r['pen']+=float(os.environ.get('HARDPEN',60))  # hard limits: guardrail N1 (3 dB step) and O1 (>=8 bars)
       if CUEW>0:r['cue']=round(cue_pen(a,ea),3);r['pen']+=CUEW*r['cue']
       sc=(r['pen']+(float(os.environ.get('SHORTPEN',6)) if X<XMAX else 0)+LW*skipped+float(os.environ.get('LOOPPEN',40))*{'n':0,'la':1,'lb':1,'ab':2,'lx':0}[kind]+(LXPEN if kind=='lx' else 0),-ea,str(ib))
       _k6=(kind,a,b,ea,ib,X)
@@ -630,7 +660,7 @@ LOOK=int(os.environ.get("LOOKAHEAD",8))
 KIND={};LXD=set()
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];cs=pair_cands(i,inn[a])
-  if os.environ.get("DUMP_CANDS"):json.dump([dict(win=win_key(c),cost=float(c[0][0]),pen=float(c[4]['pen']),V=int(c[4].get('V',0)),L=int(c[4].get('L',0)),SG=int(c[4].get('SG',0)),R=float(c[4].get('R',1.0)),HB=bool((c[4].get('HB') or {}).get('flagged')),both=int(c[4].get('both',X)),planner_extra=tuple(win_key(c)) in PLANNER_EXTRA_WINS,land_extra=tuple(win_key(c)) in LAND_EXTRA_WINS) for c in cs],open(os.environ["DUMP_CANDS"],'w'));sys.exit()  # blend_bench.py: all scored windows of the first pair
+  if os.environ.get("DUMP_CANDS"):json.dump([dict(win=win_key(c),cost=float(c[0][0]),pen=float(c[4]['pen']),V=int(c[4].get('V',0)),L=int(c[4].get('L',0)),SG=int(c[4].get('SG',0)),R=float(c[4].get('R',1.0)),HB=bool((c[4].get('HB') or {}).get('flagged')),both=int(c[4].get('both',X)),seam_fail=int(c[4].get('seam_fail',0)),early_exit=int(c[4].get('early_exit',0)),pred_vdip=c[4].get('pred_vdip'),pred_ldip=c[4].get('pred_ldip'),drum_pen=c[4].get('drum_pen'),jump_pen=c[4].get('jump_pen'),planner_extra=tuple(win_key(c)) in PLANNER_EXTRA_WINS,land_extra=tuple(win_key(c)) in LAND_EXTRA_WINS) for c in cs],open(os.environ["DUMP_CANDS"],'w'));sys.exit()  # blend_bench.py: all scored windows of the first pair
   if os.environ.get("DBG_PAIR")==f"{a}>{b}":[print("DBG",round(c[0][0],1),c[1],c[2],c[3],c[5],round(c[4]["pen"],1),file=sys.stderr) for c in cs[:8]]
   W=plan[i].get('out_win')  # opt-in: the window plan_search.py chose for this blend (renders exactly what was planned)
   if W:
@@ -757,6 +787,10 @@ if SI>0 and not GC:
   _si_rate=float(os.environ.get('TAIL_SHALLOW',0) or 0) or _SI.RATE
   _si_extra=float(os.environ.get('SNAP_IN_HOLD',0) or 0)
   _SI.apply(decks,trans,hold_db=_si_hold,rate=_si_rate,skip=set(PIN),hold_extra=_si_extra)
+if __import__('early_exit').flag_on() and not GC:
+  import early_exit as _EE
+  EE_LOG=_EE.apply(decks,trans,secs_of=sections.get,skip=set(PIN))
+  for _r in EE_LOG:print('EARLY_EXIT',_r,file=sys.stderr)
 # beats -> melody-only fixes (beatmelody.py, 2026-11-02): plan step 'bm_fix' ('dswap' | 'dswap_beat' | 'ib' | 'ib+dswap'), or env BM_FIX on every BM1 blend
 import beatmelody as _BMX
 _BMM=dict(decks=decks,trans=trans,bar_sec=BAR);_bmenv=os.environ.get('BM_FIX','')

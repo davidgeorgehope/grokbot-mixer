@@ -1006,6 +1006,274 @@ def run_djbal_pinned():
         print('DJBAL_PINNED CHECKPOINT', arm, json.dumps(summary[arm]), flush=True)
 
 
+MARGINS_ASYM = [5.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 1e9]
+MIN_NA_GRID = [0, 190, 200]
+
+
+def inner_asym_mix_gate(tr):
+    """Learn late-safe (min_na, margin) gate via inner leave-one-DJ-out CV optimizing asymmetric regret:
+    |ex - pro_out| + 1.0 * max(0, |ex - pro_out| - |dex - pro_out|) on dev pairs only."""
+    djs = sorted({r['dj'] for r in tr})
+    oof = {}
+    for d in djs:
+        a = [r for r in tr if r['dj'] != d]
+        b = [r for r in tr if r['dj'] == d]
+        mods = fit_mix_exit_models(a)
+        for r, pred in zip(b, predict_mix_exit(mods, b)):
+            oof[r['id']] = pred
+    best = None
+    for min_na in MIN_NA_GRID:
+        for mg in MARGINS_ASYM:
+            losses = []
+            for r in tr:
+                jb, gain, _, _, _ = oof[r['id']]
+                go = (na_(r) >= min_na) and (gain >= mg) and (jb != r['Edix'])
+                ex = r['E'][jb]['v'] if go else r['dex']
+                e_x = abs(ex - r['pro_out'])
+                e_d = abs(r['dex'] - r['pro_out'])
+                losses.append(e_x + 1.0 * max(0.0, e_x - e_d))
+            ml = float(np.mean(losses))
+            if best is None or ml < best[0]:
+                best = (ml, min_na, mg)
+    return best
+
+
+def train_predict_asym(tr, te):
+    ensure_sec_cue_cache(tr)
+    ensure_sec_cue_cache(te)
+    eC_dj, ciC_dj, tauC_dj = inner_cue_djbal(tr)
+    mC_dj = fit_cue_djbal(tr, B.CFGS[ciC_dj])
+    SC_dj = scores_cue_sec(mC_dj, te)
+    jc_dj = [B.gpick(r, 'C', s, tauC_dj) for r, s in zip(te, SC_dj)]
+
+    eE_asym, min_na_best, mg_best = inner_asym_mix_gate(tr)
+    mods_mix = fit_mix_exit_models(tr)
+    mix_preds = predict_mix_exit(mods_mix, te)
+    je_asym = [
+        jb if (na_(r) >= min_na_best and gain >= mg_best) else r['Edix']
+        for r, (jb, gain, _, _, _) in zip(te, mix_preds)
+    ]
+
+    D = {}
+    D['djbal_cue_asym_mix'] = [B.decide(r, j, c, r['dX']) for r, j, c in zip(te, je_asym, jc_dj)]
+    for x, (_, gain, p, a, b) in zip(D['djbal_cue_asym_mix'], mix_preds):
+        x['p_early'] = round(p, 3)
+        x['mu_early'] = round(a, 1)
+        x['mu_late'] = round(b, 1)
+        x['risk_gain'] = round(gain, 2)
+    diag = dict(
+        cue_djbal=dict(cfg=ciC_dj, tau=tauC_dj, inner_djbal=round(float(eC_dj), 2)),
+        asym_exit=dict(min_na=min_na_best, margin=mg_best, inner_asym2=round(float(eE_asym), 2)),
+        cue_abstain_rate=round(float(np.mean([c == r['Cdix'] for r, c in zip(te, jc_dj)])), 3),
+        exit_moved_rate=round(float(np.mean([j != r['Edix'] for r, j in zip(te, je_asym)])), 3),
+    )
+    return D, diag
+
+
+def _fold_asym(args):
+    d, dev = args
+    tr = [r for r in dev if r['dj'] != d]
+    te = [r for r in dev if r['dj'] == d]
+    D, diag = train_predict_asym(tr, te)
+    print('asym_fold', d, len(te), diag, flush=True)
+    return d, [r['id'] for r in te], D, diag
+
+
+def run_asym_cv():
+    from concurrent.futures import ProcessPoolExecutor
+    prev = json.load(open(os.path.join(H, 'picker_1125_djbal_cv.json')))
+    prev_by_id = {r['id']: r for r in prev['per_pair']}
+
+    rows = B.build(P.rows_all(), P.load_rendered_defaults())
+    dev = [r for r in rows if r['set'] == 'dev']
+    ensure_sec_cue_cache(dev)
+    djs = sorted({r['dj'] for r in dev})
+
+    folds = {}
+    preds = {}
+    with ProcessPoolExecutor(max_workers=int(os.environ.get('DJBAL_W', 4))) as ex:
+        for d, ids, D, diag in ex.map(_fold_asym, [(d, dev) for d in djs]):
+            folds[d] = diag
+            for pid, val in zip(ids, D['djbal_cue_asym_mix']):
+                preds[pid] = val
+
+    pp = []
+    for r in dev:
+        row = dict(prev_by_id[r['id']])
+        row['djbal_cue_asym_mix'] = preds[r['id']]
+        pp.append(row)
+
+    all_arms = ['default', 'majority', 'djbal_cue_defexit', 'djbal_cue_sec_mix', 'djbal_cue_asym_mix']
+    boots_all = clustered_boots(pp, ['djbal_cue_defexit', 'djbal_cue_sec_mix', 'djbal_cue_asym_mix'])
+    pp_nk = [r for r in pp if r['dj'] != 'KushSessions']
+    pp_k = [r for r in pp if r['dj'] == 'KushSessions']
+    boots_nk = clustered_boots(pp_nk, ['djbal_cue_defexit', 'djbal_cue_sec_mix', 'djbal_cue_asym_mix'])
+    slices = dict(
+        all_843=_slice_metrics(pp, all_arms),
+        non_kush_437=_slice_metrics(pp_nk, all_arms),
+        kush_406=_slice_metrics(pp_k, all_arms),
+    )
+    out = dict(
+        n=len(pp), n_mixes=len({r['mix'] for r in pp}), n_djs=len(djs),
+        folds=folds, slices=slices, bootstraps_all=boots_all, bootstraps_nonkush=boots_nk, per_pair=pp,
+    )
+    outp = os.path.join(H, 'picker_1125_asym_cv.json')
+    json.dump(out, open(outp, 'w'), indent=1, default=str)
+    print('Saved ASYM CV to', outp, flush=True)
+    for sl_name, sl in slices.items():
+        print(f'=== ASYM SLICE {sl_name} ===', flush=True)
+        for a, m in sl.items():
+            print(f"  {a:20s} ec={m['exit_cue_mean']} exit={m['exit_mean']}(med {m['exit_median']}, @8 {m['exit_hit8']}, @16 {m['exit_hit16']}, mid={m['pro_mid_exit_mean']}, late={m['pro_late_exit_mean']}) "
+                  f"cue={m['cue_mean']}(@16 {m['cue_hit16']}) emov={m['exit_moved']} cmov={m['cue_moved']}", flush=True)
+    for btype in ('mix_clustered', 'pair_clustered'):
+        for ref in ('default', 'majority'):
+            d = boots_all[btype][f'djbal_cue_asym_mix_vs_{ref}']
+            dn = boots_nk[btype][f'djbal_cue_asym_mix_vs_{ref}']
+            print(f"CI_ALL[{btype}] djbal_cue_asym_mix_vs_{ref}: ec={d['exit_cue']} exit={d['exit']} cue={d['cue']} e@16={d['exit_hit16_gain']} c@16={d['cue_hit16_gain']}", flush=True)
+            print(f"CI_NONKUSH[{btype}] djbal_cue_asym_mix_vs_{ref}: ec={dn['exit_cue']} exit={dn['exit']} cue={dn['cue']} e@16={dn['exit_hit16_gain']} c@16={dn['cue_hit16_gain']}", flush=True)
+
+
+def run_asym_maps():
+    import run_admitted_tune as T
+    rows = B.build(P.rows_all(), P.load_rendered_defaults())
+    dev = [r for r in rows if r['set'] == 'dev']
+    te = [r for r in rows if r['set'] == 'protrans']
+    D, diag = train_predict_asym(dev, te)
+    recs = {r['id']: r for r in T.load_recs()}
+    by_yt, by_id = {}, {}
+    for r, x in zip(te, D['djbal_cue_asym_mix']):
+        rec = recs.get(r['id'])
+        key = f"{rec['a']['yt']}|{rec['b']['yt']}" if rec else None
+        by_id[r['id']] = dict(win=x.get('win'), exit=x['exit'], cue=x['cue'], X=x['X'],
+                              abstain=bool(x.get('is_default')), yt_key=key)
+        if key and x.get('win') and not x.get('is_default'):
+            by_yt[key] = x['win']
+    mp = dict(
+        written='2026-11-25 asym followup',
+        model=f'picker_1125_followup djbal_cue_asym_mix (DJ-balanced cue tau>0, asym2 late-safe exit gate, PICKER_INJECT_CS=1), trained on {len(dev)} dev only, applied to 33 protrans pairs',
+        diag=diag,
+        by_yt=by_yt, by_id=by_id,
+        do_not='write rules.json or treat this map as a promotion',
+    )
+    dest1 = os.path.join(W, 'map_djbal_cue_asym_mix.json')
+    dest2 = os.path.join(H, 'picker_djbal_sec_mix_windows.json')
+    json.dump(mp, open(dest1, 'w'), indent=1, default=str)
+    json.dump(mp, open(dest2, 'w'), indent=1, default=str)
+    out = dict(n=len(te), diag=diag, n_windows=len(by_yt), paths=[dest1, dest2])
+    json.dump(out, open(os.path.join(H, 'picker_1125_asym_protrans_maps.json'), 'w'), indent=1, default=str)
+    print('Wrote ASYM protrans maps:', out, flush=True)
+
+
+def run_asym_pinned():
+    os.environ['HARD_FALLBACK'] = '0'
+    os.environ.pop('HARDCHECK_TEST_FORCE_WIN', None)
+    import st_pin
+    os.environ['PROTRANS_SRC2'] = st_pin.ensure_shadow()
+    import paths, run_admitted_tune as T, score_v2 as S2
+    recs = T.load_recs()
+
+    mpath = os.path.join(W, 'map_djbal_cue_asym_mix.json')
+    if not os.path.exists(mpath):
+        run_asym_maps()
+
+    cohort_base_p = os.path.join(P0, 'research_1124', 'scorev2', 'cohort_base.jsonl')
+    base_by_id = {}
+    for l in open(cohort_base_p):
+        if l.strip():
+            row = json.loads(l)
+            if not row.get('error'):
+                pl = S2.placement_score(row['placement']['ours'], row['placement']['pro'])
+                row['placement']['parts'] = pl
+                row['v2'] = round(S2.combine(row['v1'], row['v1_breakdown'], pl), 2)
+                base_by_id[row['id']] = row
+
+    summary = json.load(open(os.path.join(H, 'picker_1125_djbal_pinned.json')))
+    import multiprocessing as mp
+
+    def _ci_subset(rows_sub, metric):
+        d = [x[metric] - base_by_id[x['id']][metric] for x in rows_sub]
+        mix_ids = sorted({x['id'].rsplit('__', 1)[0] for x in rows_sub})
+        idx_m = collections.defaultdict(list)
+        for i, x in enumerate(rows_sub):
+            idx_m[x['id'].rsplit('__', 1)[0]].append(i)
+        rng = np.random.default_rng(SEED)
+        BS_p = rng.integers(0, len(rows_sub), (NB, len(rows_sub)))
+        BS_m = [np.concatenate([idx_m[mix_ids[m]] for m in rng.choice(len(mix_ids), len(mix_ids))]) for _ in range(NB)]
+        arr = np.asarray(d)
+        return dict(
+            pair=[round(float(arr.mean()), 2), round(float(np.percentile(arr[BS_p].mean(1), 2.5)), 2), round(float(np.percentile(arr[BS_p].mean(1), 97.5)), 2)],
+            mix=[round(float(arr.mean()), 2), round(float(np.percentile([arr[ii].mean() for ii in BS_m], 2.5)), 2), round(float(np.percentile([arr[ii].mean() for ii in BS_m], 97.5)), 2)],
+        )
+
+    arm = 'djbal_cue_asym_mix'
+    mp_tab = json.load(open(mpath))
+    by_yt = mp_tab.get('by_yt') or {}
+    ck = os.path.join(W, f'pinned_{arm}.jsonl')
+    have = {}
+    if os.path.exists(ck):
+        for l in open(ck):
+            if l.strip():
+                row = json.loads(l)
+                if not row.get('error'):
+                    have[row['id']] = row
+    todo = []
+    for i, r in enumerate(recs):
+        if r['id'] in have:
+            continue
+        key = f"{r['a']['yt']}|{r['b']['yt']}"
+        if key not in by_yt:
+            b_copy = dict(base_by_id[r['id']], arm=arm, abstained_to_base=True, injected_cs=False)
+            with open(ck, 'a') as fh:
+                fh.write(json.dumps(b_copy, default=str) + '\n')
+            have[r['id']] = b_copy
+        else:
+            todo.append((arm, mpath, i, r))
+    print(f'ASYM_PINNED {arm}: {len(have)} cached (incl abstains), {len(todo)} to render', flush=True)
+    if todo:
+        with mp.get_context('spawn').Pool(int(os.environ.get('PINW', 2)), maxtasksperchild=4) as pool:
+            for row in pool.imap_unordered(_pinned_worker, todo):
+                with open(ck, 'a') as fh:
+                    fh.write(json.dumps(row, default=str) + '\n')
+                print(arm, row['id'], row.get('fam'), row.get('win'), 'v1=', row.get('v1'), 'v2=', row.get('v2'), row.get('error', '')[-120:], flush=True)
+                if not row.get('error'):
+                    have[row['id']] = row
+    rows_ok = [have[r['id']] for r in recs if r['id'] in have]
+    tr = [x for x in rows_ok if x['split'] == 'train']
+    te = [x for x in rows_ok if x['split'] == 'test']
+    eb, ea, pe, px, ps = [], [], [], [], []
+    for x in rows_ok:
+        pl = x['placement']; pr, ou = pl['pro'], pl['ours']
+        if pr.get('entry', {}).get('b') is not None and ou.get('entry', {}).get('b') is not None:
+            eb.append(abs(ou['entry']['b'] - pr['entry']['b']))
+        if pr.get('gone', {}).get('a') is not None and ou.get('gone', {}).get('a') is not None:
+            ea.append(abs(ou['gone']['a'] - pr['gone']['a']))
+        if pl.get('parts'):
+            pe.append(pl['parts']['entry']); px.append(pl['parts']['gone']); ps.append(pl['parts']['swap'])
+    summary[arm] = dict(
+        n=len(rows_ok), n_train=len(tr), n_test=len(te),
+        v1_train=round(float(np.mean([x['v1'] for x in tr])), 2),
+        v1_test=round(float(np.mean([x['v1'] for x in te])), 2),
+        v1_all=round(float(np.mean([x['v1'] for x in rows_ok])), 2),
+        v2_train=round(float(np.mean([x['v2'] for x in tr])), 2),
+        v2_test=round(float(np.mean([x['v2'] for x in te])), 2),
+        v2_all=round(float(np.mean([x['v2'] for x in rows_ok])), 2),
+        delta_v1_all=_ci_subset(rows_ok, 'v1'),
+        delta_v2_all=_ci_subset(rows_ok, 'v2'),
+        delta_v1_train=_ci_subset(tr, 'v1'),
+        delta_v2_train=_ci_subset(tr, 'v2'),
+        delta_v1_test=_ci_subset(te, 'v1'),
+        delta_v2_test=_ci_subset(te, 'v2'),
+        place_parts=dict(entry=round(float(np.mean(pe)), 1), gone=round(float(np.mean(px)), 1), swap=round(float(np.mean(ps)), 1)),
+        audio_b_entry_mae=round(float(np.mean(eb)), 1) if eb else None,
+        audio_a_exit_mae=round(float(np.mean(ea)), 1) if ea else None,
+        n_picker_applied=sum(1 for x in rows_ok if x['fam'] == 'picker_style_gated'),
+        fams=dict(collections.Counter(x['fam'] for x in rows_ok)),
+    )
+    outp = os.path.join(H, 'picker_1125_asym_pinned.json')
+    json.dump(summary, open(outp, 'w'), indent=2)
+    print('ASYM_PINNED SUMMARY:', json.dumps(summary[arm], indent=2), flush=True)
+
+
 if __name__ == '__main__':
     mode = sys.argv[1]
     if mode == 'diagnose':
@@ -1022,5 +1290,11 @@ if __name__ == '__main__':
         run_djbal_maps()
     elif mode == 'djbal_pinned':
         run_djbal_pinned()
+    elif mode == 'asym_cv':
+        run_asym_cv()
+    elif mode == 'asym_maps':
+        run_asym_maps()
+    elif mode == 'asym_pinned':
+        run_asym_pinned()
     else:
         raise SystemExit(f'unknown mode: {mode}')

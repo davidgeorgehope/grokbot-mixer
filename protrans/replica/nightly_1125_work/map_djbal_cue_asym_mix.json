@@ -1,0 +1,456 @@
+{
+ "written": "2026-11-25 asym followup",
+ "model": "picker_1125_followup djbal_cue_asym_mix (DJ-balanced cue tau>0, asym2 late-safe exit gate, PICKER_INJECT_CS=1), trained on 843 dev only, applied to 33 protrans pairs",
+ "diag": {
+  "cue_djbal": {
+   "cfg": 0,
+   "tau": 0.25,
+   "inner_djbal": 23.94
+  },
+  "asym_exit": {
+   "min_na": 200,
+   "margin": 50.0,
+   "inner_asym2": 44.94
+  },
+  "cue_abstain_rate": 0.788,
+  "exit_moved_rate": 0.242
+ },
+ "by_yt": {
+  "NjwN3B617tg|Dy3qi_gCP9k": [
+   "n",
+   144,
+   null,
+   16,
+   16
+  ],
+  "M4UU1xn_K4s|zEvLsOVhg0I": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ],
+  "9oBXWTlTPMw|3f-XOhfDhxk": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "0fjPvcfMJWk|XUX0ebuFh7Y": [
+   "n",
+   176,
+   null,
+   48,
+   16
+  ],
+  "CX4UFb_LlU4|na79dfVHpp0": [
+   "n",
+   160,
+   null,
+   48,
+   16
+  ],
+  "3f-XOhfDhxk|Mzgh0cLopck": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ],
+  "u6cggHmZEAs|SqzxwPEa-DI": [
+   "n",
+   160,
+   null,
+   48,
+   16
+  ],
+  "pzFgQ7iIfXQ|qeXTBEtGUtk": [
+   "n",
+   224,
+   null,
+   24,
+   16
+  ],
+  "J3oTRY7AdE4|ksVDZt9_0J4": [
+   "n",
+   208,
+   null,
+   64,
+   16
+  ],
+  "ksVDZt9_0J4|Vwb-3pAvOVk": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ],
+  "pqqjaLUk-MY|oySqE3z99AE": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ],
+  "R06kP42RFRo|dOJp7bsjuyU": [
+   "n",
+   96,
+   null,
+   48,
+   16
+  ],
+  "DpYdXERlkFk|k-7z5X0ATEc": [
+   "n",
+   144,
+   null,
+   16,
+   16
+  ]
+ },
+ "by_id": {
+  "wilkinson_boomtown2026__33": {
+   "win": null,
+   "exit": 65.0,
+   "cue": 1.0,
+   "X": 32,
+   "abstain": true,
+   "yt_key": "uP0KAzefX8Y|I9QGpHScGug"
+  },
+  "joe_syntax_hospital__01": {
+   "win": null,
+   "exit": 145.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "dOJp7bsjuyU|zM6au9qc2XQ"
+  },
+  "joe_syntax_hospital__08": {
+   "win": [
+    "n",
+    144,
+    null,
+    16,
+    16
+   ],
+   "exit": 129.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "NjwN3B617tg|Dy3qi_gCP9k"
+  },
+  "hybrid_minds_ukf__08": {
+   "win": null,
+   "exit": 209.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "suPgRyRLVC4|J3oTRY7AdE4"
+  },
+  "hybrid_minds_ukf__11": {
+   "win": null,
+   "exit": 193.0,
+   "cue": 65.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "Vwb-3pAvOVk|M4UU1xn_K4s"
+  },
+  "hybrid_minds_ukf__12": {
+   "win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "exit": 145.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "M4UU1xn_K4s|zEvLsOVhg0I"
+  },
+  "hybrid_minds_ukf__19": {
+   "win": null,
+   "exit": 161.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "HP7Q0vDU9vI|5YG-HKjtiHM"
+  },
+  "hybrid_minds_ukf__25": {
+   "win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "exit": 177.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "9oBXWTlTPMw|3f-XOhfDhxk"
+  },
+  "hybrid_minds_ukf__45": {
+   "win": null,
+   "exit": 113.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "xv0Qw1QZT8I|0oxJBc__U0c"
+  },
+  "netsky_hospital_classics__02": {
+   "win": [
+    "n",
+    176,
+    null,
+    48,
+    16
+   ],
+   "exit": 161.0,
+   "cue": 49.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "0fjPvcfMJWk|XUX0ebuFh7Y"
+  },
+  "netsky_hospital_classics__06": {
+   "win": [
+    "n",
+    160,
+    null,
+    48,
+    16
+   ],
+   "exit": 145.0,
+   "cue": 49.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "CX4UFb_LlU4|na79dfVHpp0"
+  },
+  "netsky_hospital_classics__17": {
+   "win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "exit": 145.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "3f-XOhfDhxk|Mzgh0cLopck"
+  },
+  "joe_syntax_hospital__11": {
+   "win": null,
+   "exit": 225.0,
+   "cue": 25.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "wUVt_GsvMzw|tCyYwek-o28"
+  },
+  "joe_syntax_hospital__12": {
+   "win": null,
+   "exit": 209.0,
+   "cue": 49.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "tCyYwek-o28|u6cggHmZEAs"
+  },
+  "joe_syntax_hospital__13": {
+   "win": [
+    "n",
+    160,
+    null,
+    48,
+    16
+   ],
+   "exit": 145.0,
+   "cue": 49.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "u6cggHmZEAs|SqzxwPEa-DI"
+  },
+  "hybrid_minds_ukf__00": {
+   "win": [
+    "n",
+    224,
+    null,
+    24,
+    16
+   ],
+   "exit": 209.0,
+   "cue": 25.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "pzFgQ7iIfXQ|qeXTBEtGUtk"
+  },
+  "hybrid_minds_ukf__09": {
+   "win": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ],
+   "exit": 193.0,
+   "cue": 65.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "J3oTRY7AdE4|ksVDZt9_0J4"
+  },
+  "hybrid_minds_ukf__10": {
+   "win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "exit": 145.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "ksVDZt9_0J4|Vwb-3pAvOVk"
+  },
+  "hybrid_minds_ukf__28": {
+   "win": null,
+   "exit": 225.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "bnRTUL2jnk0|Op886B0sd4Q"
+  },
+  "hybrid_minds_ukf__40": {
+   "win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "exit": 145.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "pqqjaLUk-MY|oySqE3z99AE"
+  },
+  "joe_syntax_hospital__00": {
+   "win": [
+    "n",
+    96,
+    null,
+    48,
+    16
+   ],
+   "exit": 81.0,
+   "cue": 49.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "R06kP42RFRo|dOJp7bsjuyU"
+  },
+  "joe_syntax_hospital__09": {
+   "win": null,
+   "exit": 177.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "Dy3qi_gCP9k|fApyZbwuAjM"
+  },
+  "joe_syntax_hospital__14": {
+   "win": null,
+   "exit": 209.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "SqzxwPEa-DI|q3WVxTT01dY"
+  },
+  "hybrid_minds_ukf__13": {
+   "win": null,
+   "exit": 177.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "zEvLsOVhg0I|W77cCOreg_0"
+  },
+  "hybrid_minds_ukf__23": {
+   "win": null,
+   "exit": 209.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "INaNIcQ4S7k|HpfQ0bus688"
+  },
+  "netsky_hospital_classics__15": {
+   "win": [
+    "n",
+    144,
+    null,
+    16,
+    16
+   ],
+   "exit": 129.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": false,
+   "yt_key": "DpYdXERlkFk|k-7z5X0ATEc"
+  },
+  "netsky_hospital_classics__23": {
+   "win": null,
+   "exit": 177.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "gCkKc2LuCuM|KP8jwoWF44Y"
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "win": null,
+   "exit": 97.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "U1VSQ7SRtX0|smXG7OvMrFI"
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "win": null,
+   "exit": 161.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "smXG7OvMrFI|11SJZqMmzQ0"
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "win": null,
+   "exit": 225.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "cG7cRDcPY3k|EpHrodtTiK0"
+  },
+  "pola_bryson_puzzlewood__00": {
+   "win": null,
+   "exit": 161.0,
+   "cue": 33.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "_IgqP6Hv3fs|wyl3hVnB1dQ"
+  },
+  "pola_bryson_puzzlewood__02": {
+   "win": null,
+   "exit": 193.0,
+   "cue": 17.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "5VtwlyaYohs|fvSe3ZmZRPs"
+  },
+  "pola_bryson_puzzlewood__04": {
+   "win": null,
+   "exit": 209.0,
+   "cue": 41.0,
+   "X": 16,
+   "abstain": true,
+   "yt_key": "ogXFi8wa56w|nNXHqtByO-A"
+  }
+ },
+ "do_not": "write rules.json or treat this map as a promotion"
+}

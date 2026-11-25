@@ -71,6 +71,13 @@ def _rm(p):
 
 
 def ensure_shadow(yts=None):
+    import fcntl
+    with open(SHADOW + '.lock', 'w') as lf:
+        fcntl.flock(lf, fcntl.LOCK_EX)
+        return _ensure_shadow_impl(yts)
+
+
+def _ensure_shadow_impl(yts=None):
     """Shadow src2: symlink live tree, overlay pinned json/sections as real files.
 
     Mix 10 keeps using /workspace/mixes/src2. Official jobs set PROTRANS_SRC2 to

@@ -161,3 +161,47 @@ Three fixes implemented in `protrans/replica/picker_1125_followup.py`, `protrans
   - `djbal_cue_sec_mix` **beat `base` on overall point estimates (`+1.90 v1`, `+2.14 v2`, and all three `v2` placement sub-scores)** and cut `audio_a_exit_MAE` by 31 bars (`54.0 → 23.0`), driven by large gains on the 21 train pairs (`+4.41 v1 / +4.75 v2`) — **but regressed on the 12 test pairs (`−2.51 v1 / −2.43 v2`)** due to `margin = 5` over-exiting (`wilkinson_boomtown2026__33`, `pola_bryson_puzzlewood__04`), and both 95% CIs still cross zero (`[−1.41, +5.22]` / `[−1.86, +6.09]`).
 - **Worth adding as a nightly arm?**
   - **Yes, as a diagnostic/shadow nightly arm (`djbal_cue_sec_mix` with `PICKER_INJECT_CS=1`), NOT as a `rules.json` replacement yet.** It is strictly better than `cueonly_gated` / `hybrid_sec_cue` / `hybrid_sec_mix` on pinned `v1`/`v2` (`+5.86 v1 / +6.52 v2` over `cueonly_gated`) and shows real upside when paired with early exits, while its `train` vs `test` split (`+4.75` vs `−2.43` on `v2`) confirms the exit gate margin (`margin=5`) still needs tightening (`margin >= 10–15` or `pro_late` guardrail) before promotion.
+
+## 9. Learned Late-Safe Exit Gate (`djbal_cue_asym_mix`), Pinned Eval, Held-Out Diagnosis & Shadow Config
+Added 2026-11-25 04:05 AM ET (`picker-asym-cv-1125` `rc=0`, `picker-asym-pinned-1125` `rc=0`).
+
+### 9a. Diagnosis on 843 Dev Pairs & Learned Gate Design (`inner_asym_mix_gate`)
+- Under unweighted expected MAE, `djbal_cue_sec_mix`'s inner CV picked `margin = 5.0`, which moved 49.3% of exits (61.8% on KushSessions) and inflated `pro_late` exit error from `11.40` (`default`) to `42.30` bars (`39.37` on Non-KushSessions).
+- Fix in `protrans/replica/picker_1125_followup.py` (`inner_asym_mix_gate`): tune `(min_na, margin)` over `min_na in [0, 190, 200]` and `margin in [5..50, 1e9]` by inner leave-one-DJ-out CV on the **843 dev pairs only** (never touching the 33 pinned pairs), optimizing asymmetric regret `|ex - pro_out| + 1.0 * max(0, |ex - pro_out| - |dex - pro_out|)`.
+- Full-843-dev fit selected `cue_djbal = {cfg: 0, tau: 0.25}` and `asym_exit = {min_na: 200, margin: 50.0}` (`13/33` windows active on pinned; `20/33` abstain to `base`), emitted to `protrans/replica/picker_djbal_sec_mix_windows.json` (`picker_1125_asym_protrans_maps.json`).
+
+### 9b. 25-Fold Leave-One-DJ-Out CV (`picker_1125_asym_cv.json`, n=843)
+| Slice & Arm | Exit+Cue Mean | Exit Mean (Med) | Exit @8 / @16 | `pro_mid` / `pro_late` Exit | Cue Mean (@16) | `exit_moved` |
+|---|---:|---:|---:|---:|---:|---:|
+| **All (n=843) `default`** | 37.13 | 46.82 (34.1) | 16.5% / 35.2% | 77.03 / 11.40 | 27.44 (42.9%) | 0.0% |
+| **All (n=843) `majority`** | 36.22 | 47.37 (38.4) | 7.1% / 14.7% | 57.64 / 35.33 | 25.06 (35.7%) | 96.8% |
+| **All (n=843) `djbal_cue_sec_mix`** | 34.94 | 44.81 (39.7) | 15.9% / 31.0% | 46.95 / 42.30 | 25.07 (46.9%) | 49.3% |
+| **All (n=843) `djbal_cue_asym_mix`** | **34.65** | **44.24** (32.5) | **16.7%** / 34.9% | 61.88 / **23.55** | **25.07** (**46.9%**) | 18.9% |
+| **Non-Kush (n=437) `default`** | 39.86 | 54.41 (55.6) | 10.1% / 24.7% | 76.47 / 12.61 | 25.32 (**57.4%**) | 0.0% |
+| **Non-Kush (n=437) `djbal_cue_asym_mix`** | **36.08** | **48.20** (47.8) | **12.8%** / **28.6%** | 64.18 / **17.95** | **23.96** (55.8%) | 12.6% |
+
+- **All 843 (mix-clustered 95% CI):** `djbal_cue_asym_mix` beats `default` on `exit_cue` (**−2.47 [−3.79, −1.10]**) and `cue` (**−2.37 [−3.46, −1.29]**), and beats `majority` on `exit_cue` (**−1.56 [−3.20, −0.006]**), `exit` (**−3.13 [−6.24, −0.25]**), `exit@16` (**+20.2%**), and `cue@16` (**+11.2%**).
+- **Non-KushSessions (`n=437`, mix-clustered 95% CI vs `default`):** `exit_cue` **−3.78 [−5.76, −1.91]**, `exit` **−6.20 [−9.77, −2.96]**, `exit@16` **+3.9% [+1.5%, +6.4%]**; `pro_late` error cut from `39.37` down to `17.95`.
+
+### 9c. Pinned 33-Pair Evaluation (`picker_1125_asym_pinned.json`, Higher Is Better)
+| Arm | Applied | `v1` Train / Test (All) | `Δv1` All / Train / Test [Pair CI] | `v2` Train / Test (All) | `Δv2` All / Train / Test [Pair CI] | Audio `b_entry`/`a_exit` MAE |
+|---|---:|---:|---:|---:|---:|---:|
+| `base` (`default`) | 0/33 | 32.40 / **34.07** (33.01) | 0.00 | 34.09 / **33.53** (33.89) | 0.00 | **25.5** / 43.2 |
+| `djbal_cue_defexit` | 7/33 | 33.47 / 32.51 (33.12) | +0.11 [−1.32, +1.66] | 34.10 / 32.43 (33.49) | −0.39 [−2.34, +1.52] | 26.0 / 59.8 |
+| `djbal_cue_sec_mix` | 25/33 | **36.81** / 31.56 (**34.90**) | +1.90 [−1.41, +5.22] | **38.84** / 31.10 (**36.03**) | +2.14 [−1.86, +6.09] | 28.8 / **23.0** |
+| `djbal_cue_asym_mix` | 13/33 | 34.44 / 31.66 (33.43) | +0.42 [−1.79, +2.46] / +2.03 / **−2.41 [−6.85, +0.53]** | 35.73 / 30.98 (34.00) | +0.12 [−3.20, +3.04] / +1.64 / **−2.54 [−9.05, +1.63]** | 25.9 / 37.4 |
+
+- Mix-clustered 95% CIs for `djbal_cue_asym_mix` vs `base`: `v1` all **+0.42 [−2.89, +2.50]**, train **+2.03 [+0.98, +3.74]**, test **−2.41 [−4.82, 0.00]**; `v2` all **+0.12 [−3.08, +2.75]**, train **+1.64 [+0.11, +4.12]**, test **−2.54 [−5.09, 0.00]**.
+
+### 9d. Per-Pair Diagnosis of Held-Out (`test`, n=12) Losses
+The late-ride guard (`min_na=200, margin=50`) did **not** fix held-out test similarity (`−2.41 v1`, `−2.54 v2` vs `base`):
+1. **8/12 held-out pairs abstained to `base` (`Δ = 0.00`):** `maduk__02, 03, 05`, `netsky__23`, `pola_bryson__00, 02, 04`, `wilkinson__33`. That skipped `wilkinson__33` (`−8.09 v2` in `sec_mix`) and `pola__04` (`−14.72 v1 / −14.62 v2` in `sec_mix`), but also skipped `pola__00` (`+9.68 / +6.99`) and `pola__02` (`+4.14 / +11.02`).
+2. **2/4 active held-out regressions were cue moves, not exit moves:**
+   - `netsky_hospital_classics__02` (`na=185 < 200`, exit stayed `176`, **only cue moved `0 → 48`**): `v1 43.75 → 32.29 (−11.46)`, `v2 36.91 → 31.06 (−5.85)` (`audio_ent_b 4.9 → 148.0` vs `pro 20.4`; `bass_swap 41.38 → 9.75`).
+   - `netsky_hospital_classics__15` (`cue 0 → 16` alone in `djbal_cue_defexit`): `v1 40.90 → 33.66 (−7.24)`, `v2 50.22 → 42.91 (−7.31)`.
+3. **Static `min_na=200` still over-exited `netsky_hospital_classics__15` (`na=246`):**
+   - `netsky__15` has two drops (`[[48,127],[159,235]]`) and the pro DJ rode **both drops** to `203.4` (`42.6` bars left), so `base` (`240/0/16`, `v1=40.90, v2=50.22`) was already optimal. Because `na=246 >= 200`, `asym` moved exit `240 → 144` (plus cue `0 → 16`), crashing to `v1=19.56 (−21.34)`, `v2=16.09 (−34.13)` (`deck_curves 47.34 → 10.92`, `bass_swap 62.07 → 9.52`). Meanwhile `netsky__06` (`320 → 160`, `+2.46 v1 / +9.80 v2`) and `netsky__17` (`256 → 160`, `+1.45 v1 / −0.36 v2`) gained or held even.
+4. **Exit picker ignores blend compatibility at the candidate exit bar:** On `pola_bryson_puzzlewood__04` (`sec_mix`), moving `224 → 152` actually moved `audio_gone_a` closer to pro (`146.0` vs `134.6`, `gone 20.0 → 37.3`), yet `v1` dropped `34.12 → 19.40 (−14.72)` because `beat_align` collapsed (`46.67 → 15.35`) at bar `152`.
+
+### 9e. Tomorrow Night Shadow Config Update
+- Updated `protrans/replica/nightly_candidates.json` for tomorrow night (after `n1125_run.py` had already loaded `CANDS_FILE` at `03:29 AM ET`, leaving `nightly-n1125` undisturbed): replaced obsolete `picker_style_gated` in slot 4 with shadow arm `djbal_cue_sec_mix` (`shadow: true, promotion: false, flags_off_by_default: true`, `delta: {"PICKER_STYLE_GATED": 1, "PICKER_STYLE_GATED_MAP": "replica/picker_djbal_sec_mix_windows.json", "PICKER_INJECT_CS": 1}`). `adopt_to_defaults` remains `false` and `protrans/rules.json` was not modified.

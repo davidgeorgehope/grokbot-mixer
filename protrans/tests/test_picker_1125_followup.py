@@ -101,3 +101,15 @@ def test_recreate_picker_inject_cs_default_off():
     import recreate
     assert not recreate.picker_inject_cs_on({}, {})
     assert recreate.picker_inject_cs_on({}, {'PICKER_INJECT_CS': '1'})
+
+
+def test_apply_rules_forwards_picker_map_and_inject():
+    import recreate
+    env = recreate.apply_rules({
+        'PICKER_STYLE_GATED': 1,
+        'PICKER_STYLE_GATED_MAP': 'replica/picker_djbal_sec_mix_windows.json',
+        'PICKER_INJECT_CS': 1,
+    })
+    assert env['PICKER_STYLE_GATED'] == '1'
+    assert env['PICKER_STYLE_GATED_MAP'] == 'replica/picker_djbal_sec_mix_windows.json'
+    assert env['PICKER_INJECT_CS'] == '1'

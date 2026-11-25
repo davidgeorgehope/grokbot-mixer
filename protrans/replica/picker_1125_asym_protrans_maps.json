@@ -1,0 +1,22 @@
+{
+ "n": 33,
+ "diag": {
+  "cue_djbal": {
+   "cfg": 0,
+   "tau": 0.25,
+   "inner_djbal": 23.94
+  },
+  "asym_exit": {
+   "min_na": 200,
+   "margin": 50.0,
+   "inner_asym2": 44.94
+  },
+  "cue_abstain_rate": 0.788,
+  "exit_moved_rate": 0.242
+ },
+ "n_windows": 13,
+ "paths": [
+  "/workspace/mixes/protrans/replica/nightly_1125_work/map_djbal_cue_asym_mix.json",
+  "/workspace/mixes/protrans/replica/picker_djbal_sec_mix_windows.json"
+ ]
+}

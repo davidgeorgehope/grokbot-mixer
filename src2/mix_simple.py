@@ -372,6 +372,12 @@ def pair_cands(i,ia0):
       _w=_js.load(open(os.environ['PICKER_WIN'])).get(f'{a}|{b}')
       if _w and int(_w[4])==X and ('n',int(_w[1]),int(_w[3])) not in set(cands):
         cands.append(('n',int(_w[1]),int(_w[3]))); PLANNER_EXTRA_WINS.add(('n',int(_w[1]),None,int(_w[3]),X))
+    if os.environ.get('PICKER_INJECT_CS')=='1' and os.environ.get('PICKER_STYLE_GATED_MAP'):
+      import json as _js
+      _tab=_js.load(open(os.environ['PICKER_STYLE_GATED_MAP']))
+      _w=(_tab.get('by_yt') or {}).get(f'{a}|{b}') or _tab.get(f'{a}|{b}')
+      if _w and int(_w[4])==X and ('n',int(_w[1]),int(_w[3])) not in set(cands):
+        cands.append(('n',int(_w[1]),int(_w[3]))); PLANNER_EXTRA_WINS.add(('n',int(_w[1]),None,int(_w[3]),X))
     eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
     for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
       for p in [e-16] if e-16>=max(ia,16) else []:  # a fill/level drop inside the loop is penalised (DIPPEN), not refused

@@ -122,3 +122,42 @@ Why did every picker variant **lose** on `v1`/`v2` similarity on the 33 pinned p
   1. **Reweight/stratify training across DJs** (cap KushSessions weight or balance by DJ/style) and **enforce a real cue gate (`tau > 0`, or only override when default `ic` clashes with Track B density/intro length)** so fast `0/8/16` cues are preserved.
   2. **Inject mapped `picker_window` `[ib, ic]` into `recreate.py`'s candidate pool `cs`** (when rhythmically valid) instead of dropping 35% of early-exit predictions (`11/31` in `hybrid_sec_mix`) via `win_not_in_cs`.
   3. **Select picker hyperparameters against `v2`/audio-placement proxy or stratified DJ-balanced loss**, not raw KushSessions-dominated bar MAE.
+
+## 8. DJ-Balanced Cue + Positive Gate (`tau > 0`) + Candidate Injection (`PICKER_INJECT_CS=1`)
+Added 2026-11-25 03:25 AM ET (`picker-djbal-cv-1125` `rc=0`, `picker-djbal-pinned-1125` `rc=0`).
+Three fixes implemented in `protrans/replica/picker_1125_followup.py`, `protrans/recreate.py`, and `src2/mix_simple.py` (opt-in via `PICKER_INJECT_CS=1`; `rules.json` and default paths untouched):
+1. **DJ-balanced cue training (`dj_pair_weights`, `cap=20`):** KushSessions (`n=406`) capped to weight `20` (~7.5% of total weight instead of 48.2%), matching 20-pair DJs.
+2. **Strictly positive cue gate (`TAUS_POS`, `tau > 0`) tuned on DJ-balanced inner CV:** Selected `tau = 0.25` (abstain rate `78.8%` on the 33 pinned pairs; `cue_moved = 0.300` on CV vs `0.679–0.789` previously), keeping fast `0/8/16` cues unless confident.
+3. **`PICKER_INJECT_CS=1` in both `recreate.py` AND `src2/mix_simple.py` (`pair_cands`):** Eliminated silent drops/rejections of off-grid (`8`-bar exit / `8`-bar cue) early-exit windows (`0` failed renders out of 33).
+
+### 8a. Leave-One-DJ-Out CV (`picker_1125_djbal_cv.json`, n=843; Non-KushSessions n=437)
+| Slice & Arm | Exit+Cue Mean | Exit Mean (Med) | Exit @8 / @16 | Cue Mean (Med) | Cue @8 / @16 | `cue_moved` / `exit_moved` |
+|---|---:|---:|---:|---:|---:|---:|
+| **All (n=843) `default`** | 37.13 | 46.82 (34.1) | 16.5% / 35.2% | 27.44 (18.7) | 18.6% / 42.9% | 0% / 0% |
+| **All (n=843) `djbal_cue_defexit`** | 35.94 | 46.82 (34.1) | 16.5% / 35.2% | **25.07** (17.0) | **20.9%** / **46.9%** | 30.0% / 0% |
+| **All (n=843) `djbal_cue_sec_mix`** | **34.94** | **44.81** (39.7) | 15.9% / 31.0% | **25.07** (17.0) | **20.9%** / **46.9%** | 30.0% / 49.3% |
+| **Non-Kush (n=437) `default`** | 39.86 | 54.41 (55.6) | 10.1% / 24.7% | 25.32 (15.0) | 23.6% / **57.4%** | 0% / 0% |
+| **Non-Kush (n=437) `hybrid_sec_cue`** | 38.93 | 54.41 (55.6) | 10.1% / 24.7% | 23.45 (17.0) | 25.9% / 45.5% (−11.9%) | 78.5% / 0% |
+| **Non-Kush (n=437) `djbal_cue_defexit`** | 39.18 | 54.41 (55.6) | 10.1% / 24.7% | **23.96** (15.0) | **24.3%** / 55.8% (−1.6%) | 35.2% / 0% |
+| **Non-Kush (n=437) `djbal_cue_sec_mix`** | **35.57** | **47.19** (47.4) | **14.2%** / **28.1%** | **23.96** (15.0) | **24.3%** / 55.8% (−1.6%) | 35.2% / 37.8% |
+
+- On **All 843** (mix-clustered 95% CI vs `default`):
+  - `djbal_cue_defexit`: ΔEC **−1.19 [−1.73, −0.65]**, ΔCue **−2.37 [−3.46, −1.29]**, `cue@16` **+3.9% [+0.7%, +7.2%]**.
+  - `djbal_cue_sec_mix`: ΔEC −2.19 [−4.47, +0.34] (pair CI **−2.19 [−3.91, −0.51]**), ΔExit −2.01 [−6.63, +3.21].
+- On **Non-KushSessions (`n=437`)**:
+  - `djbal_cue_defexit` eliminated `hybrid_sec_cue`'s `cue@16` collapse (−11.9% → −1.6%, mix-CI `[−6.1%, +2.7%]`).
+  - `djbal_cue_sec_mix` beat `default` on Exit+Cue: mix-CI **−4.29 [−7.59, −0.60]** (vs `majority`: −0.75 [−3.72, +2.41]).
+
+### 8b. Pinned 33-Pair Similarity (`picker_1125_djbal_pinned.json`, Higher Is Better)
+| Arm | Applied | `v1` Train / Test (All) | `Δv1` vs `base` [Pair CI] / [Mix CI] | `v2` Train / Test (All) | `Δv2` vs `base` [Pair CI] / [Mix CI] | `v2` `(entry/gone/swap)` | Audio `b_entry`/`a_exit` MAE |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `base` (`default`) | 0/33 | 32.40 / **34.07** (33.01) | 0.00 | 34.09 / **33.53** (33.89) | 0.00 | 26.4 / 26.3 / 27.2 | **20.3** / 54.0 |
+| `djbal_cue_defexit` | 7/33 | 33.47 / 32.51 (33.12) | +0.11 [−1.32, +1.66] / [−2.05, +2.32] | 34.10 / 32.43 (33.49) | −0.39 [−2.34, +1.52] / [−2.17, +2.52] | 23.1 / 27.1 / 24.2 | 26.0 / 59.8 |
+| `djbal_cue_sec_mix` | 25/33 | **36.81** / 31.56 (**34.90**) | **+1.90** [−1.41, +5.22] / [−3.27, +5.11] | **38.84** / 31.10 (**36.03**) | **+2.14** [−1.86, +6.09] / [−3.26, +5.54] | **28.9 / 29.7 / 31.6** | 28.8 / **23.0** |
+
+### 8c. Verdict
+- **Did it beat `base` on pinned similarity?**
+  - `djbal_cue_defexit` fixed the old cue-only `−4` pt similarity regression (`−3.96 / −4.38` → `+0.11 / −0.39`), ending essentially tied with `base`.
+  - `djbal_cue_sec_mix` **beat `base` on overall point estimates (`+1.90 v1`, `+2.14 v2`, and all three `v2` placement sub-scores)** and cut `audio_a_exit_MAE` by 31 bars (`54.0 → 23.0`), driven by large gains on the 21 train pairs (`+4.41 v1 / +4.75 v2`) — **but regressed on the 12 test pairs (`−2.51 v1 / −2.43 v2`)** due to `margin = 5` over-exiting (`wilkinson_boomtown2026__33`, `pola_bryson_puzzlewood__04`), and both 95% CIs still cross zero (`[−1.41, +5.22]` / `[−1.86, +6.09]`).
+- **Worth adding as a nightly arm?**
+  - **Yes, as a diagnostic/shadow nightly arm (`djbal_cue_sec_mix` with `PICKER_INJECT_CS=1`), NOT as a `rules.json` replacement yet.** It is strictly better than `cueonly_gated` / `hybrid_sec_cue` / `hybrid_sec_mix` on pinned `v1`/`v2` (`+5.86 v1 / +6.52 v2` over `cueonly_gated`) and shows real upside when paired with early exits, while its `train` vs `test` split (`+4.75` vs `−2.43` on `v2`) confirms the exit gate margin (`margin=5`) still needs tightening (`margin >= 10–15` or `pro_late` guardrail) before promotion.

@@ -87,3 +87,17 @@ def test_bayes_mixture_risk_picks_closer_to_high_prob_mode():
     # Ambiguous 50/50 -> staying near default or mid has small/zero gain
     j2, gain2, *_ = F.predict_mix_exit((_DummyClf(0.40), _DummyReg(97.0), _DummyReg(205.0)), [r])[0]
     assert gain2 < 5.0
+
+
+def test_dj_pair_weights_and_positive_taus():
+    rs = [dict(dj='Kush') for _ in range(100)] + [dict(dj='Small') for _ in range(10)]
+    ws = F.dj_pair_weights(rs, cap=20.0)
+    assert abs(sum(ws[:100]) - 20.0) < 1e-6
+    assert all(abs(w - 1.0) < 1e-6 for w in ws[100:])
+    assert all(t > 0 for t in F.TAUS_POS)
+
+
+def test_recreate_picker_inject_cs_default_off():
+    import recreate
+    assert not recreate.picker_inject_cs_on({}, {})
+    assert recreate.picker_inject_cs_on({}, {'PICKER_INJECT_CS': '1'})

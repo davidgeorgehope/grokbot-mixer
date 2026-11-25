@@ -180,6 +180,12 @@ def picker_style_gated_on(rules=None, env=None):
     rules = rules or {}
     return _flag_on(env.get('PICKER_STYLE_GATED') or rules.get('PICKER_STYLE_GATED') or os.environ.get('PICKER_STYLE_GATED'))
 
+def picker_inject_cs_on(rules=None, env=None):
+    """Inject mapped picker_style_gated window into candidate set cs if missing (legal natural windows only). Off by default."""
+    env = env or {}
+    rules = rules or {}
+    return _flag_on(env.get('PICKER_INJECT_CS') or rules.get('PICKER_INJECT_CS') or os.environ.get('PICKER_INJECT_CS'))
+
 def _picker_style_gated_map_path(env=None):
     env = env or os.environ
     override = (env or {}).get('PICKER_STYLE_GATED_MAP') or os.environ.get('PICKER_STYLE_GATED_MAP')
@@ -689,7 +695,21 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             if _pw:
                 _want = [_pw[0], int(_pw[1]), None, int(_pw[3]), int(_pw[4])]
                 hit = next((c for c in cs if list(c.get('win') or []) == _want), None)
-                picker_info = dict(enabled=True, want=_want, applied=hit is not None, map=_mp)
+                injected = False
+                if hit is None and picker_inject_cs_on(rules, env) and _want[0] == 'n':
+                    try:
+                        import sections as _SECp
+                        _sa_p, _sb_p = _SECp.get(a), _SECp.get(b)
+                        _na = int(_sa_p.get('music_end') or _sa_p.get('n_bars') or 999)
+                        _nb = int(_sb_p.get('music_end') or _sb_p.get('n_bars') or 999)
+                        _e, _ib, _X = int(_want[1]), int(_want[3]), int(_want[4])
+                        if _X > 0 and 16 <= _e - _X and _e <= _na and 0 <= _ib and _ib + _X <= _nb - 16:
+                            hit = dict(fam='picker_style_gated', win=list(_want), env={}, cost=0.0, picker_injected=True)
+                            cs.append(hit)
+                            injected = True
+                    except Exception:
+                        hit = None
+                picker_info = dict(enabled=True, want=_want, applied=hit is not None, injected_cs=injected, map=_mp)
                 if hit is not None:
                     pick = dict(fam='picker_style_gated', win=list(hit['win']), env={}); fade = {}
             elif picker_info is None:

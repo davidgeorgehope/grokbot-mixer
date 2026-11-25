@@ -63,6 +63,13 @@ def extract_pin(yts=None):
     return manifest
 
 
+def _rm(p):
+    try:
+        os.remove(p)
+    except FileNotFoundError:
+        pass
+
+
 def ensure_shadow(yts=None):
     """Shadow src2: symlink live tree, overlay pinned json/sections as real files.
 
@@ -93,7 +100,10 @@ def ensure_shadow(yts=None):
         dst = os.path.join(SHADOW, name)
         if os.path.lexists(dst) or os.path.exists(dst):
             if os.path.islink(dst) or os.path.isfile(dst):
-                os.remove(dst)
+                try:
+                    _rm(dst)
+                except FileNotFoundError:
+                    pass
             elif os.path.isdir(dst) and not os.path.islink(dst):
                 # leftover; leave if it is our dir — but top-level should be links
                 continue
@@ -111,7 +121,7 @@ def ensure_shadow(yts=None):
                 continue  # overlay below
             if os.path.lexists(dst):
                 if os.path.islink(dst) or os.path.isfile(dst):
-                    os.remove(dst)
+                    _rm(dst)
             if not os.path.lexists(dst):
                 _safe_symlink(src, dst)
     pin_st = os.path.join(PIN_DIR, 'st')
@@ -122,7 +132,7 @@ def ensure_shadow(yts=None):
             dst = os.path.join(st_sh, name)
             if os.path.lexists(dst) or os.path.exists(dst):
                 if os.path.islink(dst) or os.path.isfile(dst):
-                    os.remove(dst)
+                    _rm(dst)
             shutil.copy2(src, dst)
             n_overlay += 1
     os.environ['PROTRANS_SRC2'] = SHADOW

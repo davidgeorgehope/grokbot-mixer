@@ -1,0 +1,27 @@
+{
+ "n": 33,
+ "diag": {
+  "cue_djbal": {
+   "cfg": 0,
+   "tau": 0.25,
+   "inner_djbal": 23.94
+  },
+  "mix_exit": {
+   "margin": 5.0,
+   "inner": 41.47
+  },
+  "cue_abstain_rate": 0.788
+ },
+ "maps": {
+  "djbal_cue_defexit": {
+   "path": "/workspace/mixes/protrans/replica/nightly_1125_work/map_djbal_cue_defexit.json",
+   "n_windows": 7,
+   "n_total": 33
+  },
+  "djbal_cue_sec_mix": {
+   "path": "/workspace/mixes/protrans/replica/nightly_1125_work/map_djbal_cue_sec_mix.json",
+   "n_windows": 26,
+   "n_total": 33
+  }
+ }
+}

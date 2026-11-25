@@ -1,0 +1,19 @@
+{
+ "n": 33,
+ "diag": {
+  "cue_djbal": {
+   "cfg": 0,
+   "tau_slow": 0.25,
+   "thr_fast_cue": 0.4,
+   "inner_djbal": 23.94
+  },
+  "struct_exit": {
+   "thr_regret": 20.0,
+   "inner_asym": 45.17
+  },
+  "cue_abstain_rate": 0.667,
+  "exit_moved_rate": 0.091
+ },
+ "n_windows": 14,
+ "path": "/workspace/mixes/protrans/replica/nightly_1125_work/map_djbal_cue_struct_compat.json"
+}

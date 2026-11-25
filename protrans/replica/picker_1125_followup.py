@@ -624,7 +624,7 @@ def _pinned_worker(payload):
         pinfo = info.get('picker') or {}
         return dict(
             id=rec['id'], split=rec['split'], dj=rec['dj'], arm=arm,
-            fam=info['fam'], win=info['win'], injected_cs=bool(pinfo.get('injected_cs')),
+            fam=info['fam'], win=info['win'], injected_cs=bool(pinfo.get('injected_cs')), picker_info=pinfo,
             v1=v1['score'],
             v1_breakdown={k: v1['breakdown'][k] for k in ('stem_curves', 'deck_curves', 'beat_align', 'bass_swap', 'outgoing_cut', 'blend_length')},
             v2=r2['official_v2'], placement=r2['placement'], ours=dst,
@@ -1274,6 +1274,534 @@ def run_asym_pinned():
     print('ASYM_PINNED SUMMARY:', json.dumps(summary[arm], indent=2), flush=True)
 
 
+
+
+def _indrop_frac(sec, s0, s1):
+    da = real_drops(sec)
+    if not da or s1 <= s0:
+        return 0.0
+    tot = sum(max(0.0, min(s1, d[1]) - max(s0, d[0])) for d in da)
+    return tot / float(s1 - s0)
+
+
+def compat_feats(r, ex, cue, X):
+    """Dev-computable section/drop/bass/grid compatibility features for window (ex, cue, X)."""
+    sa, sb = r['sa'], r['sb']
+    da = real_drops(sa)
+    db = real_drops(sb)
+    s0, s1 = float(ex), float(ex) + float(X)
+    c0 = float(cue) - 1.0
+    mm, bd = 0.0, 0.0
+    xi = max(1, int(round(X)))
+    for j in range(xi):
+        a_in = any(d[0] <= s0 + j < d[1] for d in da)
+        b_in = any(d[0] <= c0 + j < d[1] for d in db)
+        if a_in != b_in:
+            mm += 1.0
+        if a_in and b_in:
+            bd += 1.0
+    mm /= float(xi)
+    bd /= float(xi)
+    d1b = float(sb.get('drop1') or 0.0)
+    d1_land = float(c0 + float(X) - 8.0 <= d1b <= c0 + float(X) + 4.0)
+    d1_inside = float(c0 <= d1b <= c0 + float(X))
+    sec_a = sec_label_rich(sa, s0 + float(X) * 0.5)
+    sec_b = sec_label_rich(sb, c0 + float(X) * 0.5)
+    bba = sa.get('bass_by_section') or {}
+    bbb = sb.get('bass_by_section') or {}
+    ba = (bba.get('drop' if sec_a.startswith('drop') else sec_a) or {}).get('bass', np.nan)
+    bb = (bbb.get('drop' if sec_b.startswith('drop') else sec_b) or {}).get('bass', np.nan)
+    e = float(ex) + float(X) - 1.0
+    g16_e = float(abs(e % 16.0) < 0.5)
+    g16_c = float(abs(c0 % 16.0) < 0.5)
+    return [mm, bd, d1_land, d1_inside, ba, bb, g16_e, g16_c]
+
+
+def exit_struct_feats_no_na(r, c, p, a, b, risk_gain):
+    """Structure-aware candidate exit features (no raw track-length threshold):
+    drops remaining, mid-drop vs drop-end/breakdown, bars left, drop-2 structure, compatibility proxies."""
+    sa = r['sa']
+    na = na_(r)
+    da = real_drops(sa)
+    ex = float(c['v'])
+    X = float(r['dX'])
+    dex = float(r['dex'])
+    s1 = ex + X
+    drops_rem_after = sum(1 for d in da if d[1] > s1)
+    drops_unstarted = sum(1 for d in da if d[0] >= s1)
+    in_drop_frac = _indrop_frac(sa, ex, s1)
+    is_mid_drop = float(any(d[0] + 4 <= ex < d[1] - 8 for d in da))
+    at_drop_end = float(bool(da) and min(abs(s1 - d[1]) for d in da) <= 8.0)
+    sec_ex = sec_label_rich(sa, ex)
+    sec_mid = sec_label_rich(sa, ex + X * 0.5)
+    at_brk = float(sec_ex == 'breakdown' or sec_mid == 'breakdown')
+    ld = da[-1][1] if da else na
+    ld_s = da[-1][0] if da else na
+    last_drop_cov = max(0.0, ld - s1)
+    last_drop_ov = max(0.0, min(s1, ld) - max(ex, ld_s))
+    d1_len = float(da[0][1] - da[0][0]) if da else 0.0
+    d2_len = float(da[1][1] - da[1][0]) if len(da) > 1 else 0.0
+    d2_e = float(da[1][1]) if len(da) > 1 else na
+    d2_s = float(da[1][0]) if len(da) > 1 else na
+    d2_ratio = d2_len / max(d1_len, 1.0)
+    ex_before_d2 = float(len(da) > 1 and s1 <= d2_s + 2.0)
+    bba = sa.get('bass_by_section') or {}
+    g = lambda k, m: (bba.get(k) or {}).get(m, np.nan)
+    compat = compat_feats(r, ex, r['dcue'], X)
+    return [
+        float(drops_rem_after), float(drops_unstarted), float(len(da)),
+        in_drop_frac, is_mid_drop, at_drop_end, at_brk,
+        last_drop_cov, last_drop_ov,
+        na - ex, dex - ex,
+        d1_len, d2_len, d2_ratio, ex_before_d2, dex - d2_e,
+        g('drop', 'drums') - g('outro', 'drums'), g('drop', 'bass') - g('outro', 'bass'),
+        float(risk_gain), float(p), ex - float(a), dex - float(b), abs(ex - float(a)),
+    ] + compat
+
+
+def fast_cue_feats(r, j_cand, margin):
+    """Features for guarding fast default cues (0/8/16): move only when incoming intro is thin/beatless."""
+    sb = r['sb']
+    nb = float(sb.get('music_end') or sb.get('n_bars'))
+    d1b = float(sb.get('drop1') or 0.0)
+    bbb = sb.get('bass_by_section') or {}
+    g = lambda k, m: (bbb.get(k) or {}).get(m, np.nan)
+    bi_d, bi_b, bi_e = g('intro', 'drums'), g('intro', 'bass'), g('intro', 'energy')
+    bd_d, bd_b = g('drop', 'drums'), g('drop', 'bass')
+    bb_d, bb_b = g('build', 'drums'), g('build', 'bass')
+    ph = sb.get('phases') or []
+    p0_intro = float(bool(ph) and ph[0].get('name') == 'intro')
+    p0_end = float(ph[0].get('end') or 0.0) if ph else 0.0
+    cand_v = float(r['C'][j_cand]['v'])
+    return [
+        float(r['dcue']), cand_v, cand_v - float(r['dcue']), float(margin),
+        d1b, float(sb.get('intro_len') or 0.0), nb, p0_intro, p0_end,
+        bi_d, bi_b, bi_e, bd_d - bi_d, bd_b - bi_b, bb_d - bi_d, bb_b - bi_b,
+        cand_v - d1b, float(cand_v >= d1b - 16),
+    ] + compat_feats(r, r['dex'], cand_v, float(r['dX']))
+
+
+def build_ranked_shortlist(r, je, jc, m_eg, thr_eg, p, a, b, risks, k_max=6):
+    """Build a short ranked list (<= k_max) of legal natural windows near the predicted spot."""
+    if je == r['Edix'] and jc == r['Cdix']:
+        return []
+    X = r['dX']
+    ex_cands = [je]
+    if je != r['Edix']:
+        ex_0 = float(r['E'][je]['v'])
+        alts = []
+        for idx, c in enumerate(r['E']):
+            if idx in (je, r['Edix']):
+                continue
+            if abs(float(c['v']) - ex_0) > 32.0:
+                continue
+            gain = float(risks[r['Edix']] - risks[idx])
+            if gain <= 0:
+                continue
+            rg = float(m_eg.predict(np.array([exit_struct_feats_no_na(r, c, p, a, b, gain)], float))[0])
+            if rg >= max(0.0, thr_eg - 3.0):
+                mm, bd, _, _, _, _, g16_e, _ = compat_feats(r, float(c['v']), float(r['C'][jc]['v']), X)
+                alts.append((mm - 0.1 * g16_e + 0.02 * float(risks[idx]), idx))
+        alts.sort()
+        ex_cands.extend(idx for _, idx in alts[:3])
+        if jc != r['Cdix']:
+            ex_cands.append(r['Edix'])
+    cue_cands_idx = [jc] + ([r['Cdix']] if jc != r['Cdix'] else [])
+
+    out, seen = [], set()
+    # Primary choice first, then cue fallback / alternative exits near spot
+    pairs = [(je, jc)]
+    for ei in ex_cands:
+        for ci in cue_cands_idx:
+            if (ei, ci) != (je, jc) and not (ei == r['Edix'] and ci == r['Cdix']):
+                pairs.append((ei, ci))
+    for ei, ci in pairs:
+        w = B.window(r, r['E'][ei]['v'], r['C'][ci]['v'], X)
+        if w is not None:
+            tw = tuple(w)
+            if tw not in seen:
+                seen.add(tw)
+                out.append(w)
+                if len(out) >= k_max:
+                    break
+    return out
+
+
+def train_predict_struct_compat(tr, te):
+    """Learn structure-aware exit gate (no min_na), thin-intro fast-cue guard,
+    and ranked shortlist on tr (dev only), then predict on te."""
+    ensure_sec_cue_cache(tr)
+    ensure_sec_cue_cache(te)
+    djs_tr = sorted({r['dj'] for r in tr})
+    w_tr = dj_pair_weights(tr, cap=20.0)
+
+    # 1) DJ-balanced cue ranker + separate thin-intro fast-cue gate (dcue <= 17)
+    eC_dj, ciC, tau_slow = inner_cue_djbal(tr)
+    oof_S_c = {}
+    for d2 in djs_tr:
+        a2 = [r for r in tr if r['dj'] != d2]
+        b2 = [r for r in tr if r['dj'] == d2]
+        m2 = fit_cue_djbal(a2, B.CFGS[ciC])
+        for r, s in zip(b2, scores_cue_sec(m2, b2)):
+            oof_S_c[r['id']] = s
+
+    Xf_tr, yf_tr, wf_tr, fast_rows = [], [], [], []
+    for r, w in zip(tr, w_tr):
+        if r['dcue'] <= 17:
+            s = oof_S_c[r['id']]
+            j = int(np.argmax(s))
+            if j != r['Cdix'] and (s[j] - s[r['Cdix']]) > 0.0:
+                mg = float(s[j] - s[r['Cdix']])
+                Xf_tr.append(fast_cue_feats(r, j, mg))
+                yf_tr.append(float(abs(r['C'][j]['v'] - r['pro_in']) < abs(r['dcue'] - r['pro_in']) - 1.0))
+                wf_tr.append(w)
+                fast_rows.append((r, w, j))
+
+    m_fc = lgb.LGBMClassifier(
+        n_estimators=80, num_leaves=5, learning_rate=0.05, min_child_samples=15,
+        subsample=0.8, subsample_freq=1, random_state=SEED, verbose=-1, n_jobs=1,
+    ).fit(np.array(Xf_tr, float), np.array(yf_tr, float), sample_weight=np.array(wf_tr, float))
+
+    dj_f = sorted({r['dj'] for r, _, _ in fast_rows})
+    oof_p_fc = np.zeros(len(fast_rows))
+    for k_fold in range(5):
+        vd = set(dj_f[k_fold::5])
+        itr = [i for i, (r, _, _) in enumerate(fast_rows) if r['dj'] not in vd]
+        iva = [i for i, (r, _, _) in enumerate(fast_rows) if r['dj'] in vd]
+        if not iva or len(set(yf_tr[i] for i in itr)) < 2:
+            continue
+        mf = lgb.LGBMClassifier(
+            n_estimators=80, num_leaves=5, learning_rate=0.05, min_child_samples=15,
+            subsample=0.8, subsample_freq=1, random_state=SEED, verbose=-1, n_jobs=1,
+        )
+        mf.fit(np.array([Xf_tr[i] for i in itr], float), np.array([yf_tr[i] for i in itr], float),
+               sample_weight=np.array([wf_tr[i] for i in itr], float))
+        oof_p_fc[iva] = mf.predict_proba(np.array([Xf_tr[i] for i in iva], float))[:, 1]
+
+    best_fc = (1e9, 0.55)
+    for thr in [0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 1.0]:
+        errs = [
+            w * abs(r['C'][j if oof_p_fc[idx] >= thr else r['Cdix']]['v'] - r['pro_in'])
+            for idx, (r, w, j) in enumerate(fast_rows)
+        ]
+        me = float(sum(errs) / max(sum(w for _, w, _ in fast_rows), 1e-9))
+        if me < best_fc[0]:
+            best_fc = (me, thr)
+    thr_fc = best_fc[1]
+
+    mC = fit_cue_djbal(tr, B.CFGS[ciC])
+    SC_te = scores_cue_sec(mC, te)
+    jc_te = []
+    for r, s in zip(te, SC_te):
+        j = int(np.argmax(s))
+        mg = float(s[j] - s[r['Cdix']])
+        if r['dcue'] <= 17:
+            if j != r['Cdix'] and mg > 0.0:
+                p_ok = float(m_fc.predict_proba(np.array([fast_cue_feats(r, j, mg)], float))[:, 1][0])
+                jc_te.append(j if p_ok >= thr_fc else r['Cdix'])
+            else:
+                jc_te.append(r['Cdix'])
+        else:
+            jc_te.append(j if mg > tau_slow else r['Cdix'])
+
+    # 2) Structure-aware continuous asymmetric-regret exit gate (no min_na!)
+    oof_ex = {}
+    for d2 in djs_tr:
+        a2 = [r for r in tr if r['dj'] != d2]
+        b2 = [r for r in tr if r['dj'] == d2]
+        mods2 = fit_mix_exit_models(a2)
+        for r, pred in zip(b2, predict_mix_exit(mods2, b2)):
+            oof_ex[r['id']] = pred
+
+    Xg_tr, yg_tr, gate_rows = [], [], []
+    for r in tr:
+        jb, gain, p, a, b = oof_ex[r['id']]
+        if jb == r['Edix'] or gain <= 0:
+            continue
+        c = r['E'][jb]
+        ex = float(c['v'])
+        e_x = abs(ex - r['pro_out'])
+        e_d = abs(r['dex'] - r['pro_out'])
+        reg_gain = e_d - (e_x + 1.5 * max(0.0, e_x - e_d))
+        Xg_tr.append(exit_struct_feats_no_na(r, c, p, a, b, gain))
+        yg_tr.append(reg_gain)
+        gate_rows.append((r, jb))
+
+    m_eg = lgb.LGBMRegressor(
+        n_estimators=100, num_leaves=5, learning_rate=0.05, min_child_samples=25,
+        subsample=0.8, subsample_freq=1, random_state=SEED, verbose=-1, n_jobs=1,
+    ).fit(np.array(Xg_tr, float), np.array(yg_tr, float))
+
+    dj_g = sorted({r['dj'] for r, _ in gate_rows})
+    oof_eg = np.zeros(len(gate_rows))
+    for k_fold in range(5):
+        vd = set(dj_g[k_fold::5])
+        itr = [i for i, (r, _) in enumerate(gate_rows) if r['dj'] not in vd]
+        iva = [i for i, (r, _) in enumerate(gate_rows) if r['dj'] in vd]
+        if not iva:
+            continue
+        mgf = lgb.LGBMRegressor(
+            n_estimators=100, num_leaves=5, learning_rate=0.05, min_child_samples=25,
+            subsample=0.8, subsample_freq=1, random_state=SEED, verbose=-1, n_jobs=1,
+        )
+        mgf.fit(np.array([Xg_tr[i] for i in itr], float), np.array([yg_tr[i] for i in itr], float))
+        oof_eg[iva] = mgf.predict(np.array([Xg_tr[i] for i in iva], float))
+    g_map = {r['id']: float(oof_eg[i]) for i, (r, _) in enumerate(gate_rows)}
+
+    best_eg = (1e9, 0.0)
+    for thr in [0.0, 3.0, 6.0, 10.0, 15.0, 20.0, 25.0, 1e9]:
+        losses = []
+        for r in tr:
+            jb, gain, p, a, b = oof_ex[r['id']]
+            go = (jb != r['Edix'] and gain > 0 and g_map.get(r['id'], -1e9) >= thr)
+            ex = float(r['E'][jb]['v']) if go else float(r['dex'])
+            e_x = abs(ex - r['pro_out'])
+            e_d = abs(r['dex'] - r['pro_out'])
+            losses.append(e_x + 1.5 * max(0.0, e_x - e_d))
+        ml = float(np.mean(losses))
+        if ml < best_eg[0]:
+            best_eg = (ml, thr)
+    thr_eg = best_eg[1]
+
+    mods_ex = fit_mix_exit_models(tr)
+    m_p, m_e, m_l = mods_ex
+    X_ex_te = np.array([r['Xpair_sec'] for r in te], float)
+    pe_te = m_p.predict_proba(X_ex_te)[:, 1]
+    me_te = m_e.predict(X_ex_te)
+    ml_te = m_l.predict(X_ex_te)
+
+    decs = []
+    for i, r in enumerate(te):
+        p, a, b = float(pe_te[i]), float(me_te[i]), float(ml_te[i])
+        risks = [p * abs(c['v'] - a) + (1.0 - p) * abs(c['v'] - b) for c in r['E']]
+        jb = int(np.argmin(risks))
+        gain = float(risks[r['Edix']] - risks[jb])
+        je = r['Edix']
+        if jb != r['Edix'] and gain > 0:
+            rg = float(m_eg.predict(np.array([exit_struct_feats_no_na(r, r['E'][jb], p, a, b, gain)], float))[0])
+            if rg >= thr_eg:
+                je = jb
+        jc = jc_te[i]
+        dec = B.decide(r, je, jc, r['dX'])
+        dec['p_early'] = round(p, 3)
+        dec['mu_early'] = round(a, 1)
+        dec['mu_late'] = round(b, 1)
+        dec['risk_gain'] = round(gain, 2)
+        dec['ranked'] = build_ranked_shortlist(r, je, jc, m_eg, thr_eg, p, a, b, risks, k_max=6)
+        decs.append(dec)
+
+    diag = dict(
+        cue_djbal=dict(cfg=ciC, tau_slow=tau_slow, thr_fast_cue=thr_fc, inner_djbal=round(float(eC_dj), 2)),
+        struct_exit=dict(thr_regret=thr_eg, inner_asym=round(float(best_eg[0]), 2)),
+        cue_abstain_rate=round(float(np.mean([c == r['Cdix'] for r, c in zip(te, jc_te)])), 3),
+        exit_moved_rate=round(float(np.mean([d['exit'] != r['dex'] for r, d in zip(te, decs)])), 3),
+    )
+    return dict(djbal_cue_struct_compat=decs), diag
+
+
+def _fold_struct(args):
+    d, dev = args
+    tr = [r for r in dev if r['dj'] != d]
+    te = [r for r in dev if r['dj'] == d]
+    D, diag = train_predict_struct_compat(tr, te)
+    print('struct_fold', d, len(te), diag, flush=True)
+    return d, [r['id'] for r in te], D, diag
+
+
+def run_struct_cv():
+    from concurrent.futures import ProcessPoolExecutor
+    prev = json.load(open(os.path.join(H, 'picker_1125_asym_cv.json')))
+    prev_by_id = {r['id']: r for r in prev['per_pair']}
+
+    rows = B.build(P.rows_all(), P.load_rendered_defaults())
+    dev = [r for r in rows if r['set'] == 'dev']
+    ensure_sec_cue_cache(dev)
+    djs = sorted({r['dj'] for r in dev})
+
+    folds, preds = {}, {}
+    with ProcessPoolExecutor(max_workers=int(os.environ.get('DJBAL_W', 4))) as ex:
+        for d, ids, D, diag in ex.map(_fold_struct, [(d, dev) for d in djs]):
+            folds[d] = diag
+            for pid, val in zip(ids, D['djbal_cue_struct_compat']):
+                preds[pid] = val
+
+    pp = []
+    for r in dev:
+        row = dict(prev_by_id[r['id']])
+        row['djbal_cue_struct_compat'] = preds[r['id']]
+        pp.append(row)
+
+    all_arms = ['default', 'majority', 'djbal_cue_defexit', 'djbal_cue_sec_mix', 'djbal_cue_asym_mix', 'djbal_cue_struct_compat']
+    boots_all = clustered_boots(pp, ['djbal_cue_defexit', 'djbal_cue_sec_mix', 'djbal_cue_asym_mix', 'djbal_cue_struct_compat'])
+    pp_nk = [r for r in pp if r['dj'] != 'KushSessions']
+    pp_k = [r for r in pp if r['dj'] == 'KushSessions']
+    boots_nk = clustered_boots(pp_nk, ['djbal_cue_defexit', 'djbal_cue_sec_mix', 'djbal_cue_asym_mix', 'djbal_cue_struct_compat'])
+    slices = dict(
+        all_843=_slice_metrics(pp, all_arms),
+        non_kush_437=_slice_metrics(pp_nk, all_arms),
+        kush_406=_slice_metrics(pp_k, all_arms),
+    )
+    out = dict(
+        n=len(pp), n_mixes=len({r['mix'] for r in pp}), n_djs=len(djs),
+        folds=folds, slices=slices, bootstraps_all=boots_all, bootstraps_nonkush=boots_nk, per_pair=pp,
+    )
+    outp = os.path.join(H, 'picker_1125_struct_cv.json')
+    json.dump(out, open(outp, 'w'), indent=1, default=str)
+    print('Saved STRUCT CV to', outp, flush=True)
+    for sl_name, sl in slices.items():
+        print(f'=== STRUCT SLICE {sl_name} ===', flush=True)
+        for a, m in sl.items():
+            print(f"  {a:25s} ec={m['exit_cue_mean']} exit={m['exit_mean']}(med {m['exit_median']}, @8 {m['exit_hit8']}, @16 {m['exit_hit16']}, mid={m['pro_mid_exit_mean']}, late={m['pro_late_exit_mean']}) "
+                  f"cue={m['cue_mean']}(@16 {m['cue_hit16']}) emov={m['exit_moved']} cmov={m['cue_moved']}", flush=True)
+    for btype in ('mix_clustered', 'pair_clustered'):
+        for ref in ('default', 'majority'):
+            d = boots_all[btype][f'djbal_cue_struct_compat_vs_{ref}']
+            dn = boots_nk[btype][f'djbal_cue_struct_compat_vs_{ref}']
+            print(f"CI_ALL[{btype}] djbal_cue_struct_compat_vs_{ref}: ec={d['exit_cue']} exit={d['exit']} cue={d['cue']} e@16={d['exit_hit16_gain']} c@16={d['cue_hit16_gain']}", flush=True)
+            print(f"CI_NONKUSH[{btype}] djbal_cue_struct_compat_vs_{ref}: ec={dn['exit_cue']} exit={dn['exit']} cue={dn['cue']} e@16={dn['exit_hit16_gain']} c@16={dn['cue_hit16_gain']}", flush=True)
+
+
+def run_struct_maps():
+    import run_admitted_tune as T
+    rows = B.build(P.rows_all(), P.load_rendered_defaults())
+    dev = [r for r in rows if r['set'] == 'dev']
+    te = [r for r in rows if r['set'] == 'protrans']
+    D, diag = train_predict_struct_compat(dev, te)
+    recs = {r['id']: r for r in T.load_recs()}
+    by_yt, ranked_by_yt, by_id = {}, {}, {}
+    for r, x in zip(te, D['djbal_cue_struct_compat']):
+        rec = recs.get(r['id'])
+        key = f"{rec['a']['yt']}|{rec['b']['yt']}" if rec else None
+        rk = x.get('ranked') or []
+        by_id[r['id']] = dict(win=x.get('win'), ranked=rk, exit=x['exit'], cue=x['cue'], X=x['X'],
+                              abstain=bool(x.get('is_default')), yt_key=key)
+        if key and x.get('win') and not x.get('is_default'):
+            by_yt[key] = x['win']
+            ranked_by_yt[key] = rk if rk else [x['win']]
+    mp = dict(
+        written='2026-11-25 struct_compat followup',
+        model=f'picker_1125_followup djbal_cue_struct_compat (structure exit gate, thin-intro fast-cue guard, ranked shortlist + PICKER_INJECT_CS=1), trained on {len(dev)} dev only, applied to 33 protrans pairs',
+        diag=diag,
+        by_yt=by_yt, ranked_by_yt=ranked_by_yt, by_id=by_id,
+        do_not='write rules.json or treat this map as a promotion',
+    )
+    dest = os.path.join(W, 'map_djbal_cue_struct_compat.json')
+    json.dump(mp, open(dest, 'w'), indent=1, default=str)
+    out = dict(n=len(te), diag=diag, n_windows=len(by_yt), path=dest)
+    json.dump(out, open(os.path.join(H, 'picker_1125_struct_protrans_maps.json'), 'w'), indent=1, default=str)
+    print('Wrote STRUCT protrans maps:', out, flush=True)
+
+
+def run_struct_pinned():
+    os.environ['HARD_FALLBACK'] = '0'
+    os.environ.pop('HARDCHECK_TEST_FORCE_WIN', None)
+    import st_pin
+    os.environ['PROTRANS_SRC2'] = st_pin.ensure_shadow()
+    import paths, run_admitted_tune as T, score_v2 as S2
+    recs = T.load_recs()
+
+    mpath = os.path.join(W, 'map_djbal_cue_struct_compat.json')
+    if not os.path.exists(mpath):
+        run_struct_maps()
+
+    cohort_base_p = os.path.join(P0, 'research_1124', 'scorev2', 'cohort_base.jsonl')
+    base_by_id = {}
+    for l in open(cohort_base_p):
+        if l.strip():
+            row = json.loads(l)
+            if not row.get('error'):
+                pl = S2.placement_score(row['placement']['ours'], row['placement']['pro'])
+                row['placement']['parts'] = pl
+                row['v2'] = round(S2.combine(row['v1'], row['v1_breakdown'], pl), 2)
+                base_by_id[row['id']] = row
+
+    summary = json.load(open(os.path.join(H, 'picker_1125_asym_pinned.json')))
+    import multiprocessing as mp
+
+    def _ci_subset(rows_sub, metric):
+        d = [x[metric] - base_by_id[x['id']][metric] for x in rows_sub]
+        mix_ids = sorted({x['id'].rsplit('__', 1)[0] for x in rows_sub})
+        idx_m = collections.defaultdict(list)
+        for i, x in enumerate(rows_sub):
+            idx_m[x['id'].rsplit('__', 1)[0]].append(i)
+        rng = np.random.default_rng(SEED)
+        BS_p = rng.integers(0, len(rows_sub), (NB, len(rows_sub)))
+        BS_m = [np.concatenate([idx_m[mix_ids[m]] for m in rng.choice(len(mix_ids), len(mix_ids))]) for _ in range(NB)]
+        arr = np.asarray(d)
+        return dict(
+            pair=[round(float(arr.mean()), 2), round(float(np.percentile(arr[BS_p].mean(1), 2.5)), 2), round(float(np.percentile(arr[BS_p].mean(1), 97.5)), 2)],
+            mix=[round(float(arr.mean()), 2), round(float(np.percentile([arr[ii].mean() for ii in BS_m], 2.5)), 2), round(float(np.percentile([arr[ii].mean() for ii in BS_m], 97.5)), 2)],
+        )
+
+    arm = 'djbal_cue_struct_compat'
+    mp_tab = json.load(open(mpath))
+    by_yt = mp_tab.get('by_yt') or {}
+    ck = os.path.join(W, f'pinned_{arm}.jsonl')
+    have = {}
+    if os.path.exists(ck):
+        for l in open(ck):
+            if l.strip():
+                row = json.loads(l)
+                if not row.get('error'):
+                    have[row['id']] = row
+    todo = []
+    for i, r in enumerate(recs):
+        if r['id'] in have:
+            continue
+        key = f"{r['a']['yt']}|{r['b']['yt']}"
+        if key not in by_yt:
+            b_copy = dict(base_by_id[r['id']], arm=arm, abstained_to_base=True, injected_cs=False)
+            with open(ck, 'a') as fh:
+                fh.write(json.dumps(b_copy, default=str) + '\n')
+            have[r['id']] = b_copy
+        else:
+            todo.append((arm, mpath, i, r))
+    print(f'STRUCT_PINNED {arm}: {len(have)} cached (incl abstains), {len(todo)} to render', flush=True)
+    if todo:
+        with mp.get_context('spawn').Pool(int(os.environ.get('PINW', 2)), maxtasksperchild=4) as pool:
+            for row in pool.imap_unordered(_pinned_worker, todo):
+                with open(ck, 'a') as fh:
+                    fh.write(json.dumps(row, default=str) + '\n')
+                print(arm, row['id'], row.get('fam'), row.get('win'), 'v1=', row.get('v1'), 'v2=', row.get('v2'), row.get('error', '')[-120:], flush=True)
+                if not row.get('error'):
+                    have[row['id']] = row
+    rows_ok = [have[r['id']] for r in recs if r['id'] in have]
+    tr = [x for x in rows_ok if x['split'] == 'train']
+    te = [x for x in rows_ok if x['split'] == 'test']
+    eb, ea, pe, px, ps = [], [], [], [], []
+    for x in rows_ok:
+        pl = x['placement']; pr, ou = pl['pro'], pl['ours']
+        if pr.get('entry', {}).get('b') is not None and ou.get('entry', {}).get('b') is not None:
+            eb.append(abs(ou['entry']['b'] - pr['entry']['b']))
+        if pr.get('gone', {}).get('a') is not None and ou.get('gone', {}).get('a') is not None:
+            ea.append(abs(ou['gone']['a'] - pr['gone']['a']))
+        if pl.get('parts'):
+            pe.append(pl['parts']['entry']); px.append(pl['parts']['gone']); ps.append(pl['parts']['swap'])
+    summary[arm] = dict(
+        n=len(rows_ok), n_train=len(tr), n_test=len(te),
+        v1_train=round(float(np.mean([x['v1'] for x in tr])), 2),
+        v1_test=round(float(np.mean([x['v1'] for x in te])), 2),
+        v1_all=round(float(np.mean([x['v1'] for x in rows_ok])), 2),
+        v2_train=round(float(np.mean([x['v2'] for x in tr])), 2),
+        v2_test=round(float(np.mean([x['v2'] for x in te])), 2),
+        v2_all=round(float(np.mean([x['v2'] for x in rows_ok])), 2),
+        delta_v1_all=_ci_subset(rows_ok, 'v1'),
+        delta_v2_all=_ci_subset(rows_ok, 'v2'),
+        delta_v1_train=_ci_subset(tr, 'v1'),
+        delta_v2_train=_ci_subset(tr, 'v2'),
+        delta_v1_test=_ci_subset(te, 'v1'),
+        delta_v2_test=_ci_subset(te, 'v2'),
+        place_parts=dict(entry=round(float(np.mean(pe)), 1), gone=round(float(np.mean(px)), 1), swap=round(float(np.mean(ps)), 1)),
+        audio_b_entry_mae=round(float(np.mean(eb)), 1) if eb else None,
+        audio_a_exit_mae=round(float(np.mean(ea)), 1) if ea else None,
+        n_picker_applied=sum(1 for x in rows_ok if x['fam'] == 'picker_style_gated'),
+        fams=dict(collections.Counter(x['fam'] for x in rows_ok)),
+    )
+    outp = os.path.join(H, 'picker_1125_struct_pinned.json')
+    json.dump(summary, open(outp, 'w'), indent=2)
+    print('STRUCT_PINNED SUMMARY:', json.dumps(summary[arm], indent=2), flush=True)
+
+
 if __name__ == '__main__':
     mode = sys.argv[1]
     if mode == 'diagnose':
@@ -1296,5 +1824,11 @@ if __name__ == '__main__':
         run_asym_maps()
     elif mode == 'asym_pinned':
         run_asym_pinned()
+    elif mode == 'struct_cv':
+        run_struct_cv()
+    elif mode == 'struct_maps':
+        run_struct_maps()
+    elif mode == 'struct_pinned':
+        run_struct_pinned()
     else:
         raise SystemExit(f'unknown mode: {mode}')

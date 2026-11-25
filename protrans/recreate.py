@@ -197,6 +197,49 @@ def _picker_style_gated_map_path(env=None):
         return override
     return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica', 'picker_style_gated_windows.json')
 
+
+def select_compatible_picker_window(a, b, ranked, cs, default_win, dc_eval=None):
+    """Pick the highest-ranked window from ranked that passes blend compatibility at that bar
+    (vocal clash V, halfbeat HB, drum-onset R, overlap both, guardrail pen, drumclash detector).
+    Returns (hit_dict, rank_idx, tried_log) or (None, None, tried_log) to fall back to base."""
+    def_c = next((c for c in cs if list(c.get('win') or []) == list(default_win or [])), None)
+    def_pen = float(def_c.get('pen', 30.0)) if def_c else 30.0
+    def_V = int(def_c.get('V', 0)) if def_c else 0
+    def_R = float(def_c.get('R', 0.25)) if def_c else 0.25
+    pen_cap = max(def_pen + 35.0, 90.0)
+    r_floor = min(0.25, def_R)
+    tried = []
+    for idx, raw_w in enumerate(ranked or []):
+        want = [raw_w[0], int(raw_w[1]), None, int(raw_w[3]), int(raw_w[4])]
+        hit = next((c for c in cs if list(c.get('win') or []) == want), None)
+        if hit is None:
+            tried.append(dict(rank=idx, win=want, reason='not_in_cs'))
+            continue
+        reasons = []
+        if int(hit.get('V', 0)) > def_V:
+            reasons.append(f'V={hit.get("V")}>{def_V}')
+        if bool(hit.get('HB')):
+            reasons.append('HB')
+        if float(hit.get('R', 1.0)) < r_floor:
+            reasons.append(f'R={hit.get("R"):.2f}<{r_floor:.2f}')
+        if int(hit.get('both', 16)) < 11:
+            reasons.append(f'both={hit.get("both")}<11')
+        if float(hit.get('pen', 0.0)) > pen_cap:
+            reasons.append(f'pen={hit.get("pen"):.1f}>{pen_cap:.1f}')
+        if not reasons and dc_eval is not None:
+            try:
+                dc = dc_eval(a, b, want)
+                if dc is not None and dc.get('level') in ('flag', 'clash'):
+                    reasons.append(f'drumclash={dc.get("level")}')
+            except Exception:
+                pass
+        if not reasons:
+            tried.append(dict(rank=idx, win=want, ok=True, pen=hit.get('pen'), R=hit.get('R'), V=hit.get('V')))
+            return hit, idx, tried
+        tried.append(dict(rank=idx, win=want, ok=False, reasons=reasons, pen=hit.get('pen')))
+    return None, None, tried
+
+
 def hint_families(cs, hint_bar, near_bars=32):
     """Natural windows whose outgoing end is near the tracklist time hint.
 
@@ -689,14 +732,25 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
         # Does not write rules.json. Abstains if the pair or window is missing.
         if picker_style_gated_on(rules, env):
             _mp = _picker_style_gated_map_path(env)
-            _pw = None
+            _pw, _ranked = None, None
             try:
                 _tab = json.load(open(_mp))
                 _pw = (_tab.get('by_yt') or {}).get(f'{a}|{b}') or _tab.get(f'{a}|{b}')
+                _ranked = (_tab.get('ranked_by_yt') or {}).get(f'{a}|{b}')
             except Exception as _ex:
                 picker_info = dict(enabled=True, error=f'{type(_ex).__name__}: {_ex}', map=_mp)
-                _pw = None
-            if _pw:
+                _pw, _ranked = None, None
+            if _ranked:
+                import drumclash as _DCp
+                _dc_fn = _DCp.window_eval_pt if getattr(_DCp, 'KIND', None) == 'lattice' else _DCp.window_eval
+                hit, r_idx, tried = select_compatible_picker_window(a, b, _ranked, cs, pick.get('win'), dc_eval=_dc_fn)
+                if hit is not None:
+                    injected = bool(hit.get('planner_extra'))
+                    picker_info = dict(enabled=True, want=list(hit['win']), rank_idx=r_idx, applied=True, injected_cs=injected, map=_mp, tried=tried)
+                    pick = dict(fam='picker_style_gated', win=list(hit['win']), env={}); fade = {}
+                else:
+                    picker_info = dict(enabled=True, want=list(_ranked[0]), applied=False, injected_cs=False, map=_mp, why='none_compatible', tried=tried)
+            elif _pw:
                 _want = [_pw[0], int(_pw[1]), None, int(_pw[3]), int(_pw[4])]
                 hit = next((c for c in cs if list(c.get('win') or []) == _want), None)
                 injected = False

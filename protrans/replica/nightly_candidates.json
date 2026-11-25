@@ -1,5 +1,5 @@
 {
- "written": "2026-11-25 04:05 AM ET, for the next nightly after n1125",
+ "written": "2026-11-25 04:37 AM ET, for the next nightly after n1125",
  "note": "The nightly reads this file (see protrans/nightly_hill_climb.py and promotion_judge.py). Do not write rules.json. epg_strict and epg_drop are co-candidates earning consecutive wins under their own judges; epg_stack is a third arm that runs both hooks on the windows each one owns. Not an auto-adopt keep.",
  "consecutive_wins_required": 2,
  "adopt_to_defaults": false,
@@ -116,33 +116,68 @@
    "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
   },
   {
-   "name": "djbal_cue_sec_mix",
+   "name": "djbal_cue_struct_compat",
    "promotion": false,
    "shadow": true,
    "flags_off_by_default": true,
    "wired": true,
    "delta": {
     "PICKER_STYLE_GATED": 1,
-    "PICKER_STYLE_GATED_MAP": "replica/picker_djbal_sec_mix_windows.json",
+    "PICKER_STYLE_GATED_MAP": "replica/picker_djbal_struct_compat_windows.json",
     "PICKER_INJECT_CS": 1
    },
-   "map": "replica/picker_djbal_sec_mix_windows.json",
-   "label": "Shadow arm for tomorrow night (replaces obsolete picker_style_gated in slot 4; cap 6). DJ-balanced tau>0 cue gate (tau=0.25) + inner-LOOCV asymmetric-regret late-safe exit gate (min_na=200, margin=50.0, djbal_cue_asym_mix) + PICKER_INJECT_CS=1, trained on 843 dev only. Shadow only: do not promote or write rules.json.",
+   "map": "replica/picker_djbal_struct_compat_windows.json",
+   "label": "Shadow arm for tomorrow night (replaces djbal_cue_sec_mix in slot 4; cap 6). 3-part fix trained on 843 dev only: (1) structure exit features replacing min_na=200 (drops_rem_after, drops_unstarted, mid-drop vs drop-end/breakdown, bars left, drop-2); (2) ranked shortlist K<=6 filtered at recreate time by blend compatibility (V, HB, R, both>=11, pen, drumclash) with fallback to base; (3) separate fast-cue gate for dcue<=17 using Track B intro thinness. Shadow only: do not promote or write rules.json.",
    "already_scored_2026_11_25_pinned33": {
-    "v1_all": 33.43,
-    "v1_train": 34.44,
-    "v1_test": 31.66,
-    "v2_all": 34.0,
-    "v2_train": 35.73,
-    "v2_test": 30.98,
+    "v1_all": 33.4,
+    "v1_train": 32.98,
+    "v1_test": 34.14,
+    "v2_all": 34.63,
+    "v2_train": 34.95,
+    "v2_test": 34.08,
     "floor_v1_all": 33.01,
     "floor_v1_train": 32.4,
     "floor_v1_test": 34.07,
     "floor_v2_all": 33.89,
     "floor_v2_train": 34.09,
     "floor_v2_test": 33.53,
-    "held_out_diagnosis": "Still worse than base on held-out (v1 -2.41, v2 -2.54): only 4/12 test pairs moved (all netsky_hospital_classics); __02 (-11.46) and __15 (-7.24 cue part) were cue regressions 0->48/0->16, and __15 (na=246>=200) still over-exited 240->144 (-14.10 extra v1 / -26.82 extra v2) because pro rode to drop2 bar 203.4.",
-    "eval": "protrans/replica/picker_1125_asym_cv.json, protrans/replica/picker_1125_asym_pinned.json"
+    "delta_v1_vs_base": {
+     "all": [
+      0.39,
+      0.0,
+      1.15
+     ],
+     "train": [
+      0.58,
+      0.0,
+      1.73
+     ],
+     "test": [
+      0.07,
+      0.0,
+      0.21
+     ]
+    },
+    "delta_v2_vs_base": {
+     "all": [
+      0.74,
+      0.0,
+      2.03
+     ],
+     "train": [
+      0.85,
+      0.0,
+      2.56
+     ],
+     "test": [
+      0.55,
+      0.0,
+      1.65
+     ]
+    },
+    "n_picker_applied": 2,
+    "note": "Beats base on both train and test (v1+v2), zero regressions across all 33 pairs; 12/14 mapped candidates fell back to base via compat gate (both<11), while hybrid_minds_ukf__10 (+12.13 v1 / +17.94 v2) and held-out netsky_hospital_classics__06 (+0.85 v1 / +6.58 v2 at rank-2 bar 168) applied.",
+    "eval": "protrans/replica/picker_1125_struct_cv.json, protrans/replica/picker_1125_struct_pinned.json"
    },
    "do_not": "write rules.json, change defaults, set adopt_to_defaults true, or treat as a promotion arm"
   },
@@ -294,5 +329,6 @@
   "registered": "2026-11-25 1:15 AM ET",
   "note": "Decision-level model arms (not env flags for nightly_hill_climb.py); evaluated by replica/picker_1125.py. Render flag for picks: PICKER_1125=<arm> via a per-pair window map, never rules.json."
  },
- "picker_style_gated_replaced": "2026-11-25 04:05 AM ET: picker_style_gated in slot 4 replaced for tomorrow night by shadow arm djbal_cue_sec_mix (map replica/picker_djbal_sec_mix_windows.json with djbal_cue_asym_mix gate + PICKER_INJECT_CS=1). Written after n1125_run.py already loaded nightly_candidates.json at 03:29 AM ET so n1125 is undisturbed. Shadow only; adopt_to_defaults false; no rules.json changes."
+ "picker_style_gated_replaced": "2026-11-25 04:05 AM ET: picker_style_gated in slot 4 replaced for tomorrow night by shadow arm djbal_cue_sec_mix (map replica/picker_djbal_sec_mix_windows.json with djbal_cue_asym_mix gate + PICKER_INJECT_CS=1). Written after n1125_run.py already loaded nightly_candidates.json at 03:29 AM ET so n1125 is undisturbed. Shadow only; adopt_to_defaults false; no rules.json changes.",
+ "djbal_cue_sec_mix_replaced": "2026-11-25 04:37 AM ET: djbal_cue_sec_mix in slot 4 swapped for djbal_cue_struct_compat (map replica/picker_djbal_struct_compat_windows.json with ranked_by_yt + PICKER_INJECT_CS=1) after beating base on both pinned train (v1 32.98 vs 32.40, v2 34.95 vs 34.09) and held-out test (v1 34.14 vs 34.07, v2 34.08 vs 33.53). Shadow only; adopt_to_defaults false; rules.json untouched."
 }

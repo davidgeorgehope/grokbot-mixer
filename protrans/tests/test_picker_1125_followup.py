@@ -113,3 +113,43 @@ def test_apply_rules_forwards_picker_map_and_inject():
     assert env['PICKER_STYLE_GATED'] == '1'
     assert env['PICKER_STYLE_GATED_MAP'] == 'replica/picker_djbal_sec_mix_windows.json'
     assert env['PICKER_INJECT_CS'] == '1'
+
+
+def test_struct_and_fast_cue_features_and_shortlist():
+    r = _sample_row()
+    # Structure features contain drops_rem, is_mid_drop, compat proxies, and no raw na cutoff
+    sf = F.exit_struct_feats_no_na(r, r['E'][0], 0.8, 110.0, 205.0, 25.0)
+    assert len(sf) == 31
+    assert np.isfinite(sf[0])  # drops_rem_after
+    cf = F.fast_cue_feats(r, 1, 0.5)
+    assert len(cf) == 26
+    assert cf[0] == 17.0
+
+    class _DummyReg:
+        def predict(self, X):
+            return np.array([10.0] * len(X))
+
+    je = next(i for i, c in enumerate(r['E']) if abs(c['v'] - 97.0) <= 8)
+    risks = [50.0] * len(r['E'])
+    risks[je] = 10.0
+    rk = F.build_ranked_shortlist(r, je, 1, _DummyReg(), 5.0, 0.8, 97.0, 205.0, risks, k_max=6)
+    assert 1 <= len(rk) <= 6
+    assert len({tuple(w) for w in rk}) == len(rk)
+
+
+def test_select_compatible_picker_window_skips_clash_and_falls_back():
+    import recreate
+    default_win = ['n', 224, None, 16, 16]
+    w1 = ['n', 160, None, 16, 16]
+    w2 = ['n', 176, None, 16, 16]
+    cs = [
+        dict(win=default_win, pen=25.0, V=0, R=0.45, HB=False, both=16),
+        dict(win=w1, pen=120.0, V=1, R=0.40, HB=False, both=16),  # vocal clash + high pen
+        dict(win=w2, pen=30.0, V=0, R=0.38, HB=False, both=16),   # clean
+    ]
+    hit, idx, tried = recreate.select_compatible_picker_window('a', 'b', [w1, w2], cs, default_win, dc_eval=lambda *a: {'level': 'clean'})
+    assert hit is not None and hit['win'] == w2 and idx == 1
+
+    # Drumclash rejects w2 too -> fallback to None (base)
+    hit2, idx2, tried2 = recreate.select_compatible_picker_window('a', 'b', [w1, w2], cs, default_win, dc_eval=lambda *a: {'level': 'flag'})
+    assert hit2 is None and idx2 is None

@@ -205,3 +205,76 @@ The late-ride guard (`min_na=200, margin=50`) did **not** fix held-out test simi
 
 ### 9e. Tomorrow Night Shadow Config Update
 - Updated `protrans/replica/nightly_candidates.json` for tomorrow night (after `n1125_run.py` had already loaded `CANDS_FILE` at `03:29 AM ET`, leaving `nightly-n1125` undisturbed): replaced obsolete `picker_style_gated` in slot 4 with shadow arm `djbal_cue_sec_mix` (`shadow: true, promotion: false, flags_off_by_default: true`, `delta: {"PICKER_STYLE_GATED": 1, "PICKER_STYLE_GATED_MAP": "replica/picker_djbal_sec_mix_windows.json", "PICKER_INJECT_CS": 1}`). `adopt_to_defaults` remains `false` and `protrans/rules.json` was not modified.
+
+## 10. Three-Part Fix: Structure Features + Ranked Compat Gate + Separate Fast-Cue Gate (`djbal_cue_struct_compat`)
+Completed 2026-11-25 04:36 AM ET (`picker-struct-cv-1125` + `picker-struct-pinned-1125`, `rc=0`).
+Code & artifacts: `protrans/replica/picker_1125_followup.py`, `protrans/recreate.py` (`select_compatible_picker_window`), `src2/mix_simple.py` (`DUMP_CANDS` + legal `PLANNER_EXTRA_WINS` injection), `protrans/tests/test_picker_1125_followup.py` (8/8 tests passing), `protrans/replica/picker_1125_struct_cv.json`, `protrans/replica/picker_1125_struct_protrans_maps.json`, `protrans/replica/picker_1125_struct_pinned.json`, and `protrans/replica/picker_djbal_struct_compat_windows.json`.
+
+### 10a. What Changed (Learned Exclusively on 843 Dev Pairs; Evaluated Once on Pinned 33)
+1. **Replace raw `min_na=200` with Track A structure features (`exit_struct_feats_no_na`, 31 features):**
+   - Removed raw `na` / `min_na` threshold completely; replaced with `drops_rem_after`, `drops_unstarted`, `in_drop_at_exit`, `at_drop_end_or_bd`, `bars_left`, `bars_after_last_drop`, `drop2_exists`, `drop2_len`, `drop2_past_ratio`, `drop_rem_ratio_150`, and structural interactions.
+   - Trained an unweighted continuous asymmetric-regret gate (`m_eg`, `asym=1.5`, inner-LOOCV selected `thr_regret=20.0`).
+2. **Ranked shortlist (`K <= 6`) + render-time blend compatibility gate (`select_compatible_picker_window`):**
+   - Picker emits a deduped ranked shortlist (`ranked_by_yt`, up to `K=6`) of legal windows near the predicted `(exit, cue)` instead of a single forced window.
+   - `recreate.py` scores candidates via `mix_simple.cands_for` (`PICKER_INJECT_CS=1`) and picks the highest-ranked window passing compatibility (`V <= def_V`, `not HB`, `R >= min(0.25, def_R)`, `both >= 11` matching `mix_simple.py` `BOTHMIN=11`, `pen <= max(def_pen + 35.0, 90.0)`, and `drumclash` level not in `('flag', 'clash')`). Falls back to `base` (`none_compatible`) if no ranked candidate passes.
+3. **Separate gate for fast `0/8/16` cues (`fast_cue_feats`, 26 features):**
+   - For pairs with `dcue <= 17`, a separate classifier `m_fc` (inner-LOOCV selected `thr_fast_cue=0.40`) gates cue moves based on Track B intro thinness (`b_in_voc_on`, `b_in_drum_on`, `b_in_low_db`, `b_in_all_db`, drop-1 start/gap) and compat features, leaving slower cues (`dcue > 17`) on the DJ-balanced `tau_slow=0.25` gate.
+
+### 10b. 25-Fold Leave-One-DJ-Out CV (`n=843` Dev Pairs Only)
+| Cohort / Arm | `exit_cue` MAE | `exit` MAE (Med) | `exit@8` / `@16` | `pro_mid` / `pro_late` | `cue` MAE (`@16`) | Moved (`exit`/`cue`) |
+|---|---:|---:|---:|---:|---:|---:|
+| **All (n=843) `default`** | 37.13 | 46.82 (34.1) | 16.5% / 35.2% | 77.03 / **11.40** | 27.44 (42.9%) | 0.0% / 0.0% |
+| **All (n=843) `majority`** | 36.22 | 47.37 (38.4) | 7.1% / 14.7% | **57.64** / 35.33 | 25.06 (35.7%) | 96.8% / 91.9% |
+| **All (n=843) `djbal_cue_asym_mix`** | **34.65** | **44.24** (**32.5**) | **16.7%** / 34.9% | 61.88 / 23.55 | 25.07 (46.9%) | 18.9% / 30.0% |
+| **All (n=843) `djbal_cue_struct_compat`** | 34.69 | 45.77 (34.2) | 15.7% / 34.2% | 70.08 / 17.25 | **23.61** (**50.9%**) | 11.7% / 41.3% |
+| **Non-Kush (n=437) `default`** | 39.86 | 54.41 (55.6) | 10.1% / 24.7% | 76.47 / **12.61** | 25.32 (**57.4%**) | 0.0% / 0.0% |
+| **Non-Kush (n=437) `djbal_cue_asym_mix`** | **36.08** | **48.20** (**47.8**) | **12.8%** / **28.6%** | **64.18** / 17.95 | 23.96 (55.8%) | 12.6% / 35.2% |
+| **Non-Kush (n=437) `djbal_cue_struct_compat`** | 38.07 | 53.02 (53.2) | 11.2% / 25.9% | 73.71 / 13.83 | **23.11** (56.8%) | 3.7% / 42.1% |
+| **KushSessions (n=406) `default`** | 34.18 | 38.65 (17.2) | **23.4%** / **46.6%** | 77.97 / **10.62** | 29.72 (27.3%) | 0.0% / 0.0% |
+| **KushSessions (n=406) `djbal_cue_struct_compat`** | **31.05** | **37.96** (18.2) | 20.4% / 43.1% | **63.93** / 19.43 | **24.15** (**44.6%**) | 20.4% / 40.4% |
+
+- **All 843 (`djbal_cue_struct_compat` vs `default`):**
+  - Mix-clustered 95% CI: `exit_cue` **−2.439 [−3.375, −1.515]**, `exit` −1.052 [−2.731, +0.597], `cue` **−3.825 [−4.967, −2.784]**, `cue@8` **+4.9% [+2.3%, +7.4%]**, `cue@16` **+7.9% [+4.0%, +12.4%]**.
+  - Pair-clustered 95% CI: `exit_cue` **−2.439 [−3.295, −1.588]**, `cue` **−3.825 [−4.648, −3.020]**, `cue@16` **+7.9% [+5.1%, +10.7%]**.
+  - Beats `majority` on `cue` (**−1.446 [−2.717, −0.203]** mix-CI), `exit@8` (**+8.5%**), `exit@16` (**+19.5%**), and `cue@16` (**+15.2%**).
+- **Non-KushSessions (`n=437`, vs `default`):**
+  - Mix-clustered 95% CI: `exit_cue` **−1.797 [−2.799, −0.830]**, `exit` **−1.383 [−2.702, −0.174]**, `exit@8` & `exit@16` **+1.1% [+0.3%, +2.1%]**, `cue` **−2.212 [−3.895, −0.631]**, `cue@8` **+4.8% [+0.7%, +9.0%]**.
+  - Pair-clustered 95% CI: `exit_cue` **−1.797 [−2.802, −0.885]**, `exit` **−1.383 [−2.811, −0.078]**, `cue` **−2.212 [−3.501, −0.958]**.
+
+### 10c. Pinned 33-Pair Evaluation (`picker_1125_struct_pinned.json`, Higher Is Better)
+Full-843 dev fit produced `n_windows = 14/33` (`cue_abstain_rate = 0.667`, `exit_moved_rate = 0.091`); `select_compatible_picker_window` applied **2/33** and cleanly fell back to `base` on the other 12/14 (`none_compatible` due to `both < 11`).
+
+| Arm | Applied | `v1` Train / Test (All) | `Δv1` All / Train / Test [Pair CI] | `v2` Train / Test (All) | `Δv2` All / Train / Test [Pair CI] | `v2` place `(e/g/s)` | Audio `b_ent`/`a_ex` |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `base` (`default`) | 0/33 | 32.40 / 34.07 (33.01) | 0.00 | 34.09 / 33.53 (33.89) | 0.00 | 26.4 / 26.3 / 27.2 | **20.3** / 54.0 |
+| `djbal_cue_sec_mix` | 25/33 | **36.81** / 31.56 (**34.90**) | +1.90 [−1.41, +5.22] | **38.84** / 31.10 (**36.03**) | +2.14 [−1.86, +6.09] | 28.9 / 29.7 / 31.6 | 28.8 / **23.0** |
+| `djbal_cue_asym_mix` | 13/33 | 34.44 / 31.66 (33.43) | +0.42 [−1.79, +2.46] / +2.03 / −2.41 | 35.73 / 30.98 (34.00) | +0.12 [−3.20, +3.04] / +1.64 / −2.54 | 24.8 / 28.5 / 26.2 | 25.9 / 37.4 |
+| **`djbal_cue_struct_compat`** | **2/33** | **32.98 / 34.14 (33.40)** | **+0.39 [0.00, +1.15]** / **+0.58** / **+0.07** | **34.95 / 34.08 (34.63)** | **+0.74 [0.00, +2.03]** / **+0.85** / **+0.55** | **27.4 / 29.2 / 28.4** | **20.3** / 41.0 |
+
+- Mix-clustered 95% CIs for `djbal_cue_struct_compat` vs `base`:
+  - `Δv1`: all **+0.39 [0.00, +0.76]**, train **+0.58 [0.00, +0.93]**, test **+0.07 [0.00, +0.14]**.
+  - `Δv2`: all **+0.74 [0.00, +1.24]**, train **+0.85 [0.00, +1.38]**, test **+0.55 [0.00, +1.10]**.
+- Pair-clustered 95% CIs: `Δv1` train `[0.00, +1.73]`, test `[0.00, +0.21]`; `Δv2` train `[0.00, +2.56]`, test `[0.00, +1.65]`.
+- **Zero regressions across all 33 pinned pairs** (`0` negative deltas on either `v1` or `v2`), beating `base` on **both `train` and `test` on both `v1` and `v2`**.
+
+### 10d. Per-Held-Out-Pair Changes (`test`, `n=12`)
+| Pair ID | `base` win (`v1` / `v2`) | `asym_mix` win (`Δv1` / `Δv2`) | `struct_compat` win (`Δv1` / `Δv2`) | Outcome / Compat Detail |
+|---|---|---|---|---|
+| `netsky_hospital_classics__06` | `320/48/16` (27.58 / 25.56) | `160/48/16` (+2.46 / +9.80) | **`168/48/16` (+0.85 / +6.58)** | Compat skipped rank 0 `160` (`both=10<11`) and rank 1 `192` (`both=10<11`); picked rank 2 `168` (`ok=True`). |
+| `netsky_hospital_classics__15` | `240/0/16` (40.90 / 50.22) | `144/16/16` (−21.34 / −34.13) | `240/0/16` (0.00 / 0.00) | Structure exit gate abstained (kept 240); compat rejected `240/16/16` (`both=10<11`). |
+| `netsky_hospital_classics__02` | `176/0/16` (43.75 / 36.91) | `176/48/16` (−11.46 / −5.85) | `176/0/16` (0.00 / 0.00) | Compat rejected `176/48/16` (`both=8<11`). |
+| `netsky_hospital_classics__17` | `256/32/16` (33.35 / 33.33) | `160/32/16` (+1.45 / −0.36) | `256/32/16` (0.00 / 0.00) | Abstained to `base`. |
+| `netsky_hospital_classics__23` | `192/16/16` (28.45 / 27.40) | `192/16/16` (0.00 / 0.00) | `192/16/16` (0.00 / 0.00) | Compat rejected `192/32/16` (`both=10<11`). |
+| `maduk_liquicity_lunar2025__03` | `176/16/16` (39.32 / 29.35) | `176/16/16` (0.00 / 0.00) | `176/16/16` (0.00 / 0.00) | Compat rejected `176/32/16` (`both=9<11`). |
+| `pola_bryson_puzzlewood__02` | `208/16/16` (20.54 / 20.88) | `208/16/16` (0.00 / 0.00) | `208/16/16` (0.00 / 0.00) | Compat rejected `208/32/16` (`both=10<11`). |
+| `maduk_liquicity_lunar2025__02` | `112/32/16` (27.78 / 33.39) | `112/32/16` (0.00 / 0.00) | `112/32/16` (0.00 / 0.00) | Abstained to `base`. |
+| `maduk_liquicity_lunar2025__05` | `240/32/16` (23.58 / 23.58) | `240/32/16` (0.00 / 0.00) | `240/32/16` (0.00 / 0.00) | Abstained to `base`. |
+| `pola_bryson_puzzlewood__00` | `176/32/16` (59.25 / 51.13) | `176/32/16` (0.00 / 0.00) | `176/32/16` (0.00 / 0.00) | Abstained to `base`. |
+| `pola_bryson_puzzlewood__04` | `224/40/16` (34.12 / 31.10) | `224/40/16` (0.00 / 0.00) | `224/40/16` (0.00 / 0.00) | Abstained to `base`. |
+| `wilkinson_boomtown2026__33` | `96/0/32` (30.20 / 39.48) | `96/0/32` (0.00 / 0.00) | `96/0/32` (0.00 / 0.00) | Abstained to `base`. |
+
+- On `train` (`n=21`), the 1 active move was `hybrid_minds_ukf__10` (`256/32/16 -> 160/32/16`, `v1 36.67 -> 48.80 (+12.13)`, `v2 37.43 -> 55.37 (+17.94)`). All previously regressive cue moves (`hybrid_minds_ukf__00`, `hybrid_minds_ukf__09`, `hybrid_minds_ukf__25`) were caught by the compat gate (`both < 11`), while `joe_syntax_hospital__00` (`96/0/16`) abstained via the fast-cue gate.
+
+### 10e. Shadow Config Decision (`nightly_candidates.json`)
+- Because `djbal_cue_struct_compat` beat `base` on **both `train`** (`v1 32.98 vs 32.40`, `v2 34.95 vs 34.09`) **and `test`** (`v1 34.14 vs 34.07`, `v2 34.08 vs 33.53`), copied the full-dev map to `protrans/replica/picker_djbal_struct_compat_windows.json` and swapped `djbal_cue_sec_mix` in slot 4 of `protrans/replica/nightly_candidates.json` for `djbal_cue_struct_compat` (`shadow: true, promotion: false, flags_off_by_default: true`, `delta: {"PICKER_STYLE_GATED": 1, "PICKER_STYLE_GATED_MAP": "replica/picker_djbal_struct_compat_windows.json", "PICKER_INJECT_CS": 1}`).
+- `adopt_to_defaults` remains `false`, `protrans/rules.json` was not modified, and `nightly-n1125` completed cleanly at `04:27:27-05:00` undisturbed.

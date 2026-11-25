@@ -375,9 +375,15 @@ def pair_cands(i,ia0):
     if os.environ.get('PICKER_INJECT_CS')=='1' and os.environ.get('PICKER_STYLE_GATED_MAP'):
       import json as _js
       _tab=_js.load(open(os.environ['PICKER_STYLE_GATED_MAP']))
-      _w=(_tab.get('by_yt') or {}).get(f'{a}|{b}') or _tab.get(f'{a}|{b}')
-      if _w and int(_w[4])==X and ('n',int(_w[1]),int(_w[3])) not in set(cands):
-        cands.append(('n',int(_w[1]),int(_w[3]))); PLANNER_EXTRA_WINS.add(('n',int(_w[1]),None,int(_w[3]),X))
+      _w0=(_tab.get('by_yt') or {}).get(f'{a}|{b}') or _tab.get(f'{a}|{b}')
+      _rks=(_tab.get('ranked_by_yt') or {}).get(f'{a}|{b}') or []
+      _all_pw=([_w0] if _w0 else [])+list(_rks)
+      _have_pw=set(cands)
+      for _w in _all_pw:
+        if _w and _w[0]=='n' and int(_w[4])==X:
+          _ee,_ib=int(_w[1]),int(_w[3])
+          if 16<=_ee-X and _ee<=na and 0<=_ib and _ib+X<=nb-16 and ('n',_ee,_ib) not in _have_pw:
+            cands.append(('n',_ee,_ib)); _have_pw.add(('n',_ee,_ib)); PLANNER_EXTRA_WINS.add(('n',_ee,None,_ib,X))
     eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
     for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)
       for p in [e-16] if e-16>=max(ia,16) else []:  # a fill/level drop inside the loop is penalised (DIPPEN), not refused
@@ -624,7 +630,7 @@ LOOK=int(os.environ.get("LOOKAHEAD",8))
 KIND={};LXD=set()
 for i in range(len(ids)-1):
   a,b=ids[i],ids[i+1];cs=pair_cands(i,inn[a])
-  if os.environ.get("DUMP_CANDS"):json.dump([dict(win=win_key(c),cost=float(c[0][0]),pen=float(c[4]['pen']),planner_extra=tuple(win_key(c)) in PLANNER_EXTRA_WINS,land_extra=tuple(win_key(c)) in LAND_EXTRA_WINS) for c in cs],open(os.environ["DUMP_CANDS"],'w'));sys.exit()  # blend_bench.py: all scored windows of the first pair
+  if os.environ.get("DUMP_CANDS"):json.dump([dict(win=win_key(c),cost=float(c[0][0]),pen=float(c[4]['pen']),V=int(c[4].get('V',0)),L=int(c[4].get('L',0)),SG=int(c[4].get('SG',0)),R=float(c[4].get('R',1.0)),HB=bool((c[4].get('HB') or {}).get('flagged')),both=int(c[4].get('both',X)),planner_extra=tuple(win_key(c)) in PLANNER_EXTRA_WINS,land_extra=tuple(win_key(c)) in LAND_EXTRA_WINS) for c in cs],open(os.environ["DUMP_CANDS"],'w'));sys.exit()  # blend_bench.py: all scored windows of the first pair
   if os.environ.get("DBG_PAIR")==f"{a}>{b}":[print("DBG",round(c[0][0],1),c[1],c[2],c[3],c[5],round(c[4]["pen"],1),file=sys.stderr) for c in cs[:8]]
   W=plan[i].get('out_win')  # opt-in: the window plan_search.py chose for this blend (renders exactly what was planned)
   if W:

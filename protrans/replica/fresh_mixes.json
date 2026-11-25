@@ -5,14 +5,18 @@
    "dj": "John B",
    "url": "https://www.youtube.com/watch?v=frbb5gILfjo",
    "title": "Night Drive DnB | Deep, Atmospheric & Liquid Drum & Bass Mix",
-   "n_admit": 6
+   "n_admit": 6,
+   "spent": true,
+   "spent_on": "2026-11-18 (per docs; ledger flag added 2026-11-25 1:15 AM ET by n1125)"
   },
   {
    "mix_id": "kushsessions_yaWXrFBRYrM",
    "dj": "KushSessions",
    "url": "https://www.youtube.com/watch?v=yaWXrFBRYrM",
    "title": "#303 KushSessions (Liquid Drum & Bass Mix)",
-   "n_admit": 7
+   "n_admit": 7,
+   "spent": true,
+   "spent_on": "2026-11-18 (kush-fresh-1118 job, scored once; docs/HARDCHECK_V2_DROPCAND_2026-11-18.md section 5). Ledger flag was missing; corrected 2026-11-25 1:15 AM ET by n1125, NOT reused."
   },
   {
    "mix_id": "offbeatdooter_L0O51m1Ow7I",
@@ -104,6 +108,19 @@
    "status": "done",
    "spent": true,
    "spent_on": "2026-11-23 21:16 ET (n1123 epg candidates, once, n=9 of 19 across 3 mixes)"
+  },
+  {
+   "mix_id": "kushsessions_z8SnJBUd-0U",
+   "dj": "KushSessions",
+   "url": "https://www.youtube.com/watch?v=z8SnJBUd-0U",
+   "n_admit": 14,
+   "for_night": "2026-11-25",
+   "queued": true,
+   "queued_on": "2026-11-25 1:15 AM ET",
+   "note": "Picked by n1125 BEFORE any evaluation from the corpus_v2 rows accepted after the 11-24 snapshot (all 95 new rows are KushSessions; this is the largest never-seen mix). Same DJ as some dev mixes (no unseen-DJ mix was available), so it tests a new mix, not a new DJ. Excluded from all training tonight. To be scored ONCE on the arms frozen in promotion_criteria.json frozen_arms_n1125, decision-level vs pro.",
+   "status": "done",
+   "spent": true,
+   "spent_on": "2026-11-25 1:35 AM ET (n1125 frozen arms cueonly_gated / ridegate / ridegate_cand2, decision-level, scored once; picker_1125_fresh.json)"
   }
  ],
  "tried": [
@@ -115,6 +132,7 @@
   "sirenity_ofcHup56lME",
   "yolowich_FIdBhH3SuXk",
   "nicky_havey_1xpuWyKZ4R0",
-  "outer_bass_3Tt7qDw8uaQ"
+  "outer_bass_3Tt7qDw8uaQ",
+  "kushsessions_z8SnJBUd-0U"
  ]
 }

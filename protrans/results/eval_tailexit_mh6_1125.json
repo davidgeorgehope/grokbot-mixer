@@ -1,0 +1,1919 @@
+{
+ "rows": {
+  "hybrid_minds_ukf__00": {
+   "meta": "/tmp/protrans_bench/mh6_1115_pzFgQ7iIfXQ_qeXTBEtGUtk_meta.json",
+   "dip": 36.1,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.033231,
+    "pcty": 3.300545,
+    "Scol": 0.8046,
+    "Scty": 0.6512,
+    "banger_clash_rate": 0.0256,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.819,
+    "rh": 0.571,
+    "lag_ms": 0.0,
+    "bars": 2,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 286.89655172413796, 308.9655172413793, \"qeXTBEtGUtk has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 224.0,
+    "G": 224.0,
+    "exit_bar": 224.0,
+    "old_exit_bar": 224.0,
+    "exit_30db_bar": 224.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 38.82
+  },
+  "hybrid_minds_ukf__08": {
+   "meta": "/tmp/protrans_bench/mh6_113_suPgRyRLVC4_J3oTRY7AdE4_meta.json",
+   "dip": 45.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.048963,
+    "pcty": 4.305619,
+    "Scol": 0.7259,
+    "Scty": 0.5715,
+    "banger_clash_rate": 0.0295,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 286.89655172413796, 308.9655172413793, \"J3oTRY7AdE4 has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 223.0,
+    "G": 223.0,
+    "exit_bar": 223.0,
+    "old_exit_bar": 224.0,
+    "exit_30db_bar": 223.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 41.98
+  },
+  "hybrid_minds_ukf__09": {
+   "meta": "/tmp/protrans_bench/mh6_1116_J3oTRY7AdE4_ksVDZt9_0J4_meta.json",
+   "dip": 20.5,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.026377,
+    "pcty": 3.000333,
+    "Scol": 0.8415,
+    "Scty": 0.6771,
+    "banger_clash_rate": 0.0315,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": false,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 264.82758620689657, 286.89655172413796, \"ksVDZt9_0J4 has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ],
+    "L1": [
+     {
+      "bar": 200,
+      "kind": "sum",
+      "over": 3.07
+     }
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 208.0,
+    "G": 208.0,
+    "exit_bar": 208.0,
+    "old_exit_bar": 208.0,
+    "exit_30db_bar": 208.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 31.26
+  },
+  "hybrid_minds_ukf__10": {
+   "meta": "/tmp/protrans_bench/mh6_1117_ksVDZt9_0J4_Vwb-3pAvOVk_meta.json",
+   "dip": 39.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.04885,
+    "pcty": 2.962831,
+    "Scol": 0.7264,
+    "Scty": 0.6804,
+    "banger_clash_rate": 0.0148,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 331.0344827586207, 353.1034482758621, \"Vwb-3pAvOVk has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 254.0,
+    "G": 254.0,
+    "exit_bar": 254.0,
+    "old_exit_bar": 256.0,
+    "exit_30db_bar": 254.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 36.28
+  },
+  "hybrid_minds_ukf__11": {
+   "meta": "/tmp/protrans_bench/mh6_114_dry_meta.json",
+   "dip": 27.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.048537,
+    "pcty": 3.198586,
+    "Scol": 0.7279,
+    "Scty": 0.6599,
+    "banger_clash_rate": 0.0502,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 264.82758620689657, 286.89655172413796, \"M4UU1xn_K4s has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 208.0,
+    "G": 208.0,
+    "exit_bar": 208.0,
+    "old_exit_bar": 208.0,
+    "exit_30db_bar": 208.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 33.87
+  },
+  "hybrid_minds_ukf__12": {
+   "meta": "/tmp/protrans_bench/mh6_115_M4UU1xn_K4s_zEvLsOVhg0I_meta.json",
+   "dip": 38.2,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.020509,
+    "pcty": 3.679568,
+    "Scol": 0.8744,
+    "Scty": 0.6199,
+    "banger_clash_rate": 0.0659,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 397.2413793103449, 419.3103448275862, \"zEvLsOVhg0I has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 302.0,
+    "G": 302.0,
+    "exit_bar": 302.0,
+    "old_exit_bar": 304.0,
+    "exit_30db_bar": 302.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 21.7
+  },
+  "hybrid_minds_ukf__13": {
+   "meta": "/tmp/protrans_bench/mh6_1123_dry_meta.json",
+   "dip": 24.6,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.036509,
+    "pcty": 2.608204,
+    "Scol": 0.7875,
+    "Scty": 0.7125,
+    "banger_clash_rate": 0.0443,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 242.75862068965517, 264.82758620689657, \"W77cCOreg_0 has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 192.0,
+    "G": 192.0,
+    "exit_bar": 192.0,
+    "old_exit_bar": 192.0,
+    "exit_30db_bar": 192.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 36.11
+  },
+  "hybrid_minds_ukf__19": {
+   "meta": "/tmp/protrans_bench/mh6_116_dry_meta.json",
+   "dip": 22.5,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.022565,
+    "pcty": 2.759611,
+    "Scol": 0.8627,
+    "Scty": 0.6987,
+    "banger_clash_rate": 0.1102,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 220.6896551724138, 242.75862068965517, \"5YG-HKjtiHM has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 175.0,
+    "G": 175.0,
+    "exit_bar": 175.0,
+    "old_exit_bar": 176.0,
+    "exit_30db_bar": 175.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 27.62
+  },
+  "hybrid_minds_ukf__23": {
+   "meta": "/tmp/protrans_bench/mh6_1124_INaNIcQ4S7k_HpfQ0bus688_meta.json",
+   "dip": 28.5,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.021268,
+    "pcty": 3.020832,
+    "Scol": 0.8701,
+    "Scty": 0.6753,
+    "banger_clash_rate": 0.0906,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.086,
+    "rh": 0.178,
+    "lag_ms": 92.88,
+    "bars": 3,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": false,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 286.89655172413796, 308.9655172413793, \"HpfQ0bus688 has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ],
+    "N1": [
+     {
+      "kind": "halfbeat_lag_ms",
+      "lag_ms": 92.88,
+      "limit": 10.0
+     }
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 224.0,
+    "G": 224.0,
+    "exit_bar": 224.0,
+    "old_exit_bar": 224.0,
+    "exit_30db_bar": 224.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 32.04
+  },
+  "hybrid_minds_ukf__25": {
+   "meta": "/tmp/protrans_bench/mh6_117_9oBXWTlTPMw_3f-XOhfDhxk_meta.json",
+   "dip": 27.5,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.032857,
+    "pcty": 2.105435,
+    "Scol": 0.8065,
+    "Scty": 0.7606,
+    "banger_clash_rate": 0.1083,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 242.75862068965517, 264.82758620689657, \"3f-XOhfDhxk has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 192.0,
+    "G": 192.0,
+    "exit_bar": 192.0,
+    "old_exit_bar": 192.0,
+    "exit_30db_bar": 192.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 26.46
+  },
+  "hybrid_minds_ukf__28": {
+   "meta": "/tmp/protrans_bench/mh6_1118_bnRTUL2jnk0_Op886B0sd4Q_meta.json",
+   "dip": 27.9,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.048747,
+    "pcty": 3.91024,
+    "Scol": 0.7269,
+    "Scty": 0.6016,
+    "banger_clash_rate": 0.0906,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 308.9655172413793, 331.0344827586207, \"Op886B0sd4Q has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 240.0,
+    "G": 240.0,
+    "exit_bar": 240.0,
+    "old_exit_bar": 240.0,
+    "exit_30db_bar": 240.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 41.3
+  },
+  "hybrid_minds_ukf__40": {
+   "meta": "/tmp/protrans_bench/mh6_1119_dry_meta.json",
+   "dip": 33.1,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.027693,
+    "pcty": 3.703104,
+    "Scol": 0.8343,
+    "Scty": 0.618,
+    "banger_clash_rate": 0.0374,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 353.1034482758621, 375.1724137931035, \"oySqE3z99AE has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 271.0,
+    "G": 271.0,
+    "exit_bar": 271.0,
+    "old_exit_bar": 272.0,
+    "exit_30db_bar": 271.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 29.92
+  },
+  "hybrid_minds_ukf__45": {
+   "meta": "/tmp/protrans_bench/mh6_118_dry_meta.json",
+   "dip": 31.6,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.032818,
+    "pcty": 6.150649,
+    "Scol": 0.8067,
+    "Scty": 0.4497,
+    "banger_clash_rate": 0.0197,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 154.48275862068965, 176.55172413793105, \"0oxJBc__U0c has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 128.0,
+    "G": 128.0,
+    "exit_bar": 128.0,
+    "old_exit_bar": 128.0,
+    "exit_30db_bar": 128.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 42.72
+  },
+  "joe_syntax_hospital__00": {
+   "meta": "/tmp/protrans_bench/mh6_1120_dry_meta.json",
+   "dip": 15.2,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.026719,
+    "pcty": 1.613165,
+    "Scol": 0.8396,
+    "Scty": 0.8109,
+    "banger_clash_rate": 0.0561,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.62,
+    "rh": 0.531,
+    "lag_ms": 0.0,
+    "bars": 1,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 110.3448275862069, 132.41379310344828, \"dOJp7bsjuyU has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 96.0,
+    "G": 96.0,
+    "exit_bar": 96.0,
+    "old_exit_bar": 96.0,
+    "exit_30db_bar": 96.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 29.03
+  },
+  "joe_syntax_hospital__01": {
+   "meta": "/tmp/protrans_bench/mh6_111_dOJp7bsjuyU_zM6au9qc2XQ_meta.json",
+   "dip": 28.7,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.046776,
+    "pcty": 2.655842,
+    "Scol": 0.7363,
+    "Scty": 0.7081,
+    "banger_clash_rate": 0.0709,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 198.62068965517244, 220.6896551724138, \"zM6au9qc2XQ has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 160.0,
+    "G": 160.0,
+    "exit_bar": 160.0,
+    "old_exit_bar": 160.0,
+    "exit_30db_bar": 160.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 29.74
+  },
+  "joe_syntax_hospital__08": {
+   "meta": "/tmp/protrans_bench/mh6_112_NjwN3B617tg_Dy3qi_gCP9k_meta.json",
+   "dip": 12.8,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.010845,
+    "pcty": 1.62268,
+    "Scol": 0.9315,
+    "Scty": 0.8099,
+    "banger_clash_rate": 0.0709,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.324,
+    "rh": 0.451,
+    "lag_ms": -150.93,
+    "bars": 11,
+    "phase_fail": false,
+    "lag_fail": true,
+    "fail": false,
+    "phase_a": 0.062,
+    "phase_b": -0.125,
+    "dphase_beats": 0.188,
+    "dphase_ms": 64.7,
+    "strength": 1.716,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": false,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 308.9655172413793, 331.0344827586207, \"Dy3qi_gCP9k has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ],
+    "N1": [
+     {
+      "kind": "halfbeat_lag_ms",
+      "lag_ms": -150.93,
+      "limit": 10.0
+     }
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 240.0,
+    "G": 240.0,
+    "exit_bar": 240.0,
+    "old_exit_bar": 240.0,
+    "exit_30db_bar": 240.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 28.54
+  },
+  "joe_syntax_hospital__09": {
+   "meta": "/tmp/protrans_bench/mh6_1121_Dy3qi_gCP9k_fApyZbwuAjM_meta.json",
+   "dip": 3.0,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.023477,
+    "pcty": 1.765955,
+    "Scol": 0.8576,
+    "Scty": 0.7949,
+    "banger_clash_rate": 0.0758,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.506,
+    "rh": 0.372,
+    "lag_ms": 0.0,
+    "bars": 16,
+    "phase_fail": false,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": -0.188,
+    "phase_b": -0.062,
+    "dphase_beats": -0.125,
+    "dphase_ms": -43.1,
+    "strength": 3.81,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 242.75862068965517, 264.82758620689657, \"fApyZbwuAjM has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 192.0,
+    "G": 192.0,
+    "exit_bar": 192.0,
+    "old_exit_bar": 192.0,
+    "exit_30db_bar": 192.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 27.95
+  },
+  "joe_syntax_hospital__11": {
+   "meta": "/tmp/protrans_bench/mh6_1112_dry_meta.json",
+   "dip": 11.5,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.035352,
+    "pcty": 2.778717,
+    "Scol": 0.7935,
+    "Scty": 0.6969,
+    "banger_clash_rate": 0.1299,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.184,
+    "rh": 0.27,
+    "lag_ms": 127.71,
+    "bars": 5,
+    "phase_fail": true,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": -0.188,
+    "phase_b": -0.438,
+    "dphase_beats": 0.25,
+    "dphase_ms": 86.2,
+    "strength": 1.819,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": false,
+    "bass_never_doubles": true,
+    "N1": false,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 308.9655172413793, 331.0344827586207, \"tCyYwek-o28 has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ],
+    "L1": [
+     {
+      "bar": 229,
+      "kind": "sum",
+      "over": 3.25
+     }
+    ],
+    "N1": [
+     {
+      "kind": "halfbeat_lag_ms",
+      "lag_ms": 127.71,
+      "limit": 10.0
+     }
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 238.0,
+    "G": 238.0,
+    "exit_bar": 238.0,
+    "old_exit_bar": 240.0,
+    "exit_30db_bar": 238.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 57.0
+  },
+  "joe_syntax_hospital__12": {
+   "meta": "/tmp/protrans_bench/mh6_1113_dry_meta.json",
+   "dip": 7.0,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.058434,
+    "pcty": 2.544636,
+    "Scol": 0.6822,
+    "Scty": 0.7184,
+    "banger_clash_rate": 0.1772,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 286.89655172413796, 308.9655172413793, \"u6cggHmZEAs has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 224.0,
+    "G": 224.0,
+    "exit_bar": 224.0,
+    "old_exit_bar": 224.0,
+    "exit_30db_bar": 224.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 31.09
+  },
+  "joe_syntax_hospital__13": {
+   "meta": "/tmp/protrans_bench/mh6_1114_u6cggHmZEAs_SqzxwPEa-DI_meta.json",
+   "dip": 9.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.044974,
+    "pcty": 1.823476,
+    "Scol": 0.7451,
+    "Scty": 0.789,
+    "banger_clash_rate": 0.1299,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.771,
+    "rh": 0.671,
+    "lag_ms": 0.0,
+    "bars": 1,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 331.0344827586207, 353.1034482758621, \"SqzxwPEa-DI has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 254.0,
+    "G": 254.0,
+    "exit_bar": 254.0,
+    "old_exit_bar": 256.0,
+    "exit_30db_bar": 254.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 29.76
+  },
+  "joe_syntax_hospital__14": {
+   "meta": "/tmp/protrans_bench/mh6_1122_SqzxwPEa-DI_q3WVxTT01dY_meta.json",
+   "dip": 11.9,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.041681,
+    "pcty": 1.549748,
+    "Scol": 0.7613,
+    "Scty": 0.8176,
+    "banger_clash_rate": 0.2008,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.632,
+    "rh": 0.545,
+    "lag_ms": 0.0,
+    "bars": 6,
+    "phase_fail": false,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": -0.062,
+    "phase_b": 0.0,
+    "dphase_beats": -0.062,
+    "dphase_ms": -21.6,
+    "strength": 4.538,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 286.89655172413796, 308.9655172413793, \"q3WVxTT01dY has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 224.0,
+    "G": 224.0,
+    "exit_bar": 224.0,
+    "old_exit_bar": 224.0,
+    "exit_30db_bar": 224.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "train",
+   "score": 36.32
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "meta": "/tmp/protrans_bench/mh6_1127_dry_meta.json",
+   "dip": 6.9,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.026555,
+    "pcty": 2.161891,
+    "Scol": 0.8405,
+    "Scty": 0.7551,
+    "banger_clash_rate": 0.1191,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.81,
+    "rh": 0.588,
+    "lag_ms": 0.0,
+    "bars": 4,
+    "phase_fail": false,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": 0.0,
+    "phase_b": 0.0,
+    "dphase_beats": 0.0,
+    "dphase_ms": 0.0,
+    "strength": 1.676,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 132.41379310344828, 154.48275862068965, \"smXG7OvMrFI has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 112.0,
+    "G": 112.0,
+    "exit_bar": 112.0,
+    "old_exit_bar": 112.0,
+    "exit_30db_bar": 112.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 26.21
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "meta": "/tmp/protrans_bench/mh6_1128_dry_meta.json",
+   "dip": 21.7,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.037556,
+    "pcty": 1.717846,
+    "Scol": 0.7821,
+    "Scty": 0.7999,
+    "banger_clash_rate": 0.1407,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 220.6896551724138, 242.75862068965517, \"11SJZqMmzQ0 has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 176.0,
+    "G": 176.0,
+    "exit_bar": 176.0,
+    "old_exit_bar": 176.0,
+    "exit_30db_bar": 176.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 37.73
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "meta": "/tmp/protrans_bench/mh6_1129_dry_meta.json",
+   "dip": 8.6,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.031145,
+    "pcty": 1.914534,
+    "Scol": 0.8156,
+    "Scty": 0.7797,
+    "banger_clash_rate": 0.0886,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 308.9655172413793, 331.0344827586207, \"EpHrodtTiK0 has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 238.0,
+    "G": 238.0,
+    "exit_bar": 238.0,
+    "old_exit_bar": 240.0,
+    "exit_30db_bar": 238.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 24.4
+  },
+  "netsky_hospital_classics__02": {
+   "meta": "/tmp/protrans_bench/mh6_119_0fjPvcfMJWk_XUX0ebuFh7Y_meta.json",
+   "dip": 12.1,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.015035,
+    "pcty": 2.222291,
+    "Scol": 0.9063,
+    "Scty": 0.7492,
+    "banger_clash_rate": 0.0394,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.685,
+    "rh": 0.61,
+    "lag_ms": 0.0,
+    "bars": 6,
+    "phase_fail": true,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": -0.5,
+    "phase_b": -0.125,
+    "dphase_beats": -0.375,
+    "dphase_ms": -129.3,
+    "strength": 0.716,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 220.6896551724138, 242.75862068965517, \"XUX0ebuFh7Y has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 176.0,
+    "G": 176.0,
+    "exit_bar": 176.0,
+    "old_exit_bar": 176.0,
+    "exit_30db_bar": 176.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 44.11
+  },
+  "netsky_hospital_classics__06": {
+   "meta": "/tmp/protrans_bench/mh6_1110_CX4UFb_LlU4_na79dfVHpp0_meta.json",
+   "dip": 21.8,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.024251,
+    "pcty": 3.116778,
+    "Scol": 0.8533,
+    "Scty": 0.667,
+    "banger_clash_rate": 0.0699,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 419.3103448275862, 441.3793103448276, \"na79dfVHpp0 has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 320.0,
+    "G": 320.0,
+    "exit_bar": 320.0,
+    "old_exit_bar": 320.0,
+    "exit_30db_bar": 320.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 26.28
+  },
+  "netsky_hospital_classics__15": {
+   "meta": "/tmp/protrans_bench/mh6_1125_DpYdXERlkFk_k-7z5X0ATEc_meta.json",
+   "dip": 2.5,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.036755,
+    "pcty": 1.977829,
+    "Scol": 0.7862,
+    "Scty": 0.7734,
+    "banger_clash_rate": 0.0561,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.687,
+    "rh": 0.522,
+    "lag_ms": 0.0,
+    "bars": 3,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 308.9655172413793, 331.0344827586207, \"k-7z5X0ATEc has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 240.0,
+    "G": 240.0,
+    "exit_bar": 240.0,
+    "old_exit_bar": 240.0,
+    "exit_30db_bar": 240.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 41.06
+  },
+  "netsky_hospital_classics__17": {
+   "meta": "/tmp/protrans_bench/mh6_1111_3f-XOhfDhxk_Mzgh0cLopck_meta.json",
+   "dip": 24.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.030112,
+    "pcty": 1.391094,
+    "Scol": 0.8212,
+    "Scty": 0.8346,
+    "banger_clash_rate": 0.1053,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.64,
+    "rh": 0.404,
+    "lag_ms": 0.0,
+    "bars": 1,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 331.0344827586207, 353.1034482758621, \"Mzgh0cLopck has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 256.0,
+    "G": 256.0,
+    "exit_bar": 256.0,
+    "old_exit_bar": 256.0,
+    "exit_30db_bar": 256.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 31.93
+  },
+  "netsky_hospital_classics__23": {
+   "meta": "/tmp/protrans_bench/mh6_1126_gCkKc2LuCuM_KP8jwoWF44Y_meta.json",
+   "dip": 35.3,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.025198,
+    "pcty": 1.53771,
+    "Scol": 0.848,
+    "Scty": 0.8189,
+    "banger_clash_rate": 0.0974,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 242.75862068965517, 264.82758620689657, \"KP8jwoWF44Y has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 191.0,
+    "G": 191.0,
+    "exit_bar": 191.0,
+    "old_exit_bar": 192.0,
+    "exit_30db_bar": 191.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 28.36
+  },
+  "pola_bryson_puzzlewood__00": {
+   "meta": "/tmp/protrans_bench/mh6_1130__IgqP6Hv3fs_wyl3hVnB1dQ_meta.json",
+   "dip": 45.4,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.037551,
+    "pcty": 3.799703,
+    "Scol": 0.7821,
+    "Scty": 0.6103,
+    "banger_clash_rate": 0.0906,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 220.6896551724138, 242.75862068965517, \"wyl3hVnB1dQ has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 175.0,
+    "G": 175.0,
+    "exit_bar": 175.0,
+    "old_exit_bar": 176.0,
+    "exit_30db_bar": 175.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 59.96
+  },
+  "pola_bryson_puzzlewood__02": {
+   "meta": "/tmp/protrans_bench/mh6_1131_dry_meta.json",
+   "dip": 22.7,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.052036,
+    "pcty": 3.08574,
+    "Scol": 0.7114,
+    "Scty": 0.6697,
+    "banger_clash_rate": 0.0974,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 264.82758620689657, 286.89655172413796, \"fvSe3ZmZRPs has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 208.0,
+    "G": 208.0,
+    "exit_bar": 208.0,
+    "old_exit_bar": 208.0,
+    "exit_30db_bar": 208.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 20.72
+  },
+  "pola_bryson_puzzlewood__04": {
+   "meta": "/tmp/protrans_bench/mh6_1132_ogXFi8wa56w_nNXHqtByO-A_meta.json",
+   "dip": 27.8,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.030461,
+    "pcty": 2.929519,
+    "Scol": 0.8193,
+    "Scty": 0.6834,
+    "banger_clash_rate": 0.0689,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 1.0,
+    "rh": 0.0,
+    "lag_ms": 0.0,
+    "bars": 0,
+    "fail": false,
+    "basis": "drum-phase+lag",
+    "note": "< 4 drum-on-drum bars"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 286.89655172413796, 308.9655172413793, \"nNXHqtByO-A has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 224.0,
+    "G": 224.0,
+    "exit_bar": 224.0,
+    "old_exit_bar": 224.0,
+    "exit_30db_bar": 224.0,
+    "clamped_by": null,
+    "changed": false
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 34.8
+  },
+  "wilkinson_boomtown2026__33": {
+   "meta": "/tmp/protrans_bench/mh6_110_uP0KAzefX8Y_I9QGpHScGug_meta.json",
+   "dip": 27.7,
+   "spectral": {
+    "diagnostic_only": true,
+    "pcol": 0.027875,
+    "pcty": 3.032464,
+    "Scol": 0.8333,
+    "Scty": 0.6743,
+    "banger_clash_rate": 0.0787,
+    "start_s": 11.034,
+    "end_s": 33.103,
+    "continuity_fallback": false
+   },
+   "halfbeat": {
+    "r0": 0.582,
+    "rh": 0.421,
+    "lag_ms": 0.0,
+    "bars": 8,
+    "phase_fail": false,
+    "lag_fail": false,
+    "fail": false,
+    "phase_a": 0.312,
+    "phase_b": -0.125,
+    "dphase_beats": 0.438,
+    "dphase_ms": 150.9,
+    "strength": 0.27,
+    "basis": "drum-phase+lag"
+   },
+   "tests": {
+    "X1": false,
+    "bass_gap": true,
+    "V1": true,
+    "outgoing_fader_tail": true,
+    "L1": true,
+    "bass_never_doubles": true,
+    "N1": true,
+    "all_pass": false
+   },
+   "test_fail_detail": {
+    "X1": [
+     "('X1', 176.55172413793105, 198.62068965517244, \"I9QGpHScGug has 'mid' automation inside the blend (crossfader + one bass swap + optional high swap only)\")"
+    ]
+   },
+   "all_pass": false,
+   "tail_exit": {
+    "N": 6.0,
+    "rate": 2.75,
+    "target_bar": 142.0,
+    "G": 142.0,
+    "exit_bar": 142.0,
+    "old_exit_bar": 144.0,
+    "exit_30db_bar": 142.0,
+    "clamped_by": null,
+    "changed": true
+   },
+   "designed_tail24": 6.0,
+   "split": "test",
+   "score": 24.77
+  }
+ },
+ "summary": {
+  "train": {
+   "n": 21,
+   "all_pass": 0,
+   "fails": {
+    "X1": 21,
+    "bass_gap": 0,
+    "V1": 0,
+    "outgoing_fader_tail": 0,
+    "L1": 2,
+    "bass_never_doubles": 0,
+    "N1": 3
+   },
+   "dip_med": 27.3,
+   "pcol_med": 0.0332,
+   "pcty_med": 2.7787,
+   "banger_med": 0.0709,
+   "designed_tail24_med": 6.0
+  },
+  "test": {
+   "n": 12,
+   "all_pass": 0,
+   "fails": {
+    "X1": 12,
+    "bass_gap": 0,
+    "V1": 0,
+    "outgoing_fader_tail": 0,
+    "L1": 0,
+    "bass_never_doubles": 0,
+    "N1": 0
+   },
+   "dip_med": 22.25,
+   "pcol_med": 0.0303,
+   "pcty_med": 2.1921,
+   "banger_med": 0.0896,
+   "designed_tail24_med": 6.0
+  },
+  "all": {
+   "n": 33,
+   "all_pass": 0,
+   "fails": {
+    "X1": 33,
+    "bass_gap": 0,
+    "V1": 0,
+    "outgoing_fader_tail": 0,
+    "L1": 2,
+    "bass_never_doubles": 0,
+    "N1": 3
+   },
+   "dip_med": 24.3,
+   "pcol_med": 0.0328,
+   "pcty_med": 2.7596,
+   "banger_med": 0.0758,
+   "designed_tail24_med": 6.0
+  }
+ }
+}

@@ -1,0 +1,629 @@
+{
+ "hybrid_minds_ukf__00": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 36.1,
+  "pumping": true,
+  "pump_db": 11.3,
+  "png": null,
+  "hard_fail": true,
+  "win": [
+   "n",
+   224,
+   null,
+   8,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__08": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 45.3,
+  "pumping": false,
+  "pump_db": 1.2,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   224,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__09": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 20.5,
+  "pumping": false,
+  "pump_db": 2.5,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   208,
+   null,
+   48,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__10": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 39.3,
+  "pumping": false,
+  "pump_db": 3.5,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__11": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 27.3,
+  "pumping": true,
+  "pump_db": 7.3,
+  "png": null,
+  "hard_fail": true,
+  "win": [
+   "n",
+   208,
+   null,
+   64,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__12": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 38.2,
+  "pumping": false,
+  "pump_db": 3.9,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   304,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__13": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 24.5,
+  "pumping": false,
+  "pump_db": 1.4,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   192,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__19": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 22.5,
+  "pumping": false,
+  "pump_db": 4.3,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__23": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 28.5,
+  "pumping": false,
+  "pump_db": 2.4,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__25": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 27.5,
+  "pumping": false,
+  "pump_db": 0.5,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   192,
+   null,
+   0,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__28": {
+  "beat_clash": true,
+  "residual_lag_ms": 163.99092970521542,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 27.9,
+  "pumping": false,
+  "pump_db": 1.3,
+  "png": null,
+  "hard_fail": true,
+  "win": [
+   "n",
+   240,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__40": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 33.1,
+  "pumping": true,
+  "pump_db": 5.0,
+  "png": null,
+  "hard_fail": true,
+  "win": [
+   "n",
+   272,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "hybrid_minds_ukf__45": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 31.6,
+  "pumping": false,
+  "pump_db": 3.5,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   128,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "joe_syntax_hospital__00": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 15.2,
+  "pumping": false,
+  "pump_db": 0.9,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   96,
+   null,
+   0,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "joe_syntax_hospital__01": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 26.5,
+  "pumping": false,
+  "pump_db": 1.8,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   160,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "joe_syntax_hospital__08": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 12.8,
+  "pumping": false,
+  "pump_db": 2.4,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   240,
+   null,
+   40,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "joe_syntax_hospital__09": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 2.9,
+  "pumping": false,
+  "pump_db": 2.6,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "joe_syntax_hospital__11": {
+  "beat_clash": true,
+  "residual_lag_ms": -0.7256235827664399,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 11.7,
+  "pumping": false,
+  "pump_db": 3.7,
+  "png": null,
+  "hard_fail": true,
+  "win": [
+   "n",
+   240,
+   null,
+   24,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "joe_syntax_hospital__12": {
+  "beat_clash": true,
+  "residual_lag_ms": 1.4512471655328798,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 6.7,
+  "pumping": false,
+  "pump_db": 0.5,
+  "png": null,
+  "hard_fail": true,
+  "win": [
+   "n",
+   224,
+   null,
+   48,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "joe_syntax_hospital__13": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 9.3,
+  "pumping": false,
+  "pump_db": 1.4,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   256,
+   null,
+   48,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "joe_syntax_hospital__14": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 11.7,
+  "pumping": false,
+  "pump_db": 0.8,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   224,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "maduk_liquicity_lunar2025__02": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 6.9,
+  "pumping": false,
+  "pump_db": 4.5,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   112,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "maduk_liquicity_lunar2025__03": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 21.7,
+  "pumping": false,
+  "pump_db": 0.9,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   176,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "maduk_liquicity_lunar2025__05": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 8.6,
+  "pumping": false,
+  "pump_db": 3.2,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   240,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "netsky_hospital_classics__02": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 12.1,
+  "pumping": false,
+  "pump_db": 3.2,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   176,
+   null,
+   0,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "netsky_hospital_classics__06": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 21.7,
+  "pumping": false,
+  "pump_db": 1.3,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   320,
+   null,
+   48,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "netsky_hospital_classics__15": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 2.4,
+  "pumping": false,
+  "pump_db": 2.6,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   240,
+   null,
+   0,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "netsky_hospital_classics__17": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 23.6,
+  "pumping": false,
+  "pump_db": 2.6,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   256,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "netsky_hospital_classics__23": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 35.3,
+  "pumping": false,
+  "pump_db": 2.0,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   192,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "pola_bryson_puzzlewood__00": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": true,
+  "lows_dip_db": 45.4,
+  "pumping": false,
+  "pump_db": 1.7,
+  "png": null,
+  "hard_fail": true,
+  "win": [
+   "n",
+   176,
+   null,
+   32,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "pola_bryson_puzzlewood__02": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 22.7,
+  "pumping": false,
+  "pump_db": 0.9,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   208,
+   null,
+   16,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "pola_bryson_puzzlewood__04": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 27.8,
+  "pumping": false,
+  "pump_db": 1.5,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   224,
+   null,
+   40,
+   16
+  ],
+  "fam": "nat_short"
+ },
+ "wilkinson_boomtown2026__33": {
+  "beat_clash": false,
+  "residual_lag_ms": null,
+  "halfbeat_fail": false,
+  "bass_hole": false,
+  "lows_dip_db": 27.7,
+  "pumping": false,
+  "pump_db": 2.3,
+  "png": null,
+  "hard_fail": false,
+  "win": [
+   "n",
+   144,
+   null,
+   8,
+   16
+  ],
+  "fam": "nat_short"
+ }
+}

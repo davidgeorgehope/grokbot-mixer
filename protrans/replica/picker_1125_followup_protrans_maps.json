@@ -1,0 +1,30 @@
+{
+ "n": 33,
+ "diag": {
+  "cue_old": {
+   "cfg": 0,
+   "tau": -1000000000.0
+  },
+  "cue_sec": {
+   "cfg": 0,
+   "tau": -1000000000.0,
+   "inner": 22.67
+  },
+  "mix_exit": {
+   "margin": 5.0,
+   "inner": 41.47
+  }
+ },
+ "maps": {
+  "hybrid_sec_cue": {
+   "path": "/workspace/mixes/protrans/replica/nightly_1125_work/map_hybrid_sec_cue.json",
+   "n_windows": 24,
+   "n_total": 33
+  },
+  "hybrid_sec_mix": {
+   "path": "/workspace/mixes/protrans/replica/nightly_1125_work/map_hybrid_sec_mix.json",
+   "n_windows": 31,
+   "n_total": 33
+  }
+ }
+}

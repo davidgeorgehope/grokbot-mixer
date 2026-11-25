@@ -1,0 +1,66 @@
+{
+ "n": 33,
+ "diag": {
+  "v1": {
+   "cfg": 1,
+   "tau": -1000000000.0,
+   "theta": 0.5,
+   "inner_exit": 42.71,
+   "inner_ride": 41.84
+  },
+  "v2": {
+   "cfg": 1,
+   "tau": 0.25,
+   "theta": 0.7,
+   "inner_exit": 42.71,
+   "inner_ride": 42.0
+  },
+  "C": {
+   "cfg": 0,
+   "tau": -1000000000.0
+  },
+  "majority": {
+   "E": "outro_intro",
+   "C": "drop_cue"
+  }
+ },
+ "maps": {
+  "cueonly_gated": {
+   "path": "/workspace/mixes/protrans/replica/nightly_1125_work/map_cueonly_gated.json",
+   "n_windows": 26
+  },
+  "ridegate": {
+   "path": "/workspace/mixes/protrans/replica/nightly_1125_work/map_ridegate.json",
+   "n_windows": 31
+  }
+ },
+ "results": {
+  "cueonly_gated": {
+   "abstain": 0.212
+  },
+  "ridegate": {
+   "abstain": 0.061
+  },
+  "ridegate_cand2": {
+   "abstain": 0.091
+  },
+  "ref_full_gated": {
+   "abstain": 0.0
+  },
+  "ref_full_plain": {
+   "abstain": 0.0
+  },
+  "ref_cand2_full_gated": {
+   "abstain": 0.03
+  },
+  "default": {
+   "abstain": 1.0
+  },
+  "rule_drop_exit": {
+   "abstain": 0.091
+  },
+  "majority": {
+   "abstain": 0.0
+  }
+ }
+}

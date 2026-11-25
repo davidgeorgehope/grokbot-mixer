@@ -34,5 +34,29 @@
   "spec": "protrans/replica/promotion_criteria_1120.json",
   "nightly_candidates": "protrans/replica/nightly_candidates.json",
   "registered": "2026-11-19 4:40 PM ET"
+ },
+ "frozen_arms_n1125": {
+  "written": "2026-11-25 1:15 AM ET, BEFORE evaluating (no n1125 results seen)",
+  "script": "protrans/replica/picker_1125.py",
+  "data": "corpus_v2 accepted snapshot 2026-11-25 1:15 AM (953 rows) -> replica/nightly_1125_work/accepted_snapshot.jsonl; fresh-ledger mixes and locked holdout (Liquicity, Hospital Records) excluded from dev",
+  "arms": {
+   "cueonly_gated": "PRIMARY. Style-free LambdaMART cue ranker (picker_1119b features + candidate set) with margin gate tau chosen by inner leave-one-DJ-out; exit = default exit; blend length X = default.",
+   "ridegate": "SECONDARY (exit weakness from 11-24). cue as cueonly_gated; exit = style-free gated exit ranker, but an exit leaving > 40 bars before music_end is only allowed when a ride-vs-leave LightGBM classifier (pair features only, style-free) gives P(pro leaves mid-track) >= theta, theta in {0.5,0.6,0.7,0.8} chosen by inner leave-one-DJ-out on exit error; otherwise default exit. X = default.",
+   "ridegate_cand2": "TERTIARY. ridegate with candidate set v2 (adds exits at outgoing drop-1 start and drop-1 start+16 = exits during drop 1, tag drop1_in; cue set unchanged, drop_cue = drop-on-drop already present)."
+  },
+  "baselines": [
+   "default",
+   "majority choice (best single exit tag x cue tag, fit leave-one-DJ-out)",
+   "simple rule (exit at drop-1 end, cue drop-16)"
+  ],
+  "first_qualifying_night_if_all": [
+   "dev leave-one-DJ-out: exit+cue error delta vs default, grouped bootstrap by mix (4000, seed 20261125), 95% CI entirely < 0",
+   "same delta vs majority choice: 95% CI entirely < 0",
+   "no metric materially worse vs default: exit, cue, blend-length errors none with CI entirely > 0",
+   "fresh mix kushsessions_z8SnJBUd-0U (scored once): exit+cue delta vs default point estimate <= 0",
+   "hard checks on rendered picks for the 33-pair cohort: no more hard-fail pairs than default (if renders cannot run tonight, the night is at most 'provisionally qualifying' and cannot count until checked)"
+  ],
+  "promotion": "needs 2 consecutive qualifying nights AND the locked holdout (2nd+ opening; CI entirely < 0) checked only on the promotion night. n1124 was not a qualifying night, so n1125 cannot promote.",
+  "multiple_arms_note": "3 arms are tested; only the PRIMARY arm counts toward the 2-night run unless a secondary arm also meets every condition."
  }
 }

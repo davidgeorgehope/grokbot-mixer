@@ -1,0 +1,1772 @@
+{
+ "mix": "kushsessions_z8SnJBUd-0U",
+ "n": 14,
+ "diag": {
+  "v1": {
+   "cfg": 1,
+   "tau": -1000000000.0,
+   "theta": 0.5,
+   "inner_exit": 42.71,
+   "inner_ride": 41.84
+  },
+  "v2": {
+   "cfg": 1,
+   "tau": 0.25,
+   "theta": 0.7,
+   "inner_exit": 42.71,
+   "inner_ride": 42.0
+  },
+  "C": {
+   "cfg": 0,
+   "tau": -1000000000.0
+  },
+  "majority": {
+   "E": "outro_intro",
+   "C": "drop_cue"
+  }
+ },
+ "results": {
+  "cueonly_gated": {
+   "exit_cue": 45.66,
+   "exit": 63.18,
+   "cue": 28.13,
+   "abstain": 0.286
+  },
+  "ridegate": {
+   "exit_cue": 33.64,
+   "exit": 39.15,
+   "cue": 28.13,
+   "abstain": 0.143
+  },
+  "ridegate_cand2": {
+   "exit_cue": 37.97,
+   "exit": 47.8,
+   "cue": 28.13,
+   "abstain": 0.214
+  },
+  "ref_full_gated": {
+   "exit_cue": 31.0,
+   "exit": 33.87,
+   "cue": 28.13,
+   "abstain": 0.071
+  },
+  "ref_full_plain": {
+   "exit_cue": 31.0,
+   "exit": 33.87,
+   "cue": 28.13,
+   "abstain": 0.071
+  },
+  "ref_cand2_full_gated": {
+   "exit_cue": 35.0,
+   "exit": 41.87,
+   "cue": 28.13,
+   "abstain": 0.071
+  },
+  "default": {
+   "exit_cue": 49.72,
+   "exit": 63.18,
+   "cue": 36.25,
+   "abstain": 1.0
+  },
+  "rule_drop_exit": {
+   "exit_cue": 41.7,
+   "exit": 47.15,
+   "cue": 36.25,
+   "abstain": 0.071
+  },
+  "majority": {
+   "exit_cue": 41.42,
+   "exit": 55.68,
+   "cue": 27.17,
+   "abstain": 0.0
+  }
+ },
+ "per_pair": [
+  {
+   "id": "kushsessions_z8SnJBUd-0U__00",
+   "pro_out": 161.45,
+   "pro_in": 112.77,
+   "na": 166.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.584,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.584,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.584,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.584,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.584,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.584,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.584,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 49.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.584,
+    "win": [
+     "n",
+     64,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.584,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__03",
+   "pro_out": 103.47,
+   "pro_in": 15.46,
+   "na": 227.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.62,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.62,
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.62,
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.62,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     32
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.62,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     32
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.62,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     32
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.62,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.62,
+    "win": [
+     "n",
+     80,
+     null,
+     8,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.62,
+    "win": [
+     "n",
+     208,
+     null,
+     24,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__05",
+   "pro_out": 124.06,
+   "pro_in": 119.5,
+   "na": 216.0,
+   "cueonly_gated": {
+    "exit": 201.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.495,
+    "win": [
+     "n",
+     216,
+     null,
+     24,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 201.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.495,
+    "win": [
+     "n",
+     216,
+     null,
+     24,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 201.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.495,
+    "win": [
+     "n",
+     216,
+     null,
+     24,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 121.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.495,
+    "win": [
+     "n",
+     136,
+     null,
+     24,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 121.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.495,
+    "win": [
+     "n",
+     136,
+     null,
+     24,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 121.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.495,
+    "win": [
+     "n",
+     136,
+     null,
+     24,
+     16
+    ]
+   },
+   "default": {
+    "exit": 201.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.495,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 25.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.495,
+    "win": [
+     "n",
+     40,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 185.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.495,
+    "win": [
+     "n",
+     200,
+     null,
+     8,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__07",
+   "pro_out": 111.91,
+   "pro_in": 63.71,
+   "na": 195.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.511,
+    "win": [
+     "n",
+     192,
+     null,
+     56,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.511,
+    "win": [
+     "n",
+     192,
+     null,
+     56,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 177.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.511,
+    "win": [
+     "n",
+     192,
+     null,
+     56,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.511,
+    "win": [
+     "n",
+     192,
+     null,
+     56,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 177.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.511,
+    "win": [
+     "n",
+     192,
+     null,
+     56,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 177.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.511,
+    "win": [
+     "n",
+     192,
+     null,
+     56,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.511,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.511,
+    "win": [
+     "n",
+     80,
+     null,
+     40,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.511,
+    "win": [
+     "n",
+     176,
+     null,
+     56,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__08",
+   "pro_out": 133.31,
+   "pro_in": 31.88,
+   "na": 265.0,
+   "cueonly_gated": {
+    "exit": 249.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.96,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.96,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.96,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.96,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.96,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.96,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 249.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.96,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.96,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 233.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.96,
+    "win": [
+     "n",
+     248,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__12",
+   "pro_out": 119.3,
+   "pro_in": 96.64,
+   "na": 198.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.647,
+    "win": [
+     "n",
+     192,
+     null,
+     40,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 121.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.647,
+    "win": [
+     "n",
+     136,
+     null,
+     40,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 177.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.647,
+    "win": [
+     "n",
+     192,
+     null,
+     40,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 121.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.647,
+    "win": [
+     "n",
+     136,
+     null,
+     40,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 121.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.647,
+    "win": [
+     "n",
+     136,
+     null,
+     40,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 177.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.647,
+    "win": [
+     "n",
+     192,
+     null,
+     40,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.647,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 89.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.647,
+    "win": [
+     "n",
+     104,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.647,
+    "win": [
+     "n",
+     176,
+     null,
+     8,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__14",
+   "pro_out": 131.24,
+   "pro_in": 72.33,
+   "na": 131.0,
+   "cueonly_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.223,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.223,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.223,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.223,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.223,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.223,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 113.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.223,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.223,
+    "win": [
+     "n",
+     112,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.223,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__15",
+   "pro_out": 162.95,
+   "pro_in": 34.98,
+   "na": 170.0,
+   "cueonly_gated": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.642,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.642,
+    "win": null
+   },
+   "ridegate_cand2": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.642,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.642,
+    "win": null
+   },
+   "ref_full_plain": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.642,
+    "win": null
+   },
+   "ref_cand2_full_gated": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.642,
+    "win": null
+   },
+   "default": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.642,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 33.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.642,
+    "win": [
+     "n",
+     48,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.642,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__16",
+   "pro_out": 119.8,
+   "pro_in": 39.91,
+   "na": 214.0,
+   "cueonly_gated": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.52,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.52,
+    "win": null
+   },
+   "ridegate_cand2": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.52,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.52,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__17",
+   "pro_out": 128.36,
+   "pro_in": 23.85,
+   "na": 255.0,
+   "cueonly_gated": {
+    "exit": 233.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.858,
+    "win": [
+     "n",
+     248,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.858,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.858,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.858,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.858,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.858,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 233.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.858,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 113.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.858,
+    "win": [
+     "n",
+     128,
+     null,
+     8,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 217.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.858,
+    "win": [
+     "n",
+     232,
+     null,
+     24,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__19",
+   "pro_out": 111.56,
+   "pro_in": 31.99,
+   "na": 236.0,
+   "cueonly_gated": {
+    "exit": 217.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.538,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.538,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 217.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.538,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.538,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.538,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 193.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.538,
+    "win": [
+     "n",
+     208,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 217.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.538,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 73.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.538,
+    "win": [
+     "n",
+     88,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.538,
+    "win": [
+     "n",
+     216,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__20",
+   "pro_out": 63.69,
+   "pro_in": 31.39,
+   "na": 159.0,
+   "cueonly_gated": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.406,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.406,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.406,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.406,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.406,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.406,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.406,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.406,
+    "win": [
+     "n",
+     80,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.406,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__21",
+   "pro_out": 111.15,
+   "pro_in": 47.58,
+   "na": 185.0,
+   "cueonly_gated": {
+    "exit": 169.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "win": [
+     "n",
+     184,
+     null,
+     64,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 169.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "win": [
+     "n",
+     184,
+     null,
+     64,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 169.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "win": [
+     "n",
+     184,
+     null,
+     64,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 169.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "win": [
+     "n",
+     184,
+     null,
+     64,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 169.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "win": [
+     "n",
+     184,
+     null,
+     64,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 169.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "win": [
+     "n",
+     184,
+     null,
+     64,
+     16
+    ]
+   },
+   "default": {
+    "exit": 169.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.595,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 153.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "win": [
+     "n",
+     168,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "kushsessions_z8SnJBUd-0U__23",
+   "pro_out": 124.45,
+   "pro_in": 31.57,
+   "na": 151.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.622,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 105.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.622,
+    "win": [
+     "n",
+     120,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_cand2": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.622,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 105.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.622,
+    "win": [
+     "n",
+     120,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_plain": {
+    "exit": 105.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.622,
+    "win": [
+     "n",
+     120,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_cand2_full_gated": {
+    "exit": 105.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.622,
+    "win": [
+     "n",
+     120,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.622,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.622,
+    "win": null
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.622,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   }
+  }
+ ]
+}

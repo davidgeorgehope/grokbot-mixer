@@ -1,0 +1,33 @@
+{"id": "hybrid_minds_ukf__00", "split": "train", "dj": "Hybrid Minds", "v1": 29.45, "v2": 39.22, "parts": {"entry": 57.35, "gone": 30.62, "swap": 58.49}}
+{"id": "hybrid_minds_ukf__08", "split": "train", "dj": "Hybrid Minds", "v1": 42.98, "v2": 48.38, "parts": {"entry": 36.71, "gone": 40.28, "swap": 39.94}}
+{"id": "hybrid_minds_ukf__09", "split": "train", "dj": "Hybrid Minds", "v1": 32.58, "v2": 38.77, "parts": {"entry": 45.61, "gone": 14.03, "swap": 41.72}}
+{"id": "hybrid_minds_ukf__10", "split": "train", "dj": "Hybrid Minds", "v1": 36.67, "v2": 37.43, "parts": {"entry": 21.08, "gone": 7.67, "swap": 36.11}}
+{"id": "hybrid_minds_ukf__11", "split": "train", "dj": "Hybrid Minds", "v1": 34.15, "v2": 32.04, "parts": {"entry": 16.17, "gone": 15.94, "swap": 17.91}}
+{"id": "hybrid_minds_ukf__12", "split": "train", "dj": "Hybrid Minds", "v1": 21.01, "v2": 30.9, "parts": {"entry": 26.99, "gone": 20.0, "swap": 51.76}}
+{"id": "hybrid_minds_ukf__13", "split": "train", "dj": "Hybrid Minds", "v1": 33.72, "v2": 39.09, "parts": {"entry": 46.94, "gone": 16.3, "swap": 31.78}}
+{"id": "hybrid_minds_ukf__19", "split": "train", "dj": "Hybrid Minds", "v1": 27.92, "v2": 33.99, "parts": {"entry": 15.59, "gone": 35.59, "swap": 28.17}}
+{"id": "hybrid_minds_ukf__23", "split": "train", "dj": "Hybrid Minds", "v1": 31.77, "v2": 37.3, "parts": {"entry": 38.64, "gone": 26.82, "swap": 22.88}}
+{"id": "hybrid_minds_ukf__25", "split": "train", "dj": "Hybrid Minds", "v1": 26.37, "v2": 18.04, "parts": {"entry": 0.07, "gone": 12.57, "swap": 0.07}}
+{"id": "hybrid_minds_ukf__28", "split": "train", "dj": "Hybrid Minds", "v1": 40.68, "v2": 35.53, "parts": {"entry": 20.66, "gone": 16.31, "swap": 27.75}}
+{"id": "hybrid_minds_ukf__40", "split": "train", "dj": "Hybrid Minds", "v1": 31.0, "v2": 32.44, "parts": {"entry": 17.15, "gone": 23.94, "swap": 28.93}}
+{"id": "hybrid_minds_ukf__45", "split": "train", "dj": "Hybrid Minds", "v1": 41.6, "v2": 41.74, "parts": {"entry": 6.12, "gone": 50.0, "swap": 14.87}}
+{"id": "joe_syntax_hospital__00", "split": "train", "dj": "Joe Syntax", "v1": 29.36, "v2": 28.1, "parts": {"entry": 15.16, "gone": 16.89, "swap": 16.89}}
+{"id": "joe_syntax_hospital__01", "split": "train", "dj": "Joe Syntax", "v1": 30.24, "v2": 27.6, "parts": {"entry": 4.34, "gone": 20.0, "swap": 3.74}}
+{"id": "joe_syntax_hospital__08", "split": "train", "dj": "Joe Syntax", "v1": 30.08, "v2": 32.54, "parts": {"entry": 25.6, "gone": 16.4, "swap": 16.92}}
+{"id": "joe_syntax_hospital__09", "split": "train", "dj": "Joe Syntax", "v1": 28.36, "v2": 25.8, "parts": {"entry": 20.0, "gone": 20.0, "swap": 20.0}}
+{"id": "joe_syntax_hospital__11", "split": "train", "dj": "Joe Syntax", "v1": 60.51, "v2": 60.52, "parts": {"entry": 31.5, "gone": 62.4, "swap": 57.93}}
+{"id": "joe_syntax_hospital__12", "split": "train", "dj": "Joe Syntax", "v1": 32.29, "v2": 36.43, "parts": {"entry": 33.31, "gone": 20.0, "swap": 28.71}}
+{"id": "joe_syntax_hospital__13", "split": "train", "dj": "Joe Syntax", "v1": 29.77, "v2": 23.54, "parts": {"entry": 20.0, "gone": 20.0, "swap": 20.0}}
+{"id": "joe_syntax_hospital__14", "split": "train", "dj": "Joe Syntax", "v1": 28.87, "v2": 32.29, "parts": {"entry": 17.82, "gone": 37.41, "swap": 20.82}}
+{"id": "maduk_liquicity_lunar2025__02", "split": "test", "dj": "Maduk", "v1": 27.78, "v2": 33.39, "parts": {"entry": 32.39, "gone": 32.16, "swap": 37.45}}
+{"id": "maduk_liquicity_lunar2025__03", "split": "test", "dj": "Maduk", "v1": 39.32, "v2": 29.35, "parts": {"entry": 20.0, "gone": 20.0, "swap": 20.0}}
+{"id": "maduk_liquicity_lunar2025__05", "split": "test", "dj": "Maduk", "v1": 26.56, "v2": 26.56, "parts": null}
+{"id": "netsky_hospital_classics__02", "split": "test", "dj": "Netsky", "v1": 43.75, "v2": 36.91, "parts": {"entry": 20.0, "gone": 20.0, "swap": 20.0}}
+{"id": "netsky_hospital_classics__06", "split": "test", "dj": "Netsky", "v1": 27.58, "v2": 25.56, "parts": {"entry": 12.68, "gone": 17.97, "swap": 12.71}}
+{"id": "netsky_hospital_classics__15", "split": "test", "dj": "Netsky", "v1": 40.9, "v2": 50.22, "parts": {"entry": 58.9, "gone": 100.0, "swap": 40.42}}
+{"id": "netsky_hospital_classics__17", "split": "test", "dj": "Netsky", "v1": 33.35, "v2": 33.33, "parts": {"entry": 20.0, "gone": 20.0, "swap": 20.0}}
+{"id": "netsky_hospital_classics__23", "split": "test", "dj": "Netsky", "v1": 28.45, "v2": 27.4, "parts": {"entry": 26.32, "gone": 9.52, "swap": 9.52}}
+{"id": "pola_bryson_puzzlewood__00", "split": "test", "dj": "Pola & Bryson", "v1": 59.25, "v2": 51.13, "parts": {"entry": 48.62, "gone": 20.0, "swap": 42.82}}
+{"id": "pola_bryson_puzzlewood__02", "split": "test", "dj": "Pola & Bryson", "v1": 20.54, "v2": 20.88, "parts": {"entry": 3.02, "gone": 20.0, "swap": 5.62}}
+{"id": "pola_bryson_puzzlewood__04", "split": "test", "dj": "Pola & Bryson", "v1": 34.12, "v2": 31.1, "parts": {"entry": 20.0, "gone": 20.0, "swap": 20.0}}
+{"id": "wilkinson_boomtown2026__33", "split": "test", "dj": "Wilkinson", "v1": 25.45, "v2": 20.02, "parts": {"entry": 0.22, "gone": 0.43, "swap": 0.2}}

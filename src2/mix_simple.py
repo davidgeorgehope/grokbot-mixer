@@ -708,6 +708,14 @@ for i,d in enumerate(decks):
   if i>0 and trans[i-1]['swap_w']>0:lo+=ramp(at(trans[i-1])+lead(trans[i-1])[1],True,trans[i-1]['swap_w'])
   if i<len(decks)-1 and trans[i]['swap_w']>0:lo+=ramp(at(trans[i])-lead(trans[i])[0],False,trans[i]['swap_w'])
   if lo:d['auto']['low']=lo
+  # MID_HOLD (2026-11-25 midnight research, off by default): incoming 150 Hz-2 kHz band held MID_HOLD_DB under the
+  # crossfader until the bass swap, then opened on the SAME raised cosine as the incoming low lane, so melody/vocal
+  # mids land with the bassline on the phrase instead of creeping in at the plateau (RCA 2026-11-23 'random piano').
+  # Pro corpus (860 corpus_v2 deck-gain curves): incoming mids reach full level with the bass (median 0 bars, IQR -1..+3)
+  # and sit ~2.6 dB under the incoming highs before that. Kim, Yang & Nam (NIME 2021): DJs ride EQs in ~72% of transitions.
+  if os.environ.get('MID_HOLD','0')=='1' and i>0 and trans[i-1]['swap_w']>0:
+    _g0=10**(-float(os.environ.get('MID_HOLD_DB',6))/20)
+    d['auto']['mid']=[[p[0],round(_g0+(1-_g0)*p[1],5)] for p in ramp(at(trans[i-1])+lead(trans[i-1])[1],True,trans[i-1]['swap_w'])]
   hi=([] if i==0 or trans[i-1]['high_bar'] is None else ramp(trans[i-1]['high_bar']+1,True,2))+([] if i==len(decks)-1 or trans[i]['high_bar'] is None else ramp(trans[i]['high_bar']+1,False,2))
   if hi:d['auto']['high']=hi
   if i in EOS:d['echo_out']=dict(EOUT)

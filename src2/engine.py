@@ -143,6 +143,14 @@ def render_deck(d):
         a0,a1=max(0,nz[0]-SR),min(n,nz[-1]+SR);seg=y[a0:a1]
         band=sosfiltfilt(butter(4,fc,kind,fs=SR,output='sos'),seg,axis=0).astype(np.float32)
         y[a0:a1]=seg-band*(1-gl[a0:a1,None])
+    mp=d['auto'].get('mid') or []  # MID_HOLD (2026-11-25 research, off by default): XO..HXO band lane, zero-phase, low+mid+high==original
+    if mp:
+      t=np.arange(n)/BS+d['start_bar'];gl=np.interp(t,[p[0] for p in mp],[p[1] for p in mp]).astype(np.float32)
+      nz=np.where(gl<0.9999)[0]
+      if len(nz):
+        a0,a1=max(0,nz[0]-SR),min(n,nz[-1]+SR);seg=y[a0:a1]
+        band=(sosfiltfilt(butter(4,HXO,'low',fs=SR,output='sos'),seg,axis=0)-sosfiltfilt(butter(4,XO,'low',fs=SR,output='sos'),seg,axis=0)).astype(np.float32)
+        y[a0:a1]=seg-band*(1-gl[a0:a1,None])
   eo=d.get('echo_out');src=y[-int(round(eo['bars']*BS)):].copy() if eo else None  # pre-fader final bars feed the delay
   if not gc:
     pts=d['auto'].get('gain') or []

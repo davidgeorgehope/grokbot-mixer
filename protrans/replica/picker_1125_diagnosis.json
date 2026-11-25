@@ -1,0 +1,2317 @@
+{
+ "n": 843,
+ "recovered_picker_1125_results": {
+  "cueonly_gated": {
+   "n": 843,
+   "exit_mean": 46.82,
+   "cue_mean": 23.25,
+   "exit_cue_mean": 35.03,
+   "exit_median": 34.1,
+   "cue_median": 16.3,
+   "blendlen_proxy_err_mean": 7.68,
+   "changed_vs_default": 665,
+   "abstain_rate": 0.211,
+   "exit_hit4": 0.093,
+   "cue_hit4": 0.171,
+   "exit_acc_hit4": 0.113,
+   "cue_acc_hit4": 0.187,
+   "exit_hit8": 0.165,
+   "cue_hit8": 0.224,
+   "exit_acc_hit8": 0.197,
+   "cue_acc_hit8": 0.235,
+   "exit_hit16": 0.352,
+   "cue_hit16": 0.489,
+   "exit_acc_hit16": 0.391,
+   "cue_acc_hit16": 0.503
+  },
+  "ridegate": {
+   "n": 843,
+   "exit_mean": 44.23,
+   "cue_mean": 23.25,
+   "exit_cue_mean": 33.74,
+   "exit_median": 34.0,
+   "cue_median": 16.3,
+   "blendlen_proxy_err_mean": 7.68,
+   "changed_vs_default": 735,
+   "abstain_rate": 0.128,
+   "exit_hit4": 0.129,
+   "cue_hit4": 0.171,
+   "exit_acc_hit4": 0.146,
+   "cue_acc_hit4": 0.187,
+   "exit_hit8": 0.183,
+   "cue_hit8": 0.224,
+   "exit_acc_hit8": 0.203,
+   "cue_acc_hit8": 0.235,
+   "exit_hit16": 0.348,
+   "cue_hit16": 0.489,
+   "exit_acc_hit16": 0.378,
+   "cue_acc_hit16": 0.503
+  },
+  "ridegate_cand2": {
+   "n": 843,
+   "exit_mean": 45.46,
+   "cue_mean": 23.25,
+   "exit_cue_mean": 34.35,
+   "exit_median": 38.8,
+   "cue_median": 16.3,
+   "blendlen_proxy_err_mean": 7.68,
+   "changed_vs_default": 729,
+   "abstain_rate": 0.135,
+   "exit_hit4": 0.123,
+   "cue_hit4": 0.171,
+   "exit_acc_hit4": 0.145,
+   "cue_acc_hit4": 0.187,
+   "exit_hit8": 0.173,
+   "cue_hit8": 0.224,
+   "exit_acc_hit8": 0.196,
+   "cue_acc_hit8": 0.235,
+   "exit_hit16": 0.327,
+   "cue_hit16": 0.489,
+   "exit_acc_hit16": 0.356,
+   "cue_acc_hit16": 0.503
+  },
+  "ref_full_gated": {
+   "n": 843,
+   "exit_mean": 45.08,
+   "cue_mean": 23.25,
+   "exit_cue_mean": 34.17,
+   "exit_median": 39.0,
+   "cue_median": 16.3,
+   "blendlen_proxy_err_mean": 7.88,
+   "changed_vs_default": 784,
+   "abstain_rate": 0.07,
+   "exit_hit4": 0.133,
+   "cue_hit4": 0.171,
+   "exit_acc_hit4": 0.149,
+   "cue_acc_hit4": 0.187,
+   "exit_hit8": 0.186,
+   "cue_hit8": 0.224,
+   "exit_acc_hit8": 0.203,
+   "cue_acc_hit8": 0.235,
+   "exit_hit16": 0.342,
+   "cue_hit16": 0.489,
+   "exit_acc_hit16": 0.37,
+   "cue_acc_hit16": 0.503
+  },
+  "ref_full_plain": {
+   "n": 843,
+   "exit_mean": 44.05,
+   "cue_mean": 23.07,
+   "exit_cue_mean": 33.56,
+   "exit_median": 35.0,
+   "cue_median": 16.3,
+   "blendlen_proxy_err_mean": 7.87,
+   "changed_vs_default": 798,
+   "abstain_rate": 0.053,
+   "exit_hit4": 0.142,
+   "cue_hit4": 0.18,
+   "exit_acc_hit4": 0.161,
+   "cue_acc_hit4": 0.197,
+   "exit_hit8": 0.198,
+   "cue_hit8": 0.236,
+   "exit_acc_hit8": 0.216,
+   "cue_acc_hit8": 0.247,
+   "exit_hit16": 0.356,
+   "cue_hit16": 0.491,
+   "exit_acc_hit16": 0.382,
+   "cue_acc_hit16": 0.505
+  },
+  "ref_cand2_full_gated": {
+   "n": 843,
+   "exit_mean": 46.59,
+   "cue_mean": 23.25,
+   "exit_cue_mean": 34.92,
+   "exit_median": 43.1,
+   "cue_median": 16.3,
+   "blendlen_proxy_err_mean": 7.85,
+   "changed_vs_default": 780,
+   "abstain_rate": 0.075,
+   "exit_hit4": 0.119,
+   "cue_hit4": 0.171,
+   "exit_acc_hit4": 0.141,
+   "cue_acc_hit4": 0.187,
+   "exit_hit8": 0.171,
+   "cue_hit8": 0.224,
+   "exit_acc_hit8": 0.192,
+   "cue_acc_hit8": 0.235,
+   "exit_hit16": 0.314,
+   "cue_hit16": 0.489,
+   "exit_acc_hit16": 0.344,
+   "cue_acc_hit16": 0.503
+  },
+  "default": {
+   "n": 843,
+   "exit_mean": 46.82,
+   "cue_mean": 27.44,
+   "exit_cue_mean": 37.13,
+   "exit_median": 34.1,
+   "cue_median": 18.7,
+   "blendlen_proxy_err_mean": 7.68,
+   "changed_vs_default": 0,
+   "abstain_rate": 1.0,
+   "exit_hit4": 0.093,
+   "cue_hit4": 0.136,
+   "exit_acc_hit4": 0.113,
+   "cue_acc_hit4": 0.141,
+   "exit_hit8": 0.165,
+   "cue_hit8": 0.186,
+   "exit_acc_hit8": 0.197,
+   "cue_acc_hit8": 0.195,
+   "exit_hit16": 0.352,
+   "cue_hit16": 0.429,
+   "exit_acc_hit16": 0.391,
+   "cue_acc_hit16": 0.45
+  },
+  "rule_drop_exit": {
+   "n": 843,
+   "exit_mean": 70.96,
+   "cue_mean": 27.51,
+   "exit_cue_mean": 49.24,
+   "exit_median": 64.6,
+   "cue_median": 18.9,
+   "blendlen_proxy_err_mean": 7.68,
+   "changed_vs_default": 745,
+   "abstain_rate": 0.116,
+   "exit_hit4": 0.026,
+   "cue_hit4": 0.136,
+   "exit_acc_hit4": 0.027,
+   "cue_acc_hit4": 0.141,
+   "exit_hit8": 0.044,
+   "cue_hit8": 0.185,
+   "exit_acc_hit8": 0.047,
+   "cue_acc_hit8": 0.192,
+   "exit_hit16": 0.093,
+   "cue_hit16": 0.425,
+   "exit_acc_hit16": 0.098,
+   "cue_acc_hit16": 0.445
+  },
+  "majority": {
+   "n": 843,
+   "exit_mean": 47.37,
+   "cue_mean": 25.06,
+   "exit_cue_mean": 36.22,
+   "exit_median": 38.4,
+   "cue_median": 22.4,
+   "blendlen_proxy_err_mean": 9.15,
+   "changed_vs_default": 843,
+   "abstain_rate": 0.0,
+   "exit_hit4": 0.038,
+   "cue_hit4": 0.159,
+   "exit_acc_hit4": 0.047,
+   "cue_acc_hit4": 0.185,
+   "exit_hit8": 0.071,
+   "cue_hit8": 0.224,
+   "exit_acc_hit8": 0.075,
+   "cue_acc_hit8": 0.251,
+   "exit_hit16": 0.147,
+   "cue_hit16": 0.357,
+   "exit_acc_hit16": 0.154,
+   "cue_acc_hit16": 0.362
+  }
+ },
+ "default_exit_buckets": {
+  "pro_very_late_tail_exit (<=12 bars left)": 55,
+  "hit_within_16": 297,
+  "pro_ultra_early_intro (<16 bars)": 4,
+  "pro_exited_during_drop1_or_build": 245,
+  "pro_late_outro_or_drop_end_offset": 33,
+  "pro_exited_drop1_end_or_breakdown": 124,
+  "pro_exited_later_drop_midtrack (>40 bars left)": 85
+ },
+ "ref_full_gated_exit_buckets": {
+  "late_tail_or_outro_offset (both >=na-40, >16 bars apart)": 55,
+  "hit_within_16": 288,
+  "false_early_jump (pro late >=na-40, model mid-track)": 147,
+  "false_late_hold (pro mid-track, model stayed late/default)": 268,
+  "wrong_midtrack_section (both mid-track, >16 bars apart)": 85
+ },
+ "ridegate_exit_buckets": {
+  "late_tail_or_outro_offset (both >=na-40, >16 bars apart)": 66,
+  "hit_within_16": 293,
+  "false_early_jump (pro late >=na-40, model mid-track)": 119,
+  "false_late_hold (pro mid-track, model stayed late/default)": 283,
+  "wrong_midtrack_section (both mid-track, >16 bars apart)": 82
+ },
+ "worst_default_misses": [
+  {
+   "id": "alpha_rhythm_kwLDu3UxxLk__00",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_kwLDu3UxxLk",
+   "pair": "Euqsarosa - This Distance -> Archangel - Ten Steps",
+   "na": 272.0,
+   "nb": 193.0,
+   "pro_out": 31.51,
+   "pro_in": 31.51,
+   "pro_ov": 27.004,
+   "pro_sec": "build",
+   "pro_in_sec": "build",
+   "def_exit": 257.0,
+   "def_cue": 17.0,
+   "def_sec": "outro",
+   "ref_exit": 129.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 129.0,
+   "rg_sec": "breakdown",
+   "err_def": 225.5,
+   "err_ref": 97.5,
+   "err_rg": 97.5,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     32,
+     128
+    ],
+    [
+     164,
+     256
+    ]
+   ],
+   "bd_a": 128,
+   "outro_a": 256,
+   "outro_len": 16.0,
+   "d1b": 32,
+   "b_thin_bass_db": 33.879999999999995,
+   "a_brk_drum_drop_db": 10.77
+  },
+  {
+   "id": "alpha_rhythm_AU0V19j8oKM__16",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_AU0V19j8oKM",
+   "pair": "Alpha Rhythm & HumaNature - Bits & Pieces [Fokuz] -> Alpha Rhythm - Subwoofer Lullaby [Fokuz]",
+   "na": 228.0,
+   "nb": 216.0,
+   "pro_out": -0.01,
+   "pro_in": 32.38,
+   "pro_ov": 16.673,
+   "pro_sec": "intro",
+   "pro_in_sec": "outro",
+   "def_exit": 209.0,
+   "def_cue": 17.0,
+   "def_sec": "outro",
+   "ref_exit": 209.0,
+   "ref_sec": "outro",
+   "rg_exit": 209.0,
+   "rg_sec": "outro",
+   "err_def": 209.0,
+   "err_ref": 209.0,
+   "err_rg": 209.0,
+   "def_bucket": "pro_ultra_early_intro (<16 bars)",
+   "drops_a": [
+    [
+     48,
+     110
+    ],
+    [
+     128,
+     206
+    ]
+   ],
+   "bd_a": 111,
+   "outro_a": 206,
+   "outro_len": 22.0,
+   "d1b": null,
+   "b_thin_bass_db": null,
+   "a_brk_drum_drop_db": 12.100000000000001
+  },
+  {
+   "id": "kushsessions_kF0aIJqp_rg__38",
+   "dj": "KushSessions",
+   "mix": "kushsessions_kF0aIJqp_rg",
+   "pair": "S.P.Y - Void -> Sub Focus & Bbyclose - On & On (Kanine Remix)",
+   "na": 202.0,
+   "nb": 127.0,
+   "pro_out": -0.19,
+   "pro_in": 39.87,
+   "pro_ov": 10.874,
+   "pro_sec": "intro",
+   "pro_in_sec": "drop1",
+   "def_exit": 185.0,
+   "def_cue": 9.0,
+   "def_sec": "outro",
+   "ref_exit": 105.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 105.0,
+   "rg_sec": "breakdown",
+   "err_def": 185.2,
+   "err_ref": 105.2,
+   "err_rg": 105.2,
+   "def_bucket": "pro_ultra_early_intro (<16 bars)",
+   "drops_a": [
+    [
+     46,
+     93
+    ],
+    [
+     126,
+     177
+    ]
+   ],
+   "bd_a": 96,
+   "outro_a": 177,
+   "outro_len": 25.0,
+   "d1b": 24,
+   "b_thin_bass_db": null,
+   "a_brk_drum_drop_db": 10.239999999999998
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__06",
+   "dj": "John B",
+   "mix": "john_b_RyhRkT6DQTQ",
+   "pair": "Lenzman - Old Times' Sake -> In:Most & Etherwood - Bloodstream",
+   "na": 226.0,
+   "nb": 220.0,
+   "pro_out": 27.0,
+   "pro_in": 76.02,
+   "pro_ov": 28.454,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop1",
+   "def_exit": 209.0,
+   "def_cue": 33.0,
+   "def_sec": "outro",
+   "ref_exit": 193.0,
+   "ref_sec": "outro",
+   "rg_exit": 193.0,
+   "rg_sec": "outro",
+   "err_def": 182.0,
+   "err_ref": 166.0,
+   "err_rg": 166.0,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     16,
+     104
+    ],
+    [
+     112,
+     192
+    ]
+   ],
+   "bd_a": 104,
+   "outro_a": 192,
+   "outro_len": 34.0,
+   "d1b": 50,
+   "b_thin_bass_db": 48.760000000000005,
+   "a_brk_drum_drop_db": 10.63
+  },
+  {
+   "id": "kushsessions_plAidq3V7vs__14",
+   "dj": "KushSessions",
+   "mix": "kushsessions_plAidq3V7vs",
+   "pair": "Unknown Artist - Shape Shifting -> Weynorx - Rain on Me",
+   "na": 243.0,
+   "nb": 180.0,
+   "pro_out": 47.06,
+   "pro_in": 63.48,
+   "pro_ov": 13.593,
+   "pro_sec": "build",
+   "pro_in_sec": "drop1",
+   "def_exit": 225.0,
+   "def_cue": 33.0,
+   "def_sec": "outro",
+   "ref_exit": 129.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 129.0,
+   "rg_sec": "breakdown",
+   "err_def": 177.9,
+   "err_ref": 81.9,
+   "err_rg": 81.9,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     33,
+     47
+    ],
+    [
+     62,
+     127
+    ],
+    [
+     158,
+     208
+    ]
+   ],
+   "bd_a": 127,
+   "outro_a": 208,
+   "outro_len": 35.0,
+   "d1b": 48,
+   "b_thin_bass_db": 29.240000000000002,
+   "a_brk_drum_drop_db": 12.950000000000001
+  },
+  {
+   "id": "kushsessions_gUlRmoSkr_o__14",
+   "dj": "KushSessions",
+   "mix": "kushsessions_gUlRmoSkr_o",
+   "pair": "Sereni7 - Lost in Melody -> Red Manta & Maykors - Electricity",
+   "na": 259.0,
+   "nb": 216.0,
+   "pro_out": 63.8,
+   "pro_in": 47.85,
+   "pro_ov": 12.868,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop1",
+   "def_exit": 241.0,
+   "def_cue": 17.0,
+   "def_sec": "outro",
+   "ref_exit": 129.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 129.0,
+   "rg_sec": "breakdown",
+   "err_def": 177.2,
+   "err_ref": 65.2,
+   "err_rg": 65.2,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     63,
+     128
+    ],
+    [
+     176,
+     240
+    ]
+   ],
+   "bd_a": 128,
+   "outro_a": 240,
+   "outro_len": 19.0,
+   "d1b": 32,
+   "b_thin_bass_db": 25.950000000000003,
+   "a_brk_drum_drop_db": 9.9
+  },
+  {
+   "id": "pureliquid_dnb_BuNA3XHwK_s__12",
+   "dj": "PureLiquid:DnB",
+   "mix": "pureliquid_dnb_BuNA3XHwK_s",
+   "pair": "Mediks - By A Thread (Hybrid Minds Remix) -> Netsky & Hybrid Minds - Let Me Hold You",
+   "na": 264.0,
+   "nb": 173.0,
+   "pro_out": 77.03,
+   "pro_in": 21.64,
+   "pro_ov": 40.959,
+   "pro_sec": "drop1",
+   "pro_in_sec": "build",
+   "def_exit": 249.0,
+   "def_cue": 33.0,
+   "def_sec": "drop2",
+   "ref_exit": 145.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 145.0,
+   "rg_sec": "breakdown",
+   "err_def": 172.0,
+   "err_ref": 68.0,
+   "err_rg": 68.0,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     48,
+     142
+    ],
+    [
+     176,
+     255
+    ]
+   ],
+   "bd_a": 142,
+   "outro_a": 255,
+   "outro_len": 9.0,
+   "d1b": 47,
+   "b_thin_bass_db": 12.049999999999999,
+   "a_brk_drum_drop_db": 16.009999999999998
+  },
+  {
+   "id": "suicidesheeep_R8MWKsheHxk__46",
+   "dj": "SuicideSheeep",
+   "mix": "suicidesheeep_R8MWKsheHxk",
+   "pair": "Bulb - Tenderness -> Seba & Paradox - Move On",
+   "na": 325.0,
+   "nb": 292.0,
+   "pro_out": 146.12,
+   "pro_in": 32.6,
+   "pro_ov": 33.891,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop1",
+   "def_exit": 305.0,
+   "def_cue": 17.0,
+   "def_sec": "drop2",
+   "ref_exit": 225.0,
+   "ref_sec": "drop2",
+   "rg_exit": 225.0,
+   "rg_sec": "drop2",
+   "err_def": 158.9,
+   "err_ref": 78.9,
+   "err_rg": 78.9,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     32,
+     158
+    ],
+    [
+     224,
+     309
+    ]
+   ],
+   "bd_a": 159,
+   "outro_a": 309,
+   "outro_len": 16.0,
+   "d1b": 32,
+   "b_thin_bass_db": 8.080000000000002,
+   "a_brk_drum_drop_db": 7.890000000000001
+  },
+  {
+   "id": "pureliquid_dnb_8gTnPUIEAqM__16",
+   "dj": "PureLiquid:DnB",
+   "mix": "pureliquid_dnb_8gTnPUIEAqM",
+   "pair": "Hybrid minds - Touch  (Ft: Tiffani Juno) Tokyo Prose remix) -> Hybrid minds - Bad  to me (Ft: Grace grundy)",
+   "na": 231.0,
+   "nb": 182.0,
+   "pro_out": 52.21,
+   "pro_in": 120.81,
+   "pro_ov": 10.512,
+   "pro_sec": "build",
+   "pro_in_sec": "breakdown",
+   "def_exit": 209.0,
+   "def_cue": 17.0,
+   "def_sec": "outro",
+   "ref_exit": 129.0,
+   "ref_sec": "drop1",
+   "rg_exit": 129.0,
+   "rg_sec": "drop1",
+   "err_def": 156.8,
+   "err_ref": 76.8,
+   "err_rg": 76.8,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     64,
+     133
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "bd_a": null,
+   "outro_a": 208,
+   "outro_len": 23.0,
+   "d1b": 32,
+   "b_thin_bass_db": 13.14,
+   "a_brk_drum_drop_db": null
+  },
+  {
+   "id": "kushsessions_ntxR_camkiE__07",
+   "dj": "KushSessions",
+   "mix": "kushsessions_ntxR_camkiE",
+   "pair": "Weynorx - Soul Lover -> Zahharov ft. Alina Enn - Sunset Serenade (Instrumental)",
+   "na": 195.0,
+   "nb": 138.0,
+   "pro_out": 23.61,
+   "pro_in": 31.63,
+   "pro_ov": 11.236,
+   "pro_sec": "drop1",
+   "pro_in_sec": "build",
+   "def_exit": 177.0,
+   "def_cue": 49.0,
+   "def_sec": "drop3",
+   "ref_exit": 113.0,
+   "ref_sec": "drop2",
+   "rg_exit": 113.0,
+   "rg_sec": "drop2",
+   "err_def": 153.4,
+   "err_ref": 89.4,
+   "err_rg": 89.4,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     16,
+     96
+    ],
+    [
+     112,
+     124
+    ],
+    [
+     128,
+     188
+    ]
+   ],
+   "bd_a": null,
+   "outro_a": 188,
+   "outro_len": 7.0,
+   "d1b": 64,
+   "b_thin_bass_db": null,
+   "a_brk_drum_drop_db": null
+  },
+  {
+   "id": "kushsessions_9jyBJYxpy4s__37",
+   "dj": "KushSessions",
+   "mix": "kushsessions_9jyBJYxpy4s",
+   "pair": "Dylan Purser, WAVES & Lauren Walton - Love Letter -> Beatcore - Wondering Eyes (ft. Ashley Apollodor)",
+   "na": 234.0,
+   "nb": 138.0,
+   "pro_out": 65.87,
+   "pro_in": 48.86,
+   "pro_ov": 15.405,
+   "pro_sec": "build",
+   "pro_in_sec": "drop1",
+   "def_exit": 217.0,
+   "def_cue": 17.0,
+   "def_sec": "outro",
+   "ref_exit": 129.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 129.0,
+   "rg_sec": "breakdown",
+   "err_def": 151.1,
+   "err_ref": 63.1,
+   "err_rg": 63.1,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     66,
+     127
+    ],
+    [
+     162,
+     210
+    ]
+   ],
+   "bd_a": 127,
+   "outro_a": 210,
+   "outro_len": 24.0,
+   "d1b": 33,
+   "b_thin_bass_db": 38.870000000000005,
+   "a_brk_drum_drop_db": 10.480000000000002
+  },
+  {
+   "id": "bardie_KmX9-RG8Ksw__10",
+   "dj": "Bardie",
+   "mix": "bardie_KmX9-RG8Ksw",
+   "pair": "Mefjus, Camo & Krooked - Sientelo -> Metrik - Dying Light (feat ShockOne) (Flite Remix)",
+   "na": 254.0,
+   "nb": 202.0,
+   "pro_out": 83.07,
+   "pro_in": 37.28,
+   "pro_ov": 7.249,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop2",
+   "def_exit": 233.0,
+   "def_cue": 1.0,
+   "def_sec": "drop3",
+   "ref_exit": 113.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 113.0,
+   "rg_sec": "breakdown",
+   "err_def": 149.9,
+   "err_ref": 29.9,
+   "err_rg": 29.9,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     54,
+     112
+    ],
+    [
+     152,
+     192
+    ],
+    [
+     208,
+     240
+    ]
+   ],
+   "bd_a": 112,
+   "outro_a": 240,
+   "outro_len": 14.0,
+   "d1b": 10,
+   "b_thin_bass_db": 15.2,
+   "a_brk_drum_drop_db": 6.08
+  },
+  {
+   "id": "kushsessions_aPVozLjNpC4__16",
+   "dj": "KushSessions",
+   "mix": "kushsessions_aPVozLjNpC4",
+   "pair": "Bloque - Beautiful Stranger -> Bachelors of Science - Ice Dance (Lenzman Remix)",
+   "na": 214.0,
+   "nb": 246.0,
+   "pro_out": 46.14,
+   "pro_in": 56.02,
+   "pro_ov": 9.787,
+   "pro_sec": "drop2",
+   "pro_in_sec": "breakdown",
+   "def_exit": 193.0,
+   "def_cue": 1.0,
+   "def_sec": "drop3",
+   "ref_exit": 193.0,
+   "ref_sec": "drop3",
+   "rg_exit": 193.0,
+   "rg_sec": "drop3",
+   "err_def": 146.9,
+   "err_ref": 146.9,
+   "err_rg": 146.9,
+   "def_bucket": "pro_exited_later_drop_midtrack (>40 bars left)",
+   "drops_a": [
+    [
+     0,
+     15
+    ],
+    [
+     31,
+     111
+    ],
+    [
+     142,
+     207
+    ]
+   ],
+   "bd_a": 15,
+   "outro_a": 207,
+   "outro_len": 7.0,
+   "d1b": 1,
+   "b_thin_bass_db": 5.799999999999999,
+   "a_brk_drum_drop_db": 15.870000000000001
+  },
+  {
+   "id": "kushsessions_rmK5Olckeww__22",
+   "dj": "KushSessions",
+   "mix": "kushsessions_rmK5Olckeww",
+   "pair": "Bilateral Signals - Burned Me Down -> Weynorx - Lights Down",
+   "na": 214.0,
+   "nb": 214.0,
+   "pro_out": 47.62,
+   "pro_in": 47.95,
+   "pro_ov": 23.017,
+   "pro_sec": "breakdown",
+   "pro_in_sec": "build",
+   "def_exit": 193.0,
+   "def_cue": 1.0,
+   "def_sec": "drop2",
+   "ref_exit": 193.0,
+   "ref_sec": "drop2",
+   "rg_exit": 193.0,
+   "rg_sec": "drop2",
+   "err_def": 145.4,
+   "err_ref": 145.4,
+   "err_rg": 145.4,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "bd_a": 32,
+   "outro_a": 208,
+   "outro_len": 6.0,
+   "d1b": 17,
+   "b_thin_bass_db": 28.729999999999997,
+   "a_brk_drum_drop_db": 11.709999999999999
+  },
+  {
+   "id": "kushsessions_qB7lcJsmq-U__47",
+   "dj": "KushSessions",
+   "mix": "kushsessions_qB7lcJsmq-U",
+   "pair": "Dan Guidance & Echo Motion - Autumn Leaves -> Etherwood - For a Time I Was You",
+   "na": 212.0,
+   "nb": 244.0,
+   "pro_out": 47.77,
+   "pro_in": 69.91,
+   "pro_ov": 20.298,
+   "pro_sec": "breakdown",
+   "pro_in_sec": "build",
+   "def_exit": 193.0,
+   "def_cue": 57.0,
+   "def_sec": "drop3",
+   "ref_exit": 193.0,
+   "ref_sec": "drop3",
+   "rg_exit": 193.0,
+   "rg_sec": "drop3",
+   "err_def": 145.2,
+   "err_ref": 145.2,
+   "err_rg": 145.2,
+   "def_bucket": "pro_exited_drop1_end_or_breakdown",
+   "drops_a": [
+    [
+     16,
+     32
+    ],
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "bd_a": 32,
+   "outro_a": 208,
+   "outro_len": 4.0,
+   "d1b": 70,
+   "b_thin_bass_db": 43.52,
+   "a_brk_drum_drop_db": 14.57
+  },
+  {
+   "id": "kushsessions_HvHE6Ht7Iac__20",
+   "dj": "KushSessions",
+   "mix": "kushsessions_HvHE6Ht7Iac",
+   "pair": "Jonathan Baker - North River Drive -> Driverufo - Solitude",
+   "na": 211.0,
+   "nb": 116.0,
+   "pro_out": 47.87,
+   "pro_in": 32.23,
+   "pro_ov": 9.787,
+   "pro_sec": "breakdown",
+   "pro_in_sec": "drop1",
+   "def_exit": 193.0,
+   "def_cue": 1.0,
+   "def_sec": "outro",
+   "ref_exit": 145.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 145.0,
+   "rg_sec": "breakdown",
+   "err_def": 145.1,
+   "err_ref": 97.1,
+   "err_rg": 97.1,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     48,
+     81
+    ],
+    [
+     96,
+     145
+    ],
+    [
+     160,
+     192
+    ]
+   ],
+   "bd_a": 40,
+   "outro_a": 192,
+   "outro_len": 19.0,
+   "d1b": 17,
+   "b_thin_bass_db": 25.239999999999995,
+   "a_brk_drum_drop_db": 10.38
+  },
+  {
+   "id": "dj_hugo_rodrigues_RjwkvoBIjwI__03",
+   "dj": "DJ Hugo Rodrigues",
+   "mix": "dj_hugo_rodrigues_RjwkvoBIjwI",
+   "pair": "Logistics - Life Rhythm -> Cyantific Vs. Logistics - Flashback",
+   "na": 244.0,
+   "nb": 232.0,
+   "pro_out": 79.97,
+   "pro_in": 87.06,
+   "pro_ov": 29.36,
+   "pro_sec": "drop1",
+   "pro_in_sec": "build",
+   "def_exit": 225.0,
+   "def_cue": 73.0,
+   "def_sec": "outro",
+   "ref_exit": 129.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 129.0,
+   "rg_sec": "breakdown",
+   "err_def": 145.0,
+   "err_ref": 49.0,
+   "err_rg": 49.0,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     32,
+     92
+    ],
+    [
+     96,
+     128
+    ],
+    [
+     144,
+     172
+    ],
+    [
+     176,
+     206
+    ]
+   ],
+   "bd_a": 129,
+   "outro_a": 206,
+   "outro_len": 38.0,
+   "d1b": 88,
+   "b_thin_bass_db": 29.310000000000002,
+   "a_brk_drum_drop_db": 8.729999999999999
+  },
+  {
+   "id": "hikari_sakai_-IwD0v7_FuQ__34",
+   "dj": "Hikari Sakai",
+   "mix": "hikari_sakai_-IwD0v7_FuQ",
+   "pair": "KWABS - Walk (Nu:Tone Remix) -> Nu:Tone - Vapor",
+   "na": 213.0,
+   "nb": 197.0,
+   "pro_out": 48.22,
+   "pro_in": 47.7,
+   "pro_ov": 21.023,
+   "pro_sec": "drop1",
+   "pro_in_sec": "build",
+   "def_exit": 193.0,
+   "def_cue": 33.0,
+   "def_sec": "outro",
+   "ref_exit": 193.0,
+   "ref_sec": "outro",
+   "rg_exit": 193.0,
+   "rg_sec": "outro",
+   "err_def": 144.8,
+   "err_ref": 144.8,
+   "err_rg": 144.8,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     48,
+     112
+    ],
+    [
+     128,
+     192
+    ]
+   ],
+   "bd_a": 40,
+   "outro_a": 192,
+   "outro_len": 21.0,
+   "d1b": 48,
+   "b_thin_bass_db": 10.180000000000001,
+   "a_brk_drum_drop_db": 12.610000000000001
+  },
+  {
+   "id": "kushsessions_aPVozLjNpC4__50",
+   "dj": "KushSessions",
+   "mix": "kushsessions_aPVozLjNpC4",
+   "pair": "Aftertones - Intuition -> Silence Groove - Scandinavian Dream",
+   "na": 212.0,
+   "nb": 200.0,
+   "pro_out": 51.69,
+   "pro_in": 55.4,
+   "pro_ov": 2.537,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop2",
+   "def_exit": 193.0,
+   "def_cue": 1.0,
+   "def_sec": "drop2",
+   "ref_exit": 193.0,
+   "ref_sec": "drop2",
+   "rg_exit": 193.0,
+   "rg_sec": "drop2",
+   "err_def": 141.3,
+   "err_ref": 141.3,
+   "err_rg": 141.3,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     28,
+     112
+    ],
+    [
+     128,
+     208
+    ]
+   ],
+   "bd_a": 112,
+   "outro_a": 208,
+   "outro_len": 4.0,
+   "d1b": 8,
+   "b_thin_bass_db": 21.849999999999998,
+   "a_brk_drum_drop_db": 14.510000000000002
+  },
+  {
+   "id": "ukf_drum_bass_NVQEwwQPqIw__13",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_NVQEwwQPqIw",
+   "pair": "\u2192 Monrroe - Out Of Time (ft. Zara Kershaw) \ud83c\udfb5 -> \u2192 Kasra - Let It Slide (ft. Slay) \ud83c\udfb5",
+   "na": 200.0,
+   "nb": 182.0,
+   "pro_out": 47.25,
+   "pro_in": 31.34,
+   "pro_ov": 17.036,
+   "pro_sec": "drop1",
+   "pro_in_sec": "intro",
+   "def_exit": 185.0,
+   "def_cue": 17.0,
+   "def_sec": "drop4",
+   "ref_exit": 185.0,
+   "ref_sec": "drop4",
+   "rg_exit": 185.0,
+   "rg_sec": "drop4",
+   "err_def": 137.8,
+   "err_ref": 137.8,
+   "err_rg": 137.8,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     32,
+     78
+    ],
+    [
+     84,
+     110
+    ],
+    [
+     116,
+     162
+    ],
+    [
+     168,
+     194
+    ]
+   ],
+   "bd_a": 110,
+   "outro_a": 194,
+   "outro_len": 6.0,
+   "d1b": 32,
+   "b_thin_bass_db": 24.369999999999997,
+   "a_brk_drum_drop_db": 15.100000000000001
+  }
+ ],
+ "worst_false_early_jumps_rg": [
+  {
+   "id": "theheshbesh_Dq1euyltNBs__07",
+   "dj": "TheHeshBesh",
+   "mix": "theheshbesh_Dq1euyltNBs",
+   "pair": "High Contrast - Tread Softly -> High Contrast - The Ghost Of Jungle Past",
+   "na": 267.0,
+   "nb": 194.0,
+   "pro_out": 249.53,
+   "pro_in": 40.77,
+   "pro_ov": 23.017,
+   "pro_sec": "drop2",
+   "pro_in_sec": "build",
+   "def_exit": 249.0,
+   "def_cue": 81.0,
+   "def_sec": "drop2",
+   "ref_exit": 129.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 129.0,
+   "rg_sec": "breakdown",
+   "err_def": 0.5,
+   "err_ref": 120.5,
+   "err_rg": 120.5,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     48,
+     128
+    ],
+    [
+     160,
+     256
+    ]
+   ],
+   "bd_a": 129,
+   "outro_a": 256,
+   "outro_len": 11.0,
+   "d1b": 94,
+   "b_thin_bass_db": 21.729999999999997,
+   "a_brk_drum_drop_db": 15.36
+  },
+  {
+   "id": "subsil3nt_podcast_w5CZ0Zn-cF4__04",
+   "dj": "SubSIL3NT Podcast",
+   "mix": "subsil3nt_podcast_w5CZ0Zn-cF4",
+   "pair": "Whiney - On The Rocks -> Whiney - Onyx",
+   "na": 240.0,
+   "nb": 203.0,
+   "pro_out": 232.33,
+   "pro_in": 13.63,
+   "pro_ov": 7.068,
+   "pro_sec": "outro",
+   "pro_in_sec": "intro",
+   "def_exit": 225.0,
+   "def_cue": 33.0,
+   "def_sec": "outro",
+   "ref_exit": 113.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 113.0,
+   "rg_sec": "breakdown",
+   "err_def": 7.3,
+   "err_ref": 119.3,
+   "err_rg": 119.3,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     4,
+     20
+    ],
+    [
+     40,
+     110
+    ],
+    [
+     158,
+     222
+    ]
+   ],
+   "bd_a": 21,
+   "outro_a": 222,
+   "outro_len": 18.0,
+   "d1b": 47,
+   "b_thin_bass_db": 8.73,
+   "a_brk_drum_drop_db": 10.13
+  },
+  {
+   "id": "kushsessions_plAidq3V7vs__04",
+   "dj": "KushSessions",
+   "mix": "kushsessions_plAidq3V7vs",
+   "pair": "Euqsarosa - Never Let Go -> Freund - First Landing",
+   "na": 244.0,
+   "nb": 171.0,
+   "pro_out": 223.25,
+   "pro_in": 39.32,
+   "pro_ov": 3.625,
+   "pro_sec": "drop2",
+   "pro_in_sec": "drop1",
+   "def_exit": 225.0,
+   "def_cue": 1.0,
+   "def_sec": "outro",
+   "ref_exit": 113.0,
+   "ref_sec": "build",
+   "rg_exit": 113.0,
+   "rg_sec": "build",
+   "err_def": 1.8,
+   "err_ref": 110.2,
+   "err_rg": 110.2,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     32,
+     112
+    ],
+    [
+     144,
+     224
+    ]
+   ],
+   "bd_a": null,
+   "outro_a": 224,
+   "outro_len": 20.0,
+   "d1b": 8,
+   "b_thin_bass_db": 8.280000000000001,
+   "a_brk_drum_drop_db": null
+  },
+  {
+   "id": "alpha_rhythm_SQCux49MaFM__29",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_SQCux49MaFM",
+   "pair": "Reflektor and Van Hassel - Hydroplane -> Marble Elephant - Forever",
+   "na": 230.0,
+   "nb": 199.0,
+   "pro_out": 218.47,
+   "pro_in": 32.13,
+   "pro_ov": 21.023,
+   "pro_sec": "outro",
+   "pro_in_sec": "drop1",
+   "def_exit": 209.0,
+   "def_cue": 17.0,
+   "def_sec": "outro",
+   "ref_exit": 105.0,
+   "ref_sec": "build",
+   "rg_exit": 105.0,
+   "rg_sec": "build",
+   "err_def": 9.5,
+   "err_ref": 113.5,
+   "err_rg": 113.5,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     0,
+     16
+    ],
+    [
+     32,
+     97
+    ],
+    [
+     128,
+     199
+    ]
+   ],
+   "bd_a": null,
+   "outro_a": 199,
+   "outro_len": 31.0,
+   "d1b": 32,
+   "b_thin_bass_db": 18.43,
+   "a_brk_drum_drop_db": null
+  },
+  {
+   "id": "kushsessions_30-PkDwtwko__01",
+   "dj": "KushSessions",
+   "mix": "kushsessions_30-PkDwtwko",
+   "pair": "Akuratyde - Head First (Bop Remix) -> Above & Beyond - Blood From A Stone",
+   "na": 219.0,
+   "nb": 243.0,
+   "pro_out": 216.8,
+   "pro_in": 40.73,
+   "pro_ov": 10.149,
+   "pro_sec": "outro",
+   "pro_in_sec": "drop1",
+   "def_exit": 201.0,
+   "def_cue": 1.0,
+   "def_sec": "drop2",
+   "ref_exit": 97.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 97.0,
+   "rg_sec": "breakdown",
+   "err_def": 15.8,
+   "err_ref": 119.8,
+   "err_rg": 119.8,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     0,
+     94
+    ],
+    [
+     116,
+     212
+    ]
+   ],
+   "bd_a": 96,
+   "outro_a": 212,
+   "outro_len": 7.0,
+   "d1b": 8,
+   "b_thin_bass_db": 42.010000000000005,
+   "a_brk_drum_drop_db": 8.169999999999998
+  },
+  {
+   "id": "kushsessions_q6wX3za1z_0__35",
+   "dj": "KushSessions",
+   "mix": "kushsessions_q6wX3za1z_0",
+   "pair": "Krakota feat. Karina Ramage - Colour The Past -> MXTR & Tyler Garrett - Won't Give Up",
+   "na": 216.0,
+   "nb": 176.0,
+   "pro_out": 206.03,
+   "pro_in": 15.35,
+   "pro_ov": 12.324,
+   "pro_sec": "outro",
+   "pro_in_sec": "drop1",
+   "def_exit": 201.0,
+   "def_cue": 1.0,
+   "def_sec": "outro",
+   "ref_exit": 97.0,
+   "ref_sec": "drop1",
+   "rg_exit": 97.0,
+   "rg_sec": "drop1",
+   "err_def": 5.0,
+   "err_ref": 109.0,
+   "err_rg": 109.0,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     34,
+     99
+    ],
+    [
+     130,
+     195
+    ]
+   ],
+   "bd_a": 99,
+   "outro_a": 195,
+   "outro_len": 21.0,
+   "d1b": 8,
+   "b_thin_bass_db": 24.5,
+   "a_brk_drum_drop_db": 9.569999999999999
+  },
+  {
+   "id": "pureliquid_dnb_8gTnPUIEAqM__08",
+   "dj": "PureLiquid:DnB",
+   "mix": "pureliquid_dnb_8gTnPUIEAqM",
+   "pair": "Camo & Krooked - Ember (Hybrid minds mix) -> Hybrid minds - Kismet (Ft : Riya)",
+   "na": 250.0,
+   "nb": 167.0,
+   "pro_out": 243.05,
+   "pro_in": 39.27,
+   "pro_ov": 4.168,
+   "pro_sec": "outro",
+   "pro_in_sec": "build",
+   "def_exit": 233.0,
+   "def_cue": 1.0,
+   "def_sec": "outro",
+   "ref_exit": 129.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 129.0,
+   "rg_sec": "breakdown",
+   "err_def": 10.1,
+   "err_ref": 114.1,
+   "err_rg": 114.1,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     52,
+     82
+    ],
+    [
+     86,
+     115
+    ],
+    [
+     148,
+     211
+    ]
+   ],
+   "bd_a": 116,
+   "outro_a": 211,
+   "outro_len": 39.0,
+   "d1b": 11,
+   "b_thin_bass_db": 47.410000000000004,
+   "a_brk_drum_drop_db": 8.25
+  },
+  {
+   "id": "kushsessions_yt4VIZ4VbNE__50",
+   "dj": "KushSessions",
+   "mix": "kushsessions_yt4VIZ4VbNE",
+   "pair": "Ritual & Alpha Rhythm - Bliss -> Alexvnder - Repose (Alpha Rhythm Remix)",
+   "na": 239.0,
+   "nb": 227.0,
+   "pro_out": 216.69,
+   "pro_in": 40.53,
+   "pro_ov": 13.23,
+   "pro_sec": "outro",
+   "pro_in_sec": "build",
+   "def_exit": 217.0,
+   "def_cue": 33.0,
+   "def_sec": "outro",
+   "ref_exit": 113.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 113.0,
+   "rg_sec": "breakdown",
+   "err_def": 0.3,
+   "err_ref": 103.7,
+   "err_rg": 103.7,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "bd_a": 113,
+   "outro_a": 208,
+   "outro_len": 31.0,
+   "d1b": 48,
+   "b_thin_bass_db": 38.6,
+   "a_brk_drum_drop_db": 9.149999999999999
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__03",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "pair": "Larigold - Project Horizon [Celsius] -> SMP - Brighter Days on the Surface ft. Matt Freeman [Fokuz]",
+   "na": 265.0,
+   "nb": 306.0,
+   "pro_out": 252.61,
+   "pro_in": 169.5,
+   "pro_ov": 5.075,
+   "pro_sec": "outro",
+   "pro_in_sec": "breakdown",
+   "def_exit": 241.0,
+   "def_cue": 33.0,
+   "def_sec": "outro",
+   "ref_exit": 145.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 145.0,
+   "rg_sec": "breakdown",
+   "err_def": 11.6,
+   "err_ref": 107.6,
+   "err_rg": 107.6,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     64,
+     144
+    ],
+    [
+     160,
+     225
+    ]
+   ],
+   "bd_a": 145,
+   "outro_a": 225,
+   "outro_len": 40.0,
+   "d1b": 45,
+   "b_thin_bass_db": null,
+   "a_brk_drum_drop_db": 6.259999999999999
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__07",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_imZjEt78YXs",
+   "pair": "GLXY - Anatomy [Shogun] -> FX909 - Falling Away [Forthcoming Celsius]",
+   "na": 264.0,
+   "nb": 246.0,
+   "pro_out": 255.69,
+   "pro_in": 47.77,
+   "pro_ov": 7.431,
+   "pro_sec": "outro",
+   "pro_in_sec": "breakdown",
+   "def_exit": 241.0,
+   "def_cue": 33.0,
+   "def_sec": "drop2",
+   "ref_exit": 145.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 145.0,
+   "rg_sec": "breakdown",
+   "err_def": 14.7,
+   "err_ref": 110.7,
+   "err_rg": 110.7,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     64,
+     144
+    ],
+    [
+     176,
+     249
+    ]
+   ],
+   "bd_a": 54,
+   "outro_a": 249,
+   "outro_len": 15.0,
+   "d1b": 48,
+   "b_thin_bass_db": null,
+   "a_brk_drum_drop_db": 11.610000000000001
+  },
+  {
+   "id": "alpha_rhythm_hb7PvukS-Pk__07",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_hb7PvukS-Pk",
+   "pair": "Alpha Rhythm - Diamonds [Forthcoming Fokuz] -> Seba - Breathe Deep ft. Emily Harkness [Spearhead]",
+   "na": 237.0,
+   "nb": 273.0,
+   "pro_out": 226.4,
+   "pro_in": 31.24,
+   "pro_ov": 8.699,
+   "pro_sec": "outro",
+   "pro_in_sec": "build",
+   "def_exit": 209.0,
+   "def_cue": 17.0,
+   "def_sec": "outro",
+   "ref_exit": 113.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 113.0,
+   "rg_sec": "breakdown",
+   "err_def": 17.4,
+   "err_ref": 113.4,
+   "err_rg": 113.4,
+   "def_bucket": "pro_very_late_tail_exit (<=12 bars left)",
+   "drops_a": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     209
+    ]
+   ],
+   "bd_a": 112,
+   "outro_a": 209,
+   "outro_len": 28.0,
+   "d1b": 32,
+   "b_thin_bass_db": 6.879999999999999,
+   "a_brk_drum_drop_db": 10.020000000000001
+  },
+  {
+   "id": "kushsessions_T86wusWVRuU__14",
+   "dj": "KushSessions",
+   "mix": "kushsessions_T86wusWVRuU",
+   "pair": "Braidee - Dreamstate -> Mojoman - Golden Light",
+   "na": 212.0,
+   "nb": 165.0,
+   "pro_out": 207.73,
+   "pro_in": 32.42,
+   "pro_ov": 13.411,
+   "pro_sec": "outro",
+   "pro_in_sec": "build",
+   "def_exit": 193.0,
+   "def_cue": 33.0,
+   "def_sec": "outro",
+   "ref_exit": 97.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 97.0,
+   "rg_sec": "breakdown",
+   "err_def": 14.7,
+   "err_ref": 110.7,
+   "err_rg": 110.7,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     32,
+     96
+    ],
+    [
+     128,
+     192
+    ]
+   ],
+   "bd_a": 97,
+   "outro_a": 192,
+   "outro_len": 20.0,
+   "d1b": 48,
+   "b_thin_bass_db": 16.700000000000003,
+   "a_brk_drum_drop_db": 8.250000000000002
+  },
+  {
+   "id": "kushsessions_HvHE6Ht7Iac__23",
+   "dj": "KushSessions",
+   "mix": "kushsessions_HvHE6Ht7Iac",
+   "pair": "Coben & WAVES - Sonder -> Glowing Embers - So Wrong",
+   "na": 212.0,
+   "nb": 196.0,
+   "pro_out": 199.5,
+   "pro_in": 15.8,
+   "pro_ov": 4.712,
+   "pro_sec": "outro",
+   "pro_in_sec": "intro",
+   "def_exit": 193.0,
+   "def_cue": 17.0,
+   "def_sec": "outro",
+   "ref_exit": 97.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 97.0,
+   "rg_sec": "breakdown",
+   "err_def": 6.5,
+   "err_ref": 102.5,
+   "err_rg": 102.5,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     32,
+     96
+    ],
+    [
+     128,
+     193
+    ]
+   ],
+   "bd_a": 97,
+   "outro_a": 193,
+   "outro_len": 19.0,
+   "d1b": 32,
+   "b_thin_bass_db": 18.45,
+   "a_brk_drum_drop_db": 11.18
+  },
+  {
+   "id": "kushsessions_5UYhOLNdwZs__36",
+   "dj": "KushSessions",
+   "mix": "kushsessions_5UYhOLNdwZs",
+   "pair": "Beyond Me - Moon -> Audien & Sam Harper - Sacrifice (Matrix & Futurebound Remix)",
+   "na": 212.0,
+   "nb": 148.0,
+   "pro_out": 200.21,
+   "pro_in": 15.85,
+   "pro_ov": 5.437,
+   "pro_sec": "outro",
+   "pro_in_sec": "build",
+   "def_exit": 193.0,
+   "def_cue": 25.0,
+   "def_sec": "outro",
+   "ref_exit": 97.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 97.0,
+   "rg_sec": "breakdown",
+   "err_def": 7.2,
+   "err_ref": 103.2,
+   "err_rg": 103.2,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     32,
+     97
+    ],
+    [
+     128,
+     193
+    ]
+   ],
+   "bd_a": 97,
+   "outro_a": 193,
+   "outro_len": 19.0,
+   "d1b": 39,
+   "b_thin_bass_db": 32.12,
+   "a_brk_drum_drop_db": 8.31
+  },
+  {
+   "id": "kushsessions_WCIdapurrPs__31",
+   "dj": "KushSessions",
+   "mix": "kushsessions_WCIdapurrPs",
+   "pair": "Amorius - Shepit -> Iridescent - Incandescent",
+   "na": 225.0,
+   "nb": 185.0,
+   "pro_out": 223.32,
+   "pro_in": 49.07,
+   "pro_ov": 14.317,
+   "pro_sec": "drop2",
+   "pro_in_sec": "drop1",
+   "def_exit": 209.0,
+   "def_cue": 17.0,
+   "def_sec": "drop2",
+   "ref_exit": 113.0,
+   "ref_sec": "breakdown",
+   "rg_exit": 113.0,
+   "rg_sec": "breakdown",
+   "err_def": 14.3,
+   "err_ref": 110.3,
+   "err_rg": 110.3,
+   "def_bucket": "hit_within_16",
+   "drops_a": [
+    [
+     32,
+     113
+    ],
+    [
+     128,
+     224
+    ]
+   ],
+   "bd_a": 113,
+   "outro_a": 224,
+   "outro_len": 1.0,
+   "d1b": 32,
+   "b_thin_bass_db": 36.3,
+   "a_brk_drum_drop_db": 9.700000000000001
+  }
+ ],
+ "worst_false_late_holds_rg": [
+  {
+   "id": "alpha_rhythm_AU0V19j8oKM__16",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_AU0V19j8oKM",
+   "pair": "Alpha Rhythm & HumaNature - Bits & Pieces [Fokuz] -> Alpha Rhythm - Subwoofer Lullaby [Fokuz]",
+   "na": 228.0,
+   "nb": 216.0,
+   "pro_out": -0.01,
+   "pro_in": 32.38,
+   "pro_ov": 16.673,
+   "pro_sec": "intro",
+   "pro_in_sec": "outro",
+   "def_exit": 209.0,
+   "def_cue": 17.0,
+   "def_sec": "outro",
+   "ref_exit": 209.0,
+   "ref_sec": "outro",
+   "rg_exit": 209.0,
+   "rg_sec": "outro",
+   "err_def": 209.0,
+   "err_ref": 209.0,
+   "err_rg": 209.0,
+   "def_bucket": "pro_ultra_early_intro (<16 bars)",
+   "drops_a": [
+    [
+     48,
+     110
+    ],
+    [
+     128,
+     206
+    ]
+   ],
+   "bd_a": 111,
+   "outro_a": 206,
+   "outro_len": 22.0,
+   "d1b": null,
+   "b_thin_bass_db": null,
+   "a_brk_drum_drop_db": 12.100000000000001
+  },
+  {
+   "id": "john_b_RyhRkT6DQTQ__06",
+   "dj": "John B",
+   "mix": "john_b_RyhRkT6DQTQ",
+   "pair": "Lenzman - Old Times' Sake -> In:Most & Etherwood - Bloodstream",
+   "na": 226.0,
+   "nb": 220.0,
+   "pro_out": 27.0,
+   "pro_in": 76.02,
+   "pro_ov": 28.454,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop1",
+   "def_exit": 209.0,
+   "def_cue": 33.0,
+   "def_sec": "outro",
+   "ref_exit": 193.0,
+   "ref_sec": "outro",
+   "rg_exit": 193.0,
+   "rg_sec": "outro",
+   "err_def": 182.0,
+   "err_ref": 166.0,
+   "err_rg": 166.0,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     16,
+     104
+    ],
+    [
+     112,
+     192
+    ]
+   ],
+   "bd_a": 104,
+   "outro_a": 192,
+   "outro_len": 34.0,
+   "d1b": 50,
+   "b_thin_bass_db": 48.760000000000005,
+   "a_brk_drum_drop_db": 10.63
+  },
+  {
+   "id": "kushsessions_aPVozLjNpC4__16",
+   "dj": "KushSessions",
+   "mix": "kushsessions_aPVozLjNpC4",
+   "pair": "Bloque - Beautiful Stranger -> Bachelors of Science - Ice Dance (Lenzman Remix)",
+   "na": 214.0,
+   "nb": 246.0,
+   "pro_out": 46.14,
+   "pro_in": 56.02,
+   "pro_ov": 9.787,
+   "pro_sec": "drop2",
+   "pro_in_sec": "breakdown",
+   "def_exit": 193.0,
+   "def_cue": 1.0,
+   "def_sec": "drop3",
+   "ref_exit": 193.0,
+   "ref_sec": "drop3",
+   "rg_exit": 193.0,
+   "rg_sec": "drop3",
+   "err_def": 146.9,
+   "err_ref": 146.9,
+   "err_rg": 146.9,
+   "def_bucket": "pro_exited_later_drop_midtrack (>40 bars left)",
+   "drops_a": [
+    [
+     0,
+     15
+    ],
+    [
+     31,
+     111
+    ],
+    [
+     142,
+     207
+    ]
+   ],
+   "bd_a": 15,
+   "outro_a": 207,
+   "outro_len": 7.0,
+   "d1b": 1,
+   "b_thin_bass_db": 5.799999999999999,
+   "a_brk_drum_drop_db": 15.870000000000001
+  },
+  {
+   "id": "kushsessions_rmK5Olckeww__22",
+   "dj": "KushSessions",
+   "mix": "kushsessions_rmK5Olckeww",
+   "pair": "Bilateral Signals - Burned Me Down -> Weynorx - Lights Down",
+   "na": 214.0,
+   "nb": 214.0,
+   "pro_out": 47.62,
+   "pro_in": 47.95,
+   "pro_ov": 23.017,
+   "pro_sec": "breakdown",
+   "pro_in_sec": "build",
+   "def_exit": 193.0,
+   "def_cue": 1.0,
+   "def_sec": "drop2",
+   "ref_exit": 193.0,
+   "ref_sec": "drop2",
+   "rg_exit": 193.0,
+   "rg_sec": "drop2",
+   "err_def": 145.4,
+   "err_ref": 145.4,
+   "err_rg": 145.4,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "bd_a": 32,
+   "outro_a": 208,
+   "outro_len": 6.0,
+   "d1b": 17,
+   "b_thin_bass_db": 28.729999999999997,
+   "a_brk_drum_drop_db": 11.709999999999999
+  },
+  {
+   "id": "kushsessions_qB7lcJsmq-U__47",
+   "dj": "KushSessions",
+   "mix": "kushsessions_qB7lcJsmq-U",
+   "pair": "Dan Guidance & Echo Motion - Autumn Leaves -> Etherwood - For a Time I Was You",
+   "na": 212.0,
+   "nb": 244.0,
+   "pro_out": 47.77,
+   "pro_in": 69.91,
+   "pro_ov": 20.298,
+   "pro_sec": "breakdown",
+   "pro_in_sec": "build",
+   "def_exit": 193.0,
+   "def_cue": 57.0,
+   "def_sec": "drop3",
+   "ref_exit": 193.0,
+   "ref_sec": "drop3",
+   "rg_exit": 193.0,
+   "rg_sec": "drop3",
+   "err_def": 145.2,
+   "err_ref": 145.2,
+   "err_rg": 145.2,
+   "def_bucket": "pro_exited_drop1_end_or_breakdown",
+   "drops_a": [
+    [
+     16,
+     32
+    ],
+    [
+     48,
+     112
+    ],
+    [
+     144,
+     208
+    ]
+   ],
+   "bd_a": 32,
+   "outro_a": 208,
+   "outro_len": 4.0,
+   "d1b": 70,
+   "b_thin_bass_db": 43.52,
+   "a_brk_drum_drop_db": 14.57
+  },
+  {
+   "id": "hikari_sakai_-IwD0v7_FuQ__34",
+   "dj": "Hikari Sakai",
+   "mix": "hikari_sakai_-IwD0v7_FuQ",
+   "pair": "KWABS - Walk (Nu:Tone Remix) -> Nu:Tone - Vapor",
+   "na": 213.0,
+   "nb": 197.0,
+   "pro_out": 48.22,
+   "pro_in": 47.7,
+   "pro_ov": 21.023,
+   "pro_sec": "drop1",
+   "pro_in_sec": "build",
+   "def_exit": 193.0,
+   "def_cue": 33.0,
+   "def_sec": "outro",
+   "ref_exit": 193.0,
+   "ref_sec": "outro",
+   "rg_exit": 193.0,
+   "rg_sec": "outro",
+   "err_def": 144.8,
+   "err_ref": 144.8,
+   "err_rg": 144.8,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     48,
+     112
+    ],
+    [
+     128,
+     192
+    ]
+   ],
+   "bd_a": 40,
+   "outro_a": 192,
+   "outro_len": 21.0,
+   "d1b": 48,
+   "b_thin_bass_db": 10.180000000000001,
+   "a_brk_drum_drop_db": 12.610000000000001
+  },
+  {
+   "id": "kushsessions_aPVozLjNpC4__50",
+   "dj": "KushSessions",
+   "mix": "kushsessions_aPVozLjNpC4",
+   "pair": "Aftertones - Intuition -> Silence Groove - Scandinavian Dream",
+   "na": 212.0,
+   "nb": 200.0,
+   "pro_out": 51.69,
+   "pro_in": 55.4,
+   "pro_ov": 2.537,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop2",
+   "def_exit": 193.0,
+   "def_cue": 1.0,
+   "def_sec": "drop2",
+   "ref_exit": 193.0,
+   "ref_sec": "drop2",
+   "rg_exit": 193.0,
+   "rg_sec": "drop2",
+   "err_def": 141.3,
+   "err_ref": 141.3,
+   "err_rg": 141.3,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     28,
+     112
+    ],
+    [
+     128,
+     208
+    ]
+   ],
+   "bd_a": 112,
+   "outro_a": 208,
+   "outro_len": 4.0,
+   "d1b": 8,
+   "b_thin_bass_db": 21.849999999999998,
+   "a_brk_drum_drop_db": 14.510000000000002
+  },
+  {
+   "id": "ukf_drum_bass_NVQEwwQPqIw__13",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_NVQEwwQPqIw",
+   "pair": "\u2192 Monrroe - Out Of Time (ft. Zara Kershaw) \ud83c\udfb5 -> \u2192 Kasra - Let It Slide (ft. Slay) \ud83c\udfb5",
+   "na": 200.0,
+   "nb": 182.0,
+   "pro_out": 47.25,
+   "pro_in": 31.34,
+   "pro_ov": 17.036,
+   "pro_sec": "drop1",
+   "pro_in_sec": "intro",
+   "def_exit": 185.0,
+   "def_cue": 17.0,
+   "def_sec": "drop4",
+   "ref_exit": 185.0,
+   "ref_sec": "drop4",
+   "rg_exit": 185.0,
+   "rg_sec": "drop4",
+   "err_def": 137.8,
+   "err_ref": 137.8,
+   "err_rg": 137.8,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     32,
+     78
+    ],
+    [
+     84,
+     110
+    ],
+    [
+     116,
+     162
+    ],
+    [
+     168,
+     194
+    ]
+   ],
+   "bd_a": 110,
+   "outro_a": 194,
+   "outro_len": 6.0,
+   "d1b": 32,
+   "b_thin_bass_db": 24.369999999999997,
+   "a_brk_drum_drop_db": 15.100000000000001
+  },
+  {
+   "id": "mrmommusic_nodB5gqt_mU__10",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_nodB5gqt_mU",
+   "pair": "Urbandawn - Sleeping Awake -> Djah - Dialogue",
+   "na": 226.0,
+   "nb": 179.0,
+   "pro_out": 71.46,
+   "pro_in": 15.19,
+   "pro_ov": 11.961,
+   "pro_sec": "drop1",
+   "pro_in_sec": "build",
+   "def_exit": 209.0,
+   "def_cue": 17.0,
+   "def_sec": "drop2",
+   "ref_exit": 209.0,
+   "ref_sec": "drop2",
+   "rg_exit": 209.0,
+   "rg_sec": "drop2",
+   "err_def": 137.5,
+   "err_ref": 137.5,
+   "err_rg": 137.5,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     48,
+     115
+    ],
+    [
+     124,
+     219
+    ]
+   ],
+   "bd_a": null,
+   "outro_a": 219,
+   "outro_len": 7.0,
+   "d1b": 31,
+   "b_thin_bass_db": 25.090000000000003,
+   "a_brk_drum_drop_db": null
+  },
+  {
+   "id": "kushsessions_qB7lcJsmq-U__54",
+   "dj": "KushSessions",
+   "mix": "kushsessions_qB7lcJsmq-U",
+   "pair": "Outer Bass - Everything And More -> MZCL - Esperame",
+   "na": 176.0,
+   "nb": 211.0,
+   "pro_out": 23.81,
+   "pro_in": 47.75,
+   "pro_ov": 21.386,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop1",
+   "def_exit": 161.0,
+   "def_cue": 17.0,
+   "def_sec": "drop2",
+   "ref_exit": 161.0,
+   "ref_sec": "drop2",
+   "rg_exit": 161.0,
+   "rg_sec": "drop2",
+   "err_def": 137.2,
+   "err_ref": 137.2,
+   "err_rg": 137.2,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     8,
+     88
+    ],
+    [
+     104,
+     167
+    ]
+   ],
+   "bd_a": 88,
+   "outro_a": 167,
+   "outro_len": 9.0,
+   "d1b": 32,
+   "b_thin_bass_db": 18.56,
+   "a_brk_drum_drop_db": 7.229999999999999
+  },
+  {
+   "id": "kushsessions_Dhr9vlV3FHk__35",
+   "dj": "KushSessions",
+   "mix": "kushsessions_Dhr9vlV3FHk",
+   "pair": "Christy \u010a - Everything I Need -> Albees - Blowing Kisses",
+   "na": 184.0,
+   "nb": 196.0,
+   "pro_out": 32.05,
+   "pro_in": 48.27,
+   "pro_ov": 15.949,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop1",
+   "def_exit": 169.0,
+   "def_cue": 1.0,
+   "def_sec": "drop2",
+   "ref_exit": 169.0,
+   "ref_sec": "drop2",
+   "rg_exit": 169.0,
+   "rg_sec": "drop2",
+   "err_def": 136.9,
+   "err_ref": 136.9,
+   "err_rg": 136.9,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     16,
+     78
+    ],
+    [
+     128,
+     176
+    ]
+   ],
+   "bd_a": 79,
+   "outro_a": 176,
+   "outro_len": 8.0,
+   "d1b": 17,
+   "b_thin_bass_db": 26.97,
+   "a_brk_drum_drop_db": 5.539999999999999
+  },
+  {
+   "id": "kushsessions_ygGHm71InKM__27",
+   "dj": "KushSessions",
+   "mix": "kushsessions_ygGHm71InKM",
+   "pair": "Afex - Mari -> Sol:us - Learn To Walk",
+   "na": 187.0,
+   "nb": 178.0,
+   "pro_out": 32.87,
+   "pro_in": 39.91,
+   "pro_ov": 7.068,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop1",
+   "def_exit": 169.0,
+   "def_cue": 9.0,
+   "def_sec": "outro",
+   "ref_exit": 169.0,
+   "ref_sec": "outro",
+   "rg_exit": 169.0,
+   "rg_sec": "outro",
+   "err_def": 136.1,
+   "err_ref": 136.1,
+   "err_rg": 136.1,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     32,
+     81
+    ],
+    [
+     96,
+     161
+    ]
+   ],
+   "bd_a": 81,
+   "outro_a": 161,
+   "outro_len": 26.0,
+   "d1b": 24,
+   "b_thin_bass_db": 15.700000000000001,
+   "a_brk_drum_drop_db": 10.57
+  },
+  {
+   "id": "lolluvhart_ChzWmZPrBcw__19",
+   "dj": "lolluvhart",
+   "mix": "lolluvhart_ChzWmZPrBcw",
+   "pair": "Spor - Silver Spaceman -> Jonny L - Evah",
+   "na": 247.0,
+   "nb": 240.0,
+   "pro_out": 89.47,
+   "pro_in": 25.33,
+   "pro_ov": 23.017,
+   "pro_sec": "drop1",
+   "pro_in_sec": "drop1",
+   "def_exit": 225.0,
+   "def_cue": 1.0,
+   "def_sec": "outro",
+   "ref_exit": 225.0,
+   "ref_sec": "outro",
+   "rg_exit": 225.0,
+   "rg_sec": "outro",
+   "err_def": 135.5,
+   "err_ref": 135.5,
+   "err_rg": 135.5,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     33,
+     114
+    ],
+    [
+     129,
+     225
+    ]
+   ],
+   "bd_a": null,
+   "outro_a": 225,
+   "outro_len": 22.0,
+   "d1b": 1,
+   "b_thin_bass_db": 7.84,
+   "a_brk_drum_drop_db": null
+  },
+  {
+   "id": "alpha_rhythm_kwLDu3UxxLk__26",
+   "dj": "Alpha Rhythm",
+   "mix": "alpha_rhythm_kwLDu3UxxLk",
+   "pair": "Artificial Intelligence - No Fun -> Lenzman - Old Times' Sake",
+   "na": 195.0,
+   "nb": 226.0,
+   "pro_out": 47.05,
+   "pro_in": 130.48,
+   "pro_ov": 18.486,
+   "pro_sec": "breakdown",
+   "pro_in_sec": "drop2",
+   "def_exit": 177.0,
+   "def_cue": 1.0,
+   "def_sec": "drop2",
+   "ref_exit": 177.0,
+   "ref_sec": "drop2",
+   "rg_exit": 177.0,
+   "rg_sec": "drop2",
+   "err_def": 129.9,
+   "err_ref": 129.9,
+   "err_rg": 129.9,
+   "def_bucket": "pro_exited_during_drop1_or_build",
+   "drops_a": [
+    [
+     48,
+     112
+    ],
+    [
+     128,
+     186
+    ]
+   ],
+   "bd_a": 32,
+   "outro_a": 186,
+   "outro_len": 9.0,
+   "d1b": 16,
+   "b_thin_bass_db": 15.9,
+   "a_brk_drum_drop_db": 9.7
+  },
+  {
+   "id": "mrmommusic_7j4WQ5qOBZY__10",
+   "dj": "MrMoMMusic",
+   "mix": "mrmommusic_7j4WQ5qOBZY",
+   "pair": "Camo & Krooked - Kallisto -> Axwell - Nobody Else (1991 Remix)",
+   "na": 252.0,
+   "nb": 156.0,
+   "pro_out": 110.81,
+   "pro_in": 87.38,
+   "pro_ov": 5.618,
+   "pro_sec": "drop2",
+   "pro_in_sec": "drop1",
+   "def_exit": 233.0,
+   "def_cue": 25.0,
+   "def_sec": "drop4",
+   "ref_exit": 233.0,
+   "ref_sec": "drop4",
+   "rg_exit": 233.0,
+   "rg_sec": "drop4",
+   "err_def": 122.2,
+   "err_ref": 122.2,
+   "err_rg": 122.2,
+   "def_bucket": "pro_exited_later_drop_midtrack (>40 bars left)",
+   "drops_a": [
+    [
+     16,
+     38
+    ],
+    [
+     48,
+     112
+    ],
+    [
+     136,
+     171
+    ],
+    [
+     176,
+     240
+    ]
+   ],
+   "bd_a": 112,
+   "outro_a": 240,
+   "outro_len": 12.0,
+   "d1b": 40,
+   "b_thin_bass_db": 14.680000000000001,
+   "a_brk_drum_drop_db": 11.580000000000002
+  }
+ ]
+}

@@ -1,0 +1,862 @@
+{
+ "mhb1125_base": {
+  "wilkinson_boomtown2026__33": {
+   "ours": {
+    "mid_minus_bass": 3,
+    "early_mid_minus_high": 5.994999999999999,
+    "early_mid_vs_full": -8.87
+   },
+   "pro": {
+    "mid_minus_bass": 9,
+    "early_mid_minus_high": -9.739999999999998,
+    "early_mid_vs_full": -7.74
+   }
+  },
+  "hybrid_minds_ukf__08": {
+   "ours": {
+    "mid_minus_bass": -4,
+    "early_mid_minus_high": 7.8149999999999995,
+    "early_mid_vs_full": -2.265
+   },
+   "pro": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "joe_syntax_hospital__01": {
+   "ours": {
+    "mid_minus_bass": 16,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   },
+   "pro": {
+    "mid_minus_bass": 14,
+    "early_mid_minus_high": -20.009999999999998,
+    "early_mid_vs_full": -15.39
+   }
+  },
+  "joe_syntax_hospital__08": {
+   "ours": {
+    "mid_minus_bass": -2,
+    "early_mid_minus_high": 0.6400000000000006,
+    "early_mid_vs_full": -4.1
+   },
+   "pro": {
+    "mid_minus_bass": 3,
+    "early_mid_minus_high": -9.940000000000001,
+    "early_mid_vs_full": -4.640000000000001
+   }
+  },
+  "hybrid_minds_ukf__11": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": 2.8,
+    "early_mid_vs_full": -3.87
+   },
+   "pro": {
+    "mid_minus_bass": -26,
+    "early_mid_minus_high": 15.219999999999999,
+    "early_mid_vs_full": -1.87
+   }
+  },
+  "hybrid_minds_ukf__19": {
+   "ours": {
+    "mid_minus_bass": 17,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   },
+   "pro": {
+    "mid_minus_bass": 26,
+    "early_mid_minus_high": -2.2549999999999994,
+    "early_mid_vs_full": -8.885
+   }
+  },
+  "hybrid_minds_ukf__12": {
+   "ours": {
+    "mid_minus_bass": -3,
+    "early_mid_minus_high": -0.6100000000000003,
+    "early_mid_vs_full": -2.63
+   },
+   "pro": {
+    "mid_minus_bass": 27,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "hybrid_minds_ukf__25": {
+   "ours": {
+    "mid_minus_bass": 3,
+    "early_mid_minus_high": -4.93,
+    "early_mid_vs_full": -9.64
+   },
+   "pro": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 4.4399999999999995,
+    "early_mid_vs_full": -5.2700000000000005
+   }
+  },
+  "hybrid_minds_ukf__45": {
+   "ours": {
+    "mid_minus_bass": -6,
+    "early_mid_minus_high": -1.94,
+    "early_mid_vs_full": -2.9600000000000004
+   },
+   "pro": {
+    "mid_minus_bass": 11,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "netsky_hospital_classics__02": {
+   "ours": {
+    "mid_minus_bass": 3,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   },
+   "pro": {
+    "mid_minus_bass": 9,
+    "early_mid_minus_high": -3.915,
+    "early_mid_vs_full": -5.255000000000001
+   }
+  },
+  "netsky_hospital_classics__17": {
+   "ours": {
+    "mid_minus_bass": -4,
+    "early_mid_minus_high": -7.289999999999999,
+    "early_mid_vs_full": -4.960000000000001
+   },
+   "pro": {
+    "mid_minus_bass": 4,
+    "early_mid_minus_high": -8.875,
+    "early_mid_vs_full": -6.29
+   }
+  },
+  "netsky_hospital_classics__06": {
+   "ours": {
+    "mid_minus_bass": 16,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   },
+   "pro": null
+  },
+  "joe_syntax_hospital__11": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 3.709999999999999,
+    "early_mid_vs_full": -5.61
+   },
+   "pro": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 1.83,
+    "early_mid_vs_full": -8.129999999999999
+   }
+  },
+  "joe_syntax_hospital__12": {
+   "ours": {
+    "mid_minus_bass": -5,
+    "early_mid_minus_high": 4.029999999999999,
+    "early_mid_vs_full": -1.4050000000000002
+   },
+   "pro": {
+    "mid_minus_bass": 2,
+    "early_mid_minus_high": -8.57,
+    "early_mid_vs_full": -16.43
+   }
+  },
+  "joe_syntax_hospital__13": {
+   "ours": {
+    "mid_minus_bass": -4,
+    "early_mid_minus_high": -10.945,
+    "early_mid_vs_full": -19.735
+   },
+   "pro": {
+    "mid_minus_bass": 2,
+    "early_mid_minus_high": -13.280000000000001,
+    "early_mid_vs_full": -11.875
+   }
+  },
+  "hybrid_minds_ukf__00": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 23.06,
+    "early_mid_vs_full": -12.7
+   },
+   "pro": {
+    "mid_minus_bass": 12,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "hybrid_minds_ukf__09": {
+   "ours": {
+    "mid_minus_bass": -2,
+    "early_mid_minus_high": -6.074999999999999,
+    "early_mid_vs_full": -13.445
+   },
+   "pro": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -12.094999999999999,
+    "early_mid_vs_full": -6.365
+   }
+  },
+  "hybrid_minds_ukf__10": {
+   "ours": {
+    "mid_minus_bass": -2,
+    "early_mid_minus_high": 0.22999999999999932,
+    "early_mid_vs_full": -4.055
+   },
+   "pro": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -1.5750000000000002,
+    "early_mid_vs_full": -9.45
+   }
+  },
+  "hybrid_minds_ukf__28": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -4.76,
+    "early_mid_vs_full": -4.605
+   },
+   "pro": {
+    "mid_minus_bass": 17,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "hybrid_minds_ukf__40": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -8.525,
+    "early_mid_vs_full": -4.035
+   },
+   "pro": {
+    "mid_minus_bass": -2,
+    "early_mid_minus_high": -1.42,
+    "early_mid_vs_full": -7.0600000000000005
+   }
+  },
+  "joe_syntax_hospital__00": {
+   "ours": {
+    "mid_minus_bass": 10,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   },
+   "pro": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -4.3549999999999995,
+    "early_mid_vs_full": -13.79
+   }
+  },
+  "joe_syntax_hospital__09": {
+   "ours": {
+    "mid_minus_bass": 4,
+    "early_mid_minus_high": -9.985,
+    "early_mid_vs_full": -13.205
+   },
+   "pro": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "joe_syntax_hospital__14": {
+   "ours": {
+    "mid_minus_bass": -9,
+    "early_mid_minus_high": -0.1949999999999994,
+    "early_mid_vs_full": -2.4499999999999993
+   },
+   "pro": {
+    "mid_minus_bass": 2,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "hybrid_minds_ukf__13": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 9.1,
+    "early_mid_vs_full": -5.21
+   },
+   "pro": {
+    "mid_minus_bass": -8,
+    "early_mid_minus_high": 5.93,
+    "early_mid_vs_full": -5.84
+   }
+  },
+  "hybrid_minds_ukf__23": {
+   "ours": {
+    "mid_minus_bass": 16,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   },
+   "pro": {
+    "mid_minus_bass": 15,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "netsky_hospital_classics__23": {
+   "ours": {
+    "mid_minus_bass": 9,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   },
+   "pro": {
+    "mid_minus_bass": 5,
+    "early_mid_minus_high": -2.2299999999999986,
+    "early_mid_vs_full": -16.185
+   }
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   },
+   "pro": {
+    "mid_minus_bass": 20,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "netsky_hospital_classics__15": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -8.61,
+    "early_mid_vs_full": -7.96
+   },
+   "pro": {
+    "mid_minus_bass": -2,
+    "early_mid_minus_high": -1.4049999999999998,
+    "early_mid_vs_full": -6.06
+   }
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": 5.91,
+    "early_mid_vs_full": -5.01
+   },
+   "pro": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "ours": {
+    "mid_minus_bass": -2,
+    "early_mid_minus_high": -1.7600000000000002,
+    "early_mid_vs_full": -3.345
+   },
+   "pro": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "pola_bryson_puzzlewood__00": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": 6.22,
+    "early_mid_vs_full": -6.630000000000001
+   },
+   "pro": {
+    "mid_minus_bass": -9,
+    "early_mid_minus_high": -0.6900000000000004,
+    "early_mid_vs_full": -2.615
+   }
+  },
+  "pola_bryson_puzzlewood__02": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 5.559999999999999,
+    "early_mid_vs_full": -6.09
+   },
+   "pro": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "pola_bryson_puzzlewood__04": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -3.735,
+    "early_mid_vs_full": -4.34
+   },
+   "pro": {
+    "mid_minus_bass": -5,
+    "early_mid_minus_high": -14.329999999999998,
+    "early_mid_vs_full": -11.43
+   }
+  }
+ },
+ "mh6_1125": {
+  "wilkinson_boomtown2026__33": {
+   "ours": {
+    "mid_minus_bass": 3,
+    "early_mid_minus_high": -2.1999999999999993,
+    "early_mid_vs_full": -16.65
+   }
+  },
+  "hybrid_minds_ukf__08": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 1.2300000000000022,
+    "early_mid_vs_full": -7.720000000000001
+   }
+  },
+  "joe_syntax_hospital__01": {
+   "ours": {
+    "mid_minus_bass": 16,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "joe_syntax_hospital__08": {
+   "ours": {
+    "mid_minus_bass": -2,
+    "early_mid_minus_high": -2.2399999999999993,
+    "early_mid_vs_full": -6.55
+   }
+  },
+  "hybrid_minds_ukf__11": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": 0.35000000000000053,
+    "early_mid_vs_full": -10.11
+   }
+  },
+  "hybrid_minds_ukf__19": {
+   "ours": {
+    "mid_minus_bass": 17,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "hybrid_minds_ukf__25": {
+   "ours": {
+    "mid_minus_bass": 4,
+    "early_mid_minus_high": -8.055,
+    "early_mid_vs_full": -14.84
+   }
+  },
+  "hybrid_minds_ukf__12": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -5.535,
+    "early_mid_vs_full": -7.239999999999999
+   }
+  },
+  "hybrid_minds_ukf__45": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -7.86,
+    "early_mid_vs_full": -7.880000000000001
+   }
+  },
+  "netsky_hospital_classics__02": {
+   "ours": {
+    "mid_minus_bass": 3,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "netsky_hospital_classics__17": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -13.61,
+    "early_mid_vs_full": -7.79
+   }
+  },
+  "netsky_hospital_classics__06": {
+   "ours": {
+    "mid_minus_bass": 16,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "joe_syntax_hospital__11": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -1.7399999999999993,
+    "early_mid_vs_full": -9.9
+   }
+  },
+  "joe_syntax_hospital__12": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -2.3149999999999995,
+    "early_mid_vs_full": -6.955
+   }
+  },
+  "joe_syntax_hospital__13": {
+   "ours": {
+    "mid_minus_bass": -2,
+    "early_mid_minus_high": -11.76,
+    "early_mid_vs_full": -19.735
+   }
+  },
+  "hybrid_minds_ukf__00": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 23.06,
+    "early_mid_vs_full": -12.7
+   }
+  },
+  "hybrid_minds_ukf__09": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -7.79,
+    "early_mid_vs_full": -13.445
+   }
+  },
+  "hybrid_minds_ukf__10": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -3.42,
+    "early_mid_vs_full": -8.95
+   }
+  },
+  "hybrid_minds_ukf__28": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -4.76,
+    "early_mid_vs_full": -4.605
+   }
+  },
+  "joe_syntax_hospital__00": {
+   "ours": {
+    "mid_minus_bass": 10,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "hybrid_minds_ukf__40": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -15.2,
+    "early_mid_vs_full": -9.530000000000001
+   }
+  },
+  "joe_syntax_hospital__09": {
+   "ours": {
+    "mid_minus_bass": 4,
+    "early_mid_minus_high": -10.8,
+    "early_mid_vs_full": -14.4
+   }
+  },
+  "joe_syntax_hospital__14": {
+   "ours": {
+    "mid_minus_bass": -3,
+    "early_mid_minus_high": -5.15,
+    "early_mid_vs_full": -7.289999999999999
+   }
+  },
+  "hybrid_minds_ukf__13": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": 2.2800000000000002,
+    "early_mid_vs_full": -11.280000000000001
+   }
+  },
+  "hybrid_minds_ukf__23": {
+   "ours": {
+    "mid_minus_bass": 16,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "netsky_hospital_classics__23": {
+   "ours": {
+    "mid_minus_bass": 13,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "netsky_hospital_classics__15": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -14.61,
+    "early_mid_vs_full": -13.85
+   }
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 0.13000000000000078,
+    "early_mid_vs_full": -10.5
+   }
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -7.6,
+    "early_mid_vs_full": -8.709999999999999
+   }
+  },
+  "pola_bryson_puzzlewood__00": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -0.5,
+    "early_mid_vs_full": -13.91
+   }
+  },
+  "pola_bryson_puzzlewood__02": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 1.7599999999999998,
+    "early_mid_vs_full": -12.08
+   }
+  },
+  "pola_bryson_puzzlewood__04": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -8.620000000000001,
+    "early_mid_vs_full": -9.58
+   }
+  }
+ },
+ "mh10_1125": {
+  "wilkinson_boomtown2026__33": {
+   "ours": {
+    "mid_minus_bass": 3,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "hybrid_minds_ukf__08": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -1.4400000000000013,
+    "early_mid_vs_full": -12.239999999999998
+   }
+  },
+  "joe_syntax_hospital__01": {
+   "ours": {
+    "mid_minus_bass": 17,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "joe_syntax_hospital__08": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -3.8150000000000004,
+    "early_mid_vs_full": -7.824999999999999
+   }
+  },
+  "hybrid_minds_ukf__11": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -4.180000000000001,
+    "early_mid_vs_full": -14.43
+   }
+  },
+  "hybrid_minds_ukf__19": {
+   "ours": {
+    "mid_minus_bass": 17,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "hybrid_minds_ukf__12": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -8.75,
+    "early_mid_vs_full": -10.309999999999999
+   }
+  },
+  "hybrid_minds_ukf__25": {
+   "ours": {
+    "mid_minus_bass": 4,
+    "early_mid_minus_high": -9.45,
+    "early_mid_vs_full": -16.265
+   }
+  },
+  "hybrid_minds_ukf__45": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -11.04,
+    "early_mid_vs_full": -11.06
+   }
+  },
+  "netsky_hospital_classics__02": {
+   "ours": {
+    "mid_minus_bass": 3,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "netsky_hospital_classics__17": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -16.380000000000003,
+    "early_mid_vs_full": -11.489999999999998
+   }
+  },
+  "netsky_hospital_classics__06": {
+   "ours": {
+    "mid_minus_bass": 17,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "joe_syntax_hospital__11": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -4.460000000000001,
+    "early_mid_vs_full": -12.63
+   }
+  },
+  "joe_syntax_hospital__12": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -6.1899999999999995,
+    "early_mid_vs_full": -10.549999999999999
+   }
+  },
+  "joe_syntax_hospital__13": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -12.969999999999999,
+    "early_mid_vs_full": -19.735
+   }
+  },
+  "hybrid_minds_ukf__00": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 23.06,
+    "early_mid_vs_full": -12.7
+   }
+  },
+  "hybrid_minds_ukf__09": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -8.71,
+    "early_mid_vs_full": -13.625
+   }
+  },
+  "hybrid_minds_ukf__10": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -5.345000000000001,
+    "early_mid_vs_full": -11.884999999999998
+   }
+  },
+  "hybrid_minds_ukf__28": {
+   "ours": {
+    "mid_minus_bass": -1,
+    "early_mid_minus_high": -4.824999999999999,
+    "early_mid_vs_full": -4.605
+   }
+  },
+  "joe_syntax_hospital__00": {
+   "ours": {
+    "mid_minus_bass": 10,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "hybrid_minds_ukf__40": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -20.630000000000003,
+    "early_mid_vs_full": -13.345
+   }
+  },
+  "joe_syntax_hospital__14": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -22.175000000000004,
+    "early_mid_vs_full": -26.29
+   }
+  },
+  "joe_syntax_hospital__09": {
+   "ours": {
+    "mid_minus_bass": 4,
+    "early_mid_minus_high": -11.605,
+    "early_mid_vs_full": -15.57
+   }
+  },
+  "hybrid_minds_ukf__13": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -1.2299999999999986,
+    "early_mid_vs_full": -15.139999999999999
+   }
+  },
+  "hybrid_minds_ukf__23": {
+   "ours": {
+    "mid_minus_bass": 16,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "netsky_hospital_classics__23": {
+   "ours": {
+    "mid_minus_bass": 14,
+    "early_mid_minus_high": null,
+    "early_mid_vs_full": null
+   }
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -2.8200000000000003,
+    "early_mid_vs_full": -13.579999999999998
+   }
+  },
+  "netsky_hospital_classics__15": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -17.63,
+    "early_mid_vs_full": -16.869999999999997
+   }
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -3.8600000000000003,
+    "early_mid_vs_full": -14.085
+   }
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -10.42,
+    "early_mid_vs_full": -11.61
+   }
+  },
+  "pola_bryson_puzzlewood__00": {
+   "ours": {
+    "mid_minus_bass": 1,
+    "early_mid_minus_high": -4.59,
+    "early_mid_vs_full": -14.5
+   }
+  },
+  "pola_bryson_puzzlewood__02": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": 1.669999999999999,
+    "early_mid_vs_full": -8.7
+   }
+  },
+  "pola_bryson_puzzlewood__04": {
+   "ours": {
+    "mid_minus_bass": 0,
+    "early_mid_minus_high": -10.25,
+    "early_mid_vs_full": -11.51
+   }
+  }
+ }
+}

@@ -547,8 +547,7 @@ def _pinned_worker(payload):
     arm, map_path, i, rec = payload
     os.environ['HARD_FALLBACK'] = '0'
     os.environ.pop('HARDCHECK_TEST_FORCE_WIN', None)
-    import st_pin
-    os.environ['PROTRANS_SRC2'] = st_pin.ensure_shadow()
+    os.environ.setdefault('PROTRANS_SRC2', '/workspace/mixes/src2_pin_n1121')
     if map_path:
         os.environ['PICKER_STYLE_GATED'] = '1'
         os.environ['PICKER_STYLE_GATED_MAP'] = map_path
@@ -587,24 +586,70 @@ def run_eval_pinned():
     os.environ.pop('HARDCHECK_TEST_FORCE_WIN', None)
     import st_pin
     os.environ['PROTRANS_SRC2'] = st_pin.ensure_shadow()
-    import paths, run_admitted_tune as T
+    import paths, run_admitted_tune as T, score_v2 as S2
     recs = T.load_recs()
 
-    # Ensure maps exist
     for arm in ('hybrid_sec_cue', 'hybrid_sec_mix'):
         if not os.path.exists(os.path.join(W, f'map_{arm}.json')):
             run_protrans_maps()
             break
 
+    # Load verified base cohort (recomputing v2 with current score_v2.py) and cross-check any live pinned_base.jsonl rows
+    cohort_base_p = os.path.join(P0, 'research_1124', 'scorev2', 'cohort_base.jsonl')
+    base_by_id = {}
+    for l in open(cohort_base_p):
+        if l.strip():
+            row = json.loads(l)
+            if not row.get('error'):
+                pl = S2.placement_score(row['placement']['ours'], row['placement']['pro'])
+                row['placement']['parts'] = pl
+                row['v2'] = round(S2.combine(row['v1'], row['v1_breakdown'], pl), 2)
+                base_by_id[row['id']] = row
+    live_base_ck = os.path.join(W, 'pinned_base.jsonl')
+    if os.path.exists(live_base_ck):
+        for l in open(live_base_ck):
+            if l.strip():
+                lr = json.loads(l)
+                if not lr.get('error') and lr['id'] in base_by_id:
+                    b = base_by_id[lr['id']]
+                    assert abs(lr['v1'] - b['v1']) < 0.05 and abs(lr['v2'] - b['v2']) < 0.05, f"base mismatch {lr['id']}: {lr['v1']}/{lr['v2']} vs {b['v1']}/{b['v2']}"
+
     arms = [
-        ('base', None),
-        ('cueonly_gated', os.path.join(W, 'map_cueonly_gated.json')),
         ('hybrid_sec_cue', os.path.join(W, 'map_hybrid_sec_cue.json')),
+        ('cueonly_gated', os.path.join(W, 'map_cueonly_gated.json')),
         ('hybrid_sec_mix', os.path.join(W, 'map_hybrid_sec_mix.json')),
     ]
     import multiprocessing as mp
-    summary = {}
+
+    def _summarize(arm_name, rows_ok):
+        tr = [x for x in rows_ok if x['split'] == 'train']
+        te = [x for x in rows_ok if x['split'] == 'test']
+        fams = collections.Counter(x['fam'] for x in rows_ok)
+        d_v1 = [x['v1'] - base_by_id[x['id']]['v1'] for x in rows_ok]
+        d_v2 = [x['v2'] - base_by_id[x['id']]['v2'] for x in rows_ok]
+        rng = np.random.default_rng(SEED)
+        bs = rng.integers(0, len(rows_ok), (NB, len(rows_ok)))
+        ci = lambda arr: [round(float(np.mean(arr)), 2), round(float(np.percentile(np.asarray(arr)[bs].mean(1), 2.5)), 2), round(float(np.percentile(np.asarray(arr)[bs].mean(1), 97.5)), 2)]
+        return dict(
+            n=len(rows_ok), n_train=len(tr), n_test=len(te),
+            v1_train=round(float(np.mean([x['v1'] for x in tr])), 2) if tr else None,
+            v1_test=round(float(np.mean([x['v1'] for x in te])), 2) if te else None,
+            v1_all=round(float(np.mean([x['v1'] for x in rows_ok])), 2) if rows_ok else None,
+            v2_train=round(float(np.mean([x['v2'] for x in tr])), 2) if tr else None,
+            v2_test=round(float(np.mean([x['v2'] for x in te])), 2) if te else None,
+            v2_all=round(float(np.mean([x['v2'] for x in rows_ok])), 2) if rows_ok else None,
+            delta_v1_vs_base=ci(d_v1) if arm_name != 'base' else [0.0, 0.0, 0.0],
+            delta_v2_vs_base=ci(d_v2) if arm_name != 'base' else [0.0, 0.0, 0.0],
+            n_picker_applied=sum(1 for x in rows_ok if x['fam'] == 'picker_style_gated'),
+            fams=dict(fams),
+        )
+
+    summary = dict(base=_summarize('base', [base_by_id[r['id']] for r in recs]))
+    print(f"PINNED base repro: v1={summary['base']['v1_train']}/{summary['base']['v1_test']} (target 32.40/34.07) v2={summary['base']['v2_train']}/{summary['base']['v2_test']}", flush=True)
+
     for arm, mpath in arms:
+        mp_tab = json.load(open(mpath))
+        by_yt = mp_tab.get('by_yt') or {}
         ck = os.path.join(W, f'pinned_{arm}.jsonl')
         have = {}
         if os.path.exists(ck):
@@ -613,10 +658,21 @@ def run_eval_pinned():
                     row = json.loads(l)
                     if not row.get('error'):
                         have[row['id']] = row
-        todo = [(arm, mpath, i, r) for i, r in enumerate(recs) if r['id'] not in have]
-        print(f'PINNED {arm}: {len(have)} cached, {len(todo)} todo', flush=True)
+        todo = []
+        for i, r in enumerate(recs):
+            if r['id'] in have:
+                continue
+            key = f"{r['a']['yt']}|{r['b']['yt']}"
+            if key not in by_yt:
+                b_copy = dict(base_by_id[r['id']], arm=arm, abstained_to_base=True)
+                with open(ck, 'a') as fh:
+                    fh.write(json.dumps(b_copy, default=str) + '\n')
+                have[r['id']] = b_copy
+            else:
+                todo.append((arm, mpath, i, r))
+        print(f'PINNED {arm}: {len(have)} cached (incl abstains), {len(todo)} to render', flush=True)
         if todo:
-            with mp.get_context('spawn').Pool(int(os.environ.get('PINW', 1)), maxtasksperchild=4) as pool:
+            with mp.get_context('spawn').Pool(int(os.environ.get('PINW', 2)), maxtasksperchild=4) as pool:
                 for row in pool.imap_unordered(_pinned_worker, todo):
                     with open(ck, 'a') as fh:
                         fh.write(json.dumps(row, default=str) + '\n')
@@ -624,21 +680,10 @@ def run_eval_pinned():
                     if not row.get('error'):
                         have[row['id']] = row
         rows_ok = [have[r['id']] for r in recs if r['id'] in have]
-        tr = [x for x in rows_ok if x['split'] == 'train']
-        te = [x for x in rows_ok if x['split'] == 'test']
-        fams = collections.Counter(x['fam'] for x in rows_ok)
-        summary[arm] = dict(
-            n=len(rows_ok), n_train=len(tr), n_test=len(te),
-            v1_train=round(float(np.mean([x['v1'] for x in tr])), 2) if tr else None,
-            v1_test=round(float(np.mean([x['v1'] for x in te])), 2) if te else None,
-            v1_all=round(float(np.mean([x['v1'] for x in rows_ok])), 2) if rows_ok else None,
-            v2_train=round(float(np.mean([x['v2'] for x in tr])), 2) if tr else None,
-            v2_test=round(float(np.mean([x['v2'] for x in te])), 2) if te else None,
-            v2_all=round(float(np.mean([x['v2'] for x in rows_ok])), 2) if rows_ok else None,
-            fams=dict(fams),
-        )
-    outp = os.path.join(H, 'picker_1125_followup_pinned.json')
-    json.dump(summary, open(outp, 'w'), indent=2)
+        summary[arm] = _summarize(arm, rows_ok)
+        outp = os.path.join(H, 'picker_1125_followup_pinned.json')
+        json.dump(summary, open(outp, 'w'), indent=2)
+        print('PINNED CHECKPOINT', arm, json.dumps(summary[arm]), flush=True)
     print('PINNED SUMMARY:', json.dumps(summary, indent=2), flush=True)
 
 

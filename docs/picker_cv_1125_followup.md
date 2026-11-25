@@ -50,3 +50,75 @@ Key `picker_1125` exit strata:
 ## 3. Hybrid Pickers Under Cross-Validation (running `picker-followup-cv-1125`)
 1. **`hybrid_sec_cue`**: Section-aware cue ranker (adds Track B thinness/build/drop1 contrast + Track A default-exit coupling `(d1b - x) - (na - dex)` and `(d1b - x) - dX`) + default exit + default X.
 2. **`hybrid_sec_mix`**: `hybrid_sec_cue` + section-aware **Bayes-mixture Expected-MAE exit gate** (`p_early * |c - mu_early| + (1 - p_early) * |c - mu_late|`, filtering spurious intro drops, selecting gate margin `M` via nested inner leave-one-DJ-out CV).
+
+## 4. Follow-Up Hybrid Cross-Validation Results (`picker-followup-cv-1125`, n=843, 25 DJs, 101 mixes)
+Checkpoint updated 2026-11-25 02:00 AM ET. Output: `protrans/replica/picker_1125_followup_cv.json`.
+
+| Arm | Exit+Cue Mean | Exit Mean (Med) | Exit @8 / @16 | Cue Mean (Med) | Cue @8 / @16 | `pro_mid` Exit | `pro_late` Exit |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `default` | 37.13 | 46.82 (34.1) | 16.5% / 35.2% | 27.44 (18.7) | 18.6% / 42.9% | 77.03 | 11.40 |
+| `majority` | 36.22 | 47.37 (38.4) | 7.1% / 14.7% | 25.06 (22.4) | 22.4% / 35.7% | 57.64 | 35.33 |
+| `cueonly_gated` (learned cue + default exit) | 35.03 | 46.82 (34.1) | 16.5% / 35.2% | **23.25** (16.3) | 22.4% / **48.9%** | 77.03 | 11.40 |
+| `hybrid_sec_cue` (sec-aware cue + default exit) | 35.15 | 46.82 (34.1) | 16.5% / 35.2% | 23.48 (16.9) | **22.9%** / 47.0% | 77.03 | 11.40 |
+| `hybrid_sec_mix` (sec-aware cue + Bayes-mix exit) | 34.14 | 44.81 (39.7) | 15.9% / 31.0% | 23.48 (16.9) | **22.9%** / 47.0% | **46.95** | 42.30 |
+| `ridegate` | **33.74** | **44.23** (34.0) | **18.3%** / 34.8% | **23.25** (16.3) | 22.4% / **48.9%** | 54.37 | 32.34 |
+
+### 95% Bootstrap CIs vs `default` (4000 draws; Mix-Clustered / Pair-Clustered)
+- **`cueonly_gated`**:
+  - Exit+Cue Δ: **−2.10** (mix `[−3.07, −1.17]`, pair `[−2.67, −1.52]`)
+  - Cue Δ: **−4.19** (mix `[−6.14, −2.35]`, pair `[−5.33, −3.04]`)
+  - Cue @8 / @16 gain: `+3.8 pts` (mix `[−1.4, +8.7]`, pair `[0.0, +7.5]`) / `+5.9 pts` (mix `[−2.5, +14.1]`, pair `[+1.7, +10.4]`)
+  - Exit Δ: `0.00` (zero `pro_late` regression). vs `majority`: Exit+Cue Δ `−1.18` (mix `[−3.25, +0.65]`, crosses 0).
+- **`hybrid_sec_cue`**:
+  - Exit+Cue Δ: **−1.98** (mix `[−2.75, −1.20]`, pair `[−2.50, −1.45]`)
+  - Cue Δ: **−3.96** (mix `[−5.50, −2.40]`, pair `[−4.99, −2.91]`)
+  - Cue @8 / @16 gain: `+4.3 pts` (mix `[0.0, +8.4]`, pair `[+0.8, +7.7]`) / `+4.0 pts` (mix `[−2.6, +10.6]`, pair `[+0.1, +7.9]`)
+  - vs `majority`: Exit+Cue Δ `−1.07` (mix `[−3.01, +0.57]`, crosses 0).
+- **`hybrid_sec_mix`**:
+  - Exit+Cue Δ: **−2.98** (mix `[−5.31, −0.50]`, pair `[−4.69, −1.28]`), vs `majority`: **−2.07** (mix `[−3.97, −0.04]`, pair `[−3.56, −0.64]`).
+  - Exit Δ: `−2.01` (mix `[−6.63, +3.21]`, pair `[−5.28, +1.21]`, crosses 0). Slashes `pro_mid` error `77.03 -> 46.95`, but inner-CV `margin=5` on KushSessions pushes `pro_late` error `11.40 -> 42.30` and lowers `exit@16` (`35.2% -> 31.0%`).
+
+## 5. Why `picker-fresh-1125` (n=14) Beat Default While 843-Pair CV Did Not
+Fresh mix `kushsessions_z8SnJBUd-0U` (14 transitions, `picker_1125_fresh.json`):
+- **Root cause of divergence:** In dev, KushSessions rides to the outro 58% of the time (`mid_rate = 42%`), and 46% of all 843 dev pairs ride late (`>= na − 40`). In `z8SnJBUd-0U`, KushSessions exited mid-track on **10 of 14 transitions (`mid_rate = 71%`)**, so `default` suffered a huge **63.18 bar** mean exit error (`exit@16 = 14.3%`).
+- On `z8SnJBUd-0U` (4000-draw pair bootstrap CIs for n=14):
+  - `default`: Exit+Cue `49.72`, Exit `63.18` (med `69.1`, `@16 = 14.3%`), Cue `36.25`.
+  - `cueonly_gated`: Exit+Cue `45.66` (`Δ −4.06 [−8.86, +0.42]`), Cue `28.13` (`Δ −8.12 [−17.71, +0.85]`), Exit `63.18`.
+  - `hybrid_sec_cue`: Exit+Cue `45.59` (`Δ −4.13 [−8.18, −0.41]`), Cue `27.99` (`Δ −8.26 [−16.36, −0.82]`), Exit `63.18`.
+  - `ridegate`: Exit+Cue `33.64` (`Δ −16.08 [−27.93, −5.67]`), Exit `39.15` (`Δ −24.03 [−46.29, −5.22]`).
+  - `ref_full_gated`: Exit+Cue `31.00` (`Δ −18.72 [−31.10, −7.38]`), Exit `33.87` (`Δ −29.31 [−52.34, −9.67]`).
+  - **`hybrid_sec_mix`**: Exit+Cue **`25.52`** (`Δ −24.20 [−34.85, −13.92]`), Exit **`23.05`** (med `14.1`, `@16 = 50.0%`, `Δ −40.13 [−61.85, −18.86]`), Cue `27.99`.
+- **Takeaway:** A single high-mid-rate mix (n=14) gives huge apparent exit gains for any aggressive mid-track exit picker (`ref_full_gated`, `ridegate`, `hybrid_sec_mix`), whereas across 101 mixes / 25 DJs (n=843), none of those style-free exit pickers beat `default` on exit with a CI excluding zero because DJ pacing (21%–100% mid-track rate) is unobservable without earlier-mix context. By contrast, **cue placement (`cueonly_gated` / `hybrid_sec_cue`) wins consistently across both 843-pair CV and the 14-pair fresh mix with zero late-exit damage.**
+
+Diagnostic PNG: `docs/picker_cv_1125_followup.png`.
+
+## 6. Pinned 33-Pair Render Evaluation (`PROTRANS_SRC2=/workspace/mixes/src2_pin_n1121`, `HARD_FALLBACK=0`)
+Completed 2026-11-25 02:59 AM ET (`picker-followup-pinned-1125`, `rc=0`). Output: `protrans/replica/picker_1125_followup_pinned.json`.
+Note: Both `official_v1` and `official_v2-place8c` are **0–100 similarity scores (higher is better)**.
+
+| Arm | Applied (`picker_style_gated`) | `v1` Train / Test (All) | `Δv1` vs `base` [95% CI] | `v2` Train / Test (All) | `Δv2` vs `base` [95% CI] | `v2` place `(entry/gone/swap)` | Audio MAE `b_entry` / `a_exit` |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `base` (`default`) | 0/33 | **32.40 / 34.07** (33.01) | 0.00 | **34.09 / 33.53** (33.89) | 0.00 | 26.4 / 26.3 / 27.2 | **20.3** (n=32) / 54.0 (n=20) |
+| `cueonly_gated` | 23/33 (7 abst, 3 `!in_cs`) | 28.85 / 29.41 (29.05) | **−3.96 [−7.20, −0.90]** | 29.31 / 29.84 (29.51) | **−4.38 [−8.00, −0.63]** | 21.3 / 25.2 / 22.4 | 31.6 (n=32) / 55.1 (n=19) |
+| `hybrid_sec_cue` | 22/33 (9 abst, 2 `!in_cs`) | 29.88 / 32.51 (30.84) | −2.17 [−5.39, +0.89] | 29.87 / 32.60 (30.86) | −3.02 [−7.06, +1.24] | 21.2 / 25.6 / 21.0 | 31.9 (n=32) / 62.7 (n=20) |
+| `hybrid_sec_mix` | 20/33 (2 abst, 11 `!in_cs`) | 30.81 / 33.35 (31.73) | −1.28 [−3.91, +1.47] | 31.12 / 32.83 (31.74) | −2.14 [−5.34, +0.95] | 21.4 / **27.6** / 24.0 | 33.0 (n=32) / **32.6** (n=23) |
+
+`base` reproduces the pinned v1 baseline (`32.40 / 34.07`) and v2 baseline (`34.09 / 33.53`) identically.
+
+### Reconciling CV Bar-Error Gains vs Pinned Render Similarity Losses
+Why did every picker variant **lose** on `v1`/`v2` similarity on the 33 pinned pairs despite improving mean bar MAE on the 843-pair CV?
+1. **Dev-set KushSessions cue skew + ungated cue overwrite (`tau = -1e9`):**
+   - On `KushSessions` (`n=406`, 48% of dev, median `pro_in = 47.5` bars), `default` cue error is `29.72` (`@16 = 27.3%`) and `cueonly_gated` improves it to `21.73` (`@16 = 56.4%`).
+   - On **non-KushSessions DJs (`n=437`, median `pro_in = 31.9`)**, `default` cue `@16` is already **`57.4%`** (mean `25.32`), and `cueonly_gated` *drops* `cue@16` to **`41.9%`** (`−15.5 pts`!) because inner CV selected `tau = -1e9` (0 cue abstention), shifting fast intros (`0/8/16`) out to `32–48` bars.
+   - The 33 pinned pairs (`Hybrid Minds UKF`, `Joe Syntax Hospital`, `Netsky Hospital`, `Maduk Liquicity`, `Pola & Bryson`, `Wilkinson`) are all fast-cue non-KushSessions pairs where `base` already gets `audio_b_entry_MAE = 20.3` bars; `cueonly_gated` / `hybrid_sec_cue` degrade `b_entry_MAE` to `31.6–33.0` bars, hurting `place_entry` (`26.4 -> 21.3`), `place_swap` (`27.2 -> 21.0–24.0`), `v1 stem_curves` (`40.1 -> 32.7–36.3`), and `v1 deck_curves` (`30.6 -> 25.1–28.4`).
+2. **Exit placement vs cue placement (`hybrid_sec_mix`):**
+   - `hybrid_sec_mix` is the **only** arm that improved `place_exit` (`26.3 -> 27.6`) and `v1 outgoing_cut` (`20.6 -> 22.0`), slashing pinned `audio_a_exit_MAE` from `54.0 -> 32.6` bars (`ukf__19` jumped `v1 +22.55 / v2 +18.82`, `netsky__06` `v2 +13.76`, `ukf__12` `v2 +6.35`).
+   - It still trailed `base` overall (`v1 −1.28`, `v2 −2.14`) because (a) its ungated KushSessions-skewed cue model dragged `entry`/`swap`/`stem_curves` down, and (b) **11/31** mapped early-exit windows fell back to `nat_short` because those windows were not in `recreate.py`'s candidate set `cs`.
+
+## 7. Recommendation on Nightly Picker Arm
+- **Do NOT promote `cueonly_gated`, `hybrid_sec_cue`, or `hybrid_sec_mix` over `default` as a replacement yet.** Keep `default` (`rules.json`) untouched as the production baseline; on the 33 pinned pairs `cueonly_gated` significantly regresses both `v1` (`−3.96 [−7.20, −0.90]`) and `v2` (`−4.38 [−8.00, −0.63]`).
+- **Keep `cueonly_gated` / `hybrid_sec_cue` / `hybrid_sec_mix` strictly as diagnostic/experimental shadow arms** (with `hybrid_sec_cue` preferred over `cueonly_gated` for cue-only research because section features halved the non-KushSessions `cue@16` drop and improved pinned `v1`/`v2` by `+1.79/+1.35` over `cueonly_gated`).
+- **Next fix required before promoting any picker arm:**
+  1. **Reweight/stratify training across DJs** (cap KushSessions weight or balance by DJ/style) and **enforce a real cue gate (`tau > 0`, or only override when default `ic` clashes with Track B density/intro length)** so fast `0/8/16` cues are preserved.
+  2. **Inject mapped `picker_window` `[ib, ic]` into `recreate.py`'s candidate pool `cs`** (when rhythmically valid) instead of dropping 35% of early-exit predictions (`11/31` in `hybrid_sec_mix`) via `win_not_in_cs`.
+  3. **Select picker hyperparameters against `v2`/audio-placement proxy or stratified DJ-balanced loss**, not raw KushSessions-dominated bar MAE.

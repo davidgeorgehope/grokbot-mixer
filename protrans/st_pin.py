@@ -7,6 +7,12 @@ environment of a fresh process).
 """
 from __future__ import annotations
 import hashlib, json, os, shutil, subprocess, sys
+def _safe_symlink(src, dst):
+    try:
+        os.symlink(src, dst)
+    except FileExistsError:
+        pass
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MIXES = os.path.abspath(os.path.join(HERE, '..'))
@@ -63,6 +69,9 @@ def ensure_shadow(yts=None):
     Mix 10 keeps using /workspace/mixes/src2. Official jobs set PROTRANS_SRC2 to
     the returned path. Existing wav/npz files are symlinks; pinned json are copies.
     """
+    os.environ['PROTRANS_SRC2'] = SHADOW
+    if 'paths' in sys.modules:
+        sys.modules['paths'].SRC2 = SHADOW
     man_p = os.path.join(PIN_DIR, 'manifest.json')
     if not os.path.exists(man_p):
         extract_pin(yts)
@@ -88,7 +97,7 @@ def ensure_shadow(yts=None):
             elif os.path.isdir(dst) and not os.path.islink(dst):
                 # leftover; leave if it is our dir — but top-level should be links
                 continue
-        os.symlink(src, dst)
+        _safe_symlink(src, dst)
     st_live = os.path.join(LIVE_SRC2, 'st')
     st_sh = os.path.join(SHADOW, 'st')
     os.makedirs(st_sh, exist_ok=True)
@@ -104,7 +113,7 @@ def ensure_shadow(yts=None):
                 if os.path.islink(dst) or os.path.isfile(dst):
                     os.remove(dst)
             if not os.path.lexists(dst):
-                os.symlink(src, dst)
+                _safe_symlink(src, dst)
     pin_st = os.path.join(PIN_DIR, 'st')
     n_overlay = 0
     if os.path.isdir(pin_st):
@@ -116,6 +125,9 @@ def ensure_shadow(yts=None):
                     os.remove(dst)
             shutil.copy2(src, dst)
             n_overlay += 1
+    os.environ['PROTRANS_SRC2'] = SHADOW
+    if 'paths' in sys.modules:
+        sys.modules['paths'].SRC2 = SHADOW
     print(f'st_pin shadow {SHADOW} overlay_files={n_overlay}', flush=True)
     return SHADOW
 

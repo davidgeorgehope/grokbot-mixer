@@ -1,0 +1,44 @@
+{
+ "written": "2026-11-26",
+ "measurement": "linger_bars: count of blend bars with outgoing in a drop and incoming in a breakdown",
+ "cohort": "protrans (official pro windows from protrans_decisions.json, snapshot sections)",
+ "p95": 5.3999999999999915,
+ "threshold": 5.3999999999999915,
+ "rule": "block a live window when linger_bars > pro p95",
+ "pro": {
+  "n": 33,
+  "n_linger": 3,
+  "rate": 0.0909,
+  "mean": 0.848,
+  "p95": 5.4,
+  "max": 16,
+  "hist": {
+   "0": 30,
+   "3": 1,
+   "9": 1,
+   "16": 1
+  }
+ },
+ "our_default": {
+  "n": 33,
+  "n_linger": 0,
+  "rate": 0.0,
+  "mean": 0.0,
+  "p95": 0.0,
+  "max": 0,
+  "hist": {
+   "0": 33
+  }
+ },
+ "our_ridegate": {
+  "n": 33,
+  "n_linger": 0,
+  "rate": 0.0,
+  "mean": 0.0,
+  "p95": 0.0,
+  "max": 0,
+  "hist": {
+   "0": 33
+  }
+ }
+}

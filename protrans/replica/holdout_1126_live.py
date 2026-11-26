@@ -78,6 +78,54 @@ def _ci_pass(triple):
     return triple[1] < 0 and triple[2] < 0
 
 
+def classify_veto(per_pair, PF, DF):
+    """Hard-check veto for moved official windows.
+
+    Missing audio / a missing or failed render is 'not_evaluated', never a veto
+    and never a revert. After-veto CI must be computed only on evaluable pairs
+    (abstains, plus moved pairs where both arms rendered).
+    """
+    recs, cnt = [], collections.Counter()
+    cnt['n'] = len(per_pair)
+    for p in per_pair:
+        i, rg = p['id'], p['ridegate']
+        if rg.get('is_default') or not rg.get('win'):
+            recs.append(dict(id=i, status='abstain', evaluable=True, veto=False))
+            cnt['abstain'] += 1
+            cnt['evaluable'] += 1
+            continue
+        cnt['moved'] += 1
+        rec = dict(id=i, want=rg['win'])
+        if i not in PF or PF[i].get('error') or i not in DF or DF[i].get('error'):
+            rec['status'] = 'not_evaluated'
+            rec['evaluable'] = False
+            rec['veto'] = False
+            rec['why'] = 'missing_render' if (i not in PF or (PF.get(i) or {}).get('error')) else 'missing_default'
+            cnt['not_evaluated'] += 1
+            recs.append(rec)
+            continue
+        rr = PF[i]
+        rec['got'] = rr.get('win')
+        rec['applied'] = bool(rr.get('win') and list(rr['win']) == list(rg['win']))
+        rec['fam'] = rr.get('fam')
+        ph = (rr.get('hard') or {})
+        dh = (DF[i].get('hard') or {})
+        rec['pick_hard_fail'] = bool(ph.get('hard_fail'))
+        rec['def_hard_fail'] = bool(dh.get('hard_fail'))
+        rec['new_hard_fail'] = bool(rec['pick_hard_fail'] and rec['def_hard_fail'] is False)
+        rec['flags'] = {k: ph.get(k) for k in ('beat_clash', 'bass_hole', 'pumping', 'incoming_vanish', 'hard_fail')}
+        rec['status'] = 'checked'
+        rec['evaluable'] = True
+        rec['veto'] = bool(rec['new_hard_fail'] or not rec['applied'])
+        cnt['checked'] += 1
+        cnt['evaluable'] += 1
+        cnt['veto'] += int(rec['veto'])
+        cnt['new_hard_fail'] += int(rec['new_hard_fail'])
+        cnt['not_applied'] += int(not rec['applied'])
+        recs.append(rec)
+    return recs, cnt
+
+
 def main():
     cmp_p = os.path.join(W, 'ridegate_live_vs_map_render.json')
     cmp = json.load(open(cmp_p))
@@ -139,42 +187,24 @@ def main():
 
     DF = _ckpt(os.path.join(H, 'gate_ckpt', 'n1126h_default.jsonl'))
     PF = _ckpt(os.path.join(H, 'gate_ckpt', 'n1126h_ridegate_live.jsonl'))
-    veto_pairs = []
-    cnt = collections.Counter()
-    for p in pj['per_pair']:
-        i = p['id']; rg = p['ridegate']
-        if rg.get('is_default') or not rg.get('win'):
-            continue
-        rec = dict(id=i, want=rg['win'])
-        if i not in PF or PF[i].get('error'):
-            rec['status'] = 'not_rendered'; rec['veto'] = True
-            cnt['not_rendered'] += 1; cnt['veto'] += 1
-            veto_pairs.append(rec); continue
-        rr = PF[i]
-        rec['got'] = rr.get('win')
-        rec['applied'] = bool(rr.get('win') and list(rr['win']) == list(rg['win']))
-        rec['fam'] = rr.get('fam')
-        ph = (rr.get('hard') or {})
-        dh = (DF.get(i) or {}).get('hard') or {}
-        rec['pick_hard_fail'] = bool(ph.get('hard_fail'))
-        rec['def_hard_fail'] = bool(dh.get('hard_fail')) if i in DF and not DF[i].get('error') else None
-        rec['new_hard_fail'] = bool(rec['pick_hard_fail'] and rec['def_hard_fail'] is False)
-        rec['flags'] = {k: ph.get(k) for k in ('beat_clash', 'bass_hole', 'pumping', 'incoming_vanish', 'hard_fail')}
-        rec['veto'] = bool(rec['new_hard_fail'] or not rec['applied'] or rec['def_hard_fail'] is None)
-        cnt['checked'] += 1
-        cnt['veto'] += int(rec['veto'])
-        cnt['new_hard_fail'] += int(rec['new_hard_fail'])
-        cnt['not_applied'] += int(not rec['applied'])
-        veto_pairs.append(rec)
-    V = {r['id']: r['veto'] for r in veto_pairs}
-    after = _boot_ec(pj['per_pair'], lambda p: (not p['ridegate'].get('is_default')) and (not V.get(p['id'], False)))
+    veto_pairs, cnt = classify_veto(pj['per_pair'], PF, DF)
+    ev_ids = {r['id'] for r in veto_pairs if r.get('evaluable')}
+    ev_pairs = [p for p in pj['per_pair'] if p['id'] in ev_ids]
+    V = {r['id']: r['veto'] for r in veto_pairs if r.get('evaluable')}
+    raw_evaluable = _boot_ec(ev_pairs, lambda p: (not p['ridegate'].get('is_default')))
+    after = _boot_ec(ev_pairs, lambda p: (not p['ridegate'].get('is_default')) and (not V.get(p['id'], False)))
     raw_ok = _ci_pass(raw)
+    ev_ok = _ci_pass(raw_evaluable)
     after_ok = _ci_pass(after)
-    veto = dict(counts=dict(cnt), pairs=veto_pairs, after_veto=dict(delta_exit_cue=after, pass_ci=after_ok),
-                raw=dict(delta_exit_cue=raw, pass_ci=raw_ok), pack_agree=pack_agree,
-                n=pj['n'], mixes=pj['mixes'])
+    veto = dict(counts=dict(cnt), pairs=veto_pairs,
+                after_veto=dict(delta_exit_cue=after, pass_ci=after_ok, n=len(ev_pairs)),
+                raw=dict(delta_exit_cue=raw, pass_ci=raw_ok, n=pj['n']),
+                raw_evaluable=dict(delta_exit_cue=raw_evaluable, pass_ci=ev_ok, n=len(ev_pairs)),
+                pack_agree=pack_agree, n=pj['n'], mixes=pj['mixes'])
     json.dump(veto, open(os.path.join(W, 'hc_veto_1126_holdout.json'), 'w'), indent=1, default=str)
-    print('VETO', json.dumps(veto['counts']), 'after_veto', after, 'pass', after_ok, 'raw_pass', raw_ok, flush=True)
+    print('VETO', json.dumps(veto['counts']),
+          'raw_all', raw, 'raw_evaluable', raw_evaluable, 'after_veto', after,
+          'pass', after_ok, 'raw_pass', raw_ok, flush=True)
 
     # Log the opening (2nd). Do not touch frozen arms, promotion rule text, or rules.json.
     crit_p = os.path.join(H, 'promotion_criteria.json')

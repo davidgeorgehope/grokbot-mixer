@@ -115,6 +115,12 @@ def _worker(job):
         fcntl.flock(f, fcntl.LOCK_EX); f.write(json.dumps(row, default=str) + '\n')
     return row
 
+def job_tag(variant, i):
+    """Unique per full variant and pair index so parallel arms cannot share /tmp prefixes."""
+    safe = ''.join(ch if ch.isalnum() or ch in '-_' else '_' for ch in str(variant))
+    return f'g{safe}_{int(i)}'
+
+
 def done(variant):
     p = os.path.join(CK, variant + '.jsonl')
     return {json.loads(l)['id'] for l in open(p)} if os.path.exists(p) else set()
@@ -130,7 +136,7 @@ if __name__ == '__main__':
     for arg in sys.argv[1:]:
         v, js = arg.split('=', 1); rr = copy.deepcopy(base); rr.update(json.loads(js)); have = done(v)
         for i, r in enumerate(R):
-            if r['id'] not in have: jobs.append((r, rr, v, f'g{v[:4]}{i}'))
+            if r['id'] not in have: jobs.append((r, rr, v, job_tag(v, i)))
     print('jobs', len(jobs), flush=True)
     from concurrent.futures import ProcessPoolExecutor, as_completed
     with ProcessPoolExecutor(max_workers=W) as ex:

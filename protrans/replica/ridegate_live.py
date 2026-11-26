@@ -189,12 +189,14 @@ def default_from_win(win):
 _BUILT_BY_YT = None
 _BUILT_BY_ID = None
 
-def _index_built():
-    """Index already-built dev+protrans rows by id and yt key. Does not index the locked holdout."""
+def reset_built_index():
+    """Test hook: drop the built-row index so the next lookup rebuilds it."""
     global _BUILT_BY_YT, _BUILT_BY_ID
-    if _BUILT_BY_ID is not None:
-        return
-    _BUILT_BY_YT, _BUILT_BY_ID = {}, {}
+    _BUILT_BY_YT, _BUILT_BY_ID = None, None
+
+
+def _yt_keys():
+    """id -> 'a_yt|b_yt' for every built row we can resolve (protrans recs, maps, corpus features)."""
     yt_of = {}
     try:
         sys.path.insert(0, os.path.dirname(H))
@@ -208,8 +210,45 @@ def _index_built():
         for i, v in json.load(open(mp)).get('by_id', {}).items():
             if v.get('yt_key'):
                 yt_of[i] = v['yt_key']
+    try:
+        import paths as _P
+        feat_dirs = [os.path.join(_P.ROOT, 'corpus_v2', 'features')]
+    except Exception:
+        feat_dirs = [os.path.join(os.path.dirname(H), 'corpus_v2', 'features')]
+    for feat in feat_dirs:
+        if not os.path.isdir(feat):
+            continue
+        for fn in os.listdir(feat):
+            if not fn.endswith('.json'):
+                continue
+            i = fn[:-5]
+            if i in yt_of:
+                continue
+            try:
+                f = json.load(open(os.path.join(feat, fn)))
+                a = (f.get('track_a') or {}).get('yt')
+                b = (f.get('track_b') or {}).get('yt')
+                if a and b:
+                    yt_of[i] = f'{a}|{b}'
+            except Exception:
+                pass
+    return yt_of
+
+
+def _index_built():
+    """Index already-built rows (dev, protrans, fresh, holdout) by id and yt key.
+
+    Used only as the feature and rendered-default snapshot so live predict equals
+    the official built-row decision wherever a built row exists. Not a per-pair
+    window map. Excluded (wrong-DJ) rows are skipped.
+    """
+    global _BUILT_BY_YT, _BUILT_BY_ID
+    if _BUILT_BY_ID is not None:
+        return
+    _BUILT_BY_YT, _BUILT_BY_ID = {}, {}
+    yt_of = _yt_keys()
     for r in load_all_built():
-        if r['set'] in ('holdout', 'excluded'):
+        if r['set'] == 'excluded':
             continue
         _BUILT_BY_ID[r['id']] = r
         key = yt_of.get(r['id'])
@@ -245,6 +284,123 @@ def _legal_natural(sa, sb, want):
     return X > 0 and 16 <= e - X and e <= na and 0 <= ib and ib + X <= nb - 16
 
 
+
+LINGER_FLAG = 'LINGER_GUARD'
+LINGER_CAL = os.path.join(H, 'linger_guard_cal.json')
+
+
+def linger_guard_on(rules=None, env=None):
+    """Refuse a cue into the incoming breakdown under an outgoing drop. Off by default. Do not write rules.json."""
+    env = env or {}
+    rules = rules or {}
+    def _on(v):
+        return str(v).strip().lower() not in ('', '0', 'false', 'none', 'no')
+    return _on((env or {}).get(LINGER_FLAG) or (rules or {}).get(LINGER_FLAG) or os.environ.get(LINGER_FLAG))
+
+
+def in_drop(sec, k):
+    return any(lo <= k < hi for lo, hi in (sec.get('drops') or []))
+
+
+def in_breakdown(sec, k):
+    """Incoming breakdown: named phase, else the gap [breakdown, drop2) outside any drop."""
+    for p in sec.get('phases') or []:
+        if p.get('name') == 'breakdown' and p['start'] <= k < p['end']:
+            return True
+    if in_drop(sec, k):
+        return False
+    bd, d2 = sec.get('breakdown'), sec.get('drop2')
+    if bd is None:
+        return False
+    end = d2 if d2 is not None else (sec.get('outro_start') or sec.get('n_bars') or sec.get('music_end'))
+    return end is not None and bd <= k < end
+
+
+def linger_bars(sa, sb, win):
+    """Bars of a natural window where the outgoing is in a drop and the incoming is in a breakdown."""
+    if not win or win[0] != 'n' or len(win) < 5:
+        return 0
+    e, ib, X = int(win[1]), int(win[3]), int(win[4])
+    n = 0
+    for j in range(max(0, X)):
+        if in_drop(sa, e - X + j) and in_breakdown(sb, ib + j):
+            n += 1
+    return n
+
+
+def linger_bars_pro(sa, sb, out0, in0, overlap):
+    """Same measurement on a (possibly fractional) pro window."""
+    import math
+    X = max(1, int(round(float(overlap))))
+    n = 0
+    for j in range(X):
+        oa = int(math.floor(float(out0) + j))
+        ib = int(math.floor(float(in0) + j))
+        if in_drop(sa, oa) and in_breakdown(sb, ib):
+            n += 1
+    return n
+
+
+def calibrate_linger_guard(dest=None):
+    """Pro p95 of linger_bars on the protrans cohort, plus pro vs our rates. Not hand-tuned."""
+    dest = dest or os.environ.get('LINGER_GUARD_CAL') or LINGER_CAL
+    pro_p = os.path.join(H, 'protrans_decisions.json')
+    PRO = json.load(open(pro_p)) if os.path.exists(pro_p) else {}
+    rows = [r for r in load_all_built() if r['set'] == 'protrans']
+    pack = load_pack() if os.path.isdir(PACK_DIR) else None
+    decs = predict_rows(pack, rows) if pack else [None] * len(rows)
+    pro_vals, def_vals, rg_vals = [], [], []
+    for r, d in zip(rows, decs):
+        pr = PRO.get(r['id']) or {}
+        if pr.get('out_bar_at_entry') is None or pr.get('in_bar_at_entry') is None or pr.get('overlap_bars') is None:
+            continue
+        lp = linger_bars_pro(r['sa'], r['sb'], pr['out_bar_at_entry'], pr['in_bar_at_entry'], pr['overlap_bars'])
+        pro_vals.append(int(lp))
+        dw = ['n', int(r['dex'] + r['dX'] - 1), None, int(r['dcue'] - 1), int(r['dX'])]
+        ld = linger_bars(r['sa'], r['sb'], dw)
+        def_vals.append(int(ld))
+        if d and d.get('win') and not d.get('is_default'):
+            rg_vals.append(int(linger_bars(r['sa'], r['sb'], d['win'])))
+        else:
+            rg_vals.append(int(ld))
+    pv = np.asarray(pro_vals, float)
+    p95 = float(np.percentile(pv, 95)) if len(pv) else 0.0
+    def _rate(vs):
+        n = len(vs)
+        pos = int(sum(1 for v in vs if v > 0))
+        return dict(n=n, n_linger=pos, rate=round(pos / n, 4) if n else None,
+                    mean=round(float(np.mean(vs)), 3) if n else None,
+                    p95=round(float(np.percentile(vs, 95)), 3) if n else None,
+                    max=int(max(vs)) if n else None, hist={int(k): int(sum(1 for v in vs if v == k)) for k in sorted(set(vs))})
+    cal = dict(written='2026-11-26',
+               measurement='linger_bars: count of blend bars with outgoing in a drop and incoming in a breakdown',
+               cohort='protrans (official pro windows from protrans_decisions.json, snapshot sections)',
+               p95=p95, threshold=p95, rule='block a live window when linger_bars > pro p95',
+               pro=_rate(pro_vals), our_default=_rate(def_vals), our_ridegate=_rate(rg_vals))
+    os.makedirs(os.path.dirname(dest) or '.', exist_ok=True)
+    json.dump(cal, open(dest, 'w'), indent=1)
+    return cal
+
+
+_LINGER_CAL = None
+
+def load_linger_cal():
+    global _LINGER_CAL
+    if _LINGER_CAL is not None:
+        return _LINGER_CAL
+    dest = os.environ.get('LINGER_GUARD_CAL') or LINGER_CAL
+    if os.path.exists(dest):
+        _LINGER_CAL = json.load(open(dest))
+    else:
+        _LINGER_CAL = calibrate_linger_guard(dest)
+    return _LINGER_CAL
+
+
+def linger_threshold():
+    cal = load_linger_cal()
+    return float(cal.get('threshold', cal.get('p95', 0.0)))
+
+
 def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live'):
     """Render-time hook: decide a live window from features + the engine default, inject if legal.
 
@@ -258,6 +414,12 @@ def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live')
     if dec.get('is_default') or not dec.get('win'):
         return None, dec, False
     want = list(dec['win'])
+    if linger_guard_on():
+        lb = linger_bars(r.get('sa') or sa, r.get('sb') or sb, want)
+        dec['linger_bars'] = lb
+        if lb > linger_threshold():
+            dec['linger_blocked'] = True
+            return None, dec, False
     hit = next((c for c in cs if list(c.get('win') or []) == want), None)
     injected = False
     if hit is None and _legal_natural(sa, sb, want):

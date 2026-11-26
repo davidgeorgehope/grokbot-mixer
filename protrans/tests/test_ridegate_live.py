@@ -211,3 +211,120 @@ def test_rendered_window_matches_map_for_pinned_pairs():
     assert not missing, missing
     assert disagree == [], disagree
     assert len(mp) == 33
+
+
+
+def test_linger_guard_flag_default_off(monkeypatch):
+    monkeypatch.delenv('LINGER_GUARD', raising=False)
+    assert recreate.linger_guard_on({}, {}) is False
+    assert RG.linger_guard_on({}, {}) is False
+    monkeypatch.setenv('LINGER_GUARD', '1')
+    assert RG.linger_guard_on({}, {}) is True
+    monkeypatch.delenv('LINGER_GUARD', raising=False)
+    src = inspect.getsource(recreate.apply_rules)
+    assert "'LINGER_GUARD'" in src
+    env = recreate.apply_rules({})
+    assert 'LINGER_GUARD' not in env
+    env = recreate.apply_rules({'LINGER_GUARD': 1})
+    assert env.get('LINGER_GUARD') == '1'
+    import paths, json as _json
+    rules = _json.loads(pathlib.Path(paths.RULES).read_bytes())
+    assert 'LINGER_GUARD' not in rules
+
+
+def test_live_predict_matches_built_row_when_present():
+    """Wherever a built row exists (including holdout/fresh), live predict equals that row's decision."""
+    RG.reset_built_index()
+    pack = RG.load_pack()
+    hold = [r for r in RG.load_all_built() if r['set'] == 'holdout']
+    assert hold, 'need official holdout snapshot rows'
+    RG._index_built()
+    # holdout is indexed (the bug was skipping it)
+    assert any(r['set'] == 'holdout' for r in RG._BUILT_BY_ID.values())
+    yt_of = RG._yt_keys()
+    checked = 0
+    disagree = []
+    for r in hold:
+        key = yt_of.get(r['id'])
+        if not key:
+            continue
+        a, b = key.split('|', 1)
+        got = RG.row_for_render(r['sa'], r['sb'], r['dex'], r['dcue'], r['dX'], a_yt=a, b_yt=b, pid='live')
+        assert got['id'] == r['id']
+        dec_built = RG.predict_rows(pack, [r])[0]
+        dec_live = RG.predict_rows(pack, [got])[0]
+        if not RG._same(dec_live, dict(exit=dec_built['exit'], cue=dec_built['cue'], X=dec_built['X'],
+                                       win=dec_built.get('win'), is_default=dec_built.get('is_default'))):
+            # _same expects slightly different keys; compare directly
+            pass
+        same = (dec_live.get('is_default') == dec_built.get('is_default')
+                and dec_live.get('win') == dec_built.get('win')
+                and dec_live.get('exit') == dec_built.get('exit')
+                and dec_live.get('cue') == dec_built.get('cue'))
+        checked += 1
+        if not same:
+            disagree.append((r['id'], dec_built, dec_live))
+        default_win = ['n', int(r['dex'] + r['dX'] - 1), None, int(r['dcue'] - 1), int(r['dX'])]
+        hit, dec, _ = RG.maybe_apply(pack, r['sa'], r['sb'], default_win, cs=[], a_yt=a, b_yt=b, pid='live')
+        applied = list(hit['win']) if hit is not None else list(default_win)
+        expected = list(dec_built['win']) if dec_built.get('win') and not dec_built.get('is_default') else list(default_win)
+        # linger guard is off by default, so maybe_apply should follow the built decision
+        if applied != expected:
+            disagree.append((r['id'], 'maybe_apply', applied, expected))
+    assert checked >= 20, checked
+    assert disagree == [], disagree
+
+
+def test_linger_bars_and_guard(monkeypatch, tmp_path):
+    # outgoing drop over bars 0-16, incoming breakdown 0-16
+    sa = dict(n_bars=80, music_end=80, drops=[[16, 32]], phases=[{'name': 'drop', 'start': 16, 'end': 32}])
+    sb = dict(n_bars=80, music_end=80, drops=[[16, 32]], breakdown=0, drop2=16,
+              phases=[{'name': 'breakdown', 'start': 0, 'end': 16}, {'name': 'drop', 'start': 16, 'end': 32}])
+    win = ['n', 32, None, 0, 16]  # legal (e-X==16) and 16 linger bars
+    assert RG.linger_bars(sa, sb, win) == 16
+    sb2 = dict(n_bars=80, drops=[[0, 16]], phases=[{'name': 'drop', 'start': 0, 'end': 16}])
+    assert RG.linger_bars(sa, sb2, win) == 0
+    cal = dict(p95=5.4, threshold=5.4)
+    dest = tmp_path / 'linger.json'
+    dest.write_text(__import__('json').dumps(cal))
+    monkeypatch.setenv('LINGER_GUARD_CAL', str(dest))
+    RG._LINGER_CAL = None
+    assert RG.linger_threshold() == 5.4
+    monkeypatch.delenv('LINGER_GUARD', raising=False)
+    # flag off: maybe_apply still injects a lingering window
+    r = RG.row_from_default(sa, sb, 1.0, 1.0, 16, pid='toy_linger')
+    class _Fake: pass
+    def pred_exit(X):
+        s = np.zeros(len(np.asarray(X))); s[0] = 10.0; return s
+    # force a mid-track pick by ranking a non-default exit if present
+    je = next((i for i, c in enumerate(r['E']) if c['v'] != r['dex']), 0)
+    def pred_exit2(X):
+        s = np.zeros(len(np.asarray(X))); s[je] = 10.0; return s
+    def pred_cue(X):
+        return np.zeros(len(np.asarray(X)))
+    def pred_ride(X):
+        return np.array([0.9] * (1 if np.asarray(X).ndim == 1 else len(np.asarray(X))))
+    pack = dict(_mE=type('B', (), {'predict': staticmethod(pred_exit2)})(),
+                _mC=type('B', (), {'predict': staticmethod(pred_cue)})(),
+                _mR=type('B', (), {'predict': staticmethod(pred_ride)})(),
+                exit_tau=-1e9, cue_tau=0.25, theta=0.6)
+    default_win = ['n', 32, None, 0, 16]
+    # construct a want that lingers: monkeypatch predict
+    # easier: call maybe_apply after patching linger on a known want via a thin stub
+    monkeypatch.setenv('LINGER_GUARD', '1')
+    # If the pack abstains, nothing to block. Drive want through linger_bars > threshold path
+    # by using a pack-less wrapper: set dec via monkeypatch of predict_rows
+    real_pred = RG.predict_rows
+    def fake_pred(pack, rows):
+        return [dict(is_default=False, win=['n', 32, None, 0, 16], exit=1.0, cue=1.0, X=16, p_leave=0.2)]
+    monkeypatch.setattr(RG, 'predict_rows', fake_pred)
+    hit, dec, inj = RG.maybe_apply(pack, sa, sb, default_win, cs=[], pid='toy_linger')
+    assert dec.get('linger_blocked') is True
+    assert dec.get('linger_bars') == 16
+    assert hit is None and inj is False
+    monkeypatch.setenv('LINGER_GUARD', '0')
+    hit2, dec2, inj2 = RG.maybe_apply(pack, sa, sb, default_win, cs=[], pid='toy_linger')
+    assert dec2.get('linger_blocked') is not True
+    assert hit2 is not None
+    monkeypatch.setattr(RG, 'predict_rows', real_pred)
+    RG._LINGER_CAL = None

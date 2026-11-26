@@ -425,6 +425,15 @@ def pair_cands(i,ia0):
           _ee,_ib=int(_w[1]),int(_w[3])
           if 16<=_ee-X and _ee<=na and 0<=_ib and _ib+X<=nb-16 and ('n',_ee,_ib) not in _have_pw:
             cands.append(('n',_ee,_ib)); _have_pw.add(('n',_ee,_ib)); PLANNER_EXTRA_WINS.add(('n',_ee,None,_ib,X))
+    if os.environ.get('RIDEGATE_WIN'):  # live ridegate window from recreate (RIDEGATE=1, no map)
+      import json as _js_rw
+      try: _w_rw=_js_rw.loads(os.environ['RIDEGATE_WIN'])
+      except Exception: _w_rw=None
+      if _w_rw and _w_rw[0]=='n' and int(_w_rw[4])==X:
+        _ee,_ib=int(_w_rw[1]),int(_w_rw[3])
+        _have_rw=set(cands)
+        if 16<=_ee-X and _ee<=na and 0<=_ib and _ib+_w_rw[4]<=nb-16 and ('n',_ee,_ib) not in _have_rw:
+          cands.append(('n',_ee,_ib)); PLANNER_EXTRA_WINS.add(('n',_ee,None,_ib,int(_w_rw[4])))
     if _std_x:
       eml=max(ia+16,emin-X) if a in ANCH else emin  # anchors: looped bars count toward their >=160 bars of airtime
       for e in range(e_max,eml-1,-16):  # outgoing plays to e, then repeats the 16-bar phrase just before e (p=e-16) under the blend; jumping further back sounds wrong (the listener 2026-10-28)

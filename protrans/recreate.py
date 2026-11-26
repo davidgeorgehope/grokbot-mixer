@@ -626,6 +626,7 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                         break
         scored.sort(key=lambda x: x[0])
         pick = scored[0][1]
+        engine_default_win = list(pick.get('win') or [])
         if cons_info is not None:
             cons_info['pick_fam'] = pick['fam']; cons_info['changed'] = list(pick['win']) != cons_info['default_win'] or pick['fam'] != cons_info['default_fam']
         if planner_on:
@@ -822,14 +823,19 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                 import sections as _SECr
                 _pack = _RG.load_pack(_RG.pack_path(env))
                 _sa_r, _sb_r = _SECr.get(a), _SECr.get(b)
-                hit, dec, injected = _RG.maybe_apply(_pack, _sa_r, _sb_r, pick.get('win'), cs)
+                hit, dec, injected = _RG.maybe_apply(_pack, _sa_r, _sb_r,
+                                                     engine_default_win or pick.get('win'), cs,
+                                                     a_yt=a, b_yt=b)
                 ridegate_info = dict(enabled=True, path='live', want=(dec.get('win') if dec else None),
                                      applied=hit is not None, injected_cs=injected,
                                      abstain=bool(dec.get('is_default')) if dec else None,
                                      p_leave=(dec.get('p_leave') if dec else None))
+                os.environ.pop('RIDEGATE_WIN', None)
                 if hit is not None:
                     pick = dict(fam='ridegate_live', win=list(hit['win']), env={}); fade = {}
+                    os.environ['RIDEGATE_WIN'] = json.dumps(list(hit['win']))
             except Exception as _ex:
+                os.environ.pop('RIDEGATE_WIN', None)
                 ridegate_info = dict(enabled=True, path='live', applied=False,
                                      error=f'{type(_ex).__name__}: {_ex}')
         pick['env'] = {**env, **dict(pick.get('env') or {}), **fade}

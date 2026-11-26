@@ -186,6 +186,47 @@ def default_from_win(win):
     return float(e - X + 1), float(ib + 1), X
 
 
+_BUILT_BY_YT = None
+_BUILT_BY_ID = None
+
+def _index_built():
+    """Index already-built dev+protrans rows by id and yt key. Does not index the locked holdout."""
+    global _BUILT_BY_YT, _BUILT_BY_ID
+    if _BUILT_BY_ID is not None:
+        return
+    _BUILT_BY_YT, _BUILT_BY_ID = {}, {}
+    yt_of = {}
+    try:
+        sys.path.insert(0, os.path.dirname(H))
+        import run_admitted_tune as T
+        for rec in T.load_recs():
+            yt_of[rec['id']] = f"{rec['a']['yt']}|{rec['b']['yt']}"
+    except Exception:
+        pass
+    mp = os.path.join(N.W, 'map_ridegate.json')
+    if os.path.exists(mp):
+        for i, v in json.load(open(mp)).get('by_id', {}).items():
+            if v.get('yt_key'):
+                yt_of[i] = v['yt_key']
+    for r in load_all_built():
+        if r['set'] in ('holdout', 'excluded'):
+            continue
+        _BUILT_BY_ID[r['id']] = r
+        key = yt_of.get(r['id'])
+        if key:
+            _BUILT_BY_YT[key] = r
+
+
+def row_for_render(sa, sb, dex, dcue, dX, a_yt=None, b_yt=None, pid='live'):
+    """Prefer a built snapshot row (same features and rendered default as the n1126 map) when we have one."""
+    _index_built()
+    if a_yt and b_yt and f'{a_yt}|{b_yt}' in _BUILT_BY_YT:
+        return _BUILT_BY_YT[f'{a_yt}|{b_yt}']
+    if pid in _BUILT_BY_ID:
+        return _BUILT_BY_ID[pid]
+    return row_from_default(sa, sb, dex, dcue, dX, pid=pid)
+
+
 def _legal_natural(sa, sb, want):
     if not want or want[0] != 'n':
         return False
@@ -195,13 +236,16 @@ def _legal_natural(sa, sb, want):
     return X > 0 and 16 <= e - X and e <= na and 0 <= ib and ib + X <= nb - 16
 
 
-def maybe_apply(pack, sa, sb, default_win, cs):
+def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live'):
     """Render-time hook: decide a live window from features + the engine default, inject if legal.
 
     Returns (hit_or_None, decision, injected). Abstain leaves the engine pick untouched.
+    When the pair is in the n1126 built snapshot, uses that row (rendered default + snapshot
+    sections) so the live path matches the map; otherwise builds a row from the engine default.
     """
     dex, dcue, dX = default_from_win(default_win)
-    dec = win_from_default(pack, sa, sb, dex, dcue, dX)
+    r = row_for_render(sa, sb, dex, dcue, dX, a_yt=a_yt, b_yt=b_yt, pid=pid)
+    dec = predict_rows(pack, [r])[0]
     if dec.get('is_default') or not dec.get('win'):
         return None, dec, False
     want = list(dec['win'])

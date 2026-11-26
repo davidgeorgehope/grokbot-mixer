@@ -81,8 +81,9 @@ if __name__ == '__main__':
     # (held-out 33.92 -> 30.91); replica_x16 41.97, break_exit 33.61 (its window starts in A's breakdown at bar 160,
     # ~16 bars after the pro). r2: the placement families with a longer blend, so the window can start inside drop 1.
     CANDS = [
-        ('break_exit_lp24', {'BREAK_EXIT': 1, 'length_pref': 24}),
-        ('replica_x16_lp24', {'REPLICA': 1, 'REPLICA_X': 16, 'length_pref': 24}),
-        ('dropcand_lp24', {'DROPCAND': 'exit', 'length_pref': 24}),
+        # r2 pick-only: break_exit_lp24 33.61, replica_x16_lp24 41.97, dropcand_lp24 31.71 (length_pref does not move
+        # family windows). r3: full-cohort check of replica_x16 alone (best placement-shaped improver, 41.97; it overfit
+        # on 11-24 with older code: held-out 33.92 -> 32.15).
+        ('replica_x16', {'REPLICA': 1, 'REPLICA_X': 16}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

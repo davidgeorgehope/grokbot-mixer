@@ -1,0 +1,1152 @@
+{
+ "mode": "fresh",
+ "n": 18,
+ "n_groups": 18,
+ "means": {
+  "default": {
+   "exit_cue": 51.29,
+   "exit": 74.76,
+   "cue": 27.82,
+   "blendlen": 10.36,
+   "abstain": 1.0,
+   "exit_moved": 0.0,
+   "cue_moved": 0.0,
+   "midtrack_exit_share": 0.0,
+   "tail8_share": 0.0
+  },
+  "ridegate": {
+   "exit_cue": 34.85,
+   "exit": 41.0,
+   "cue": 28.69,
+   "blendlen": 10.36,
+   "abstain": 0.111,
+   "exit_moved": 0.5,
+   "cue_moved": 0.778,
+   "midtrack_exit_share": 0.5,
+   "tail8_share": 0.0
+  },
+  "ridegate_tail": {
+   "exit_cue": 36.27,
+   "exit": 43.84,
+   "cue": 28.69,
+   "blendlen": 10.36,
+   "abstain": 0.111,
+   "exit_moved": 0.444,
+   "cue_moved": 0.778,
+   "midtrack_exit_share": 0.444,
+   "tail8_share": 0.0
+  },
+  "ridegate_online_tf": {
+   "exit_cue": 34.85,
+   "exit": 41.0,
+   "cue": 28.69,
+   "blendlen": 10.36,
+   "abstain": 0.111,
+   "exit_moved": 0.5,
+   "cue_moved": 0.778,
+   "midtrack_exit_share": 0.5,
+   "tail8_share": 0.0
+  },
+  "cueonly_gated": {
+   "exit_cue": 51.72,
+   "exit": 74.76,
+   "cue": 28.69,
+   "blendlen": 10.36,
+   "abstain": 0.222,
+   "exit_moved": 0.0,
+   "cue_moved": 0.778,
+   "midtrack_exit_share": 0.0,
+   "tail8_share": 0.0
+  },
+  "ref_full_gated": {
+   "exit_cue": 34.85,
+   "exit": 41.0,
+   "cue": 28.69,
+   "blendlen": 10.99,
+   "abstain": 0.111,
+   "exit_moved": 0.5,
+   "cue_moved": 0.778,
+   "midtrack_exit_share": 0.5,
+   "tail8_share": 0.0
+  },
+  "majority": {
+   "exit_cue": 47.8,
+   "exit": 64.09,
+   "cue": 31.51,
+   "blendlen": 10.36,
+   "abstain": 0.0,
+   "exit_moved": 1.0,
+   "cue_moved": 1.0,
+   "midtrack_exit_share": 0.0,
+   "tail8_share": 0.0
+  },
+  "rule_drop_exit": {
+   "exit_cue": 46.23,
+   "exit": 64.65,
+   "cue": 27.82,
+   "blendlen": 10.36,
+   "abstain": 0.111,
+   "exit_moved": 0.889,
+   "cue_moved": 0.0,
+   "midtrack_exit_share": 0.889,
+   "tail8_share": 0.0
+  }
+ },
+ "hits": {
+  "default": {
+   "exit@4": 0.0,
+   "exit@8": 0.056,
+   "exit@16": 0.167,
+   "cue@4": 0.278,
+   "cue@8": 0.333,
+   "cue@16": 0.444
+  },
+  "ridegate": {
+   "exit@4": 0.278,
+   "exit@8": 0.444,
+   "exit@16": 0.5,
+   "cue@4": 0.222,
+   "cue@8": 0.278,
+   "cue@16": 0.556
+  },
+  "ridegate_tail": {
+   "exit@4": 0.333,
+   "exit@8": 0.389,
+   "exit@16": 0.444,
+   "cue@4": 0.222,
+   "cue@8": 0.278,
+   "cue@16": 0.556
+  },
+  "ridegate_online_tf": {
+   "exit@4": 0.278,
+   "exit@8": 0.444,
+   "exit@16": 0.5,
+   "cue@4": 0.222,
+   "cue@8": 0.278,
+   "cue@16": 0.556
+  },
+  "cueonly_gated": {
+   "exit@4": 0.0,
+   "exit@8": 0.056,
+   "exit@16": 0.167,
+   "cue@4": 0.222,
+   "cue@8": 0.278,
+   "cue@16": 0.556
+  },
+  "ref_full_gated": {
+   "exit@4": 0.278,
+   "exit@8": 0.444,
+   "exit@16": 0.5,
+   "cue@4": 0.222,
+   "cue@8": 0.278,
+   "cue@16": 0.556
+  },
+  "majority": {
+   "exit@4": 0.0,
+   "exit@8": 0.0,
+   "exit@16": 0.0,
+   "cue@4": 0.056,
+   "cue@8": 0.056,
+   "cue@16": 0.222
+  },
+  "rule_drop_exit": {
+   "exit@4": 0.0,
+   "exit@8": 0.056,
+   "exit@16": 0.056,
+   "cue@4": 0.278,
+   "cue@8": 0.333,
+   "cue@16": 0.444
+  }
+ },
+ "deltas": {
+  "ridegate_vs_default": {
+   "exit_cue": [
+    -16.44,
+    -29.21,
+    -4.07
+   ],
+   "exit": [
+    -33.76,
+    -58.64,
+    -8.87
+   ],
+   "cue": [
+    0.87,
+    -7.18,
+    8.74
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    0.28,
+    0.06,
+    0.5
+   ],
+   "cue_hit4_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit8_gain": [
+    0.39,
+    0.17,
+    0.61
+   ],
+   "cue_hit8_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit16_gain": [
+    0.33,
+    0.06,
+    0.61
+   ],
+   "cue_hit16_gain": [
+    0.11,
+    -0.17,
+    0.39
+   ]
+  },
+  "ridegate_vs_majority": {
+   "exit_cue": [
+    -12.95,
+    -24.54,
+    -1.93
+   ],
+   "exit": [
+    -23.09,
+    -46.18,
+    -0.89
+   ],
+   "cue": [
+    -2.82,
+    -10.32,
+    5.53
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    0.28,
+    0.06,
+    0.5
+   ],
+   "cue_hit4_gain": [
+    0.17,
+    -0.06,
+    0.39
+   ],
+   "exit_hit8_gain": [
+    0.44,
+    0.22,
+    0.67
+   ],
+   "cue_hit8_gain": [
+    0.22,
+    -0.0,
+    0.44
+   ],
+   "exit_hit16_gain": [
+    0.5,
+    0.28,
+    0.72
+   ],
+   "cue_hit16_gain": [
+    0.33,
+    0.06,
+    0.61
+   ]
+  },
+  "ridegate_tail_vs_default": {
+   "exit_cue": [
+    -15.02,
+    -28.49,
+    -2.07
+   ],
+   "exit": [
+    -30.92,
+    -56.25,
+    -6.47
+   ],
+   "cue": [
+    0.87,
+    -7.18,
+    8.74
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    0.33,
+    0.11,
+    0.56
+   ],
+   "cue_hit4_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit8_gain": [
+    0.33,
+    0.11,
+    0.56
+   ],
+   "cue_hit8_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit16_gain": [
+    0.28,
+    -0.0,
+    0.56
+   ],
+   "cue_hit16_gain": [
+    0.11,
+    -0.17,
+    0.39
+   ]
+  },
+  "ridegate_tail_vs_majority": {
+   "exit_cue": [
+    -11.53,
+    -23.72,
+    -0.05
+   ],
+   "exit": [
+    -20.25,
+    -43.81,
+    1.78
+   ],
+   "cue": [
+    -2.82,
+    -10.32,
+    5.53
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    0.33,
+    0.11,
+    0.56
+   ],
+   "cue_hit4_gain": [
+    0.17,
+    -0.06,
+    0.39
+   ],
+   "exit_hit8_gain": [
+    0.39,
+    0.17,
+    0.61
+   ],
+   "cue_hit8_gain": [
+    0.22,
+    -0.0,
+    0.44
+   ],
+   "exit_hit16_gain": [
+    0.44,
+    0.22,
+    0.67
+   ],
+   "cue_hit16_gain": [
+    0.33,
+    0.06,
+    0.61
+   ]
+  },
+  "ridegate_online_tf_vs_default": {
+   "exit_cue": [
+    -16.44,
+    -29.21,
+    -4.07
+   ],
+   "exit": [
+    -33.76,
+    -58.64,
+    -8.87
+   ],
+   "cue": [
+    0.87,
+    -7.18,
+    8.74
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    0.28,
+    0.06,
+    0.5
+   ],
+   "cue_hit4_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit8_gain": [
+    0.39,
+    0.17,
+    0.61
+   ],
+   "cue_hit8_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit16_gain": [
+    0.33,
+    0.06,
+    0.61
+   ],
+   "cue_hit16_gain": [
+    0.11,
+    -0.17,
+    0.39
+   ]
+  },
+  "ridegate_online_tf_vs_majority": {
+   "exit_cue": [
+    -12.95,
+    -24.54,
+    -1.93
+   ],
+   "exit": [
+    -23.09,
+    -46.18,
+    -0.89
+   ],
+   "cue": [
+    -2.82,
+    -10.32,
+    5.53
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    0.28,
+    0.06,
+    0.5
+   ],
+   "cue_hit4_gain": [
+    0.17,
+    -0.06,
+    0.39
+   ],
+   "exit_hit8_gain": [
+    0.44,
+    0.22,
+    0.67
+   ],
+   "cue_hit8_gain": [
+    0.22,
+    -0.0,
+    0.44
+   ],
+   "exit_hit16_gain": [
+    0.5,
+    0.28,
+    0.72
+   ],
+   "cue_hit16_gain": [
+    0.33,
+    0.06,
+    0.61
+   ]
+  },
+  "cueonly_gated_vs_default": {
+   "exit_cue": [
+    0.44,
+    -3.59,
+    4.37
+   ],
+   "exit": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "cue": [
+    0.87,
+    -7.18,
+    8.74
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "cue_hit4_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit8_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "cue_hit8_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit16_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "cue_hit16_gain": [
+    0.11,
+    -0.17,
+    0.39
+   ]
+  },
+  "cueonly_gated_vs_majority": {
+   "exit_cue": [
+    3.93,
+    -1.35,
+    9.3
+   ],
+   "exit": [
+    10.67,
+    5.33,
+    16.0
+   ],
+   "cue": [
+    -2.82,
+    -10.32,
+    5.53
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "cue_hit4_gain": [
+    0.17,
+    -0.06,
+    0.39
+   ],
+   "exit_hit8_gain": [
+    0.06,
+    -0.0,
+    0.17
+   ],
+   "cue_hit8_gain": [
+    0.22,
+    -0.0,
+    0.44
+   ],
+   "exit_hit16_gain": [
+    0.17,
+    -0.0,
+    0.33
+   ],
+   "cue_hit16_gain": [
+    0.33,
+    0.06,
+    0.61
+   ]
+  },
+  "ref_full_gated_vs_default": {
+   "exit_cue": [
+    -16.44,
+    -29.21,
+    -4.07
+   ],
+   "exit": [
+    -33.76,
+    -58.64,
+    -8.87
+   ],
+   "cue": [
+    0.87,
+    -7.18,
+    8.74
+   ],
+   "blendlen": [
+    0.63,
+    -0.89,
+    2.22
+   ],
+   "exit_hit4_gain": [
+    0.28,
+    0.06,
+    0.5
+   ],
+   "cue_hit4_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit8_gain": [
+    0.39,
+    0.17,
+    0.61
+   ],
+   "cue_hit8_gain": [
+    -0.06,
+    -0.33,
+    0.22
+   ],
+   "exit_hit16_gain": [
+    0.33,
+    0.06,
+    0.61
+   ],
+   "cue_hit16_gain": [
+    0.11,
+    -0.17,
+    0.39
+   ]
+  },
+  "ref_full_gated_vs_majority": {
+   "exit_cue": [
+    -12.95,
+    -24.54,
+    -1.93
+   ],
+   "exit": [
+    -23.09,
+    -46.18,
+    -0.89
+   ],
+   "cue": [
+    -2.82,
+    -10.32,
+    5.53
+   ],
+   "blendlen": [
+    0.63,
+    -0.89,
+    2.22
+   ],
+   "exit_hit4_gain": [
+    0.28,
+    0.06,
+    0.5
+   ],
+   "cue_hit4_gain": [
+    0.17,
+    -0.06,
+    0.39
+   ],
+   "exit_hit8_gain": [
+    0.44,
+    0.22,
+    0.67
+   ],
+   "cue_hit8_gain": [
+    0.22,
+    -0.0,
+    0.44
+   ],
+   "exit_hit16_gain": [
+    0.5,
+    0.28,
+    0.72
+   ],
+   "cue_hit16_gain": [
+    0.33,
+    0.06,
+    0.61
+   ]
+  },
+  "majority_vs_default": {
+   "exit_cue": [
+    -3.49,
+    -8.75,
+    1.82
+   ],
+   "exit": [
+    -10.67,
+    -16.0,
+    -5.33
+   ],
+   "cue": [
+    3.69,
+    -3.42,
+    10.67
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "cue_hit4_gain": [
+    -0.22,
+    -0.44,
+    -0.0
+   ],
+   "exit_hit8_gain": [
+    -0.06,
+    -0.17,
+    -0.0
+   ],
+   "cue_hit8_gain": [
+    -0.28,
+    -0.56,
+    -0.0
+   ],
+   "exit_hit16_gain": [
+    -0.17,
+    -0.33,
+    -0.0
+   ],
+   "cue_hit16_gain": [
+    -0.22,
+    -0.5,
+    0.06
+   ]
+  },
+  "rule_drop_exit_vs_default": {
+   "exit_cue": [
+    -5.05,
+    -19.06,
+    9.96
+   ],
+   "exit": [
+    -10.11,
+    -38.12,
+    19.92
+   ],
+   "cue": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "cue_hit4_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "exit_hit8_gain": [
+    -0.0,
+    -0.17,
+    0.17
+   ],
+   "cue_hit8_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "exit_hit16_gain": [
+    -0.11,
+    -0.33,
+    0.11
+   ],
+   "cue_hit16_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ]
+  },
+  "rule_drop_exit_vs_majority": {
+   "exit_cue": [
+    -1.56,
+    -11.57,
+    9.05
+   ],
+   "exit": [
+    0.56,
+    -23.82,
+    25.84
+   ],
+   "cue": [
+    -3.69,
+    -10.67,
+    3.42
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   "cue_hit4_gain": [
+    0.22,
+    -0.0,
+    0.44
+   ],
+   "exit_hit8_gain": [
+    0.06,
+    -0.0,
+    0.17
+   ],
+   "cue_hit8_gain": [
+    0.28,
+    -0.0,
+    0.56
+   ],
+   "exit_hit16_gain": [
+    0.06,
+    -0.0,
+    0.17
+   ],
+   "cue_hit16_gain": [
+    0.22,
+    -0.06,
+    0.5
+   ]
+  }
+ },
+ "strata": {
+  "pro_mid": {
+   "n": 15,
+   "exit_err": {
+    "default": 87.4,
+    "ridegate": 41.0,
+    "ridegate_tail": 44.4,
+    "ridegate_online_tf": 41.0,
+    "cueonly_gated": 87.4,
+    "ref_full_gated": 41.0,
+    "majority": 71.4,
+    "rule_drop_exit": 53.4
+   }
+  },
+  "pro_late": {
+   "n": 1,
+   "exit_err": {
+    "default": 5.2,
+    "ridegate": 5.2,
+    "ridegate_tail": 5.2,
+    "ridegate_online_tf": 5.2,
+    "cueonly_gated": 5.2,
+    "ref_full_gated": 5.2,
+    "majority": 21.2,
+    "rule_drop_exit": 117.2
+   }
+  },
+  "pro_tail": {
+   "n": 2,
+   "exit_err": {
+    "default": 14.6,
+    "ridegate": 58.6,
+    "ridegate_tail": 58.6,
+    "ridegate_online_tf": 58.6,
+    "cueonly_gated": 14.6,
+    "ref_full_gated": 58.6,
+    "majority": 30.6,
+    "rule_drop_exit": 122.6
+   }
+  }
+ },
+ "ride_auc": 0.622,
+ "ride_auc_tf": 0.6,
+ "ridegate_per_dj_worst": [
+  [
+   "UKF Drum & Bass",
+   [
+    -16.4,
+    18
+   ]
+  ]
+ ],
+ "ridegate_djs_worse": 0,
+ "ridegate_n_djs": 1,
+ "ridegate_worst_pairs": [
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__30",
+   "d": 44.0,
+   "pro_out": 215,
+   "pro_in": 20,
+   "na": 222.0,
+   "ex": 113.0,
+   "cue": 33.0,
+   "X": 16,
+   "dex": 201.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__19",
+   "d": 8.0,
+   "pro_out": 95,
+   "pro_in": 112,
+   "na": 196.0,
+   "ex": 177.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 177.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__07",
+   "d": 6.6,
+   "pro_out": 176,
+   "pro_in": 48,
+   "na": 179.0,
+   "ex": 161.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 161.0,
+   "dcue": 65.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__12",
+   "d": 6.6,
+   "pro_out": 111,
+   "pro_in": 32,
+   "na": 237.0,
+   "ex": 217.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 217.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__09",
+   "d": 2.7,
+   "pro_out": 99,
+   "pro_in": 44,
+   "na": 175.0,
+   "ex": 153.0,
+   "cue": 33.0,
+   "X": 16,
+   "dex": 153.0,
+   "dcue": 49.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__15",
+   "d": 0.0,
+   "pro_out": 182,
+   "pro_in": 15,
+   "na": 196.0,
+   "ex": 177.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 177.0,
+   "dcue": 17.0
+  }
+ ],
+ "ridegate_better_worse_same": [
+  11,
+  5,
+  2
+ ],
+ "ridegate_tail_per_dj_worst": [
+  [
+   "UKF Drum & Bass",
+   [
+    -15.0,
+    18
+   ]
+  ]
+ ],
+ "ridegate_tail_djs_worse": 0,
+ "ridegate_tail_n_djs": 1,
+ "ridegate_tail_worst_pairs": [
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__30",
+   "d": 44.0,
+   "pro_out": 215,
+   "pro_in": 20,
+   "na": 222.0,
+   "ex": 113.0,
+   "cue": 33.0,
+   "X": 16,
+   "dex": 201.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__10",
+   "d": 15.6,
+   "pro_out": 109,
+   "pro_in": 17,
+   "na": 188.0,
+   "ex": 169.0,
+   "cue": 49.0,
+   "X": 16,
+   "dex": 169.0,
+   "dcue": 17.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__19",
+   "d": 8.0,
+   "pro_out": 95,
+   "pro_in": 112,
+   "na": 196.0,
+   "ex": 177.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 177.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__07",
+   "d": 6.6,
+   "pro_out": 176,
+   "pro_in": 48,
+   "na": 179.0,
+   "ex": 161.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 161.0,
+   "dcue": 65.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__12",
+   "d": 6.6,
+   "pro_out": 111,
+   "pro_in": 32,
+   "na": 237.0,
+   "ex": 217.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 217.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__09",
+   "d": 2.7,
+   "pro_out": 99,
+   "pro_in": 44,
+   "na": 175.0,
+   "ex": 153.0,
+   "cue": 33.0,
+   "X": 16,
+   "dex": 153.0,
+   "dcue": 49.0
+  }
+ ],
+ "ridegate_tail_better_worse_same": [
+  10,
+  6,
+  2
+ ],
+ "cueonly_gated_per_dj_worst": [
+  [
+   "UKF Drum & Bass",
+   [
+    0.4,
+    18
+   ]
+  ]
+ ],
+ "cueonly_gated_djs_worse": 1,
+ "cueonly_gated_n_djs": 1,
+ "cueonly_gated_worst_pairs": [
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__10",
+   "d": 15.6,
+   "pro_out": 109,
+   "pro_in": 17,
+   "na": 188.0,
+   "ex": 169.0,
+   "cue": 49.0,
+   "X": 16,
+   "dex": 169.0,
+   "dcue": 17.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__03",
+   "d": 8.0,
+   "pro_out": 95,
+   "pro_in": 47,
+   "na": 194.0,
+   "ex": 177.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 177.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__14",
+   "d": 8.0,
+   "pro_out": 96,
+   "pro_in": 16,
+   "na": 171.0,
+   "ex": 153.0,
+   "cue": 49.0,
+   "X": 16,
+   "dex": 153.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__19",
+   "d": 8.0,
+   "pro_out": 95,
+   "pro_in": 112,
+   "na": 196.0,
+   "ex": 177.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 177.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__23",
+   "d": 6.7,
+   "pro_out": 112,
+   "pro_in": 24,
+   "na": 210.0,
+   "ex": 193.0,
+   "cue": 9.0,
+   "X": 16,
+   "dex": 193.0,
+   "dcue": 25.0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__07",
+   "d": 6.6,
+   "pro_out": 176,
+   "pro_in": 48,
+   "na": 179.0,
+   "ex": 161.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 161.0,
+   "dcue": 65.0
+  }
+ ],
+ "cueonly_gated_better_worse_same": [
+  5,
+  9,
+  4
+ ]
+}

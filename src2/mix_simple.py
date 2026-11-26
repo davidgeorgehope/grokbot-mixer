@@ -92,6 +92,11 @@ SNAP=int(os.environ.get('SWAP_PHRASE',1))  # default on for Mix 05+ (the listene
 def bob(a,b,wa,wb):  # beat-on-beat blend: both decks drum for at least half of it
   dA,dB=drums_on(a),drums_on(b);return sum(xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] for xa,xb in zip(wa,wb))>=X/2
 HSW=int(os.environ.get('HIGH_SWAP',1));HOFS=int(os.environ.get('HIGH_OFS',4))
+HGATE=int(os.environ.get('HIGH_GATE',0))  # research 2026-11-26 (off by default): also allow the >2 kHz high swap when both decks carry
+# above-bass energy (within 6 dB of their 75th-pct body) for >= half the blend, not only drums-on-drums (bob passed 3/33 protrans pairs)
+def above_both(a,b,wa,wb):
+  hA,hB=F(a)[0],F(b)[0];bA,bB=np.percentile(hA,75)-6,np.percentile(hB,75)-6
+  return sum(xa<len(hA) and xb<len(hB) and hA[xa]>=bA and hB[xb]>=bB for xa,xb in zip(wa,wb))>=X/2
 def high_at(a,b,wa,wb,c,on):
   """high-band swap centre (bars into the blend): a 4-bar boundary at least 4 bars from the bass swap, inside x 0.1-0.9, where
   neither top end is thin (outgoing above-bass level in the 2 bars before, incoming in the 2 bars after, within 6 dB of its body;
@@ -199,7 +204,7 @@ def _score(a,b,wa,wb,refA):
       _ee_pts=([p[0] for p in _xs_ee],[p[1] for p in _xs_ee])
       c=_ee_info['sw_c'];ce=_ee_info['sw_c'];_sw_eff=_ee_info['sw'];h=None
   if _ee_info is None:
-    c=swap_at(a,b,wa,wb);ce=c+(SW/2 if c!=POS*X else 0);h=high_at(a,b,wa,wb,c,HSW and bob(a,b,wa,wb))
+    c=swap_at(a,b,wa,wb);ce=c+(SW/2 if c!=POS*X else 0);h=high_at(a,b,wa,wb,c,HSW and (bob(a,b,wa,wb) or (HGATE and above_both(a,b,wa,wb))))
   alA,loA,vA,rvA,bA=F(a);alB,loB,vB,rvB,bB=F(b);V=L=C=both=G=SG=0
   dA,dB=drums_on(a),drums_on(b);DT=run=0
   for xa,xb in zip(wa,wb):run=run+1 if xa<len(dA) and xb<len(dB) and dA[xa] and dB[xb] else 0;DT=max(DT,run)  # longest straight drums-together run

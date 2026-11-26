@@ -15,7 +15,7 @@ def _render(args):
     tag, rec, pf, map_path, out = args
     os.environ['HARD_FALLBACK'] = '0'; os.environ['PROTRANS_SRC2'] = SRC2
     os.environ.update(EARLY_EXIT='1', PICKER_INJECT_CS='1', PICKER_STYLE_GATED_MAP=map_path)
-    os.chdir(SRC2)
+    os.chdir(SRC2); sys.path.insert(0, SRC2)
     import paths, blend_bench as BB, recreate as R, score, score_v2 as S2, hardcheck as HC
     a, b = rec['a']['yt'], rec['b']['yt']
     sa, sb = os.path.join(paths.LIB, a + '.m4a'), os.path.join(paths.LIB, b + '.m4a')

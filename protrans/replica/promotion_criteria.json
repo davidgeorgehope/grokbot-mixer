@@ -58,5 +58,42 @@
   ],
   "promotion": "needs 2 consecutive qualifying nights AND the locked holdout (2nd+ opening; CI entirely < 0) checked only on the promotion night. n1124 was not a qualifying night, so n1125 cannot promote.",
   "multiple_arms_note": "3 arms are tested; only the PRIMARY arm counts toward the 2-night run unless a secondary arm also meets every condition."
+ },
+ "n1125_qualifying_determination": {
+  "written": "2026-11-26 1:26 AM ET by n1126, before any n1126 result was seen",
+  "verdict": "n1125 QUALIFIED via the secondary arm ridegate (the multiple_arms_note allows a secondary arm that meets every condition); the primary cueonly_gated did not (failed the majority CI).",
+  "evidence": {
+   "dev_vs_default": "-3.39 [-5.32, -1.38]",
+   "dev_vs_majority": "-2.47 [-4.44, -0.61]",
+   "metrics_worse": "none with CI entirely > 0 (exit -2.58 [-6.27, +1.28], cue -4.19 [-6.13, -2.35], blend length unchanged by design)",
+   "fresh kushsessions_z8SnJBUd-0U": "-16.08 (<= 0)",
+   "hard_checks_33_pairs": "ridegate 5 hard-fail pairs vs default 5 (hc_n1125_ridegate.json vs hc_mhb1125_base.json, beat-clash fix of 11-25 applied to both): not more. Composition changed: new pumping fails on hybrid_minds_ukf__23 and joe_syntax_hospital__11; default fails cleared on hybrid_minds_ukf__28 (clash) and pola_bryson_puzzlewood__00 (bass hole)."
+  },
+  "why_written_now": "the n1125 doc stopped before its wrap-up and never stated the verdict; recomputed tonight from the saved files only."
+ },
+ "frozen_arms_n1126": {
+  "written": "2026-11-26 1:26 AM ET, BEFORE evaluating (no n1126 results seen)",
+  "script": "protrans/replica/picker_1126.py",
+  "data": "corpus_v2 accepted snapshot 2026-11-26 1:25 AM (1167 rows) -> replica/nightly_1126_work/accepted_snapshot.jsonl; all fresh-ledger mixes, locked holdout (Liquicity, Hospital Records) and Liquicity Events (same brand as the holdout, kept out to protect it) excluded from dev",
+  "arms": {
+   "ridegate": "PRIMARY. Exactly the n1125 ridegate spec (style-free gated exit ranker + ride-vs-leave gate theta by inner leave-one-DJ-out; cue = gated cue ranker; X = default), retrained on the grown snapshot. Second night of the 2-night run (n1125 qualified via ridegate).",
+   "ridegate_tail": "SECONDARY (the 11-25 coverage gap). ridegate with extra tail-exit candidates: incoming enters 8 bars before the end of the outgoing music grid with an 8-bar blend (tag tail8, X=8 when chosen). Tail exits are not mid-track so the ride gate does not apply to them.",
+   "ridegate_online_tf": "DIAGNOSTIC ONLY (cannot count): ride-vs-leave classifier also gets the pro's strictly earlier transitions in the same mix (teacher-forced online style). Not deployable for the listener's mixes as-is; measures how much DJ-habit signal exists."
+  },
+  "baselines": [
+   "default",
+   "majority choice (best single exit tag x cue tag, fit leave-one-DJ-out)",
+   "simple rule (exit at drop-1 end, cue drop-16)"
+  ],
+  "fresh_mix": "ukf_drum_bass_wVp_VlkWqxI (registered 1:26 AM, scored once)",
+  "bootstrap": "grouped by mix, 4000 draws, seed 20261126",
+  "qualifying_night_if_all": [
+   "dev leave-one-DJ-out exit+cue delta vs default: 95% CI entirely < 0",
+   "same vs majority: 95% CI entirely < 0",
+   "no metric materially worse vs default (exit, cue, blend length: none with CI entirely > 0)",
+   "fresh mix: exit+cue delta vs default point estimate <= 0",
+   "hard checks on the 33-pair rendered picks: no more hard-fail pairs than default (if renders cannot run tonight the night is at most provisionally qualifying)"
+  ],
+  "promotion": "ridegate promotes only if tonight qualifies (2nd consecutive) AND the locked holdout (2nd+ opening) shows exit+cue delta vs default CI entirely < 0 AND a live (non-map) picker path exists behind the flag/defaults mechanism with tests passing; otherwise it stays a flag."
  }
 }

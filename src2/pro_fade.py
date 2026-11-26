@@ -359,7 +359,21 @@ def apply(decks, trans, params=None, skip=(), lows_of=None):
             c_in = float(np.clip(c_in, s + 1.5, e - 3.0))
             c_out = float(np.clip(c_out, s + 1.5, e - 2.5))
 
-        xs, info = build_xfader(s, e, c_in, c_out, entry_db=entry_db, shelf_db=shelf_db, exit_slope=exit_slope, anchor_early=bool(t.get('early_exit')))
+        # 2026-11-26: respect an earlier exit already chosen upstream (tail_exit runs before us). Without this the
+        # pro fade re-stretched A to end_bar and held it on the shelf, undoing ee_r7's early exit on pola02
+        # (A audible bars 128-143) and burying B's quiet intro under A (incoming_vanish 6.9 dB > p95).
+        e_fade = e
+        te = t.get('tail_exit') or {}
+        if str(os.environ.get('PRO_FADE_RESPECT_EXIT', '1')).strip() != '0' and te.get('exit_bar') is not None:
+            xb = float(te['exit_bar'])
+            if s + 6.0 <= xb < e - 0.5:
+                e_fade = xb
+                c_in = float(np.clip(c_in, s + 1.5, e_fade - 3.0))
+                c_out = float(np.clip(c_out, s + 1.5, e_fade - 2.5))
+        xs, info = build_xfader(s, e_fade, c_in, c_out, entry_db=entry_db, shelf_db=shelf_db, exit_slope=exit_slope, anchor_early=bool(t.get('early_exit')))
+        if e_fade < e:
+            xs.append([round(float(e), 5), 1.0])
+            info['exit_bar'] = round(float(e_fade), 3)
         t['xfader'] = xs
         t['pro_fade'] = dict(params=dict(params), info=info)
         if 'pro-learned fade' not in t.get('tech', ''):
@@ -395,7 +409,7 @@ def apply(decks, trans, params=None, skip=(), lows_of=None):
                     )
                     nsw_out = _bw(float(nt['early_exit'].get('sw_out', 3.0)) if nt.get('early_exit') else float(nt['swap_w']))
                     nc_out = float(np.clip(nc_out, nt['start_bar'] + 1.5, nt['end_bar'] - 2.5))
-                    lo_out = _low_lane_out(nc_out, nsw_out, nt['pro_fade']['info']['t_exit0'], float(nt['end_bar']), shelf_db, bass_cut_db)
+                    lo_out = _low_lane_out(nc_out, nsw_out, nt['pro_fade']['info']['t_exit0'], float(nt['pro_fade']['info'].get('exit_bar', nt['end_bar'])), shelf_db, bass_cut_db)
                     if bass_rel_db > 0 and lows_of is not None:
                         nb = decks[idx + 1]
                         nb_in = float(nt['early_exit']['c_in']) if nt.get('early_exit') else (

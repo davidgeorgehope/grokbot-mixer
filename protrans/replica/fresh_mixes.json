@@ -153,6 +153,15 @@
    "ingested": "2026-11-25 isolated in replica/fresh_work_1125",
    "status": "done",
    "spent_on": "2026-11-25 06:34 ET (fresh_1125 epg_stack vs base, once, n=11)"
+  },
+  {
+   "mix_id": "ukf_drum_bass_wVp_VlkWqxI",
+   "dj": "UKF Drum & Bass",
+   "n": 18,
+   "spent": true,
+   "registered": "2026-11-26 1:26 AM ET by n1126, BEFORE any evaluation: random.Random(20261126).choice over the 16 mixes accepted by corpus_v2 after the 11-25 1:15 AM snapshot, not in the ledger, not Liquicity / Hospital Records / Liquicity Events, >= 6 transitions",
+   "for_night": "2026-11-26",
+   "spent_on": "2026-11-26 2:03 AM ET (n1126 frozen arms ridegate / ridegate_tail / ridegate_online_tf, decision-level, scored once; nightly_1126_work/picker_1126_fresh.json)"
   }
  ],
  "tried": [
@@ -167,6 +176,7 @@
   "outer_bass_3Tt7qDw8uaQ",
   "kushsessions_z8SnJBUd-0U",
   "zaklynskyi_SKL2rC3tcug",
-  "eidan_J5bKdjl2xKo"
+  "eidan_J5bKdjl2xKo",
+  "ukf_drum_bass_wVp_VlkWqxI"
  ]
 }

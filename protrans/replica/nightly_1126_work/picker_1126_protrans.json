@@ -1,0 +1,3964 @@
+{
+ "set": "protrans",
+ "n": 33,
+ "mixes": [
+  "hybrid_minds_ukf",
+  "joe_syntax_hospital",
+  "maduk_liquicity_lunar2025",
+  "netsky_hospital_classics",
+  "pola_bryson_puzzlewood",
+  "wilkinson_boomtown2026"
+ ],
+ "diag": {
+  "v1": {
+   "cfg": 1,
+   "tau": -1000000000.0,
+   "theta": 0.6,
+   "inner_exit": 41.73,
+   "inner_ride": 41.38,
+   "theta_tf": 0.5
+  },
+  "tail": {
+   "cfg": 1,
+   "tau": 1.0,
+   "theta": 0.6,
+   "inner_exit": 42.3,
+   "inner_ride": 41.98
+  },
+  "C": {
+   "cfg": 0,
+   "tau": 0.25
+  },
+  "majority": {
+   "E": "outro_intro",
+   "C": "drop_cue"
+  }
+ },
+ "per_pair": [
+  {
+   "id": "wilkinson_boomtown2026__33",
+   "dj": "Wilkinson",
+   "mix": "wilkinson_boomtown2026",
+   "idx": 33,
+   "pro_out": 73.4,
+   "pro_in": 50.2,
+   "pro_ov": 41,
+   "dex": 65.0,
+   "dcue": 1.0,
+   "dX": 32,
+   "na": 158.0,
+   "cueonly_gated": {
+    "exit": 65.0,
+    "cue": 9.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.398,
+    "p_leave_tf": 0.491,
+    "win": [
+     "n",
+     96,
+     null,
+     8,
+     32
+    ]
+   },
+   "ridegate": {
+    "exit": 65.0,
+    "cue": 9.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.398,
+    "p_leave_tf": 0.491,
+    "win": [
+     "n",
+     96,
+     null,
+     8,
+     32
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 9.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.398,
+    "p_leave_tf": 0.491,
+    "win": [
+     "n",
+     152,
+     null,
+     8,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 65.0,
+    "cue": 9.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.398,
+    "p_leave_tf": 0.491,
+    "win": [
+     "n",
+     96,
+     null,
+     8,
+     32
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 89.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.398,
+    "p_leave_tf": 0.491,
+    "win": [
+     "n",
+     104,
+     null,
+     8,
+     16
+    ]
+   },
+   "default": {
+    "exit": 65.0,
+    "cue": 1.0,
+    "X": 32,
+    "is_default": true,
+    "p_leave": 0.398,
+    "p_leave_tf": 0.491,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 57.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.398,
+    "p_leave_tf": 0.491,
+    "win": [
+     "n",
+     72,
+     null,
+     8,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 121.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.398,
+    "p_leave_tf": 0.491,
+    "win": [
+     "n",
+     136,
+     null,
+     24,
+     16
+    ]
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__01",
+   "dj": "Joe Syntax",
+   "mix": "joe_syntax_hospital",
+   "idx": 1,
+   "pro_out": 113.0,
+   "pro_in": 50.1,
+   "pro_ov": 43,
+   "dex": 145.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 175.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.456,
+    "p_leave_tf": 0.245,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.456,
+    "p_leave_tf": 0.245,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.456,
+    "p_leave_tf": 0.245,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.456,
+    "p_leave_tf": 0.245,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.456,
+    "p_leave_tf": 0.245,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.456,
+    "p_leave_tf": 0.245,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 17.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.456,
+    "p_leave_tf": 0.245,
+    "win": [
+     "n",
+     32,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.456,
+    "p_leave_tf": 0.245,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__08",
+   "dj": "Joe Syntax",
+   "mix": "joe_syntax_hospital",
+   "idx": 8,
+   "pro_out": 108.8,
+   "pro_in": 13.7,
+   "pro_ov": 17,
+   "dex": 225.0,
+   "dcue": 41.0,
+   "dX": 16,
+   "na": 246.0,
+   "cueonly_gated": {
+    "exit": 225.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.845,
+    "p_leave_tf": 0.883,
+    "win": [
+     "n",
+     240,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 121.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.845,
+    "p_leave_tf": 0.883,
+    "win": [
+     "n",
+     136,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.845,
+    "p_leave_tf": 0.883,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 121.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.845,
+    "p_leave_tf": 0.883,
+    "win": [
+     "n",
+     136,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 121.0,
+    "cue": 49.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.845,
+    "p_leave_tf": 0.883,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     32
+    ]
+   },
+   "default": {
+    "exit": 225.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.845,
+    "p_leave_tf": 0.883,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.845,
+    "p_leave_tf": 0.883,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.845,
+    "p_leave_tf": 0.883,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__08",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 8,
+   "pro_out": 127.4,
+   "pro_in": 31.5,
+   "pro_ov": 46,
+   "dex": 209.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 228.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.474,
+    "p_leave_tf": 0.798,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 209.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.474,
+    "p_leave_tf": 0.798,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 209.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.474,
+    "p_leave_tf": 0.798,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 209.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.474,
+    "p_leave_tf": 0.798,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 209.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.474,
+    "p_leave_tf": 0.798,
+    "win": null
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.474,
+    "p_leave_tf": 0.798,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.474,
+    "p_leave_tf": 0.798,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.474,
+    "p_leave_tf": 0.798,
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__11",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 11,
+   "pro_out": 147.6,
+   "pro_in": 145.8,
+   "pro_ov": 13,
+   "dex": 193.0,
+   "dcue": 65.0,
+   "dX": 16,
+   "na": 228.0,
+   "cueonly_gated": {
+    "exit": 193.0,
+    "cue": 81.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.436,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     208,
+     null,
+     80,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 209.0,
+    "cue": 81.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.436,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     224,
+     null,
+     80,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 217.0,
+    "cue": 81.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.436,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     224,
+     null,
+     80,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 209.0,
+    "cue": 81.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.436,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     224,
+     null,
+     80,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 209.0,
+    "cue": 81.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.436,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     224,
+     null,
+     80,
+     16
+    ]
+   },
+   "default": {
+    "exit": 193.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.436,
+    "p_leave_tf": 0.905,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.436,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     96,
+     null,
+     64,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 81.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.436,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     208,
+     null,
+     80,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__12",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 12,
+   "pro_out": 162.9,
+   "pro_in": 0.7,
+   "pro_ov": 44,
+   "dex": 289.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 310.0,
+   "cueonly_gated": {
+    "exit": 289.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     32
+    ]
+   },
+   "default": {
+    "exit": 289.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 273.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     288,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 273.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     288,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__19",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 19,
+   "pro_out": 94.8,
+   "pro_in": 110.3,
+   "pro_ov": 36,
+   "dex": 161.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 191.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.507,
+    "p_leave_tf": 0.905,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.507,
+    "p_leave_tf": 0.905,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.507,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     184,
+     null,
+     32,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.507,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.507,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.507,
+    "p_leave_tf": 0.905,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.507,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 153.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.507,
+    "p_leave_tf": 0.905,
+    "win": [
+     "n",
+     168,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__25",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 25,
+   "pro_out": 129.3,
+   "pro_in": 190.6,
+   "pro_ov": 28,
+   "dex": 177.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 219.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.493,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 201.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.493,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     216,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.493,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     216,
+     null,
+     48,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 201.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.493,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     216,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 201.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.493,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     216,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.493,
+    "p_leave_tf": 0.899,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.493,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     96,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 185.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.493,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     200,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__45",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 45,
+   "pro_out": 96.4,
+   "pro_in": 14.8,
+   "pro_ov": 37,
+   "dex": 113.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 132.0,
+   "cueonly_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.117,
+    "p_leave_tf": 0.341,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.117,
+    "p_leave_tf": 0.341,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.117,
+    "p_leave_tf": 0.341,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.117,
+    "p_leave_tf": 0.341,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.117,
+    "p_leave_tf": 0.341,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.117,
+    "p_leave_tf": 0.341,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.117,
+    "p_leave_tf": 0.341,
+    "win": [
+     "n",
+     80,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 97.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.117,
+    "p_leave_tf": 0.341,
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__02",
+   "dj": "Netsky",
+   "mix": "netsky_hospital_classics",
+   "idx": 2,
+   "pro_out": 92.9,
+   "pro_in": 12.5,
+   "pro_ov": 35,
+   "dex": 161.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 185.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.333,
+    "p_leave_tf": 0.246,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.333,
+    "p_leave_tf": 0.246,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.333,
+    "p_leave_tf": 0.246,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.333,
+    "p_leave_tf": 0.246,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.333,
+    "p_leave_tf": 0.246,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.333,
+    "p_leave_tf": 0.246,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 17.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.333,
+    "p_leave_tf": 0.246,
+    "win": [
+     "n",
+     32,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 153.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.333,
+    "p_leave_tf": 0.246,
+    "win": [
+     "n",
+     168,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__06",
+   "dj": "Netsky",
+   "mix": "netsky_hospital_classics",
+   "idx": 6,
+   "pro_out": 109.1,
+   "pro_in": 1.5,
+   "pro_ov": 43,
+   "dex": 305.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 331.0,
+   "cueonly_gated": {
+    "exit": 305.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.855,
+    "p_leave_tf": 0.864,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 185.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.855,
+    "p_leave_tf": 0.864,
+    "win": [
+     "n",
+     200,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 185.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.855,
+    "p_leave_tf": 0.864,
+    "win": [
+     "n",
+     200,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 185.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.855,
+    "p_leave_tf": 0.864,
+    "win": [
+     "n",
+     200,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 185.0,
+    "cue": 49.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.855,
+    "p_leave_tf": 0.864,
+    "win": [
+     "n",
+     216,
+     null,
+     48,
+     32
+    ]
+   },
+   "default": {
+    "exit": 305.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.855,
+    "p_leave_tf": 0.864,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.855,
+    "p_leave_tf": 0.864,
+    "win": [
+     "n",
+     176,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 297.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.855,
+    "p_leave_tf": 0.864,
+    "win": [
+     "n",
+     312,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__17",
+   "dj": "Netsky",
+   "mix": "netsky_hospital_classics",
+   "idx": 17,
+   "pro_out": 94.4,
+   "pro_in": 14.6,
+   "pro_ov": 34,
+   "dex": 241.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 262.0,
+   "cueonly_gated": {
+    "exit": 241.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.796,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     256,
+     null,
+     64,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 241.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.796,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     256,
+     null,
+     64,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 241.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.796,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     256,
+     null,
+     64,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 241.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.796,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     256,
+     null,
+     64,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 241.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.796,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     256,
+     null,
+     64,
+     16
+    ]
+   },
+   "default": {
+    "exit": 241.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.796,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 17.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.796,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     32,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 225.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.796,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     240,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__11",
+   "dj": "Joe Syntax",
+   "mix": "joe_syntax_hospital",
+   "idx": 11,
+   "pro_out": 206.7,
+   "pro_in": 14.7,
+   "pro_ov": 38,
+   "dex": 225.0,
+   "dcue": 25.0,
+   "dX": 16,
+   "na": 244.0,
+   "cueonly_gated": {
+    "exit": 225.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.756,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.756,
+    "win": [
+     "n",
+     144,
+     null,
+     24,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.756,
+    "win": [
+     "n",
+     144,
+     null,
+     24,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.756,
+    "win": [
+     "n",
+     144,
+     null,
+     24,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 25.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.756,
+    "win": [
+     "n",
+     160,
+     null,
+     24,
+     32
+    ]
+   },
+   "default": {
+    "exit": 225.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.756,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.756,
+    "win": [
+     "n",
+     112,
+     null,
+     24,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 209.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.779,
+    "p_leave_tf": 0.756,
+    "win": [
+     "n",
+     224,
+     null,
+     40,
+     16
+    ]
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__12",
+   "dj": "Joe Syntax",
+   "mix": "joe_syntax_hospital",
+   "idx": 12,
+   "pro_out": 189.0,
+   "pro_in": 140.0,
+   "pro_ov": 19,
+   "dex": 209.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 235.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.782,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.782,
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.782,
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.782,
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.782,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     32
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.782,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 73.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.782,
+    "win": [
+     "n",
+     88,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 201.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.782,
+    "win": [
+     "n",
+     216,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__13",
+   "dj": "Joe Syntax",
+   "mix": "joe_syntax_hospital",
+   "idx": 13,
+   "pro_out": 122.9,
+   "pro_in": 28.1,
+   "pro_ov": 33,
+   "dex": 241.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 263.0,
+   "cueonly_gated": {
+    "exit": 241.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.862,
+    "p_leave_tf": 0.906,
+    "win": [
+     "n",
+     256,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.862,
+    "p_leave_tf": 0.906,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.862,
+    "p_leave_tf": 0.906,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.862,
+    "p_leave_tf": 0.906,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.862,
+    "p_leave_tf": 0.906,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     32
+    ]
+   },
+   "default": {
+    "exit": 241.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.862,
+    "p_leave_tf": 0.906,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.862,
+    "p_leave_tf": 0.906,
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 225.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.862,
+    "p_leave_tf": 0.906,
+    "win": [
+     "n",
+     240,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__00",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 0,
+   "pro_out": 86.1,
+   "pro_in": 13.1,
+   "pro_ov": 31,
+   "dex": 209.0,
+   "dcue": 9.0,
+   "dX": 16,
+   "na": 228.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.736,
+    "p_leave_tf": 0.584,
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.736,
+    "p_leave_tf": 0.584,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 209.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.736,
+    "p_leave_tf": 0.584,
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.736,
+    "p_leave_tf": 0.584,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.736,
+    "p_leave_tf": 0.584,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.736,
+    "p_leave_tf": 0.584,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.736,
+    "p_leave_tf": 0.584,
+    "win": [
+     "n",
+     112,
+     null,
+     8,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.736,
+    "p_leave_tf": 0.584,
+    "win": [
+     "n",
+     208,
+     null,
+     24,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__09",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 9,
+   "pro_out": 133.6,
+   "pro_in": 52.2,
+   "pro_ov": 34,
+   "dex": 193.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 231.0,
+   "cueonly_gated": {
+    "exit": 193.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.381,
+    "p_leave_tf": 0.849,
+    "win": [
+     "n",
+     208,
+     null,
+     64,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 209.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.381,
+    "p_leave_tf": 0.849,
+    "win": [
+     "n",
+     224,
+     null,
+     64,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 217.0,
+    "cue": 65.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.381,
+    "p_leave_tf": 0.849,
+    "win": [
+     "n",
+     224,
+     null,
+     64,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 209.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.381,
+    "p_leave_tf": 0.849,
+    "win": [
+     "n",
+     224,
+     null,
+     64,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 209.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.381,
+    "p_leave_tf": 0.849,
+    "win": [
+     "n",
+     224,
+     null,
+     64,
+     16
+    ]
+   },
+   "default": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.381,
+    "p_leave_tf": 0.849,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 89.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.381,
+    "p_leave_tf": 0.849,
+    "win": [
+     "n",
+     104,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.381,
+    "p_leave_tf": 0.849,
+    "win": [
+     "n",
+     208,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__10",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 10,
+   "pro_out": 133.3,
+   "pro_in": 25.5,
+   "pro_ov": 12,
+   "dex": 241.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 262.0,
+   "cueonly_gated": {
+    "exit": 241.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.666,
+    "p_leave_tf": 0.927,
+    "win": [
+     "n",
+     256,
+     null,
+     40,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.666,
+    "p_leave_tf": 0.927,
+    "win": [
+     "n",
+     144,
+     null,
+     40,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 241.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.666,
+    "p_leave_tf": 0.927,
+    "win": [
+     "n",
+     256,
+     null,
+     40,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.666,
+    "p_leave_tf": 0.927,
+    "win": [
+     "n",
+     144,
+     null,
+     40,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 41.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.666,
+    "p_leave_tf": 0.927,
+    "win": [
+     "n",
+     160,
+     null,
+     40,
+     32
+    ]
+   },
+   "default": {
+    "exit": 241.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.666,
+    "p_leave_tf": 0.927,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.666,
+    "p_leave_tf": 0.927,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 225.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.666,
+    "p_leave_tf": 0.927,
+    "win": [
+     "n",
+     240,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__28",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 28,
+   "pro_out": 126.3,
+   "pro_in": 15.0,
+   "pro_ov": 46,
+   "dex": 225.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 240.0,
+   "cueonly_gated": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.733,
+    "p_leave_tf": 0.894,
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.733,
+    "p_leave_tf": 0.894,
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.733,
+    "p_leave_tf": 0.894,
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.733,
+    "p_leave_tf": 0.894,
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.733,
+    "p_leave_tf": 0.894,
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 225.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.733,
+    "p_leave_tf": 0.894,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.733,
+    "p_leave_tf": 0.894,
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 209.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.733,
+    "p_leave_tf": 0.894,
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__40",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 40,
+   "pro_out": 144.6,
+   "pro_in": 17.3,
+   "pro_ov": 23,
+   "dex": 257.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 286.0,
+   "cueonly_gated": {
+    "exit": 257.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.78,
+    "p_leave_tf": 0.873,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.78,
+    "p_leave_tf": 0.873,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.78,
+    "p_leave_tf": 0.873,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.78,
+    "p_leave_tf": 0.873,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.78,
+    "p_leave_tf": 0.873,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     32
+    ]
+   },
+   "default": {
+    "exit": 257.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.78,
+    "p_leave_tf": 0.873,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.78,
+    "p_leave_tf": 0.873,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 249.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.78,
+    "p_leave_tf": 0.873,
+    "win": [
+     "n",
+     264,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__00",
+   "dj": "Joe Syntax",
+   "mix": "joe_syntax_hospital",
+   "idx": 0,
+   "pro_out": 105.1,
+   "pro_in": 44.6,
+   "pro_ov": 8,
+   "dex": 81.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 112.0,
+   "cueonly_gated": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.182,
+    "p_leave_tf": 0.097,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.182,
+    "p_leave_tf": 0.097,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 105.0,
+    "cue": 33.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.182,
+    "p_leave_tf": 0.097,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.182,
+    "p_leave_tf": 0.097,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.182,
+    "p_leave_tf": 0.097,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 81.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.182,
+    "p_leave_tf": 0.097,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.182,
+    "p_leave_tf": 0.097,
+    "win": null
+   },
+   "majority": {
+    "exit": 81.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.182,
+    "p_leave_tf": 0.097,
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__09",
+   "dj": "Joe Syntax",
+   "mix": "joe_syntax_hospital",
+   "idx": 9,
+   "pro_out": 194.9,
+   "pro_in": -0.4,
+   "pro_ov": 4,
+   "dex": 177.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 198.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.578,
+    "p_leave_tf": 0.653,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.578,
+    "p_leave_tf": 0.653,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.578,
+    "p_leave_tf": 0.653,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.578,
+    "p_leave_tf": 0.653,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.578,
+    "p_leave_tf": 0.653,
+    "win": null
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.578,
+    "p_leave_tf": 0.653,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.578,
+    "p_leave_tf": 0.653,
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.578,
+    "p_leave_tf": 0.653,
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "joe_syntax_hospital__14",
+   "dj": "Joe Syntax",
+   "mix": "joe_syntax_hospital",
+   "idx": 14,
+   "pro_out": 176.3,
+   "pro_in": 35.6,
+   "pro_ov": 16,
+   "dex": 209.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 229.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.641,
+    "p_leave_tf": 0.733,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.641,
+    "p_leave_tf": 0.733,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 217.0,
+    "cue": 17.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.641,
+    "p_leave_tf": 0.733,
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.641,
+    "p_leave_tf": 0.733,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.641,
+    "p_leave_tf": 0.733,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.641,
+    "p_leave_tf": 0.733,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.641,
+    "p_leave_tf": 0.733,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.641,
+    "p_leave_tf": 0.733,
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__13",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 13,
+   "pro_out": 143.5,
+   "pro_in": 63.6,
+   "pro_ov": 29,
+   "dex": 177.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 203.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.65,
+    "p_leave_tf": 0.924,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.65,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.65,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.65,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.65,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.65,
+    "p_leave_tf": 0.924,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.65,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 169.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.65,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     184,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "dj": "Hybrid Minds",
+   "mix": "hybrid_minds_ukf",
+   "idx": 23,
+   "pro_out": 159.9,
+   "pro_in": 94.3,
+   "pro_ov": 23,
+   "dex": 209.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 237.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.543,
+    "p_leave_tf": 0.921,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 217.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.543,
+    "p_leave_tf": 0.921,
+    "win": [
+     "n",
+     232,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.543,
+    "p_leave_tf": 0.921,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 217.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.543,
+    "p_leave_tf": 0.921,
+    "win": [
+     "n",
+     232,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 217.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.543,
+    "p_leave_tf": 0.921,
+    "win": [
+     "n",
+     232,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.543,
+    "p_leave_tf": 0.921,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 209.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.543,
+    "p_leave_tf": 0.921,
+    "win": null
+   },
+   "majority": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.543,
+    "p_leave_tf": 0.921,
+    "win": [
+     "n",
+     216,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__15",
+   "dj": "Netsky",
+   "mix": "netsky_hospital_classics",
+   "idx": 15,
+   "pro_out": 203.4,
+   "pro_in": 0.2,
+   "pro_ov": 40,
+   "dex": 225.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 246.0,
+   "cueonly_gated": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.909,
+    "p_leave_tf": 0.951,
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.909,
+    "p_leave_tf": 0.951,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.909,
+    "p_leave_tf": 0.951,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.909,
+    "p_leave_tf": 0.951,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.909,
+    "p_leave_tf": 0.951,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 225.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.909,
+    "p_leave_tf": 0.951,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.909,
+    "p_leave_tf": 0.951,
+    "win": [
+     "n",
+     112,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 209.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.909,
+    "p_leave_tf": 0.951,
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "netsky_hospital_classics__23",
+   "dj": "Netsky",
+   "mix": "netsky_hospital_classics",
+   "idx": 23,
+   "pro_out": 124.4,
+   "pro_in": 32.9,
+   "pro_ov": 6,
+   "dex": 177.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 197.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.859,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     80,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__02",
+   "dj": "Maduk",
+   "mix": "maduk_liquicity_lunar2025",
+   "idx": 2,
+   "pro_out": 47.0,
+   "pro_in": 23.0,
+   "pro_ov": 46,
+   "dex": 97.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 120.0,
+   "cueonly_gated": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.131,
+    "p_leave_tf": 0.08,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.131,
+    "p_leave_tf": 0.08,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.131,
+    "p_leave_tf": 0.08,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.131,
+    "p_leave_tf": 0.08,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.131,
+    "p_leave_tf": 0.08,
+    "win": null
+   },
+   "default": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.131,
+    "p_leave_tf": 0.08,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 49.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.131,
+    "p_leave_tf": 0.08,
+    "win": [
+     "n",
+     64,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 89.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.131,
+    "p_leave_tf": 0.08,
+    "win": [
+     "n",
+     104,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__03",
+   "dj": "Maduk",
+   "mix": "maduk_liquicity_lunar2025",
+   "idx": 3,
+   "pro_out": 80.0,
+   "pro_in": 3.4,
+   "pro_ov": 44,
+   "dex": 161.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 182.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.595,
+    "p_leave_tf": 0.909,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.595,
+    "p_leave_tf": 0.909,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.595,
+    "p_leave_tf": 0.909,
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.595,
+    "p_leave_tf": 0.909,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.595,
+    "p_leave_tf": 0.909,
+    "win": null
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.595,
+    "p_leave_tf": 0.909,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "p_leave_tf": 0.909,
+    "win": [
+     "n",
+     80,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.595,
+    "p_leave_tf": 0.909,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "maduk_liquicity_lunar2025__05",
+   "dj": "Maduk",
+   "mix": "maduk_liquicity_lunar2025",
+   "idx": 5,
+   "pro_out": 110.3,
+   "pro_in": -0.9,
+   "pro_ov": 45,
+   "dex": 225.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 241.0,
+   "cueonly_gated": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.59,
+    "p_leave_tf": 0.907,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.59,
+    "p_leave_tf": 0.907,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.59,
+    "p_leave_tf": 0.907,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.59,
+    "p_leave_tf": 0.907,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.59,
+    "p_leave_tf": 0.907,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     32
+    ]
+   },
+   "default": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.59,
+    "p_leave_tf": 0.907,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.59,
+    "p_leave_tf": 0.907,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.59,
+    "p_leave_tf": 0.907,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "pola_bryson_puzzlewood__00",
+   "dj": "Pola & Bryson",
+   "mix": "pola_bryson_puzzlewood",
+   "idx": 0,
+   "pro_out": 116.4,
+   "pro_in": 36.4,
+   "pro_ov": 10,
+   "dex": 161.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 194.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.619,
+    "p_leave_tf": 0.495,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.619,
+    "p_leave_tf": 0.495,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.619,
+    "p_leave_tf": 0.495,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.619,
+    "p_leave_tf": 0.495,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.619,
+    "p_leave_tf": 0.495,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.619,
+    "p_leave_tf": 0.495,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.619,
+    "p_leave_tf": 0.495,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.619,
+    "p_leave_tf": 0.495,
+    "win": [
+     "n",
+     176,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "pola_bryson_puzzlewood__02",
+   "dj": "Pola & Bryson",
+   "mix": "pola_bryson_puzzlewood",
+   "idx": 2,
+   "pro_out": 134.3,
+   "pro_in": 38.7,
+   "pro_ov": 46,
+   "dex": 193.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 232.0,
+   "cueonly_gated": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     208,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 193.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.899,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.899,
+    "win": [
+     "n",
+     216,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "dj": "Pola & Bryson",
+   "mix": "pola_bryson_puzzlewood",
+   "idx": 4,
+   "pro_out": 118.4,
+   "pro_in": 13.7,
+   "pro_ov": 17,
+   "dex": 209.0,
+   "dcue": 41.0,
+   "dX": 16,
+   "na": 237.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.633,
+    "p_leave_tf": 0.942,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 217.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.633,
+    "p_leave_tf": 0.942,
+    "win": [
+     "n",
+     232,
+     null,
+     40,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 209.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.633,
+    "p_leave_tf": 0.942,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 217.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.633,
+    "p_leave_tf": 0.942,
+    "win": [
+     "n",
+     232,
+     null,
+     40,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 217.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.633,
+    "p_leave_tf": 0.942,
+    "win": [
+     "n",
+     232,
+     null,
+     40,
+     16
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.633,
+    "p_leave_tf": 0.942,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 209.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.633,
+    "p_leave_tf": 0.942,
+    "win": null
+   },
+   "majority": {
+    "exit": 201.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.633,
+    "p_leave_tf": 0.942,
+    "win": [
+     "n",
+     216,
+     null,
+     56,
+     16
+    ]
+   }
+  }
+ ],
+ "maps": {
+  "ridegate": {
+   "path": "/workspace/mixes/protrans/replica/nightly_1126_work/map_ridegate.json",
+   "n_windows": 25
+  },
+  "ridegate_tail": {
+   "path": "/workspace/mixes/protrans/replica/nightly_1126_work/map_ridegate_tail.json",
+   "n_windows": 26
+  }
+ }
+}

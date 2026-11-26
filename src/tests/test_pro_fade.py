@@ -139,3 +139,38 @@ def test_bass_rel_mid_off_by_default_and_caps_earlier_inside_the_handoff():
     assert max(diffs) > 1e-3            # and actually cuts earlier, inside the ramp tail
     vals = [p[1] for p in la_mid]
     assert all(b2 <= a2 + 1e-6 for a2, b2 in zip(vals, vals[1:]))
+
+
+def test_pro_fade_respects_upstream_tail_exit():
+    """A tail_exit chosen upstream (early exit) must not be re-stretched to end_bar: A is gone by exit_bar."""
+    def run(env_off=False):
+        decks = [
+            dict(id='A', start_bar=0, end_bar=144, full_map=[(k, 'mix') for k in range(144)], auto={'gain': [], 'low': []}),
+            dict(id='B', start_bar=112, end_bar=250, full_map=[(k, 'mix') for k in range(138)], auto={'gain': [], 'low': []}),
+        ]
+        trans = [dict(a='A', b='B', start_bar=112, end_bar=144, swap_bar=120, swap_w=4.0, bass_swap=[117.0, 122.0], tech='base',
+                      tail_exit=dict(exit_bar=128.0))]
+        old = os.environ.get('PRO_FADE_RESPECT_EXIT')
+        if env_off: os.environ['PRO_FADE_RESPECT_EXIT'] = '0'
+        try:
+            PF.apply(decks, trans, params=dict(P0))
+        finally:
+            if old is None: os.environ.pop('PRO_FADE_RESPECT_EXIT', None)
+            else: os.environ['PRO_FADE_RESPECT_EXIT'] = old
+        return decks, trans
+    decks, trans = run()
+    xs = trans[0]['xfader']
+    assert trans[0]['pro_fade']['info']['exit_bar'] == 128.0
+    assert xs[-1] == [144.0, 1.0]
+    assert np.interp(128.0, [p[0] for p in xs], [p[1] for p in xs]) == 1.0
+    ga = decks[0]['auto']['gain']
+    assert max(g for b, g in ga if b >= 128.0) < 1e-3
+    vals = [p[1] for p in xs]
+    assert all(b >= a - 1e-9 for a, b in zip(vals, vals[1:]))
+    lo_a = [p for p in decks[0]['auto']['low'] if p[0] >= 128.0]
+    assert all(v <= 1e-6 for _, v in lo_a)
+    # escape hatch keeps the old behaviour (A still on the shelf after the tail exit)
+    _, trans0 = run(env_off=True)
+    xs0 = trans0[0]['xfader']
+    assert 'exit_bar' not in trans0[0]['pro_fade']['info']
+    assert np.interp(130.0, [p[0] for p in xs0], [p[1] for p in xs0]) < 0.99

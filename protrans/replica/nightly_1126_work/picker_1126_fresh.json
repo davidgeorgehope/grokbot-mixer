@@ -1,0 +1,2236 @@
+{
+ "set": "fresh",
+ "n": 18,
+ "mixes": [
+  "ukf_drum_bass_wVp_VlkWqxI"
+ ],
+ "diag": {
+  "v1": {
+   "cfg": 1,
+   "tau": -1000000000.0,
+   "theta": 0.6,
+   "inner_exit": 41.73,
+   "inner_ride": 41.38,
+   "theta_tf": 0.5
+  },
+  "tail": {
+   "cfg": 1,
+   "tau": 1.0,
+   "theta": 0.6,
+   "inner_exit": 42.3,
+   "inner_ride": 41.98
+  },
+  "C": {
+   "cfg": 0,
+   "tau": 0.25
+  },
+  "majority": {
+   "E": "outro_intro",
+   "C": "drop_cue"
+  }
+ },
+ "per_pair": [
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__00",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 0,
+   "pro_out": 97.09,
+   "pro_in": 31.25,
+   "pro_ov": 20.842,
+   "dex": 161.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 181.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.522,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.522,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.522,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.522,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.522,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.522,
+    "p_leave_tf": 0.202,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.522,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     80,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.522,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__01",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 1,
+   "pro_out": 111.02,
+   "pro_in": 23.7,
+   "pro_ov": 22.654,
+   "dex": 233.0,
+   "dcue": 25.0,
+   "dX": 16,
+   "na": 252.0,
+   "cueonly_gated": {
+    "exit": 233.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.789,
+    "win": [
+     "n",
+     248,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.789,
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.789,
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.789,
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.789,
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 233.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.789,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 233.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.789,
+    "win": null
+   },
+   "majority": {
+    "exit": 217.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.866,
+    "p_leave_tf": 0.789,
+    "win": [
+     "n",
+     232,
+     null,
+     40,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__03",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 3,
+   "pro_out": 95.16,
+   "pro_in": 47.42,
+   "pro_ov": 17.398,
+   "dex": 177.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 194.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.747,
+    "p_leave_tf": 0.854,
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.747,
+    "p_leave_tf": 0.854,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.747,
+    "p_leave_tf": 0.854,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.747,
+    "p_leave_tf": 0.854,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.747,
+    "p_leave_tf": 0.854,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.747,
+    "p_leave_tf": 0.854,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.747,
+    "p_leave_tf": 0.854,
+    "win": [
+     "n",
+     80,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.747,
+    "p_leave_tf": 0.854,
+    "win": [
+     "n",
+     176,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__06",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 6,
+   "pro_out": 95.58,
+   "pro_in": 15.7,
+   "pro_ov": 9.062,
+   "dex": 145.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 167.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.566,
+    "p_leave_tf": 0.865,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.566,
+    "p_leave_tf": 0.865,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.566,
+    "p_leave_tf": 0.865,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.566,
+    "p_leave_tf": 0.865,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.566,
+    "p_leave_tf": 0.865,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.566,
+    "p_leave_tf": 0.865,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 41.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.566,
+    "p_leave_tf": 0.865,
+    "win": [
+     "n",
+     56,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.566,
+    "p_leave_tf": 0.865,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__07",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 7,
+   "pro_out": 175.8,
+   "pro_in": 47.63,
+   "pro_ov": 9.062,
+   "dex": 161.0,
+   "dcue": 65.0,
+   "dX": 16,
+   "na": 179.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.617,
+    "p_leave_tf": 0.832,
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.617,
+    "p_leave_tf": 0.832,
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.617,
+    "p_leave_tf": 0.832,
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.617,
+    "p_leave_tf": 0.832,
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.617,
+    "p_leave_tf": 0.832,
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.617,
+    "p_leave_tf": 0.832,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.617,
+    "p_leave_tf": 0.832,
+    "win": [
+     "n",
+     80,
+     null,
+     64,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 145.0,
+    "cue": 81.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.617,
+    "p_leave_tf": 0.832,
+    "win": [
+     "n",
+     160,
+     null,
+     80,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__09",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 9,
+   "pro_out": 99.38,
+   "pro_in": 43.68,
+   "pro_ov": 40.415,
+   "dex": 153.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 175.0,
+   "cueonly_gated": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.659,
+    "p_leave_tf": 0.885,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.659,
+    "p_leave_tf": 0.885,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.659,
+    "p_leave_tf": 0.885,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.659,
+    "p_leave_tf": 0.885,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.659,
+    "p_leave_tf": 0.885,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 153.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.659,
+    "p_leave_tf": 0.885,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.659,
+    "p_leave_tf": 0.885,
+    "win": [
+     "n",
+     80,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 137.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.659,
+    "p_leave_tf": 0.885,
+    "win": [
+     "n",
+     152,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__10",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 10,
+   "pro_out": 109.2,
+   "pro_in": 17.37,
+   "pro_ov": 30.266,
+   "dex": 169.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 188.0,
+   "cueonly_gated": {
+    "exit": 169.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.799,
+    "p_leave_tf": 0.881,
+    "win": [
+     "n",
+     184,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 105.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.799,
+    "p_leave_tf": 0.881,
+    "win": [
+     "n",
+     120,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 169.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.799,
+    "p_leave_tf": 0.881,
+    "win": [
+     "n",
+     184,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 105.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.799,
+    "p_leave_tf": 0.881,
+    "win": [
+     "n",
+     120,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 105.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.799,
+    "p_leave_tf": 0.881,
+    "win": [
+     "n",
+     120,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.799,
+    "p_leave_tf": 0.881,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.799,
+    "p_leave_tf": 0.881,
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.799,
+    "p_leave_tf": 0.881,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__11",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 11,
+   "pro_out": 95.93,
+   "pro_in": 31.81,
+   "pro_ov": 28.272,
+   "dex": 177.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 195.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.539,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.539,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.539,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.539,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.539,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.539,
+    "p_leave_tf": 0.939,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.539,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     80,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.539,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__12",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 12,
+   "pro_out": 110.83,
+   "pro_in": 31.59,
+   "pro_ov": 20.117,
+   "dex": 217.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 237.0,
+   "cueonly_gated": {
+    "exit": 217.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.798,
+    "p_leave_tf": 0.943,
+    "win": [
+     "n",
+     232,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 217.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.798,
+    "p_leave_tf": 0.943,
+    "win": [
+     "n",
+     232,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 217.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.798,
+    "p_leave_tf": 0.943,
+    "win": [
+     "n",
+     232,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 217.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.798,
+    "p_leave_tf": 0.943,
+    "win": [
+     "n",
+     232,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 217.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.798,
+    "p_leave_tf": 0.943,
+    "win": [
+     "n",
+     232,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 217.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.798,
+    "p_leave_tf": 0.943,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 217.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.798,
+    "p_leave_tf": 0.943,
+    "win": null
+   },
+   "majority": {
+    "exit": 201.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.798,
+    "p_leave_tf": 0.943,
+    "win": [
+     "n",
+     216,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__14",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 14,
+   "pro_out": 95.73,
+   "pro_in": 15.72,
+   "pro_ov": 4.168,
+   "dex": 153.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 171.0,
+   "cueonly_gated": {
+    "exit": 153.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.764,
+    "p_leave_tf": 0.935,
+    "win": [
+     "n",
+     168,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 97.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.764,
+    "p_leave_tf": 0.935,
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 97.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.764,
+    "p_leave_tf": 0.935,
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 97.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.764,
+    "p_leave_tf": 0.935,
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 97.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.764,
+    "p_leave_tf": 0.935,
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.764,
+    "p_leave_tf": 0.935,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 49.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.764,
+    "p_leave_tf": 0.935,
+    "win": [
+     "n",
+     64,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.764,
+    "p_leave_tf": 0.935,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__15",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 15,
+   "pro_out": 182.24,
+   "pro_in": 15.36,
+   "pro_ov": 4.531,
+   "dex": 177.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 196.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.624,
+    "p_leave_tf": 0.906,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.624,
+    "p_leave_tf": 0.906,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.624,
+    "p_leave_tf": 0.906,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.624,
+    "p_leave_tf": 0.906,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.624,
+    "p_leave_tf": 0.906,
+    "win": null
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.624,
+    "p_leave_tf": 0.906,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.624,
+    "p_leave_tf": 0.906,
+    "win": [
+     "n",
+     80,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.624,
+    "p_leave_tf": 0.906,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__16",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 16,
+   "pro_out": 31.51,
+   "pro_in": 102.97,
+   "pro_ov": 33.891,
+   "dex": 161.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 177.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.711,
+    "p_leave_tf": 0.871,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.711,
+    "p_leave_tf": 0.871,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.711,
+    "p_leave_tf": 0.871,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.711,
+    "p_leave_tf": 0.871,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.711,
+    "p_leave_tf": 0.871,
+    "win": null
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.711,
+    "p_leave_tf": 0.871,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 25.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.711,
+    "p_leave_tf": 0.871,
+    "win": [
+     "n",
+     40,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.711,
+    "p_leave_tf": 0.871,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__19",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 19,
+   "pro_out": 95.46,
+   "pro_in": 111.67,
+   "pro_ov": 8.88,
+   "dex": 177.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 196.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.877,
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.877,
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.877,
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.877,
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.877,
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.877,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.877,
+    "win": [
+     "n",
+     80,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.877,
+    "win": [
+     "n",
+     176,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__22",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 22,
+   "pro_out": 128.0,
+   "pro_in": 16.15,
+   "pro_ov": 27.729,
+   "dex": 225.0,
+   "dcue": 41.0,
+   "dX": 16,
+   "na": 242.0,
+   "cueonly_gated": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.826,
+    "p_leave_tf": 0.953,
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.826,
+    "p_leave_tf": 0.953,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.826,
+    "p_leave_tf": 0.953,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.826,
+    "p_leave_tf": 0.953,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.826,
+    "p_leave_tf": 0.953,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 225.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.826,
+    "p_leave_tf": 0.953,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 17.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.826,
+    "p_leave_tf": 0.953,
+    "win": [
+     "n",
+     32,
+     null,
+     40,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 209.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.826,
+    "p_leave_tf": 0.953,
+    "win": [
+     "n",
+     224,
+     null,
+     56,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__23",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 23,
+   "pro_out": 111.57,
+   "pro_in": 23.7,
+   "pro_ov": 19.754,
+   "dex": 193.0,
+   "dcue": 25.0,
+   "dX": 16,
+   "na": 210.0,
+   "cueonly_gated": {
+    "exit": 193.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.755,
+    "p_leave_tf": 0.92,
+    "win": [
+     "n",
+     208,
+     null,
+     8,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.755,
+    "p_leave_tf": 0.92,
+    "win": [
+     "n",
+     128,
+     null,
+     8,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 113.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.755,
+    "p_leave_tf": 0.92,
+    "win": [
+     "n",
+     128,
+     null,
+     8,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.755,
+    "p_leave_tf": 0.92,
+    "win": [
+     "n",
+     128,
+     null,
+     8,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 9.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.755,
+    "p_leave_tf": 0.92,
+    "win": [
+     "n",
+     144,
+     null,
+     8,
+     32
+    ]
+   },
+   "default": {
+    "exit": 193.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.755,
+    "p_leave_tf": 0.92,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.755,
+    "p_leave_tf": 0.92,
+    "win": [
+     "n",
+     96,
+     null,
+     24,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 177.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.755,
+    "p_leave_tf": 0.92,
+    "win": [
+     "n",
+     192,
+     null,
+     40,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__26",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 26,
+   "pro_out": 130.75,
+   "pro_in": 161.67,
+   "pro_ov": 8.518,
+   "dex": 249.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 268.0,
+   "cueonly_gated": {
+    "exit": 249.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.96,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.96,
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.96,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.96,
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.96,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     32
+    ]
+   },
+   "default": {
+    "exit": 249.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.96,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 25.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.96,
+    "win": [
+     "n",
+     40,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 233.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.96,
+    "win": [
+     "n",
+     248,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__27",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 27,
+   "pro_out": 112.68,
+   "pro_in": 47.36,
+   "pro_ov": 2.9,
+   "dex": 241.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 258.0,
+   "cueonly_gated": {
+    "exit": 241.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.922,
+    "win": [
+     "n",
+     256,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.922,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.922,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.922,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.922,
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     32
+    ]
+   },
+   "default": {
+    "exit": 241.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.922,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.922,
+    "win": [
+     "n",
+     96,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 225.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.9,
+    "p_leave_tf": 0.922,
+    "win": [
+     "n",
+     240,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__30",
+   "dj": "UKF Drum & Bass",
+   "mix": "ukf_drum_bass_wVp_VlkWqxI",
+   "idx": 30,
+   "pro_out": 215.46,
+   "pro_in": 19.57,
+   "pro_ov": 12.324,
+   "dex": 201.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 222.0,
+   "cueonly_gated": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.8,
+    "p_leave_tf": 0.891,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.8,
+    "p_leave_tf": 0.891,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.8,
+    "p_leave_tf": 0.891,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.8,
+    "p_leave_tf": 0.891,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.8,
+    "p_leave_tf": 0.891,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     32
+    ]
+   },
+   "default": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.8,
+    "p_leave_tf": 0.891,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.8,
+    "p_leave_tf": 0.891,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 185.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.8,
+    "p_leave_tf": 0.891,
+    "win": [
+     "n",
+     200,
+     null,
+     48,
+     16
+    ]
+   }
+  }
+ ]
+}

@@ -138,7 +138,7 @@ def render_deck(d):
       lp=d['auto'].get(lane) or []
       if not lp:continue
       t=np.arange(n)/BS+d['start_bar'];gl=np.interp(t,[p[0] for p in lp],[p[1] for p in lp]).astype(np.float32)
-      nz=np.where(gl<0.9999)[0]
+      nz=np.where(np.abs(gl-1)>1e-4)[0]
       if len(nz):
         a0,a1=max(0,nz[0]-SR),min(n,nz[-1]+SR);seg=y[a0:a1]
         band=sosfiltfilt(butter(4,fc,kind,fs=SR,output='sos'),seg,axis=0).astype(np.float32)
@@ -146,7 +146,7 @@ def render_deck(d):
     mp=d['auto'].get('mid') or []  # MID_HOLD (2026-11-25 research, off by default): XO..HXO band lane, zero-phase, low+mid+high==original
     if mp:
       t=np.arange(n)/BS+d['start_bar'];gl=np.interp(t,[p[0] for p in mp],[p[1] for p in mp]).astype(np.float32)
-      nz=np.where(gl<0.9999)[0]
+      nz=np.where(np.abs(gl-1)>1e-4)[0]
       if len(nz):
         a0,a1=max(0,nz[0]-SR),min(n,nz[-1]+SR);seg=y[a0:a1]
         band=(sosfiltfilt(butter(4,HXO,'low',fs=SR,output='sos'),seg,axis=0)-sosfiltfilt(butter(4,XO,'low',fs=SR,output='sos'),seg,axis=0)).astype(np.float32)

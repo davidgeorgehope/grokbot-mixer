@@ -799,6 +799,12 @@ if __import__('early_exit').flag_on() and not GC:
   import early_exit as _EE
   EE_LOG=_EE.apply(decks,trans,secs_of=sections.get,skip=set(PIN))
   for _r in EE_LOG:print('EARLY_EXIT',_r,file=sys.stderr)
+if __import__('pro_fade').flag_on() and not GC:
+  import pro_fade as _PF
+  def _pf_lows(x):
+    g=track(x)['g']['bar'];return g.get('low',g['all'])
+  PF_LOG=_PF.apply(decks,trans,skip=set(PIN),lows_of=_pf_lows)
+  for _r in PF_LOG:print('PRO_FADE',_r,file=sys.stderr)
 # beats -> melody-only fixes (beatmelody.py, 2026-11-02): plan step 'bm_fix' ('dswap' | 'dswap_beat' | 'ib' | 'ib+dswap'), or env BM_FIX on every BM1 blend
 import beatmelody as _BMX
 _BMM=dict(decks=decks,trans=trans,bar_sec=BAR);_bmenv=os.environ.get('BM_FIX','')

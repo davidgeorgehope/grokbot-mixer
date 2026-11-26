@@ -26,7 +26,8 @@ X_SW_IN = 0.34       # x at incoming low-swap centre (k_drop - 1.0; A=-1.3dB, B=
 X_SW_OUT = 0.58      # x at outgoing low-swap centre (k_drop + 1.0; A=-4.3dB, B=-2.0dB)
 X_HOLD_MAX = 0.895   # <= 0.90 so any high swap before hold stays valid
 MIN_REM_BARS = 24.0  # fewest outgoing bars skipped to qualify as an early exit
-MIN_BLEND_BARS = 36.0  # early-exit shape only applies to X>=36 so base X<=32 never drifts
+MIN_BLEND_BARS = 36.0         # bare EARLY_EXIT=1 threshold so base X<=32 never drifts
+MIN_PICKER_BLEND_BARS = 20.0  # picker-nominated breakdown blends (20..44 bars fit bounded breakdowns before Drop 2)
 
 
 def flag_on(env=None):
@@ -56,13 +57,38 @@ def _ramp(c, up, w=2.0):
             for j in range(17)]
 
 
+def next_drop_after(sa, s_bar):
+    """Start bar of the outgoing track's next real drop/section restart after s_bar, or None."""
+    if not sa:
+        return None
+    s_bar = float(s_bar)
+    cands = []
+    for ds, de in (sa.get('drops') or []):
+        ds, de = float(ds), float(de)
+        if ds >= 16.0 and (de - ds) >= 16.0 and ds > s_bar + 1e-6:
+            cands.append(ds)
+    for ph in (sa.get('phases') or []):
+        if ph.get('name') == 'drop':
+            ds, de = float(ph.get('start', 0)), float(ph.get('end', 0))
+            if ds >= 16.0 and (de - ds) >= 16.0 and ds > s_bar + 1e-6:
+                cands.append(ds)
+    return min(cands) if cands else None
+
+
+def fits_before_next_drop(sa, s_bar, e_bar):
+    """True when the blend finishes before the outgoing track's next drop/section restart."""
+    dn = next_drop_after(sa, s_bar)
+    return dn is None or float(e_bar) <= dn + 1e-6
+
+
 def _eligible_blend(t, decks, i, secs_of):
-    """True when blend i is a genuine early-exit (outgoing has >=24 bars left after blend end and X>=36)."""
+    """True when blend i is a genuine early-exit (outgoing has >=24 bars left after blend end)."""
     if t.get('fade') == 'graphcut':
         return False
     s, e = float(t['start_bar']), float(t['end_bar'])
     X = e - s
-    if X < MIN_BLEND_BARS - 1e-9:
+    min_x = MIN_PICKER_BLEND_BARS if t.get('early_exit_cand') else MIN_BLEND_BARS
+    if X < min_x - 1e-9:
         return False
     A = decks[i]
     sa = secs_of(A['id']) if secs_of else {}
@@ -83,7 +109,7 @@ def _k_drop_in_blend(t, decks, i, secs_of):
     ib = B['full_map'][0][0] if B.get('full_map') else 0
     if d1_b is not None:
         k_drop = float(d1_b) - float(ib)
-        if 8.0 <= k_drop <= X - 10.0:
+        if 4.0 <= k_drop <= X - 8.5:
             return k_drop
     return min(16.0, max(8.0, round(X * 0.4)))
 
@@ -93,7 +119,7 @@ def build_xfader(s, e, k_drop, hold_db=HOLD_DB, rate=RATE, sw_in=2.0, sw_out=3.0
     X = float(e - s)
     hold_db = -abs(float(hold_db))
     # Clamp k_drop so pre-drop rise (>=4 bars) and post-drop hold+exit (>=10 bars) fit cleanly inside X
-    k_d = float(np.clip(k_drop, 6.0, max(6.0, X - 10.5)))
+    k_d = float(np.clip(k_drop, 4.0, max(4.0, X - 9.0)))
     c_in = s + k_d - sw_in / 2.0      # incoming bass finishes 0->1 right at k_drop
     c_out = s + k_d + 1.0             # outgoing bass ramps 1->0 over [k_d - 0.5, k_d + 2.5]
     if c_in < s + 3.0:
@@ -207,10 +233,14 @@ def apply_one(decks, trans, i, secs_of=None, hold_db=HOLD_DB, rate=RATE):
     t['bass_swap'] = [round(info['c_in'] - sw_in / 2.0, 3), round(info['c_out'] + sw_out / 2.0, 3)]
     t['tech'] = f"{int(round(e - s))}-bar early-exit breakdown blend + drop-anchored bass handoff + {hold_db:g} dB drop hold"
     if t.get('high_bar') is not None:
-        hc = float(t['high_bar']) + 2.0
-        if hc > info['c_out'] or np.interp(hc, [p[0] for p in xs], [p[1] for p in xs]) > 0.89:
-            new_hb = max(s + 2.0, info['c_in'] - 4.0)
-            if new_hb >= s + 1.0:
+        xs_t = [p[0] for p in xs]
+        xs_v = [p[1] for p in xs]
+        hc = float(t['high_bar']) + 1.0
+        x_hc = float(np.interp(hc, xs_t, xs_v))
+        if hc > info['c_out'] or x_hc < 0.12 or x_hc > 0.88:
+            new_hb = max(s + 1.0, info['c_in'] - 1.5)
+            x_new = float(np.interp(new_hb + 1.0, xs_t, xs_v))
+            if 0.12 <= x_new <= 0.88 and new_hb + 1.0 <= info['c_out']:
                 t['high_bar'] = float(round(new_hb, 2))
             else:
                 t['high_bar'] = None

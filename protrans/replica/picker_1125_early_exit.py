@@ -21,6 +21,8 @@ H = os.path.dirname(os.path.abspath(__file__))
 P0 = os.path.dirname(H)
 sys.path.insert(0, H)
 sys.path.insert(0, P0)
+sys.path.insert(0, os.path.join(os.path.dirname(P0), "src2"))
+import early_exit as EE
 
 import picker_1119 as P
 import picker_1119b as B
@@ -119,9 +121,11 @@ def _predict_valid_mix_exit(mods, rows_sub, min_rem=36.0):
 def _early_exit_cands_for_row(r, je, jc, m_eg, p, a, b, risks, k_max=6):
     """Build ranked shortlist for render-time compatibility.
 
-    If je != r['Edix'] and na - ex >= 24 (early exit chosen per pair), build 32..44 bar
-    post-drop-1 breakdown windows aligned to incoming drop1 (k_drop ~ 16 bars).
-    Otherwise fall back to standard F.build_ranked_shortlist (safe outro blend).
+    Structural rules (2026-11-25 RCA):
+    (1) Exit MUST complete before the outgoing track's next drop/section restart (e <= d_next).
+    (2) Avoid long outgoing-solo breakdown overlap: allow deeper breakdown entries and shorter
+        pre-drop overlaps (kd=4..16, X=20..44) closer to incoming drop1, letting the model/compat
+        selector pick among valid candidates.
     """
     na = int(F.na_(r))
     nb = int(r['sb'].get('music_end') or r['sb'].get('n_bars'))
@@ -130,68 +134,84 @@ def _early_exit_cands_for_row(r, je, jc, m_eg, p, a, b, risks, k_max=6):
         return F.build_ranked_shortlist(r, je, jc, m_eg, 0.0, p, a, b, risks, k_max=k_max)
 
     da = F.real_drops(r['sa'])
-    d2s = da[1][0] if (len(da) >= 2 and (da[1][1] - da[1][0]) >= 16) else None
-
+    d1e = float(da[0][1]) if da else 0.0
+    d_next = EE.next_drop_after(r['sa'], d1e - 4.0)
     d1b = int(r['sb'].get('drop1') or 0)
-    # Candidate cues for early exit: strongly prefer k_drop ~ 16 (ib = d1b - 16) so entry=0 and swap~16.
-    # Only put cue_learned ahead of d1b-16 when cue_learned already places k_drop in [12, 18].
+
     cue_learned = int(round(r['C'][jc]['v']))
-    kd_learned = d1b - (cue_learned - 1)
-    cues = []
-    if 12 <= kd_learned <= 18:
-        cues.append(cue_learned)
-    if d1b >= 16:
-        cues.append(d1b - 15)  # ib = d1b - 16 -> drop1 at k=16
-    if 8 <= kd_learned <= 20:
-        cues.append(cue_learned)
-    if d1b >= 12:
-        cues.append(d1b - 11)  # ib = d1b - 12 -> drop1 at k=12
-    if d1b >= 20:
-        cues.append(d1b - 19)  # ib = d1b - 20 -> drop1 at k=20
-    if d1b >= 24:
-        cues.append(d1b - 23)  # ib = d1b - 24 -> drop1 at k=24 (fallback only)
-    if not cues:
-        cues.append(cue_learned)
-    cues_uniq = []
-    for c_v in cues:
-        if c_v not in cues_uniq and c_v >= 1:
-            cues_uniq.append(c_v)
+    ib_learned = cue_learned - 1
+    ibs = []
+    for cand_ib in (ib_learned, d1b - 8, d1b - 6, d1b - 12, d1b - 4, d1b - 16, d1b - 20):
+        kd = d1b - cand_ib
+        if cand_ib >= 0 and 4 <= kd <= 20 and cand_ib not in ibs:
+            ibs.append(cand_ib)
+    if not ibs and ib_learned >= 0:
+        ibs.append(ib_learned)
 
-    # Candidate exits: primary je, plus top 2 nearby valid early-exit bars in breakdown (within 24 bars)
-    ex_order = [je]
-    other_ex = [
-        i for i in np.argsort(risks)
+    e_upper = min(na - 20, int(d_next)) if d_next is not None else (na - 20)
+    e_cands = set()
+    if d_next is not None:
+        e8 = (int(d_next) // 8) * 8
+        for ec in (e8, int(d_next), e8 - 8):
+            if 36 <= ec <= e_upper:
+                e_cands.add(ec)
+    ex_order = [je] + [
+        int(i) for i in np.argsort(risks)
         if i != r['Edix'] and i != je and _valid_ee_bar(r, r['E'][i]['v'], 36.0) and abs(r['E'][i]['v'] - ex) <= 24.0
-    ]
-    ex_order.extend(int(i) for i in other_ex[:2])
-
-    clean_out, fallback_out, seen = [], [], set()
+    ][:2]
     for ei in ex_order:
         ex_i = float(r['E'][ei]['v'])
-        for cv in cues_uniq:
-            ib = int(round(cv - 1))
-            if ib < 0:
+        for XX in (20, 24, 28, 32, 36, 40, 44):
+            ec = int(round((ex_i + XX - 1) / 8.0) * 8)
+            if 36 <= ec <= e_upper:
+                e_cands.add(ec)
+
+    s_target = float(a) if a is not None else ex
+    scored = []
+    seen = set()
+    for e in sorted(e_cands, reverse=True):
+        for XX in (20, 24, 28, 32, 36, 40, 44):
+            s_bar = e - XX
+            if s_bar < 16 or e > e_upper:
                 continue
-            kd = d1b - ib
-            x_pref = int(np.clip(round((kd + 22) / 4.0) * 4, 36, 40))
-            xs_try = [x_pref] + [x for x in (36, 40, 44) if x != x_pref]
-            for XX in xs_try:
-                e = int(round((ex_i + XX - 1) / 8.0) * 8)
-                s_bar = e - XX
-                if e <= na - 20 and s_bar >= 16 and _valid_ee_bar(r, s_bar, 36.0) and ib >= 0 and ib + XX <= nb - 16:
-                    w = ['n', e, None, ib, XX]
-                    tw = tuple(w)
-                    if tw not in seen:
-                        seen.add(tw)
-                        # Prefer candidates whose incoming drop1 (s_bar + kd) lands before drop2 starts
-                        if d2s is not None and (s_bar + kd) > d2s - 6 and s_bar < d2s:
-                            fallback_out.append(w)
-                        else:
-                            clean_out.append(w)
-    out = (clean_out + fallback_out)[:k_max]
-    if not out:
+            if not _valid_ee_bar(r, s_bar, 36.0):
+                continue
+            if not EE.fits_before_next_drop(r['sa'], s_bar, e):
+                continue
+            dn_s = EE.next_drop_after(r['sa'], s_bar)
+            for ib in ibs:
+                kd = d1b - ib
+                if d1b > 0 and not (4 <= kd <= XX - 8):
+                    continue
+                if ib + XX > nb - 16:
+                    continue
+                w = ['n', e, None, ib, XX]
+                tw = tuple(w)
+                if tw in seen:
+                    continue
+                seen.add(tw)
+                entry_dist = abs(s_bar - s_target)
+                solo_pen = max(0.0, kd - 10.0) * 1.5 + max(0.0, 6.0 - kd) * 1.5
+                tail_gap = (float(dn_s) - float(e)) if dn_s is not None else 0.0
+                cue_bonus = -1.5 if ib == ib_learned else 0.0
+                grid_pen = 0.0 if (e % 8 == 0 and ib % 4 == 0) else 6.0
+                score = entry_dist + solo_pen + 0.5 * tail_gap + cue_bonus + grid_pen
+                scored.append((score, -XX, w))
+
+    if not scored:
         return F.build_ranked_shortlist(r, je, jc, m_eg, 0.0, p, a, b, risks, k_max=k_max)
-    return out
+
+    scored.sort(key=lambda t: (t[0], t[1]))
+    # Diversify across (e, X) first so one X with tight compat doesn't crowd out other clean lengths
+    out, rest, seen_ex = [], [], set()
+    for _, _, w in scored:
+        key_ex = (w[1], w[4])
+        if key_ex not in seen_ex:
+            seen_ex.add(key_ex)
+            out.append(w)
+        else:
+            rest.append(w)
+    return (out + rest)[:k_max]
 
 
 def train_predict_early_exit(tr, te, asym_w=2.00):
@@ -359,7 +379,7 @@ def train_predict_early_exit(tr, te, asym_w=2.00):
         ex_v = float(r['E'][je]['v'])
         is_ee = (je != r['Edix'] and (na - ex_v) >= 36.0)
         rk = _early_exit_cands_for_row(r, je, jc, m_eg, p, a, b, risks, k_max=6)
-        if is_ee and rk and int(rk[0][4]) >= 36:
+        if is_ee and rk and int(rk[0][4]) >= 20:
             w0 = rk[0]
             dec = dict(
                 exit=float(w0[1] - w0[4] + 1),
@@ -485,7 +505,7 @@ def run_protrans_maps(asym_w=2.00):
     te = [r for r in rows if r['set'] == 'protrans']
     decs, diag = train_predict_early_exit(dev, te, asym_w=asym_w)
     recs = {r['id']: r for r in T.load_recs()}
-    by_yt, ranked_by_yt, by_id = {}, {}, {}
+    by_yt, ranked_by_yt, ee_by_yt, by_id = {}, {}, {}, {}
     n_ee = 0
     for r, x in zip(te, decs):
         rec = recs.get(r['id'])
@@ -498,6 +518,8 @@ def run_protrans_maps(asym_w=2.00):
         )
         if x.get('early_exit'):
             n_ee += 1
+            if key:
+                ee_by_yt[key] = True
         if key and x.get('win') and not x.get('is_default'):
             by_yt[key] = x['win']
             ranked_by_yt[key] = rk if rk else [x['win']]
@@ -506,7 +528,7 @@ def run_protrans_maps(asym_w=2.00):
         model=f'picker_1125_early_exit (DJ-balanced exit & cue rankers, EARLY_EXIT=1 breakdown shape on early exits, PICKER_INJECT_CS=1), trained on {len(dev)} dev only, applied to {len(te)} protrans pairs',
         diag=diag,
         n_early_exit=n_ee,
-        by_yt=by_yt, ranked_by_yt=ranked_by_yt, by_id=by_id,
+        by_yt=by_yt, ranked_by_yt=ranked_by_yt, ee_by_yt=ee_by_yt, by_id=by_id,
         do_not='write rules.json or treat this map as a promotion',
     )
     dest1 = os.path.join(W, 'map_early_exit.json')

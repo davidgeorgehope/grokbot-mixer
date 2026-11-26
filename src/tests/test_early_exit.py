@@ -9,7 +9,8 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC2 = os.path.join(ROOT, 'src2')
 PT = os.path.join(ROOT, 'protrans')
 REP = os.path.join(PT, 'replica')
-for p in (HERE, SRC2, PT, REP):
+PT_TESTS = os.path.join(PT, 'tests')
+for p in (HERE, SRC2, PT, REP, PT_TESTS):
     if p not in sys.path:
         sys.path.insert(0, p)
 
@@ -183,10 +184,11 @@ def test_early_exit_shortlist_respects_safe_vs_early():
     rk_safe = PEE._early_exit_cands_for_row(r, r['Edix'], r['Cdix'], _DummyReg(), 0.2, 100.0, 205.0, risks, k_max=6)
     assert all(w[4] == 16 for w in rk_safe)
 
-    # Early-exit breakdown choice -> generates 32..44 bar drop1-aligned windows
+    # Early-exit breakdown choice -> exits before Drop 2 (bar 144) and uses 20..44 bar breakdown windows
     je = next(i for i, c in enumerate(r['E']) if abs(c['v'] - 125.0) <= 8)
     rk_ee = PEE._early_exit_cands_for_row(r, je, r['Cdix'], _DummyReg(), 0.85, 125.0, 205.0, risks, k_max=6)
-    assert rk_ee and all(36 <= w[4] <= 44 for w in rk_ee)
+    assert rk_ee and all(20 <= w[4] <= 44 for w in rk_ee)
+    assert all(w[1] <= 144 for w in rk_ee)
 
 
 def test_predict_dips_no_double_bass_subtraction():
@@ -257,3 +259,68 @@ def test_build_xfader_avoids_early_pre_drop_vanish_on_intro_dip():
     # Early bar 3 must stay tucked below audibility (-15 dB under Deck A), not teased then vanished
     assert alB[3] < alA[3] - 18.0, f"bar 3 exposed too loud before pre-drop dip: alB={alB[3]:.1f} vs alA={alA[3]:.1f}"
     assert HC.incoming_vanish(alB, alA, 0, X) == 0.0
+def test_next_drop_after_and_no_next_drop_bleed_in_cands():
+    """Exit must complete before outgoing track's next drop/section restart (derived from section map)."""
+    import picker_1125_early_exit as PEE
+    from test_picker_1125_followup import _sample_row
+
+    sa_2drop = dict(drops=[[48, 112], [144, 192]])
+    assert EE.next_drop_after(sa_2drop, 112.0) == 144.0
+    assert EE.next_drop_after(sa_2drop, 144.0) is None
+    assert EE.fits_before_next_drop(sa_2drop, 112.0, 144.0)
+    assert not EE.fits_before_next_drop(sa_2drop, 112.0, 152.0)
+
+    # Bounded 25-bar breakdown [112..137]: every candidate must finish by bar 137 (no Drop 2 bleed)
+    r = _sample_row()
+    r['sa']['drops'] = [[32, 112], [137, 184]]
+    r['sa']['phases'] = [
+        dict(name='intro', start=0, end=32),
+        dict(name='drop', start=32, end=112),
+        dict(name='breakdown', start=112, end=137),
+        dict(name='drop', start=137, end=184),
+        dict(name='outro', start=184, end=220),
+    ]
+    class _DummyReg:
+        def predict(self, X):
+            return np.zeros(len(X))
+    risks = [100.0] * len(r['E'])
+    je = next(i for i, c in enumerate(r['E']) if abs(c['v'] - 113.0) <= 4)
+    rk = PEE._early_exit_cands_for_row(r, je, r['Cdix'], _DummyReg(), 0.85, 115.0, 205.0, risks, k_max=6)
+    assert rk
+    assert all(w[1] <= 137 for w in rk), f"Candidate ran past Drop 2 (137): {rk}"
+
+
+def test_deeper_breakdown_and_shorter_pre_drop_candidates_and_x20_apply():
+    """Allow deeper breakdown entry + shorter pre-drop overlaps (kd=4..12) and X=20..32 early_exit_cand blends."""
+    import picker_1125_early_exit as PEE
+    from test_picker_1125_followup import _sample_row
+
+    r = _sample_row()  # d1e=112, d2s=144, sb.drop1=32
+    class _DummyReg:
+        def predict(self, X):
+            return np.zeros(len(X))
+    risks = [100.0] * len(r['E'])
+    je = next(i for i, c in enumerate(r['E']) if abs(c['v'] - 121.0) <= 4)
+    rk = PEE._early_exit_cands_for_row(r, je, r['Cdix'], _DummyReg(), 0.85, 125.0, 205.0, risks, k_max=6)
+    # Shortlist must include shorter pre-drop cues (kd <= 12 -> ib >= 20) and X=20..32 options
+    assert any((32 - w[3]) <= 12 for w in rk), f"Expected shorter pre-drop kd<=12 in {rk}"
+    assert any(w[1] - w[4] >= 120 for w in rk), f"Expected deeper breakdown entry >=120 in {rk}"
+
+    # Verify early_exit.apply handles early_exit_cand=True for X=20..32 with k_drop=4..8 while passing X1
+    old = os.environ.get('EARLY_EXIT')
+    os.environ['EARLY_EXIT'] = '1'
+    try:
+        for X, kd in ((20, 4), (24, 8), (32, 8)):
+            s, e = 144 - X, 144
+            decks, trans, secs = _make_decks_and_trans(s=s, e=e, na=220, ib=32 - kd, d1_b=32, high_bar=140.0)
+            trans[0]['early_exit_cand'] = True
+            res = EE.apply(decks, trans, secs_of=secs.get)
+            assert len(res) == 1
+            errs = U.run(dict(decks=decks, trans=trans))
+            assert errs == [], f"X={X} kd={kd} X1 errors: {errs}"
+            assert abs(res[0]['k_drop'] - kd) < 1e-6
+    finally:
+        if old is None:
+            os.environ.pop('EARLY_EXIT', None)
+        else:
+            os.environ['EARLY_EXIT'] = old

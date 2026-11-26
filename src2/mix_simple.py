@@ -188,12 +188,13 @@ def score(a,b,wa,wb,refA):
   finally:_ctx(None)
 def _score(a,b,wa,wb,refA):
   _ee_info=None;_ee_pts=None;_sw_eff=SW
-  if __import__('early_exit').flag_on() and X>=__import__('early_exit').MIN_BLEND_BARS and a not in PIN and b not in PIN:
+  _is_ee_cand=__import__('early_exit').flag_on() and a not in PIN and b not in PIN and (X>=__import__('early_exit').MIN_BLEND_BARS or (a,b,('n',int(wa[-1])+1,None,int(wb[0]),int(X))) in _EE_PICKER_WINS)
+  if _is_ee_cand:
     _na=A_(a)[4]
     import early_exit as _EE
     if _na-(wa[-1]+1)>=_EE.MIN_REM_BARS:
       _sb=sections.get(b);_d1b=_sb.get('drop1');_ib0=wb[0]
-      _kd=float(_d1b)-float(_ib0) if (_d1b is not None and 8<=_d1b-_ib0<=X-8) else min(16.0,max(8.0,round(X*0.4)))
+      _kd=float(_d1b)-float(_ib0) if (_d1b is not None and 4<=_d1b-_ib0<=X-8) else min(16.0,max(8.0,round(X*0.4)))
       _xs_ee,_ee_info=_EE.build_xfader(0.0,float(X),_kd)
       _ee_pts=([p[0] for p in _xs_ee],[p[1] for p in _xs_ee])
       c=_ee_info['sw_c'];ce=_ee_info['sw_c'];_sw_eff=_ee_info['sw'];h=None
@@ -323,11 +324,12 @@ def thin_swap(a,b,wa,wb):
 XT={};inn={ids[0]:0};outs={};loops={};notes={};info_={}
 LAND_EXTRA_WINS=set()
 PLANNER_EXTRA_WINS=set()  # windows only added by window_planner.engine_cands (past bar-80 / before emin)
+_EE_PICKER_WINS=set()
 def pair_cands(i,ia0):
   """all scored windows for blend i given where track i starts (ia0); sorted best first"""
   global X
-  global PLANNER_EXTRA_WINS, LAND_EXTRA_WINS
-  PLANNER_EXTRA_WINS=set();LAND_EXTRA_WINS=set()
+  global PLANNER_EXTRA_WINS, LAND_EXTRA_WINS, _EE_PICKER_WINS
+  PLANNER_EXTRA_WINS=set();LAND_EXTRA_WINS=set();_EE_PICKER_WINS=set()
   a,b=ids[i],ids[i+1];ta,ala,ba,va,na=A_(a);tb,alb,bb,vb,nb=A_(b)
   ia=ia0[1]+16 if isinstance(ia0,tuple) else ia0;res=[]
   e_max=min(tail0(ala,ba),na,OUTMAX.get(a,na));e_max-=e_max%16
@@ -341,8 +343,14 @@ def pair_cands(i,ia0):
       _tab_ee=_js_ee.load(open(os.environ['PICKER_STYLE_GATED_MAP']))
       _w0_ee=(_tab_ee.get('by_yt') or {}).get(f'{a}|{b}') or _tab_ee.get(f'{a}|{b}')
       _rk_ee=(_tab_ee.get('ranked_by_yt') or {}).get(f'{a}|{b}') or []
+      _ee_flag=(_tab_ee.get('ee_by_yt') or {}).get(f'{a}|{b}')
+      _has_ee_map='ee_by_yt' in _tab_ee
       for _w_ee in ([_w0_ee] if _w0_ee else [])+list(_rk_ee):
-        if _w_ee and _w_ee[0]=='n' and int(_w_ee[4])>=36:_ee_xs.add(int(_w_ee[4]))
+        if _w_ee and _w_ee[0]=='n':
+          _xw=int(_w_ee[4])
+          if _xw>=36 or (_ee_flag and _xw>=20) or (not _has_ee_map and _xw in (20,24,28)):
+            _ee_xs.add(_xw)
+            _EE_PICKER_WINS.add((a,b,('n',int(_w_ee[1]),None,int(_w_ee[3]),_xw)))
     except Exception:
       pass
   for X in sorted({XMAX,16}|_ee_xs,reverse=True):  # 32-bar blend preferred; 16 is the lowest when no clean 32-bar window exists
@@ -699,7 +707,7 @@ for i in range(len(ids)-1):
   _ctx(A['id'],wa_,B['id'],wb_)
   xs=[[s+k/4,round(_xpos(k/(4*X)) if k<4*X else 1.0,5)] for k in range(4*X+1)]  # crossfader position per beat, 0->1 (single equal-power control)
   n,cl=notes[(A['id'],B['id'])]
-  trans.append(dict(swap_w=SW,fade=FADE,tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_ofs=float(SW/2 if (SNAP and SW>0 and info_[(A['id'],B['id'])]['c']!=POS*X) else 0),swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X and info_[(A['id'],B['id'])]['c']%4==0),end_bar=e,xfader=xs,vocal_clash_bars=cl,halfbeat=info_[(A['id'],B['id'])].get('HB'),keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
+  trans.append(dict(swap_w=SW,fade=FADE,tech=f'{X}-bar crossfader blend (equal-power, single control)'+(f' + {SW:g}-bar bass handoff' if SW>0 else ''),a=A['id'],b=B['id'],start_bar=s,swap_bar=s+int(round(info_[(A['id'],B['id'])]['c'])),early_exit_cand=bool(info_[(A['id'],B['id'])].get('early_exit')),high_bar=None if info_[(A['id'],B['id'])]['h'] is None else s+info_[(A['id'],B['id'])]['h'],swap_ofs=float(SW/2 if (SNAP and SW>0 and info_[(A['id'],B['id'])]['c']!=POS*X) else 0),swap_phrase=bool(SNAP and info_[(A['id'],B['id'])]['c']!=POS*X and info_[(A['id'],B['id'])]['c']%4==0),end_bar=e,xfader=xs,vocal_clash_bars=cl,halfbeat=info_[(A['id'],B['id'])].get('HB'),keys=f"{KEYS.get(A['id'])}->{KEYS.get(B['id'])}",key_ok=bool(_C.camelot_ok(KEYS.get(A['id']),KEYS.get(B['id']))),pitch_shift_semitones=0,bass_swap=[s+round(POS*X)-SW/2,s+round(POS*X)+SW/2] if SW>0 else None,notes=n or ['vocal-free mix points chosen from full-track analysis']))
 HBG=int(os.environ.get('HALFBEAT_GATE',1))  # 2026-11-11 RCA: a blend whose decks align better half a beat apart is a train-wreck the +-BEAT/8 guards can't see
 _hbf=[t for t in trans if (t.get('halfbeat') or {}).get('fail')]
 for t in _hbf:print(f"HALFBEAT FAIL {t['a']}>{t['b']}: decks align better half a beat apart (r0={t['halfbeat']['r0']} rh={t['halfbeat']['rh']} lag={t['halfbeat']['lag_ms']} ms over {t['halfbeat']['bars']} drum bars); re-grid with halfbeat.py --apply",file=sys.stderr)

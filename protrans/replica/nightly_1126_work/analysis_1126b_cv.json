@@ -1,0 +1,613 @@
+{
+ "mode": "cv",
+ "n": 1001,
+ "n_groups": 124,
+ "means": {
+  "default": {
+   "exit_cue": 36.48,
+   "exit": 44.98,
+   "cue": 27.99,
+   "blendlen": 7.27,
+   "abstain": 1.0,
+   "exit_moved": 0.0,
+   "cue_moved": 0.0,
+   "midtrack_exit_share": 0.007,
+   "tail8_share": 0.0
+  },
+  "ridegate": {
+   "exit_cue": 34.04,
+   "exit": 43.51,
+   "cue": 24.58,
+   "blendlen": 7.27,
+   "abstain": 0.193,
+   "exit_moved": 0.383,
+   "cue_moved": 0.678,
+   "midtrack_exit_share": 0.308,
+   "tail8_share": 0.0
+  },
+  "ridegate_conf": {
+   "exit_cue": 34.05,
+   "exit": 43.52,
+   "cue": 24.58,
+   "blendlen": 7.27,
+   "abstain": 0.216,
+   "exit_moved": 0.311,
+   "cue_moved": 0.678,
+   "midtrack_exit_share": 0.246,
+   "tail8_share": 0.0
+  },
+  "majority": {
+   "exit_cue": 36.05,
+   "exit": 46.57,
+   "cue": 25.54,
+   "blendlen": 8.99,
+   "abstain": 0.0,
+   "exit_moved": 0.967,
+   "cue_moved": 0.914,
+   "midtrack_exit_share": 0.324,
+   "tail8_share": 0.0
+  }
+ },
+ "hits": {
+  "default": {
+   "exit@4": 0.095,
+   "exit@8": 0.18,
+   "exit@16": 0.373,
+   "cue@4": 0.128,
+   "cue@8": 0.174,
+   "cue@16": 0.402
+  },
+  "ridegate": {
+   "exit@4": 0.124,
+   "exit@8": 0.183,
+   "exit@16": 0.346,
+   "cue@4": 0.14,
+   "cue@8": 0.193,
+   "cue@16": 0.443
+  },
+  "ridegate_conf": {
+   "exit@4": 0.118,
+   "exit@8": 0.185,
+   "exit@16": 0.352,
+   "cue@4": 0.14,
+   "cue@8": 0.193,
+   "cue@16": 0.443
+  },
+  "majority": {
+   "exit@4": 0.036,
+   "exit@8": 0.068,
+   "exit@16": 0.148,
+   "cue@4": 0.144,
+   "cue@8": 0.202,
+   "cue@16": 0.335
+  }
+ },
+ "deltas": {
+  "ridegate_vs_default": {
+   "exit_cue": [
+    -2.44,
+    -4.08,
+    -0.82
+   ],
+   "exit": [
+    -1.47,
+    -4.48,
+    1.7
+   ],
+   "cue": [
+    -3.41,
+    -5.07,
+    -1.8
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    0.03,
+    0.01,
+    0.05
+   ],
+   "cue_hit4_gain": [
+    0.01,
+    -0.02,
+    0.04
+   ],
+   "exit_hit8_gain": [
+    0.0,
+    -0.02,
+    0.03
+   ],
+   "cue_hit8_gain": [
+    0.02,
+    -0.02,
+    0.06
+   ],
+   "exit_hit16_gain": [
+    -0.03,
+    -0.07,
+    0.01
+   ],
+   "cue_hit16_gain": [
+    0.04,
+    -0.03,
+    0.11
+   ]
+  },
+  "ridegate_vs_majority": {
+   "exit_cue": [
+    -2.01,
+    -3.55,
+    -0.5
+   ],
+   "exit": [
+    -3.07,
+    -5.8,
+    -0.54
+   ],
+   "cue": [
+    -0.95,
+    -2.3,
+    0.32
+   ],
+   "blendlen": [
+    -1.71,
+    -2.29,
+    -1.19
+   ],
+   "exit_hit4_gain": [
+    0.09,
+    0.06,
+    0.12
+   ],
+   "cue_hit4_gain": [
+    -0.0,
+    -0.05,
+    0.04
+   ],
+   "exit_hit8_gain": [
+    0.11,
+    0.09,
+    0.14
+   ],
+   "cue_hit8_gain": [
+    -0.01,
+    -0.06,
+    0.04
+   ],
+   "exit_hit16_gain": [
+    0.2,
+    0.16,
+    0.24
+   ],
+   "cue_hit16_gain": [
+    0.11,
+    0.05,
+    0.17
+   ]
+  },
+  "ridegate_conf_vs_default": {
+   "exit_cue": [
+    -2.43,
+    -3.84,
+    -0.99
+   ],
+   "exit": [
+    -1.46,
+    -3.97,
+    1.19
+   ],
+   "cue": [
+    -3.41,
+    -5.07,
+    -1.8
+   ],
+   "blendlen": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "exit_hit4_gain": [
+    0.02,
+    0.0,
+    0.04
+   ],
+   "cue_hit4_gain": [
+    0.01,
+    -0.02,
+    0.04
+   ],
+   "exit_hit8_gain": [
+    0.0,
+    -0.02,
+    0.03
+   ],
+   "cue_hit8_gain": [
+    0.02,
+    -0.02,
+    0.06
+   ],
+   "exit_hit16_gain": [
+    -0.02,
+    -0.05,
+    0.01
+   ],
+   "cue_hit16_gain": [
+    0.04,
+    -0.03,
+    0.11
+   ]
+  },
+  "ridegate_conf_vs_majority": {
+   "exit_cue": [
+    -2.0,
+    -3.59,
+    -0.41
+   ],
+   "exit": [
+    -3.05,
+    -5.88,
+    -0.36
+   ],
+   "cue": [
+    -0.95,
+    -2.3,
+    0.32
+   ],
+   "blendlen": [
+    -1.71,
+    -2.29,
+    -1.19
+   ],
+   "exit_hit4_gain": [
+    0.08,
+    0.06,
+    0.11
+   ],
+   "cue_hit4_gain": [
+    -0.0,
+    -0.05,
+    0.04
+   ],
+   "exit_hit8_gain": [
+    0.12,
+    0.09,
+    0.15
+   ],
+   "cue_hit8_gain": [
+    -0.01,
+    -0.06,
+    0.04
+   ],
+   "exit_hit16_gain": [
+    0.2,
+    0.16,
+    0.25
+   ],
+   "cue_hit16_gain": [
+    0.11,
+    0.05,
+    0.17
+   ]
+  },
+  "majority_vs_default": {
+   "exit_cue": [
+    -0.43,
+    -1.96,
+    1.27
+   ],
+   "exit": [
+    1.6,
+    -1.34,
+    4.97
+   ],
+   "cue": [
+    -2.46,
+    -3.7,
+    -1.22
+   ],
+   "blendlen": [
+    1.71,
+    1.19,
+    2.29
+   ],
+   "exit_hit4_gain": [
+    -0.06,
+    -0.08,
+    -0.03
+   ],
+   "cue_hit4_gain": [
+    0.02,
+    -0.03,
+    0.06
+   ],
+   "exit_hit8_gain": [
+    -0.11,
+    -0.15,
+    -0.08
+   ],
+   "cue_hit8_gain": [
+    0.03,
+    -0.02,
+    0.08
+   ],
+   "exit_hit16_gain": [
+    -0.22,
+    -0.28,
+    -0.17
+   ],
+   "cue_hit16_gain": [
+    -0.07,
+    -0.11,
+    -0.02
+   ]
+  }
+ },
+ "strata": {
+  "pro_mid": {
+   "n": 514,
+   "exit_err": {
+    "default": 76.9,
+    "ridegate": 56.4,
+    "ridegate_conf": 60.7,
+    "majority": 56.6
+   }
+  },
+  "pro_late": {
+   "n": 224,
+   "exit_err": {
+    "default": 7.8,
+    "ridegate": 26.5,
+    "ridegate_conf": 22.9,
+    "majority": 28.5
+   }
+  },
+  "pro_tail": {
+   "n": 263,
+   "exit_err": {
+    "default": 14.2,
+    "ridegate": 32.8,
+    "ridegate_conf": 27.6,
+    "majority": 42.3
+   }
+  }
+ },
+ "ride_auc": 0.569,
+ "ridegate_per_dj_worst": [
+  [
+   "Horizon Remixed",
+   [
+    25.3,
+    1
+   ]
+  ],
+  [
+   "Alpha Rhythm",
+   [
+    5.6,
+    69
+   ]
+  ],
+  [
+   "Fluidified",
+   [
+    5.5,
+    5
+   ]
+  ],
+  [
+   "SubSIL3NT Podcast",
+   [
+    5.0,
+    5
+   ]
+  ],
+  [
+   "METHOD // DRUM & BASS MIXES",
+   [
+    1.7,
+    1
+   ]
+  ]
+ ],
+ "ridegate_djs_worse": 8,
+ "ridegate_n_djs": 27,
+ "ridegate_worst_pairs": [
+  {
+   "id": "alpha_rhythm_lDm7CmhTPzE__09",
+   "d": 62.8,
+   "pro_out": 224,
+   "pro_in": 32,
+   "na": 245.0,
+   "ex": 129.0,
+   "cue": 65.0,
+   "X": 16,
+   "dex": 225.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "kushsessions_T86wusWVRuU__14",
+   "d": 55.4,
+   "pro_out": 208,
+   "pro_in": 32,
+   "na": 212.0,
+   "ex": 97.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 193.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "mrmommusic_7j4WQ5qOBZY__20",
+   "d": 54.4,
+   "pro_out": 239,
+   "pro_in": 15,
+   "na": 263.0,
+   "ex": 145.0,
+   "cue": 49.0,
+   "X": 16,
+   "dex": 241.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "kushsessions_plAidq3V7vs__04",
+   "d": 50.2,
+   "pro_out": 223,
+   "pro_in": 39,
+   "na": 244.0,
+   "ex": 113.0,
+   "cue": 9.0,
+   "X": 16,
+   "dex": 225.0,
+   "dcue": 1.0
+  },
+  {
+   "id": "kushsessions_q6wX3za1z_0__35",
+   "d": 49.7,
+   "pro_out": 206,
+   "pro_in": 15,
+   "na": 216.0,
+   "ex": 97.0,
+   "cue": 25.0,
+   "X": 16,
+   "dex": 201.0,
+   "dcue": 1.0
+  },
+  {
+   "id": "alpha_rhythm__fNcLmH-CYQ__01",
+   "d": 49.2,
+   "pro_out": 208,
+   "pro_in": 32,
+   "na": 226.0,
+   "ex": 97.0,
+   "cue": 49.0,
+   "X": 16,
+   "dex": 193.0,
+   "dcue": 17.0
+  }
+ ],
+ "ridegate_better_worse_same": [
+  451,
+  354,
+  196
+ ],
+ "ridegate_conf_per_dj_worst": [
+  [
+   "Horizon Remixed",
+   [
+    25.3,
+    1
+   ]
+  ],
+  [
+   "Fluidified",
+   [
+    5.5,
+    5
+   ]
+  ],
+  [
+   "SubSIL3NT Podcast",
+   [
+    5.0,
+    5
+   ]
+  ],
+  [
+   "Alpha Rhythm",
+   [
+    3.9,
+    69
+   ]
+  ],
+  [
+   "DJ Hugo Rodrigues",
+   [
+    3.7,
+    7
+   ]
+  ]
+ ],
+ "ridegate_conf_djs_worse": 9,
+ "ridegate_conf_n_djs": 27,
+ "ridegate_conf_worst_pairs": [
+  {
+   "id": "alpha_rhythm_lDm7CmhTPzE__09",
+   "d": 62.8,
+   "pro_out": 224,
+   "pro_in": 32,
+   "na": 245.0,
+   "ex": 129.0,
+   "cue": 65.0,
+   "X": 16,
+   "dex": 225.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "kushsessions_T86wusWVRuU__14",
+   "d": 55.4,
+   "pro_out": 208,
+   "pro_in": 32,
+   "na": 212.0,
+   "ex": 97.0,
+   "cue": 17.0,
+   "X": 16,
+   "dex": 193.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "mrmommusic_7j4WQ5qOBZY__20",
+   "d": 54.4,
+   "pro_out": 239,
+   "pro_in": 15,
+   "na": 263.0,
+   "ex": 145.0,
+   "cue": 49.0,
+   "X": 16,
+   "dex": 241.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "alpha_rhythm_lDm7CmhTPzE__13",
+   "d": 48.4,
+   "pro_out": 240,
+   "pro_in": 47,
+   "na": 257.0,
+   "ex": 129.0,
+   "cue": 49.0,
+   "X": 16,
+   "dex": 241.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "alpha_rhythm_V0BMNeOy_t4__07",
+   "d": 48.0,
+   "pro_out": 193,
+   "pro_in": 32,
+   "na": 216.0,
+   "ex": 113.0,
+   "cue": 49.0,
+   "X": 16,
+   "dex": 193.0,
+   "dcue": 33.0
+  },
+  {
+   "id": "alpha_rhythm_imZjEt78YXs__07",
+   "d": 48.0,
+   "pro_out": 256,
+   "pro_in": 48,
+   "na": 264.0,
+   "ex": 145.0,
+   "cue": 33.0,
+   "X": 16,
+   "dex": 241.0,
+   "dcue": 33.0
+  }
+ ],
+ "ridegate_conf_better_worse_same": [
+  442,
+  340,
+  219
+ ]
+}

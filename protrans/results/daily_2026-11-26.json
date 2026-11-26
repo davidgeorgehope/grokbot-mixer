@@ -1,0 +1,224 @@
+{
+  "tag": "d1126",
+  "pick_id": "hybrid_minds_ukf__40",
+  "base_variant": "n1126_base",
+  "base": {
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 33.3,
+    "test_mean": 33.92,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 33.07,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 33.69,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 31.22,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 34.81,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 37.97,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 25.45,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "pick_before": 31.0,
+  "base_pick_row": {
+    "id": "hybrid_minds_ukf__40",
+    "split": "train",
+    "dj": "Hybrid Minds",
+    "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+    "pick": {
+      "fam": "nat_short",
+      "win": [
+        "n",
+        272,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "BLEND_LOCK": "1"
+      }
+    },
+    "score": {
+      "score": 31.0,
+      "score_v2": 30.62,
+      "scorer_version": "gain-events-v3-beatid",
+      "breakdown": {
+        "stem_curves": 31.48,
+        "deck_curves": 30.45,
+        "beat_align": 57.21,
+        "bass_swap": 26.2,
+        "outgoing_cut": 15.89,
+        "blend_length": 15.89,
+        "stems": {
+          "drums": 38.09,
+          "bass": 60.58,
+          "vocals": 9.75,
+          "melody": 17.51
+        },
+        "beat_off_ms": 2.9,
+        "beat_align_v2": 54.73,
+        "beat_identity": 59.7,
+        "beat_lock": {
+          "pro": {
+            "phase_beats": 0.3759,
+            "rate": 1.0043,
+            "r_a": 0.701,
+            "r_b": 0.739
+          },
+          "ours": {
+            "phase_beats": 0.4133,
+            "rate": 1.0,
+            "r_a": 0.701,
+            "r_b": 0.845
+          },
+          "diff_beats": 0.0374,
+          "diff_ms": 12.9
+        },
+        "events_pro": {
+          "bass_swap": 11,
+          "outgoing_cut": 20,
+          "blend_length": 15
+        },
+        "events_ours": {
+          "bass_swap": 14,
+          "outgoing_cut": 15,
+          "blend_length": 5
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 30.45
+        },
+        "align": {
+          "lag_samples": 172544,
+          "lag_ms": 7825.12,
+          "peak": 0.315,
+          "win_sec": 44.138
+        }
+      },
+      "weights": {
+        "stem_curves": 0.28,
+        "deck_curves": 0.22,
+        "beat_align": 0.15,
+        "bass_swap": 0.13,
+        "outgoing_cut": 0.12,
+        "blend_length": 0.1
+      },
+      "pro": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__40/pro.wav",
+      "ours": "/tmp/protrans_bench/n26b19.mp3"
+    },
+    "ours": "/tmp/protrans_bench/n26b19.mp3",
+    "pro": "/workspace/mixes/protrans/clips/train/hybrid_minds_ukf__40/pro.wav",
+    "created": [],
+    "ts": "2026-11-26 04:02:40 EST"
+  },
+  "tried": [
+    {
+      "name": "replica_x16",
+      "delta": {
+        "REPLICA": 1,
+        "REPLICA_X": 16
+      },
+      "pick_score": 41.97,
+      "pick_fam": "replica_bd_drop",
+      "kept": false,
+      "train_mean": 36.75,
+      "test_mean": 32.15,
+      "by_dj": {
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 38.26,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 34.28,
+          "split": "train"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 27.47,
+          "split": "test"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 33.01,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 34.87,
+          "split": "test"
+        },
+        "Wilkinson": {
+          "n": 1,
+          "mean": 33.77,
+          "split": "test"
+        }
+      },
+      "why": "overfit: held-out dropped 33.92 -> 32.15"
+    }
+  ],
+  "kept": null,
+  "rules_after": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp. BLEND_LOCK (2026-11-17 RCA) is on by default: incoming-only lock when loud overlap has a confident 15-150 ms lag.",
+    "FADE": "long",
+    "BASS_SWAP_BARS": 3,
+    "SWAP_POS": 0.21,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 8,
+    "STRUCT": 1,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 16,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0,
+    "LONG_SOLO": 16,
+    "LONG_SWAP": "exit",
+    "LONG_SOLO_STRUCT": 1,
+    "linger_pen_w": 0.15,
+    "LONG_XP": 0.45,
+    "TAIL_EXIT": 6,
+    "BLEND_LOCK": 1
+  }
+}

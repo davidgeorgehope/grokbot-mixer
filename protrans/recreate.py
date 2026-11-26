@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','HIGH_GATE','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','HALFBEAT_LOCK','HALFBEAT_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB','HARD_FALLBACK','PICKER_STYLE_GATED','PICKER_STYLE_GATED_MAP','PICKER_INJECT_CS','BREAK_EXIT','MID_HOLD','MID_HOLD_DB','EARLY_EXIT','EARLY_EXIT_HOLD_DB','EARLY_EXIT_RATE','PRO_FADE','PRO_FADE_ENTRY_DB','PRO_FADE_SHELF_DB','PRO_FADE_EXIT_SLOPE','PRO_FADE_HIGH_OFS','PRO_FADE_BASS_CUT_DB','PRO_FADE_BASS_REL','PRO_FADE_BASS_SW','PRO_FADE_BASS_REL_MID','PRO_FADE_RESPECT_EXIT','RIDEGATE','RIDEGATE_PACK','LINGER_GUARD'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','HIGH_GATE','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','HALFBEAT_LOCK','HALFBEAT_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB','HARD_FALLBACK','PICKER_STYLE_GATED','PICKER_STYLE_GATED_MAP','PICKER_INJECT_CS','BREAK_EXIT','MID_HOLD','MID_HOLD_DB','EARLY_EXIT','EARLY_EXIT_HOLD_DB','EARLY_EXIT_RATE','PRO_FADE','PRO_FADE_ENTRY_DB','PRO_FADE_SHELF_DB','PRO_FADE_EXIT_SLOPE','PRO_FADE_HIGH_OFS','PRO_FADE_BASS_CUT_DB','PRO_FADE_BASS_REL','PRO_FADE_BASS_SW','PRO_FADE_BASS_REL_MID','PRO_FADE_RESPECT_EXIT','RIDEGATE','RIDEGATE_PACK','LINGER_GUARD','RIDEGATE_LOCK','RIDEGATE_PUMP','RIDEGATE_EE'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -198,6 +198,22 @@ def linger_guard_on(rules=None, env=None):
     env = env or {}
     rules = rules or {}
     return _flag_on(env.get('LINGER_GUARD') or rules.get('LINGER_GUARD') or os.environ.get('LINGER_GUARD'))
+
+
+def ridegate_lock_on(rules=None, env=None):
+    """Reject an un-lockable ride window. Off by default. Do not write rules.json."""
+    env = env or {}; rules = rules or {}
+    return _flag_on(env.get('RIDEGATE_LOCK') or rules.get('RIDEGATE_LOCK') or os.environ.get('RIDEGATE_LOCK'))
+
+def ridegate_pump_on(rules=None, env=None):
+    """Reject a both-thin pump-risk ride. Off by default. Do not write rules.json."""
+    env = env or {}; rules = rules or {}
+    return _flag_on(env.get('RIDEGATE_PUMP') or rules.get('RIDEGATE_PUMP') or os.environ.get('RIDEGATE_PUMP'))
+
+def ridegate_ee_on(rules=None, env=None):
+    """Keep the model's earlier mid exit on a ride. Off by default. Do not write rules.json."""
+    env = env or {}; rules = rules or {}
+    return _flag_on(env.get('RIDEGATE_EE') or rules.get('RIDEGATE_EE') or os.environ.get('RIDEGATE_EE'))
 
 def _picker_style_gated_map_path(env=None):
     env = env or os.environ

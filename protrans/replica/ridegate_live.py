@@ -555,6 +555,43 @@ def load_drum_hi(yt):
     return hi
 
 
+def early_exit_flag_on(rules=None, env=None):
+    import ride_preview as RP
+    return RP.early_exit_on(rules, env)
+
+
+def maybe_take_earlier_exit(pack, r, dec, sa, sb, a_yt=None, b_yt=None):
+    """RIDEGATE_EE: if ride_pick reverted a mid/earlier je to the default exit, take je
+    when it is earlier than default and passes drum_linger."""
+    je, jr = dec.get('je'), dec.get('jr')
+    if je is None or jr is None or je == jr or not dec.get('is_default'):
+        return dec
+    if je >= len(r.get('E') or []) or r['Edix'] >= len(r['E']):
+        return dec
+    je_v = float(r['E'][int(je)]['v'])
+    def_v = float(r['E'][int(r['Edix'])]['v'])
+    if je_v >= def_v:
+        return dec
+    jc = int(dec.get('jc', r['Cdix']))
+    alt = B.decide(r, int(je), jc, r['dX'])
+    alt['p_leave'] = dec.get('p_leave')
+    alt['je'] = int(je); alt['jr'] = int(jr); alt['jc'] = jc
+    alt['early_exit_kept'] = True
+    want = alt.get('win')
+    if not want or alt.get('is_default'):
+        return dec
+    sa_u, sb_u = r.get('sa') or sa, r.get('sb') or sb
+    dthr = drum_linger_threshold()
+    if dthr is not None:
+        hiA = r.get('hiA') if r.get('hiA') is not None else load_drum_hi(a_yt)
+        dl = drum_linger_bars(sa_u, sb_u, want, hiA)
+        alt['drum_linger_bars'] = dl
+        if dl > dthr:
+            dec['early_exit_vetoed'] = 'drum_linger'
+            return dec
+    return alt
+
+
 def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live'):
     """Render-time hook: decide a live window from features + the engine default, inject if legal.
 
@@ -565,11 +602,26 @@ def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live')
     dex, dcue, dX = default_from_win(default_win)
     r = row_for_render(sa, sb, dex, dcue, dX, a_yt=a_yt, b_yt=b_yt, pid=pid)
     dec = predict_rows(pack, [r])[0]
+    if early_exit_flag_on():
+        dec = maybe_take_earlier_exit(pack, r, dec, sa, sb, a_yt, b_yt)
     if dec.get('is_default') or not dec.get('win'):
         return None, dec, False
     want = list(dec['win'])
+    sa_u, sb_u = r.get('sa') or sa, r.get('sb') or sb
+    import ride_preview as RP
+    if RP.lock_preview_on():
+        lk = RP.preview_lock(a_yt, b_yt, want)
+        dec['lock_preview'] = {k: lk[k] for k in lk if k != 'offs'}
+        if not lk.get('ok', True):
+            dec['lock_blocked'] = True
+            return None, dec, False
+    if RP.pump_preview_on():
+        pp = RP.pump_preview(sa_u, sb_u, a_yt, b_yt, want)
+        dec['pump_preview'] = pp
+        if not pp.get('ok', True):
+            dec['pump_blocked'] = True
+            return None, dec, False
     if linger_guard_on():
-        sa_u, sb_u = r.get('sa') or sa, r.get('sb') or sb
         lb = linger_bars(sa_u, sb_u, want)
         dec['linger_bars'] = lb
         blocked = lb > linger_threshold()

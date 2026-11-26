@@ -1,0 +1,31 @@
+{
+ "written": "2026-11-26",
+ "lock_min_dd": 4,
+ "lock_min_note": "halfbeat.blend_check abstains below 4 drum-on-drum bars. Among 19/33 protrans pro windows with dd>=4, p05=9.8; using 10 as a floor would veto passing rides with 5-9 overlap bars, so the lock's own floor of 4 is the one we use.",
+ "lock_rule": "reject a ride when a near-half-beat residual is measured on grid-aligned source bars (both faded decks > -35 dB) and drum-on-drum bars < lock_min_dd",
+ "halfbeat_lag_slack_ms": 30,
+ "thin_db": 6,
+ "thin_p95": 10.8,
+ "thin_threshold": 10.8,
+ "thin_cohort": "protrans official pro windows (n=33), st bar[all] vs drop median, outgoing in breakdown and incoming not in a drop and both <= -thin_db vs drop",
+ "thin_pro": {
+  "n": 33,
+  "n_pos": 14,
+  "p95": 10.8,
+  "max": 17,
+  "hist": {
+   "0": 19,
+   "1": 2,
+   "2": 2,
+   "3": 2,
+   "4": 1,
+   "5": 1,
+   "6": 1,
+   "7": 1,
+   "10": 2,
+   "12": 1,
+   "17": 1
+  }
+ },
+ "pump_note": "source x equal-power fade under-predicted __23 (3.66 vs 4.82) because FADE=long uses fade_long.xlong (a mid shelf near 0.45\u20130.50), not a linear equal-power ramp. xlong prediction is 4.18, still under 4.54, and over-predicts passing __12 (4.62 vs 2.9). The both-thin gate is the calibrated substitute."
+}

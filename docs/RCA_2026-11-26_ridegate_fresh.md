@@ -106,3 +106,58 @@ Collateral on the linger arm only: some official pack windows that do not offici
 - Diagnostic PNG (pair 11, both decks’ equal-power gain, drum/perc, and full-band): `/workspace/mixes/docs/RCA_2026-11-26_ridegate_fresh_pair11.png`
 - This note: `/workspace/mixes/docs/RCA_2026-11-26_ridegate_fresh.md`
 - Cal: `/workspace/mixes/protrans/replica/linger_guard_cal.json` (structural + drum fields). Per-pair drum details: `replica/nightly_1126_work/drum_linger_cal.json`.
+- Ride-preview cal: `protrans/replica/ride_preview_cal.json`. Dry-run and exit lag: `replica/nightly_1126_work/ride_preview_dryrun.json`, `exit_lag_1126.json`. Safe re-render ckpt: `replica/gate_ckpt/n1126f_ride_safe.jsonl`.
+
+
+## 5. Ride safety preview (11:44–12:05 America/New_York)
+
+General fixes only. No pair pins. `rules.json` and defaults were not written. New behaviour is behind `RIDEGATE_LOCK`, `RIDEGATE_PUMP`, and `RIDEGATE_EE`, all off by default. Cal: `protrans/replica/ride_preview_cal.json`. Locked holdout was not opened.
+
+### 5.1 Lock preview (`RIDEGATE_LOCK`) — catches `__09`
+
+A ride is rejected (fall back to the default window) when a **confident** mid-blend lag is un-lockable by finephase (`|lag| > LOCK_MAX_MS=150`) **and** drum-on-drum bars `< 4` (halfbeat’s own floor; among 19/33 protrans pro windows with `dd>=4`, p05=9.8, but using 10 as a hard floor would veto passing rides with 5–9 overlap bars). Missing audio/st never blocks.
+
+The preview slices each source on its `st` grid, applies the actual `fade_long.xlong` gains, and runs `finephase.loud_lag_ms` / `confident_lag` on the mid-shelf (both faded decks `> -35` dB and both faders `>= 0.45`). That mid-shelf is required: official `measure_blend_lag` on `__09` used bars 154–159; a `|d|<6` source-grid mask drops those bars (A is 6–10 dB louder on the sources, `n_loud` too small), and using every audible bar dilutes the cluster so `confident_lag` is None. `robust_lag` of a messy set invented half-beat residuals on passing official rides `__06` / `__11` / `__14` (official residual `None`) and was not used.
+
+Dry-run of all 18 official ride windows with the mid-shelf rule: **only `__09` is blocked by lock** (`lag=−158.2` ms, `dd=0`). Official `blend_lock` on that render was `lag_ms=−158.2`, `applied=False`, `why: "near half a beat; left to halfbeat"`, halfbeat abstained (`dd=0`). No passing official ride is blocked. `__07` has a mid-shelf lag of 149.5 ms (still `<= 150`, so finephase would apply it) and `dd=14`. `__00` / `__12` are near half-beat on some bars but not a confident cluster, or have `dd>=4`.
+
+### 5.2 Pump prediction (`RIDEGATE_PUMP`) — catches `__23`
+
+Source × equal-power fade predicted **3.66 dB** on `__23` vs official rendered **4.82 dB** (`+0.28` over `pump_p95=4.54`). The renderer uses `FADE=long` (`fade_long.xlong`: fast rise, mid shelf ~0.45–0.50, then exit) plus bass/high swap, not a linear equal-power ramp. Re-predicting with the actual/xlong xfader rises to **~4.18**, still under 4.54, and would **false-fail** passing `__12` (pred 4.62 vs actual 2.9). Predicted V-dip is therefore **not** a hard gate.
+
+The flag instead rejects a measurable **both-thin** condition: outgoing in a breakdown, incoming not in a drop, and both source `st` `bar['all']` at least `T=6` dB below their drop medians, for more than the pro p95 count **10.80** (33 protrans official pro windows; 19 at 0, then 1–7, 10×2, 12, 17). Fresh official at T=6: `__23=14` (catch), `__30=9`, `__03=8`, no other official over 10.80 — no fresh official false positives.
+
+### 5.3 Exit lag vs the pro, and `RIDEGATE_EE`
+
+Exit is first outgoing blend bar `e−X+1`, vs the pro’s `outgoing_bar` (fresh corpus cue) / `out_bar_at_entry` (protrans).
+
+| cohort | arm | n | mean | median | p25 | p75 | n late (>8) |
+|---|---|---:|---:|---:|---:|---:|---:|
+| fresh | default | 18 | +66.9 | +81.2 | +49.3 | +97.9 | 15 |
+| fresh | ridegate | 18 | +26.9 | +4.1 | +1.1 | +61.3 | 8 |
+| fresh | ridegate+LOCK+PUMP | 18 | +30.9 | +19.3 | +1.1 | +76.8 | 9 |
+| protrans | default | 33 | +66.0 | +58.7 | +32.7 | +107.7 | 30 |
+| protrans | ridegate | 33 | +31.8 | +32.0 | −4.3 | +71.7 | 21 |
+
+The “53–81 bars later” figure is a **subset of late rides**, not the average. Ridegate is already earlier than default on both cohorts (fresh median +4.1 vs +81.2; only 6/33 protrans rides later than their default). Late fresh rides include `__09 +53.6`, `__11 +81.1`, also `__00 +63.9`, `__06 +49.4`, `__12 +106.2`, `__16 +129.5` (official abstain / default), `__19 +81.5`.
+
+`ride_pick` did **not** revert any of the 18 fresh official exits (`jr==je`); those late exits are already the exit ranker’s top pick, so un-reverting `je` cannot fix them. `ee_r7` is a pinned 5-id list and is not uniformly earlier (e.g. `ukf__40` ee_r7 exit 256 vs pro 144.6, and it hard-fails pump). It is not a drop-in earlier-exit for fresh.
+
+`RIDEGATE_EE` (off by default) therefore only keeps `je` when `ride_pick` would revert a mid/earlier exit to the default, the `je` start is earlier, and `drum_linger` does not exceed its threshold. On this pack that path fires on 2/33 protrans built rows and would cut lag `hybrid_minds_ukf__19` +66.2→+18.2 and `maduk_liquicity_lunar2025__05` +114.7→+18.7. It does not change any fresh pair. Not enabled for the re-render below.
+
+### 5.4 Re-render of affected fresh pairs
+
+Dry-run `maybe_apply` with `RIDEGATE=1,RIDEGATE_LOCK=1,RIDEGATE_PUMP=1` on all 18: **only `__09` (lock) and `__23` (pump)** fall back to default. Those two were re-rendered as `n1126f_ride_safe` (unique `eval_gate` tags; `ONLY` those ids). `corpus-v2` was left running.
+
+| pair | official ride | safe window | fam | hard | residual / pump |
+|---|---|---|---|---|---|
+| `__09` | `['n', 168, None, 32, 16]` beat_clash −158.19 | `['n', 160, None, 48, 16]` (default) | nat_short | **ok** | residual `None`, pump 1.3 |
+| `__23` | `['n', 128, None, 8, 16]` pumping 4.82 | `['n', 208, None, 24, 16]` (default) | nat_short | **ok** | pump **2.9** (under 4.54) |
+
+**New hard fails** on the safe arm vs default: **0** (the two previous new fails are gone). `__16` still hard-fails under both default and ride (official abstain; same default window; not affected).
+
+**Window agreement** with the official built-row ride: was **17/18** (miss = `__16` abstain labelling). After LOCK+PUMP: **15/18** (also `__09` and `__23`, intentionally rejected). The other 15 official rides are unchanged.
+
+**Exit lag** on the safe arm: fresh mean **+30.9** / median **+19.3** (ridegate was +26.9 / +4.1). `__09` lag improves slightly (53.6→45.6, still late). `__23` lag **regresses** from +1.4 (the pumping ride, almost on the pro exit) to the default **+81.4** — the cost of refusing the thin breakdown blend.
+
+pytest: `protrans/tests/` **98 passed**. Dry-run: `replica/nightly_1126_work/ride_preview_dryrun.json`. Exit-lag table: `replica/nightly_1126_work/exit_lag_1126.json`. Safe ckpt: `replica/gate_ckpt/n1126f_ride_safe.jsonl`.

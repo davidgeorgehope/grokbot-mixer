@@ -1,0 +1,1279 @@
+{
+ "n": 18,
+ "elapsed": 15.9,
+ "rows": [
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__00",
+   "a_yt": "43UYpdRL4Eo",
+   "b_yt": "cToxaisVKW8",
+   "default": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "ride": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 15,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    159.6,
+    63.9,
+    -62.4,
+    133.5,
+    120.5,
+    -164.0,
+    -161.1
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 14,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "p_leave": 0.522
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__01",
+   "a_yt": "cToxaisVKW8",
+   "b_yt": "vFRvEFNTkDE",
+   "default": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ],
+   "ride": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 3,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -91.4,
+    31.9,
+    110.3,
+    100.1,
+    -21.8,
+    -26.1,
+    2.9
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 7,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "p_leave": 0.866
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__03",
+   "a_yt": "1de_KG_9XE4",
+   "b_yt": "chn2K5Wwufc",
+   "default": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "ride": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 8,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -16.0,
+    -148.0,
+    -84.2,
+    105.9,
+    92.9,
+    152.4,
+    91.4
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "p_leave": 0.747
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__06",
+   "a_yt": "D58rGFasJAI",
+   "b_yt": "leh4LM8862c",
+   "default": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "ride": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -16.0,
+    158.2,
+    -37.7,
+    85.6,
+    61.0,
+    -152.4,
+    43.5
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 8,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "p_leave": 0.566
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__07",
+   "a_yt": "leh4LM8862c",
+   "b_yt": "sb7o1pIrDO8",
+   "default": [
+    "n",
+    176,
+    null,
+    64,
+    16
+   ],
+   "ride": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": 149.5,
+    "dd": 14,
+    "n_use": 7,
+    "near_halfbeat": true
+   },
+   "lock_offs": [
+    121.9,
+    149.5,
+    142.2,
+    149.5,
+    162.5,
+    165.4,
+    146.6
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 1,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "p_leave": 0.617
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__09",
+   "a_yt": "9aN8jt9l8S0",
+   "b_yt": "DaFDQDy7en0",
+   "default": [
+    "n",
+    160,
+    null,
+    48,
+    16
+   ],
+   "ride": [
+    "n",
+    168,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": true,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": false,
+    "reason": "near-half-beat lag -158.2 ms with 0 drum-on-drum bars (< 4)",
+    "lag_ms": -158.2,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": true
+   },
+   "lock_offs": [
+    146.6,
+    31.9,
+    -155.3,
+    -168.3,
+    119.0,
+    -143.7,
+    -161.1
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": 164.0,
+    "dd": 8,
+    "n_use": 7,
+    "near_halfbeat": true
+   },
+   "maybe_applied": null,
+   "blocked": "lock",
+   "dec_win": [
+    "n",
+    168,
+    null,
+    32,
+    16
+   ],
+   "p_leave": 0.659
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__10",
+   "a_yt": "DaFDQDy7en0",
+   "b_yt": "8cXagpI3yv0",
+   "default": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "ride": [
+    "n",
+    120,
+    null,
+    48,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 6,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    11.6,
+    -10.2,
+    34.8,
+    -39.2,
+    -94.3,
+    17.4,
+    -24.7
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    120,
+    null,
+    48,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    120,
+    null,
+    48,
+    16
+   ],
+   "p_leave": 0.799
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__11",
+   "a_yt": "8cXagpI3yv0",
+   "b_yt": "30_nSrjTPRQ",
+   "default": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "ride": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 1,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -66.8,
+    -168.3,
+    152.4,
+    45.0,
+    169.8,
+    27.6,
+    -65.3
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 2,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "p_leave": 0.539
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__12",
+   "a_yt": "30_nSrjTPRQ",
+   "b_yt": "rtE5krI_YgU",
+   "default": [
+    "n",
+    224,
+    null,
+    32,
+    16
+   ],
+   "ride": [
+    "n",
+    232,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 5,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    31.9,
+    153.8,
+    -140.8,
+    71.1,
+    -169.8,
+    37.7,
+    -165.4
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 3,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    232,
+    null,
+    16,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    232,
+    null,
+    16,
+    16
+   ],
+   "p_leave": 0.798
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__14",
+   "a_yt": "EvwXLdyMgQM",
+   "b_yt": "RGkXpofMKbs",
+   "default": [
+    "n",
+    160,
+    null,
+    24,
+    16
+   ],
+   "ride": [
+    "n",
+    112,
+    null,
+    48,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": true,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -153.8,
+    -161.1,
+    -107.4,
+    145.1,
+    -140.8,
+    -166.9,
+    -26.1
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 5,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    112,
+    null,
+    48,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    112,
+    null,
+    48,
+    16
+   ],
+   "p_leave": 0.764
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__15",
+   "a_yt": "RGkXpofMKbs",
+   "b_yt": "3jeoJlYgSdY",
+   "default": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "ride": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": true,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 1,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -14.5,
+    39.2,
+    79.8,
+    -98.7,
+    -71.1,
+    63.9,
+    -105.9
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 1,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": null,
+   "blocked": null,
+   "dec_win": null,
+   "p_leave": 0.624
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__16",
+   "a_yt": "3jeoJlYgSdY",
+   "b_yt": "FvRou7tBzE4",
+   "default": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "ride": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": true,
+   "rg_hf": true,
+   "def_hf": true,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 13,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -165.4,
+    117.6,
+    127.7,
+    137.9,
+    -152.4,
+    143.7,
+    -164.0
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 13,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": null,
+   "blocked": null,
+   "dec_win": null,
+   "p_leave": 0.711
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__19",
+   "a_yt": "5pJhpAoMfo4",
+   "b_yt": "1etxk2m2YDY",
+   "default": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "ride": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 0,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -21.8,
+    -7.3,
+    -116.1,
+    -101.6,
+    63.9,
+    -149.5,
+    98.7
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "p_leave": 0.626
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__22",
+   "a_yt": "O8LkaO1VB9U",
+   "b_yt": "0oXTQGdoTk4",
+   "default": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "ride": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 2,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    58.0,
+    -72.6,
+    58.0,
+    -1.5,
+    5.8,
+    -11.6,
+    -4.4
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "p_leave": 0.826
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__23",
+   "a_yt": "0oXTQGdoTk4",
+   "b_yt": "fhqyyDdLfTs",
+   "default": [
+    "n",
+    208,
+    null,
+    24,
+    16
+   ],
+   "ride": [
+    "n",
+    128,
+    null,
+    8,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": true,
+   "def_hf": false,
+   "thin": {
+    "ok": false,
+    "both_thin": 14,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": "both_thin 14 > pro p95 10.80"
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -126.3,
+    71.1,
+    -111.7,
+    -49.3,
+    -152.4,
+    7.3,
+    87.1
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 3,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": null,
+   "blocked": "pump",
+   "dec_win": [
+    "n",
+    128,
+    null,
+    8,
+    16
+   ],
+   "p_leave": 0.755
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__26",
+   "a_yt": "kqv6U2zYJIM",
+   "b_yt": "Uc5ntREcnak",
+   "default": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "ride": [
+    "n",
+    152,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": false,
+   "thin": {
+    "ok": true,
+    "both_thin": 2,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 1,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    90.0,
+    135.0,
+    2.9,
+    31.9,
+    76.9,
+    -142.2,
+    -124.8
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 8,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    152,
+    null,
+    32,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    152,
+    null,
+    32,
+    16
+   ],
+   "p_leave": 0.9
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__27",
+   "a_yt": "Uc5ntREcnak",
+   "b_yt": "bGK7x75BIBk",
+   "default": [
+    "n",
+    240,
+    null,
+    0,
+    16
+   ],
+   "ride": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": true,
+   "thin": {
+    "ok": true,
+    "both_thin": 1,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 9,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -97.2,
+    -164.0,
+    98.7,
+    161.1,
+    -14.5,
+    -132.1,
+    91.4
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "p_leave": 0.9
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__30",
+   "a_yt": "5D7EJ5pzp78",
+   "b_yt": "sdlbkDc3cA4",
+   "default": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "ride": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "rg_hf": false,
+   "def_hf": true,
+   "thin": {
+    "ok": true,
+    "both_thin": 9,
+    "thin_db": 6.0,
+    "threshold": 10.8,
+    "reason": null
+   },
+   "lock": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 1,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "lock_offs": [
+    -135.0,
+    -164.0,
+    -55.1,
+    47.9,
+    159.6,
+    139.3,
+    159.6
+   ],
+   "lock_def": {
+    "ok": true,
+    "reason": null,
+    "lag_ms": null,
+    "dd": 0,
+    "n_use": 7,
+    "near_halfbeat": false
+   },
+   "maybe_applied": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "blocked": null,
+   "dec_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "p_leave": 0.8
+  }
+ ],
+ "final": {
+  "rule": "confident mid-shelf lag |lag|>150 and dd<4, or both_thin>10.80",
+  "blocked": [
+   [
+    "ukf_drum_bass_wVp_VlkWqxI__09",
+    "lock"
+   ],
+   [
+    "ukf_drum_bass_wVp_VlkWqxI__23",
+    "pump"
+   ]
+  ],
+  "false_lock_on_passing_official": [],
+  "render_variant": "n1126f_ride_safe",
+  "render": {
+   "ukf_drum_bass_wVp_VlkWqxI__09": {
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ],
+    "fam": "nat_short",
+    "hard_fail": false,
+    "residual_lag_ms": null,
+    "pump_db": 1.3
+   },
+   "ukf_drum_bass_wVp_VlkWqxI__23": {
+    "win": [
+     "n",
+     208,
+     null,
+     24,
+     16
+    ],
+    "fam": "nat_short",
+    "hard_fail": false,
+    "residual_lag_ms": null,
+    "pump_db": 2.9
+   }
+  },
+  "new_hard_fail_vs_default": 0,
+  "window_agree_official": "15/18 (was 17/18; lost __09 and __23 by design; still miss __16 abstain)",
+  "fresh_exit_lag_safe_mean_med": [
+   30.9,
+   19.3
+  ]
+ }
+}

@@ -367,3 +367,87 @@ def test_drum_linger_bars_faded_vs_early_exit():
     # A 0-16 is all drop, so drum_linger (requires outgoing breakdown) is 0
     early = ['n', 16, None, 0, 16]
     assert RG.drum_linger_bars(sa, sb, early, hi, x_db=8) == 0
+
+
+def test_ride_preview_flags_default_off(monkeypatch):
+    import ride_preview as RP
+    for name in ('RIDEGATE_LOCK', 'RIDEGATE_PUMP', 'RIDEGATE_EE'):
+        monkeypatch.delenv(name, raising=False)
+    assert RP.lock_preview_on({}, {}) is False
+    assert RP.pump_preview_on({}, {}) is False
+    assert RP.early_exit_on({}, {}) is False
+    monkeypatch.setenv('RIDEGATE_LOCK', '1')
+    assert RP.lock_preview_on({}, {}) is True
+    monkeypatch.delenv('RIDEGATE_LOCK', raising=False)
+    src = inspect.getsource(recreate.apply_rules)
+    assert "'RIDEGATE_LOCK'" in src and "'RIDEGATE_PUMP'" in src and "'RIDEGATE_EE'" in src
+    env = recreate.apply_rules({})
+    assert 'RIDEGATE_LOCK' not in env and 'RIDEGATE_PUMP' not in env and 'RIDEGATE_EE' not in env
+    env = recreate.apply_rules({'RIDEGATE_LOCK': 1, 'RIDEGATE_PUMP': 1, 'RIDEGATE_EE': 1})
+    assert env.get('RIDEGATE_LOCK') == '1'
+    assert env.get('RIDEGATE_PUMP') == '1'
+    assert env.get('RIDEGATE_EE') == '1'
+    import paths, json as _json
+    rules = _json.loads(pathlib.Path(paths.RULES).read_bytes())
+    assert 'RIDEGATE_LOCK' not in rules and 'RIDEGATE_PUMP' not in rules and 'RIDEGATE_EE' not in rules
+
+
+def test_both_thin_and_lock_min():
+    import ride_preview as RP
+    RP._CAL = dict(lock_min_dd=4, thin_db=6, thin_p95=10.8, thin_threshold=10.8)
+    assert RP.lock_min_dd() == 4
+    assert RP.thin_db() == 6
+    assert RP.thin_threshold() == 10.8
+    # synthetic st cache: outgoing breakdown 16-32 is 12 dB below drop; incoming intro 0-16 is 12 below
+    import numpy as np
+    arrA = np.full(64, -40.0)
+    arrA[0:16] = -10  # drop
+    arrA[16:32] = -22  # breakdown, 12 dB down
+    arrA[32:48] = -10
+    arrB = np.full(64, -40.0)
+    arrB[0:16] = -22  # intro, 12 dB below drop
+    arrB[16:32] = -10  # drop
+    RP._ST['toyA'] = dict(g={}, downs=np.arange(65, dtype=float), all=arrA, drums=arrA)
+    RP._ST['toyB'] = dict(g={}, downs=np.arange(65, dtype=float), all=arrB, drums=arrB)
+    sa = dict(drops=[[0, 16], [32, 48]], breakdown=16, drop2=32, n_bars=64)
+    sb = dict(drops=[[16, 32]], intro_end=16, n_bars=64)
+    win = ['n', 32, None, 0, 16]  # A 16-32 breakdown, B 0-16 intro
+    n = RP.both_thin_bars(sa, sb, 'toyA', 'toyB', win, t_db=6)
+    assert n == 16, n
+    early = ['n', 16, None, 0, 16]  # A still in drop
+    assert RP.both_thin_bars(sa, sb, 'toyA', 'toyB', early, t_db=6) == 0
+    # drum-on-drum: only where both drums_on (p75-8). drop level -10, breakdown/intro -22.
+    # p75 of arrA is around -10, -22 is not within 8 dB → no overlap in the breakdown/intro window
+    assert RP.drum_on_drum_bars('toyA', 'toyB', 16, 0, 16) == 0
+    # drop-on-drop would overlap if we cued B at 16
+    assert RP.drum_on_drum_bars('toyA', 'toyB', 0, 16, 16) == 16
+    RP._CAL = None
+    RP._ST.pop('toyA', None); RP._ST.pop('toyB', None)
+
+
+def test_maybe_apply_lock_and_pump_flags(monkeypatch):
+    """Flags off: a lingering/pumping want is still injected. Flags on: lock/pump can abstain."""
+    import ride_preview as RP
+    sa = dict(n_bars=80, music_end=80, drops=[[16, 64]], breakdown=None, outro_start=64)
+    sb = dict(n_bars=80, music_end=80, drops=[[32, 64]], intro_end=32)
+    default_win = ['n', 64, None, 16, 16]
+    want = ['n', 48, None, 0, 16]
+    pack = {}  # unused; predict_rows is patched
+    monkeypatch.setattr(RG, 'predict_rows', lambda pack, rows: [dict(
+        is_default=False, win=want, exit=33.0, cue=1.0, X=16, p_leave=0.7, je=1, jr=1, jc=0)])
+    monkeypatch.delenv('RIDEGATE_LOCK', raising=False)
+    monkeypatch.delenv('RIDEGATE_PUMP', raising=False)
+    monkeypatch.delenv('LINGER_GUARD', raising=False)
+    hit, dec, inj = RG.maybe_apply(pack, sa, sb, default_win, cs=[], pid='toy_safe')
+    assert hit is not None and inj is True
+
+    monkeypatch.setenv('RIDEGATE_LOCK', '1')
+    monkeypatch.setattr(RP, 'preview_lock', lambda *a, **k: dict(ok=False, reason='test lock', lag_ms=-158, dd=0, n_use=6))
+    hit2, dec2, inj2 = RG.maybe_apply(pack, sa, sb, default_win, cs=[], pid='toy_safe')
+    assert hit2 is None and inj2 is False and dec2.get('lock_blocked') is True
+    monkeypatch.setenv('RIDEGATE_LOCK', '0')
+    monkeypatch.setenv('RIDEGATE_PUMP', '1')
+    monkeypatch.setattr(RP, 'pump_preview', lambda *a, **k: dict(ok=False, both_thin=14, thin_db=6, threshold=10.8, reason='test thin'))
+    hit3, dec3, inj3 = RG.maybe_apply(pack, sa, sb, default_win, cs=[], pid='toy_safe')
+    assert hit3 is None and dec3.get('pump_blocked') is True
+    monkeypatch.setenv('RIDEGATE_PUMP', '0')

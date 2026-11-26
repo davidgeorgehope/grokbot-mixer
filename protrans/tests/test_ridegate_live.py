@@ -146,3 +146,68 @@ def test_agree_cv_if_present():
     assert r['agree'] == r['n']
     assert r['rate'] == 1.0
     assert r['disagree'] == []
+
+
+
+def test_legal_natural_uses_n_bars_not_music_end():
+    """mix_simple injects when e <= t['nb'] (== sections n_bars). music_end is often shorter."""
+    sa = dict(n_bars=229, music_end=221)
+    sb = dict(n_bars=262, music_end=256)
+    # the ridegate map window on hybrid_minds_ukf__09: past music_end, inside the grid
+    assert RG._legal_natural(sa, sb, ['n', 224, None, 64, 16]) is True
+    assert RG._legal_natural(sa, sb, ['n', 208, None, 48, 16]) is True
+    # past the grid still illegal
+    assert RG._legal_natural(sa, sb, ['n', 240, None, 64, 16]) is False
+    # incoming cue past music_end but inside n_bars must also pass
+    sb2 = dict(n_bars=198, music_end=190)
+    assert RG._legal_natural(dict(n_bars=236, music_end=226), sb2, ['n', 232, None, 40, 16]) is True
+
+
+def test_rendered_window_matches_map_for_pinned_pairs():
+    """maybe_apply's window (what recreate would render) equals the map window for every
+    pinned pair. Uses live src2 sections and an empty cs, so injection has to pass the
+    same n_bars bound mix_simple uses. Does not render audio.
+    """
+    import paths
+    mp_path = os.path.join(os.path.dirname(os.path.dirname(__file__)),
+                           'replica', 'nightly_1126_work', 'map_ridegate.json')
+    if not os.path.exists(mp_path) or not os.path.isdir(RG.PACK_DIR):
+        return
+    import run_admitted_tune as T
+    mp = json.load(open(mp_path))['by_id']
+    recs = {r['id']: r for r in T.load_recs()}
+    pack = RG.load_pack()
+    st = os.path.join(paths.SRC2, 'st')
+    # map *render* windows (n1126_ridegate ckpt) when present
+    try:
+        mapped = T.load_ckpt('n1126_ridegate')
+    except Exception:
+        mapped = {}
+    missing, disagree = [], []
+    for pid, ref in sorted(mp.items()):
+        rec = recs.get(pid)
+        if rec is None:
+            missing.append(pid); continue
+        a, b = rec['a']['yt'], rec['b']['yt']
+        spa, spb = os.path.join(st, f'{a}.sections.json'), os.path.join(st, f'{b}.sections.json')
+        if not (os.path.exists(spa) and os.path.exists(spb)):
+            missing.append(pid); continue
+        sa, sb = json.load(open(spa)), json.load(open(spb))
+        r = RG.row_for_render(sa, sb, 0.0, 0.0, 16, a_yt=a, b_yt=b, pid=pid)
+        default_win = ['n', int(r['dex'] + r['dX'] - 1), None, int(r['dcue'] - 1), int(r['dX'])]
+        hit, dec, _ = RG.maybe_apply(pack, sa, sb, default_win, cs=[], a_yt=a, b_yt=b, pid=pid)
+        applied = list(hit['win']) if hit is not None else list(default_win)
+        want = list(ref['win']) if ref.get('win') else None
+        legal = bool(want) and RG._legal_natural(sa, sb, want) and not ref.get('abstain')
+        expected = want if legal else list(default_win)
+        if applied != expected:
+            disagree.append(dict(id=pid, applied=applied, expected=expected, want=want,
+                                 default=default_win, legal=legal, abstain=dec.get('is_default'),
+                                 p_leave=dec.get('p_leave')))
+        if pid in mapped:
+            mwin = list((mapped[pid].get('pick') or {}).get('win') or [])
+            if mwin and applied != mwin:
+                disagree.append(dict(id=pid, vs='map_render', applied=applied, map_render=mwin))
+    assert not missing, missing
+    assert disagree == [], disagree
+    assert len(mp) == 33

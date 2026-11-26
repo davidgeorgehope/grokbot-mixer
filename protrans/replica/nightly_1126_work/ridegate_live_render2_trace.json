@@ -1,0 +1,407 @@
+{
+ "root_cause": "live _legal_natural preferred sections.music_end over n_bars; map inject uses mix_simple t[nb]==n_bars",
+ "n": 5,
+ "pairs": [
+  {
+   "id": "hybrid_minds_ukf__09",
+   "yt": "J3oTRY7AdE4|ksVDZt9_0J4",
+   "live_render_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "live_fam": "nat_short",
+   "map_render_win": [
+    "n",
+    224,
+    null,
+    64,
+    16
+   ],
+   "map_fam": "picker_style_gated",
+   "map_choice": {
+    "win": [
+     "n",
+     224,
+     null,
+     64,
+     16
+    ],
+    "exit": 209.0,
+    "cue": 65.0,
+    "X": 16,
+    "abstain": false,
+    "yt_key": "J3oTRY7AdE4|ksVDZt9_0J4"
+   },
+   "live_choice": {
+    "win": [
+     "n",
+     224,
+     null,
+     64,
+     16
+    ],
+    "exit": 209.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.381
+   },
+   "default_win": [
+    "n",
+    208,
+    null,
+    48,
+    16
+   ],
+   "live_sections": {
+    "A_n_bars": 229,
+    "A_music_end": 221,
+    "B_n_bars": 262,
+    "B_music_end": 256
+   },
+   "snap_sections": {
+    "A_n_bars": 231,
+    "A_music_end": 231,
+    "B_n_bars": 262,
+    "B_music_end": 262
+   },
+   "legal_music_end": false,
+   "legal_n_bars": true,
+   "after_fix_applied": [
+    "n",
+    224,
+    null,
+    64,
+    16
+   ],
+   "after_fix_injected": true,
+   "compare_why": "win live=['n', 208, None, 48, 16] map=['n', 224, None, 64, 16]; v1 live=32.58 map=38.34",
+   "diverge": "maybe_apply predicted the map window from the built row but _legal_natural used live music_end, which is shorter than n_bars / mix_simple t[nb]. Injection was skipped, RIDEGATE_WIN was not set, and the engine default (nat_short) was rendered. The map path already had the window in cs via mix_simple PICKER_INJECT_CS (e <= t[nb])."
+  },
+  {
+   "id": "hybrid_minds_ukf__11",
+   "yt": "Vwb-3pAvOVk|M4UU1xn_K4s",
+   "live_render_win": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ],
+   "live_fam": "nat_short",
+   "map_render_win": [
+    "n",
+    224,
+    null,
+    80,
+    16
+   ],
+   "map_fam": "picker_style_gated",
+   "map_choice": {
+    "win": [
+     "n",
+     224,
+     null,
+     80,
+     16
+    ],
+    "exit": 209.0,
+    "cue": 81.0,
+    "X": 16,
+    "abstain": false,
+    "yt_key": "Vwb-3pAvOVk|M4UU1xn_K4s"
+   },
+   "live_choice": {
+    "win": [
+     "n",
+     224,
+     null,
+     80,
+     16
+    ],
+    "exit": 209.0,
+    "cue": 81.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.436
+   },
+   "default_win": [
+    "n",
+    208,
+    null,
+    64,
+    16
+   ],
+   "live_sections": {
+    "A_n_bars": 229,
+    "A_music_end": 221,
+    "B_n_bars": 307,
+    "B_music_end": 304
+   },
+   "snap_sections": {
+    "A_n_bars": 228,
+    "A_music_end": 228,
+    "B_n_bars": 310,
+    "B_music_end": 310
+   },
+   "legal_music_end": false,
+   "legal_n_bars": true,
+   "after_fix_applied": [
+    "n",
+    224,
+    null,
+    80,
+    16
+   ],
+   "after_fix_injected": true,
+   "compare_why": "win live=['n', 208, None, 64, 16] map=['n', 224, None, 80, 16]; v1 live=34.15 map=21.6; hard_fail live=True map=False; pumping live=True map=False",
+   "diverge": "maybe_apply predicted the map window from the built row but _legal_natural used live music_end, which is shorter than n_bars / mix_simple t[nb]. Injection was skipped, RIDEGATE_WIN was not set, and the engine default (nat_short) was rendered. The map path already had the window in cs via mix_simple PICKER_INJECT_CS (e <= t[nb])."
+  },
+  {
+   "id": "hybrid_minds_ukf__23",
+   "yt": "INaNIcQ4S7k|HpfQ0bus688",
+   "live_render_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "live_fam": "nat_short",
+   "map_render_win": [
+    "n",
+    232,
+    null,
+    48,
+    16
+   ],
+   "map_fam": "picker_style_gated",
+   "map_choice": {
+    "win": [
+     "n",
+     232,
+     null,
+     48,
+     16
+    ],
+    "exit": 217.0,
+    "cue": 49.0,
+    "X": 16,
+    "abstain": false,
+    "yt_key": "INaNIcQ4S7k|HpfQ0bus688"
+   },
+   "live_choice": {
+    "win": [
+     "n",
+     232,
+     null,
+     48,
+     16
+    ],
+    "exit": 217.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.543
+   },
+   "default_win": [
+    "n",
+    224,
+    null,
+    16,
+    16
+   ],
+   "live_sections": {
+    "A_n_bars": 235,
+    "A_music_end": 225,
+    "B_n_bars": 197,
+    "B_music_end": 195
+   },
+   "snap_sections": {
+    "A_n_bars": 237,
+    "A_music_end": 237,
+    "B_n_bars": 196,
+    "B_music_end": 196
+   },
+   "legal_music_end": false,
+   "legal_n_bars": true,
+   "after_fix_applied": [
+    "n",
+    232,
+    null,
+    48,
+    16
+   ],
+   "after_fix_injected": true,
+   "compare_why": "win live=['n', 224, None, 16, 16] map=['n', 232, None, 48, 16]; v1 live=31.77 map=34.22; hard_fail live=False map=True; pumping live=False map=True",
+   "diverge": "maybe_apply predicted the map window from the built row but _legal_natural used live music_end, which is shorter than n_bars / mix_simple t[nb]. Injection was skipped, RIDEGATE_WIN was not set, and the engine default (nat_short) was rendered. The map path already had the window in cs via mix_simple PICKER_INJECT_CS (e <= t[nb])."
+  },
+  {
+   "id": "joe_syntax_hospital__00",
+   "yt": "R06kP42RFRo|dOJp7bsjuyU",
+   "live_render_win": [
+    "n",
+    96,
+    null,
+    0,
+    16
+   ],
+   "live_fam": "nat_short",
+   "map_render_win": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "map_fam": "picker_style_gated",
+   "map_choice": {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "abstain": false,
+    "yt_key": "R06kP42RFRo|dOJp7bsjuyU"
+   },
+   "live_choice": {
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ],
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.182
+   },
+   "default_win": [
+    "n",
+    96,
+    null,
+    0,
+    16
+   ],
+   "live_sections": {
+    "A_n_bars": 112,
+    "A_music_end": 111,
+    "B_n_bars": 177,
+    "B_music_end": 174
+   },
+   "snap_sections": {
+    "A_n_bars": 112,
+    "A_music_end": 112,
+    "B_n_bars": 175,
+    "B_music_end": 175
+   },
+   "legal_music_end": false,
+   "legal_n_bars": true,
+   "after_fix_applied": [
+    "n",
+    112,
+    null,
+    32,
+    16
+   ],
+   "after_fix_injected": true,
+   "compare_why": "win live=['n', 96, None, 0, 16] map=['n', 112, None, 32, 16]; v1 live=29.36 map=40.96",
+   "diverge": "maybe_apply predicted the map window from the built row but _legal_natural used live music_end, which is shorter than n_bars / mix_simple t[nb]. Injection was skipped, RIDEGATE_WIN was not set, and the engine default (nat_short) was rendered. The map path already had the window in cs via mix_simple PICKER_INJECT_CS (e <= t[nb])."
+  },
+  {
+   "id": "pola_bryson_puzzlewood__04",
+   "yt": "ogXFi8wa56w|nNXHqtByO-A",
+   "live_render_win": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "live_fam": "nat_short",
+   "map_render_win": [
+    "n",
+    232,
+    null,
+    40,
+    16
+   ],
+   "map_fam": "picker_style_gated",
+   "map_choice": {
+    "win": [
+     "n",
+     232,
+     null,
+     40,
+     16
+    ],
+    "exit": 217.0,
+    "cue": 41.0,
+    "X": 16,
+    "abstain": false,
+    "yt_key": "ogXFi8wa56w|nNXHqtByO-A"
+   },
+   "live_choice": {
+    "win": [
+     "n",
+     232,
+     null,
+     40,
+     16
+    ],
+    "exit": 217.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.633
+   },
+   "default_win": [
+    "n",
+    224,
+    null,
+    40,
+    16
+   ],
+   "live_sections": {
+    "A_n_bars": 236,
+    "A_music_end": 226,
+    "B_n_bars": 198,
+    "B_music_end": 190
+   },
+   "snap_sections": {
+    "A_n_bars": 237,
+    "A_music_end": 237,
+    "B_n_bars": 197,
+    "B_music_end": 197
+   },
+   "legal_music_end": false,
+   "legal_n_bars": true,
+   "after_fix_applied": [
+    "n",
+    232,
+    null,
+    40,
+    16
+   ],
+   "after_fix_injected": true,
+   "compare_why": "win live=['n', 224, None, 40, 16] map=['n', 232, None, 40, 16]; v1 live=34.12 map=43.04",
+   "diverge": "maybe_apply predicted the map window from the built row but _legal_natural used live music_end, which is shorter than n_bars / mix_simple t[nb]. Injection was skipped, RIDEGATE_WIN was not set, and the engine default (nat_short) was rendered. The map path already had the window in cs via mix_simple PICKER_INJECT_CS (e <= t[nb])."
+  }
+ ],
+ "ukf11_pump": {
+  "live_pump_db": 7.28,
+  "map_pump_db": 0.86,
+  "threshold": 4.54,
+  "note": "real V-dip in summed decks at track bar 195 on the DEFAULT window; map window (224/80) is clean. Pump is a consequence of the missed inject, not a false hard-check."
+ }
+}

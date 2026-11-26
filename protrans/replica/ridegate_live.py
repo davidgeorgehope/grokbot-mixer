@@ -228,10 +228,19 @@ def row_for_render(sa, sb, dex, dcue, dX, a_yt=None, b_yt=None, pid='live'):
 
 
 def _legal_natural(sa, sb, want):
+    """Same bound mix_simple uses when injecting a picker window: e <= t['nb']
+    (the grid length, sections n_bars), not sections.music_end.
+
+    detect() sets music_end at the last bar still within 25 dB of the peak, which
+    is often 1-16 bars short of the grid. The map path gets those later exits into
+    cs via mix_simple's PICKER_INJECT_CS check (`_ee <= na` with na = t['nb']),
+    so recreate never re-checks music_end. Live must use the same bound or it
+    abstains and renders the engine default.
+    """
     if not want or want[0] != 'n':
         return False
-    na = int(sa.get('music_end') or sa.get('n_bars') or 999)
-    nb = int(sb.get('music_end') or sb.get('n_bars') or 999)
+    na = int(sa.get('n_bars') or sa.get('music_end') or 999)
+    nb = int(sb.get('n_bars') or sb.get('music_end') or 999)
     e, ib, X = int(want[1]), int(want[3]), int(want[4])
     return X > 0 and 16 <= e - X and e <= na and 0 <= ib and ib + X <= nb - 16
 

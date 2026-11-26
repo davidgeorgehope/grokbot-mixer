@@ -328,3 +328,42 @@ def test_linger_bars_and_guard(monkeypatch, tmp_path):
     assert hit2 is not None
     monkeypatch.setattr(RG, 'predict_rows', real_pred)
     RG._LINGER_CAL = None
+
+
+
+def test_in_breakdown_infers_interdrop_gap():
+    """Snapshot rows may omit breakdown; the gap before drop2 is still a breakdown."""
+    sec = dict(drops=[[63, 157], [175, 268]], drop2=175, outro_start=268, n_bars=286, breakdown=None)
+    assert RG.in_breakdown(sec, 160) is True
+    assert RG.in_breakdown(sec, 157) is True
+    assert RG.in_breakdown(sec, 156) is False  # still in drop1
+    assert RG.in_breakdown(sec, 175) is False  # drop2
+    # explicit breakdown field still wins
+    sec2 = dict(drops=[[64, 160], [176, 272]], breakdown=160, drop2=176)
+    assert RG.in_breakdown(sec2, 160) is True
+    assert RG.in_breakdown(sec2, 159) is False
+
+
+def test_drum_linger_bars_faded_vs_early_exit():
+    """Near-drop drums under an outgoing breakdown are counted only while the
+    predicted fade keeps them within x_db of the drop baseline."""
+    import numpy as np
+    sa = dict(drops=[[0, 16], [32, 48]], breakdown=16, drop2=32, n_bars=64)
+    sb = dict(drops=[[16, 32]], intro_end=16, n_bars=64)  # incoming 0-16 is intro, not drop
+    # drop bars 0-16 at -20 dB; breakdown 16-32 still at -20 (drums never leave)
+    hi = np.full(64, -80.0)
+    hi[0:16] = -20.0
+    hi[16:32] = -20.0
+    hi[32:48] = -20.0
+    # fade starts AT the breakdown: ['n', 32, None, 0, 16] -> A 16-32, B 0-16
+    win = ['n', 32, None, 0, 16]
+    n8 = RG.drum_linger_bars(sa, sb, win, hi, x_db=8)
+    # first mid-bars stay within 8 dB (equal-power is -3 dB at bar 8, -8 dB around bar 11.8)
+    assert n8 >= 8, n8
+    assert n8 <= 13, n8
+    # structural linger is 0 (outgoing is not in a drop)
+    assert RG.linger_bars(sa, sb, win) == 0
+    # earlier exit still in the drop, 16-bar overlap ending at the breakdown start:
+    # A 0-16 is all drop, so drum_linger (requires outgoing breakdown) is 0
+    early = ['n', 16, None, 0, 16]
+    assert RG.drum_linger_bars(sa, sb, early, hi, x_db=8) == 0

@@ -1,0 +1,1497 @@
+{
+ "mix": "ukf_drum_bass_wVp_VlkWqxI",
+ "n_pairs": 18,
+ "linger_cal": {
+  "p95": 5.3999999999999915,
+  "threshold": 5.3999999999999915,
+  "pro_rate": {
+   "n": 33,
+   "n_linger": 3,
+   "rate": 0.0909,
+   "mean": 0.848,
+   "p95": 5.4,
+   "max": 16,
+   "hist": {
+    "0": 30,
+    "3": 1,
+    "9": 1,
+    "16": 1
+   }
+  },
+  "our_default_rate": {
+   "n": 33,
+   "n_linger": 0,
+   "rate": 0.0,
+   "mean": 0.0,
+   "p95": 0.0,
+   "max": 0,
+   "hist": {
+    "0": 33
+   }
+  },
+  "our_ridegate_rate": {
+   "n": 33,
+   "n_linger": 0,
+   "rate": 0.0,
+   "mean": 0.0,
+   "p95": 0.0,
+   "max": 0,
+   "hist": {
+    "0": 33
+   }
+  }
+ },
+ "default": {
+  "n_rendered": 18,
+  "n_not_evaluated": 0,
+  "n_agree_official": 1,
+  "agree_rate": 0.0556,
+  "new_hard_fail": [],
+  "n_new_hard_fail": 0,
+  "breakdown_cue_landings": [],
+  "n_breakdown_cue": 0,
+  "linger_over_p95": [],
+  "n_linger_over_p95": 0
+ },
+ "ridegate": {
+  "n_rendered": 18,
+  "n_not_evaluated": 0,
+  "n_agree_official": 17,
+  "agree_rate": 0.9444,
+  "new_hard_fail": [
+   "ukf_drum_bass_wVp_VlkWqxI__09",
+   "ukf_drum_bass_wVp_VlkWqxI__23"
+  ],
+  "n_new_hard_fail": 2,
+  "breakdown_cue_landings": [
+   "ukf_drum_bass_wVp_VlkWqxI__11"
+  ],
+  "n_breakdown_cue": 1,
+  "linger_over_p95": [
+   "ukf_drum_bass_wVp_VlkWqxI__11"
+  ],
+  "n_linger_over_p95": 1
+ },
+ "linger": {
+  "n_rendered": 18,
+  "n_not_evaluated": 0,
+  "n_agree_official": 16,
+  "agree_rate": 0.8889,
+  "new_hard_fail": [
+   "ukf_drum_bass_wVp_VlkWqxI__09",
+   "ukf_drum_bass_wVp_VlkWqxI__23"
+  ],
+  "n_new_hard_fail": 2,
+  "breakdown_cue_landings": [],
+  "n_breakdown_cue": 0,
+  "linger_over_p95": [],
+  "n_linger_over_p95": 0
+ },
+ "pairs": [
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__00",
+   "official_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.522,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     176,
+     null,
+     0,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 3.7
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 3.4
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     176,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 3.4
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__01",
+   "official_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.866,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     240,
+     null,
+     24,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 0.7
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.1
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.1
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__03",
+   "official_win": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.747,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 0.7
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 2.6
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 2.6
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__06",
+   "official_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.566,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.0
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 0.9
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 0.9
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__07",
+   "official_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.617,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     176,
+     null,
+     64,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.2
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.3
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.3
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__09",
+   "official_win": [
+    "n",
+    168,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.659,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.3
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": true,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 3.2
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": true,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 3.2
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__10",
+   "official_win": [
+    "n",
+    120,
+    null,
+    48,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.799,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 2.6
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     120,
+     null,
+     48,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 2.0
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     120,
+     null,
+     48,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 2.0
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__11",
+   "official_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.539,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     192,
+     null,
+     0,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.2
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 3.2
+    },
+    "linger_bars": 8,
+    "linger_over_p95": true,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     192,
+     null,
+     0,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.2
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__12",
+   "official_win": [
+    "n",
+    232,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.798,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     224,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 3.0
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     232,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 2.9
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     232,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 2.9
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__14",
+   "official_win": [
+    "n",
+    112,
+    null,
+    48,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.764,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     160,
+     null,
+     24,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": true,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.1
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 0.9
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 0.9
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__15",
+   "official_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": true,
+   "official_p_leave": 0.624,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.0
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.0
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.0
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__16",
+   "official_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": true,
+   "official_p_leave": 0.711,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": true,
+     "bass_hole": false,
+     "pumping": true,
+     "incoming_vanish": false,
+     "pump_db": 5.6
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": true,
+     "bass_hole": false,
+     "pumping": true,
+     "incoming_vanish": false,
+     "pump_db": 5.6
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": true,
+     "bass_hole": false,
+     "pumping": true,
+     "incoming_vanish": false,
+     "pump_db": 5.6
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__19",
+   "official_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.626,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 2.3
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.2
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.2
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__22",
+   "official_win": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.826,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     240,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.8
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.2
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.2
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__23",
+   "official_win": [
+    "n",
+    128,
+    null,
+    8,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.755,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     208,
+     null,
+     24,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 2.9
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     128,
+     null,
+     8,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": true,
+     "incoming_vanish": false,
+     "pump_db": 4.8
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     128,
+     null,
+     8,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": true,
+     "incoming_vanish": false,
+     "pump_db": 4.8
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__26",
+   "official_win": [
+    "n",
+    152,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.9,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     256,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.5
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 0.5
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 0.5
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__27",
+   "official_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.9,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     240,
+     null,
+     0,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": true,
+     "incoming_vanish": false,
+     "pump_db": 4.7
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.0
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 1.0
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__30",
+   "official_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "official_abstain": false,
+   "official_p_leave": 0.8,
+   "default": {
+    "status": "rendered",
+    "fam": "nat_short",
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": true,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": true,
+     "incoming_vanish": false,
+     "pump_db": 5.3
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": false
+   },
+   "ridegate": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 3.7
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   },
+   "linger": {
+    "status": "rendered",
+    "fam": "ridegate_live",
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ],
+    "hard_fail": false,
+    "flags": {
+     "beat_clash": false,
+     "bass_hole": false,
+     "pumping": false,
+     "incoming_vanish": false,
+     "pump_db": 3.7
+    },
+    "linger_bars": 0,
+    "linger_over_p95": false,
+    "agree_official": true
+   }
+  }
+ ],
+ "note": "not_evaluated (missing audio or failed render) is not a veto. Locked holdout was not opened. rules.json was not written."
+}

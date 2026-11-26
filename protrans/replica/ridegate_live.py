@@ -303,15 +303,26 @@ def in_drop(sec, k):
 
 
 def in_breakdown(sec, k):
-    """Incoming breakdown: named phase, else the gap [breakdown, drop2) outside any drop."""
+    """Breakdown: a named phase, else the gap [breakdown, drop2) outside any drop.
+
+    If `breakdown` is missing but a second drop exists, infer the start as the end
+    of the first drop. Snapshot rows sometimes omit `breakdown` even when the
+    inter-drop gap is musically a breakdown (hybrid_minds_ukf__40).
+    """
     for p in sec.get('phases') or []:
         if p.get('name') == 'breakdown' and p['start'] <= k < p['end']:
             return True
     if in_drop(sec, k):
         return False
     bd, d2 = sec.get('breakdown'), sec.get('drop2')
+    drops = sec.get('drops') or []
+    if d2 is None and len(drops) >= 2:
+        d2 = drops[1][0]
     if bd is None:
-        return False
+        if drops and d2 is not None:
+            bd = drops[0][1]
+        else:
+            return False
     end = d2 if d2 is not None else (sec.get('outro_start') or sec.get('n_bars') or sec.get('music_end'))
     return end is not None and bd <= k < end
 
@@ -401,6 +412,149 @@ def linger_threshold():
     return float(cal.get('threshold', cal.get('p95', 0.0)))
 
 
+DRUM_FC = 200
+DRUM_XDB_DEFAULT = 8.0
+
+
+def _fade_gain_db(j, X):
+    """Equal-power outgoing gain in dB at mid-bar j of an X-bar blend."""
+    import math
+    g = math.cos(math.pi / 2 * (j + 0.5) / max(float(X), 1.0))
+    return 20 * math.log10(max(g, 1e-12))
+
+
+def drop_drum_baseline(hi, sa):
+    """Median outgoing drum/perc (high>DRUM_FC) in drop bars; the 'normal' level."""
+    idx = []
+    n = len(hi) if hi is not None else 0
+    for lo, hi_ in (sa.get('drops') or []):
+        idx.extend(range(max(0, int(lo)), min(n, int(hi_))))
+    if not idx:
+        return None
+    return float(np.median(np.asarray(hi)[idx]))
+
+
+def drum_linger_bars(sa, sb, win, hiA, x_db=None):
+    """Bars where outgoing is in a breakdown, incoming is not in a drop, and the
+    predicted-faded outgoing drum/perc band stays within x_db of drop-normal.
+
+    hiA is per-bar high-passed energy in dB (same indexing as track bars).
+    x_db defaults to the calibrated pro p95 margin (else DRUM_XDB_DEFAULT).
+    This is the energy form of the listener's outgoing_drums_linger_under_incoming_breakdown
+    fault: structural linger_bars misses when the outgoing has already left the
+    drop tag but the beats are still near drop level.
+    """
+    import math
+    if hiA is None or not win or win[0] != 'n' or len(win) < 5:
+        return 0
+    if x_db is None:
+        x_db = drum_x_db()
+    base = drop_drum_baseline(hiA, sa)
+    if base is None:
+        return 0
+    e, ib, X = int(win[1]), int(win[3]), int(win[4])
+    n = 0
+    hiA = np.asarray(hiA)
+    for j in range(max(0, X)):
+        oa, ibj = e - X + j, ib + j
+        if oa < 0 or oa >= len(hiA):
+            continue
+        faded = float(hiA[oa]) + _fade_gain_db(j, X)
+        if in_breakdown(sa, oa) and (not in_drop(sb, ibj)) and faded >= base - float(x_db):
+            n += 1
+    return n
+
+
+def drum_linger_bars_pro(sa, sb, out0, in0, overlap, hiA, x_db=None):
+    import math
+    if hiA is None:
+        return 0
+    if x_db is None:
+        x_db = drum_x_db()
+    base = drop_drum_baseline(hiA, sa)
+    if base is None:
+        return 0
+    X = max(1, int(round(float(overlap))))
+    n = 0
+    hiA = np.asarray(hiA)
+    for j in range(X):
+        oa = int(math.floor(float(out0) + j))
+        ib = int(math.floor(float(in0) + j))
+        if oa < 0 or oa >= len(hiA):
+            continue
+        faded = float(hiA[oa]) + _fade_gain_db(j, X)
+        if in_breakdown(sa, oa) and (not in_drop(sb, ib)) and faded >= base - float(x_db):
+            n += 1
+    return n
+
+
+def drum_x_db():
+    cal = load_linger_cal()
+    return float(cal.get('drum_x_db', DRUM_XDB_DEFAULT))
+
+
+def drum_linger_threshold():
+    """Pro p95 of drum_linger_bars. None if not yet calibrated."""
+    cal = load_linger_cal()
+    v = cal.get('drum_threshold', cal.get('drum_p95'))
+    return float(v) if v is not None else None
+
+
+_DRUM_HI = {}
+
+
+def _find_src(yt):
+    if not yt:
+        return None
+    roots = []
+    try:
+        import paths as _P
+        roots.extend([
+            os.path.join(_P.ROOT, 'lib'),
+            os.path.join(_P.ROOT, 'corpus_v2', 'feat_lib'),
+            os.path.join(_P.ROOT, 'cache', 'protrans_dl'),
+        ])
+    except Exception:
+        pass
+    roots.extend([
+        os.path.join(os.path.dirname(H), 'lib'),
+        os.path.join(os.path.dirname(H), 'corpus_v2', 'feat_lib'),
+        os.path.join(os.path.dirname(H), 'cache', 'protrans_dl'),
+        '/tmp/ridegate_fresh_src',
+    ])
+    for root in roots:
+        for ext in ('.m4a', '.wav', '.mp3', '.flac'):
+            path = os.path.join(root, str(yt) + ext)
+            if os.path.exists(path):
+                return path
+    return None
+
+
+def load_drum_hi(yt):
+    """Per-bar high>200Hz energy of a source track, cached. None if audio is missing."""
+    if not yt:
+        return None
+    if yt in _DRUM_HI:
+        return _DRUM_HI[yt]
+    path = _find_src(yt)
+    if not path:
+        _DRUM_HI[yt] = None
+        return None
+    try:
+        import subprocess
+        import blend_diag as BD
+        from engine import BS
+        raw = subprocess.check_output(
+            ['ffmpeg', '-v', 'error', '-i', path, '-ac', '2', '-ar', '44100', '-f', 'f32le', '-'])
+        y = np.frombuffer(raw, dtype=np.float32).reshape(-1, 2)
+        n = int(len(y) // BS)
+        hi = BD.band_bar_db(y, n, BS, 'high', DRUM_FC)
+    except Exception:
+        hi = None
+    _DRUM_HI[yt] = hi
+    return hi
+
+
 def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live'):
     """Render-time hook: decide a live window from features + the engine default, inject if legal.
 
@@ -415,9 +569,20 @@ def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live')
         return None, dec, False
     want = list(dec['win'])
     if linger_guard_on():
-        lb = linger_bars(r.get('sa') or sa, r.get('sb') or sb, want)
+        sa_u, sb_u = r.get('sa') or sa, r.get('sb') or sb
+        lb = linger_bars(sa_u, sb_u, want)
         dec['linger_bars'] = lb
-        if lb > linger_threshold():
+        blocked = lb > linger_threshold()
+        dthr = drum_linger_threshold()
+        if dthr is not None:
+            hiA = r.get('hiA') if r.get('hiA') is not None else load_drum_hi(a_yt)
+            dl = drum_linger_bars(sa_u, sb_u, want, hiA)
+            dec['drum_linger_bars'] = dl
+            dec['drum_x_db'] = drum_x_db()
+            if dl > dthr:
+                blocked = True
+                dec['drum_linger_blocked'] = True
+        if blocked:
             dec['linger_blocked'] = True
             return None, dec, False
     hit = next((c for c in cs if list(c.get('win') or []) == want), None)

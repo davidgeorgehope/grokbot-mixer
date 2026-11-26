@@ -40,5 +40,103 @@
   "hist": {
    "0": 33
   }
+ },
+ "drum_measurement": "drum_linger_bars: count of blend bars with outgoing in a breakdown (inferred inter-drop gap if breakdown field is missing), incoming not in a drop, and predicted-faded outgoing high>200Hz within drum_x_db of the outgoing drop median",
+ "drum_fade": "equal-power, gain_A=cos(pi/2*(j+0.5)/X)",
+ "drum_band": "highpass 200 Hz",
+ "drum_x_db": 8,
+ "drum_p95": 8.799999999999997,
+ "drum_threshold": 8.799999999999997,
+ "drum_rule": "block a live window when drum_linger_bars > pro p95 (in addition to structural linger_bars)",
+ "drum_pro_by_xdb": {
+  "6": {
+   "p95": 6.799999999999997,
+   "n": 33,
+   "n_linger": 8,
+   "max": 15,
+   "hist": {
+    "0": 25,
+    "1": 2,
+    "2": 2,
+    "3": 1,
+    "6": 1,
+    "8": 1,
+    "15": 1
+   }
+  },
+  "8": {
+   "p95": 8.799999999999997,
+   "n": 33,
+   "n_linger": 12,
+   "max": 17,
+   "hist": {
+    "0": 21,
+    "1": 3,
+    "3": 3,
+    "4": 1,
+    "5": 1,
+    "8": 2,
+    "10": 1,
+    "17": 1
+   }
+  },
+  "10": {
+   "p95": 12.79999999999999,
+   "n": 33,
+   "n_linger": 12,
+   "max": 17,
+   "hist": {
+    "0": 21,
+    "3": 4,
+    "4": 1,
+    "6": 1,
+    "7": 2,
+    "8": 1,
+    "10": 1,
+    "17": 2
+   }
+  },
+  "12": {
+   "p95": 17.0,
+   "n": 33,
+   "n_linger": 13,
+   "max": 20,
+   "hist": {
+    "0": 20,
+    "3": 3,
+    "5": 1,
+    "6": 3,
+    "7": 1,
+    "9": 1,
+    "10": 1,
+    "17": 2,
+    "20": 1
+   }
+  }
+ },
+ "drum_our_ridegate_x8": {
+  "p95": 10.0,
+  "n": 33,
+  "n_linger": 10,
+  "max": 11,
+  "hist": {
+   "0": 23,
+   "1": 1,
+   "5": 1,
+   "6": 2,
+   "8": 3,
+   "10": 2,
+   "11": 1
+  }
+ },
+ "drum_ukf40": {
+  "ours": {
+   "6": 7,
+   "8": 10,
+   "10": 10,
+   "12": 12,
+   "orig": 0
+  },
+  "note": "our daily window [n,176,None,32,16] vs the pro window in protrans_decisions.json, snapshot sections with inferred breakdown"
  }
 }

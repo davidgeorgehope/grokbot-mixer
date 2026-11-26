@@ -1,0 +1,6503 @@
+{
+ "set": "holdout",
+ "n": 56,
+ "mixes": [
+  "hospital_records_Lm2VlTogWvY",
+  "hospital_records_zYANUM_lubI",
+  "liquicity_-b9blr1G6P0",
+  "liquicity_755KyYvQvM4",
+  "liquicity_CbxYF3frz-I",
+  "liquicity_EuPkz0GFI4g",
+  "liquicity_PNr3y3pOayw",
+  "liquicity_S6TJkQdz8tQ",
+  "liquicity_fhshk0_baJI",
+  "liquicity_nYOcD3qTdg0",
+  "liquicity_sLYQdlUB3Lc",
+  "liquicity_x6Bm-sXF5Eg"
+ ],
+ "diag": {
+  "v1": {
+   "cfg": 1,
+   "tau": -1000000000.0,
+   "theta": 0.6,
+   "inner_exit": 41.73,
+   "inner_ride": 41.38,
+   "theta_tf": 0.5
+  },
+  "tail": {
+   "cfg": 1,
+   "tau": 1.0,
+   "theta": 0.6,
+   "inner_exit": 42.3,
+   "inner_ride": 41.98
+  },
+  "C": {
+   "cfg": 0,
+   "tau": 0.25
+  },
+  "majority": {
+   "E": "outro_intro",
+   "C": "drop_cue"
+  }
+ },
+ "per_pair": [
+  {
+   "id": "hospital_records_zYANUM_lubI__00",
+   "dj": "Hospital Records",
+   "mix": "hospital_records_zYANUM_lubI",
+   "idx": 0,
+   "pro_out": 175.26,
+   "pro_in": 13.43,
+   "pro_ov": 30.266,
+   "dex": 193.0,
+   "dcue": 25.0,
+   "dX": 16,
+   "na": 225.0,
+   "cueonly_gated": {
+    "exit": 193.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.498,
+    "p_leave_tf": 0.517,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 193.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.498,
+    "p_leave_tf": 0.517,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 193.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.498,
+    "p_leave_tf": 0.517,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.498,
+    "p_leave_tf": 0.517,
+    "win": [
+     "n",
+     128,
+     null,
+     24,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.498,
+    "p_leave_tf": 0.517,
+    "win": [
+     "n",
+     128,
+     null,
+     24,
+     16
+    ]
+   },
+   "default": {
+    "exit": 193.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.498,
+    "p_leave_tf": 0.517,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 193.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.498,
+    "p_leave_tf": 0.517,
+    "win": null
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.498,
+    "p_leave_tf": 0.517,
+    "win": [
+     "n",
+     208,
+     null,
+     40,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hospital_records_zYANUM_lubI__01",
+   "dj": "Hospital Records",
+   "mix": "hospital_records_zYANUM_lubI",
+   "idx": 1,
+   "pro_out": 165.68,
+   "pro_in": 13.7,
+   "pro_ov": 7.612,
+   "dex": 161.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 191.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.525,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.525,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.525,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     184,
+     null,
+     32,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 105.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.525,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     120,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 105.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.525,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     120,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.525,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.525,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 153.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.525,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     168,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hospital_records_zYANUM_lubI__02",
+   "dj": "Hospital Records",
+   "mix": "hospital_records_zYANUM_lubI",
+   "idx": 2,
+   "pro_out": 144.21,
+   "pro_in": 0.16,
+   "pro_ov": 11.78,
+   "dex": 145.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 169.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.475,
+    "p_leave_tf": 0.452,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 153.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.475,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     168,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.475,
+    "p_leave_tf": 0.452,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 153.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.475,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     168,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 153.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.475,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     168,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.475,
+    "p_leave_tf": 0.452,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 73.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.475,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     88,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.475,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hospital_records_zYANUM_lubI__09",
+   "dj": "Hospital Records",
+   "mix": "hospital_records_zYANUM_lubI",
+   "idx": 9,
+   "pro_out": 95.29,
+   "pro_in": 33.65,
+   "pro_ov": 14.136,
+   "dex": 113.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 129.0,
+   "cueonly_gated": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.173,
+    "p_leave_tf": 0.166,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.173,
+    "p_leave_tf": 0.166,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 121.0,
+    "cue": 49.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.173,
+    "p_leave_tf": 0.166,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.173,
+    "p_leave_tf": 0.166,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.173,
+    "p_leave_tf": 0.166,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.173,
+    "p_leave_tf": 0.166,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.173,
+    "p_leave_tf": 0.166,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.173,
+    "p_leave_tf": 0.166,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_EuPkz0GFI4g__01",
+   "dj": "Liquicity",
+   "mix": "liquicity_EuPkz0GFI4g",
+   "idx": 1,
+   "pro_out": 93.29,
+   "pro_in": 111.47,
+   "pro_ov": 18.848,
+   "dex": 145.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 167.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.626,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.626,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.626,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.626,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.626,
+    "win": null
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.626,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 73.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.626,
+    "win": [
+     "n",
+     88,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.626,
+    "p_leave_tf": 0.626,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_EuPkz0GFI4g__38",
+   "dj": "Liquicity",
+   "mix": "liquicity_EuPkz0GFI4g",
+   "idx": 38,
+   "pro_out": 115.44,
+   "pro_in": 20.6,
+   "pro_ov": 8.699,
+   "dex": 209.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 230.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.471,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.471,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.471,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.471,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.471,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.471,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 209.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.471,
+    "win": null
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.38,
+    "p_leave_tf": 0.471,
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_EuPkz0GFI4g__48",
+   "dj": "Liquicity",
+   "mix": "liquicity_EuPkz0GFI4g",
+   "idx": 48,
+   "pro_out": 83.74,
+   "pro_in": 100.34,
+   "pro_ov": 26.279,
+   "dex": 145.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 167.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.501,
+    "p_leave_tf": 0.871,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.501,
+    "p_leave_tf": 0.871,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.501,
+    "p_leave_tf": 0.871,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.501,
+    "p_leave_tf": 0.871,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.501,
+    "p_leave_tf": 0.871,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.501,
+    "p_leave_tf": 0.871,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 49.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.501,
+    "p_leave_tf": 0.871,
+    "win": [
+     "n",
+     64,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.501,
+    "p_leave_tf": 0.871,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_EuPkz0GFI4g__50",
+   "dj": "Liquicity",
+   "mix": "liquicity_EuPkz0GFI4g",
+   "idx": 50,
+   "pro_out": 102.03,
+   "pro_in": 30.63,
+   "pro_ov": 22.654,
+   "dex": 129.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 157.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.58,
+    "p_leave_tf": 0.874,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.58,
+    "p_leave_tf": 0.874,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.58,
+    "p_leave_tf": 0.874,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 105.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.58,
+    "p_leave_tf": 0.874,
+    "win": [
+     "n",
+     120,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 105.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.58,
+    "p_leave_tf": 0.874,
+    "win": [
+     "n",
+     120,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.58,
+    "p_leave_tf": 0.874,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 73.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.58,
+    "p_leave_tf": 0.874,
+    "win": [
+     "n",
+     88,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 121.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.58,
+    "p_leave_tf": 0.874,
+    "win": [
+     "n",
+     136,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_nYOcD3qTdg0__11",
+   "dj": "Liquicity",
+   "mix": "liquicity_nYOcD3qTdg0",
+   "idx": 11,
+   "pro_out": 84.59,
+   "pro_in": 128.09,
+   "pro_ov": 25.554,
+   "dex": 113.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 142.0,
+   "cueonly_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.503,
+    "p_leave_tf": 0.415,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.503,
+    "p_leave_tf": 0.415,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.503,
+    "p_leave_tf": 0.415,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.503,
+    "p_leave_tf": 0.415,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.503,
+    "p_leave_tf": 0.415,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 113.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.503,
+    "p_leave_tf": 0.415,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 113.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.503,
+    "p_leave_tf": 0.415,
+    "win": null
+   },
+   "majority": {
+    "exit": 105.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.503,
+    "p_leave_tf": 0.415,
+    "win": [
+     "n",
+     120,
+     null,
+     8,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_nYOcD3qTdg0__16",
+   "dj": "Liquicity",
+   "mix": "liquicity_nYOcD3qTdg0",
+   "idx": 16,
+   "pro_out": 28.16,
+   "pro_in": 30.9,
+   "pro_ov": 23.56,
+   "dex": 129.0,
+   "dcue": 9.0,
+   "dX": 16,
+   "na": 145.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.665,
+    "p_leave_tf": 0.672,
+    "win": [
+     "n",
+     144,
+     null,
+     24,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.665,
+    "p_leave_tf": 0.672,
+    "win": [
+     "n",
+     144,
+     null,
+     24,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.665,
+    "p_leave_tf": 0.672,
+    "win": [
+     "n",
+     144,
+     null,
+     24,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.665,
+    "p_leave_tf": 0.672,
+    "win": [
+     "n",
+     144,
+     null,
+     24,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.665,
+    "p_leave_tf": 0.672,
+    "win": [
+     "n",
+     144,
+     null,
+     24,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.665,
+    "p_leave_tf": 0.672,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 129.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.665,
+    "p_leave_tf": 0.672,
+    "win": null
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.665,
+    "p_leave_tf": 0.672,
+    "win": [
+     "n",
+     128,
+     null,
+     24,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_nYOcD3qTdg0__34",
+   "dj": "Liquicity",
+   "mix": "liquicity_nYOcD3qTdg0",
+   "idx": 34,
+   "pro_out": 87.85,
+   "pro_in": 32.0,
+   "pro_ov": 30.447,
+   "dex": 113.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 139.0,
+   "cueonly_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.264,
+    "p_leave_tf": 0.182,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.264,
+    "p_leave_tf": 0.182,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.264,
+    "p_leave_tf": 0.182,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.264,
+    "p_leave_tf": 0.182,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.264,
+    "p_leave_tf": 0.182,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 113.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.264,
+    "p_leave_tf": 0.182,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 57.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.264,
+    "p_leave_tf": 0.182,
+    "win": [
+     "n",
+     72,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 105.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.264,
+    "p_leave_tf": 0.182,
+    "win": [
+     "n",
+     120,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hospital_records_Lm2VlTogWvY__00",
+   "dj": "Hospital Records",
+   "mix": "hospital_records_Lm2VlTogWvY",
+   "idx": 0,
+   "pro_out": 178.59,
+   "pro_in": 2.67,
+   "pro_ov": 4.712,
+   "dex": 161.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 183.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.458,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.458,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.458,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.458,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.458,
+    "win": null
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.458,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.458,
+    "win": null
+   },
+   "majority": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.458,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hospital_records_zYANUM_lubI__03",
+   "dj": "Hospital Records",
+   "mix": "hospital_records_zYANUM_lubI",
+   "idx": 3,
+   "pro_out": 152.36,
+   "pro_in": 17.2,
+   "pro_ov": 13.955,
+   "dex": 145.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 162.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.339,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.339,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.339,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.339,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.339,
+    "win": null
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.339,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 49.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.339,
+    "win": [
+     "n",
+     64,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.339,
+    "win": [
+     "n",
+     144,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "hospital_records_zYANUM_lubI__04",
+   "dj": "Hospital Records",
+   "mix": "hospital_records_zYANUM_lubI",
+   "idx": 4,
+   "pro_out": 172.41,
+   "pro_in": 8.65,
+   "pro_ov": 30.628,
+   "dex": 225.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 246.0,
+   "cueonly_gated": {
+    "exit": 225.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.735,
+    "p_leave_tf": 0.716,
+    "win": [
+     "n",
+     240,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.735,
+    "p_leave_tf": 0.716,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.735,
+    "p_leave_tf": 0.716,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.735,
+    "p_leave_tf": 0.716,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.735,
+    "p_leave_tf": 0.716,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 225.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.735,
+    "p_leave_tf": 0.716,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.735,
+    "p_leave_tf": 0.716,
+    "win": [
+     "n",
+     112,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 209.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.735,
+    "p_leave_tf": 0.716,
+    "win": [
+     "n",
+     224,
+     null,
+     0,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__00",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 0,
+   "pro_out": 95.43,
+   "pro_in": 135.93,
+   "pro_ov": 13.955,
+   "dex": 185.0,
+   "dcue": 41.0,
+   "dX": 16,
+   "na": 200.0,
+   "cueonly_gated": {
+    "exit": 185.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.663,
+    "p_leave_tf": 0.483,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 105.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.663,
+    "p_leave_tf": 0.483,
+    "win": [
+     "n",
+     120,
+     null,
+     40,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 185.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.663,
+    "p_leave_tf": 0.483,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 185.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.663,
+    "p_leave_tf": 0.483,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 105.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.663,
+    "p_leave_tf": 0.483,
+    "win": [
+     "n",
+     120,
+     null,
+     40,
+     16
+    ]
+   },
+   "default": {
+    "exit": 185.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.663,
+    "p_leave_tf": 0.483,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 25.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.663,
+    "p_leave_tf": 0.483,
+    "win": [
+     "n",
+     40,
+     null,
+     40,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 169.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.663,
+    "p_leave_tf": 0.483,
+    "win": [
+     "n",
+     184,
+     null,
+     56,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__07",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 7,
+   "pro_out": 95.58,
+   "pro_in": 96.57,
+   "pro_ov": 25.373,
+   "dex": 169.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 189.0,
+   "cueonly_gated": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.675,
+    "p_leave_tf": 0.49,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.675,
+    "p_leave_tf": 0.49,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.675,
+    "p_leave_tf": 0.49,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.675,
+    "p_leave_tf": 0.49,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.675,
+    "p_leave_tf": 0.49,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.675,
+    "p_leave_tf": 0.49,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.675,
+    "p_leave_tf": 0.49,
+    "win": null
+   },
+   "majority": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.675,
+    "p_leave_tf": 0.49,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__10",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 10,
+   "pro_out": 225.27,
+   "pro_in": 17.25,
+   "pro_ov": 28.091,
+   "dex": 225.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 242.0,
+   "cueonly_gated": {
+    "exit": 225.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.778,
+    "p_leave_tf": 0.531,
+    "win": [
+     "n",
+     240,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.778,
+    "p_leave_tf": 0.531,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.778,
+    "p_leave_tf": 0.531,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.778,
+    "p_leave_tf": 0.531,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.778,
+    "p_leave_tf": 0.531,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 225.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.778,
+    "p_leave_tf": 0.531,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 17.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.778,
+    "p_leave_tf": 0.531,
+    "win": [
+     "n",
+     32,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.778,
+    "p_leave_tf": 0.531,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__14",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 14,
+   "pro_out": 112.26,
+   "pro_in": 31.29,
+   "pro_ov": 44.04,
+   "dex": 145.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 165.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "p_leave_tf": 0.727,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "p_leave_tf": 0.727,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "p_leave_tf": 0.727,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "p_leave_tf": 0.727,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "p_leave_tf": 0.727,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.52,
+    "p_leave_tf": 0.727,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 17.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "p_leave_tf": 0.727,
+    "win": [
+     "n",
+     32,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.52,
+    "p_leave_tf": 0.727,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__17",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 17,
+   "pro_out": 175.53,
+   "pro_in": 16.95,
+   "pro_ov": 10.693,
+   "dex": 177.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 198.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.695,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.695,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.695,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     192,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.695,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.695,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.695,
+    "p_leave_tf": 0.939,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.695,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     80,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.695,
+    "p_leave_tf": 0.939,
+    "win": [
+     "n",
+     176,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__20",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 20,
+   "pro_out": 87.35,
+   "pro_in": 96.22,
+   "pro_ov": 14.68,
+   "dex": 137.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 155.0,
+   "cueonly_gated": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.585,
+    "p_leave_tf": 0.773,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.585,
+    "p_leave_tf": 0.773,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.585,
+    "p_leave_tf": 0.773,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.585,
+    "p_leave_tf": 0.773,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.585,
+    "p_leave_tf": 0.773,
+    "win": null
+   },
+   "default": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.585,
+    "p_leave_tf": 0.773,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 57.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.585,
+    "p_leave_tf": 0.773,
+    "win": [
+     "n",
+     72,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.585,
+    "p_leave_tf": 0.773,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__26",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 26,
+   "pro_out": 97.11,
+   "pro_in": 7.62,
+   "pro_ov": 6.162,
+   "dex": 161.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 176.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.568,
+    "p_leave_tf": 0.799,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.568,
+    "p_leave_tf": 0.799,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.568,
+    "p_leave_tf": 0.799,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.568,
+    "p_leave_tf": 0.799,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.568,
+    "p_leave_tf": 0.799,
+    "win": null
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.568,
+    "p_leave_tf": 0.799,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 73.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.568,
+    "p_leave_tf": 0.799,
+    "win": [
+     "n",
+     88,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 145.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.568,
+    "p_leave_tf": 0.799,
+    "win": [
+     "n",
+     160,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__27",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 27,
+   "pro_out": 159.87,
+   "pro_in": 47.89,
+   "pro_ov": 43.315,
+   "dex": 193.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 212.0,
+   "cueonly_gated": {
+    "exit": 193.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.788,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     208,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.788,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 193.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.788,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     208,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.788,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.788,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.788,
+    "p_leave_tf": 0.897,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.788,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.788,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     192,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__30",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 30,
+   "pro_out": 103.73,
+   "pro_in": 48.68,
+   "pro_ov": 15.767,
+   "dex": 177.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 192.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.868,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.868,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.868,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.868,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.868,
+    "win": null
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.868,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.868,
+    "win": null
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.868,
+    "win": [
+     "n",
+     176,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__33",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 33,
+   "pro_out": 131.61,
+   "pro_in": 71.57,
+   "pro_ov": 5.618,
+   "dex": 137.0,
+   "dcue": 25.0,
+   "dX": 16,
+   "na": 158.0,
+   "cueonly_gated": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.596,
+    "p_leave_tf": 0.819,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.596,
+    "p_leave_tf": 0.819,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.596,
+    "p_leave_tf": 0.819,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.596,
+    "p_leave_tf": 0.819,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 137.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.596,
+    "p_leave_tf": 0.819,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 137.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.596,
+    "p_leave_tf": 0.819,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 33.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.596,
+    "p_leave_tf": 0.819,
+    "win": [
+     "n",
+     48,
+     null,
+     24,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 121.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.596,
+    "p_leave_tf": 0.819,
+    "win": [
+     "n",
+     136,
+     null,
+     40,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_fhshk0_baJI__36",
+   "dj": "Liquicity",
+   "mix": "liquicity_fhshk0_baJI",
+   "idx": 36,
+   "pro_out": 192.01,
+   "pro_in": 16.0,
+   "pro_ov": 17.58,
+   "dex": 177.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 199.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.482,
+    "p_leave_tf": 0.851,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.482,
+    "p_leave_tf": 0.851,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.482,
+    "p_leave_tf": 0.851,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.482,
+    "p_leave_tf": 0.851,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.482,
+    "p_leave_tf": 0.851,
+    "win": null
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.482,
+    "p_leave_tf": 0.851,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.482,
+    "p_leave_tf": 0.851,
+    "win": [
+     "n",
+     80,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.482,
+    "p_leave_tf": 0.851,
+    "win": [
+     "n",
+     176,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_PNr3y3pOayw__03",
+   "dj": "Liquicity",
+   "mix": "liquicity_PNr3y3pOayw",
+   "idx": 3,
+   "pro_out": 129.57,
+   "pro_in": 64.17,
+   "pro_ov": 2.9,
+   "dex": 145.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 166.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.352,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.352,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.352,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.352,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.352,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.352,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 145.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.352,
+    "win": null
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.352,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_PNr3y3pOayw__04",
+   "dj": "Liquicity",
+   "mix": "liquicity_PNr3y3pOayw",
+   "idx": 4,
+   "pro_out": 239.62,
+   "pro_in": 31.62,
+   "pro_ov": 4.712,
+   "dex": 249.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 265.0,
+   "cueonly_gated": {
+    "exit": 249.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.867,
+    "p_leave_tf": 0.715,
+    "win": [
+     "n",
+     264,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.867,
+    "p_leave_tf": 0.715,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.867,
+    "p_leave_tf": 0.715,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.867,
+    "p_leave_tf": 0.715,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.867,
+    "p_leave_tf": 0.715,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 249.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.867,
+    "p_leave_tf": 0.715,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 249.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.867,
+    "p_leave_tf": 0.715,
+    "win": null
+   },
+   "majority": {
+    "exit": 233.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.867,
+    "p_leave_tf": 0.715,
+    "win": [
+     "n",
+     248,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_PNr3y3pOayw__07",
+   "dj": "Liquicity",
+   "mix": "liquicity_PNr3y3pOayw",
+   "idx": 7,
+   "pro_out": 143.14,
+   "pro_in": 23.53,
+   "pro_ov": 9.243,
+   "dex": 129.0,
+   "dcue": 9.0,
+   "dX": 16,
+   "na": 147.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.233,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.233,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.233,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.233,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.233,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.233,
+    "p_leave_tf": 0.202,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 41.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.233,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     56,
+     null,
+     8,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.233,
+    "p_leave_tf": 0.202,
+    "win": [
+     "n",
+     128,
+     null,
+     24,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_PNr3y3pOayw__09",
+   "dj": "Liquicity",
+   "mix": "liquicity_PNr3y3pOayw",
+   "idx": 9,
+   "pro_out": 145.44,
+   "pro_in": 80.07,
+   "pro_ov": 17.942,
+   "dex": 145.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 164.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.362,
+    "p_leave_tf": 0.234,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.362,
+    "p_leave_tf": 0.234,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.362,
+    "p_leave_tf": 0.234,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.362,
+    "p_leave_tf": 0.234,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.362,
+    "p_leave_tf": 0.234,
+    "win": [
+     "n",
+     160,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.362,
+    "p_leave_tf": 0.234,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 113.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.362,
+    "p_leave_tf": 0.234,
+    "win": [
+     "n",
+     128,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.362,
+    "p_leave_tf": 0.234,
+    "win": [
+     "n",
+     144,
+     null,
+     8,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_PNr3y3pOayw__10",
+   "dj": "Liquicity",
+   "mix": "liquicity_PNr3y3pOayw",
+   "idx": 10,
+   "pro_out": 143.73,
+   "pro_in": 31.54,
+   "pro_ov": 2.9,
+   "dex": 129.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 144.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.367,
+    "p_leave_tf": 0.274,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.367,
+    "p_leave_tf": 0.274,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.367,
+    "p_leave_tf": 0.274,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.367,
+    "p_leave_tf": 0.274,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.367,
+    "p_leave_tf": 0.274,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.367,
+    "p_leave_tf": 0.274,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 33.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.367,
+    "p_leave_tf": 0.274,
+    "win": [
+     "n",
+     48,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.367,
+    "p_leave_tf": 0.274,
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_PNr3y3pOayw__11",
+   "dj": "Liquicity",
+   "mix": "liquicity_PNr3y3pOayw",
+   "idx": 11,
+   "pro_out": 142.46,
+   "pro_in": 23.33,
+   "pro_ov": 16.492,
+   "dex": 129.0,
+   "dcue": 9.0,
+   "dX": 16,
+   "na": 147.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.416,
+    "p_leave_tf": 0.26,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.416,
+    "p_leave_tf": 0.26,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.416,
+    "p_leave_tf": 0.26,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.416,
+    "p_leave_tf": 0.26,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.416,
+    "p_leave_tf": 0.26,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.416,
+    "p_leave_tf": 0.26,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 129.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.416,
+    "p_leave_tf": 0.26,
+    "win": null
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.416,
+    "p_leave_tf": 0.26,
+    "win": [
+     "n",
+     128,
+     null,
+     24,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_CbxYF3frz-I__11",
+   "dj": "Liquicity",
+   "mix": "liquicity_CbxYF3frz-I",
+   "idx": 11,
+   "pro_out": 128.04,
+   "pro_in": 16.34,
+   "pro_ov": 3.625,
+   "dex": 201.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 217.0,
+   "cueonly_gated": {
+    "exit": 201.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.846,
+    "p_leave_tf": 0.741,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.846,
+    "p_leave_tf": 0.741,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.846,
+    "p_leave_tf": 0.741,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.846,
+    "p_leave_tf": 0.741,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.846,
+    "p_leave_tf": 0.741,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     32
+    ]
+   },
+   "default": {
+    "exit": 201.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.846,
+    "p_leave_tf": 0.741,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.846,
+    "p_leave_tf": 0.741,
+    "win": [
+     "n",
+     112,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 185.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.846,
+    "p_leave_tf": 0.741,
+    "win": [
+     "n",
+     200,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_CbxYF3frz-I__25",
+   "dj": "Liquicity",
+   "mix": "liquicity_CbxYF3frz-I",
+   "idx": 25,
+   "pro_out": 96.05,
+   "pro_in": 32.62,
+   "pro_ov": 19.754,
+   "dex": 161.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 179.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.571,
+    "p_leave_tf": 0.839,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.571,
+    "p_leave_tf": 0.839,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.571,
+    "p_leave_tf": 0.839,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.571,
+    "p_leave_tf": 0.839,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.571,
+    "p_leave_tf": 0.839,
+    "win": null
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.571,
+    "p_leave_tf": 0.839,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.571,
+    "p_leave_tf": 0.839,
+    "win": [
+     "n",
+     80,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.571,
+    "p_leave_tf": 0.839,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_CbxYF3frz-I__35",
+   "dj": "Liquicity",
+   "mix": "liquicity_CbxYF3frz-I",
+   "idx": 35,
+   "pro_out": 159.58,
+   "pro_in": 47.62,
+   "pro_ov": 23.198,
+   "dex": 161.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 181.0,
+   "cueonly_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.368,
+    "p_leave_tf": 0.819,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.368,
+    "p_leave_tf": 0.819,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.368,
+    "p_leave_tf": 0.819,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.368,
+    "p_leave_tf": 0.819,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.368,
+    "p_leave_tf": 0.819,
+    "win": null
+   },
+   "default": {
+    "exit": 161.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.368,
+    "p_leave_tf": 0.819,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 49.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.368,
+    "p_leave_tf": 0.819,
+    "win": [
+     "n",
+     64,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 145.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.368,
+    "p_leave_tf": 0.819,
+    "win": [
+     "n",
+     160,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_sLYQdlUB3Lc__03",
+   "dj": "Liquicity",
+   "mix": "liquicity_sLYQdlUB3Lc",
+   "idx": 3,
+   "pro_out": 111.91,
+   "pro_in": 16.24,
+   "pro_ov": 27.548,
+   "dex": 169.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 185.0,
+   "cueonly_gated": {
+    "exit": 169.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.446,
+    "p_leave_tf": 0.393,
+    "win": [
+     "n",
+     184,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 169.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.446,
+    "p_leave_tf": 0.393,
+    "win": [
+     "n",
+     184,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 169.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.446,
+    "p_leave_tf": 0.393,
+    "win": [
+     "n",
+     184,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 169.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.446,
+    "p_leave_tf": 0.393,
+    "win": [
+     "n",
+     184,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 169.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.446,
+    "p_leave_tf": 0.393,
+    "win": [
+     "n",
+     184,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.446,
+    "p_leave_tf": 0.393,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.446,
+    "p_leave_tf": 0.393,
+    "win": [
+     "n",
+     96,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.446,
+    "p_leave_tf": 0.393,
+    "win": [
+     "n",
+     168,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_sLYQdlUB3Lc__14",
+   "dj": "Liquicity",
+   "mix": "liquicity_sLYQdlUB3Lc",
+   "idx": 14,
+   "pro_out": 63.48,
+   "pro_in": 127.63,
+   "pro_ov": 26.279,
+   "dex": 153.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 173.0,
+   "cueonly_gated": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.502,
+    "p_leave_tf": 0.924,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.502,
+    "p_leave_tf": 0.924,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.502,
+    "p_leave_tf": 0.924,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.502,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.502,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 153.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.502,
+    "p_leave_tf": 0.924,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.502,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 137.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.502,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     152,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_sLYQdlUB3Lc__21",
+   "dj": "Liquicity",
+   "mix": "liquicity_sLYQdlUB3Lc",
+   "idx": 21,
+   "pro_out": 127.41,
+   "pro_in": 31.73,
+   "pro_ov": 35.703,
+   "dex": 209.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 227.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.42,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.42,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.42,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.42,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.42,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.42,
+    "p_leave_tf": 0.93,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 17.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.42,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     32,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.42,
+    "p_leave_tf": 0.93,
+    "win": [
+     "n",
+     208,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_sLYQdlUB3Lc__27",
+   "dj": "Liquicity",
+   "mix": "liquicity_sLYQdlUB3Lc",
+   "idx": 27,
+   "pro_out": 127.8,
+   "pro_in": 32.05,
+   "pro_ov": 34.978,
+   "dex": 193.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 213.0,
+   "cueonly_gated": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.859,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.859,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.859,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 193.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.859,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     112,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 177.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.494,
+    "p_leave_tf": 0.859,
+    "win": [
+     "n",
+     192,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_sLYQdlUB3Lc__32",
+   "dj": "Liquicity",
+   "mix": "liquicity_sLYQdlUB3Lc",
+   "idx": 32,
+   "pro_out": 79.33,
+   "pro_in": 63.85,
+   "pro_ov": 30.81,
+   "dex": 177.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 195.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.621,
+    "p_leave_tf": 0.919,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.621,
+    "p_leave_tf": 0.919,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.621,
+    "p_leave_tf": 0.919,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.621,
+    "p_leave_tf": 0.919,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.621,
+    "p_leave_tf": 0.919,
+    "win": null
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.621,
+    "p_leave_tf": 0.919,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 49.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.621,
+    "p_leave_tf": 0.919,
+    "win": [
+     "n",
+     64,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.621,
+    "p_leave_tf": 0.919,
+    "win": [
+     "n",
+     176,
+     null,
+     64,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_sLYQdlUB3Lc__41",
+   "dj": "Liquicity",
+   "mix": "liquicity_sLYQdlUB3Lc",
+   "idx": 41,
+   "pro_out": 127.75,
+   "pro_in": 47.89,
+   "pro_ov": 11.418,
+   "dex": 209.0,
+   "dcue": 65.0,
+   "dX": 16,
+   "na": 227.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.815,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     224,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.815,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.815,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.815,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.815,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     32
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.815,
+    "p_leave_tf": 0.924,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.815,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     112,
+     null,
+     64,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 81.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.815,
+    "p_leave_tf": 0.924,
+    "win": [
+     "n",
+     208,
+     null,
+     80,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_S6TJkQdz8tQ__08",
+   "dj": "Liquicity",
+   "mix": "liquicity_S6TJkQdz8tQ",
+   "idx": 8,
+   "pro_out": 138.88,
+   "pro_in": 13.36,
+   "pro_ov": 6.887,
+   "dex": 129.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 148.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.3,
+    "p_leave_tf": 0.268,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.3,
+    "p_leave_tf": 0.268,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.3,
+    "p_leave_tf": 0.268,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.3,
+    "p_leave_tf": 0.268,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.3,
+    "p_leave_tf": 0.268,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.3,
+    "p_leave_tf": 0.268,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 49.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.3,
+    "p_leave_tf": 0.268,
+    "win": [
+     "n",
+     64,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.3,
+    "p_leave_tf": 0.268,
+    "win": [
+     "n",
+     128,
+     null,
+     0,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_S6TJkQdz8tQ__35",
+   "dj": "Liquicity",
+   "mix": "liquicity_S6TJkQdz8tQ",
+   "idx": 35,
+   "pro_out": 70.8,
+   "pro_in": 15.23,
+   "pro_ov": 28.635,
+   "dex": 129.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 148.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.265,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.265,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.265,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.265,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.265,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.265,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 129.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.265,
+    "win": null
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.424,
+    "p_leave_tf": 0.265,
+    "win": [
+     "n",
+     128,
+     null,
+     0,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_S6TJkQdz8tQ__49",
+   "dj": "Liquicity",
+   "mix": "liquicity_S6TJkQdz8tQ",
+   "idx": 49,
+   "pro_out": 73.31,
+   "pro_in": 26.1,
+   "pro_ov": 22.835,
+   "dex": 129.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 148.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.184,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.184,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.184,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.184,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.184,
+    "win": null
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.184,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 49.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.184,
+    "win": [
+     "n",
+     64,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.4,
+    "p_leave_tf": 0.184,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_755KyYvQvM4__58",
+   "dj": "Liquicity",
+   "mix": "liquicity_755KyYvQvM4",
+   "idx": 58,
+   "pro_out": 80.46,
+   "pro_in": 80.61,
+   "pro_ov": 40.053,
+   "dex": 129.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 146.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.51,
+    "p_leave_tf": 0.501,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.51,
+    "p_leave_tf": 0.501,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.51,
+    "p_leave_tf": 0.501,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.51,
+    "p_leave_tf": 0.501,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.51,
+    "p_leave_tf": 0.501,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.51,
+    "p_leave_tf": 0.501,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 113.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.51,
+    "p_leave_tf": 0.501,
+    "win": [
+     "n",
+     128,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.51,
+    "p_leave_tf": 0.501,
+    "win": [
+     "n",
+     128,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_755KyYvQvM4__59",
+   "dj": "Liquicity",
+   "mix": "liquicity_755KyYvQvM4",
+   "idx": 59,
+   "pro_out": 150.09,
+   "pro_in": 5.68,
+   "pro_ov": 2.9,
+   "dex": 129.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 148.0,
+   "cueonly_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.127,
+    "p_leave_tf": 0.141,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.127,
+    "p_leave_tf": 0.141,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.127,
+    "p_leave_tf": 0.141,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.127,
+    "p_leave_tf": 0.141,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.127,
+    "p_leave_tf": 0.141,
+    "win": [
+     "n",
+     144,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 129.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.127,
+    "p_leave_tf": 0.141,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 97.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.127,
+    "p_leave_tf": 0.141,
+    "win": [
+     "n",
+     112,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 113.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.127,
+    "p_leave_tf": 0.141,
+    "win": [
+     "n",
+     128,
+     null,
+     0,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_755KyYvQvM4__60",
+   "dj": "Liquicity",
+   "mix": "liquicity_755KyYvQvM4",
+   "idx": 60,
+   "pro_out": 152.67,
+   "pro_in": 13.95,
+   "pro_ov": 14.68,
+   "dex": 137.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 155.0,
+   "cueonly_gated": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.628,
+    "p_leave_tf": 0.436,
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.628,
+    "p_leave_tf": 0.436,
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.628,
+    "p_leave_tf": 0.436,
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.628,
+    "p_leave_tf": 0.436,
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 137.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.628,
+    "p_leave_tf": 0.436,
+    "win": [
+     "n",
+     152,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 137.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.628,
+    "p_leave_tf": 0.436,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 137.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.628,
+    "p_leave_tf": 0.436,
+    "win": null
+   },
+   "majority": {
+    "exit": 121.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.628,
+    "p_leave_tf": 0.436,
+    "win": [
+     "n",
+     136,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_-b9blr1G6P0__18",
+   "dj": "Liquicity",
+   "mix": "liquicity_-b9blr1G6P0",
+   "idx": 18,
+   "pro_out": 115.8,
+   "pro_in": 12.27,
+   "pro_ov": 32.985,
+   "dex": 121.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 141.0,
+   "cueonly_gated": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.266,
+    "p_leave_tf": 0.198,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.266,
+    "p_leave_tf": 0.198,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.266,
+    "p_leave_tf": 0.198,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.266,
+    "p_leave_tf": 0.198,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 121.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.266,
+    "p_leave_tf": 0.198,
+    "win": [
+     "n",
+     136,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 121.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.266,
+    "p_leave_tf": 0.198,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 121.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.266,
+    "p_leave_tf": 0.198,
+    "win": null
+   },
+   "majority": {
+    "exit": 105.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.266,
+    "p_leave_tf": 0.198,
+    "win": [
+     "n",
+     120,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_-b9blr1G6P0__30",
+   "dj": "Liquicity",
+   "mix": "liquicity_-b9blr1G6P0",
+   "idx": 30,
+   "pro_out": 153.69,
+   "pro_in": -0.29,
+   "pro_ov": 9.787,
+   "dex": 169.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 185.0,
+   "cueonly_gated": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.591,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     184,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.591,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     184,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.591,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     184,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 169.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.591,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     184,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 105.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.591,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     120,
+     null,
+     16,
+     16
+    ]
+   },
+   "default": {
+    "exit": 169.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.591,
+    "p_leave_tf": 0.452,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 73.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.591,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     88,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 153.0,
+    "cue": 9.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.591,
+    "p_leave_tf": 0.452,
+    "win": [
+     "n",
+     168,
+     null,
+     8,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_x6Bm-sXF5Eg__01",
+   "dj": "Liquicity",
+   "mix": "liquicity_x6Bm-sXF5Eg",
+   "idx": 1,
+   "pro_out": 127.46,
+   "pro_in": 2.2,
+   "pro_ov": 28.635,
+   "dex": 145.0,
+   "dcue": 25.0,
+   "dX": 16,
+   "na": 164.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.512,
+    "p_leave_tf": 0.524,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 145.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.512,
+    "p_leave_tf": 0.524,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.512,
+    "p_leave_tf": 0.524,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 145.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.512,
+    "p_leave_tf": 0.524,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 145.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.512,
+    "p_leave_tf": 0.524,
+    "win": null
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.512,
+    "p_leave_tf": 0.524,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 57.0,
+    "cue": 25.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.512,
+    "p_leave_tf": 0.524,
+    "win": [
+     "n",
+     72,
+     null,
+     24,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 41.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.512,
+    "p_leave_tf": 0.524,
+    "win": [
+     "n",
+     144,
+     null,
+     40,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_x6Bm-sXF5Eg__02",
+   "dj": "Liquicity",
+   "mix": "liquicity_x6Bm-sXF5Eg",
+   "idx": 2,
+   "pro_out": 72.26,
+   "pro_in": 150.9,
+   "pro_ov": 21.023,
+   "dex": 97.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 118.0,
+   "cueonly_gated": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.106,
+    "p_leave_tf": 0.253,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.106,
+    "p_leave_tf": 0.253,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 105.0,
+    "cue": 33.0,
+    "X": 8,
+    "is_default": false,
+    "p_leave": 0.106,
+    "p_leave_tf": 0.253,
+    "win": [
+     "n",
+     112,
+     null,
+     32,
+     8
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.106,
+    "p_leave_tf": 0.253,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.106,
+    "p_leave_tf": 0.253,
+    "win": null
+   },
+   "default": {
+    "exit": 97.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.106,
+    "p_leave_tf": 0.253,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 73.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.106,
+    "p_leave_tf": 0.253,
+    "win": [
+     "n",
+     88,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 81.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.106,
+    "p_leave_tf": 0.253,
+    "win": [
+     "n",
+     96,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_x6Bm-sXF5Eg__04",
+   "dj": "Liquicity",
+   "mix": "liquicity_x6Bm-sXF5Eg",
+   "idx": 4,
+   "pro_out": 96.22,
+   "pro_in": 111.98,
+   "pro_ov": 21.204,
+   "dex": 209.0,
+   "dcue": 17.0,
+   "dX": 16,
+   "na": 224.0,
+   "cueonly_gated": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.218,
+    "p_leave_tf": 0.586,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.218,
+    "p_leave_tf": 0.586,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.218,
+    "p_leave_tf": 0.586,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.218,
+    "p_leave_tf": 0.586,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 209.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.218,
+    "p_leave_tf": 0.586,
+    "win": [
+     "n",
+     224,
+     null,
+     48,
+     16
+    ]
+   },
+   "default": {
+    "exit": 209.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.218,
+    "p_leave_tf": 0.586,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.218,
+    "p_leave_tf": 0.586,
+    "win": [
+     "n",
+     80,
+     null,
+     16,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 193.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.218,
+    "p_leave_tf": 0.586,
+    "win": [
+     "n",
+     208,
+     null,
+     32,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_x6Bm-sXF5Eg__06",
+   "dj": "Liquicity",
+   "mix": "liquicity_x6Bm-sXF5Eg",
+   "idx": 6,
+   "pro_out": 111.18,
+   "pro_in": 175.78,
+   "pro_ov": 7.612,
+   "dex": 177.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 192.0,
+   "cueonly_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.623,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.623,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.623,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.623,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 177.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.623,
+    "win": [
+     "n",
+     192,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 177.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.623,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.623,
+    "win": [
+     "n",
+     96,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 161.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.408,
+    "p_leave_tf": 0.623,
+    "win": [
+     "n",
+     176,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_x6Bm-sXF5Eg__08",
+   "dj": "Liquicity",
+   "mix": "liquicity_x6Bm-sXF5Eg",
+   "idx": 8,
+   "pro_out": 111.34,
+   "pro_in": 95.82,
+   "pro_ov": 28.454,
+   "dex": 201.0,
+   "dcue": 33.0,
+   "dX": 16,
+   "na": 216.0,
+   "cueonly_gated": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.464,
+    "p_leave_tf": 0.701,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.464,
+    "p_leave_tf": 0.701,
+    "win": null
+   },
+   "ridegate_tail": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.464,
+    "p_leave_tf": 0.701,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.464,
+    "p_leave_tf": 0.701,
+    "win": null
+   },
+   "ref_full_gated": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.464,
+    "p_leave_tf": 0.701,
+    "win": [
+     "n",
+     216,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 201.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.464,
+    "p_leave_tf": 0.701,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.464,
+    "p_leave_tf": 0.701,
+    "win": [
+     "n",
+     96,
+     null,
+     32,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 185.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.464,
+    "p_leave_tf": 0.701,
+    "win": [
+     "n",
+     200,
+     null,
+     48,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_x6Bm-sXF5Eg__15",
+   "dj": "Liquicity",
+   "mix": "liquicity_x6Bm-sXF5Eg",
+   "idx": 15,
+   "pro_out": 95.87,
+   "pro_in": 7.85,
+   "pro_ov": 6.162,
+   "dex": 145.0,
+   "dcue": 57.0,
+   "dX": 16,
+   "na": 167.0,
+   "cueonly_gated": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.88,
+    "p_leave_tf": 0.868,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 121.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.88,
+    "p_leave_tf": 0.868,
+    "win": [
+     "n",
+     136,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 145.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.88,
+    "p_leave_tf": 0.868,
+    "win": [
+     "n",
+     160,
+     null,
+     16,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 121.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.88,
+    "p_leave_tf": 0.868,
+    "win": [
+     "n",
+     136,
+     null,
+     16,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 121.0,
+    "cue": 17.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.88,
+    "p_leave_tf": 0.868,
+    "win": [
+     "n",
+     152,
+     null,
+     16,
+     32
+    ]
+   },
+   "default": {
+    "exit": 145.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.88,
+    "p_leave_tf": 0.868,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 89.0,
+    "cue": 57.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.88,
+    "p_leave_tf": 0.868,
+    "win": [
+     "n",
+     104,
+     null,
+     56,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 129.0,
+    "cue": 73.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.88,
+    "p_leave_tf": 0.868,
+    "win": [
+     "n",
+     144,
+     null,
+     72,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_x6Bm-sXF5Eg__17",
+   "dj": "Liquicity",
+   "mix": "liquicity_x6Bm-sXF5Eg",
+   "idx": 17,
+   "pro_out": 142.83,
+   "pro_in": 15.5,
+   "pro_ov": 27.004,
+   "dex": 217.0,
+   "dcue": 1.0,
+   "dX": 16,
+   "na": 232.0,
+   "cueonly_gated": {
+    "exit": 217.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     232,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 217.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     232,
+     null,
+     32,
+     16
+    ]
+   },
+   "ridegate_online_tf": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 129.0,
+    "cue": 33.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     144,
+     null,
+     32,
+     16
+    ]
+   },
+   "default": {
+    "exit": 217.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.897,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 65.0,
+    "cue": 1.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     80,
+     null,
+     0,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 201.0,
+    "cue": 17.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.734,
+    "p_leave_tf": 0.897,
+    "win": [
+     "n",
+     216,
+     null,
+     16,
+     16
+    ]
+   }
+  },
+  {
+   "id": "liquicity_x6Bm-sXF5Eg__20",
+   "dj": "Liquicity",
+   "mix": "liquicity_x6Bm-sXF5Eg",
+   "idx": 20,
+   "pro_out": 126.99,
+   "pro_in": 32.32,
+   "pro_ov": 46.033,
+   "dex": 217.0,
+   "dcue": 49.0,
+   "dX": 16,
+   "na": 233.0,
+   "cueonly_gated": {
+    "exit": 217.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.857,
+    "p_leave_tf": 0.946,
+    "win": null
+   },
+   "ridegate": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.857,
+    "p_leave_tf": 0.946,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   },
+   "ridegate_tail": {
+    "exit": 217.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.857,
+    "p_leave_tf": 0.946,
+    "win": null
+   },
+   "ridegate_online_tf": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.857,
+    "p_leave_tf": 0.946,
+    "win": [
+     "n",
+     128,
+     null,
+     48,
+     16
+    ]
+   },
+   "ref_full_gated": {
+    "exit": 113.0,
+    "cue": 49.0,
+    "X": 32,
+    "is_default": false,
+    "p_leave": 0.857,
+    "p_leave_tf": 0.946,
+    "win": [
+     "n",
+     144,
+     null,
+     48,
+     32
+    ]
+   },
+   "default": {
+    "exit": 217.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": true,
+    "p_leave": 0.857,
+    "p_leave_tf": 0.946,
+    "win": null
+   },
+   "rule_drop_exit": {
+    "exit": 81.0,
+    "cue": 49.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.857,
+    "p_leave_tf": 0.946,
+    "win": [
+     "n",
+     96,
+     null,
+     48,
+     16
+    ]
+   },
+   "majority": {
+    "exit": 201.0,
+    "cue": 65.0,
+    "X": 16,
+    "is_default": false,
+    "p_leave": 0.857,
+    "p_leave_tf": 0.946,
+    "win": [
+     "n",
+     216,
+     null,
+     64,
+     16
+    ]
+   }
+  }
+ ]
+}

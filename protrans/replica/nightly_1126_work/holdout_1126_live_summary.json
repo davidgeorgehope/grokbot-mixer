@@ -1,0 +1,46 @@
+{
+ "raw": [
+  -3.61,
+  -8.66,
+  0.05
+ ],
+ "after": [
+  -0.06,
+  -0.23,
+  0.0
+ ],
+ "pass_raw": false,
+ "pass_after_veto": false,
+ "pack_agree": {
+  "n": 56,
+  "agree": 56,
+  "rate": 1.0,
+  "disagree": []
+ },
+ "logged": {
+  "when": "2026-11-26 10:37 EST",
+  "by": "ridegate-live-render-holdout job (picker_1126.py holdout + analyze_1126.py holdout + official hard-check veto)",
+  "pairs": 56,
+  "mixes": [
+   "hospital_records_Lm2VlTogWvY",
+   "hospital_records_zYANUM_lubI",
+   "liquicity_-b9blr1G6P0",
+   "liquicity_755KyYvQvM4",
+   "liquicity_CbxYF3frz-I",
+   "liquicity_EuPkz0GFI4g",
+   "liquicity_PNr3y3pOayw",
+   "liquicity_S6TJkQdz8tQ",
+   "liquicity_fhshk0_baJI",
+   "liquicity_nYOcD3qTdg0",
+   "liquicity_sLYQdlUB3Lc",
+   "liquicity_x6Bm-sXF5Eg"
+  ],
+  "candidate": "n1126 ridegate live (RIDEGATE flag, all-dev pack, non-map path)",
+  "result": "raw exit+cue delta -3.61 [-8.66, 0.05]; after official hard-check veto -0.06 [-0.23, 0.0]; pack_agree 56/56",
+  "pass_raw": false,
+  "pass_after_veto": false,
+  "note": "2nd opening of the Liquicity/Hospital locked holdout (first opening 2026-11-19 did not pass). CI must be entirely below 0. rules.json and defaults were not changed."
+ },
+ "recommendation": null,
+ "rules_sha": "ab435c6af95499056936978adc9fcea1d4e3bfb4c5af00795ff396dd5cccfef8"
+}

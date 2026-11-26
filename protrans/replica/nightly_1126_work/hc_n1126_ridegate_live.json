@@ -25,21 +25,21 @@
   "residual_lag_ms": null,
   "halfbeat_fail": false,
   "bass_hole": false,
-  "lows_dip_db": 20.5,
+  "lows_dip_db": 28.7,
   "pumping": false,
-  "pump_db": 2.5,
+  "pump_db": 1.0,
   "incoming_vanish": false,
   "incoming_vanish_db": 0.0,
   "png": null,
   "hard_fail": false,
   "win": [
    "n",
-   208,
+   224,
    null,
-   48,
+   64,
    16
   ],
-  "fam": "nat_short"
+  "fam": "ridegate_live"
  },
  "hybrid_minds_ukf__10": {
   "beat_clash": false,
@@ -67,21 +67,21 @@
   "residual_lag_ms": null,
   "halfbeat_fail": false,
   "bass_hole": false,
-  "lows_dip_db": 27.3,
-  "pumping": true,
-  "pump_db": 7.3,
+  "lows_dip_db": 28.2,
+  "pumping": false,
+  "pump_db": 0.9,
   "incoming_vanish": false,
   "incoming_vanish_db": 0.0,
   "png": null,
-  "hard_fail": true,
+  "hard_fail": false,
   "win": [
    "n",
-   208,
+   224,
    null,
-   64,
+   80,
    16
   ],
-  "fam": "nat_short"
+  "fam": "ridegate_live"
  },
  "hybrid_minds_ukf__12": {
   "beat_clash": false,
@@ -130,21 +130,21 @@
   "residual_lag_ms": null,
   "halfbeat_fail": false,
   "bass_hole": false,
-  "lows_dip_db": 28.5,
-  "pumping": false,
-  "pump_db": 2.4,
+  "lows_dip_db": 7.3,
+  "pumping": true,
+  "pump_db": 5.1,
   "incoming_vanish": false,
   "incoming_vanish_db": 0.0,
   "png": null,
-  "hard_fail": false,
+  "hard_fail": true,
   "win": [
    "n",
-   224,
+   232,
    null,
-   16,
+   48,
    16
   ],
-  "fam": "nat_short"
+  "fam": "ridegate_live"
  },
  "hybrid_minds_ukf__25": {
   "beat_clash": false,
@@ -214,21 +214,21 @@
   "residual_lag_ms": null,
   "halfbeat_fail": false,
   "bass_hole": false,
-  "lows_dip_db": 15.2,
+  "lows_dip_db": 9.0,
   "pumping": false,
-  "pump_db": 0.9,
+  "pump_db": 0.6,
   "incoming_vanish": false,
   "incoming_vanish_db": 0.0,
   "png": null,
   "hard_fail": false,
   "win": [
    "n",
-   96,
+   112,
    null,
-   0,
+   32,
    16
   ],
-  "fam": "nat_short"
+  "fam": "ridegate_live"
  },
  "joe_syntax_hospital__08": {
   "beat_clash": false,
@@ -487,21 +487,21 @@
   "residual_lag_ms": null,
   "halfbeat_fail": false,
   "bass_hole": false,
-  "lows_dip_db": 27.8,
+  "lows_dip_db": 30.8,
   "pumping": false,
-  "pump_db": 1.5,
+  "pump_db": 2.0,
   "incoming_vanish": false,
   "incoming_vanish_db": 0.0,
   "png": null,
   "hard_fail": false,
   "win": [
    "n",
-   224,
+   232,
    null,
    40,
    16
   ],
-  "fam": "nat_short"
+  "fam": "ridegate_live"
  },
  "wilkinson_boomtown2026__33": {
   "beat_clash": false,

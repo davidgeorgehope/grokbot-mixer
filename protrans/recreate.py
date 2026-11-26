@@ -8,10 +8,15 @@ def load_rules(path=None):
     return json.load(open(path or paths.RULES))
 
 # Defaults from the nightly protrans hill-climb (kept 2026-11-09: 2-bar bass swap, held-out 25.19 -> 26.58).
-DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'exit', 'LONG_SOLO_STRUCT': 1, 'linger_pen_w': 0.15}  # linger_pen_w 0.15: nightly hill-climb 2026-11-13, held-out 32.24 -> 33.84 (soft cost for windows that leave the outgoing track lingering past its phrase);  # LONG_*: 2026-11-11 long-blend RCA, only act with FADE=long (rules.json; held-out 30.09 -> 30.75, the listener 'best one yet'); HIGH_OFS 8: nightly hill-climb 2026-11-10, held-out 27.97 -> 28.47; BASS_SWAP_BARS 3: nightly 2026-11-11, held-out 28.47 -> 29.51
+DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'exit', 'LONG_SOLO_STRUCT': 1, 'linger_pen_w': 0.15, 'RIDEGATE': 1, 'RIDEGATE_LOCK': 1, 'RIDEGATE_PUMP': 1}  # linger_pen_w 0.15: nightly hill-climb 2026-11-13, held-out 32.24 -> 33.84 (soft cost for windows that leave the outgoing track lingering past its phrase);  # LONG_*: 2026-11-11 long-blend RCA, only act with FADE=long (rules.json; held-out 30.09 -> 30.75, the listener 'best one yet'); HIGH_OFS 8: nightly hill-climb 2026-11-10, held-out 27.97 -> 28.47; BASS_SWAP_BARS 3: nightly 2026-11-11, held-out 28.47 -> 29.51
 
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
+    # Rollback of the 2026-11-26 ridegate default: RIDEGATE_OFF=1 forces the three flags off.
+    if str(os.environ.get('RIDEGATE_OFF') or '').strip().lower() not in ('', '0', 'false', 'none', 'no'):
+        rules['RIDEGATE'] = 0
+        rules['RIDEGATE_LOCK'] = 0
+        rules['RIDEGATE_PUMP'] = 0
     env = {}
     for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','HIGH_GATE','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','HALFBEAT_LOCK','HALFBEAT_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB','HARD_FALLBACK','PICKER_STYLE_GATED','PICKER_STYLE_GATED_MAP','PICKER_INJECT_CS','BREAK_EXIT','MID_HOLD','MID_HOLD_DB','EARLY_EXIT','EARLY_EXIT_HOLD_DB','EARLY_EXIT_RATE','PRO_FADE','PRO_FADE_ENTRY_DB','PRO_FADE_SHELF_DB','PRO_FADE_EXIT_SLOPE','PRO_FADE_HIGH_OFS','PRO_FADE_BASS_CUT_DB','PRO_FADE_BASS_REL','PRO_FADE_BASS_SW','PRO_FADE_BASS_REL_MID','PRO_FADE_RESPECT_EXIT','RIDEGATE','RIDEGATE_PACK','LINGER_GUARD','RIDEGATE_LOCK','RIDEGATE_PUMP','RIDEGATE_EE'):
         if k in rules and rules[k] is not None:
@@ -188,10 +193,19 @@ def picker_inject_cs_on(rules=None, env=None):
 
 
 def ridegate_live_on(rules=None, env=None):
-    """Live (non-map) ridegate picker. Off by default. Do not write rules.json."""
+    """Live (non-map) ridegate picker. On by default as of 2026-11-26. Rollback: RIDEGATE_OFF=1."""
     env = env or {}
     rules = rules or {}
-    return _flag_on(env.get('RIDEGATE') or rules.get('RIDEGATE') or os.environ.get('RIDEGATE'))
+    if _flag_on(env.get('RIDEGATE_OFF') or os.environ.get('RIDEGATE_OFF')):
+        return False
+    v = env.get('RIDEGATE')
+    if v is None:
+        v = rules.get('RIDEGATE')
+    if v is None:
+        v = os.environ.get('RIDEGATE')
+    if v is None:
+        v = DEFAULTS.get('RIDEGATE')
+    return _flag_on(v)
 
 def linger_guard_on(rules=None, env=None):
     """Linger guard (incoming breakdown under outgoing drop). Off by default. Do not write rules.json."""
@@ -200,15 +214,26 @@ def linger_guard_on(rules=None, env=None):
     return _flag_on(env.get('LINGER_GUARD') or rules.get('LINGER_GUARD') or os.environ.get('LINGER_GUARD'))
 
 
-def ridegate_lock_on(rules=None, env=None):
-    """Reject an un-lockable ride window. Off by default. Do not write rules.json."""
+def _ridegate_default_flag(name, rules=None, env=None):
+    if _flag_on((env or {}).get('RIDEGATE_OFF') or os.environ.get('RIDEGATE_OFF')):
+        return False
     env = env or {}; rules = rules or {}
-    return _flag_on(env.get('RIDEGATE_LOCK') or rules.get('RIDEGATE_LOCK') or os.environ.get('RIDEGATE_LOCK'))
+    v = env.get(name)
+    if v is None:
+        v = rules.get(name)
+    if v is None:
+        v = os.environ.get(name)
+    if v is None:
+        v = DEFAULTS.get(name)
+    return _flag_on(v)
+
+def ridegate_lock_on(rules=None, env=None):
+    """Reject an un-lockable ride window. On by default as of 2026-11-26. Rollback: RIDEGATE_OFF=1."""
+    return _ridegate_default_flag('RIDEGATE_LOCK', rules, env)
 
 def ridegate_pump_on(rules=None, env=None):
-    """Reject a both-thin pump-risk ride. Off by default. Do not write rules.json."""
-    env = env or {}; rules = rules or {}
-    return _flag_on(env.get('RIDEGATE_PUMP') or rules.get('RIDEGATE_PUMP') or os.environ.get('RIDEGATE_PUMP'))
+    """Reject a both-thin pump-risk ride. On by default as of 2026-11-26. Rollback: RIDEGATE_OFF=1."""
+    return _ridegate_default_flag('RIDEGATE_PUMP', rules, env)
 
 def ridegate_ee_on(rules=None, env=None):
     """Keep the model's earlier mid exit on a ride. Off by default. Do not write rules.json."""
@@ -830,11 +855,11 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
             elif picker_info is None:
                 picker_info = dict(enabled=True, applied=False, map=_mp, why='no_entry')
 
-        # RIDEGATE=1 (off by default, 2026-11-26): live (non-map) ridegate path.
+        # RIDEGATE (on by default, 2026-11-26 promotion): live (non-map) ridegate path.
         # Computes ride/leave + exit+cue at render time from track features and
-        # the engine's default window. Does not write rules.json. Abstains (keeps
-        # the default pick) when the pack is missing or the window is illegal.
-        # When this flag is on it takes precedence over the PICKER_STYLE_GATED map.
+        # the engine's default window, with lock and both-thin pump previews.
+        # Rollback: RIDEGATE_OFF=1. Abstains (keeps the engine pick) when the pack
+        # is missing or the window is illegal. Takes precedence over PICKER_STYLE_GATED.
         ridegate_info = None
         if ridegate_live_on(rules, env):
             _rep = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica')

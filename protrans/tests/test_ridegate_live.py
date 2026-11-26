@@ -1,4 +1,4 @@
-"""RIDEGATE is a live (non-map) ridegate path, off by default. Does not write rules.json."""
+"""RIDEGATE is a live (non-map) ridegate path, on by default as of 2026-11-26. Rollback: RIDEGATE_OFF=1."""
 from __future__ import annotations
 import inspect, json, os, sys, pathlib
 import numpy as np
@@ -13,22 +13,33 @@ AGREE_MAP = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'replica', 
 AGREE_CV = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'replica', 'nightly_1126_work', 'ridegate_live_agree_cv.json')
 
 
-def test_ridegate_flag_default_off(monkeypatch):
+def test_ridegate_flag_default_on(monkeypatch):
     monkeypatch.delenv('RIDEGATE', raising=False)
+    monkeypatch.delenv('RIDEGATE_OFF', raising=False)
+    # Engine default is on (2026-11-26 promotion).
+    assert recreate.ridegate_live_on({}, {}) is True
+    assert RG.flag_on({}, {}) is True
+    assert recreate.ridegate_live_on({'RIDEGATE': 0}, {}) is False
+    assert recreate.ridegate_live_on({}, {'RIDEGATE': '0'}) is False
+    monkeypatch.setenv('RIDEGATE_OFF', '1')
     assert recreate.ridegate_live_on({}, {}) is False
     assert RG.flag_on({}, {}) is False
-    assert recreate.ridegate_live_on({'RIDEGATE': 1}, {}) is True
-    assert recreate.ridegate_live_on({}, {'RIDEGATE': '1'}) is True
-    monkeypatch.setenv('RIDEGATE', '1')
-    assert recreate.ridegate_live_on({}, {}) is True
-    monkeypatch.delenv('RIDEGATE', raising=False)
+    assert recreate.ridegate_live_on({'RIDEGATE': 1}, {}) is False
+    monkeypatch.delenv('RIDEGATE_OFF', raising=False)
     src = inspect.getsource(recreate.apply_rules)
     assert "'RIDEGATE'" in src
     assert "'RIDEGATE_PACK'" in src
     env = recreate.apply_rules({})
-    assert 'RIDEGATE' not in env
-    env = recreate.apply_rules({'RIDEGATE': 1})
     assert env.get('RIDEGATE') == '1'
+    assert env.get('RIDEGATE_LOCK') == '1'
+    assert env.get('RIDEGATE_PUMP') == '1'
+    assert 'RIDEGATE_EE' not in env and 'LINGER_GUARD' not in env
+    monkeypatch.setenv('RIDEGATE_OFF', '1')
+    env = recreate.apply_rules({})
+    assert env.get('RIDEGATE') == '0'
+    assert env.get('RIDEGATE_LOCK') == '0'
+    assert env.get('RIDEGATE_PUMP') == '0'
+    monkeypatch.delenv('RIDEGATE_OFF', raising=False)
     env = recreate.apply_rules({'RIDEGATE': 1, 'RIDEGATE_PACK': '/tmp/pack.json'})
     assert env.get('RIDEGATE_PACK') == '/tmp/pack.json'
 
@@ -45,7 +56,11 @@ def test_ridegate_does_not_write_rules_json():
     assert p.stat().st_mtime == mtime
     assert p.read_bytes() == before
     rules = json.loads(before)
-    assert 'RIDEGATE' not in rules
+    # Promotion wrote these on; calling apply_rules must not mutate the file.
+    assert rules.get('RIDEGATE') == 1
+    assert rules.get('RIDEGATE_LOCK') == 1
+    assert rules.get('RIDEGATE_PUMP') == 1
+    assert 'RIDEGATE_EE' not in rules and 'LINGER_GUARD' not in rules
     assert 'RIDEGATE_PACK' not in rules
 
 
@@ -369,7 +384,7 @@ def test_drum_linger_bars_faded_vs_early_exit():
     assert RG.drum_linger_bars(sa, sb, early, hi, x_db=8) == 0
 
 
-def test_ride_preview_flags_default_off(monkeypatch):
+def test_ride_preview_flags_in_defaults(monkeypatch):
     import ride_preview as RP
     for name in ('RIDEGATE_LOCK', 'RIDEGATE_PUMP', 'RIDEGATE_EE'):
         monkeypatch.delenv(name, raising=False)
@@ -382,14 +397,16 @@ def test_ride_preview_flags_default_off(monkeypatch):
     src = inspect.getsource(recreate.apply_rules)
     assert "'RIDEGATE_LOCK'" in src and "'RIDEGATE_PUMP'" in src and "'RIDEGATE_EE'" in src
     env = recreate.apply_rules({})
-    assert 'RIDEGATE_LOCK' not in env and 'RIDEGATE_PUMP' not in env and 'RIDEGATE_EE' not in env
+    assert env.get('RIDEGATE_LOCK') == '1' and env.get('RIDEGATE_PUMP') == '1'
+    assert 'RIDEGATE_EE' not in env
     env = recreate.apply_rules({'RIDEGATE_LOCK': 1, 'RIDEGATE_PUMP': 1, 'RIDEGATE_EE': 1})
     assert env.get('RIDEGATE_LOCK') == '1'
     assert env.get('RIDEGATE_PUMP') == '1'
     assert env.get('RIDEGATE_EE') == '1'
     import paths, json as _json
     rules = _json.loads(pathlib.Path(paths.RULES).read_bytes())
-    assert 'RIDEGATE_LOCK' not in rules and 'RIDEGATE_PUMP' not in rules and 'RIDEGATE_EE' not in rules
+    assert rules.get('RIDEGATE_LOCK') == 1 and rules.get('RIDEGATE_PUMP') == 1
+    assert 'RIDEGATE_EE' not in rules
 
 
 def test_both_thin_and_lock_min():

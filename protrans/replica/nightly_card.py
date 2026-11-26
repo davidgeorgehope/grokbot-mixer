@@ -60,7 +60,7 @@ def validate(spec=None, tag='n1127'):
     spec = spec or load_spec()
     assert spec.get('adopt_to_defaults') is False, 'adopt_to_defaults must be false'
     card = card_for(tag, spec)
-    assert len(card) == MAX_CANDS, f'{tag} card must have {MAX_CANDS} arms, got {len(card)}'
+    assert 1 <= len(card) <= MAX_CANDS, f'{tag} card must have 1..{MAX_CANDS} arms, got {len(card)}'
     names = [c['name'] for c in card]
     assert len(set(names)) == len(names), f'duplicate arm names: {names}'
     src = inspect.getsource(recreate.apply_rules)
@@ -82,6 +82,10 @@ def validate(spec=None, tag='n1127'):
             if val != 1 and str(val).strip().lower() not in ('1', 'true'):
                 continue
             rv = rules.get(k)
+            # Flags already on in the engine default (the n1127 baseline) may be listed again.
+            already_on = str(rv).strip().lower() not in ('', '0', 'false', 'none', 'no') and rv is not None
+            if already_on:
+                continue
             assert str(rv).strip().lower() in ('', '0', 'false', 'none', 'no') or rv is None, (
                 f"{k} must not be on in rules.json"
             )

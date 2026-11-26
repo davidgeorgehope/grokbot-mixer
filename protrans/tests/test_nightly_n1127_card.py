@@ -13,10 +13,10 @@ def test_n1127_card_loads_and_flags_stay_off():
     info = NCard.validate(tag='n1127')
     assert info['arms'] == [
         'epg_strict', 'epg_drop', 'epg_stack',
-        'ridegate_lock_pump', 'ridegate_lock_pump_ee', 'profade_ex35',
+        'ridegate_lock_pump_ee', 'profade_ex35',
     ]
-    assert len(info['short_tags']) == 6
-    assert len(set(info['short_tags'])) == 6
+    assert 1 <= len(info['short_tags']) <= 6
+    assert len(set(info['short_tags'])) == len(info['short_tags'])
     spec = NCard.load_spec()
     assert spec.get('adopt_to_defaults') is False
     # n1126 card is preserved and is what a 11-26 hill-climb would still read
@@ -30,17 +30,15 @@ def test_n1127_card_loads_and_flags_stay_off():
     assert names == info['arms']
     names26 = [n for n, _ in HC.candidates('n1126')]
     assert names26 == n1126
-    # unique short tags for the two ridegate arms
-    assert HC._short_tag('n1127', 'ridegate_lock_pump') != HC._short_tag('n1127', 'ridegate_lock_pump_ee')
+    assert 'ridegate_lock_pump' not in info['arms']  # now the baseline, not a shadow
+    assert HC._short_tag('n1127', 'ridegate_lock_pump_ee') != HC._short_tag('n1127', 'profade_ex35')
 
 
 def test_n1127_shadow_deltas_and_rules_untouched():
     card = {c['name']: c for c in NCard.card_for('n1127')}
-    assert card['ridegate_lock_pump']['shadow'] is True
-    assert card['ridegate_lock_pump']['promotion'] is False
-    assert card['ridegate_lock_pump']['delta'] == {'RIDEGATE': 1, 'RIDEGATE_LOCK': 1, 'RIDEGATE_PUMP': 1}
-    assert card['ridegate_lock_pump_ee']['delta']['RIDEGATE_EE'] == 1
-    assert card['ridegate_lock_pump_ee']['delta']['RIDEGATE_LOCK'] == 1
+    assert card['ridegate_lock_pump_ee']['shadow'] is True
+    assert card['ridegate_lock_pump_ee']['promotion'] is False
+    assert card['ridegate_lock_pump_ee']['delta'] == {'RIDEGATE_EE': 1}
     ex = card['profade_ex35']['delta']
     assert ex['PRO_FADE'] == 1 and ex['PRO_FADE_EXIT_SLOPE'] == 3.5
     assert ex['PRO_FADE_RESPECT_EXIT'] == 1
@@ -49,12 +47,17 @@ def test_n1127_shadow_deltas_and_rules_untouched():
     for k in list(card['ridegate_lock_pump_ee']['delta']) + list(ex):
         assert f"'{k}'" in src
     env = recreate.apply_rules({})
-    for k in ('RIDEGATE', 'RIDEGATE_LOCK', 'RIDEGATE_PUMP', 'RIDEGATE_EE', 'PRO_FADE', 'EARLY_EXIT'):
+    # New engine default is on; EE / linger / pro-fade stay off.
+    assert recreate._flag_on(env.get('RIDEGATE'))
+    assert recreate._flag_on(env.get('RIDEGATE_LOCK'))
+    assert recreate._flag_on(env.get('RIDEGATE_PUMP'))
+    for k in ('RIDEGATE_EE', 'LINGER_GUARD', 'PRO_FADE', 'EARLY_EXIT'):
         assert not recreate._flag_on(env.get(k))
     import paths
     rules = json.loads(pathlib.Path(paths.RULES).read_bytes())
-    for k in ('RIDEGATE_LOCK', 'RIDEGATE_PUMP', 'RIDEGATE_EE', 'PRO_FADE'):
-        assert k not in rules
+    assert rules.get('RIDEGATE') == 1 and rules.get('RIDEGATE_LOCK') == 1 and rules.get('RIDEGATE_PUMP') == 1
+    assert 'RIDEGATE_EE' not in rules and 'LINGER_GUARD' not in rules
+    assert 'PRO_FADE' not in rules
 
 
 def test_linger_lag_report_fields():

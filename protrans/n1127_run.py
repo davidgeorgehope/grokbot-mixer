@@ -1,7 +1,7 @@
 """Complete nightly hill-climb n1127 on pinned src2_pin_n1121 (HARD_FALLBACK=0).
 
 Runs baseline + the 6 arms in replica/nightly_candidates.json -> candidates_n1127:
-  epg_strict, epg_drop, epg_stack, ridegate_lock_pump, ridegate_lock_pump_ee, profade_ex35
+  epg_strict, epg_drop, epg_stack, ridegate_lock_pump_ee, profade_ex35 (baseline is the promoted ridegate default)
 Scores official v1 and v2 with CIs, official hard checks, plus drum_linger_bars and
 exit lag vs the pro on every arm. Writes results/hill_climb_n1127.json and
 results/n1127_v1_v2_summary.json. Does not write rules.json or adopt defaults.

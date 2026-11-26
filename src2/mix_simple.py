@@ -425,7 +425,7 @@ def pair_cands(i,ia0):
           _ee,_ib=int(_w[1]),int(_w[3])
           if 16<=_ee-X and _ee<=na and 0<=_ib and _ib+X<=nb-16 and ('n',_ee,_ib) not in _have_pw:
             cands.append(('n',_ee,_ib)); _have_pw.add(('n',_ee,_ib)); PLANNER_EXTRA_WINS.add(('n',_ee,None,_ib,X))
-    if os.environ.get('RIDEGATE_WIN'):  # live ridegate window from recreate (RIDEGATE=1, no map)
+    if os.environ.get('RIDEGATE_WIN'):  # live ridegate window from recreate (on by default 2026-11-26; RIDEGATE_OFF=1 rolls back)
       import json as _js_rw
       try: _w_rw=_js_rw.loads(os.environ['RIDEGATE_WIN'])
       except Exception: _w_rw=None

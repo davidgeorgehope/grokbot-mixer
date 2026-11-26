@@ -739,39 +739,15 @@
    ]
   },
   {
-   "name": "ridegate_lock_pump",
-   "promotion": false,
-   "shadow": true,
-   "flags_off_by_default": true,
-   "wired": true,
-   "delta": {
-    "RIDEGATE": 1,
-    "RIDEGATE_LOCK": 1,
-    "RIDEGATE_PUMP": 1
-   },
-   "label": "Shadow arm for n1127: live RIDEGATE plus the lock preview (confident mid-blend lag above 150 ms with fewer than 4 drum-on-drum bars falls back to the default window) and the both-thin pump preview (T=6 dB, pro p95 10.80). Off by default. Do not write rules.json.",
-   "report_metrics": [
-    "v1",
-    "v2",
-    "hard_fail",
-    "drum_linger_bars",
-    "exit_lag_vs_pro"
-   ],
-   "judge": "held_out_mean_improves_and_hard_fails_not_worse"
-  },
-  {
    "name": "ridegate_lock_pump_ee",
    "promotion": false,
    "shadow": true,
    "flags_off_by_default": true,
    "wired": true,
    "delta": {
-    "RIDEGATE": 1,
-    "RIDEGATE_LOCK": 1,
-    "RIDEGATE_PUMP": 1,
     "RIDEGATE_EE": 1
    },
-   "label": "Shadow arm for n1127: same as ridegate_lock_pump, plus RIDEGATE_EE (keep the model mid-exit on a ride_pick revert when it is earlier and drum_linger does not exceed its threshold). Off by default. Do not write rules.json.",
+   "label": "Shadow arm for n1127, on top of the new ridegate default: RIDEGATE_EE (keep the model mid-exit on a ride_pick revert when it is earlier and drum_linger does not exceed its threshold). Off by default. Do not write rules.json.",
    "report_metrics": [
     "v1",
     "v2",
@@ -815,16 +791,16 @@
   }
  ],
  "n1127_card": {
-  "written": "2026-11-26 12:05 PM America/New_York",
+  "written": "2026-11-26 12:55 PM America/New_York",
   "for_nightly": "n1127",
   "adopt_to_defaults": false,
   "flags_off_by_default": true,
-  "note": "n1127 six-arm card: the three epg promotion arms stay, and the three n1126 shadow slots (djbal_cue_struct_compat, early_exit, ee_r7) are replaced by ridegate_lock_pump, ridegate_lock_pump_ee, and profade_ex35. Cap stays 6. Each arm reports drum_linger_bars and exit lag vs the pro alongside v1/v2 and hard fails (see replica/nightly_card.py, used by n1127_run.py). All new flags stay off by default. Do not write rules.json.",
+  "baseline": "RIDEGATE+RIDEGATE_LOCK+RIDEGATE_PUMP (now the engine default in rules.json / recreate.DEFAULTS)",
+  "note": "n1127 baseline is the promoted ridegate default. Shadow arms compare against it. The redundant ridegate_lock_pump shadow was dropped. Remaining shadows: ridegate_lock_pump_ee (adds EE only) and profade_ex35, plus the three epg promotion arms. Cap stays 6; this card has 5. RIDEGATE_EE and LINGER_GUARD stay off by default.",
   "arms": [
    "epg_strict",
    "epg_drop",
    "epg_stack",
-   "ridegate_lock_pump",
    "ridegate_lock_pump_ee",
    "profade_ex35"
   ]

@@ -34,12 +34,21 @@ _PACKS = {}
 
 
 def flag_on(rules=None, env=None):
-    """RIDEGATE is off by default. Do not write rules.json."""
+    """RIDEGATE is on by default as of 2026-11-26. Rollback: RIDEGATE_OFF=1."""
     env = env or {}
     rules = rules or {}
     def _on(v):
         return str(v).strip().lower() not in ('', '0', 'false', 'none', 'no')
-    return _on(env.get(FLAG) or (rules or {}).get(FLAG) or os.environ.get(FLAG))
+    if _on(env.get('RIDEGATE_OFF') or os.environ.get('RIDEGATE_OFF')):
+        return False
+    v = env.get(FLAG)
+    if v is None:
+        v = (rules or {}).get(FLAG)
+    if v is None:
+        v = os.environ.get(FLAG)
+    if v is None:
+        v = 1
+    return _on(v)
 
 
 def pack_path(env=None):

@@ -1,0 +1,384 @@
+{
+ "drum_thr": 8.799999999999997,
+ "struct_thr": 5.3999999999999915,
+ "rows": [
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__00",
+   "old_win": [
+    "n",
+    176,
+    null,
+    0,
+    16
+   ],
+   "new_win": [
+    "n",
+    176,
+    null,
+    32,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__01",
+   "old_win": [
+    "n",
+    240,
+    null,
+    24,
+    16
+   ],
+   "new_win": [
+    "n",
+    128,
+    null,
+    16,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 2
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__03",
+   "old_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "new_win": [
+    "n",
+    112,
+    null,
+    16,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 12
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__06",
+   "old_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "new_win": [
+    "n",
+    160,
+    null,
+    16,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__07",
+   "old_win": [
+    "n",
+    176,
+    null,
+    64,
+    16
+   ],
+   "new_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__09",
+   "old_win": [
+    "n",
+    160,
+    null,
+    48,
+    16
+   ],
+   "new_win": [
+    "n",
+    160,
+    null,
+    48,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__10",
+   "old_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "new_win": [
+    "n",
+    120,
+    null,
+    48,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__11",
+   "old_win": [
+    "n",
+    192,
+    null,
+    0,
+    16
+   ],
+   "new_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 8,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__12",
+   "old_win": [
+    "n",
+    224,
+    null,
+    32,
+    16
+   ],
+   "new_win": [
+    "n",
+    232,
+    null,
+    16,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__14",
+   "old_win": [
+    "n",
+    160,
+    null,
+    24,
+    16
+   ],
+   "new_win": [
+    "n",
+    112,
+    null,
+    48,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__15",
+   "old_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "new_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__16",
+   "old_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "new_win": [
+    "n",
+    176,
+    null,
+    16,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__19",
+   "old_win": [
+    "n",
+    192,
+    null,
+    32,
+    16
+   ],
+   "new_win": [
+    "n",
+    192,
+    null,
+    16,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__22",
+   "old_win": [
+    "n",
+    240,
+    null,
+    32,
+    16
+   ],
+   "new_win": [
+    "n",
+    144,
+    null,
+    32,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 11
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__23",
+   "old_win": [
+    "n",
+    208,
+    null,
+    24,
+    16
+   ],
+   "new_win": [
+    "n",
+    208,
+    null,
+    24,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__26",
+   "old_win": [
+    "n",
+    256,
+    null,
+    32,
+    16
+   ],
+   "new_win": [
+    "n",
+    152,
+    null,
+    32,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__27",
+   "old_win": [
+    "n",
+    240,
+    null,
+    0,
+    16
+   ],
+   "new_win": [
+    "n",
+    160,
+    null,
+    32,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 0
+  },
+  {
+   "id": "ukf_drum_bass_wVp_VlkWqxI__30",
+   "old_win": [
+    "n",
+    208,
+    null,
+    32,
+    16
+   ],
+   "new_win": [
+    "n",
+    128,
+    null,
+    32,
+    16
+   ],
+   "old_l": 0,
+   "old_d": 0,
+   "new_l": 0,
+   "new_d": 12
+  }
+ ]
+}

@@ -69,20 +69,24 @@ def main(pick_id, base_variant, cands):
         print('DIAG skipped:', type(e).__name__, str(e)[-200:], flush=True)
 
 if __name__ == '__main__':
-    # 2026-11-25 list (base mhb1125_base: plain eval_cohort on today's code, == like1124_base 33.3/33.92, 33 admitted).
-    # Pick hybrid_minds_ukf__28 (Nu:Tone - Balaclava -> SpectraSoul & Alix Perez - The Need): next unused TRAIN.
-    # Ours (default) nat_short exit 240 / cue 16 / 16 bars, score 40.68. Pro events: bass swap bar 4, A cut bar 20,
-    # blend ~3 bars (short, early bass handoff); tracklist hint says A had played only ~96 bars.
-    # r1 (short/early-swap rules) all <= 40.68: bass_swap_1 40.68, phrase_cut_pref 14.81, break_exit 24.37,
-    # snap_in 38.13, drop_swap 34.86, length_pref_8 17.43. provsours: pro starts at A's breakdown (bar ~126, after
-    # drop 1, half-time), cues B intro bar 15; ours outro 224-240. r2: rules that let the engine leave after drop 1.
+    # 2026-11-26 list (base n1126_base: nightly base on current code, 33.3/33.92, 33 admitted; == hgb1126_base).
+    # Pick hybrid_minds_ukf__40 (LSB - I Need Love -> Hybrid Minds - Inside ft. Emily Jones): next unused TRAIN in
+    # load_recs order after ukf__28 (ukf__00 skipped: the listener already heard two of our renders of it in the 11-19 A/B).
+    # Ours (default) nat_short exit 256-272 (A's last drop/outro) / cue 32 / 16 bars, score 31.0. Pro events: bass swap
+    # bar 11, A cut bar 20, blend ~15 bars. provsours: pro brings B in over the last ~14 bars of A's drop 1 (A bar 144.6),
+    # swaps bass at A bar 158.6 where drop 1 ends into a no-snare breakdown, A gone by 167.6; B cued intro bar 17.3.
+    # Fourth day the pro leaves A around the end of drop 1. r1: every general family/rule that can reach there,
+    # plus longer-blend and stronger-hint variants.
     CANDS = [
         ('wp', {'window_planner': 1}),
-        ('wp_hint06', {'window_planner': 1, 'hint_weight': 0.6}),
-        ('hintfam_08', {'hint_family': 1, 'hint_weight': 0.8}),
-        ('replica_x16', {'REPLICA': 1, 'REPLICA_X': 16}),
+        ('break_exit', {'BREAK_EXIT': 1}),
+        ('break_exit_h06', {'BREAK_EXIT': 1, 'hint_weight': 0.6}),
         ('dropcand_exit', {'DROPCAND': 'exit'}),
+        ('replica_x16', {'REPLICA': 1, 'REPLICA_X': 16}),
         ('epg_drop', {'EXITPOS': 1, 'EXITPOS_DROP': 1}),
         ('struct_mid', {'STRUCT_MID': 1}),
+        ('hintfam_08', {'hint_family': 1, 'hint_weight': 0.8}),
+        ('length_pref_24', {'length_pref': 24}),
+        ('mid_hold', {'MID_HOLD': 1}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

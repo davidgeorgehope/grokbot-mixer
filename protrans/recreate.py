@@ -13,7 +13,7 @@ DEFAULTS = {'BASS_SWAP_BARS': 3, 'HIGH_OFS': 8, 'LONG_SOLO': 16, 'LONG_SWAP': 'e
 def apply_rules(rules):
     rules = {**DEFAULTS, **(rules or {})}
     env = {}
-    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','HIGH_GATE','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','HALFBEAT_LOCK','HALFBEAT_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB','HARD_FALLBACK','PICKER_STYLE_GATED','PICKER_STYLE_GATED_MAP','PICKER_INJECT_CS','BREAK_EXIT','MID_HOLD','MID_HOLD_DB','EARLY_EXIT','EARLY_EXIT_HOLD_DB','EARLY_EXIT_RATE','PRO_FADE','PRO_FADE_ENTRY_DB','PRO_FADE_SHELF_DB','PRO_FADE_EXIT_SLOPE','PRO_FADE_HIGH_OFS','PRO_FADE_BASS_CUT_DB','PRO_FADE_BASS_REL','PRO_FADE_BASS_SW','PRO_FADE_BASS_REL_MID','PRO_FADE_RESPECT_EXIT'):
+    for k in ('FADE','BASS_SWAP_BARS','SWAP_POS','HIGH_SWAP','HIGH_OFS','HIGH_GATE','STRUCT','LOOP32','LONG_RISE','LONG_XP','LONG_XP2','LONG_EXIT','LONG_SOLO','LONG_SWAP','LONG_SOLO_STRUCT','TAIL_EXIT','TAIL_RATE','TAIL_SHALLOW','TAIL_SHALLOW_CAP','TAIL_SHALLOW_GATE','SNAP_IN','SNAP_IN_DB','SNAP_IN_HOLD','BASS_COVER','BASS_COVER_DB','WINDOW_PLANNER','RANKER','FINE_PHASE','FINE_PHASE_MIN_MS','FINE_PHASE_MIN_STRENGTH','BLEND_LOCK','BLEND_LOCK_MIN_MS','BLEND_LOCK_MAX_MS','HALFBEAT_LOCK','HALFBEAT_LOCK_MAX_MS','DROP_SWAP','REPLICA','REPLICA_X','DROPCAND','STRUCT_THIN','THIN_DROPCUE','THIN_DB','STRUCT_THIN_W','SLOWDOWN','STRUCTW','STRUCTB','STRUCT_COND','STRUCT_MID','STRUCT_MID_B','STRUCT_MID_W','STRUCT_MID_MIN_GAP','STRUCT_MID_MIN_HT','OUTRO_QC','EXITPOS','EXITPOS_GATE','EXITPOS_DROP','BASS_FILL','BASS_FILL_DB','SLOWPAIR','SLOWPAIR_EXIT','SLOWPAIR_COND','DRUMCLASH','DRUMCLASH_W','PLAN_LAND','ESTAB','ESTAB_W','ESTAB_DB','HARD_FALLBACK','PICKER_STYLE_GATED','PICKER_STYLE_GATED_MAP','PICKER_INJECT_CS','BREAK_EXIT','MID_HOLD','MID_HOLD_DB','EARLY_EXIT','EARLY_EXIT_HOLD_DB','EARLY_EXIT_RATE','PRO_FADE','PRO_FADE_ENTRY_DB','PRO_FADE_SHELF_DB','PRO_FADE_EXIT_SLOPE','PRO_FADE_HIGH_OFS','PRO_FADE_BASS_CUT_DB','PRO_FADE_BASS_REL','PRO_FADE_BASS_SW','PRO_FADE_BASS_REL_MID','PRO_FADE_RESPECT_EXIT','RIDEGATE','RIDEGATE_PACK'):
         if k in rules and rules[k] is not None:
             env[k] = str(rules[k])
     # rules.json / cohort trials use lowercase window_planner; mix_simple
@@ -185,6 +185,13 @@ def picker_inject_cs_on(rules=None, env=None):
     env = env or {}
     rules = rules or {}
     return _flag_on(env.get('PICKER_INJECT_CS') or rules.get('PICKER_INJECT_CS') or os.environ.get('PICKER_INJECT_CS'))
+
+
+def ridegate_live_on(rules=None, env=None):
+    """Live (non-map) ridegate picker. Off by default. Do not write rules.json."""
+    env = env or {}
+    rules = rules or {}
+    return _flag_on(env.get('RIDEGATE') or rules.get('RIDEGATE') or os.environ.get('RIDEGATE'))
 
 def _picker_style_gated_map_path(env=None):
     env = env or os.environ
@@ -799,6 +806,32 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     pick = dict(fam='picker_style_gated', win=list(hit['win']), env={}); fade = {}
             elif picker_info is None:
                 picker_info = dict(enabled=True, applied=False, map=_mp, why='no_entry')
+
+        # RIDEGATE=1 (off by default, 2026-11-26): live (non-map) ridegate path.
+        # Computes ride/leave + exit+cue at render time from track features and
+        # the engine's default window. Does not write rules.json. Abstains (keeps
+        # the default pick) when the pack is missing or the window is illegal.
+        # When this flag is on it takes precedence over the PICKER_STYLE_GATED map.
+        ridegate_info = None
+        if ridegate_live_on(rules, env):
+            _rep = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica')
+            if _rep not in sys.path:
+                sys.path.insert(0, _rep)
+            try:
+                import ridegate_live as _RG
+                import sections as _SECr
+                _pack = _RG.load_pack(_RG.pack_path(env))
+                _sa_r, _sb_r = _SECr.get(a), _SECr.get(b)
+                hit, dec, injected = _RG.maybe_apply(_pack, _sa_r, _sb_r, pick.get('win'), cs)
+                ridegate_info = dict(enabled=True, path='live', want=(dec.get('win') if dec else None),
+                                     applied=hit is not None, injected_cs=injected,
+                                     abstain=bool(dec.get('is_default')) if dec else None,
+                                     p_leave=(dec.get('p_leave') if dec else None))
+                if hit is not None:
+                    pick = dict(fam='ridegate_live', win=list(hit['win']), env={}); fade = {}
+            except Exception as _ex:
+                ridegate_info = dict(enabled=True, path='live', applied=False,
+                                     error=f'{type(_ex).__name__}: {_ex}')
         pick['env'] = {**env, **dict(pick.get('env') or {}), **fade}
         # FADE=graphcut is a renderer flag: keep it on top of any family FADE so a cohort
         # eval compares the same windows under a different handover, not a different family.
@@ -998,7 +1031,7 @@ def recreate(a_yt, b_yt, a_m4a, b_m4a, hint_a_played_sec=None, rules=None, tag='
                     n_cands=len(fams), phase_cost_errors=list(PHASE_COST_ERRORS),
                     halfbeat=(pick.get('timing') or {}).get('trans', {}).get('halfbeat'), hard=pick.get('hard'),
                     planner=(planner_choice if planner_choice else pick.get('planner')),
-                    ranker=(ranker_info if ranker_on else None), replica=replica_info, dropcand=drop_info, picker=picker_info,
+                    ranker=(ranker_info if ranker_on else None), replica=replica_info, dropcand=drop_info, picker=picker_info, ridegate=ridegate_info,
                     consonance=cons_info, slowpair=sp_info, drumclash=clash_info, hard_fallback=_hc_fb,
                     break_exit=(None if be_info is None else dict(be_info, picked=(pick.get('fam')=='break_exit'), pick_win=list(pick.get('win') or []))))
         return info

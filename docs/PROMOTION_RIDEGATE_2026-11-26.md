@@ -1,6 +1,6 @@
 # Promotion: RIDEGATE + lock + pump previews (2026-11-26)
 
-**Rollback:** `RIDEGATE_OFF=1` (or `git revert` of the promotion commit recorded in the mixer backup) restores the pre-ridegate engine default. `RIDEGATE_EE` and `LINGER_GUARD` stay off.
+**Rollback:** `RIDEGATE_OFF=1`, or `git revert e1531f6977da1165dae79e2b438ff018abd9f2b2` (parent `a37f5978`). `RIDEGATE_EE` and `LINGER_GUARD` stay off.
 
 the listener (12:52 America/New_York): if it is meaningfully better, ship it. The old promotion rule (two nights + fresh + locked holdout CI + live path) is retired for this decision.
 

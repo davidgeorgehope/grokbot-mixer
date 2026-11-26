@@ -468,3 +468,79 @@ def test_maybe_apply_lock_and_pump_flags(monkeypatch):
     hit3, dec3, inj3 = RG.maybe_apply(pack, sa, sb, default_win, cs=[], pid='toy_safe')
     assert hit3 is None and dec3.get('pump_blocked') is True
     monkeypatch.setenv('RIDEGATE_PUMP', '0')
+
+
+def test_linger_shift_flag_default_off(monkeypatch):
+    monkeypatch.delenv('LINGER_SHIFT', raising=False)
+    monkeypatch.delenv('LINGER_SHIFT_OFF', raising=False)
+    assert RG.linger_shift_on({}, {}) is False
+    monkeypatch.setenv('LINGER_SHIFT', '1')
+    assert RG.linger_shift_on({}, {}) is True
+    monkeypatch.delenv('LINGER_SHIFT', raising=False)
+    src = inspect.getsource(recreate.apply_rules)
+    assert "'LINGER_SHIFT'" in src
+    env = recreate.apply_rules({})
+    assert 'LINGER_SHIFT' not in env
+    env = recreate.apply_rules({'LINGER_SHIFT': 1})
+    assert env.get('LINGER_SHIFT') == '1'
+    monkeypatch.setenv('LINGER_SHIFT_OFF', '1')
+    env = recreate.apply_rules({'LINGER_SHIFT': 1})
+    assert env.get('LINGER_SHIFT') == '0'
+    monkeypatch.delenv('LINGER_SHIFT_OFF', raising=False)
+    import paths
+    rules = json.loads(pathlib.Path(paths.RULES).read_bytes())
+    assert 'LINGER_SHIFT' not in rules
+    assert rules.get('RIDEGATE') == 1
+    assert rules.get('RIDEGATE_LOCK') == 1
+    assert rules.get('RIDEGATE_PUMP') == 1
+
+
+def test_linger_shift_earlier_into_drop():
+    """When drum linger exceeds the pro p95, pick the closest earlier legal
+    window that starts the fade in the outgoing drop. No pair pins."""
+    import numpy as np
+    sa = dict(drops=[[48, 96], [144, 192]], breakdown=96, drop2=144, n_bars=200, music_end=200)
+    sb = dict(drops=[[48, 96]], intro_end=48, n_bars=160, music_end=160)
+    hi = np.full(200, -80.0)
+    hi[48:96] = -20.0
+    hi[96:144] = -20.0
+    hi[144:192] = -20.0
+    win = ['n', 112, None, 16, 16]
+    assert RG.drum_linger_bars(sa, sb, win, hi) > RG.drum_linger_threshold()
+    alt, info = RG.maybe_shift_for_linger(sa, sb, win, hiA=hi)
+    assert info['applied'] and info['reason'] == 'shifted', info
+    assert RG.drum_linger_bars(sa, sb, alt, hi) <= RG.drum_linger_threshold()
+    assert RG.linger_bars(sa, sb, alt) <= RG.linger_threshold()
+    assert int(alt[1]) < 112 and int(alt[4]) == 16 and int(alt[3]) == 16
+    # already under the p95: leave the window alone
+    alt2, info2 = RG.maybe_shift_for_linger(sa, sb, alt, hiA=hi)
+    assert not info2['applied'] and info2['reason'] == 'under_p95'
+    # structural linger: earlier incoming cue so the breakdown is not under the outgoing drop
+    sa2 = dict(drops=[[128, 192]], breakdown=None, n_bars=200, music_end=200)
+    sb2 = dict(drops=[[16, 28], [48, 111]], breakdown=40, drop2=48, n_bars=160, music_end=160)
+    win2 = ['n', 192, None, 32, 16]
+    assert RG.linger_bars(sa2, sb2, win2) > RG.linger_threshold()
+    alt3, info3 = RG.maybe_shift_for_linger(sa2, sb2, win2, hiA=np.full(200, -20.0))
+    assert info3['applied'], info3
+    assert RG.linger_bars(sa2, sb2, alt3) <= RG.linger_threshold()
+    assert int(alt3[3]) < 32 and int(alt3[1]) == 192
+    # mid-drop incoming cues are skipped (cue 24 sits in drop [16, 28])
+    assert int(alt3[3]) != 24
+
+
+def test_drum_linger_later_interdrop_gap():
+    """A gap between drop 2 and drop 3 counts; the breakdown field names only the first gap."""
+    import numpy as np
+    sa = dict(drops=[[16, 48], [64, 128], [160, 240]], breakdown=48, drop2=64,
+              outro_start=224, n_bars=243)
+    sb = dict(drops=[[48, 112]], intro_end=48, n_bars=211)
+    hi = np.full(243, -80.0)
+    hi[16:48] = -20.0
+    hi[64:128] = -20.0
+    hi[128:160] = -20.0
+    hi[160:224] = -20.0
+    win = ['n', 144, None, 32, 16]  # A 128-144, B 32-48 intro
+    assert RG.in_outgoing_drum_gap(sa, 130)
+    assert not RG.in_breakdown(sa, 130)
+    n = RG.drum_linger_bars(sa, sb, win, hi, x_db=8)
+    assert n >= 8, n

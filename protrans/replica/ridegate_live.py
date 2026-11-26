@@ -469,9 +469,29 @@ def drum_linger_bars(sa, sb, win, hiA, x_db=None):
         if oa < 0 or oa >= len(hiA):
             continue
         faded = float(hiA[oa]) + _fade_gain_db(j, X)
-        if in_breakdown(sa, oa) and (not in_drop(sb, ibj)) and faded >= base - float(x_db):
+        if in_outgoing_drum_gap(sa, oa) and (not in_drop(sb, ibj)) and faded >= base - float(x_db):
             n += 1
     return n
+
+
+def in_outgoing_drum_gap(sec, k):
+    """Where outgoing drums can linger after a drop: a tagged breakdown, or any
+    gap between consecutive drops (the `breakdown` field names only the first).
+    Intro (before the first drop) and outro are not counted."""
+    if in_breakdown(sec, k):
+        return True
+    if in_drop(sec, k):
+        return False
+    drops = sorted((int(a), int(b)) for a, b in (sec.get('drops') or []))
+    if len(drops) < 2:
+        return False
+    outro = sec.get('outro_start')
+    if outro is not None and k >= outro:
+        return False
+    for i in range(len(drops) - 1):
+        if drops[i][1] <= k < drops[i + 1][0]:
+            return True
+    return False
 
 
 def drum_linger_bars_pro(sa, sb, out0, in0, overlap, hiA, x_db=None):
@@ -492,7 +512,7 @@ def drum_linger_bars_pro(sa, sb, out0, in0, overlap, hiA, x_db=None):
         if oa < 0 or oa >= len(hiA):
             continue
         faded = float(hiA[oa]) + _fade_gain_db(j, X)
-        if in_breakdown(sa, oa) and (not in_drop(sb, ib)) and faded >= base - float(x_db):
+        if in_outgoing_drum_gap(sa, oa) and (not in_drop(sb, ib)) and faded >= base - float(x_db):
             n += 1
     return n
 
@@ -507,6 +527,122 @@ def drum_linger_threshold():
     cal = load_linger_cal()
     v = cal.get('drum_threshold', cal.get('drum_p95'))
     return float(v) if v is not None else None
+
+
+SHIFT_FLAG = 'LINGER_SHIFT'
+
+
+def linger_shift_on(rules=None, env=None):
+    """Start the fade earlier, while the outgoing is still in its drop, when drum
+    or structural linger exceeds the pro p95. Off by default. Enable with
+    LINGER_SHIFT=1. Rollback of a rules/env on-switch: LINGER_SHIFT_OFF=1.
+    Do not write rules.json."""
+    env = env or {}
+    rules = rules or {}
+    def _on(v):
+        return str(v).strip().lower() not in ('', '0', 'false', 'none', 'no')
+    if _on(env.get('LINGER_SHIFT_OFF') or os.environ.get('LINGER_SHIFT_OFF')):
+        return False
+    return _on((env or {}).get(SHIFT_FLAG) or (rules or {}).get(SHIFT_FLAG) or os.environ.get(SHIFT_FLAG))
+
+
+def covering_or_preceding_drop(sa, e, X):
+    """Drop that overlaps the blend, else the drop that ends at or just before it."""
+    start, end = int(e) - int(X), int(e)
+    drops = [(int(a), int(b)) for a, b in (sa.get('drops') or [])]
+    for a, b in drops:
+        if a < end and b > start:
+            return (a, b)
+    earlier = [(a, b) for a, b in drops if b <= start + 0.5]
+    return earlier[-1] if earlier else None
+
+
+def _starts_mid_drop(sec, ib):
+    """True when a cue sits strictly inside a drop, not at the drop start."""
+    for a, b in (sec.get('drops') or []):
+        if int(a) < int(ib) < int(b):
+            return True
+    return False
+
+
+def maybe_shift_for_linger(sa, sb, win, a_yt=None, b_yt=None, hiA=None):
+    """If linger exceeds the calibrated pro p95, search earlier legal natural
+    windows on the picker's 8-bar grid so the fade starts in the outgoing drop
+    and/or the incoming cue sits before the breakdown.
+
+    Thresholds are the pro p95 only (structural 5.4, drum 8.80). The earliest
+    exit is bounded by the covering or preceding drop (fade stays in that drop).
+    Re-checks lock and pump previews when those flags are on and both ids exist.
+    """
+    info = dict(applied=False, reason='ok')
+    if not win or win[0] != 'n' or len(win) < 5:
+        info['reason'] = 'bad_win'
+        return win, info
+    e, ib, X = int(win[1]), int(win[3]), int(win[4])
+    dthr = drum_linger_threshold()
+    sthr = linger_threshold()
+    if hiA is None:
+        hiA = load_drum_hi(a_yt)
+    dl0 = drum_linger_bars(sa, sb, win, hiA)
+    sl0 = linger_bars(sa, sb, win)
+    info.update(drum_linger=dl0, linger=sl0, from_win=list(win))
+    over = (dthr is not None and dl0 > dthr) or (sthr is not None and sl0 > sthr)
+    if not over:
+        info['reason'] = 'under_p95'
+        return win, info
+    drop = covering_or_preceding_drop(sa, e, X)
+    e_min = 16 + X
+    if drop:
+        e_min = max(e_min, int(drop[0]) + X)
+    cands = []
+    for e2 in range(e, e_min - 1, -8):
+        for ib2 in range(ib, -1, -8):
+            if e2 == e and ib2 == ib:
+                continue
+            want = ['n', int(e2), None, int(ib2), int(X)]
+            if not _legal_natural(sa, sb, want):
+                continue
+            # Do not start the incoming cue mid-drop; that cuts a drop phrase and
+            # can pump. Drop-start or non-drop cues stay eligible.
+            if ib2 != ib and _starts_mid_drop(sb, ib2):
+                continue
+            dl = drum_linger_bars(sa, sb, want, hiA)
+            sl = linger_bars(sa, sb, want)
+            if (dthr is not None and dl > dthr) or (sthr is not None and sl > sthr):
+                continue
+            cands.append((abs(e - e2) + abs(ib - ib2), abs(e - e2), abs(ib - ib2),
+                          int(e2), int(ib2), int(dl), int(sl), want))
+    if not cands:
+        info['reason'] = 'no_legal_under_p95'
+        return win, info
+    cands.sort()
+    chosen = None
+    blocked = 0
+    import ride_preview as RP
+    for c in cands:
+        want = c[-1]
+        if a_yt and b_yt and RP.lock_preview_on():
+            lk = RP.preview_lock(a_yt, b_yt, want)
+            if not lk.get('ok', True):
+                blocked += 1
+                continue
+        if a_yt and b_yt and RP.pump_preview_on():
+            pp = RP.pump_preview(sa, sb, a_yt, b_yt, want)
+            if not pp.get('ok', True):
+                blocked += 1
+                continue
+        chosen = c
+        break
+    if chosen is None:
+        info['reason'] = 'previews_blocked'
+        info['n_blocked'] = blocked
+        return win, info
+    want = chosen[-1]
+    info.update(applied=True, reason='shifted', win=list(want),
+                drum_linger=chosen[5], linger=chosen[6], shift_bars=chosen[0],
+                n_blocked=blocked)
+    return want, info
+
 
 
 _DRUM_HI = {}
@@ -551,6 +687,9 @@ def load_drum_hi(yt):
         return None
     try:
         import subprocess
+        _src2 = os.path.join(os.path.dirname(os.path.dirname(H)), 'src2')
+        if _src2 not in sys.path:
+            sys.path.insert(0, _src2)
         import blend_diag as BD
         from engine import BS
         raw = subprocess.check_output(
@@ -613,24 +752,37 @@ def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live')
     dec = predict_rows(pack, [r])[0]
     if early_exit_flag_on():
         dec = maybe_take_earlier_exit(pack, r, dec, sa, sb, a_yt, b_yt)
-    if dec.get('is_default') or not dec.get('win'):
-        return None, dec, False
-    want = list(dec['win'])
     sa_u, sb_u = r.get('sa') or sa, r.get('sb') or sb
+    ride_ok = not (dec.get('is_default') or not dec.get('win'))
+    want = list(dec['win']) if ride_ok else list(default_win or [])
     import ride_preview as RP
-    if RP.lock_preview_on():
-        lk = RP.preview_lock(a_yt, b_yt, want)
-        dec['lock_preview'] = {k: lk[k] for k in lk if k != 'offs'}
-        if not lk.get('ok', True):
-            dec['lock_blocked'] = True
-            return None, dec, False
-    if RP.pump_preview_on():
-        pp = RP.pump_preview(sa_u, sb_u, a_yt, b_yt, want)
-        dec['pump_preview'] = pp
-        if not pp.get('ok', True):
-            dec['pump_blocked'] = True
-            return None, dec, False
-    if linger_guard_on():
+    if ride_ok:
+        if RP.lock_preview_on():
+            lk = RP.preview_lock(a_yt, b_yt, want)
+            dec['lock_preview'] = {k: lk[k] for k in lk if k != 'offs'}
+            if not lk.get('ok', True):
+                dec['lock_blocked'] = True
+                ride_ok = False
+                want = list(default_win or [])
+        if ride_ok and RP.pump_preview_on():
+            pp = RP.pump_preview(sa_u, sb_u, a_yt, b_yt, want)
+            dec['pump_preview'] = pp
+            if not pp.get('ok', True):
+                dec['pump_blocked'] = True
+                ride_ok = False
+                want = list(default_win or [])
+    if linger_shift_on() and want:
+        hiA = r.get('hiA') if r.get('hiA') is not None else load_drum_hi(a_yt)
+        alt, sinfo = maybe_shift_for_linger(sa_u, sb_u, want, a_yt=a_yt, b_yt=b_yt, hiA=hiA)
+        dec['linger_shift'] = sinfo
+        if sinfo.get('applied') and alt:
+            want = list(alt)
+            dec['win'] = want
+            dec['exit'] = want[1]
+            dec['cue'] = want[3]
+            dec['linger_shifted'] = True
+            ride_ok = True
+    if linger_guard_on() and want:
         lb = linger_bars(sa_u, sb_u, want)
         dec['linger_bars'] = lb
         blocked = lb > linger_threshold()
@@ -646,10 +798,15 @@ def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live')
         if blocked:
             dec['linger_blocked'] = True
             return None, dec, False
+    if not ride_ok:
+        return None, dec, False
     hit = next((c for c in cs if list(c.get('win') or []) == want), None)
     injected = False
     if hit is None and _legal_natural(sa, sb, want):
         hit = dict(fam='ridegate_live', win=list(want), env={}, cost=0.0, picker_injected=True)
+        if dec.get('linger_shifted'):
+            hit['fam'] = 'ridegate_live'
+            hit['linger_shifted'] = True
         cs.append(hit)
         injected = True
     return hit, dec, injected

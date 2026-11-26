@@ -216,30 +216,35 @@
    "do_not": "write rules.json, change defaults, set adopt_to_defaults true, or treat as a promotion arm"
   },
   {
-   "name": "thin_dropcue",
+   "name": "ee_r7",
    "promotion": false,
    "shadow": true,
-   "delta": {
-    "THIN_DROPCUE": 1
-   },
-   "label": "THIN_DROPCUE: on a thin outro-over-intro window, move the STRUCT bonus to the same-exit cue whose incoming drop lands inside the blend. 2026-11-23 RCA js13: default cue 48 started Meteorites in its half-time piano (listener: random piano, 2/5); this flag cues at drop 1 (bar 64), pair score 29.77 fresh / 19.81 ckpt -> 32.40. Listen for a possible half-beat leftover (offset median 164.7 ms). Do not write rules.json.",
    "flags_off_by_default": true,
-   "already_scored_2026_11_23": {
-    "pick": "joe_syntax_hospital__13",
-    "window": [
-     "n",
-     256,
-     null,
-     64,
-     16
-    ],
-    "pick_score": 32.4,
-    "default_fresh": 29.77,
-    "default_ckpt": 19.81,
-    "lows_dip_db": 5.0,
-    "offset_ms_median": 164.7
+   "wired": true,
+   "delta": {
+    "EARLY_EXIT": 1,
+    "PICKER_STYLE_GATED": 1,
+    "PICKER_STYLE_GATED_MAP": "replica/picker_early_exit_r7_windows.json",
+    "PICKER_INJECT_CS": 1
    },
-   "do_not": "write rules.json, change defaults, or treat this as a promotion arm"
+   "map": "replica/picker_early_exit_r7_windows.json",
+   "label": "Shadow arm for n1126 (replaces weakest non-essential shadow arm thin_dropcue in slot 5 of 6; ee_r6 stays in slot 4). Structural early-exit candidate generator: (1) exit completes before outgoing track's next drop/section restart (e <= d_next), (2) deeper breakdown entry + shorter pre-drop overlap (kd=4..16, X=20..44) with 8-bar grid preference. First human blind win over safe outro on pola02. Shadow only; promotion requires 2 consecutive night wins + fresh-mix pass; do not write rules.json or change defaults.",
+   "already_scored_2026_11_25_pinned33": {
+    "v1_all": 33.16,
+    "v1_train": 32.98,
+    "v1_test": 33.49,
+    "v2_all": 33.35,
+    "v2_train": 34.24,
+    "v2_test": 31.78,
+    "floor_v1_all": 33.01,
+    "floor_v2_all": 33.89,
+    "hard_fails": "6 -> 5 (beat_clash 2 -> 1, bass_hole 1 -> 1, pumping 3 -> 3, incoming_vanish 0 -> 0)",
+    "n_applied": 4,
+    "n_picker_ee": 5,
+    "human_ab": "the listener blind-picked r7_ee over base on pola02 (log.jsonl 2026-11-25 8:51 PM ET)",
+    "eval": "protrans/replica/picker_1125_ee_r7_pinned.json"
+   },
+   "do_not": "write rules.json, change defaults, set adopt_to_defaults true, or treat as a promotion arm"
   }
  ],
  "rca_note_2026_11_23": "Added shadow arm thin_dropcue after the 11-23 js13 RCA (piano at Meteorites bar 48). The epg_* and dclash_* promotion arms are unchanged. Nightly max is 6, so this fills the last slot.",
@@ -347,5 +352,6 @@
  },
  "picker_style_gated_replaced": "2026-11-25 04:05 AM ET: picker_style_gated in slot 4 replaced for tomorrow night by shadow arm djbal_cue_sec_mix (map replica/picker_djbal_sec_mix_windows.json with djbal_cue_asym_mix gate + PICKER_INJECT_CS=1). Written after n1125_run.py already loaded nightly_candidates.json at 03:29 AM ET so n1125 is undisturbed. Shadow only; adopt_to_defaults false; no rules.json changes.",
  "djbal_cue_sec_mix_replaced": "2026-11-25 04:37 AM ET: djbal_cue_sec_mix in slot 4 swapped for djbal_cue_struct_compat (map replica/picker_djbal_struct_compat_windows.json with ranked_by_yt + PICKER_INJECT_CS=1) after beating base on both pinned train (v1 32.98 vs 32.40, v2 34.95 vs 34.09) and held-out test (v1 34.14 vs 34.07, v2 34.08 vs 33.53). Shadow only; adopt_to_defaults false; rules.json untouched.",
- "early_exit_shadow_added": "2026-11-25 6:30 PM ET: struct_mid_tight (promotion=false, shadow=false) in slot 5 replaced by frozen early_exit (ee_r6) shadow arm for n1126. Six-arm cap preserved; djbal_cue_struct_compat and thin_dropcue stay; rules.json untouched."
+ "early_exit_shadow_added": "2026-11-25 6:30 PM ET: struct_mid_tight (promotion=false, shadow=false) in slot 5 replaced by frozen early_exit (ee_r6) shadow arm for n1126. Six-arm cap preserved; djbal_cue_struct_compat and thin_dropcue stay; rules.json untouched.",
+ "ee_r7_shadow_added": "2026-11-25 8:51 PM ET: thin_dropcue (single-pair 11-23 js13 shadow arm) in slot 5 replaced by ee_r7 (picker_early_exit_r7_windows.json) as shadow arm for n1126. Six-arm cap (MAX_CANDS=6) preserved; ee_r6 stays in slot 4; adopt_to_defaults=false; promotion requires 2 consecutive night wins + fresh-mix pass; rules.json untouched."
 }

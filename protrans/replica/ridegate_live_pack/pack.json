@@ -1,0 +1,22 @@
+{
+ "written": "2026-11-26 n1126 live ridegate pack",
+ "arm": "ridegate",
+ "flag": "RIDEGATE",
+ "n_dev": 1001,
+ "exit": {
+  "cfg": 1,
+  "tau": -1000000000.0,
+  "model": "exit.lgb.gz"
+ },
+ "cue": {
+  "cfg": 0,
+  "tau": 0.25,
+  "model": "cue.lgb.gz"
+ },
+ "ride": {
+  "theta": 0.6,
+  "model": "ride.lgb.gz",
+  "seed": 20261125
+ },
+ "do_not": "write rules.json or treat this pack as a promotion; RIDEGATE stays off by default"
+}

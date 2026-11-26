@@ -77,16 +77,12 @@ if __name__ == '__main__':
     # swaps bass at A bar 158.6 where drop 1 ends into a no-snare breakdown, A gone by 167.6; B cued intro bar 17.3.
     # Fourth day the pro leaves A around the end of drop 1. r1: every general family/rule that can reach there,
     # plus longer-blend and stronger-hint variants.
+    # r1 result: length_pref_24 lifted the pick 31.0 -> 47.53 (same outro window, 32-bar blend) but overfit
+    # (held-out 33.92 -> 30.91); replica_x16 41.97, break_exit 33.61 (its window starts in A's breakdown at bar 160,
+    # ~16 bars after the pro). r2: the placement families with a longer blend, so the window can start inside drop 1.
     CANDS = [
-        ('wp', {'window_planner': 1}),
-        ('break_exit', {'BREAK_EXIT': 1}),
-        ('break_exit_h06', {'BREAK_EXIT': 1, 'hint_weight': 0.6}),
-        ('dropcand_exit', {'DROPCAND': 'exit'}),
-        ('replica_x16', {'REPLICA': 1, 'REPLICA_X': 16}),
-        ('epg_drop', {'EXITPOS': 1, 'EXITPOS_DROP': 1}),
-        ('struct_mid', {'STRUCT_MID': 1}),
-        ('hintfam_08', {'hint_family': 1, 'hint_weight': 0.8}),
-        ('length_pref_24', {'length_pref': 24}),
-        ('mid_hold', {'MID_HOLD': 1}),
+        ('break_exit_lp24', {'BREAK_EXIT': 1, 'length_pref': 24}),
+        ('replica_x16_lp24', {'REPLICA': 1, 'REPLICA_X': 16, 'length_pref': 24}),
+        ('dropcand_lp24', {'DROPCAND': 'exit', 'length_pref': 24}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

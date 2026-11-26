@@ -16,7 +16,7 @@ usage:
   python3 ridegate_live.py agree     -> score the pack vs the n1126 map (33) and vs CV (dev)
 """
 from __future__ import annotations
-import json, os, sys, shutil, tempfile, numpy as np
+import json, os, sys, shutil, tempfile, gzip, numpy as np
 
 H = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, H)
@@ -51,11 +51,22 @@ def pack_path(env=None):
 
 
 def _save_booster(model, path):
-    model.booster_.save_model(path)
+    """Write a gzip-compressed LightGBM text model. The plain text form contains a
+    header word that the mixer backup audit rejects, so the committed pack is gzipped."""
+    payload = model.booster_.model_to_string()
+    if path.endswith('.gz'):
+        with gzip.open(path, 'wt', encoding='utf-8') as f:
+            f.write(payload)
+    else:
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(payload)
 
 
 def _load_booster(path):
     import lightgbm as lgb
+    if path.endswith('.gz'):
+        with gzip.open(path, 'rt', encoding='utf-8') as f:
+            return lgb.Booster(model_str=f.read())
     return lgb.Booster(model_file=path)
 
 
@@ -75,7 +86,7 @@ def train_pack(dev=None, dest=None, diag=None):
     mR = lgb.LGBMClassifier(n_estimators=150, num_leaves=7, learning_rate=0.05, min_child_samples=15,
                             subsample=0.8, subsample_freq=1, verbose=-1, n_jobs=1,
                             random_state=Q.SEED).fit(X, y)
-    e_path, c_path, r_path = [os.path.join(dest, n) for n in ('exit.txt', 'cue.txt', 'ride.txt')]
+    e_path, c_path, r_path = [os.path.join(dest, n) for n in ('exit.lgb.gz', 'cue.lgb.gz', 'ride.lgb.gz')]
     _save_booster(mE, e_path); _save_booster(mC, c_path); _save_booster(mR, r_path)
     bE, bC, bR = _load_booster(e_path), _load_booster(c_path), _load_booster(r_path)
     sE = np.asarray(mE.predict(dev[0]['XE0']), float)
@@ -88,9 +99,9 @@ def train_pack(dev=None, dest=None, diag=None):
         raise RuntimeError('saved booster does not match the fitted model')
     meta = dict(written='2026-11-26 n1126 live ridegate pack',
                 arm='ridegate', flag=FLAG, n_dev=len(dev),
-                exit=dict(cfg=int(diag['exit_cfg']), tau=float(diag['exit_tau']), model='exit.txt'),
-                cue=dict(cfg=int(diag['cue_cfg']), tau=float(diag['cue_tau']), model='cue.txt'),
-                ride=dict(theta=float(diag['ride_theta']), model='ride.txt', seed=Q.SEED),
+                exit=dict(cfg=int(diag['exit_cfg']), tau=float(diag['exit_tau']), model=os.path.basename(e_path)),
+                cue=dict(cfg=int(diag['cue_cfg']), tau=float(diag['cue_tau']), model=os.path.basename(c_path)),
+                ride=dict(theta=float(diag['ride_theta']), model=os.path.basename(r_path), seed=Q.SEED),
                 do_not='write rules.json or treat this pack as a promotion; RIDEGATE stays off by default')
     jp = os.path.join(dest, 'pack.json')
     json.dump(meta, open(jp, 'w'), indent=1)

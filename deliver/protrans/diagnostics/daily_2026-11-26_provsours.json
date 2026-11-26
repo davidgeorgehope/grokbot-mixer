@@ -1,0 +1,38 @@
+{
+ "pick": "hybrid_minds_ukf__40",
+ "pair": "LSB - I Need Love -> Hybrid Minds - Inside (ft. Emily Jones)",
+ "rows": [
+  {
+   "who": "pro",
+   "out_start": 144.6,
+   "out_end": 167.6,
+   "in_start": 17.3,
+   "in_end": 40.3,
+   "out_swap": 158.6,
+   "out_start_section": "drop 1",
+   "in_start_section": "intro",
+   "touches_out_slowdown": true,
+   "in_next_drop_vs_blend_end": 7.7,
+   "out_last_drop_played": "cut 127 bars early",
+   "out_time": "3:19",
+   "mix_time": "69:09",
+   "why": "what the DJ did"
+  },
+  {
+   "who": "ours",
+   "out_start": 256,
+   "out_end": 272,
+   "in_start": 32,
+   "in_end": 48,
+   "out_swap": null,
+   "out_start_section": "drop 2",
+   "in_start_section": "intro",
+   "touches_out_slowdown": true,
+   "in_next_drop_vs_blend_end": 0,
+   "out_last_drop_played": "cut 16 bars early",
+   "out_time": "5:53",
+   "mix_time": null,
+   "why": "outro-over-intro bonus window (A plays its outro, B's first drop lands as A ends)"
+  }
+ ]
+}

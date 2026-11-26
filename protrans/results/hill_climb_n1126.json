@@ -1,0 +1,569 @@
+{
+  "tag": "n1126",
+  "baseline": {
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 33.3,
+    "test_mean": 33.92,
+    "by_dj": {
+      "Wilkinson": {
+        "n": 1,
+        "mean": 25.45,
+        "split": "test"
+      },
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 33.07,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 33.69,
+        "split": "train"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 34.81,
+        "split": "test"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 31.22,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 37.97,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "baseline_v2": {
+    "version": "official_v2-place8c",
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 34.84,
+    "test_mean": 32.15,
+    "all_mean": 33.86,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 35.76,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 33.35,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 29.77,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 34.68,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 34.37,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 20.02,
+        "split": "test"
+      }
+    }
+  },
+  "baseline_hardcheck": {
+    "n": 33,
+    "hard_fail": 5,
+    "beat_clash": 1,
+    "bass_hole": 1,
+    "pumping": 3,
+    "hc_errors": 0,
+    "fails": [
+      {
+        "id": "hybrid_minds_ukf__00",
+        "split": "train",
+        "fam": "nat_short",
+        "win": [
+          "n",
+          224,
+          null,
+          8,
+          16
+        ],
+        "v1": 29.45,
+        "beat_clash": false,
+        "residual_lag_ms": null,
+        "halfbeat_fail": false,
+        "bass_hole": false,
+        "lows_dip_db": 36.1,
+        "pumping": true,
+        "pump_db": 11.3
+      },
+      {
+        "id": "hybrid_minds_ukf__11",
+        "split": "train",
+        "fam": "nat_short",
+        "win": [
+          "n",
+          208,
+          null,
+          64,
+          16
+        ],
+        "v1": 34.15,
+        "beat_clash": false,
+        "residual_lag_ms": null,
+        "halfbeat_fail": false,
+        "bass_hole": false,
+        "lows_dip_db": 27.3,
+        "pumping": true,
+        "pump_db": 7.3
+      },
+      {
+        "id": "hybrid_minds_ukf__28",
+        "split": "train",
+        "fam": "nat_short",
+        "win": [
+          "n",
+          240,
+          null,
+          16,
+          16
+        ],
+        "v1": 40.68,
+        "beat_clash": true,
+        "residual_lag_ms": 163.99092970521542,
+        "halfbeat_fail": false,
+        "bass_hole": false,
+        "lows_dip_db": 27.9,
+        "pumping": false,
+        "pump_db": 1.3
+      },
+      {
+        "id": "hybrid_minds_ukf__40",
+        "split": "train",
+        "fam": "nat_short",
+        "win": [
+          "n",
+          272,
+          null,
+          32,
+          16
+        ],
+        "v1": 31.0,
+        "beat_clash": false,
+        "residual_lag_ms": null,
+        "halfbeat_fail": false,
+        "bass_hole": false,
+        "lows_dip_db": 33.1,
+        "pumping": true,
+        "pump_db": 5.0
+      },
+      {
+        "id": "pola_bryson_puzzlewood__00",
+        "split": "test",
+        "fam": "nat_short",
+        "win": [
+          "n",
+          176,
+          null,
+          32,
+          16
+        ],
+        "v1": 59.25,
+        "beat_clash": false,
+        "residual_lag_ms": null,
+        "halfbeat_fail": false,
+        "bass_hole": true,
+        "lows_dip_db": 45.4,
+        "pumping": false,
+        "pump_db": 1.7
+      }
+    ]
+  },
+  "base_rules": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp. BLEND_LOCK (2026-11-17 RCA) is on by default: incoming-only lock when loud overlap has a confident 15-150 ms lag.",
+    "FADE": "long",
+    "BASS_SWAP_BARS": 3,
+    "SWAP_POS": 0.21,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 8,
+    "STRUCT": 1,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 16,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0,
+    "LONG_SOLO": 16,
+    "LONG_SWAP": "exit",
+    "LONG_SOLO_STRUCT": 1,
+    "linger_pen_w": 0.15,
+    "LONG_XP": 0.45,
+    "TAIL_EXIT": 6,
+    "BLEND_LOCK": 1
+  },
+  "tried": [
+    {
+      "name": "n1126_ridegate",
+      "delta": {
+        "PICKER_STYLE_GATED": 1,
+        "arm": "ridegate"
+      },
+      "train_mean": 36.58,
+      "test_mean": 34.71,
+      "by_dj": {
+        "Wilkinson": {
+          "n": 1,
+          "mean": 24.43,
+          "split": "test"
+        },
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 34.37,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 40.18,
+          "split": "train"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 29.69,
+          "split": "test"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 50.0,
+          "split": "test"
+        }
+      },
+      "kept": false,
+      "promotion": false,
+      "night_win": false,
+      "floor_test": 33.92,
+      "why": "Qualifying-night conditions all met (dev exit+cue vs default -2.44 [-4.08, -0.82], vs majority -2.01 [-3.55, -0.50], no metric with CI entirely > 0, fresh ukf_drum_bass_wVp_VlkWqxI -16.44 <= 0, hard-fail pairs 2 vs default 5). Promotion withheld: locked holdout was not opened (required 2nd+ opening, CI entirely < 0), and tonight's renders still used a map path (PICKER_STYLE_GATED_MAP), not a live non-map picker path.",
+      "scorer_version": "gain-events-v3-beatid",
+      "nightly": "n1126",
+      "qualifying_night": true,
+      "picker": {
+        "dev_vs_default": "-2.44 [-4.08, -0.82]",
+        "dev_vs_majority": "-2.01 [-3.55, -0.50]",
+        "exit_vs_default": "-1.47 [-4.48, +1.70]",
+        "cue_vs_default": "-3.41 [-5.07, -1.80]",
+        "blendlen_vs_default": "0",
+        "fresh_ukf_drum_bass_wVp_VlkWqxI": "-16.44 [-29.21, -4.07]",
+        "hard_fail_pairs": "2 vs default 5"
+      },
+      "v1_ci": {
+        "train": {
+          "n": 21,
+          "n_mix": 2,
+          "mean_delta": 3.278,
+          "ci": [
+            1.297,
+            6.498
+          ],
+          "includes_zero": false
+        },
+        "test": {
+          "n": 12,
+          "n_mix": 4,
+          "mean_delta": 0.792,
+          "ci": [
+            -4.432,
+            9.023
+          ],
+          "includes_zero": true
+        }
+      },
+      "hardcheck": {
+        "n": 33,
+        "hard_fail": 2,
+        "beat_clash": 0,
+        "bass_hole": 0,
+        "pumping": 2,
+        "hc_errors": 0,
+        "fails": [
+          {
+            "id": "hybrid_minds_ukf__23",
+            "split": "train",
+            "fam": "picker_style_gated",
+            "win": [
+              "n",
+              232,
+              null,
+              48,
+              16
+            ],
+            "v1": 34.22,
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 7.3,
+            "pumping": true,
+            "pump_db": 5.1
+          },
+          {
+            "id": "hybrid_minds_ukf__40",
+            "split": "train",
+            "fam": "picker_style_gated",
+            "win": [
+              "n",
+              176,
+              null,
+              32,
+              16
+            ],
+            "v1": 41.97,
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 27.1,
+            "pumping": true,
+            "pump_db": 5.0
+          }
+        ]
+      },
+      "rendered_pairs": 25,
+      "base_fill": 8
+    },
+    {
+      "name": "n1126_ridegate_tail",
+      "delta": {
+        "PICKER_STYLE_GATED": 1,
+        "arm": "ridegate_tail"
+      },
+      "train_mean": 36.04,
+      "test_mean": 33.94,
+      "by_dj": {
+        "Wilkinson": {
+          "n": 1,
+          "mean": 25.45,
+          "split": "test"
+        },
+        "Hybrid Minds": {
+          "n": 13,
+          "mean": 34.77,
+          "split": "train"
+        },
+        "Joe Syntax": {
+          "n": 8,
+          "mean": 38.1,
+          "split": "train"
+        },
+        "Netsky": {
+          "n": 5,
+          "mean": 29.69,
+          "split": "test"
+        },
+        "Maduk": {
+          "n": 3,
+          "mean": 31.22,
+          "split": "test"
+        },
+        "Pola & Bryson": {
+          "n": 3,
+          "mean": 46.56,
+          "split": "test"
+        }
+      },
+      "kept": false,
+      "promotion": false,
+      "night_win": false,
+      "floor_test": 33.92,
+      "why": "Does not qualify: vs majority -1.53 [-3.17, +0.08] (CI includes 0). Also 4 tail-window renders failed (plan window no longer allowed). Hard-fail pairs 5 vs default 5 after filling those 4 from default. Post-hoc conf arm was not an arm tonight.",
+      "scorer_version": "gain-events-v3-beatid",
+      "nightly": "n1126",
+      "qualifying_night": false,
+      "picker": {
+        "dev_vs_default": "-1.97 [-3.42, -0.46]",
+        "dev_vs_majority": "-1.53 [-3.17, +0.08]",
+        "fresh_ukf_drum_bass_wVp_VlkWqxI": "-15.02 [-28.49, -2.07]",
+        "hard_fail_pairs": "5 vs default 5",
+        "render_fails": [
+          "wilkinson_boomtown2026__33",
+          "hybrid_minds_ukf__19",
+          "joe_syntax_hospital__14",
+          "maduk_liquicity_lunar2025__03"
+        ]
+      },
+      "v1_ci": {
+        "train": {
+          "n": 21,
+          "n_mix": 2,
+          "mean_delta": 2.734,
+          "ci": [
+            1.702,
+            4.411
+          ],
+          "includes_zero": false
+        },
+        "test": {
+          "n": 12,
+          "n_mix": 4,
+          "mean_delta": 0.017,
+          "ci": [
+            -4.262,
+            6.443
+          ],
+          "includes_zero": true
+        }
+      },
+      "hardcheck": {
+        "n": 33,
+        "hard_fail": 5,
+        "beat_clash": 0,
+        "bass_hole": 1,
+        "pumping": 4,
+        "hc_errors": 0,
+        "fails": [
+          {
+            "id": "hybrid_minds_ukf__10",
+            "split": "train",
+            "fam": "picker_style_gated",
+            "win": [
+              "n",
+              256,
+              null,
+              40,
+              16
+            ],
+            "v1": 40.06,
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 35.6,
+            "pumping": true,
+            "pump_db": 5.2
+          },
+          {
+            "id": "hybrid_minds_ukf__11",
+            "split": "train",
+            "fam": "nat_short",
+            "win": [
+              "n",
+              208,
+              null,
+              64,
+              16
+            ],
+            "v1": 34.15,
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 27.3,
+            "pumping": true,
+            "pump_db": 7.3
+          },
+          {
+            "id": "hybrid_minds_ukf__23",
+            "split": "train",
+            "fam": "picker_style_gated",
+            "win": [
+              "n",
+              224,
+              null,
+              48,
+              16
+            ],
+            "v1": 33.82,
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 7.3,
+            "pumping": true,
+            "pump_db": 5.1
+          },
+          {
+            "id": "hybrid_minds_ukf__40",
+            "split": "train",
+            "fam": "picker_style_gated",
+            "win": [
+              "n",
+              168,
+              null,
+              32,
+              16
+            ],
+            "v1": 32.25,
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 34.1,
+            "pumping": true,
+            "pump_db": 5.1
+          },
+          {
+            "id": "pola_bryson_puzzlewood__00",
+            "split": "test",
+            "fam": "picker_style_gated",
+            "win": [
+              "n",
+              192,
+              null,
+              32,
+              16
+            ],
+            "v1": 67.84,
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": true,
+            "lows_dip_db": 47.0,
+            "pumping": false,
+            "pump_db": 1.4
+          }
+        ]
+      },
+      "rendered_pairs": 22,
+      "base_fill": 11,
+      "render_errors": [
+        "wilkinson_boomtown2026__33",
+        "hybrid_minds_ukf__19",
+        "joe_syntax_hospital__14",
+        "maduk_liquicity_lunar2025__03"
+      ]
+    }
+  ],
+  "kept": null,
+  "night_wins": [],
+  "picker_qualifying": [
+    {
+      "name": "ridegate",
+      "consecutive_nights": [
+        "n1125",
+        "n1126"
+      ],
+      "why": "Qualifying-night conditions all met (dev exit+cue vs default -2.44 [-4.08, -0.82], vs majority -2.01 [-3.55, -0.50], no metric with CI entirely > 0, fresh ukf_drum_bass_wVp_VlkWqxI -16.44 <= 0, hard-fail pairs 2 vs default 5). Promotion withheld: locked holdout was not opened (required 2nd+ opening, CI entirely < 0), and tonight's renders still used a map path (PICKER_STYLE_GATED_MAP), not a live non-map picker path."
+    }
+  ],
+  "promoted": false,
+  "rules_json_changed": false,
+  "ts": "2026-11-26 09:08 EST"
+}

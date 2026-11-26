@@ -1,99 +1,112 @@
 {
- "written": "2026-11-18 ~22:13 ET, before the locked-holdout check",
- "candidates_frozen_from_dev": [
-  "model_conformal (style_setting)",
-  "model_plain (style_setting)",
-  "gate_apriori (REPLICA=gated)"
- ],
- "promote_only_if_all": [
-  "locked holdout (Liquicity + Hospital Records corpus mixes): grouped-bootstrap 95% CI of mean exit+cue bar error delta vs default lies entirely below 0",
-  "fresh-mix test: same delta not worse (point estimate <= 0)",
-  "hard checks: no more hard-fail pairs than default on dev + holdout + fresh (pairs where default already fails are not counted against it)",
-  "style_setting variants additionally need a real per-mix style setting from the listener; until then they stay flags"
- ],
- "note": "Similarity score is diagnostic only. the listener's A/B is an optional low-weight taste signal, not a gate. rules.json is never edited by this workstream.",
- "locked_holdout_opens": [
-  {
-   "when": "2026-11-19 2:26 AM ET",
-   "by": "nightly wrap-up (picker1119b-holdout job, picker_1119b.py holdout)",
-   "pairs": 14,
-   "mixes": [
-    "hospital_records_Lm2VlTogWvY",
-    "hospital_records_zYANUM_lubI",
-    "liquicity_EuPkz0GFI4g",
-    "liquicity_nYOcD3qTdg0"
-   ],
-   "candidate": "picker_1119b model_style_gated (frozen in promotion_criteria_1119_v2.json)",
-   "result": "raw exit+cue delta -1.62 [-16.29, 12.67]; after hard-check veto +2.67 [-7.06, 15.85] (2 of 9 rendered picks newly hard-failed and reverted); not a pass",
-   "note": "First opening of the Liquicity/Hospital locked holdout. Any later look at it is a repeated look: a future candidate must still show CI entirely below 0 there, and the doc must say it is the 2nd+ opening."
+  "written": "2026-11-18 ~22:13 ET, before the locked-holdout check",
+  "candidates_frozen_from_dev": [
+    "model_conformal (style_setting)",
+    "model_plain (style_setting)",
+    "gate_apriori (REPLICA=gated)"
+  ],
+  "promote_only_if_all": [
+    "locked holdout (Liquicity + Hospital Records corpus mixes): grouped-bootstrap 95% CI of mean exit+cue bar error delta vs default lies entirely below 0",
+    "fresh-mix test: same delta not worse (point estimate <= 0)",
+    "hard checks: no more hard-fail pairs than default on dev + holdout + fresh (pairs where default already fails are not counted against it)",
+    "style_setting variants additionally need a real per-mix style setting from the listener; until then they stay flags"
+  ],
+  "note": "Similarity score is diagnostic only. the listener's A/B is an optional low-weight taste signal, not a gate. rules.json is never edited by this workstream.",
+  "locked_holdout_opens": [
+    {
+      "when": "2026-11-19 2:26 AM ET",
+      "by": "nightly wrap-up (picker1119b-holdout job, picker_1119b.py holdout)",
+      "pairs": 14,
+      "mixes": [
+        "hospital_records_Lm2VlTogWvY",
+        "hospital_records_zYANUM_lubI",
+        "liquicity_EuPkz0GFI4g",
+        "liquicity_nYOcD3qTdg0"
+      ],
+      "candidate": "picker_1119b model_style_gated (frozen in promotion_criteria_1119_v2.json)",
+      "result": "raw exit+cue delta -1.62 [-16.29, 12.67]; after hard-check veto +2.67 [-7.06, 15.85] (2 of 9 rendered picks newly hard-failed and reverted); not a pass",
+      "note": "First opening of the Liquicity/Hospital locked holdout. Any later look at it is a repeated look: a future candidate must still show CI entirely below 0 there, and the doc must say it is the 2nd+ opening."
+    }
+  ],
+  "current_candidate": {
+    "for_night": "2026-11-20",
+    "name": "EPG (EXITPOS_GATE strict)",
+    "spec": "protrans/replica/promotion_criteria_1120.json",
+    "nightly_candidates": "protrans/replica/nightly_candidates.json",
+    "registered": "2026-11-19 4:40 PM ET"
+  },
+  "frozen_arms_n1125": {
+    "written": "2026-11-25 1:15 AM ET, BEFORE evaluating (no n1125 results seen)",
+    "script": "protrans/replica/picker_1125.py",
+    "data": "corpus_v2 accepted snapshot 2026-11-25 1:15 AM (953 rows) -> replica/nightly_1125_work/accepted_snapshot.jsonl; fresh-ledger mixes and locked holdout (Liquicity, Hospital Records) excluded from dev",
+    "arms": {
+      "cueonly_gated": "PRIMARY. Style-free LambdaMART cue ranker (picker_1119b features + candidate set) with margin gate tau chosen by inner leave-one-DJ-out; exit = default exit; blend length X = default.",
+      "ridegate": "SECONDARY (exit weakness from 11-24). cue as cueonly_gated; exit = style-free gated exit ranker, but an exit leaving > 40 bars before music_end is only allowed when a ride-vs-leave LightGBM classifier (pair features only, style-free) gives P(pro leaves mid-track) >= theta, theta in {0.5,0.6,0.7,0.8} chosen by inner leave-one-DJ-out on exit error; otherwise default exit. X = default.",
+      "ridegate_cand2": "TERTIARY. ridegate with candidate set v2 (adds exits at outgoing drop-1 start and drop-1 start+16 = exits during drop 1, tag drop1_in; cue set unchanged, drop_cue = drop-on-drop already present)."
+    },
+    "baselines": [
+      "default",
+      "majority choice (best single exit tag x cue tag, fit leave-one-DJ-out)",
+      "simple rule (exit at drop-1 end, cue drop-16)"
+    ],
+    "first_qualifying_night_if_all": [
+      "dev leave-one-DJ-out: exit+cue error delta vs default, grouped bootstrap by mix (4000, seed 20261125), 95% CI entirely < 0",
+      "same delta vs majority choice: 95% CI entirely < 0",
+      "no metric materially worse vs default: exit, cue, blend-length errors none with CI entirely > 0",
+      "fresh mix kushsessions_z8SnJBUd-0U (scored once): exit+cue delta vs default point estimate <= 0",
+      "hard checks on rendered picks for the 33-pair cohort: no more hard-fail pairs than default (if renders cannot run tonight, the night is at most 'provisionally qualifying' and cannot count until checked)"
+    ],
+    "promotion": "needs 2 consecutive qualifying nights AND the locked holdout (2nd+ opening; CI entirely < 0) checked only on the promotion night. n1124 was not a qualifying night, so n1125 cannot promote.",
+    "multiple_arms_note": "3 arms are tested; only the PRIMARY arm counts toward the 2-night run unless a secondary arm also meets every condition."
+  },
+  "n1125_qualifying_determination": {
+    "written": "2026-11-26 1:26 AM ET by n1126, before any n1126 result was seen",
+    "verdict": "n1125 QUALIFIED via the secondary arm ridegate (the multiple_arms_note allows a secondary arm that meets every condition); the primary cueonly_gated did not (failed the majority CI).",
+    "evidence": {
+      "dev_vs_default": "-3.39 [-5.32, -1.38]",
+      "dev_vs_majority": "-2.47 [-4.44, -0.61]",
+      "metrics_worse": "none with CI entirely > 0 (exit -2.58 [-6.27, +1.28], cue -4.19 [-6.13, -2.35], blend length unchanged by design)",
+      "fresh kushsessions_z8SnJBUd-0U": "-16.08 (<= 0)",
+      "hard_checks_33_pairs": "ridegate 5 hard-fail pairs vs default 5 (hc_n1125_ridegate.json vs hc_mhb1125_base.json, beat-clash fix of 11-25 applied to both): not more. Composition changed: new pumping fails on hybrid_minds_ukf__23 and joe_syntax_hospital__11; default fails cleared on hybrid_minds_ukf__28 (clash) and pola_bryson_puzzlewood__00 (bass hole)."
+    },
+    "why_written_now": "the n1125 doc stopped before its wrap-up and never stated the verdict; recomputed tonight from the saved files only."
+  },
+  "frozen_arms_n1126": {
+    "written": "2026-11-26 1:26 AM ET, BEFORE evaluating (no n1126 results seen)",
+    "script": "protrans/replica/picker_1126.py",
+    "data": "corpus_v2 accepted snapshot 2026-11-26 1:25 AM (1167 rows) -> replica/nightly_1126_work/accepted_snapshot.jsonl; all fresh-ledger mixes, locked holdout (Liquicity, Hospital Records) and Liquicity Events (same brand as the holdout, kept out to protect it) excluded from dev",
+    "arms": {
+      "ridegate": "PRIMARY. Exactly the n1125 ridegate spec (style-free gated exit ranker + ride-vs-leave gate theta by inner leave-one-DJ-out; cue = gated cue ranker; X = default), retrained on the grown snapshot. Second night of the 2-night run (n1125 qualified via ridegate).",
+      "ridegate_tail": "SECONDARY (the 11-25 coverage gap). ridegate with extra tail-exit candidates: incoming enters 8 bars before the end of the outgoing music grid with an 8-bar blend (tag tail8, X=8 when chosen). Tail exits are not mid-track so the ride gate does not apply to them.",
+      "ridegate_online_tf": "DIAGNOSTIC ONLY (cannot count): ride-vs-leave classifier also gets the pro's strictly earlier transitions in the same mix (teacher-forced online style). Not deployable for the listener's mixes as-is; measures how much DJ-habit signal exists."
+    },
+    "baselines": [
+      "default",
+      "majority choice (best single exit tag x cue tag, fit leave-one-DJ-out)",
+      "simple rule (exit at drop-1 end, cue drop-16)"
+    ],
+    "fresh_mix": "ukf_drum_bass_wVp_VlkWqxI (registered 1:26 AM, scored once)",
+    "bootstrap": "grouped by mix, 4000 draws, seed 20261126",
+    "qualifying_night_if_all": [
+      "dev leave-one-DJ-out exit+cue delta vs default: 95% CI entirely < 0",
+      "same vs majority: 95% CI entirely < 0",
+      "no metric materially worse vs default (exit, cue, blend length: none with CI entirely > 0)",
+      "fresh mix: exit+cue delta vs default point estimate <= 0",
+      "hard checks on the 33-pair rendered picks: no more hard-fail pairs than default (if renders cannot run tonight the night is at most provisionally qualifying)"
+    ],
+    "promotion": "ridegate promotes only if tonight qualifies (2nd consecutive) AND the locked holdout (2nd+ opening) shows exit+cue delta vs default CI entirely < 0 AND a live (non-map) picker path exists behind the flag/defaults mechanism with tests passing; otherwise it stays a flag."
+  },
+  "n1126_qualifying_determination": {
+    "written": "2026-11-26 9:08 AM ET, after render-n1126 finished rc=0 at 8:31 AM",
+    "verdict": "n1126 QUALIFIED via the primary arm ridegate (second consecutive qualifying night after n1125). NOT promoted.",
+    "evidence": {
+      "dev_vs_default": "-2.44 [-4.08, -0.82]",
+      "dev_vs_majority": "-2.01 [-3.55, -0.50]",
+      "metrics_worse": "none with CI entirely > 0 (exit -1.47 [-4.48, +1.70], cue -3.41 [-5.07, -1.80], blend length unchanged)",
+      "fresh ukf_drum_bass_wVp_VlkWqxI": "-16.44 [-29.21, -4.07] (<= 0)",
+      "hard_checks_33_pairs": "ridegate 2 hard-fail pairs vs default 5 (hc_n1126_ridegate.json merged with default on the 8 unchanged windows): not more. New pumping fail on hybrid_minds_ukf__23; default fails cleared on hybrid_minds_ukf__00 (pump), __11 (pump), __28 (clash) and pola_bryson_puzzlewood__00 (hole). hybrid_minds_ukf__40 still pumps."
+    },
+    "promotion_withheld": "Written rule also needs the locked holdout (2nd+ opening, CI entirely < 0) and a live (non-map) picker path with tests passing. Holdout was not opened tonight. Renders still used PICKER_STYLE_GATED_MAP. rules.json unchanged.",
+    "secondary": "ridegate_tail did not qualify (vs majority -1.53 [-3.17, +0.08])."
   }
- ],
- "current_candidate": {
-  "for_night": "2026-11-20",
-  "name": "EPG (EXITPOS_GATE strict)",
-  "spec": "protrans/replica/promotion_criteria_1120.json",
-  "nightly_candidates": "protrans/replica/nightly_candidates.json",
-  "registered": "2026-11-19 4:40 PM ET"
- },
- "frozen_arms_n1125": {
-  "written": "2026-11-25 1:15 AM ET, BEFORE evaluating (no n1125 results seen)",
-  "script": "protrans/replica/picker_1125.py",
-  "data": "corpus_v2 accepted snapshot 2026-11-25 1:15 AM (953 rows) -> replica/nightly_1125_work/accepted_snapshot.jsonl; fresh-ledger mixes and locked holdout (Liquicity, Hospital Records) excluded from dev",
-  "arms": {
-   "cueonly_gated": "PRIMARY. Style-free LambdaMART cue ranker (picker_1119b features + candidate set) with margin gate tau chosen by inner leave-one-DJ-out; exit = default exit; blend length X = default.",
-   "ridegate": "SECONDARY (exit weakness from 11-24). cue as cueonly_gated; exit = style-free gated exit ranker, but an exit leaving > 40 bars before music_end is only allowed when a ride-vs-leave LightGBM classifier (pair features only, style-free) gives P(pro leaves mid-track) >= theta, theta in {0.5,0.6,0.7,0.8} chosen by inner leave-one-DJ-out on exit error; otherwise default exit. X = default.",
-   "ridegate_cand2": "TERTIARY. ridegate with candidate set v2 (adds exits at outgoing drop-1 start and drop-1 start+16 = exits during drop 1, tag drop1_in; cue set unchanged, drop_cue = drop-on-drop already present)."
-  },
-  "baselines": [
-   "default",
-   "majority choice (best single exit tag x cue tag, fit leave-one-DJ-out)",
-   "simple rule (exit at drop-1 end, cue drop-16)"
-  ],
-  "first_qualifying_night_if_all": [
-   "dev leave-one-DJ-out: exit+cue error delta vs default, grouped bootstrap by mix (4000, seed 20261125), 95% CI entirely < 0",
-   "same delta vs majority choice: 95% CI entirely < 0",
-   "no metric materially worse vs default: exit, cue, blend-length errors none with CI entirely > 0",
-   "fresh mix kushsessions_z8SnJBUd-0U (scored once): exit+cue delta vs default point estimate <= 0",
-   "hard checks on rendered picks for the 33-pair cohort: no more hard-fail pairs than default (if renders cannot run tonight, the night is at most 'provisionally qualifying' and cannot count until checked)"
-  ],
-  "promotion": "needs 2 consecutive qualifying nights AND the locked holdout (2nd+ opening; CI entirely < 0) checked only on the promotion night. n1124 was not a qualifying night, so n1125 cannot promote.",
-  "multiple_arms_note": "3 arms are tested; only the PRIMARY arm counts toward the 2-night run unless a secondary arm also meets every condition."
- },
- "n1125_qualifying_determination": {
-  "written": "2026-11-26 1:26 AM ET by n1126, before any n1126 result was seen",
-  "verdict": "n1125 QUALIFIED via the secondary arm ridegate (the multiple_arms_note allows a secondary arm that meets every condition); the primary cueonly_gated did not (failed the majority CI).",
-  "evidence": {
-   "dev_vs_default": "-3.39 [-5.32, -1.38]",
-   "dev_vs_majority": "-2.47 [-4.44, -0.61]",
-   "metrics_worse": "none with CI entirely > 0 (exit -2.58 [-6.27, +1.28], cue -4.19 [-6.13, -2.35], blend length unchanged by design)",
-   "fresh kushsessions_z8SnJBUd-0U": "-16.08 (<= 0)",
-   "hard_checks_33_pairs": "ridegate 5 hard-fail pairs vs default 5 (hc_n1125_ridegate.json vs hc_mhb1125_base.json, beat-clash fix of 11-25 applied to both): not more. Composition changed: new pumping fails on hybrid_minds_ukf__23 and joe_syntax_hospital__11; default fails cleared on hybrid_minds_ukf__28 (clash) and pola_bryson_puzzlewood__00 (bass hole)."
-  },
-  "why_written_now": "the n1125 doc stopped before its wrap-up and never stated the verdict; recomputed tonight from the saved files only."
- },
- "frozen_arms_n1126": {
-  "written": "2026-11-26 1:26 AM ET, BEFORE evaluating (no n1126 results seen)",
-  "script": "protrans/replica/picker_1126.py",
-  "data": "corpus_v2 accepted snapshot 2026-11-26 1:25 AM (1167 rows) -> replica/nightly_1126_work/accepted_snapshot.jsonl; all fresh-ledger mixes, locked holdout (Liquicity, Hospital Records) and Liquicity Events (same brand as the holdout, kept out to protect it) excluded from dev",
-  "arms": {
-   "ridegate": "PRIMARY. Exactly the n1125 ridegate spec (style-free gated exit ranker + ride-vs-leave gate theta by inner leave-one-DJ-out; cue = gated cue ranker; X = default), retrained on the grown snapshot. Second night of the 2-night run (n1125 qualified via ridegate).",
-   "ridegate_tail": "SECONDARY (the 11-25 coverage gap). ridegate with extra tail-exit candidates: incoming enters 8 bars before the end of the outgoing music grid with an 8-bar blend (tag tail8, X=8 when chosen). Tail exits are not mid-track so the ride gate does not apply to them.",
-   "ridegate_online_tf": "DIAGNOSTIC ONLY (cannot count): ride-vs-leave classifier also gets the pro's strictly earlier transitions in the same mix (teacher-forced online style). Not deployable for the listener's mixes as-is; measures how much DJ-habit signal exists."
-  },
-  "baselines": [
-   "default",
-   "majority choice (best single exit tag x cue tag, fit leave-one-DJ-out)",
-   "simple rule (exit at drop-1 end, cue drop-16)"
-  ],
-  "fresh_mix": "ukf_drum_bass_wVp_VlkWqxI (registered 1:26 AM, scored once)",
-  "bootstrap": "grouped by mix, 4000 draws, seed 20261126",
-  "qualifying_night_if_all": [
-   "dev leave-one-DJ-out exit+cue delta vs default: 95% CI entirely < 0",
-   "same vs majority: 95% CI entirely < 0",
-   "no metric materially worse vs default (exit, cue, blend length: none with CI entirely > 0)",
-   "fresh mix: exit+cue delta vs default point estimate <= 0",
-   "hard checks on the 33-pair rendered picks: no more hard-fail pairs than default (if renders cannot run tonight the night is at most provisionally qualifying)"
-  ],
-  "promotion": "ridegate promotes only if tonight qualifies (2nd consecutive) AND the locked holdout (2nd+ opening) shows exit+cue delta vs default CI entirely < 0 AND a live (non-map) picker path exists behind the flag/defaults mechanism with tests passing; otherwise it stays a flag."
- }
 }

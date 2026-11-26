@@ -8,10 +8,14 @@ environment of a fresh process).
 from __future__ import annotations
 import hashlib, json, os, shutil, subprocess, sys
 def _safe_symlink(src, dst):
+    # atomic: concurrent readers never see dst missing
+    tmp = f'{dst}.tmp{os.getpid()}'
     try:
-        os.symlink(src, dst)
-    except FileExistsError:
-        pass
+        os.symlink(src, tmp)
+        os.replace(tmp, dst)
+    except Exception:
+        try: os.remove(tmp)
+        except OSError: pass
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -105,15 +109,10 @@ def _ensure_shadow_impl(yts=None):
             continue
         src = os.path.join(LIVE_SRC2, name)
         dst = os.path.join(SHADOW, name)
-        if os.path.lexists(dst) or os.path.exists(dst):
-            if os.path.islink(dst) or os.path.isfile(dst):
-                try:
-                    _rm(dst)
-                except FileNotFoundError:
-                    pass
-            elif os.path.isdir(dst) and not os.path.islink(dst):
-                # leftover; leave if it is our dir — but top-level should be links
-                continue
+        if os.path.isdir(dst) and not os.path.islink(dst):
+            continue
+        if os.path.islink(dst) and os.readlink(dst) == src:
+            continue
         _safe_symlink(src, dst)
     st_live = os.path.join(LIVE_SRC2, 'st')
     st_sh = os.path.join(SHADOW, 'st')
@@ -126,21 +125,20 @@ def _ensure_shadow_impl(yts=None):
             pin = os.path.join(PIN_DIR, 'st', name)
             if os.path.exists(pin):
                 continue  # overlay below
-            if os.path.lexists(dst):
-                if os.path.islink(dst) or os.path.isfile(dst):
-                    _rm(dst)
-            if not os.path.lexists(dst):
-                _safe_symlink(src, dst)
+            if os.path.islink(dst) and os.readlink(dst) == src:
+                continue
+            if os.path.isfile(dst) and not os.path.islink(dst):
+                continue
+            _safe_symlink(src, dst)
     pin_st = os.path.join(PIN_DIR, 'st')
     n_overlay = 0
     if os.path.isdir(pin_st):
         for name in os.listdir(pin_st):
             src = os.path.join(pin_st, name)
             dst = os.path.join(st_sh, name)
-            if os.path.lexists(dst) or os.path.exists(dst):
-                if os.path.islink(dst) or os.path.isfile(dst):
-                    _rm(dst)
-            shutil.copy2(src, dst)
+            tmp = f'{dst}.tmp{os.getpid()}'
+            shutil.copy2(src, tmp)
+            os.replace(tmp, dst)
             n_overlay += 1
     os.environ['PROTRANS_SRC2'] = SHADOW
     if 'paths' in sys.modules:

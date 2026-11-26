@@ -1,0 +1,1898 @@
+{
+ "variant": "n1126_base",
+ "summary": {
+  "clean": {
+   "n": 33,
+   "flag_clash": 0.03,
+   "flag_hole": 0.03,
+   "flag_pump": 0.091,
+   "any_fail": 0.152
+  },
+  "clash60": {
+   "n": 33,
+   "flag_clash": 0.121,
+   "flag_hole": 0.061,
+   "flag_pump": 0.091,
+   "any_fail": 0.273
+  },
+  "clash110": {
+   "n": 33,
+   "flag_clash": 0.121,
+   "flag_hole": 0.061,
+   "flag_pump": 0.121,
+   "any_fail": 0.303
+  },
+  "hole4": {
+   "n": 33,
+   "flag_clash": 0.061,
+   "flag_hole": 0.03,
+   "flag_pump": 0.091,
+   "any_fail": 0.182
+  },
+  "hole8": {
+   "n": 33,
+   "flag_clash": 0.061,
+   "flag_hole": 0.061,
+   "flag_pump": 0.121,
+   "any_fail": 0.242
+  },
+  "pump": {
+   "n": 33,
+   "flag_clash": 0.03,
+   "flag_hole": 0.03,
+   "flag_pump": 1.0,
+   "any_fail": 1.0
+  }
+ },
+ "rows": {
+  "hybrid_minds_ukf__00": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 36.1,
+    "pump_db": 11.3
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 42.0,
+    "pump_db": 11.3
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 42.0,
+    "pump_db": 11.4
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 36.1,
+    "pump_db": 11.3
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 39.5,
+    "pump_db": 10.7
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 36.1,
+    "pump_db": 11.3
+   }
+  },
+  "hybrid_minds_ukf__08": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 45.3,
+    "pump_db": 1.2
+   },
+   "clash60": {
+    "clash": false,
+    "hole": true,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 49.0,
+    "pump_db": 1.2
+   },
+   "clash110": {
+    "clash": false,
+    "hole": true,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 48.9,
+    "pump_db": 1.2
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 45.3,
+    "pump_db": 1.2
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 45.3,
+    "pump_db": 1.2
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 45.3,
+    "pump_db": 7.6
+   }
+  },
+  "hybrid_minds_ukf__09": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 20.5,
+    "pump_db": 2.5
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 21.6,
+    "pump_db": 2.5
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 21.9,
+    "pump_db": 2.4
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 30.1,
+    "pump_db": 2.5
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 31.7,
+    "pump_db": 2.0
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 29.9,
+    "pump_db": 10.2
+   }
+  },
+  "hybrid_minds_ukf__10": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 39.3,
+    "pump_db": 3.5
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 39.2,
+    "pump_db": 3.6
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 39.2,
+    "pump_db": 3.9
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 44.3,
+    "pump_db": 3.5
+   },
+   "hole8": {
+    "clash": false,
+    "hole": true,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 47.9,
+    "pump_db": 3.5
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 44.8,
+    "pump_db": 7.9
+   }
+  },
+  "hybrid_minds_ukf__11": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 27.3,
+    "pump_db": 7.3
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 27.3,
+    "pump_db": 7.3
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 27.2,
+    "pump_db": 7.3
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 35.0,
+    "pump_db": 7.3
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 35.9,
+    "pump_db": 1.7
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 32.1,
+    "pump_db": 10.4
+   }
+  },
+  "hybrid_minds_ukf__12": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 38.2,
+    "pump_db": 3.9
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 37.8,
+    "pump_db": 3.4
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 37.1,
+    "pump_db": 3.1
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 38.2,
+    "pump_db": 4.2
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 38.5,
+    "pump_db": 4.2
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 38.2,
+    "pump_db": 11.6
+   }
+  },
+  "hybrid_minds_ukf__13": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 24.5,
+    "pump_db": 1.4
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 24.6,
+    "pump_db": 1.3
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 24.6,
+    "pump_db": 1.5
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 33.3,
+    "pump_db": 1.3
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 39.2,
+    "pump_db": 1.7
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 33.9,
+    "pump_db": 8.3
+   }
+  },
+  "hybrid_minds_ukf__19": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 22.5,
+    "pump_db": 4.3
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 22.5,
+    "pump_db": 4.4
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 22.3,
+    "pump_db": 4.5
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 31.9,
+    "pump_db": 4.4
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 31.9,
+    "pump_db": 3.7
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 31.2,
+    "pump_db": 7.9
+   }
+  },
+  "hybrid_minds_ukf__23": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 28.5,
+    "pump_db": 2.4
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 29.6,
+    "pump_db": 2.8
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 30.5,
+    "pump_db": 2.7
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 31.3,
+    "pump_db": 2.4
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 31.8,
+    "pump_db": 2.5
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 32.6,
+    "pump_db": 10.4
+   }
+  },
+  "hybrid_minds_ukf__25": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 27.5,
+    "pump_db": 0.5
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 27.5,
+    "pump_db": 0.4
+   },
+   "clash110": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 150.9297052154195,
+    "dip": 27.5,
+    "pump_db": 0.3
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 36.8,
+    "pump_db": 0.5
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 37.2,
+    "pump_db": 0.4
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 31.7,
+    "pump_db": 8.8
+   }
+  },
+  "hybrid_minds_ukf__28": {
+   "clean": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 163.99092970521542,
+    "dip": 27.9,
+    "pump_db": 1.3
+   },
+   "clash60": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 108.84353741496598,
+    "dip": 37.8,
+    "pump_db": 1.1
+   },
+   "clash110": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 47.89115646258504,
+    "dip": 37.8,
+    "pump_db": 1.1
+   },
+   "hole4": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 162.53968253968253,
+    "dip": 27.9,
+    "pump_db": 1.3
+   },
+   "hole8": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 161.81405895691609,
+    "dip": 27.9,
+    "pump_db": 0.5
+   },
+   "pump": {
+    "clash": true,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": 164.71655328798187,
+    "dip": 27.9,
+    "pump_db": 8.7
+   }
+  },
+  "hybrid_minds_ukf__40": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 33.1,
+    "pump_db": 5.0
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 32.9,
+    "pump_db": 4.9
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 32.7,
+    "pump_db": 4.8
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 33.5,
+    "pump_db": 5.0
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 36.0,
+    "pump_db": 5.0
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 34.1,
+    "pump_db": 10.3
+   }
+  },
+  "hybrid_minds_ukf__45": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 31.6,
+    "pump_db": 3.5
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 45.1,
+    "pump_db": 3.1
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 45.0,
+    "pump_db": 3.2
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 31.6,
+    "pump_db": 3.5
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 31.6,
+    "pump_db": 5.8
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 31.6,
+    "pump_db": 9.5
+   }
+  },
+  "joe_syntax_hospital__00": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 15.2,
+    "pump_db": 0.9
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 15.3,
+    "pump_db": 0.8
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 15.5,
+    "pump_db": 0.8
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 30.1,
+    "pump_db": 1.0
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 30.1,
+    "pump_db": 2.6
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 25.1,
+    "pump_db": 9.4
+   }
+  },
+  "joe_syntax_hospital__01": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 26.5,
+    "pump_db": 1.8
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 26.7,
+    "pump_db": 1.8
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 27.0,
+    "pump_db": 1.6
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 29.6,
+    "pump_db": 1.8
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 30.1,
+    "pump_db": 1.8
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 26.8,
+    "pump_db": 8.7
+   }
+  },
+  "joe_syntax_hospital__08": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 12.8,
+    "pump_db": 2.4
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 12.9,
+    "pump_db": 2.5
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 12.9,
+    "pump_db": 2.6
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 32.8,
+    "pump_db": 2.4
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 33.9,
+    "pump_db": 1.6
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 22.7,
+    "pump_db": 12.4
+   }
+  },
+  "joe_syntax_hospital__09": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 2.9,
+    "pump_db": 2.6
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 3.0,
+    "pump_db": 2.8
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 3.0,
+    "pump_db": 2.7
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 19.3,
+    "pump_db": 2.1
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 19.9,
+    "pump_db": 1.8
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 11.8,
+    "pump_db": 10.3
+   }
+  },
+  "joe_syntax_hospital__11": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": -0.7256235827664399,
+    "dip": 11.7,
+    "pump_db": 3.7
+   },
+   "clash60": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": -52.244897959183675,
+    "dip": 11.8,
+    "pump_db": 3.7
+   },
+   "clash110": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 71.11111111111111,
+    "dip": 11.8,
+    "pump_db": 3.4
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": -1.4512471655328798,
+    "dip": 23.4,
+    "pump_db": 2.3
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": -2.9024943310657596,
+    "dip": 26.1,
+    "pump_db": 4.9
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": -0.7256235827664399,
+    "dip": 16.6,
+    "pump_db": 10.3
+   }
+  },
+  "joe_syntax_hospital__12": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 1.4512471655328798,
+    "dip": 6.7,
+    "pump_db": 0.5
+   },
+   "clash60": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": -60.95238095238095,
+    "dip": 6.7,
+    "pump_db": 0.5
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 1.4512471655328798,
+    "dip": 7.1,
+    "pump_db": 0.7
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": -2.17687074829932,
+    "dip": 14.2,
+    "pump_db": 0.4
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": -4.35374149659864,
+    "dip": 15.6,
+    "pump_db": 0.4
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": 1.4512471655328798,
+    "dip": 8.7,
+    "pump_db": 9.5
+   }
+  },
+  "joe_syntax_hospital__13": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 9.3,
+    "pump_db": 1.4
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 9.4,
+    "pump_db": 1.4
+   },
+   "clash110": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 66.75736961451247,
+    "dip": 9.5,
+    "pump_db": 1.4
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 22.8,
+    "pump_db": 1.4
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 25.0,
+    "pump_db": 1.5
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 11.5,
+    "pump_db": 8.1
+   }
+  },
+  "joe_syntax_hospital__14": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 11.7,
+    "pump_db": 0.8
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 11.7,
+    "pump_db": 0.8
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 11.9,
+    "pump_db": 0.9
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 22.0,
+    "pump_db": 1.1
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 22.3,
+    "pump_db": 0.6
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 21.5,
+    "pump_db": 10.5
+   }
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 6.9,
+    "pump_db": 4.5
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 6.7,
+    "pump_db": 3.9
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 6.3,
+    "pump_db": 3.5
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 20.0,
+    "pump_db": 4.5
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 20.6,
+    "pump_db": 4.5
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 8.4,
+    "pump_db": 11.0
+   }
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 21.7,
+    "pump_db": 0.9
+   },
+   "clash60": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 34.82993197278912,
+    "dip": 21.9,
+    "pump_db": 0.7
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 22.0,
+    "pump_db": 1.1
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 28.4,
+    "pump_db": 0.6
+   },
+   "hole8": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": 110.29478458049887,
+    "dip": 28.6,
+    "pump_db": 0.8
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 28.4,
+    "pump_db": 10.9
+   }
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 8.6,
+    "pump_db": 3.2
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 13.3,
+    "pump_db": 3.4
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 13.5,
+    "pump_db": 3.4
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 15.9,
+    "pump_db": 3.8
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 18.6,
+    "pump_db": 2.6
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 8.6,
+    "pump_db": 7.2
+   }
+  },
+  "netsky_hospital_classics__02": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 12.1,
+    "pump_db": 3.2
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 12.3,
+    "pump_db": 3.1
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 12.4,
+    "pump_db": 2.9
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 34.1,
+    "pump_db": 2.9
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 35.6,
+    "pump_db": 3.8
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 20.7,
+    "pump_db": 9.7
+   }
+  },
+  "netsky_hospital_classics__06": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 21.7,
+    "pump_db": 1.3
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 36.8,
+    "pump_db": 1.1
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 32.1,
+    "pump_db": 1.1
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 28.1,
+    "pump_db": 3.1
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 32.3,
+    "pump_db": 1.8
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 29.8,
+    "pump_db": 10.5
+   }
+  },
+  "netsky_hospital_classics__15": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 2.4,
+    "pump_db": 2.6
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 2.6,
+    "pump_db": 2.7
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 2.5,
+    "pump_db": 2.8
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 13.1,
+    "pump_db": 2.7
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 16.5,
+    "pump_db": 0.7
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 12.4,
+    "pump_db": 9.1
+   }
+  },
+  "netsky_hospital_classics__17": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 23.6,
+    "pump_db": 2.6
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 23.5,
+    "pump_db": 2.4
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 23.4,
+    "pump_db": 2.3
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 34.1,
+    "pump_db": 2.2
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 34.4,
+    "pump_db": 3.6
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 24.4,
+    "pump_db": 9.4
+   }
+  },
+  "netsky_hospital_classics__23": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 35.3,
+    "pump_db": 2.0
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 35.0,
+    "pump_db": 1.9
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 34.8,
+    "pump_db": 1.7
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 37.4,
+    "pump_db": 2.9
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 43.4,
+    "pump_db": 2.9
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 35.3,
+    "pump_db": 9.5
+   }
+  },
+  "pola_bryson_puzzlewood__00": {
+   "clean": {
+    "clash": false,
+    "hole": true,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 45.4,
+    "pump_db": 1.7
+   },
+   "clash60": {
+    "clash": false,
+    "hole": true,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 46.0,
+    "pump_db": 1.9
+   },
+   "clash110": {
+    "clash": false,
+    "hole": true,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 48.9,
+    "pump_db": 2.0
+   },
+   "hole4": {
+    "clash": false,
+    "hole": true,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 45.4,
+    "pump_db": 1.3
+   },
+   "hole8": {
+    "clash": false,
+    "hole": true,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 45.4,
+    "pump_db": 1.3
+   },
+   "pump": {
+    "clash": false,
+    "hole": true,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 45.4,
+    "pump_db": 8.3
+   }
+  },
+  "pola_bryson_puzzlewood__02": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 22.7,
+    "pump_db": 0.9
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 23.3,
+    "pump_db": 0.8
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 23.3,
+    "pump_db": 0.8
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 30.4,
+    "pump_db": 0.9
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 33.5,
+    "pump_db": 0.9
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 32.1,
+    "pump_db": 10.0
+   }
+  },
+  "pola_bryson_puzzlewood__04": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 27.8,
+    "pump_db": 1.5
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 27.8,
+    "pump_db": 1.6
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 27.8,
+    "pump_db": 1.9
+   },
+   "hole4": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 37.7,
+    "pump_db": 2.9
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 37.7,
+    "pump_db": 2.9
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 34.2,
+    "pump_db": 11.1
+   }
+  },
+  "wilkinson_boomtown2026__33": {
+   "clean": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 27.7,
+    "pump_db": 2.3
+   },
+   "clash60": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 44.8,
+    "pump_db": 2.4
+   },
+   "clash110": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 43.5,
+    "pump_db": 2.4
+   },
+   "hole4": {
+    "clash": true,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": -72.56235827664399,
+    "dip": 29.5,
+    "pump_db": 2.5
+   },
+   "hole8": {
+    "clash": false,
+    "hole": false,
+    "pump": false,
+    "van": false,
+    "lag": null,
+    "dip": 31.0,
+    "pump_db": 2.4
+   },
+   "pump": {
+    "clash": false,
+    "hole": false,
+    "pump": true,
+    "van": false,
+    "lag": null,
+    "dip": 27.7,
+    "pump_db": 7.7
+   }
+  }
+ },
+ "doc": "n1126 priority (a): detection and false-alarm rates of the OFFICIAL hard checks (hardcheck.check, pro-p95 thresholds and\nFP.LOCK_MIN_MS unchanged, 11-25 beat-clash fix included) on injected faults. Same injection protocol as calib_v2.py (11-20):\nclash60/clash110 = incoming deck delayed 60/110 ms over the whole crop; hole4/hole8 = both decks' lows < 150 Hz cut 50 dB for\n4/8 bars in the blend middle; pump = both decks -10 dB for 1 bar in the blend middle; clean = untouched. Decks are rendered once\nper meta (blend_diag.crop_decks, cached) and the injection is applied to the arrays that check() and finephase read.\nNothing is tuned here. usage: hcinject_1126.py <variant>   (reads its metas in /tmp/protrans_bench; writes nightly_1126_work/hcinject_<variant>.json)"
+}

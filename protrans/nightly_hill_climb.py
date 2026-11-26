@@ -17,6 +17,9 @@ import paths, tune, score, cleanup
 import run_admitted_tune as T
 import promotion_judge as PJ
 import dclash_report as DC
+import sys as _sys
+_sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "replica"))
+import nightly_card as NCard
 
 MAX_CANDS = 6
 CANDS_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'replica', 'nightly_candidates.json')
@@ -28,10 +31,25 @@ def load_candidate_spec():
         return json.load(open(CANDS_FILE))
     return None
 
-def candidates():
-    spec = load_candidate_spec()
+def _card(spec, tag=None):
+    tag = tag or time.strftime('n%m%d')
+    key = f'candidates_{tag}'
+    if spec and spec.get(key):
+        return list(spec[key])[:MAX_CANDS]
     if spec and spec.get('candidates'):
-        return [(c['name'], c['delta']) for c in spec['candidates']][:MAX_CANDS]
+        return list(spec['candidates'])[:MAX_CANDS]
+    return []
+
+def _short_tag(tag, name):
+    parts = [p[:3] for p in str(name).split('_') if p]
+    compact = ''.join(parts)[:12] or 'arm'
+    return f'{tag}{compact}'
+
+def candidates(tag=None):
+    spec = load_candidate_spec()
+    card = _card(spec, tag)
+    if card:
+        return [(c['name'], c['delta']) for c in card][:MAX_CANDS]
     # fallback generic list (used when no nightly_candidates.json is registered)
     return [
         ('phase_pref_02', {'phase_pref_w': 0.2}),
@@ -52,12 +70,13 @@ def main():
     print(f'BASELINE train={base["train_mean"]} test={base["test_mean"]} n_fail={base["n_fail"]}', flush=True)
     tried = []; kept = None; night_wins = []
     spec = load_candidate_spec() or {}
-    byname = {c['name']: c for c in spec.get('candidates') or []}
+    byname = {c['name']: c for c in _card(spec, tag)}
     adopt = bool(spec.get('adopt_to_defaults'))
     for name, delta in candidates():
         trial = copy.deepcopy(base_rules); trial.update(delta)
-        r = T.run_set_checkpointed(recs, trial, f'{tag}_{name}', f'{tag}{name[:6]}')
+        r = T.run_set_checkpointed(recs, trial, f'{tag}_{name}', _short_tag(tag, name))
         sm = T.summarize(r)
+        linger_lag = NCard.summarize_linger_and_lag(r)
         meta = byname.get(name) or {}
         if meta.get('promotion'):
             # Per-candidate judge from nightly_candidates.json / promotion_criteria_1120.json.
@@ -70,7 +89,7 @@ def main():
             why = (f'held-out improved {base["test_mean"]} -> {sm["test_mean"]}' if ok
                    else f'held-out did not improve ({base["test_mean"]} -> {sm["test_mean"]})')
             label = 'KEEP?' if ok else 'reject'
-        print(f'  {name} {delta}: train={sm["train_mean"]} test={sm["test_mean"]} fails={sm["n_fail"]} -> {label}', flush=True)
+        print(f'  {name} {delta}: train={sm["train_mean"]} test={sm["test_mean"]} fails={sm["n_fail"]} exit_lag={linger_lag["exit_lag_vs_pro"]} drum_linger={linger_lag["drum_linger_bars"]} -> {label}', flush=True)
         dclash = None
         if any(k == 'DRUMCLASH' or str(k).startswith('DRUMCLASH') or k == 'PLAN_LAND' for k in delta):
             dclash = DC.summarize(r, rows)
@@ -79,7 +98,9 @@ def main():
                    by_dj=sm['by_dj'], kept=bool(ok and (not meta.get('promotion') or adopt)),
                    promotion=bool(meta.get('promotion')), night_win=bool(ok and meta.get('promotion')),
                    floor_test=base['test_mean'], why=why,
-                   scorer_version=score.SCORER_VERSION, nightly=tag, dclash=dclash)
+                   scorer_version=score.SCORER_VERSION, nightly=tag, dclash=dclash,
+                   drum_linger_bars=linger_lag['drum_linger_bars'],
+                   exit_lag_vs_pro=linger_lag['exit_lag_vs_pro'], linger_lag=linger_lag)
         tune.log_row(row); tried.append(row)
         if ok and meta.get('promotion'):
             night_wins.append(dict(name=name, delta=delta, summary=sm, why=why))

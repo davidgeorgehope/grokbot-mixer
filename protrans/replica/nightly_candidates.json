@@ -363,5 +363,471 @@
   "registered": "2026-11-26 1:26 AM ET",
   "spec_ref": "promotion_criteria.json frozen_arms_n1126",
   "note": "Decision-level model arms evaluated by replica/picker_1126.py; render via PICKER_STYLE_GATED + per-pair map, never rules.json."
- }
+ },
+ "candidates_n1126": [
+  {
+   "name": "epg_strict",
+   "promotion": true,
+   "shadow": false,
+   "judge": "not_worse_than_floor_mean",
+   "delta": {
+    "EXITPOS": 1,
+    "EXITPOS_GATE": 1
+   },
+   "label": "EXITPOS_GATE strict: last drop fully played before the blend starts",
+   "flags_off_by_default": true,
+   "already_scored_2026_11_19": {
+    "held_out": 34.07,
+    "train": 33.19,
+    "floor_held_out": 34.07,
+    "floor_train": 32.4,
+    "dev_changed": [
+     "alpha_rhythm_imZjEt78YXs__03",
+     "joe_syntax_hospital__12",
+     "theheshbesh_zHf8cC9ViuA__05"
+    ],
+    "hard_fails": "2 to 0 on the 3 changed dev pairs (default beat-clash on alpha_rhythm__03 and joe_syntax__12; theheshbesh__05 is a clean earlier-outro move at 208)",
+    "eval": "epg3_eval_1119.json / cs_epg3_1119",
+    "ear": "the listener preferred epg_strict on alpha_rhythm_imZjEt78YXs__03"
+   },
+   "night_win_if": [
+    "held-out mean not worse than the 34.07 floor",
+    "train mean not worse than the 32.40 floor",
+    "hard-fail not worse, leave-one-DJ-out and per DJ (pairs the default already fails are not counted against it)",
+    "zero new hard fails on the Sirenity fresh mix (for_night 2026-11-20 in fresh_mixes.json), once ingested"
+   ],
+   "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
+  },
+  {
+   "name": "epg_drop",
+   "promotion": true,
+   "shadow": false,
+   "judge": "pro_match_within_floor_ci",
+   "delta": {
+    "EXITPOS": 1,
+    "EXITPOS_DROP": 1
+   },
+   "label": "EXITPOS_DROP: exit at the end of the last drop when drop 1 is in the blend, there is no hard fail, and the outro is quieter or thinner than the drop; block when pro data shows the outro carried the blend. Exiting at last-drop end is the behaviour the listener wants; do not rein it in.",
+   "flags_off_by_default": true,
+   "judge_change": "Deliberate change of judge made on the listener's direct listening, not a loosened threshold. See docs/PROCESS.md and promotion_criteria_1120.json.",
+   "already_scored_2026_11_19": {
+    "held_out": 33.91,
+    "train": 32.18,
+    "floor_held_out": 34.07,
+    "floor_train": 32.4,
+    "pro_match_delta_ci_mix_grouped_4000_seed_20261119": {
+     "held_out": {
+      "mean_delta": -0.161,
+      "ci": [
+       -1.743,
+       2.133
+      ],
+      "includes_zero": true
+     },
+     "train": {
+      "mean_delta": -0.222,
+      "ci": [
+       -1.281,
+       1.499
+      ],
+      "includes_zero": true
+     }
+    },
+    "hard_fail_with_gated_d": {
+     "delta": -0.125,
+     "ci": [
+      -0.296,
+      0.0
+     ],
+     "base": 4,
+     "arm": 1
+    },
+    "eval": "epgdrop-1119 / epgdrop_eval_1119.json / cs_epgdrop_1119",
+    "ear_picks": "5/5 on drop-fade exits; log.jsonl: JS01, netsky__02, JS13, HM00 (JS13 and HM00 quote [pt558u])"
+   },
+   "night_win_if": [
+    "hard-fail not worse, leave-one-DJ-out and per DJ",
+    "zero new hard fails on the Sirenity fresh mix, once ingested",
+    "the listener's ear picks favouring it, already 5/5 (a contrary new pref would stop promotion; the nightly does not re-run A/B)",
+    "pro-match allowed to sit within the mix-grouped bootstrap CI of the floor (CI of arm minus floor includes 0 on held-out and train). Not required to beat the 34.07 / 32.40 means."
+   ],
+   "do_not": "write rules.json, change defaults, reuse a spent fresh mix, or cap/rein in last-drop-end exits"
+  },
+  {
+   "name": "epg_stack",
+   "promotion": true,
+   "shadow": false,
+   "judge": "pro_match_within_floor_ci",
+   "delta": {
+    "EXITPOS": 1,
+    "EXITPOS_GATE": 1,
+    "EXITPOS_DROP": 1
+   },
+   "label": "Stacked EXITPOS_GATE + EXITPOS_DROP: each hook on the windows it owns. Drop takes last-drop-end exits first; if it is blocked (pro_outro or known hard fail), strict may take a post-drop earlier-outro exit. They never claim the same window.",
+   "flags_off_by_default": true,
+   "coherence": "Proven 2026-11-19: JS01/JS13/HM00/netsky__02 take drop; JS12 and alpha__03 take strict; HM45 stays default; theheshbesh__05 takes strict 208 (drop 192 is a known official hard fail and is blocked). Predicted 33-pair pro-match is drop plus JS12's +16.49 (train about 32.97, held-out 33.91). Not yet a full official 105-dev eval.",
+   "night_win_if": [
+    "same listening judge as epg_drop for pro-match (within the CI of the floor, not required to beat it)",
+    "hard-fail not worse, leave-one-DJ-out and per DJ",
+    "zero new hard fails on the Sirenity fresh mix, once ingested",
+    "the listener's ear picks on the drop-fade pattern remain in favour (already 5/5) and epg_strict's alpha__03 pref is kept"
+   ],
+   "do_not": "write rules.json, change defaults, or reuse a spent fresh mix"
+  },
+  {
+   "name": "djbal_cue_struct_compat",
+   "promotion": false,
+   "shadow": true,
+   "flags_off_by_default": true,
+   "wired": true,
+   "delta": {
+    "PICKER_STYLE_GATED": 1,
+    "PICKER_STYLE_GATED_MAP": "replica/picker_djbal_struct_compat_windows.json",
+    "PICKER_INJECT_CS": 1
+   },
+   "map": "replica/picker_djbal_struct_compat_windows.json",
+   "label": "Shadow arm for tomorrow night (replaces djbal_cue_sec_mix in slot 4; cap 6). 3-part fix trained on 843 dev only: (1) structure exit features replacing min_na=200 (drops_rem_after, drops_unstarted, mid-drop vs drop-end/breakdown, bars left, drop-2); (2) ranked shortlist K<=6 filtered at recreate time by blend compatibility (V, HB, R, both>=11, pen, drumclash) with fallback to base; (3) separate fast-cue gate for dcue<=17 using Track B intro thinness. Shadow only: do not promote or write rules.json.",
+   "already_scored_2026_11_25_pinned33": {
+    "v1_all": 33.4,
+    "v1_train": 32.98,
+    "v1_test": 34.14,
+    "v2_all": 34.63,
+    "v2_train": 34.95,
+    "v2_test": 34.08,
+    "floor_v1_all": 33.01,
+    "floor_v1_train": 32.4,
+    "floor_v1_test": 34.07,
+    "floor_v2_all": 33.89,
+    "floor_v2_train": 34.09,
+    "floor_v2_test": 33.53,
+    "delta_v1_vs_base": {
+     "all": [
+      0.39,
+      0.0,
+      1.15
+     ],
+     "train": [
+      0.58,
+      0.0,
+      1.73
+     ],
+     "test": [
+      0.07,
+      0.0,
+      0.21
+     ]
+    },
+    "delta_v2_vs_base": {
+     "all": [
+      0.74,
+      0.0,
+      2.03
+     ],
+     "train": [
+      0.85,
+      0.0,
+      2.56
+     ],
+     "test": [
+      0.55,
+      0.0,
+      1.65
+     ]
+    },
+    "n_picker_applied": 2,
+    "note": "Beats base on both train and test (v1+v2), zero regressions across all 33 pairs; 12/14 mapped candidates fell back to base via compat gate (both<11), while hybrid_minds_ukf__10 (+12.13 v1 / +17.94 v2) and held-out netsky_hospital_classics__06 (+0.85 v1 / +6.58 v2 at rank-2 bar 168) applied.",
+    "eval": "protrans/replica/picker_1125_struct_cv.json, protrans/replica/picker_1125_struct_pinned.json"
+   },
+   "do_not": "write rules.json, change defaults, set adopt_to_defaults true, or treat as a promotion arm"
+  },
+  {
+   "name": "early_exit",
+   "promotion": false,
+   "shadow": true,
+   "flags_off_by_default": true,
+   "wired": true,
+   "delta": {
+    "EARLY_EXIT": 1,
+    "PICKER_STYLE_GATED": 1,
+    "PICKER_STYLE_GATED_MAP": "replica/picker_early_exit_windows.json",
+    "PICKER_INJECT_CS": 1
+   },
+   "map": "replica/picker_early_exit_windows.json",
+   "label": "Shadow arm for n1126 (replaces struct_mid_tight in slot 5 of 6). Frozen ee_r6: EARLY_EXIT=1 blend shape (drop1-anchored bass swap, -14 dB hold under incoming drop, <=3 dB/bar gradual exit) + strict post-drop-1 breakdown picker trained strictly on 843 dev (LODO CV: exit 46.82->44.89, ec 37.13->34.34 CI [-3.84,-1.73], non-Kush ec 39.86->37.66 CI [-3.86,-0.38]). Shadow only: do not promote or write rules.json.",
+   "already_scored_2026_11_25_pinned33": {
+    "v1_all": 33.86,
+    "v1_train": 33.46,
+    "v1_test": 34.55,
+    "v2_all": 33.9,
+    "v2_train": 34.76,
+    "v2_test": 32.38,
+    "floor_v1_all": 33.01,
+    "floor_v1_train": 32.4,
+    "floor_v1_test": 34.07,
+    "floor_v2_all": 33.89,
+    "floor_v2_train": 34.09,
+    "floor_v2_test": 33.53,
+    "hard_fails": "6 -> 5 (beat_clash 2 -> 1, bass_hole 1 -> 1, pumping 3 -> 3)",
+    "play_time_arm_mean_sec": "265.5 -> 246.1 (pro 175.8)",
+    "n_applied": 5,
+    "eval": "protrans/replica/picker_1125_early_exit_cv.json, protrans/replica/picker_1125_early_exit_pinned.json"
+   },
+   "do_not": "write rules.json, change defaults, set adopt_to_defaults true, or treat as a promotion arm"
+  },
+  {
+   "name": "ee_r7",
+   "promotion": false,
+   "shadow": true,
+   "flags_off_by_default": true,
+   "wired": true,
+   "delta": {
+    "EARLY_EXIT": 1,
+    "PICKER_STYLE_GATED": 1,
+    "PICKER_STYLE_GATED_MAP": "replica/picker_early_exit_r7_windows.json",
+    "PICKER_INJECT_CS": 1
+   },
+   "map": "replica/picker_early_exit_r7_windows.json",
+   "label": "Shadow arm for n1126 (replaces weakest non-essential shadow arm thin_dropcue in slot 5 of 6; ee_r6 stays in slot 4). Structural early-exit candidate generator: (1) exit completes before outgoing track's next drop/section restart (e <= d_next), (2) deeper breakdown entry + shorter pre-drop overlap (kd=4..16, X=20..44) with 8-bar grid preference. First human blind win over safe outro on pola02. Shadow only; promotion requires 2 consecutive night wins + fresh-mix pass; do not write rules.json or change defaults.",
+   "already_scored_2026_11_25_pinned33": {
+    "v1_all": 33.16,
+    "v1_train": 32.98,
+    "v1_test": 33.49,
+    "v2_all": 33.35,
+    "v2_train": 34.24,
+    "v2_test": 31.78,
+    "floor_v1_all": 33.01,
+    "floor_v2_all": 33.89,
+    "hard_fails": "6 -> 5 (beat_clash 2 -> 1, bass_hole 1 -> 1, pumping 3 -> 3, incoming_vanish 0 -> 0)",
+    "n_applied": 4,
+    "n_picker_ee": 5,
+    "human_ab": "the listener blind-picked r7_ee over base on pola02 (log.jsonl 2026-11-25 8:51 PM ET)",
+    "eval": "protrans/replica/picker_1125_ee_r7_pinned.json"
+   },
+   "do_not": "write rules.json, change defaults, set adopt_to_defaults true, or treat as a promotion arm"
+  }
+ ],
+ "n1126_card_note": "n1126 has already run (2026-11-26). Its six-arm card is frozen in candidates and candidates_n1126. Do not edit that list to make room for n1127. The n1127 card lives in candidates_n1127 and is selected by nightly_card.card_for(\"n1127\") / nightly_hill_climb on 11-27, and by n1127_run.py. adopt_to_defaults stays false. Do not write rules.json.",
+ "candidates_n1127": [
+  {
+   "name": "epg_strict",
+   "promotion": true,
+   "shadow": false,
+   "judge": "not_worse_than_floor_mean",
+   "delta": {
+    "EXITPOS": 1,
+    "EXITPOS_GATE": 1
+   },
+   "label": "EXITPOS_GATE strict: last drop fully played before the blend starts",
+   "flags_off_by_default": true,
+   "already_scored_2026_11_19": {
+    "held_out": 34.07,
+    "train": 33.19,
+    "floor_held_out": 34.07,
+    "floor_train": 32.4,
+    "dev_changed": [
+     "alpha_rhythm_imZjEt78YXs__03",
+     "joe_syntax_hospital__12",
+     "theheshbesh_zHf8cC9ViuA__05"
+    ],
+    "hard_fails": "2 to 0 on the 3 changed dev pairs (default beat-clash on alpha_rhythm__03 and joe_syntax__12; theheshbesh__05 is a clean earlier-outro move at 208)",
+    "eval": "epg3_eval_1119.json / cs_epg3_1119",
+    "ear": "the listener preferred epg_strict on alpha_rhythm_imZjEt78YXs__03"
+   },
+   "night_win_if": [
+    "held-out mean not worse than the 34.07 floor",
+    "train mean not worse than the 32.40 floor",
+    "hard-fail not worse, leave-one-DJ-out and per DJ (pairs the default already fails are not counted against it)",
+    "zero new hard fails on the Sirenity fresh mix (for_night 2026-11-20 in fresh_mixes.json), once ingested"
+   ],
+   "do_not": "write rules.json, change defaults, or reuse a spent fresh mix",
+   "report_metrics": [
+    "v1",
+    "v2",
+    "hard_fail",
+    "drum_linger_bars",
+    "exit_lag_vs_pro"
+   ]
+  },
+  {
+   "name": "epg_drop",
+   "promotion": true,
+   "shadow": false,
+   "judge": "pro_match_within_floor_ci",
+   "delta": {
+    "EXITPOS": 1,
+    "EXITPOS_DROP": 1
+   },
+   "label": "EXITPOS_DROP: exit at the end of the last drop when drop 1 is in the blend, there is no hard fail, and the outro is quieter or thinner than the drop; block when pro data shows the outro carried the blend. Exiting at last-drop end is the behaviour the listener wants; do not rein it in.",
+   "flags_off_by_default": true,
+   "judge_change": "Deliberate change of judge made on the listener's direct listening, not a loosened threshold. See docs/PROCESS.md and promotion_criteria_1120.json.",
+   "already_scored_2026_11_19": {
+    "held_out": 33.91,
+    "train": 32.18,
+    "floor_held_out": 34.07,
+    "floor_train": 32.4,
+    "pro_match_delta_ci_mix_grouped_4000_seed_20261119": {
+     "held_out": {
+      "mean_delta": -0.161,
+      "ci": [
+       -1.743,
+       2.133
+      ],
+      "includes_zero": true
+     },
+     "train": {
+      "mean_delta": -0.222,
+      "ci": [
+       -1.281,
+       1.499
+      ],
+      "includes_zero": true
+     }
+    },
+    "hard_fail_with_gated_d": {
+     "delta": -0.125,
+     "ci": [
+      -0.296,
+      0.0
+     ],
+     "base": 4,
+     "arm": 1
+    },
+    "eval": "epgdrop-1119 / epgdrop_eval_1119.json / cs_epgdrop_1119",
+    "ear_picks": "5/5 on drop-fade exits; log.jsonl: JS01, netsky__02, JS13, HM00 (JS13 and HM00 quote [pt558u])"
+   },
+   "night_win_if": [
+    "hard-fail not worse, leave-one-DJ-out and per DJ",
+    "zero new hard fails on the Sirenity fresh mix, once ingested",
+    "the listener's ear picks favouring it, already 5/5 (a contrary new pref would stop promotion; the nightly does not re-run A/B)",
+    "pro-match allowed to sit within the mix-grouped bootstrap CI of the floor (CI of arm minus floor includes 0 on held-out and train). Not required to beat the 34.07 / 32.40 means."
+   ],
+   "do_not": "write rules.json, change defaults, reuse a spent fresh mix, or cap/rein in last-drop-end exits",
+   "report_metrics": [
+    "v1",
+    "v2",
+    "hard_fail",
+    "drum_linger_bars",
+    "exit_lag_vs_pro"
+   ]
+  },
+  {
+   "name": "epg_stack",
+   "promotion": true,
+   "shadow": false,
+   "judge": "pro_match_within_floor_ci",
+   "delta": {
+    "EXITPOS": 1,
+    "EXITPOS_GATE": 1,
+    "EXITPOS_DROP": 1
+   },
+   "label": "Stacked EXITPOS_GATE + EXITPOS_DROP: each hook on the windows it owns. Drop takes last-drop-end exits first; if it is blocked (pro_outro or known hard fail), strict may take a post-drop earlier-outro exit. They never claim the same window.",
+   "flags_off_by_default": true,
+   "coherence": "Proven 2026-11-19: JS01/JS13/HM00/netsky__02 take drop; JS12 and alpha__03 take strict; HM45 stays default; theheshbesh__05 takes strict 208 (drop 192 is a known official hard fail and is blocked). Predicted 33-pair pro-match is drop plus JS12's +16.49 (train about 32.97, held-out 33.91). Not yet a full official 105-dev eval.",
+   "night_win_if": [
+    "same listening judge as epg_drop for pro-match (within the CI of the floor, not required to beat it)",
+    "hard-fail not worse, leave-one-DJ-out and per DJ",
+    "zero new hard fails on the Sirenity fresh mix, once ingested",
+    "the listener's ear picks on the drop-fade pattern remain in favour (already 5/5) and epg_strict's alpha__03 pref is kept"
+   ],
+   "do_not": "write rules.json, change defaults, or reuse a spent fresh mix",
+   "report_metrics": [
+    "v1",
+    "v2",
+    "hard_fail",
+    "drum_linger_bars",
+    "exit_lag_vs_pro"
+   ]
+  },
+  {
+   "name": "ridegate_lock_pump",
+   "promotion": false,
+   "shadow": true,
+   "flags_off_by_default": true,
+   "wired": true,
+   "delta": {
+    "RIDEGATE": 1,
+    "RIDEGATE_LOCK": 1,
+    "RIDEGATE_PUMP": 1
+   },
+   "label": "Shadow arm for n1127: live RIDEGATE plus the lock preview (confident mid-blend lag above 150 ms with fewer than 4 drum-on-drum bars falls back to the default window) and the both-thin pump preview (T=6 dB, pro p95 10.80). Off by default. Do not write rules.json.",
+   "report_metrics": [
+    "v1",
+    "v2",
+    "hard_fail",
+    "drum_linger_bars",
+    "exit_lag_vs_pro"
+   ],
+   "judge": "held_out_mean_improves_and_hard_fails_not_worse"
+  },
+  {
+   "name": "ridegate_lock_pump_ee",
+   "promotion": false,
+   "shadow": true,
+   "flags_off_by_default": true,
+   "wired": true,
+   "delta": {
+    "RIDEGATE": 1,
+    "RIDEGATE_LOCK": 1,
+    "RIDEGATE_PUMP": 1,
+    "RIDEGATE_EE": 1
+   },
+   "label": "Shadow arm for n1127: same as ridegate_lock_pump, plus RIDEGATE_EE (keep the model mid-exit on a ride_pick revert when it is earlier and drum_linger does not exceed its threshold). Off by default. Do not write rules.json.",
+   "report_metrics": [
+    "v1",
+    "v2",
+    "hard_fail",
+    "drum_linger_bars",
+    "exit_lag_vs_pro"
+   ],
+   "judge": "held_out_mean_improves_and_hard_fails_not_worse"
+  },
+  {
+   "name": "profade_ex35",
+   "promotion": false,
+   "shadow": true,
+   "flags_off_by_default": true,
+   "wired": true,
+   "delta": {
+    "EARLY_EXIT": 1,
+    "PICKER_STYLE_GATED": 1,
+    "PICKER_STYLE_GATED_MAP": "replica/picker_early_exit_r7_windows.json",
+    "PICKER_INJECT_CS": 1,
+    "TAIL_EXIT": 6,
+    "PRO_FADE": 1,
+    "PRO_FADE_ENTRY_DB": -8.5,
+    "PRO_FADE_SHELF_DB": -10.0,
+    "PRO_FADE_EXIT_SLOPE": 3.5,
+    "PRO_FADE_HIGH_OFS": 7.0,
+    "PRO_FADE_BASS_CUT_DB": -24.0,
+    "PRO_FADE_RESPECT_EXIT": 1
+   },
+   "map": "replica/picker_early_exit_r7_windows.json",
+   "label": "Shadow arm for n1127: pro-fade ex35 (DJ-8). Frozen flags from replica/nightly_1125_work/profade_fit/n1127_ee_r7_ex35_shadow_spec.md: ee_r7 windows plus the ex35 fade (exit slope 3.5) with PRO_FADE_RESPECT_EXIT=1 so the fade stops at the early exit. Off by default. Do not write rules.json. Do not change defaults. TAIL_EXIT=6 is listed so the arm stays frozen if that default ever changes.",
+   "report_metrics": [
+    "v1",
+    "v2",
+    "hard_fail",
+    "drum_linger_bars",
+    "exit_lag_vs_pro"
+   ],
+   "judge": "held_out_mean_improves_and_hard_fails_not_worse",
+   "spec_ref": "replica/nightly_1125_work/profade_fit/n1127_ee_r7_ex35_shadow_spec.md"
+  }
+ ],
+ "n1127_card": {
+  "written": "2026-11-26 12:05 PM America/New_York",
+  "for_nightly": "n1127",
+  "adopt_to_defaults": false,
+  "flags_off_by_default": true,
+  "note": "n1127 six-arm card: the three epg promotion arms stay, and the three n1126 shadow slots (djbal_cue_struct_compat, early_exit, ee_r7) are replaced by ridegate_lock_pump, ridegate_lock_pump_ee, and profade_ex35. Cap stays 6. Each arm reports drum_linger_bars and exit lag vs the pro alongside v1/v2 and hard fails (see replica/nightly_card.py, used by n1127_run.py). All new flags stay off by default. Do not write rules.json.",
+  "arms": [
+   "epg_strict",
+   "epg_drop",
+   "epg_stack",
+   "ridegate_lock_pump",
+   "ridegate_lock_pump_ee",
+   "profade_ex35"
+  ]
+ },
+ "n1127_shadow_registered": "2026-11-26 12:05 PM America/New_York"
 }

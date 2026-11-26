@@ -17,7 +17,7 @@ import tail_exit as TE
 
 FLOOR = -24.0
 HOLD_DB = -14.0
-PRE_DROP_DB = -8.0   # incoming rises to -8 dB by bar ~4 so both decks are audible across the breakdown
+PRE_EXP = 1.8        # convex pre-drop fade-in exponent so early intro dips aren't exposed and stalled before drop1
 HOLD_RATE = 1.15     # dB / bar outgoing fade after drop1 -> -14 dB (~8.5 bars after k_drop), matching ~20-26 bar pro blend length
 RATE = 2.65          # dB / bar max outgoing rate (exit ramp), strictly under the 3.0 dB/bar rule
 RISE_CAP = 2.90      # dB / beat incoming rise, strictly under X1's 3.0 cap
@@ -125,13 +125,13 @@ def build_xfader(s, e, k_drop, hold_db=HOLD_DB, rate=RATE, sw_in=2.0, sw_out=3.0
 
     db_in_sw0 = _in_db(X_SW_IN)
     t_rise0 = s + 0.25
-    t_pre = min(c_in - 1.0, max(t_rise0 + 1.5, s + 4.0))
-    # Cap pre-drop rise rate strictly under RISE_CAP * 4 dB/bar
-    min_pre_bars = max(0.5, (PRE_DROP_DB - FLOOR) / (RISE_CAP * 4.0))
-    t_pre = min(c_in - 0.5, max(t_rise0 + min_pre_bars, t_pre))
+    dt_pre = max(c_in - t_rise0, 1e-6)
+    # Convex fade-in over [t_rise0, c_in] instead of jumping to -8 dB at bar 4 and stalling flat:
+    # avoids exposing an early intro hook that vanishes in the pre-drop build dip before Drop 1.
+    p_pre = min(PRE_EXP, max(1.0, 0.95 * RISE_CAP * 4.0 * dt_pre / max(db_in_sw0 - FLOOR, 1.0)))
 
     bars = set(float(b) for b in np.arange(s, e + 1e-9, STEP))
-    for pt in (s, t_rise0, t_pre, c_in, sw_c, c_out, t_hold, t_exit0, e):
+    for pt in (s, t_rise0, c_in, sw_c, c_out, t_hold, t_exit0, e):
         if s - 1e-9 <= pt <= e + 1e-9:
             bars.add(round(float(pt), 5))
     bars = sorted(bars)
@@ -143,13 +143,9 @@ def build_xfader(s, e, k_drop, hold_db=HOLD_DB, rate=RATE, sw_in=2.0, sw_out=3.0
         elif b <= t_rise0 + 1e-9:
             u = (b - s) / max(t_rise0 - s, 1e-9)
             x = u * x_floor_in
-        elif b <= t_pre + 1e-9:
-            u = (b - t_rise0) / max(t_pre - t_rise0, 1e-9)
-            db_in = FLOOR + u * (PRE_DROP_DB - FLOOR)
-            x = max(x_floor_in, min(X_SW_IN, _x_from_in(db_in)))
         elif b <= c_in + 1e-9:
-            u = (b - t_pre) / max(c_in - t_pre, 1e-9)
-            db_in = PRE_DROP_DB + u * (db_in_sw0 - PRE_DROP_DB)
+            u = np.clip((b - t_rise0) / dt_pre, 0.0, 1.0)
+            db_in = FLOOR + (u ** p_pre) * (db_in_sw0 - FLOOR)
             x = max(x_floor_in, min(X_SW_IN, _x_from_in(db_in)))
         elif b <= c_out + 1e-9:
             u = (b - c_in) / max(c_out - c_in, 1e-9)

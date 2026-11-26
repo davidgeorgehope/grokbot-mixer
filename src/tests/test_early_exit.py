@@ -234,3 +234,26 @@ def test_predict_dips_ignores_natural_breakdown_but_catches_engine_hole():
     loB_dead = np.full(100, -55.0)
     _, pld_hole = EE.predict_dips(hiA, loA_loud, hiB, loB_dead, wa, wb, pts, info)
     assert pld_hole > 32.0, f"real engine bass hole missed: {pld_hole}"
+
+
+def test_build_xfader_avoids_early_pre_drop_vanish_on_intro_dip():
+    """Regression for pola02_blocked_ee: an incoming intro hook followed by a quiet
+    pre-drop build dip must not jump to -8 dB at bar 4 and vanish before Drop 1."""
+    import hardcheck as HC
+    X = 40
+    xs_ee, info = EE.build_xfader(0.0, float(X), 16.0)
+    pts_x = [p[0] for p in xs_ee]
+    pts_y = [p[1] for p in xs_ee]
+    # Simulate pola02-like incoming track: intro hook bars 0..3 (-25.6 dB), pre-drop dip
+    # bars 4..14 (-29..-36.6 dB), Drop 1 from bar 16 (-16 dB) while Deck A sits at ~-23 dB.
+    srcB = np.full(X, -16.0)
+    srcB[:4] = [-28.0, -27.4, -27.5, -25.6]
+    srcB[4:16] = [-29.9, -29.1, -29.1, -29.8, -30.2, -29.4, -29.2, -32.1, -31.9, -35.6, -36.6, -34.7]
+    alA = np.full(X, -23.5)
+    alB = np.array([
+        float(srcB[k]) + 20.0 * np.log10(float(np.sin(np.interp(k + 0.5, pts_x, pts_y) * np.pi / 2.0)) + 1e-9)
+        for k in range(X)
+    ])
+    # Early bar 3 must stay tucked below audibility (-15 dB under Deck A), not teased then vanished
+    assert alB[3] < alA[3] - 18.0, f"bar 3 exposed too loud before pre-drop dip: alB={alB[3]:.1f} vs alA={alA[3]:.1f}"
+    assert HC.incoming_vanish(alB, alA, 0, X) == 0.0

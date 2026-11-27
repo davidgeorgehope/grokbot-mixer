@@ -1,0 +1,960 @@
+{
+ "variant": "lcb_1127",
+ "pro": {
+  "wilkinson_boomtown2026__33": 26.7,
+  "joe_syntax_hospital__01": 1.6,
+  "joe_syntax_hospital__08": 56.3,
+  "hybrid_minds_ukf__08": 26.1,
+  "hybrid_minds_ukf__11": 53.0,
+  "hybrid_minds_ukf__12": 48.5,
+  "hybrid_minds_ukf__19": 25.5,
+  "hybrid_minds_ukf__25": 32.9,
+  "hybrid_minds_ukf__45": 1.8,
+  "netsky_hospital_classics__02": 36.2,
+  "netsky_hospital_classics__06": 19.2,
+  "netsky_hospital_classics__17": 0.4,
+  "joe_syntax_hospital__11": 27.1,
+  "joe_syntax_hospital__12": 8.0,
+  "joe_syntax_hospital__13": 32.2,
+  "hybrid_minds_ukf__00": 78.9,
+  "hybrid_minds_ukf__09": 32.5,
+  "hybrid_minds_ukf__10": 39.1,
+  "hybrid_minds_ukf__28": 25.6,
+  "hybrid_minds_ukf__40": 9.0,
+  "joe_syntax_hospital__00": 41.4,
+  "joe_syntax_hospital__09": null,
+  "joe_syntax_hospital__14": 59.7,
+  "hybrid_minds_ukf__13": 85.9,
+  "hybrid_minds_ukf__23": 60.5,
+  "netsky_hospital_classics__15": 20.6,
+  "netsky_hospital_classics__23": 68.3,
+  "maduk_liquicity_lunar2025__02": 35.6,
+  "maduk_liquicity_lunar2025__03": 15.4,
+  "maduk_liquicity_lunar2025__05": 45.8,
+  "pola_bryson_puzzlewood__00": 59.5,
+  "pola_bryson_puzzlewood__02": 20.2,
+  "pola_bryson_puzzlewood__04": 41.3
+ },
+ "pro_p95": 73.1,
+ "summary": {
+  "clean": {
+   "n": 33,
+   "flag": 0.273,
+   "median_ms": 41.6
+  },
+  "clash60": {
+   "n": 33,
+   "flag": 0.364,
+   "median_ms": 58.4
+  },
+  "clash110": {
+   "n": 33,
+   "flag": 0.364,
+   "median_ms": 57.6
+  },
+  "hole4": {
+   "n": 33,
+   "flag": 0.242,
+   "median_ms": 41.8
+  },
+  "hole8": {
+   "n": 33,
+   "flag": 0.273,
+   "median_ms": 42.6
+  }
+ },
+ "rows": {
+  "hybrid_minds_ukf__00": {
+   "clean": {
+    "dphase": 84.4,
+    "n": 10,
+    "flag": true
+   },
+   "clash60": {
+    "dphase": 26.7,
+    "n": 10,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 22.7,
+    "n": 10,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 84.4,
+    "n": 10,
+    "flag": true
+   },
+   "hole8": {
+    "dphase": 84.4,
+    "n": 10,
+    "flag": true
+   }
+  },
+  "hybrid_minds_ukf__08": {
+   "clean": {
+    "dphase": 28.4,
+    "n": 7,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 42.2,
+    "n": 7,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 139.6,
+    "n": 7,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 28.4,
+    "n": 7,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 28.4,
+    "n": 7,
+    "flag": false
+   }
+  },
+  "hybrid_minds_ukf__09": {
+   "clean": {
+    "dphase": null,
+    "n": 0,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": null,
+    "n": 0,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": null,
+    "n": 0,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": null,
+    "n": 0,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": null,
+    "n": 0,
+    "flag": false
+   }
+  },
+  "hybrid_minds_ukf__10": {
+   "clean": {
+    "dphase": 60.9,
+    "n": 9,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 9.5,
+    "n": 9,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 30.0,
+    "n": 9,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 60.9,
+    "n": 9,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 60.9,
+    "n": 9,
+    "flag": false
+   }
+  },
+  "hybrid_minds_ukf__11": {
+   "clean": {
+    "dphase": 82.2,
+    "n": 4,
+    "flag": true
+   },
+   "clash60": {
+    "dphase": 111.6,
+    "n": 4,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 57.6,
+    "n": 4,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 82.2,
+    "n": 4,
+    "flag": true
+   },
+   "hole8": {
+    "dphase": 82.2,
+    "n": 4,
+    "flag": true
+   }
+  },
+  "hybrid_minds_ukf__12": {
+   "clean": {
+    "dphase": 30.8,
+    "n": 7,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 82.3,
+    "n": 7,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 146.2,
+    "n": 7,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 30.8,
+    "n": 7,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 30.8,
+    "n": 7,
+    "flag": false
+   }
+  },
+  "hybrid_minds_ukf__13": {
+   "clean": {
+    "dphase": 22.6,
+    "n": 10,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 84.0,
+    "n": 10,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 121.2,
+    "n": 10,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 22.6,
+    "n": 10,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 22.6,
+    "n": 10,
+    "flag": false
+   }
+  },
+  "hybrid_minds_ukf__19": {
+   "clean": {
+    "dphase": 84.5,
+    "n": 10,
+    "flag": true
+   },
+   "clash60": {
+    "dphase": 89.9,
+    "n": 10,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 33.0,
+    "n": 10,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 84.6,
+    "n": 10,
+    "flag": true
+   },
+   "hole8": {
+    "dphase": 80.4,
+    "n": 9,
+    "flag": true
+   }
+  },
+  "hybrid_minds_ukf__23": {
+   "clean": {
+    "dphase": 7.2,
+    "n": 7,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 65.4,
+    "n": 7,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 117.5,
+    "n": 7,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 7.3,
+    "n": 7,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 7.2,
+    "n": 7,
+    "flag": false
+   }
+  },
+  "hybrid_minds_ukf__25": {
+   "clean": {
+    "dphase": 3.6,
+    "n": 10,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 59.7,
+    "n": 10,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 106.8,
+    "n": 10,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 3.6,
+    "n": 10,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 3.6,
+    "n": 10,
+    "flag": false
+   }
+  },
+  "hybrid_minds_ukf__28": {
+   "clean": {
+    "dphase": 2.3,
+    "n": 9,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 53.9,
+    "n": 9,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 107.0,
+    "n": 9,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 2.3,
+    "n": 9,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 2.3,
+    "n": 9,
+    "flag": false
+   }
+  },
+  "hybrid_minds_ukf__40": {
+   "clean": {
+    "dphase": 71.5,
+    "n": 9,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 2.2,
+    "n": 9,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 39.6,
+    "n": 9,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 71.5,
+    "n": 9,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 71.5,
+    "n": 9,
+    "flag": false
+   }
+  },
+  "hybrid_minds_ukf__45": {
+   "clean": {
+    "dphase": 34.4,
+    "n": 5,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 88.0,
+    "n": 5,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 68.2,
+    "n": 5,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 9.6,
+    "n": 5,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 54.7,
+    "n": 4,
+    "flag": false
+   }
+  },
+  "joe_syntax_hospital__00": {
+   "clean": {
+    "dphase": 44.9,
+    "n": 11,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 54.4,
+    "n": 11,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 5.6,
+    "n": 11,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 44.9,
+    "n": 11,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 44.9,
+    "n": 11,
+    "flag": false
+   }
+  },
+  "joe_syntax_hospital__01": {
+   "clean": {
+    "dphase": 66.3,
+    "n": 8,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 37.9,
+    "n": 8,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 12.2,
+    "n": 8,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 66.3,
+    "n": 8,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 66.3,
+    "n": 8,
+    "flag": false
+   }
+  },
+  "joe_syntax_hospital__08": {
+   "clean": {
+    "dphase": 117.9,
+    "n": 10,
+    "flag": true
+   },
+   "clash60": {
+    "dphase": 80.6,
+    "n": 10,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 30.9,
+    "n": 10,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 117.9,
+    "n": 10,
+    "flag": true
+   },
+   "hole8": {
+    "dphase": 114.5,
+    "n": 10,
+    "flag": true
+   }
+  },
+  "joe_syntax_hospital__09": {
+   "clean": {
+    "dphase": 75.0,
+    "n": 9,
+    "flag": true
+   },
+   "clash60": {
+    "dphase": 60.8,
+    "n": 9,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 62.1,
+    "n": 9,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 72.7,
+    "n": 9,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 75.0,
+    "n": 9,
+    "flag": true
+   }
+  },
+  "joe_syntax_hospital__11": {
+   "clean": {
+    "dphase": 31.2,
+    "n": 8,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 22.1,
+    "n": 8,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 7.8,
+    "n": 8,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 31.2,
+    "n": 8,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 31.2,
+    "n": 8,
+    "flag": false
+   }
+  },
+  "joe_syntax_hospital__12": {
+   "clean": {
+    "dphase": 156.2,
+    "n": 8,
+    "flag": true
+   },
+   "clash60": {
+    "dphase": 123.7,
+    "n": 8,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 75.3,
+    "n": 8,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 156.2,
+    "n": 8,
+    "flag": true
+   },
+   "hole8": {
+    "dphase": 156.2,
+    "n": 8,
+    "flag": true
+   }
+  },
+  "joe_syntax_hospital__13": {
+   "clean": {
+    "dphase": 92.1,
+    "n": 10,
+    "flag": true
+   },
+   "clash60": {
+    "dphase": 101.4,
+    "n": 10,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 44.2,
+    "n": 10,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 91.9,
+    "n": 10,
+    "flag": true
+   },
+   "hole8": {
+    "dphase": 92.1,
+    "n": 10,
+    "flag": true
+   }
+  },
+  "joe_syntax_hospital__14": {
+   "clean": {
+    "dphase": 3.3,
+    "n": 12,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 80.3,
+    "n": 12,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 39.7,
+    "n": 12,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 3.3,
+    "n": 12,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 3.3,
+    "n": 12,
+    "flag": false
+   }
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "clean": {
+    "dphase": 41.6,
+    "n": 11,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 58.4,
+    "n": 11,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 41.0,
+    "n": 11,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 41.8,
+    "n": 11,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 41.6,
+    "n": 11,
+    "flag": false
+   }
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "clean": {
+    "dphase": 95.2,
+    "n": 12,
+    "flag": true
+   },
+   "clash60": {
+    "dphase": 40.7,
+    "n": 12,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 6.5,
+    "n": 12,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 95.2,
+    "n": 12,
+    "flag": true
+   },
+   "hole8": {
+    "dphase": 95.2,
+    "n": 12,
+    "flag": true
+   }
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "clean": {
+    "dphase": 25.0,
+    "n": 9,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 24.0,
+    "n": 9,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 29.6,
+    "n": 9,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 25.0,
+    "n": 9,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 25.0,
+    "n": 9,
+    "flag": false
+   }
+  },
+  "netsky_hospital_classics__02": {
+   "clean": {
+    "dphase": 42.6,
+    "n": 8,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 86.8,
+    "n": 8,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 97.7,
+    "n": 7,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 42.6,
+    "n": 8,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 42.6,
+    "n": 8,
+    "flag": false
+   }
+  },
+  "netsky_hospital_classics__06": {
+   "clean": {
+    "dphase": 103.7,
+    "n": 10,
+    "flag": true
+   },
+   "clash60": {
+    "dphase": 68.8,
+    "n": 10,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 17.2,
+    "n": 10,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 103.7,
+    "n": 10,
+    "flag": true
+   },
+   "hole8": {
+    "dphase": 103.7,
+    "n": 10,
+    "flag": true
+   }
+  },
+  "netsky_hospital_classics__15": {
+   "clean": {
+    "dphase": 22.7,
+    "n": 9,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 92.8,
+    "n": 9,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 68.6,
+    "n": 9,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 22.7,
+    "n": 9,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 23.2,
+    "n": 9,
+    "flag": false
+   }
+  },
+  "netsky_hospital_classics__17": {
+   "clean": {
+    "dphase": 9.9,
+    "n": 9,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 53.9,
+    "n": 9,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 109.5,
+    "n": 9,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 9.9,
+    "n": 9,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 9.9,
+    "n": 9,
+    "flag": false
+   }
+  },
+  "netsky_hospital_classics__23": {
+   "clean": {
+    "dphase": 5.9,
+    "n": 9,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 53.5,
+    "n": 9,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 98.2,
+    "n": 9,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 5.4,
+    "n": 8,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 5.2,
+    "n": 8,
+    "flag": false
+   }
+  },
+  "pola_bryson_puzzlewood__00": {
+   "clean": {
+    "dphase": 12.0,
+    "n": 11,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 28.0,
+    "n": 11,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 71.0,
+    "n": 10,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 12.0,
+    "n": 11,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 12.0,
+    "n": 11,
+    "flag": false
+   }
+  },
+  "pola_bryson_puzzlewood__02": {
+   "clean": {
+    "dphase": 47.1,
+    "n": 10,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 12.2,
+    "n": 10,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 9.2,
+    "n": 10,
+    "flag": false
+   },
+   "hole4": {
+    "dphase": 47.1,
+    "n": 10,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 47.1,
+    "n": 10,
+    "flag": false
+   }
+  },
+  "pola_bryson_puzzlewood__04": {
+   "clean": {
+    "dphase": 1.3,
+    "n": 7,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 77.3,
+    "n": 7,
+    "flag": true
+   },
+   "clash110": {
+    "dphase": 80.2,
+    "n": 7,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 1.4,
+    "n": 7,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 1.3,
+    "n": 7,
+    "flag": false
+   }
+  },
+  "wilkinson_boomtown2026__33": {
+   "clean": {
+    "dphase": 71.4,
+    "n": 12,
+    "flag": false
+   },
+   "clash60": {
+    "dphase": 17.9,
+    "n": 12,
+    "flag": false
+   },
+   "clash110": {
+    "dphase": 78.1,
+    "n": 12,
+    "flag": true
+   },
+   "hole4": {
+    "dphase": 71.4,
+    "n": 12,
+    "flag": false
+   },
+   "hole8": {
+    "dphase": 71.4,
+    "n": 12,
+    "flag": false
+   }
+  }
+ },
+ "doc": "n1127 priority (a): beat-clash detector candidate 'deck grid phase'. The official clash measure cross-correlates deck A against deck B\n(two different tracks) bar by bar and only answers when >=3 bars agree, so it is silent on most pairs (it caught 9% / 15% of injected\n60 / 110 ms deck delays on tonight's default). Candidate: measure each deck's OWN beat phase (high-band onset flux 2-10 kHz, folded on\nthe 174 BPM beat, circular mean) per bar where both decks are audible (> ref - 20 dB), take the per-bar A-minus-B phase difference\n(wrapped to +-half a beat), median over bars. Threshold = pro p95 of the same number on the 33 pro clips, using the source tracks\nplaced on the pro mix (diagnose_gap.place_source + refine_lag: the pro's own beatmatch) over the pro overlap [entry, gone).\nDetection = injected clash60 / clash110 on tonight's default renders (lcb_1127), false alarm = clean and hole4 / hole8. usage: hcphase_1127.py <variant>"
+}

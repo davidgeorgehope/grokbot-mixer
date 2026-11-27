@@ -1,0 +1,479 @@
+{
+  "tag": "n1127",
+  "baseline": {
+    "source": "lcb_1127 (current ridegate+LOCK+PUMP default, 33 official pairs)",
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 34.17,
+    "test_mean": 33.91,
+    "all_mean": 34.07,
+    "scorer_version": "gain-events-v3-beatid",
+    "bass_stem_similarity": {
+      "train": 49.74,
+      "test": 46.8,
+      "all": 48.67,
+      "direction": "higher_is_better"
+    },
+    "exit_lag_vs_pro": {
+      "n": 33,
+      "mean": 37.9,
+      "med": 44.6,
+      "min": -77.7,
+      "max": 146.6
+    },
+    "note": "Official v1/v2 are higher-is-better. Bass figure is the official score bass-stem similarity, also higher-is-better, not an error (MAE)."
+  },
+  "baseline_v2": {
+    "version": "official_v2-place8c",
+    "source": "research_1126/v2_lcb_1127.jsonl",
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 33.93,
+    "test_mean": 31.72,
+    "all_mean": 33.12,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 32.62,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 36.05,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 29.77,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 25.56,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 42.73,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 35.39,
+        "split": "test"
+      }
+    }
+  },
+  "baseline_hardcheck": {
+    "n": 33,
+    "hard_fail": 3,
+    "beat_clash": 0,
+    "bass_hole": 1,
+    "pumping": 2,
+    "hc_errors": 0,
+    "fails": [
+      {
+        "id": "hybrid_minds_ukf__23",
+        "beat_clash": false,
+        "residual_lag_ms": null,
+        "halfbeat_fail": false,
+        "bass_hole": false,
+        "lows_dip_db": 7.3,
+        "pumping": true,
+        "pump_db": 5.1
+      },
+      {
+        "id": "hybrid_minds_ukf__40",
+        "beat_clash": false,
+        "residual_lag_ms": null,
+        "halfbeat_fail": false,
+        "bass_hole": false,
+        "lows_dip_db": 27.1,
+        "pumping": true,
+        "pump_db": 5.0
+      },
+      {
+        "id": "pola_bryson_puzzlewood__00",
+        "beat_clash": false,
+        "residual_lag_ms": null,
+        "halfbeat_fail": false,
+        "bass_hole": true,
+        "lows_dip_db": 45.4,
+        "pumping": false,
+        "pump_db": 1.7
+      }
+    ]
+  },
+  "base_rules": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp. BLEND_LOCK (2026-11-17 RCA) is on by default: incoming-only lock when loud overlap has a confident 15-150 ms lag. RIDEGATE+RIDEGATE_LOCK+RIDEGATE_PUMP (2026-11-26): on by default \u2014 live ridegate with lock and both-thin pump previews. RIDEGATE_EE and LINGER_GUARD stay off. Rollback: RIDEGATE_OFF=1 (or git revert of this promotion; see docs/PROMOTION_RIDEGATE_2026-11-26.md).",
+    "FADE": "long",
+    "BASS_SWAP_BARS": 3,
+    "HIGH_OFS": 8,
+    "TAIL_EXIT": 6,
+    "RIDEGATE": 1,
+    "RIDEGATE_LOCK": 1,
+    "RIDEGATE_PUMP": 1
+  },
+  "vs_n1126_old_default": {
+    "note": "n1126 hill_climb baseline was the pre-promotion engine default (ridegate off). Tonight's baseline is the shipped ridegate default.",
+    "n1126_v1": {
+      "train": 33.3,
+      "test": 33.92
+    },
+    "n1127_ridegate_default_v1": {
+      "train": 34.17,
+      "test": 33.91
+    },
+    "n1126_official_v2": {
+      "train": 34.84,
+      "test": 32.15,
+      "all": 33.86
+    },
+    "n1127_ridegate_default_official_v2": {
+      "train": 33.93,
+      "test": 31.72,
+      "all": 33.12
+    },
+    "n1126_hard_fail": 5,
+    "n1127_hard_fail": 3,
+    "verdict": "No reason to revert the ridegate default. Official v1 train is up, held-out v1 is flat, hard fails 5 -> 3. Official v2 on the 33 official pairs is a bit lower (train -0.91, held-out -0.43); that is a known official-set cost, not a new failure of the already-shipped default."
+  },
+  "card_shadows_not_rendered": {
+    "listed_on_n1127_card": [
+      "epg_strict",
+      "epg_drop",
+      "epg_stack",
+      "ridegate_lock_pump_ee",
+      "profade_ex35"
+    ],
+    "reason": "Tonight's render job (render-n1127) scored the current default plus the two drum-clash landing-fade arms. The 12:55 PM shadow card was not run. Wrap-up does not rerun those jobs."
+  },
+  "tried": [
+    {
+      "name": "dclash_land6",
+      "delta": {
+        "DRUMCLASH": 1,
+        "note": "DRUMCLASH landing-fade arm 6, rendered as n27d6"
+      },
+      "train_mean": 33.94,
+      "test_mean": 33.91,
+      "all_mean": 33.93,
+      "bass_stem_similarity": {
+        "train": 49.67,
+        "test": 46.8,
+        "all": 48.63,
+        "direction": "higher_is_better"
+      },
+      "kept": false,
+      "promotion": false,
+      "night_win": false,
+      "shadow": true,
+      "official_v2": "not_scored_this_night",
+      "why": "Official v1 train 34.17 -> 33.94 (delta -0.23, mix-grouped CI [-0.304, -0.178], excludes 0). Held-out v1 unchanged at 33.91. Official v2 was not scored for this arm; the only two pairs that moved already lost on v1 and picked up new official clash fails, so v2 would not change the verdict. Hard fails 3 -> 5 (new clash on hybrid_minds_ukf__08 and joe_syntax_hospital__08). Same windows as the ridegate default, so exit lag vs the pro is unchanged (mean 37.9). Predicted drum linger is unchanged for the same reason. Bass-stem similarity 48.67 -> 48.63. land6 and land7 rendered identically on all 33 pairs tonight.",
+      "v1_ci": {
+        "train": {
+          "n": 21,
+          "n_mix": 2,
+          "mean_delta": -0.226,
+          "ci": [
+            -0.304,
+            -0.178
+          ],
+          "includes_zero": false
+        },
+        "test": {
+          "n": 12,
+          "n_mix": 4,
+          "mean_delta": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "includes_zero": true
+        }
+      },
+      "hardcheck": {
+        "n": 33,
+        "hard_fail": 5,
+        "beat_clash": 2,
+        "bass_hole": 1,
+        "pumping": 2,
+        "hc_errors": 0,
+        "fails": [
+          {
+            "id": "hybrid_minds_ukf__08",
+            "beat_clash": true,
+            "residual_lag_ms": 37.73242630385487,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 45.3,
+            "pumping": false,
+            "pump_db": 0.9
+          },
+          {
+            "id": "hybrid_minds_ukf__23",
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 7.3,
+            "pumping": true,
+            "pump_db": 5.1
+          },
+          {
+            "id": "hybrid_minds_ukf__40",
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 27.1,
+            "pumping": true,
+            "pump_db": 5.0
+          },
+          {
+            "id": "joe_syntax_hospital__08",
+            "beat_clash": true,
+            "residual_lag_ms": -92.87981859410431,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 14.0,
+            "pumping": false,
+            "pump_db": 2.9
+          },
+          {
+            "id": "pola_bryson_puzzlewood__00",
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": true,
+            "lows_dip_db": 45.4,
+            "pumping": false,
+            "pump_db": 1.7
+          }
+        ]
+      },
+      "rendered_pairs": 33,
+      "exit_lag_vs_pro": {
+        "n": 33,
+        "mean": 37.9,
+        "med": 44.6
+      },
+      "drum_linger_bars": "windows_identical_to_baseline",
+      "changed_pairs": [
+        {
+          "id": "joe_syntax_hospital__08",
+          "v1_delta": -2.43,
+          "v1": [
+            35.23,
+            32.8
+          ],
+          "new_fail": "beat_clash"
+        },
+        {
+          "id": "hybrid_minds_ukf__08",
+          "v1_delta": -2.31,
+          "v1": [
+            42.98,
+            40.67
+          ],
+          "new_fail": "beat_clash"
+        }
+      ]
+    },
+    {
+      "name": "dclash_land7",
+      "delta": {
+        "DRUMCLASH": 1,
+        "note": "DRUMCLASH+RISK+LAND+PLAN_LAND, rendered as n27d7; identical to land6 on this 33-pair set"
+      },
+      "train_mean": 33.94,
+      "test_mean": 33.91,
+      "all_mean": 33.93,
+      "bass_stem_similarity": {
+        "train": 49.67,
+        "test": 46.8,
+        "all": 48.63,
+        "direction": "higher_is_better"
+      },
+      "kept": false,
+      "promotion": false,
+      "night_win": false,
+      "shadow": true,
+      "official_v2": "not_scored_this_night",
+      "why": "Official v1 train 34.17 -> 33.94 (delta -0.23, mix-grouped CI [-0.304, -0.178], excludes 0). Held-out v1 unchanged at 33.91. Official v2 was not scored for this arm; the only two pairs that moved already lost on v1 and picked up new official clash fails, so v2 would not change the verdict. Hard fails 3 -> 5 (new clash on hybrid_minds_ukf__08 and joe_syntax_hospital__08). Same windows as the ridegate default, so exit lag vs the pro is unchanged (mean 37.9). Predicted drum linger is unchanged for the same reason. Bass-stem similarity 48.67 -> 48.63. land6 and land7 rendered identically on all 33 pairs tonight.",
+      "v1_ci": {
+        "train": {
+          "n": 21,
+          "n_mix": 2,
+          "mean_delta": -0.226,
+          "ci": [
+            -0.304,
+            -0.178
+          ],
+          "includes_zero": false
+        },
+        "test": {
+          "n": 12,
+          "n_mix": 4,
+          "mean_delta": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ],
+          "includes_zero": true
+        }
+      },
+      "hardcheck": {
+        "n": 33,
+        "hard_fail": 5,
+        "beat_clash": 2,
+        "bass_hole": 1,
+        "pumping": 2,
+        "hc_errors": 0,
+        "fails": [
+          {
+            "id": "hybrid_minds_ukf__08",
+            "beat_clash": true,
+            "residual_lag_ms": 37.73242630385487,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 45.3,
+            "pumping": false,
+            "pump_db": 0.9
+          },
+          {
+            "id": "hybrid_minds_ukf__23",
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 7.3,
+            "pumping": true,
+            "pump_db": 5.1
+          },
+          {
+            "id": "hybrid_minds_ukf__40",
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 27.1,
+            "pumping": true,
+            "pump_db": 5.0
+          },
+          {
+            "id": "joe_syntax_hospital__08",
+            "beat_clash": true,
+            "residual_lag_ms": -92.87981859410431,
+            "halfbeat_fail": false,
+            "bass_hole": false,
+            "lows_dip_db": 14.0,
+            "pumping": false,
+            "pump_db": 2.9
+          },
+          {
+            "id": "pola_bryson_puzzlewood__00",
+            "beat_clash": false,
+            "residual_lag_ms": null,
+            "halfbeat_fail": false,
+            "bass_hole": true,
+            "lows_dip_db": 45.4,
+            "pumping": false,
+            "pump_db": 1.7
+          }
+        ]
+      },
+      "rendered_pairs": 33,
+      "exit_lag_vs_pro": {
+        "n": 33,
+        "mean": 37.9,
+        "med": 44.6
+      },
+      "drum_linger_bars": "windows_identical_to_baseline",
+      "changed_pairs": [
+        {
+          "id": "joe_syntax_hospital__08",
+          "v1_delta": -2.43,
+          "v1": [
+            35.23,
+            32.8
+          ],
+          "new_fail": "beat_clash"
+        },
+        {
+          "id": "hybrid_minds_ukf__08",
+          "v1_delta": -2.31,
+          "v1": [
+            42.98,
+            40.67
+          ],
+          "new_fail": "beat_clash"
+        }
+      ]
+    }
+  ],
+  "picker": {
+    "n_dev": 1117,
+    "n_mixes": 135,
+    "n_djs": 32,
+    "reference": "ridegate (current default)",
+    "metric": "exit+cue bar error vs the pro (lower is better on this table only)",
+    "frozen_arms_qualify": false,
+    "iteration_arms_qualify": false,
+    "fresh_mix_registered": "alpha_rhythm_3k9pyJDKytE",
+    "fresh_mix_scored": false,
+    "majority_fold_choice": {
+      "outro_intro+drop_cue": 31,
+      "dropN_exit+drop_m8": 1,
+      "note": "This is the majority-choice baseline in each leave-one-DJ-out fold (the most common pro exit/cue tags in that fold's training DJs), not the model collapsing to one style. The KushSessions fold is the exception because leaving out 556 Kush rows changes the majority. Ridegate itself leaves mid-track on 35% of pairs."
+    },
+    "arms": {
+      "ridegate": {
+        "exit_cue": 34.45,
+        "vs_majority": "-1.74 [-3.20, -0.38]"
+      },
+      "rg_cond": {
+        "exit_cue": 35.14,
+        "vs_ridegate": "+0.69 [-1.27, +2.66]",
+        "verdict": "lost / CI includes 0"
+      },
+      "rg_ctx": {
+        "exit_cue": 33.4,
+        "vs_ridegate": "-1.05 [-3.03, +0.71]",
+        "verdict": "not a win (CI includes 0)"
+      },
+      "rg_cond_ctx": {
+        "exit_cue": 32.55,
+        "vs_ridegate": "-1.90 [-4.74, +0.82]",
+        "verdict": "not a win (CI includes 0)"
+      },
+      "rg_where": {
+        "exit_cue": 34.52,
+        "vs_ridegate": "+0.07 [-0.07, +0.23]",
+        "same_as_ridegate": 0.962,
+        "verdict": "not a win; almost the same as ridegate"
+      },
+      "rg_where_ctx": {
+        "exit_cue": 33.51,
+        "vs_ridegate": "-0.94 [-2.93, +0.87]",
+        "verdict": "not a win (CI includes 0)"
+      },
+      "rg_online_tf": {
+        "exit_cue": 32.67,
+        "vs_ridegate": "-1.79 [-2.77, -0.90]",
+        "verdict": "diagnostic only (uses the pro's earlier transitions)"
+      }
+    }
+  },
+  "kept": null,
+  "night_wins": [],
+  "picker_qualifying": [],
+  "promoted": false,
+  "rules_json_changed": false,
+  "ts": "2026-11-27T06:11:00-05:00",
+  "wrap_note": "Written at wrap-up from existing work files. Jobs were not rerun."
+}

@@ -10,6 +10,9 @@ Reuses picker_1125 / picker_1119b unchanged (features, LambdaMART rankers, margi
   rg_online_tf (DIAGNOSTIC): ride gate also sees the pro's strictly earlier transitions in the same mix.
 CTX (no pro decisions): transition index, tracklist-length proxy (max accepted idx + 1), idx fraction, bpm a / b / ratio, mean outgoing
 track length of strictly earlier transitions in the same mix and this track's length relative to it.
+ITERATION arms (registered 2:05 AM after the frozen arms lost on dev, before any fresh scoring; cannot count as frozen tonight):
+  rg_where: ridegate decides WHETHER to leave mid-track (unchanged); when it leaves, the stage-B leave-only ranker decides WHERE.
+  rg_where_ctx: same with CTX features (ride gate, stage A and stage B).
 usage: picker_1127.py cv | fresh"""
 import json, os, sys, collections, numpy as np
 H = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, H)
@@ -81,13 +84,14 @@ def ridegate_block(TR, TE, F, djs):
     jA = [B.gpick(r, 'E', s, tauE) for r, s in zip(TE, SE)]; jB = [pick_B(mB, r) for r in TE]
     jR = [Q.ride_pick(r, j, p, thR[1]) for r, j, p in zip(TE, jA, ride)]
     jC = [cond_pick(r, a, b, p, thC[1]) for r, a, b, p in zip(TE, jA, jB, ride)]
+    jW = [b if (j != r['Edix'] and Q.is_mid(r, r['E'][j]['v']) and b is not None) else j for r, j, b in zip(TE, jR, jB)]
     diag = dict(cfg=ciE, tau=tauE, theta_ride=thR[1], theta_cond=thC[1], inner_ride=round(float(thR[0]), 2), inner_cond=round(float(thC[0]), 2))
-    return jR, jC, ride, diag
+    return jR, jC, jW, ride, diag
 
 def train_predict(tr, te):
     djs = sorted({r['dj'] for r in tr}); trC, teC = with_ctx(tr), with_ctx(te)
-    jR, jC, ride, d0 = ridegate_block(tr, te, Q.RIDEF, djs)
-    jRc, jCc, ridec, d1 = ridegate_block(trC, teC, RIDEF_C, djs)
+    jR, jC, jW, ride, d0 = ridegate_block(tr, te, Q.RIDEF, djs)
+    jRc, jCc, jWc, ridec, d1 = ridegate_block(trC, teC, RIDEF_C, djs)
     # diagnostic: teacher-forced style in the ride gate (stage A unchanged)
     P_tf = {}
     for d in djs:
@@ -103,6 +107,8 @@ def train_predict(tr, te):
     D['rg_cond'] = [B.decide(r, j, c, r['dX']) for r, j, c in zip(te, jC, jc)]
     D['rg_ctx'] = [B.decide(r, j, c, r['dX']) for r, j, c in zip(te, jRc, jc)]
     D['rg_cond_ctx'] = [B.decide(r, j, c, r['dX']) for r, j, c in zip(te, jCc, jc)]
+    D['rg_where'] = [B.decide(r, j, c, r['dX']) for r, j, c in zip(te, jW, jc)]
+    D['rg_where_ctx'] = [B.decide(r, j, c, r['dX']) for r, j, c in zip(te, jWc, jc)]
     D['rg_online_tf'] = [B.decide(r, j, c, r['dX']) for r, j, c in zip(te, jT, jc)]
     D['default'] = [B.base_decisions(r, 'default') for r in te]; D['rule_drop_exit'] = [B.base_decisions(r, 'rule_drop_exit') for r in te]
     mb, md = Q.majority(tr, te); D['majority'] = md

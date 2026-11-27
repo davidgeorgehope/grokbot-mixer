@@ -1,0 +1,15 @@
+{
+ "n": 33,
+ "vetoed": 0,
+ "vetoed_ids": [],
+ "veto_share": 0.0,
+ "breakdown_exits": 0,
+ "breakdown_exit_ids": [],
+ "breakdown_exit_share": 0.0,
+ "base_vetoed": 0,
+ "base_veto_share": 0.0,
+ "base_breakdown_exits": 0,
+ "base_breakdown_exit_share": 0.0,
+ "vetoes": [],
+ "regression_breakdown_spread_to_nonvetoed": []
+}

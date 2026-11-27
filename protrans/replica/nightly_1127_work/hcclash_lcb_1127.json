@@ -1,0 +1,1287 @@
+{
+ "variant": "lcb_1127",
+ "summary": {
+  "clean": {
+   "n": 33,
+   "official": 0.0,
+   "wide": 0.03
+  },
+  "clash60": {
+   "n": 33,
+   "official": 0.091,
+   "wide": 0.121
+  },
+  "clash110": {
+   "n": 33,
+   "official": 0.152,
+   "wide": 0.061
+  },
+  "hole4": {
+   "n": 33,
+   "official": 0.03,
+   "wide": 0.03
+  },
+  "hole8": {
+   "n": 33,
+   "official": 0.182,
+   "wide": 0.061
+  }
+ },
+ "rows": {
+  "hybrid_minds_ukf__00": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__08": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__09": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 0,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 0,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 0,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 0,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 0,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__10": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__11": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 4,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 4,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 4,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 4,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 4,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__12": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__13": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__19": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": 145.12471655328798,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": true
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__23": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": -26.122448979591837,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": true
+   },
+   "clash110": {
+    "off": null,
+    "wide": -76.19047619047619,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": true
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__25": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": 150.9297052154195,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": true,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__28": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": 156.73469387755102,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": true
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": 157.46031746031747,
+    "wide": 158.1859410430839,
+    "n_bl": 9,
+    "off_flag": true,
+    "wide_flag": true
+   },
+   "hole8": {
+    "off": 157.46031746031747,
+    "wide": 158.1859410430839,
+    "n_bl": 9,
+    "off_flag": true,
+    "wide_flag": true
+   }
+  },
+  "hybrid_minds_ukf__40": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "hybrid_minds_ukf__45": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 5,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": -50.79365079365079,
+    "n_bl": 5,
+    "off_flag": false,
+    "wide_flag": true
+   },
+   "clash110": {
+    "off": null,
+    "wide": -104.48979591836735,
+    "n_bl": 5,
+    "off_flag": false,
+    "wide_flag": true
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 5,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 4,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "joe_syntax_hospital__00": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "joe_syntax_hospital__01": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "joe_syntax_hospital__08": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "joe_syntax_hospital__09": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "joe_syntax_hospital__11": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": -139.31972789115648,
+    "wide": -134.24036281179139,
+    "n_bl": 8,
+    "off_flag": true,
+    "wide_flag": true
+   }
+  },
+  "joe_syntax_hospital__12": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": -49.342403628117914,
+    "wide": -49.342403628117914,
+    "n_bl": 8,
+    "off_flag": true,
+    "wide_flag": true
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": -166.89342403628117,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": true,
+    "wide_flag": false
+   }
+  },
+  "joe_syntax_hospital__13": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": 66.75736961451247,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": true,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "joe_syntax_hospital__14": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": 34.82993197278912,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": true,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": 110.29478458049887,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": true,
+    "wide_flag": false
+   }
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "netsky_hospital_classics__02": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": -84.17233560090703,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": true,
+    "wide_flag": false
+   }
+  },
+  "netsky_hospital_classics__06": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": 8.70748299319728,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": 19.591836734693878,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": true,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": 21.768707482993197,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": true,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": 8.70748299319728,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": 47.1655328798186,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": true,
+    "wide_flag": false
+   }
+  },
+  "netsky_hospital_classics__15": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "netsky_hospital_classics__17": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": -110.29478458049887,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": true,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "netsky_hospital_classics__23": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 9,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 8,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "pola_bryson_puzzlewood__00": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 11,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "pola_bryson_puzzlewood__02": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": -65.3061224489796,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": true,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 10,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "pola_bryson_puzzlewood__04": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 7,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  },
+  "wilkinson_boomtown2026__33": {
+   "halfbeat_fail": false,
+   "clean": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash60": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "clash110": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole4": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   },
+   "hole8": {
+    "off": null,
+    "wide": null,
+    "n_bl": 12,
+    "off_flag": false,
+    "wide_flag": false
+   }
+  }
+ },
+ "doc": "n1127 priority (a): beat-clash detector check on injected faults (same injection protocol as hcinject_1126 / calib_v2: clash60/110 =\nincoming deck delayed 60/110 ms over the whole crop; hole4/hole8 = both decks' lows cut 50 dB for 4/8 bars mid-blend). Compares the\nOFFICIAL lag measure (finephase.measure_blend_lag: only the longest run of bars where both decks are loud and within 6 dB) with a WIDE\nvariant (same 1-bar offsets and the same finephase.confident_lag rule, but over every blend bar where both decks are within 20 dB of the\nreference level, i.e. the official 'bl' set). No threshold is changed: LOCK_MIN_MS 15, cluster 20 ms / span 25 ms / >=3 bars / majority\nall stay. Halfbeat flags are recorded separately (they come from the render, not from these arrays). usage: hcclash_1127.py <variant>"
+}

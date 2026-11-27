@@ -162,6 +162,14 @@
    "registered": "2026-11-26 1:26 AM ET by n1126, BEFORE any evaluation: random.Random(20261126).choice over the 16 mixes accepted by corpus_v2 after the 11-25 1:15 AM snapshot, not in the ledger, not Liquicity / Hospital Records / Liquicity Events, >= 6 transitions",
    "for_night": "2026-11-26",
    "spent_on": "2026-11-26 2:03 AM ET (n1126 frozen arms ridegate / ridegate_tail / ridegate_online_tf, decision-level, scored once; nightly_1126_work/picker_1126_fresh.json)"
+  },
+  {
+   "mix_id": "alpha_rhythm_3k9pyJDKytE",
+   "dj": "Alpha Rhythm",
+   "n": 7,
+   "spent": false,
+   "registered": "2026-11-27 1:18 AM ET by n1127, BEFORE any evaluation: random.Random(20261127).choice over the 10 mixes accepted by corpus_v2 after the 11-26 1:25 AM snapshot (rows 1168-1306), not in the ledger, not Liquicity / Hospital Records / Liquicity Events, >= 6 transitions",
+   "for_night": "2026-11-27"
   }
  ],
  "tried": [

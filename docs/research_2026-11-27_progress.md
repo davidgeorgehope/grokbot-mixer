@@ -1,0 +1,1 @@
+- 12:15 AM ET 11/27: started. Chosen: LEVEL_COMP (incoming pull-forward through predicted summed-level V-dips; src2/level_comp.py), since 3 of 5 default hard fails in n1126 are pumping. Job levelcomp-cohort-1127.

@@ -1,0 +1,720 @@
+{
+ "variant": "lcb_1127",
+ "pro_lows_hole": {
+  "wilkinson_boomtown2026__33": 20.66,
+  "joe_syntax_hospital__01": 0.54,
+  "joe_syntax_hospital__08": 6.03,
+  "hybrid_minds_ukf__08": 17.93,
+  "hybrid_minds_ukf__11": 0.0,
+  "hybrid_minds_ukf__12": 0.31,
+  "hybrid_minds_ukf__19": 33.41,
+  "hybrid_minds_ukf__25": 1.78,
+  "hybrid_minds_ukf__45": 9.21,
+  "netsky_hospital_classics__02": 24.21,
+  "netsky_hospital_classics__06": 2.3,
+  "netsky_hospital_classics__17": 16.95,
+  "joe_syntax_hospital__11": 8.15,
+  "joe_syntax_hospital__12": 0.28,
+  "joe_syntax_hospital__13": 3.36,
+  "hybrid_minds_ukf__00": 12.92,
+  "hybrid_minds_ukf__09": 18.48,
+  "hybrid_minds_ukf__10": 22.47,
+  "hybrid_minds_ukf__28": 10.85,
+  "hybrid_minds_ukf__40": 19.94,
+  "joe_syntax_hospital__00": 8.4,
+  "joe_syntax_hospital__09": 0.0,
+  "joe_syntax_hospital__14": 2.34,
+  "hybrid_minds_ukf__13": 11.01,
+  "hybrid_minds_ukf__23": 1.97,
+  "netsky_hospital_classics__15": 2.7,
+  "netsky_hospital_classics__23": 0.0,
+  "maduk_liquicity_lunar2025__02": 19.06,
+  "maduk_liquicity_lunar2025__03": 18.09,
+  "maduk_liquicity_lunar2025__05": 26.7,
+  "pola_bryson_puzzlewood__00": 23.02,
+  "pola_bryson_puzzlewood__02": 7.92,
+  "pola_bryson_puzzlewood__04": 7.63
+ },
+ "pro_p95": 25.21,
+ "official_p95": 45.34,
+ "summary": {
+  "clean": {
+   "n": 33,
+   "official": 0.03,
+   "new": 0.182
+  },
+  "hole4": {
+   "n": 33,
+   "official": 0.03,
+   "new": 0.758
+  },
+  "hole8": {
+   "n": 33,
+   "official": 0.03,
+   "new": 0.606
+  }
+ },
+ "rows": {
+  "hybrid_minds_ukf__00": {
+   "clean": {
+    "official_dip": 36.0,
+    "official_flag": false,
+    "lows_hole": 33.2,
+    "new_flag": true
+   },
+   "hole4": {
+    "official_dip": 36.0,
+    "official_flag": false,
+    "lows_hole": 11.8,
+    "new_flag": false
+   },
+   "hole8": {
+    "official_dip": 36.0,
+    "official_flag": false,
+    "lows_hole": 7.4,
+    "new_flag": false
+   }
+  },
+  "hybrid_minds_ukf__08": {
+   "clean": {
+    "official_dip": 45.3,
+    "official_flag": false,
+    "lows_hole": 18.0,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 45.3,
+    "official_flag": false,
+    "lows_hole": 26.3,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 45.3,
+    "official_flag": false,
+    "lows_hole": 18.5,
+    "new_flag": false
+   }
+  },
+  "hybrid_minds_ukf__09": {
+   "clean": {
+    "official_dip": 28.7,
+    "official_flag": false,
+    "lows_hole": 30.0,
+    "new_flag": true
+   },
+   "hole4": {
+    "official_dip": 28.7,
+    "official_flag": false,
+    "lows_hole": 39.2,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 28.7,
+    "official_flag": false,
+    "lows_hole": 7.3,
+    "new_flag": false
+   }
+  },
+  "hybrid_minds_ukf__10": {
+   "clean": {
+    "official_dip": 32.0,
+    "official_flag": false,
+    "lows_hole": 15.7,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 38.8,
+    "official_flag": false,
+    "lows_hole": 29.8,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 38.8,
+    "official_flag": false,
+    "lows_hole": 46.6,
+    "new_flag": true
+   }
+  },
+  "hybrid_minds_ukf__11": {
+   "clean": {
+    "official_dip": 28.2,
+    "official_flag": false,
+    "lows_hole": 17.6,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 34.1,
+    "official_flag": false,
+    "lows_hole": 31.2,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 34.7,
+    "official_flag": false,
+    "lows_hole": 36.1,
+    "new_flag": true
+   }
+  },
+  "hybrid_minds_ukf__12": {
+   "clean": {
+    "official_dip": 40.9,
+    "official_flag": false,
+    "lows_hole": 35.1,
+    "new_flag": true
+   },
+   "hole4": {
+    "official_dip": 41.6,
+    "official_flag": false,
+    "lows_hole": 36.1,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 42.3,
+    "official_flag": false,
+    "lows_hole": 20.4,
+    "new_flag": false
+   }
+  },
+  "hybrid_minds_ukf__13": {
+   "clean": {
+    "official_dip": 24.5,
+    "official_flag": false,
+    "lows_hole": 18.6,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 33.3,
+    "official_flag": false,
+    "lows_hole": 36.1,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 39.2,
+    "official_flag": false,
+    "lows_hole": 31.1,
+    "new_flag": true
+   }
+  },
+  "hybrid_minds_ukf__19": {
+   "clean": {
+    "official_dip": 22.5,
+    "official_flag": false,
+    "lows_hole": 21.7,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 31.9,
+    "official_flag": false,
+    "lows_hole": 29.0,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 31.9,
+    "official_flag": false,
+    "lows_hole": 17.4,
+    "new_flag": false
+   }
+  },
+  "hybrid_minds_ukf__23": {
+   "clean": {
+    "official_dip": 7.3,
+    "official_flag": false,
+    "lows_hole": 9.5,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 29.7,
+    "official_flag": false,
+    "lows_hole": 40.7,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 30.2,
+    "official_flag": false,
+    "lows_hole": 40.0,
+    "new_flag": true
+   }
+  },
+  "hybrid_minds_ukf__25": {
+   "clean": {
+    "official_dip": 27.5,
+    "official_flag": false,
+    "lows_hole": 34.5,
+    "new_flag": true
+   },
+   "hole4": {
+    "official_dip": 36.8,
+    "official_flag": false,
+    "lows_hole": 34.5,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 37.2,
+    "official_flag": false,
+    "lows_hole": 34.5,
+    "new_flag": true
+   }
+  },
+  "hybrid_minds_ukf__28": {
+   "clean": {
+    "official_dip": 17.9,
+    "official_flag": false,
+    "lows_hole": 17.4,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 19.8,
+    "official_flag": false,
+    "lows_hole": 17.3,
+    "new_flag": false
+   },
+   "hole8": {
+    "official_dip": 21.7,
+    "official_flag": false,
+    "lows_hole": 13.0,
+    "new_flag": false
+   }
+  },
+  "hybrid_minds_ukf__40": {
+   "clean": {
+    "official_dip": 27.1,
+    "official_flag": false,
+    "lows_hole": 20.9,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 33.0,
+    "official_flag": false,
+    "lows_hole": 24.1,
+    "new_flag": false
+   },
+   "hole8": {
+    "official_dip": 32.8,
+    "official_flag": false,
+    "lows_hole": 9.4,
+    "new_flag": false
+   }
+  },
+  "hybrid_minds_ukf__45": {
+   "clean": {
+    "official_dip": 31.6,
+    "official_flag": false,
+    "lows_hole": 15.6,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 31.6,
+    "official_flag": false,
+    "lows_hole": 32.1,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 31.6,
+    "official_flag": false,
+    "lows_hole": 29.7,
+    "new_flag": true
+   }
+  },
+  "joe_syntax_hospital__00": {
+   "clean": {
+    "official_dip": 9.0,
+    "official_flag": false,
+    "lows_hole": 6.6,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 23.6,
+    "official_flag": false,
+    "lows_hole": 47.8,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 23.6,
+    "official_flag": false,
+    "lows_hole": 42.7,
+    "new_flag": true
+   }
+  },
+  "joe_syntax_hospital__01": {
+   "clean": {
+    "official_dip": 26.5,
+    "official_flag": false,
+    "lows_hole": 12.3,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 29.6,
+    "official_flag": false,
+    "lows_hole": 29.8,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 30.1,
+    "official_flag": false,
+    "lows_hole": 29.0,
+    "new_flag": true
+   }
+  },
+  "joe_syntax_hospital__08": {
+   "clean": {
+    "official_dip": 14.0,
+    "official_flag": false,
+    "lows_hole": 8.0,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 33.7,
+    "official_flag": false,
+    "lows_hole": 54.4,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 35.3,
+    "official_flag": false,
+    "lows_hole": 48.5,
+    "new_flag": true
+   }
+  },
+  "joe_syntax_hospital__09": {
+   "clean": {
+    "official_dip": 2.9,
+    "official_flag": false,
+    "lows_hole": 6.0,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 19.3,
+    "official_flag": false,
+    "lows_hole": 44.2,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 19.9,
+    "official_flag": false,
+    "lows_hole": 48.5,
+    "new_flag": true
+   }
+  },
+  "joe_syntax_hospital__11": {
+   "clean": {
+    "official_dip": 17.8,
+    "official_flag": false,
+    "lows_hole": 14.9,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 23.7,
+    "official_flag": false,
+    "lows_hole": 31.1,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 23.8,
+    "official_flag": false,
+    "lows_hole": 19.2,
+    "new_flag": false
+   }
+  },
+  "joe_syntax_hospital__12": {
+   "clean": {
+    "official_dip": 25.2,
+    "official_flag": false,
+    "lows_hole": 17.5,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 31.1,
+    "official_flag": false,
+    "lows_hole": 41.5,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 32.5,
+    "official_flag": false,
+    "lows_hole": 40.2,
+    "new_flag": true
+   }
+  },
+  "joe_syntax_hospital__13": {
+   "clean": {
+    "official_dip": 9.3,
+    "official_flag": false,
+    "lows_hole": 6.2,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 22.8,
+    "official_flag": false,
+    "lows_hole": 38.4,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 25.0,
+    "official_flag": false,
+    "lows_hole": 45.1,
+    "new_flag": true
+   }
+  },
+  "joe_syntax_hospital__14": {
+   "clean": {
+    "official_dip": 22.9,
+    "official_flag": false,
+    "lows_hole": 18.4,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 22.9,
+    "official_flag": false,
+    "lows_hole": 37.9,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 23.0,
+    "official_flag": false,
+    "lows_hole": 18.0,
+    "new_flag": false
+   }
+  },
+  "maduk_liquicity_lunar2025__02": {
+   "clean": {
+    "official_dip": 6.9,
+    "official_flag": false,
+    "lows_hole": 10.8,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 20.0,
+    "official_flag": false,
+    "lows_hole": 47.3,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 20.6,
+    "official_flag": false,
+    "lows_hole": 43.3,
+    "new_flag": true
+   }
+  },
+  "maduk_liquicity_lunar2025__03": {
+   "clean": {
+    "official_dip": 21.7,
+    "official_flag": false,
+    "lows_hole": 6.2,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 28.4,
+    "official_flag": false,
+    "lows_hole": 23.6,
+    "new_flag": false
+   },
+   "hole8": {
+    "official_dip": 28.6,
+    "official_flag": false,
+    "lows_hole": 22.9,
+    "new_flag": false
+   }
+  },
+  "maduk_liquicity_lunar2025__05": {
+   "clean": {
+    "official_dip": 8.6,
+    "official_flag": false,
+    "lows_hole": 19.5,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 15.9,
+    "official_flag": false,
+    "lows_hole": 39.3,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 18.6,
+    "official_flag": false,
+    "lows_hole": 42.9,
+    "new_flag": true
+   }
+  },
+  "netsky_hospital_classics__02": {
+   "clean": {
+    "official_dip": 28.4,
+    "official_flag": false,
+    "lows_hole": 23.5,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 31.8,
+    "official_flag": false,
+    "lows_hole": 53.1,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 32.6,
+    "official_flag": false,
+    "lows_hole": 34.8,
+    "new_flag": true
+   }
+  },
+  "netsky_hospital_classics__06": {
+   "clean": {
+    "official_dip": 24.6,
+    "official_flag": false,
+    "lows_hole": 12.0,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 33.1,
+    "official_flag": false,
+    "lows_hole": 21.7,
+    "new_flag": false
+   },
+   "hole8": {
+    "official_dip": 33.8,
+    "official_flag": false,
+    "lows_hole": 20.0,
+    "new_flag": false
+   }
+  },
+  "netsky_hospital_classics__15": {
+   "clean": {
+    "official_dip": 35.8,
+    "official_flag": false,
+    "lows_hole": 15.3,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 39.0,
+    "official_flag": false,
+    "lows_hole": 24.1,
+    "new_flag": false
+   },
+   "hole8": {
+    "official_dip": 39.5,
+    "official_flag": false,
+    "lows_hole": 29.7,
+    "new_flag": true
+   }
+  },
+  "netsky_hospital_classics__17": {
+   "clean": {
+    "official_dip": 21.9,
+    "official_flag": false,
+    "lows_hole": 19.9,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 30.2,
+    "official_flag": false,
+    "lows_hole": 24.5,
+    "new_flag": false
+   },
+   "hole8": {
+    "official_dip": 30.8,
+    "official_flag": false,
+    "lows_hole": 20.6,
+    "new_flag": false
+   }
+  },
+  "netsky_hospital_classics__23": {
+   "clean": {
+    "official_dip": 9.2,
+    "official_flag": false,
+    "lows_hole": 11.4,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 27.2,
+    "official_flag": false,
+    "lows_hole": 45.2,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 28.4,
+    "official_flag": false,
+    "lows_hole": 30.9,
+    "new_flag": true
+   }
+  },
+  "pola_bryson_puzzlewood__00": {
+   "clean": {
+    "official_dip": 45.4,
+    "official_flag": true,
+    "lows_hole": 40.4,
+    "new_flag": true
+   },
+   "hole4": {
+    "official_dip": 45.4,
+    "official_flag": true,
+    "lows_hole": 40.4,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 45.4,
+    "official_flag": true,
+    "lows_hole": 42.5,
+    "new_flag": true
+   }
+  },
+  "pola_bryson_puzzlewood__02": {
+   "clean": {
+    "official_dip": 20.2,
+    "official_flag": false,
+    "lows_hole": 20.3,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 33.7,
+    "official_flag": false,
+    "lows_hole": 24.2,
+    "new_flag": false
+   },
+   "hole8": {
+    "official_dip": 34.8,
+    "official_flag": false,
+    "lows_hole": 23.8,
+    "new_flag": false
+   }
+  },
+  "pola_bryson_puzzlewood__04": {
+   "clean": {
+    "official_dip": 30.8,
+    "official_flag": false,
+    "lows_hole": 20.2,
+    "new_flag": false
+   },
+   "hole4": {
+    "official_dip": 38.1,
+    "official_flag": false,
+    "lows_hole": 31.6,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 38.1,
+    "official_flag": false,
+    "lows_hole": 26.1,
+    "new_flag": true
+   }
+  },
+  "wilkinson_boomtown2026__33": {
+   "clean": {
+    "official_dip": 27.5,
+    "official_flag": false,
+    "lows_hole": 34.0,
+    "new_flag": true
+   },
+   "hole4": {
+    "official_dip": 34.9,
+    "official_flag": false,
+    "lows_hole": 39.2,
+    "new_flag": true
+   },
+   "hole8": {
+    "official_dip": 36.9,
+    "official_flag": false,
+    "lows_hole": 37.2,
+    "new_flag": true
+   }
+  }
+ },
+ "doc": "n1127 priority (a): bass-hole detector recalibration candidate, from pro p95 and injected faults only (no hand thresholds).\nOfficial measure lows_dip = (max summed lows in the 2 bars before the blend) - (min summed lows anywhere in the blend). It also counts any\nplanned lows drop in the blend (breakdowns), so its pro p95 is 45.34 dB and it catches almost no injected 4/8-bar holes.\nCandidate 'lows_hole': width-aware V-dip of the summed lows inside the blend: for w in 1..8 bars, min(max of the 2 bars before, max of the\n2 bars after) - max over the w bars; take the largest. A hole that comes back is scored; a lows drop that never returns is not.\nThreshold = pro p95 of the same measure on the 33 pro clips over the pro overlap [entry, gone) (same windows as calib_pro).\nDetection = injected hole4 / hole8 on tonight's default renders (lcb_1127; same injection as hcinject); false alarm = clean renders.\nBand: summed lows below FC Hz (env HC_HOLE_FC, default 150 = official band; 90 = below the 150 Hz injection edge, where a 4th-order\n150 Hz low-pass leaks 150-300 Hz kick/bass harmonics into the official band and hides the cut).\nusage: HC_HOLE_FC=<hz> hchole_1127.py <variant>"
+}

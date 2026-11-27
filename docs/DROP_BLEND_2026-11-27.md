@@ -96,7 +96,7 @@ The only per-clip pro fade fits are `pro_curves_33.json`, which covers the offic
 
 ### Next steps (chunk 2+)
 
-1. On the home Mac, run `train_remote.sh train 32 4`, then `stab 32 4`, and re-measure churn. Target: ≤5 of 100 fresh flips after τ.
+1. On the home Mac, run `train_remote.sh train 32`, then `train_remote.sh stab 32`, and re-measure churn. Target: ≤5 of 100 fresh flips after τ.
 2. Rebalance the length label (bucket-match weight, or a separate length ranker conditioned on the chosen exit+cue), then re-run cv and eval.
 3. Wire `JOINT_PICKER=1` into `ridegate_live.maybe_apply`, keeping the lock and pump previews, and only for windows legal under `_legal_natural`. Render dev-27 and fresh with eval_gate against the current default, and score official v1/v2, hard fails and the 90 Hz holes. Spot-check audio.
 4. Fade: band-gain fits on dev pro clips, then a per-pair `PRO_FADE_*` regressor.

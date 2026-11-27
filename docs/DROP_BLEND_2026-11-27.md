@@ -53,3 +53,51 @@ Train a joint placement model instead of two independent rankers plus constants:
 ## Ship-it check
 
 Nothing was changed in the default, so there is no rollback to note. No A/B was rendered: no candidate change exists, and rendering the same default twice would give near-identical clips.
+
+## Build, chunk 1 (6:14–6:50 PM ET, 11-27): joint picker (`JOINT_PICKER`, not wired into render yet)
+
+the listener approved the proposal at 6:11 PM ET. Code: `protrans/replica/joint_picker.py` (export / cv / train / stab), `joint_eval.py` (decision-level eval), and `joint_work/train_remote.sh` (training on the home Mac).
+
+- **Joint candidates**: the existing exit and cue menus crossed with blend length 8, 16 or 32, giving about 465 legal triples per pair. The engine default is always candidate 0.
+- **Features**: what both tracks contain across the whole blend. That includes each deck's section mix, its section at every quarter of the blend, where each deck's next and previous boundary falls relative to the blend start and end, what B goes into after the blend, the A-vs-B section bass and energy levels, and the cross terms of A's drop and outro share against B's intro, drop and breakdown share. Nothing is style-coded.
+- **Labels**: exit relevance + cue relevance + 2 when the length bucket matches the pro's.
+- **Ensemble**: 8 LambdaMART seeds averaged. The model abstains to the default unless it wins by τ; τ = 1.0 was picked on 5-fold DJ-grouped dev CV. One DJ is 614 of the 1,001 dev rows, so one fold is large.
+- **Listener prefs**: rows weighted `5 × ramp(n)`. The ramp is 0 below 3 verdicts and reaches full weight at 6, so today's single verdict has weight 0.
+
+### Decision-level results (no renders yet)
+
+Placement error is the summed exit + cue error in bars, with boundary tolerance, lower is better. Dev is out-of-fold; fresh and the official 33 are out-of-sample. The locked holdout was not opened.
+
+| set | engine default | ridegate (current default) | joint | joint − ridegate, 95% CI |
+|---|---|---|---|---|
+| dev OOF (1001) | 71.5 | (in-sample, n/a) | 65.8 | — |
+| fresh (100) | 86.6 | 64.2 | 61.2 | −3.0 [−9.2, +3.0] |
+| official 33 | 99.1 | 78.5 | 75.6 | −2.9 [−15.1, +8.7] |
+
+Style shares, fresh: ridegate drop>drop 12%, drop>in 20%, out>drop 26%, out>in 42%. Joint: 16%, 21%, 25%, 38%. Pro: 24%, 6%, 23%, 47%. Drop-over-drop rises modestly toward the pro share, and no style dominates. Official 33: ridegate 9% drop>drop, joint 15%, pro 15%.
+
+Length shares, fresh: ridegate is 100% 16 bars. Joint is 57% 8, 42% 16 and 1% 32. Pro is 42% 8, 39% 16 and 19% 32. Length is now chosen per pair, but **32 is almost never picked**, and the length hit rate is lower than always-16 (0.35 vs 0.40 on fresh). The length label weight needs work.
+
+Stability, with one duplicated dev row added and fresh argmax picks counted, before τ abstention:
+
+- single joint model: 47, 47 and 50 of 100 change;
+- 8-seed ensemble: 18, 20 and 20;
+- the old ridegate pack, for comparison: about 30.
+
+Seed averaging more than halves the churn but is still above target.
+
+### Verdict so far
+
+**Not shipped.** Placement improves on fresh and the official 33, but both CIs include 0. Nothing has been rendered or scored yet (official v1/v2, hard fails, audio). Length skews short, and stability is not good enough yet.
+
+### Per-pair fade settings: not started
+
+The only per-clip pro fade fits are `pro_curves_33.json`, which covers the official 33 (the scoring set, so training on it would leak), and the 27 dev-pair fits in `nightly_1125_work/profade_fit`. That is too few to learn fade parameters from features. Fitting pro band gains on more dev pro clips is a data job that comes first.
+
+### Next steps (chunk 2+)
+
+1. On the home Mac, run `train_remote.sh train 32 4`, then `stab 32 4`, and re-measure churn. Target: ≤5 of 100 fresh flips after τ.
+2. Rebalance the length label (bucket-match weight, or a separate length ranker conditioned on the chosen exit+cue), then re-run cv and eval.
+3. Wire `JOINT_PICKER=1` into `ridegate_live.maybe_apply`, keeping the lock and pump previews, and only for windows legal under `_legal_natural`. Render dev-27 and fresh with eval_gate against the current default, and score official v1/v2, hard fails and the 90 Hz holes. Spot-check audio.
+4. Fade: band-gain fits on dev pro clips, then a per-pair `PRO_FADE_*` regressor.
+5. Ship-it rule. If it is not met, it stays a flag.

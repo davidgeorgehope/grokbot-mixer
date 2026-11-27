@@ -135,3 +135,14 @@ the listener preferred the drop-fade exit (leave at the end of the still-hot las
 - Pro-match may sit within the mix-grouped bootstrap CI of the floor (4000 resamples, seed 20261119): the CI of (arm minus floor) must include 0 on held-out and train. It is not required to beat 34.07 / 32.40. Today's drop arm: held-out 33.91, delta -0.161 [-1.743, 2.133]; train 32.18, delta -0.222 [-1.281, 1.499].
 
 `epg_strict` keeps its own bar (held-out and train mean not worse than the floor). The two arms own disjoint window classes, so they can be stacked: drop takes last-drop-end exits first; if it is blocked (pro outro carried the blend, or a known hard fail), strict may take a post-drop earlier-outro exit. That third arm is `epg_stack` (`EXITPOS` + `EXITPOS_GATE` + `EXITPOS_DROP`). It uses the same listening judge as `epg_drop` for pro-match.
+
+
+## Home training Mac (since 2026-11-27)
+
+the listener's home Mac (ssh alias `TRAIN_HOST` in `config.env`, so it is never written into public files) is for model training and, later, YouTube visual renders. It also runs voice, the cameras and the kids' app delivery, so treat it as shared.
+
+- Work only in `~/grokbot-mixer-train` and its venv (`python3.11 -m venv venv`, numpy and lightgbm). Copy only code and feature arrays: no secrets, xAI key, answer keys or audio.
+- Memory rules: every process stays under **6 GB** (a mem-guard on the Mac kills Python or ffmpeg above that), the total stays well under **10 GB**, and the job runs at `nice -n 10`. Measure one worker's peak before scaling up (joint picker: about 0.85 GB and 27 s per fit). Abort when free memory drops below 15%. `protrans/replica/joint_work/train_remote.sh` does all of this: it syncs code and data, runs detached, polls free memory and the worst worker's RSS every 20 s, kills the job on a breach, and copies the models back.
+- Load data once and share it. Never index an `.npz` inside a loop, because each `z['X']` access decompresses the whole array again. That is what crashed the Mac on 11-27 (5 workers at about 20 GB each, WindowServer watchdog panic and reboot at 6:21 PM ET). Use a materialized dict or an `np.load(mmap_mode='r')` `.npy`.
+- Evaluation and audio rendering of mixes stay on the box.
+- YouTube visual renders on the Mac (not migrated yet): one ffmpeg at a time, `nice -n 10`, staying well under 6 GB. Check that the Nox and OpenClaw processes are healthy before and after.

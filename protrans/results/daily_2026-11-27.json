@@ -1,0 +1,269 @@
+{
+  "tag": "d1127",
+  "pick_id": "joe_syntax_hospital__00",
+  "base_variant": "lcb_1127",
+  "base": {
+    "n": 33,
+    "n_fail": 0,
+    "train_n": 21,
+    "test_n": 12,
+    "train_mean": 34.17,
+    "test_mean": 33.91,
+    "by_dj": {
+      "Hybrid Minds": {
+        "n": 13,
+        "mean": 32.3,
+        "split": "train"
+      },
+      "Joe Syntax": {
+        "n": 8,
+        "mean": 37.21,
+        "split": "train"
+      },
+      "Maduk": {
+        "n": 3,
+        "mean": 31.22,
+        "split": "test"
+      },
+      "Netsky": {
+        "n": 5,
+        "mean": 29.69,
+        "split": "test"
+      },
+      "Pola & Bryson": {
+        "n": 3,
+        "mean": 46.77,
+        "split": "test"
+      },
+      "Wilkinson": {
+        "n": 1,
+        "mean": 24.43,
+        "split": "test"
+      }
+    },
+    "stem_kind": "bands"
+  },
+  "pick_before": 40.96,
+  "base_pick_row": {
+    "id": "joe_syntax_hospital__00",
+    "split": "train",
+    "dj": "Joe Syntax",
+    "pair": "Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling (ft. Ben Westbeech)",
+    "pick": {
+      "fam": "ridegate_live",
+      "win": [
+        "n",
+        112,
+        null,
+        32,
+        16
+      ],
+      "env": {
+        "FADE": "long",
+        "BASS_SWAP_BARS": "3",
+        "SWAP_POS": "0.21",
+        "HIGH_SWAP": "1",
+        "HIGH_OFS": "8",
+        "STRUCT": "1",
+        "LOOP32": "0",
+        "LONG_XP": "0.45",
+        "LONG_SOLO": "16",
+        "LONG_SWAP": "exit",
+        "LONG_SOLO_STRUCT": "1",
+        "TAIL_EXIT": "6",
+        "BLEND_LOCK": "1",
+        "RIDEGATE": "1",
+        "RIDEGATE_LOCK": "1",
+        "RIDEGATE_PUMP": "1"
+      }
+    },
+    "score": {
+      "score": 40.96,
+      "score_v2": 40.81,
+      "scorer_version": "gain-events-v3-beatid",
+      "breakdown": {
+        "stem_curves": 44.04,
+        "deck_curves": 36.48,
+        "beat_align": 55.37,
+        "bass_swap": 38.59,
+        "outgoing_cut": 38.59,
+        "blend_length": 26.52,
+        "stems": {
+          "drums": 33.22,
+          "bass": 61.32,
+          "vocals": 41.66,
+          "melody": 39.97
+        },
+        "beat_off_ms": 2.9,
+        "beat_align_v2": 54.33,
+        "beat_identity": 56.42,
+        "beat_lock": {
+          "pro": {
+            "phase_beats": -0.0251,
+            "rate": 0.9995,
+            "r_a": 0.591,
+            "r_b": 0.818
+          },
+          "ours": {
+            "phase_beats": 0.0164,
+            "rate": 1.0,
+            "r_a": 0.683,
+            "r_b": 0.847
+          },
+          "diff_beats": 0.0415,
+          "diff_ms": 14.3
+        },
+        "events_pro": {
+          "bass_swap": 15,
+          "outgoing_cut": 17,
+          "blend_length": 9
+        },
+        "events_ours": {
+          "bass_swap": 13,
+          "outgoing_cut": 15,
+          "blend_length": 2
+        },
+        "stem_kind": [
+          "bands",
+          "bands"
+        ],
+        "deck": {
+          "per_stem_deck": 36.48
+        },
+        "align": {
+          "lag_samples": -84736,
+          "lag_ms": -3842.9,
+          "peak": 0.3119,
+          "win_sec": 40.295
+        }
+      },
+      "weights": {
+        "stem_curves": 0.28,
+        "deck_curves": 0.22,
+        "beat_align": 0.15,
+        "bass_swap": 0.13,
+        "outgoing_cut": 0.12,
+        "blend_length": 0.1
+      },
+      "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__00/pro.wav",
+      "ours": "/tmp/protrans_bench/lcb_1120.mp3"
+    },
+    "ours": "/tmp/protrans_bench/lcb_1120.mp3",
+    "pro": "/workspace/mixes/protrans/clips/train/joe_syntax_hospital__00/pro.wav",
+    "created": [],
+    "ts": "2026-11-27 00:24:50 EST"
+  },
+  "tried": [
+    {
+      "name": "tail_exit_8",
+      "delta": {
+        "TAIL_EXIT": 8
+      },
+      "pick_score": 40.96,
+      "pick_fam": "ridegate_live",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "tail_exit_5",
+      "delta": {
+        "TAIL_EXIT": 5
+      },
+      "pick_score": 39.44,
+      "pick_fam": "ridegate_live",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "high_ofs_4",
+      "delta": {
+        "HIGH_OFS": 4
+      },
+      "pick_score": 40.96,
+      "pick_fam": "ridegate_live",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "swap_pos_04",
+      "delta": {
+        "SWAP_POS": 0.4
+      },
+      "pick_score": 40.96,
+      "pick_fam": "ridegate_live",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "rg_off",
+      "delta": {
+        "RIDEGATE": 0
+      },
+      "pick_score": 29.36,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "rg_off_lp8",
+      "delta": {
+        "RIDEGATE": 0,
+        "length_pref": 8
+      },
+      "pick_score": 29.36,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "rg_off_replica8",
+      "delta": {
+        "RIDEGATE": 0,
+        "REPLICA": 1,
+        "REPLICA_X": 8
+      },
+      "pick_score": 29.36,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    },
+    {
+      "name": "rg_off_dropcand",
+      "delta": {
+        "RIDEGATE": 0,
+        "DROPCAND": "exit"
+      },
+      "pick_score": 29.36,
+      "pick_fam": "nat_short",
+      "kept": false,
+      "why": "pick score did not improve (no full-cohort run)"
+    }
+  ],
+  "kept": null,
+  "rules_after": {
+    "note": "General engine rules only. Tuning may change these keys, never a per-track pin or timestamp. BLEND_LOCK (2026-11-17 RCA) is on by default: incoming-only lock when loud overlap has a confident 15-150 ms lag. RIDEGATE+RIDEGATE_LOCK+RIDEGATE_PUMP (2026-11-26): on by default \u2014 live ridegate with lock and both-thin pump previews. RIDEGATE_EE and LINGER_GUARD stay off. Rollback: RIDEGATE_OFF=1 (or git revert of this promotion; see docs/PROMOTION_RIDEGATE_2026-11-26.md).",
+    "FADE": "long",
+    "BASS_SWAP_BARS": 3,
+    "SWAP_POS": 0.21,
+    "HIGH_SWAP": 1,
+    "HIGH_OFS": 8,
+    "STRUCT": 1,
+    "LOOP32": 0,
+    "hint_weight": 0.15,
+    "near_hint_bars": 32,
+    "length_pref": 16,
+    "family_prior_w": 0.3,
+    "prefer_family": null,
+    "loop_fam_pen": 1.0,
+    "LONG_SOLO": 16,
+    "LONG_SWAP": "exit",
+    "LONG_SOLO_STRUCT": 1,
+    "linger_pen_w": 0.15,
+    "LONG_XP": 0.45,
+    "TAIL_EXIT": 6,
+    "BLEND_LOCK": 1,
+    "RIDEGATE": 1,
+    "RIDEGATE_LOCK": 1,
+    "RIDEGATE_PUMP": 1
+  }
+}

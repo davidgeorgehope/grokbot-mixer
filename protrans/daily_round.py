@@ -69,21 +69,22 @@ def main(pick_id, base_variant, cands):
         print('DIAG skipped:', type(e).__name__, str(e)[-200:], flush=True)
 
 if __name__ == '__main__':
-    # 2026-11-26 list (base n1126_base: nightly base on current code, 33.3/33.92, 33 admitted; == hgb1126_base).
-    # Pick hybrid_minds_ukf__40 (LSB - I Need Love -> Hybrid Minds - Inside ft. Emily Jones): next unused TRAIN in
-    # load_recs order after ukf__28 (ukf__00 skipped: the listener already heard two of our renders of it in the 11-19 A/B).
-    # Ours (default) nat_short exit 256-272 (A's last drop/outro) / cue 32 / 16 bars, score 31.0. Pro events: bass swap
-    # bar 11, A cut bar 20, blend ~15 bars. provsours: pro brings B in over the last ~14 bars of A's drop 1 (A bar 144.6),
-    # swaps bass at A bar 158.6 where drop 1 ends into a no-snare breakdown, A gone by 167.6; B cued intro bar 17.3.
-    # Fourth day the pro leaves A around the end of drop 1. r1: every general family/rule that can reach there,
-    # plus longer-blend and stronger-hint variants.
-    # r1 result: length_pref_24 lifted the pick 31.0 -> 47.53 (same outro window, 32-bar blend) but overfit
-    # (held-out 33.92 -> 30.91); replica_x16 41.97, break_exit 33.61 (its window starts in A's breakdown at bar 160,
-    # ~16 bars after the pro). r2: the placement families with a longer blend, so the window can start inside drop 1.
+    # 2026-11-27 list (base lcb_1127: current ridegate+LOCK+PUMP default, 34.17/33.91, 33 admitted, 0 fails).
+    # Pick joe_syntax_hospital__00 (Fred V & Grafix - Find My Way -> Nu:Tone - The Feeling ft. Ben Westbeech): next unused
+    # TRAIN in load_recs order. Ours (default) ridegate_live exit A 96-112 (end of A's only drop) / cue B 32 / 16 bars,
+    # score 40.96. Pro: B in at its bar 44.6 (end of B drop 1) over A's last ~7 bars (A 105.1), bass swap 1 bar later,
+    # A gone at 113.1 (A's end): 8-bar blend. Same exit end as ours; pro blend is half as long and cues B ~12.6 bars later.
+    # r1: shorter blend / faster bass swap / linger guards (the listener 11-26 fault: old drums lingering) + placement families.
+    # r1 result: every knob above left the pick at 40.96 (ridegate_live keeps its own window and ignores family knobs)
+    # except tail_exit_4 (38.28). r2: render-shape knobs that do reach the ridegate window, and ridegate-off families.
     CANDS = [
-        # r2 pick-only: break_exit_lp24 33.61, replica_x16_lp24 41.97, dropcand_lp24 31.71 (length_pref does not move
-        # family windows). r3: full-cohort check of replica_x16 alone (best placement-shaped improver, 41.97; it overfit
-        # on 11-24 with older code: held-out 33.92 -> 32.15).
-        ('replica_x16', {'REPLICA': 1, 'REPLICA_X': 16}),
+        ('tail_exit_8', {'TAIL_EXIT': 8}),
+        ('tail_exit_5', {'TAIL_EXIT': 5}),
+        ('high_ofs_4', {'HIGH_OFS': 4}),
+        ('swap_pos_04', {'SWAP_POS': 0.4}),
+        ('rg_off', {'RIDEGATE': 0}),
+        ('rg_off_lp8', {'RIDEGATE': 0, 'length_pref': 8}),
+        ('rg_off_replica8', {'RIDEGATE': 0, 'REPLICA': 1, 'REPLICA_X': 8}),
+        ('rg_off_dropcand', {'RIDEGATE': 0, 'DROPCAND': 'exit'}),
     ]
     main(sys.argv[1], sys.argv[2], CANDS)

@@ -1,0 +1,511 @@
+{
+ "summary": {
+  "name": "base",
+  "n": 18,
+  "err": 9,
+  "sec": 525.8,
+  "v1": 42.23,
+  "v2": 42.34,
+  "bass_stem": 52.51,
+  "hf": 3,
+  "clash": 1,
+  "hole": 1,
+  "pump": 1,
+  "lows_hole_flags": 6,
+  "lows_hole_mean": 17.28,
+  "n_waited": 0,
+  "hole_ids": [
+   "liquiddnbftw_m6m836_Ic7M__10",
+   "liquiddnbftw_m6m836_Ic7M__14",
+   "liquiddnbftw_m6m836_Ic7M__16",
+   "liquiddnbftw_m6m836_Ic7M__23",
+   "sirenity_ofcHup56lME__12",
+   "sirenity_ofcHup56lME__20"
+  ],
+  "hf_ids": [
+   "alpha_rhythm_TnnrrqVRZIM__14",
+   "liquiddnbftw_m6m836_Ic7M__03",
+   "alpha_rhythm_u3OiUhgnfkE__11"
+  ]
+ },
+ "env": {},
+ "rows": [
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__13",
+   "error": "RuntimeError: python3 mix_simple.py --plan /tmp/protrans_bench/n28base_0_plan.json --out /tmp/protrans_bench/n28base_0 --dry: plan window ['n', 200, None, 48, 16] for EbObtJDZYy0>jk2IU6rlJ78 is no longer allowed : re-run plan_search.py\n"
+  },
+  {
+   "id": "alpha_rhythm_TnnrrqVRZIM__14",
+   "v1": 32.67,
+   "v2": 46.1,
+   "bass_stem": 55.61,
+   "hc": {
+    "hard_fail": true,
+    "beat_clash": true,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 4.2,
+    "lows_dip_db": 11.6
+   },
+   "lows_hole": 10.54,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    128.0,
+    144.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_1.mp3",
+   "meta": "/tmp/protrans_bench/n28base_1_meta.json",
+   "fam": "ridegate_live",
+   "kept": "/workspace/mixes/protrans/replica/nightly_1128_work/renders/n28base_1.mp3"
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__04",
+   "v1": 36.45,
+   "v2": 34.08,
+   "bass_stem": 28.99,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 0.8,
+    "lows_dip_db": 14.6
+   },
+   "lows_hole": 11.14,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    160.0,
+    176.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_2.mp3",
+   "meta": "/tmp/protrans_bench/n28base_2_meta.json",
+   "fam": "ridegate_live"
+  },
+  {
+   "id": "kushsessions_yaWXrFBRYrM__12",
+   "error": "RuntimeError: python3 mix_simple.py --plan /tmp/protrans_bench/n28base_3_plan.json --out /tmp/protrans_bench/n28base_3 --dry: plan window ['n', 200, None, 48, 16] for 6pWteaUb_tU>DTpREfFsyzU is no longer allowed : re-run plan_search.py\n"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__03",
+   "v1": 63.43,
+   "v2": 58.77,
+   "bass_stem": 87.61,
+   "hc": {
+    "hard_fail": true,
+    "beat_clash": false,
+    "bass_hole": true,
+    "pumping": false,
+    "pump_db": 3.8,
+    "lows_dip_db": 48.3
+   },
+   "lows_hole": 11.81,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    208.0,
+    224.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_4.mp3",
+   "meta": "/tmp/protrans_bench/n28base_4_meta.json",
+   "fam": "ridegate_live",
+   "kept": "/workspace/mixes/protrans/replica/nightly_1128_work/renders/n28base_4.mp3"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__04",
+   "error": "RuntimeError: python3 mix_simple.py --plan /tmp/protrans_bench/n28base_5_plan.json --out /tmp/protrans_bench/n28base_5 --dry: plan window ['n', 240, None, 48, 16] for bs192qOyCJY>nhSUInN2swA is no longer allowed : re-run plan_search.py\n"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__10",
+   "v1": 49.11,
+   "v2": 49.47,
+   "bass_stem": 56.09,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 2.4,
+    "lows_dip_db": 32.9
+   },
+   "lows_hole": 27.71,
+   "lows_hole_flag": true,
+   "bass_wait": null,
+   "se": [
+    128.0,
+    144.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_6.mp3",
+   "meta": "/tmp/protrans_bench/n28base_6_meta.json",
+   "fam": "ridegate_live",
+   "kept": "/workspace/mixes/protrans/replica/nightly_1128_work/renders/n28base_6.mp3"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__14",
+   "v1": 32.51,
+   "v2": 36.5,
+   "bass_stem": 53.63,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 2.7,
+    "lows_dip_db": 25.5
+   },
+   "lows_hole": 35.26,
+   "lows_hole_flag": true,
+   "bass_wait": null,
+   "se": [
+    192.0,
+    208.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_7.mp3",
+   "meta": "/tmp/protrans_bench/n28base_7_meta.json",
+   "fam": "ridegate_live",
+   "kept": "/workspace/mixes/protrans/replica/nightly_1128_work/renders/n28base_7.mp3"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__16",
+   "v1": 31.86,
+   "v2": 31.08,
+   "bass_stem": 20.4,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 0.7,
+    "lows_dip_db": 39.8
+   },
+   "lows_hole": 37.65,
+   "lows_hole_flag": true,
+   "bass_wait": null,
+   "se": [
+    192.0,
+    208.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_8.mp3",
+   "meta": "/tmp/protrans_bench/n28base_8_meta.json",
+   "fam": "ridegate_live",
+   "kept": "/workspace/mixes/protrans/replica/nightly_1128_work/renders/n28base_8.mp3"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__23",
+   "v1": 43.56,
+   "v2": 42.61,
+   "bass_stem": 25.82,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 2.6,
+    "lows_dip_db": 26.3
+   },
+   "lows_hole": 29.37,
+   "lows_hole_flag": true,
+   "bass_wait": null,
+   "se": [
+    176.0,
+    192.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_9.mp3",
+   "meta": "/tmp/protrans_bench/n28base_9_meta.json",
+   "fam": "nat_short",
+   "kept": "/workspace/mixes/protrans/replica/nightly_1128_work/renders/n28base_9.mp3"
+  },
+  {
+   "id": "liquiddnbftw_m6m836_Ic7M__24",
+   "v1": 44.89,
+   "v2": 36.03,
+   "bass_stem": 39.12,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 0.5,
+    "lows_dip_db": 5.9
+   },
+   "lows_hole": 7.1,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    128.0,
+    144.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_10.mp3",
+   "meta": "/tmp/protrans_bench/n28base_10_meta.json",
+   "fam": "ridegate_live"
+  },
+  {
+   "id": "sirenity_ofcHup56lME__05",
+   "v1": 44.15,
+   "v2": 32.11,
+   "bass_stem": 16.93,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 1.4,
+    "lows_dip_db": 16.7
+   },
+   "lows_hole": 8.89,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    128.0,
+    144.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_11.mp3",
+   "meta": "/tmp/protrans_bench/n28base_11_meta.json",
+   "fam": "ridegate_live"
+  },
+  {
+   "id": "sirenity_ofcHup56lME__12",
+   "v1": 47.03,
+   "v2": 56.82,
+   "bass_stem": 73.64,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 1.0,
+    "lows_dip_db": 38.0
+   },
+   "lows_hole": 29.19,
+   "lows_hole_flag": true,
+   "bass_wait": null,
+   "se": [
+    128.0,
+    144.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_12.mp3",
+   "meta": "/tmp/protrans_bench/n28base_12_meta.json",
+   "fam": "ridegate_live",
+   "kept": "/workspace/mixes/protrans/replica/nightly_1128_work/renders/n28base_12.mp3"
+  },
+  {
+   "id": "sirenity_ofcHup56lME__14",
+   "error": "RuntimeError: python3 mix_simple.py --plan /tmp/protrans_bench/n28base_13_plan.json --out /tmp/protrans_bench/n28base_13 --dry: plan window ['n', 64, None, 48, 16] for k6XcijC98Ag>gEmkoY14KOE is no longer allowed : re-run plan_search.py\n"
+  },
+  {
+   "id": "sirenity_ofcHup56lME__20",
+   "v1": 53.93,
+   "v2": 45.77,
+   "bass_stem": 80.91,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 2.2,
+    "lows_dip_db": 44.4
+   },
+   "lows_hole": 26.15,
+   "lows_hole_flag": true,
+   "bass_wait": null,
+   "se": [
+    144.0,
+    160.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_14.mp3",
+   "meta": "/tmp/protrans_bench/n28base_14_meta.json",
+   "fam": "ridegate_live",
+   "kept": "/workspace/mixes/protrans/replica/nightly_1128_work/renders/n28base_14.mp3"
+  },
+  {
+   "id": "sirenity_ofcHup56lME__23",
+   "v1": 41.45,
+   "v2": 53.69,
+   "bass_stem": 35.7,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 1.9,
+    "lows_dip_db": 7.3
+   },
+   "lows_hole": 6.31,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    176.0,
+    192.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_15.mp3",
+   "meta": "/tmp/protrans_bench/n28base_15_meta.json",
+   "fam": "ridegate_live"
+  },
+  {
+   "id": "sirenity_ofcHup56lME__35",
+   "error": "RuntimeError: python3 mix_simple.py --plan /tmp/protrans_bench/n28base_16_plan.json --out /tmp/protrans_bench/n28base_16 --dry: plan window ['n', 144, None, 24, 16] for Gh4orS2SPoE>xWjAuzOs5gg is no longer allowed : re-run plan_search.py\n"
+  },
+  {
+   "id": "sirenity_ofcHup56lME__52",
+   "v1": 42.87,
+   "v2": 38.91,
+   "bass_stem": 49.42,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 1.7,
+    "lows_dip_db": 11.9
+   },
+   "lows_hole": 5.49,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    160.0,
+    176.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_17.mp3",
+   "meta": "/tmp/protrans_bench/n28base_17_meta.json",
+   "fam": "ridegate_live"
+  },
+  {
+   "id": "sirenity_ofcHup56lME__56",
+   "v1": 51.72,
+   "v2": 51.72,
+   "bass_stem": 81.64,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 1.2,
+    "lows_dip_db": 23.9
+   },
+   "lows_hole": 13.18,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    160.0,
+    176.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_18.mp3",
+   "meta": "/tmp/protrans_bench/n28base_18_meta.json",
+   "fam": "ridegate_live"
+  },
+  {
+   "id": "sirenity_ofcHup56lME__57",
+   "v1": 47.3,
+   "v2": 49.62,
+   "bass_stem": 52.21,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 1.0,
+    "lows_dip_db": 15.7
+   },
+   "lows_hole": 10.94,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    240.0,
+    256.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_19.mp3",
+   "meta": "/tmp/protrans_bench/n28base_19_meta.json",
+   "fam": "nat_short"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__00",
+   "error": "RuntimeError: python3 mix_simple.py --plan /tmp/protrans_bench/n28base_20_plan.json --out /tmp/protrans_bench/n28base_20 --dry: plan window ['n', 168, None, 32, 16] for jIb2ZZmW5WE>-IgKaTb7pMo is no longer allowed : re-run plan_search.py\n"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__01",
+   "v1": 31.02,
+   "v2": 32.37,
+   "bass_stem": 71.5,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 1.1,
+    "lows_dip_db": 24.7
+   },
+   "lows_hole": 12.4,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    112.0,
+    128.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_21.mp3",
+   "meta": "/tmp/protrans_bench/n28base_21_meta.json",
+   "fam": "ridegate_live"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__04",
+   "error": "RuntimeError: python3 mix_simple.py --plan /tmp/protrans_bench/n28base_22_plan.json --out /tmp/protrans_bench/n28base_22 --dry: plan window ['n', 152, None, 32, 16] for Es0P41vIVHY>2Jnm9eP9guM is no longer allowed : re-run plan_search.py\n"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__05",
+   "v1": 29.39,
+   "v2": 33.93,
+   "bass_stem": 59.59,
+   "hc": {
+    "hard_fail": false,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": false,
+    "pump_db": 0.9,
+    "lows_dip_db": 24.0
+   },
+   "lows_hole": 9.19,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    160.0,
+    176.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_23.mp3",
+   "meta": "/tmp/protrans_bench/n28base_23_meta.json",
+   "fam": "nat_short"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__07",
+   "error": "RuntimeError: python3 mix_simple.py --plan /tmp/protrans_bench/n28base_24_plan.json --out /tmp/protrans_bench/n28base_24 --dry: plan window ['n', 184, None, 48, 16] for zyAQqEJ1Zyo>eWUyihqgPG8 is no longer allowed : re-run plan_search.py\n"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__11",
+   "v1": 36.79,
+   "v2": 32.61,
+   "bass_stem": 56.3,
+   "hc": {
+    "hard_fail": true,
+    "beat_clash": false,
+    "bass_hole": false,
+    "pumping": true,
+    "pump_db": 5.2,
+    "lows_dip_db": 16.2
+   },
+   "lows_hole": 18.72,
+   "lows_hole_flag": false,
+   "bass_wait": null,
+   "se": [
+    160.0,
+    176.0
+   ],
+   "ours": "/tmp/protrans_bench/n28base_25.mp3",
+   "meta": "/tmp/protrans_bench/n28base_25_meta.json",
+   "fam": "nat_short",
+   "kept": "/workspace/mixes/protrans/replica/nightly_1128_work/renders/n28base_25.mp3"
+  },
+  {
+   "id": "alpha_rhythm_u3OiUhgnfkE__14",
+   "error": "RuntimeError: python3 mix_simple.py --plan /tmp/protrans_bench/n28base_26_plan.json --out /tmp/protrans_bench/n28base_26 --dry: plan window ['n', 176, None, 16, 16] for EJQpeqOI1P0>pvFdPCx6UpM is no longer allowed : re-run plan_search.py\n"
+  }
+ ]
+}

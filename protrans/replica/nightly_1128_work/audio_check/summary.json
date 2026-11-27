@@ -1,0 +1,106 @@
+[
+  {
+    "id": "liquiddnbftw_m6m836_Ic7M__23",
+    "arms": [
+      {
+        "arm": "base",
+        "lows_hole": 29.47,
+        "flag": true,
+        "n": 16,
+        "json_hole": 29.37,
+        "json_flag": true,
+        "v1": 43.56,
+        "bass": 25.82
+      },
+      {
+        "arm": "bass_wait",
+        "lows_hole": 24.8,
+        "flag": false,
+        "n": 16,
+        "json_hole": 15.34,
+        "json_flag": false,
+        "v1": 49.56,
+        "bass": 43.24
+      }
+    ],
+    "png": "/workspace/mixes/protrans/replica/nightly_1128_work/audio_check/liquiddnbftw_m6m836_Ic7M__23_90hz.png"
+  },
+  {
+    "id": "liquiddnbftw_m6m836_Ic7M__16",
+    "arms": [
+      {
+        "arm": "base",
+        "lows_hole": 59.94,
+        "flag": true,
+        "n": 16,
+        "json_hole": 37.65,
+        "json_flag": true,
+        "v1": 31.86,
+        "bass": 20.4
+      },
+      {
+        "arm": "bass_wait",
+        "lows_hole": 59.94,
+        "flag": true,
+        "n": 16,
+        "json_hole": 37.65,
+        "json_flag": true,
+        "v1": 31.86,
+        "bass": 20.4
+      }
+    ],
+    "png": "/workspace/mixes/protrans/replica/nightly_1128_work/audio_check/liquiddnbftw_m6m836_Ic7M__16_90hz.png"
+  },
+  {
+    "id": "alpha_rhythm_u3OiUhgnfkE__05",
+    "arms": [
+      {
+        "arm": "base",
+        "lows_hole": 21.65,
+        "flag": false,
+        "n": 16,
+        "json_hole": 9.19,
+        "json_flag": false,
+        "v1": 29.39,
+        "bass": 59.59
+      },
+      {
+        "arm": "bass_wait",
+        "lows_hole": 15.1,
+        "flag": false,
+        "n": 16,
+        "json_hole": 11.67,
+        "json_flag": false,
+        "v1": 27.46,
+        "bass": 41.58
+      }
+    ],
+    "png": "/workspace/mixes/protrans/replica/nightly_1128_work/audio_check/alpha_rhythm_u3OiUhgnfkE__05_90hz.png"
+  },
+  {
+    "id": "sirenity_ofcHup56lME__20",
+    "arms": [
+      {
+        "arm": "base",
+        "lows_hole": 32.01,
+        "flag": true,
+        "n": 16,
+        "json_hole": 26.15,
+        "json_flag": true,
+        "v1": 53.93,
+        "bass": 80.91
+      },
+      {
+        "arm": "bass_wait",
+        "lows_hole": 30.08,
+        "flag": true,
+        "n": 16,
+        "json_hole": 23.22,
+        "json_flag": false,
+        "v1": 53.43,
+        "bass": 81.91
+      }
+    ],
+    "png": "/workspace/mixes/protrans/replica/nightly_1128_work/audio_check/sirenity_ofcHup56lME__20_90hz.png"
+  }
+]

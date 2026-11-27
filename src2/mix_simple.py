@@ -792,6 +792,14 @@ if SW0>0 or PIN:  # trans['bass_swap'] = the low lanes as rendered (2026-11-11 R
 for t in trans:
   t['vocal_data']={t['a']:t['a'] not in VOCOFF,t['b']:t['b'] not in VOCOFF}
   if t['a'] in VOCOFF or t['b'] in VOCOFF:t['notes']=list(t['notes'])+['vocal overlap not checked: no vocal data for '+', '.join(x for x in (t['a'],t['b']) if x in VOCOFF)]
+if __import__('bass_wait').on() and not GC:  # 2026-11-27 research, off by default: hold the outgoing low cut until incoming sub-bass is present (bass_wait.py)
+  import bass_wait as _BW
+  def _bw_lows(x):
+    g=track(x)['g']['bar'];return g.get('low',g['all'])
+  def _bw_sec(x):
+    try:return (sections.get(x) or {})
+    except Exception:return {}
+  for _r in _BW.apply(decks,trans,_bw_lows,skip=set(PIN),secs_of=_bw_sec):print('BASS_WAIT',_r,file=sys.stderr)
 TE=float(os.environ.get('TAIL_EXIT',0) or 0)  # 2026-11-15 research, off by default: outgoing gone N bars after the bass swap (tail_exit.py)
 if TE>0 and not GC:
   import tail_exit as _TE

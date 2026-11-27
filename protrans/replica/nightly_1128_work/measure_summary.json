@@ -1,0 +1,58 @@
+{
+  "set": "dev-27, 18 of 27 scored (9 pairs rejected at render: plan window no longer allowed); same 9 failed on both arms",
+  "fresh": "alpha_rhythm_3k9pyJDKytE registered and unspent; source audio and pro clips are not on disk (corpus-v2 still running, not disturbed, not fetched)",
+  "BASS_WAIT_DB": 6.2,
+  "calib": "pro p95 of (drop body - incoming 90 Hz at bass-swap) on official swaps already in/near drop 1 (rel -8..24, n=8). Unconditional p95 49.75 is intro/build cues and was not used.",
+  "official_direction": "v1/v2 and bass-stem similarity are higher-is-better",
+  "base": {
+    "n": 18,
+    "v1": 42.23,
+    "v2": 42.34,
+    "bass_stem": 52.51,
+    "hf": 3,
+    "lows_hole_flags": 6
+  },
+  "bass_wait": {
+    "n": 18,
+    "v1": 43.12,
+    "v2": 42.81,
+    "bass_stem": 52.54,
+    "hf": 2,
+    "lows_hole_flags": 4,
+    "n_waited": 10
+  },
+  "paired": {
+    "mean_dv1": 0.893,
+    "mean_dv2": 0.466,
+    "v1_ci": [
+      -0.342,
+      2.913
+    ],
+    "v2_ci": [
+      -0.605,
+      1.511
+    ],
+    "includes_zero": true,
+    "n_better": 4,
+    "n_worse": 4,
+    "median_dv1": 0.0
+  },
+  "notable": {
+    "wins": [
+      "alpha_rhythm_u3OiUhgnfkE__01 v1 +14.89",
+      "liquiddnbftw_m6m836_Ic7M__23 v1 +6.00, sensor hole 29.37->15.34 (cleared); audio confirms a shallower 90 Hz dip, bass stem 25.8->43.2",
+      "alpha_rhythm_u3OiUhgnfkE__11 official pump fail cleared"
+    ],
+    "losses": [
+      "alpha_rhythm_u3OiUhgnfkE__05 v1 -1.93 v2 -3.79 bass-stem 59.59->41.58 \u2014 not shipped",
+      "sirenity_ofcHup56lME__57 v1 -3.47 v2 -2.49 bass-stem -6.34",
+      "sirenity_ofcHup56lME__20 json sensor cleared 26.15->23.22 but a full-clip 90 Hz recompute still flags both; v2 -3.31"
+    ],
+    "unchanged_holes": [
+      "liquiddnbftw_m6m836_Ic7M__10/14/16 (16 confirmed identical audio, BASS_WAIT did not fire)",
+      "sirenity_ofcHup56lME__12"
+    ]
+  },
+  "promoted": false,
+  "reason": "CIs include 0; median delta is 0; two pairs lose clearly (including a large bass-stem drop); 4 sensor holes remain; fresh pairs were not measurable; 9/27 dev pairs did not render. Left shadowed on the n1128 card. Ridegate default unchanged. Rollback would be BASS_WAIT_OFF=1 if this later ships."
+}

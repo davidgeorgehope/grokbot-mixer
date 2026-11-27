@@ -1,0 +1,197 @@
+{
+  "n": 26,
+  "p95": 6.2,
+  "median": 6.3,
+  "mean": 14.93,
+  "min": -4.19,
+  "max": 54.33,
+  "fc_hz": 90.0,
+  "rows": [
+    {
+      "id": "wilkinson_boomtown2026__33",
+      "in_bar_at_swap": 57.2,
+      "body": -23.54,
+      "incoming": -57.13,
+      "deficit": 33.59
+    },
+    {
+      "id": "joe_syntax_hospital__01",
+      "in_bar_at_swap": 50.1,
+      "body": -16.16,
+      "incoming": -16.1,
+      "deficit": -0.06
+    },
+    {
+      "id": "joe_syntax_hospital__08",
+      "in_bar_at_swap": 19.7,
+      "body": -19.53,
+      "incoming": -32.4,
+      "deficit": 12.86
+    },
+    {
+      "id": "hybrid_minds_ukf__08",
+      "in_bar_at_swap": 42.5,
+      "body": -19.17,
+      "incoming": -25.54,
+      "deficit": 6.37
+    },
+    {
+      "id": "hybrid_minds_ukf__11",
+      "in_bar_at_swap": 145.8,
+      "body": -25.76,
+      "incoming": -26.96,
+      "deficit": 1.2
+    },
+    {
+      "id": "hybrid_minds_ukf__12",
+      "in_bar_at_swap": -0.3,
+      "body": -17.73,
+      "incoming": -68.81,
+      "deficit": 51.08
+    },
+    {
+      "id": "hybrid_minds_ukf__45",
+      "in_bar_at_swap": 28.8,
+      "body": -13.37,
+      "incoming": -27.25,
+      "deficit": 13.88
+    },
+    {
+      "id": "netsky_hospital_classics__02",
+      "in_bar_at_swap": 16.5,
+      "body": -21.71,
+      "incoming": -21.53,
+      "deficit": -0.18
+    },
+    {
+      "id": "netsky_hospital_classics__06",
+      "in_bar_at_swap": -0.5,
+      "body": -18.87,
+      "incoming": -49.83,
+      "deficit": 30.96
+    },
+    {
+      "id": "netsky_hospital_classics__17",
+      "in_bar_at_swap": 14.6,
+      "body": -17.77,
+      "incoming": -31.08,
+      "deficit": 13.32
+    },
+    {
+      "id": "joe_syntax_hospital__11",
+      "in_bar_at_swap": 31.7,
+      "body": -12.44,
+      "incoming": -11.52,
+      "deficit": -0.92
+    },
+    {
+      "id": "joe_syntax_hospital__13",
+      "in_bar_at_swap": 32.1,
+      "body": -18.94,
+      "incoming": -14.76,
+      "deficit": -4.19
+    },
+    {
+      "id": "hybrid_minds_ukf__00",
+      "in_bar_at_swap": 5.1,
+      "body": -14.77,
+      "incoming": -50.66,
+      "deficit": 35.89
+    },
+    {
+      "id": "hybrid_minds_ukf__09",
+      "in_bar_at_swap": 58.2,
+      "body": -29.06,
+      "incoming": -34.78,
+      "deficit": 5.73
+    },
+    {
+      "id": "hybrid_minds_ukf__10",
+      "in_bar_at_swap": 36.5,
+      "body": -22.63,
+      "incoming": -37.29,
+      "deficit": 14.66
+    },
+    {
+      "id": "hybrid_minds_ukf__28",
+      "in_bar_at_swap": 15.0,
+      "body": -13.97,
+      "incoming": -59.76,
+      "deficit": 45.78
+    },
+    {
+      "id": "hybrid_minds_ukf__40",
+      "in_bar_at_swap": 31.3,
+      "body": -20.55,
+      "incoming": -18.36,
+      "deficit": -2.19
+    },
+    {
+      "id": "joe_syntax_hospital__00",
+      "in_bar_at_swap": 45.6,
+      "body": -15.36,
+      "incoming": -16.84,
+      "deficit": 1.48
+    },
+    {
+      "id": "joe_syntax_hospital__14",
+      "in_bar_at_swap": 36.6,
+      "body": -9.72,
+      "incoming": -11.93,
+      "deficit": 2.21
+    },
+    {
+      "id": "hybrid_minds_ukf__23",
+      "in_bar_at_swap": 89.3,
+      "body": -15.03,
+      "incoming": -35.2,
+      "deficit": 20.16
+    },
+    {
+      "id": "netsky_hospital_classics__23",
+      "in_bar_at_swap": 33.9,
+      "body": -25.44,
+      "incoming": -31.42,
+      "deficit": 5.98
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__02",
+      "in_bar_at_swap": 37.0,
+      "body": -14.17,
+      "incoming": -20.41,
+      "deficit": 6.24
+    },
+    {
+      "id": "maduk_liquicity_lunar2025__03",
+      "in_bar_at_swap": 1.4,
+      "body": -20.21,
+      "incoming": -74.54,
+      "deficit": 54.33
+    },
+    {
+      "id": "pola_bryson_puzzlewood__00",
+      "in_bar_at_swap": 45.4,
+      "body": -15.9,
+      "incoming": -16.99,
+      "deficit": 1.09
+    },
+    {
+      "id": "pola_bryson_puzzlewood__02",
+      "in_bar_at_swap": 39.7,
+      "body": -9.91,
+      "incoming": -10.59,
+      "deficit": 0.69
+    },
+    {
+      "id": "pola_bryson_puzzlewood__04",
+      "in_bar_at_swap": 23.7,
+      "body": -22.02,
+      "incoming": -60.19,
+      "deficit": 38.18
+    }
+  ],
+  "note": "BASS_WAIT_DB = 6.2 dB, the pro p95 of (incoming drop-body minus incoming 90 Hz at the bass-swap bar) on official swaps where the incoming is already in or within 8 bars of drop 1. The unconditional p95 over all 26 measurable official pairs is 49.75 dB because several swaps land in the incoming intro or build, where there is no sub-bass on purpose; that figure is not a presence threshold.",
+  "p95_all": 49.75,
+  "p95_drop_context": 6.23,
+  "drop_context": "swap_rel_in_drop1 in [-8, 24); n=8; unconditional p95=49.75 is intro/build cues, not used as the presence margin"
+}

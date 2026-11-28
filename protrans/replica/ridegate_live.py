@@ -752,7 +752,11 @@ def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live',
     dec = predict_rows(pack, [r])[0]
     import joint_picker as JP
     if JP.flag_on(env):  # JOINT_PICKER: joint exit+cue+length ensemble replaces the factored pick; previews below still apply
-        dec = JP.decide_live(r)
+        jd = JP.decide_live(r)
+        if not jd.get('is_default'):
+            dec = jd
+        else:  # joint abstains -> keep the current default (ridegate) decision, not the bare engine window
+            dec['joint_margin'] = jd.get('joint_margin')
     elif early_exit_flag_on():
         dec = maybe_take_earlier_exit(pack, r, dec, sa, sb, a_yt, b_yt)
     sa_u, sb_u = r.get('sa') or sa, r.get('sb') or sb

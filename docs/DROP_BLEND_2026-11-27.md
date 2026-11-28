@@ -101,3 +101,39 @@ The only per-clip pro fade fits are `pro_curves_33.json`, which covers the offic
 3. Wire `JOINT_PICKER=1` into `ridegate_live.maybe_apply`, keeping the lock and pump previews, and only for windows legal under `_legal_natural`. Render dev-27 and fresh with eval_gate against the current default, and score official v1/v2, hard fails and the 90 Hz holes. Spot-check audio.
 4. Fade: band-gain fits on dev pro clips, then a per-pair `PRO_FADE_*` regressor.
 5. Ship-it rule. If it is not met, it stays a flag.
+
+
+## Chunk 2 (6:39–7:15 PM ET, 11-27): stability, length, live wiring
+
+### Stability (fixed)
+
+- r1 config: 32 seeds; per-model regularization of 7 leaves, min 100 rows per leaf, 150 trees and L2 5; τ = 1.0. Adding one duplicated dev row now changes **2 of 100** fresh decisions in all three tests, down from 18–20 (8 seeds, no τ) and about 30 (old ridegate pack).
+
+### Placement with a stable ensemble (out of sample): worse than the current default
+
+The chunk-1 gain (−3.0 bars on fresh) was partly a lucky 8-seed draw. With 32 seeds:
+
+| config | fresh err (ridegate 64.2) | official-33 err (ridegate 78.5) |
+|---|---|---|
+| r0 params, 32 seeds | 69.2 (+5.0, CI −2.9..+12.6) | 94.4 (+15.9, CI +1.7..+32.4) |
+| r1 regularized, 32 seeds | 67.6 (+3.4, CI −4.7..+11.1) | 91.7 (+13.2, CI −1.8..+30.0) |
+
+Fresh style shares (r1): drop>drop 15%, drop>in 27%, out>drop 20%, out>in 38%. Ridegate is 12/20/26/42, pro 24/6/23/47. The r0 config at 32 seeds gives 17/25/19/39. Diversity holds and drop>drop rises a little, but the joint picker places blends worse than the current factored ridegate picker.
+
+### Length: 32 bars is not predictable from the tracks
+
+- The joint picker almost never picks 32: r1 chose it on 1 of 177 dev pairs where the pro used 32, and 0 of 20 on fresh. Raising the length label weight from 2 to 4 did not change that.
+- A direct classifier for pro length bucket, using track features plus features of the pro's own placement, reaches 45% on fresh vs 40% for always guessing the majority (AUC for "32 vs rest" is 0.67).
+- Length is mostly a **DJ habit**: KushSessions is 61% ≤10 bars, TheHeshBesh 59% 32 bars, and the official 33 is 64% 32 bars. Learning it from pro placements alone cannot work. It needs a style input (listener preference, mix context) rather than more track features.
+
+### Live wiring (flag only)
+
+- `JOINT_PICKER=1`, with rollback `JOINT_PICKER_OFF=1`, is off by default. It is passed through `recreate.apply_rules` and replaces the factored pick inside `ridegate_live.maybe_apply`; the lock and pump previews still apply.
+- `mix_simple.py` admits the injected 8-bar window only when JOINT_PICKER is on.
+- The committed pack is `protrans/replica/joint_pack/` (r1). `measure_joint_1127.py` renders dev-27 (base arm with `BASE_ARM=1`), and `joint_work/render_eval.sh` runs dev-27 plus the fresh ukf 18 through eval_gate.
+
+### Compute incidents on the home Mac (both ours)
+
+- 6:21 PM ET reboot: about 20 GB per worker from re-reading the compressed `.npz` per group. Fixed by loading once (memmap `.npy`).
+- About 7:00 PM ET, load ~258 and ssh timeouts: LightGBM `Booster.predict` defaults to every core. Each of 5 workers predicted 32 models with 10 threads, so about 50 threads ran on 10 cores. The job was killed, not rerun (its config already lost on placement).
+- Fix: `JOINT_THREADS` sets `num_threads` for both fit and predict. `train_remote.sh` sizes workers by RAM (half of free) and by CPU (workers × threads ≤ cores − 4), and runs detached with `nohup`, polling for a done file so an ssh drop cannot kill it.

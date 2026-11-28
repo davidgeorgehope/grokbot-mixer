@@ -358,6 +358,12 @@ def pair_cands(i,ia0):
             _EE_PICKER_WINS.add((a,b,('n',int(_w_ee[1]),None,int(_w_ee[3]),_xw)))
     except Exception:
       pass
+  if os.environ.get('RIDEGATE_WIN') and os.environ.get('JOINT_PICKER','0') not in ('','0'):  # JOINT_PICKER (2026-11-27): learned length (8/16/32); non-standard X only carries the injected window
+    try:
+      _xj=int(json.loads(os.environ['RIDEGATE_WIN'])[4])
+      if _xj not in (XMAX,16):_ee_xs.add(_xj)
+    except Exception:
+      pass
   for X in sorted({XMAX,16}|_ee_xs,reverse=True):  # 32-bar blend preferred; 16 is the lowest when no clean 32-bar window exists
     _std_x=X in (XMAX,16)
     cands=[]

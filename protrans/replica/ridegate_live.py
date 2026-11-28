@@ -740,7 +740,7 @@ def maybe_take_earlier_exit(pack, r, dec, sa, sb, a_yt=None, b_yt=None):
     return alt
 
 
-def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live'):
+def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live', env=None):
     """Render-time hook: decide a live window from features + the engine default, inject if legal.
 
     Returns (hit_or_None, decision, injected). Abstain leaves the engine pick untouched.
@@ -750,7 +750,10 @@ def maybe_apply(pack, sa, sb, default_win, cs, a_yt=None, b_yt=None, pid='live')
     dex, dcue, dX = default_from_win(default_win)
     r = row_for_render(sa, sb, dex, dcue, dX, a_yt=a_yt, b_yt=b_yt, pid=pid)
     dec = predict_rows(pack, [r])[0]
-    if early_exit_flag_on():
+    import joint_picker as JP
+    if JP.flag_on(env):  # JOINT_PICKER: joint exit+cue+length ensemble replaces the factored pick; previews below still apply
+        dec = JP.decide_live(r)
+    elif early_exit_flag_on():
         dec = maybe_take_earlier_exit(pack, r, dec, sa, sb, a_yt, b_yt)
     sa_u, sb_u = r.get('sa') or sa, r.get('sb') or sb
     ride_ok = not (dec.get('is_default') or not dec.get('win'))

@@ -8,7 +8,7 @@ import joint_picker as J, ridegate_live as R, picker_1119 as P
 sys.path.insert(0, os.path.join(H, 'prefs_1127')); import census as C
 import lightgbm as lgb
 
-def load_models(d=os.path.join(J.WORK, 'models')):
+def load_models(d=os.path.join(J.WORK, 'models' + os.environ.get('JOINT_TAG', ''))):
     return [lgb.Booster(model_str=gzip.open(f, 'rt').read()) for f in sorted(glob.glob(os.path.join(d, 'm*.txt.gz')))]
 
 def pick(S, tau):
@@ -16,7 +16,7 @@ def pick(S, tau):
 
 def main():
     z, off = J._load(J.WORK); meta = json.load(open(os.path.join(J.WORK, 'meta.json')))
-    oof = {int(k): np.array(v) for k, v in json.load(open(os.path.join(J.WORK, 'cv_oof.json')))['oof'].items()}
+    oof = {int(k): np.array(v) for k, v in json.load(open(os.path.join(J.WORK, 'cv_oof' + os.environ.get('JOINT_TAG', '') + '.json')))['oof'].items()}
     ms = load_models()
     rows = {r['id']: r for r in R.load_all_built() if r['set'] in ('dev', 'fresh', 'protrans')}
     pack = R.load_pack()
@@ -41,6 +41,7 @@ def main():
     picks = {}
     for st in ('dev', 'fresh', 'protrans'):
         gs = [g for g in S if meta[g]['set'] == st]
+        lenagree = collections.defaultdict(lambda: [0, 0])
         acc = collections.defaultdict(list); sty = collections.defaultdict(collections.Counter); xs = collections.defaultdict(collections.Counter)
         for g in gs:
             r = rows[meta[g]['id']]
@@ -50,6 +51,9 @@ def main():
                 d = old_dec[r['id']]; cand['ridegate'] = d['win'] if not d.get('is_default') and d.get('win') else defwin(r)
             ov = r.get('pro_ov')
             if ov: cand['pro'] = ['n', int(r['pro_out'] - 1 + round(ov)), None, int(r['pro_in'] - 1), int(round(ov))]
+            if ov:
+                pb = 8 if ov <= 11 else 16 if ov <= 23 else 32
+                lenagree[pb][1] += 1; lenagree[pb][0] += int((8 if wj[4] <= 11 else 16 if wj[4] <= 23 else 32) == pb)
             for k, w in cand.items():
                 if k != 'pro':
                     e, xm = err(r, w); acc[k + '_err'].append(e); acc[k + '_lenhit'].append(xm)
@@ -57,6 +61,7 @@ def main():
                 xs[k][8 if w[4] <= 11 else 16 if w[4] <= 23 else 32] += 1
         res['sets'][st] = dict(n=len(gs), **{k: round(float(np.mean(v)), 3) for k, v in acc.items()},
                                styles={k: {s: round(c / len(gs), 3) for s, c in sorted(v.items())} for k, v in sty.items()},
+                               len_agree_by_pro_len={str(b): f'{a}/{n}' for b, (a, n) in sorted(lenagree.items())},
                                lengths={k: {str(s): round(c / len(gs), 3) for s, c in sorted(v.items())} for k, v in xs.items()})
     # paired bootstrap (fresh): joint vs ridegate err
     for st in ('fresh', 'protrans'):
@@ -69,8 +74,8 @@ def main():
         d = np.array(d); rng = np.random.RandomState(1)
         bs = [np.mean(d[rng.randint(0, len(d), len(d))]) for _ in range(2000)]
         res['sets'][st]['joint_minus_ridegate_err'] = [round(float(d.mean()), 2), round(float(np.percentile(bs, 2.5)), 2), round(float(np.percentile(bs, 97.5)), 2)]
-    json.dump(res, open(os.path.join(J.WORK, 'eval.json'), 'w'), indent=1)
-    json.dump(picks, open(os.path.join(J.WORK, 'picks.json'), 'w'))
+    json.dump(res, open(os.path.join(J.WORK, 'eval' + os.environ.get('JOINT_TAG', '') + '.json'), 'w'), indent=1)
+    json.dump(picks, open(os.path.join(J.WORK, 'picks' + os.environ.get('JOINT_TAG', '') + '.json'), 'w'))
     print(json.dumps(res, indent=1))
 
 if __name__ == '__main__':

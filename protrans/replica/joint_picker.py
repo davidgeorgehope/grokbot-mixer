@@ -26,6 +26,9 @@ H = os.path.dirname(os.path.abspath(__file__))
 WORK = os.path.join(H, 'joint_work')
 XS = (8, 16, 32)
 K_SEEDS = int(os.environ.get('JOINT_K', 12))
+LEN_W = float(os.environ.get('JOINT_LEN_W', 2))
+THREADS = int(os.environ.get('JOINT_THREADS', 1))  # LightGBM threads per process (fit AND predict); workers x THREADS <= cores
+LEAVES = int(os.environ.get('JOINT_LEAVES', 15)); MCS = int(os.environ.get('JOINT_MCS', 40)); NEST = int(os.environ.get('JOINT_NEST', 250))
 PREF_W = 5.0
 PREF_MIN, PREF_FULL = 3, 6
 SECN = ('intro', 'build', 'drop', 'breakdown', 'outro')
@@ -131,7 +134,7 @@ def rel_triple(r, t):
     rc = B.rel(P.acc_err(t['cue'], r['pro_in'], P.bnd_b(r['sb'])))
     ov = float(r.get('pro_ov') or 16)
     px = 8 if ov <= 11 else 16 if ov <= 23 else 32
-    return re + rc + 2 * int(t['X'] == px)
+    return (re, rc, int(t['X'] == px))
 
 
 def featurize(rows):
@@ -139,7 +142,7 @@ def featurize(rows):
     for r in rows:
         T = triples(r)
         Xs.append(np.array([triple_feats(r, t['ex'], t['cue'], t['X']) for t in T], float))
-        ys.append(np.array([rel_triple(r, t) for t in T], float) if r.get('pro_ov') is not None else np.zeros(len(T)))
+        ys.append(np.array([rel_triple(r, t) for t in T], float) if r.get('pro_ov') is not None else np.zeros((len(T), 3)))
         grp.append(len(T))
         meta.append(dict(id=r['id'], set=r['set'], dj=r.get('dj'), T=T, pro=[r['pro_out'], r['pro_in'], r.get('pro_ov')]))
     return Xs, ys, grp, meta
@@ -157,7 +160,7 @@ def export(dest=WORK):
     Xs, ys, grp, meta = featurize(rows + pr)
     w_pref = pref_weight(len([p for p in prefs if p.get('preferred') == 'ours']))
     gw = np.array([w_pref if m['set'] == 'pref' else 1.0 for m in meta])
-    np.savez_compressed(os.path.join(dest, 'feats.npz'), X=np.vstack(Xs), y=np.concatenate(ys), grp=np.array(grp),
+    np.savez_compressed(os.path.join(dest, 'feats.npz'), X=np.vstack(Xs), yparts=np.vstack(ys), grp=np.array(grp),
                         gw=gw, sets=np.array([m['set'] for m in meta]), djs=np.array([str(m['dj']) for m in meta]))
     json.dump([dict(id=m['id'], set=m['set'], dj=m['dj'], pro=m['pro'], T=[dict(win=t['win'], default=t['default']) for t in m['T']]) for m in meta],
               open(os.path.join(dest, 'meta.json'), 'w'))
@@ -170,6 +173,7 @@ def _load(src=WORK):
     # per group inside a loop is what blew the 11-27 home-Mac run up to ~20 GB per worker.
     z0 = np.load(os.path.join(src, 'feats.npz'), allow_pickle=False)
     z = {k: z0[k] for k in z0.files if k != 'X'}
+    yp = z['yparts']; z['y'] = yp[:, 0] + yp[:, 1] + LEN_W * yp[:, 2]
     xm = os.path.join(src, 'X32.npy')
     if not os.path.exists(xm):
         np.save(xm, z0['X'].astype(np.float32))
@@ -186,8 +190,8 @@ def _fit(z, off, gids, seed, n_jobs=1):
     if not keep.all():
         gkeep = [g for g in gids if z['gw'][g] > 0]
         return _fit(z, off, gkeep, seed, n_jobs)
-    m = lgb.LGBMRanker(objective='lambdarank', n_estimators=250, num_leaves=15, learning_rate=0.05, min_child_samples=40,
-                       subsample=0.7, subsample_freq=1, colsample_bytree=0.7, random_state=seed, verbose=-1, n_jobs=n_jobs,
+    m = lgb.LGBMRanker(objective='lambdarank', n_estimators=NEST, num_leaves=LEAVES, learning_rate=0.05, min_child_samples=MCS, reg_lambda=float(os.environ.get('JOINT_L2', 0)),
+                       subsample=0.7, subsample_freq=1, colsample_bytree=0.7, random_state=seed, verbose=-1, n_jobs=THREADS,
                        label_gain=list(range(0, 32)))
     m.fit(X, y, group=[off[g + 1] - off[g] for g in gids], sample_weight=w)
     return m.booster_
@@ -211,7 +215,7 @@ def train_ensemble(gids, src=WORK, k=K_SEEDS, workers=None):
 
 
 def ens_scores(models, Xg):
-    S = np.mean([m.predict(Xg) for m in models], axis=0)
+    S = np.mean([m.predict(Xg, num_threads=THREADS) for m in models], axis=0)  # Booster.predict defaults to ALL cores
     return S
 
 
@@ -222,7 +226,7 @@ def train(src=WORK, extra_dup=None):
     if extra_dup is not None:
         pass
     models = train_ensemble(gids, src)
-    d = os.path.join(src, 'models'); os.makedirs(d, exist_ok=True)
+    d = os.path.join(src, 'models' + os.environ.get('JOINT_TAG', '')); os.makedirs(d, exist_ok=True)
     for i, m in enumerate(models):
         with gzip.open(os.path.join(d, f'm{i:02d}.txt.gz'), 'wt') as f:
             f.write(m.model_to_string())
@@ -245,7 +249,7 @@ def cv(src=WORK, folds=5):
         for g in te:
             oof[g] = ens_scores(ms, z['X'][off[g]:off[g + 1]]).tolist()
         print('fold', f, len(te), flush=True)
-    json.dump(dict(oof={str(g): s for g, s in oof.items()}), open(os.path.join(src, 'cv_oof.json'), 'w'))
+    json.dump(dict(oof={str(g): s for g, s in oof.items()}), open(os.path.join(src, f'cv_oof{os.environ.get("JOINT_TAG", "")}.json'), 'w'))
 
 
 def stab(src=WORK, n=3):
@@ -255,14 +259,17 @@ def stab(src=WORK, n=3):
     base = [g for g in range(len(sets)) if sets[g] in ('dev', 'pref')]
     fresh = [g for g in range(len(sets)) if sets[g] == 'fresh']
     def picks(ms):
-        return [int(np.argmax(ens_scores(ms, z['X'][off[g]:off[g + 1]]))) for g in fresh]
+        tau = float(os.environ.get('STAB_TAU', -1e9)); o = []
+        for g in fresh:
+            S = ens_scores(ms, z['X'][off[g]:off[g + 1]]); j = int(np.argmax(S)); o.append(j if S[j] - S[0] > tau else 0)
+        return o
     p0 = picks(train_ensemble(base, src))
     rng = np.random.RandomState(3); out = []
     for d in rng.choice([g for g in base if sets[g] == 'dev'], n, replace=False):
         p1 = picks(train_ensemble(base + [int(d)], src))
         out.append(int(sum(a != b for a, b in zip(p0, p1))))
         print('dup', int(d), 'fresh flips', out[-1], 'of', len(fresh), flush=True)
-    json.dump(dict(flips=out, n_fresh=len(fresh), k=K_SEEDS), open(os.path.join(src, f'stab_k{K_SEEDS}.json'), 'w'))
+    json.dump(dict(flips=out, n_fresh=len(fresh), k=K_SEEDS), open(os.path.join(src, f'stab_{os.environ.get("JOINT_TAG", "k%d" % K_SEEDS)}.json'), 'w'))
 
 
 if __name__ == '__main__':
@@ -275,3 +282,53 @@ if __name__ == '__main__':
         cv(sys.argv[2] if len(sys.argv) > 2 else WORK)
     elif cmd == 'stab':
         stab(sys.argv[2] if len(sys.argv) > 2 else WORK)
+
+
+# ---------------- live use (render time, box) ----------------
+PACK_DIR = os.path.join(H, 'joint_pack')
+_LIVE = {}
+
+
+def flag_on(env=None):
+    env = env or {}
+    def _on(v): return str(v).strip().lower() not in ('', '0', 'false', 'none', 'no')
+    if _on(env.get('JOINT_PICKER_OFF') or os.environ.get('JOINT_PICKER_OFF')):
+        return False
+    v = env.get('JOINT_PICKER', os.environ.get('JOINT_PICKER'))
+    return _on(v) if v is not None else False
+
+
+def write_pack(models_dir, tau, note='', dest=PACK_DIR):
+    """Copy an ensemble into the committed pack (gzipped boosters, *.lgb.gz) + pack.json."""
+    import glob, shutil
+    os.makedirs(dest, exist_ok=True)
+    for f in glob.glob(os.path.join(dest, 'm*.lgb.gz')):
+        os.remove(f)
+    names = []
+    for i, f in enumerate(sorted(glob.glob(os.path.join(models_dir, 'm*.txt.gz')))):
+        n = f'm{i:02d}.lgb.gz'; shutil.copy(f, os.path.join(dest, n)); names.append(n)
+    json.dump(dict(models=names, tau=float(tau), note=note), open(os.path.join(dest, 'pack.json'), 'w'), indent=1)
+
+
+def load_live(dest=None):
+    dest = dest or os.environ.get('JOINT_PACK') or PACK_DIR
+    if dest not in _LIVE:
+        import lightgbm as lgb
+        meta = json.load(open(os.path.join(dest, 'pack.json')))
+        ms = [lgb.Booster(model_str=gzip.open(os.path.join(dest, n), 'rt').read()) for n in meta['models']]
+        _LIVE[dest] = (ms, float(meta['tau']))
+    return _LIVE[dest]
+
+
+def decide_live(r):
+    """Joint decision for one built/live picker row -> dict like picker_1119b.decide."""
+    ms, tau = load_live()
+    T = triples(r)
+    Xg = np.array([triple_feats(r, t['ex'], t['cue'], t['X']) for t in T], np.float32)
+    S = ens_scores(ms, Xg)
+    j = int(np.argmax(S))
+    if j == 0 or S[j] - S[0] <= tau:
+        return dict(exit=r['dex'], cue=r['dcue'], X=r['dX'], win=None, is_default=True, joint_margin=round(float(S[j] - S[0]), 3))
+    w = T[j]['win']
+    return dict(exit=float(T[j]['ex']), cue=float(T[j]['cue']), X=int(T[j]['X']), win=list(w), is_default=False,
+                joint=True, joint_margin=round(float(S[j] - S[0]), 3))

@@ -142,6 +142,6 @@ the listener preferred the drop-fade exit (leave at the end of the still-hot las
 the listener's home Mac (ssh alias `TRAIN_HOST` in `config.env`, so it never appears in public files) is used for model training, and later for YouTube visual renders.
 
 - Work in `~/grokbot-mixer-train` with its venv (`python3.11 -m venv venv`, numpy and lightgbm). Copy only code and feature arrays: no secrets, keys, answer keys or audio.
-- Size workers to fit. Estimate RAM per worker, check the Mac's free RAM, and pick the worker count from that. `protrans/replica/joint_work/train_remote.sh` does this (joint picker: about 0.85 GB and 27 s per fit worker), runs the job, and copies the models back.
+- Size workers to fit, by RAM and CPU: about 2 × (RAM per worker) × workers ≤ free RAM, and workers × threads ≤ cores − 4. Set library thread counts explicitly; LightGBM `predict` uses every core by default. `protrans/replica/joint_work/train_remote.sh` does this (joint picker: about 0.85 GB and 27 s per fit worker), runs the job, and copies the models back.
 - Load data once and share it. Never index an `.npz` inside a loop, because each `z['X']` access decompresses the whole array again. That caused the 11-27 crash: 5 workers at about 20 GB each, then a reboot at 6:21 PM ET. Use a materialized dict, or `np.load(mmap_mode='r')` on a `.npy`.
 - Mix evaluation and audio rendering stay on the box.

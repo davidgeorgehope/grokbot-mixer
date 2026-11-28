@@ -137,3 +137,15 @@ Fresh style shares (r1): drop>drop 15%, drop>in 27%, out>drop 20%, out>in 38%. R
 - 6:21 PM ET reboot: about 20 GB per worker from re-reading the compressed `.npz` per group. Fixed by loading once (memmap `.npy`).
 - About 7:00 PM ET, load ~258 and ssh timeouts: LightGBM `Booster.predict` defaults to every core. Each of 5 workers predicted 32 models with 10 threads, so about 50 threads ran on 10 cores. The job was killed, not rerun (its config already lost on placement).
 - Fix: `JOINT_THREADS` sets `num_threads` for both fit and predict. `train_remote.sh` sizes workers by RAM (half of free) and by CPU (workers × threads ≤ cores − 4), and runs detached with `nohup`, polling for a done file so an ssh drop cannot kill it.
+
+### First render (dev-27, r1 pack, before the abstain fix)
+
+- All 27 rendered: v1 42.72, v2 41.99, 4 hard fails (3 pump, 1 hole).
+- Paired with the 18 pairs the 6:27 AM ET default run scored: Δv1 −0.11, Δv2 −1.65, 6 wins and 8 losses. Hard fails were 3 vs 3, with one new pump fail on Ic7M__10 (6.1 dB) and one cleared elsewhere.
+- **Bug found:** when the joint picker abstained (16 of 27), the live path fell back to the bare engine window (`nat_short`) instead of the ridegate decision. That understates the joint arm, so it is fixed in `ridegate_live.maybe_apply`. dev-27 is also in-sample for the picker.
+
+### Next (chunk 3)
+
+1. Re-render the joint arm on dev-27 and the fresh ukf 18 with the abstain fix. Compare against `measure_dev27_base27.json` (current default re-rendered on all 27 with the window env set) and `n1126f_rgdef`.
+2. Ship-it check. On current evidence it will not ship: placement is worse out of sample, and length 32 cannot be learned from tracks.
+3. If the arm stays off, propose length as a style input (listener and mix context) rather than a track feature.

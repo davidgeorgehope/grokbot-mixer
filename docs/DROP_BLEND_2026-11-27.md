@@ -149,3 +149,47 @@ Fresh style shares (r1): drop>drop 15%, drop>in 27%, out>drop 20%, out>in 38%. R
 1. Re-render the joint arm on dev-27 and the fresh ukf 18 with the abstain fix. Compare against `measure_dev27_base27.json` (current default re-rendered on all 27 with the window env set) and `n1126f_rgdef`.
 2. Ship-it check. On current evidence it will not ship: placement is worse out of sample, and length 32 cannot be learned from tracks.
 3. If the arm stays off, propose length as a style input (listener and mix context) rather than a track feature.
+
+## Chunk 3 (7:12–7:40 PM ET, 11-27): both engines, fair re-render, ship-it
+
+listener: for tonight and tomorrow, run both engines. Default is unchanged. `JOINT_PICKER=1` is the second engine (`JOINT_PICKER_OFF=1` rolls it back). The daily harness path is `protrans/replica/render_joint_ab.py --test-daily <pick>` (check only) or `--ab <pick>` (writes a 40 s loudness-matched A/B and a PNG if the clips differ; key in `/workspace/private` only).
+
+### Pre-fix hard fails were almost all the abstain bug
+
+On the first dev-27 joint render, all four official hard fails were `nat_short` windows with a joint margin under 1.0 (0.52–0.78). Those were abstentions that fell back to the bare engine window, not joint's own picks. The 11 pairs where joint actually applied had no hard fails.
+
+On the pre-fix fresh 18 (invalid for scoring, but useful here), two of the five hard fails were joint's own 8-bar picks (pump 6.6 on `__00`, pump 7.5 on `__27`). Those can still appear after the fix.
+
+### Fair re-render (keep-default fix)
+
+| | official v1 | official v2 | hard fails | new hard fails | length 8 / 16 / 32 |
+|---|---|---|---|---|---|
+| **Dev 27, current default** | 39.11 | 39.92 | 6 | — | 0 / 27 / 0 |
+| **Dev 27, joint** | 39.10 | 39.88 | 5 | 0 | 11 / 16 / 0 |
+| **Fresh 18, current default (n1126f_rgdef)** | (no official score) |  | 1 (`__16`) | — | 0 / 18 / 0 |
+| **Fresh 18, joint (n1127f_joint_r1fix)** | (no official score) |  | 3 (`__16`, `__00`, `__27`) | 2 (`__00` pump 6.6 dB, `__27` pump 7.5 dB) | 5 / 13 / 0 |
+
+Dev paired Δv1 −0.01, 95% CI [−2.21, +1.82]; Δv2 −0.04 [−2.02, +1.86]. 6 wins, 5 losses, 16 ties. Cleared hard fail: `alpha_rhythm_TnnrrqVRZIM__14` (default had a beat clash on a 16-bar window; joint's 8-bar window passed). No new official hard fails on dev.
+
+The 11 changed dev windows are all 8-bar. Official scores are mixed: `liquiddnbftw_m6m836_Ic7M__16` +12.6 v1, `sirenity_ofcHup56lME__52` +8.1, `sirenity_ofcHup56lME__57` −20.4.
+
+Fresh placement error (exit + cue, lower is better) 73.5 → 66.0 overall, and 62.6 → 35.5 on the 5 changed pairs. Joint often nails the exit (e.g. `__00` 63.9 → 0.1 bars, `__23` 81.4 → 1.4) but two of those 8-bar picks pump.
+
+**Style mix**
+
+| set | drop>drop | drop>in | out>drop | out>in |
+|---|---|---|---|---|
+| dev 27 default | 15% | 19% | 30% | 37% |
+| dev 27 joint | 22% | 15% | 26% | 37% |
+| fresh 18 default | 0% | 28% | 17% | 56% |
+| fresh 18 joint | 0% | 17% | 17% | 67% |
+
+Drop-over-drop rises on dev and stays at 0 on this particular fresh mix. No style fully takes over, though fresh joint leans more out>in.
+
+### Ship-it
+
+**Not shipped.** Official scores on dev are a tie, and fresh adds two new pumping hard fails (`ukf __00` and `__27`), both joint's own 8-bar choices. The default stays RIDEGATE+LOCK+PUMP. Use `JOINT_PICKER=1` for the second engine.
+
+### Daily path
+
+Tested on `joe_syntax_hospital__00` (the 11-27 daily pick). Default stays the 16-bar window the listener liked (`['n', 112, None, 32, 16]`). Joint, with margin 2.37, shortens it to 8 bars (`['n', 104, None, 32, 8]`), the same cue, leaving 8 bars earlier. The flag is off on the default arm and on on the joint arm. Because those windows differ, a 40 s A/B was written for tonight (tick at the blend start; hop-diff across the blend: mean 2.19 dB, max 8.82 dB, 58 of 241 hops over 3 dB). Trailing silence pads the shorter 8-bar snippet to 40 s. The answer key is only in `/workspace/private`.

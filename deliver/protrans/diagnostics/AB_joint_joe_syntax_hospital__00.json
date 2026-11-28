@@ -1,0 +1,53 @@
+{
+ "blend": 0,
+ "a": "R06kP42RFRo",
+ "b": "dOJp7bsjuyU",
+ "start_bar": 96.0,
+ "end_bar": 104.0,
+ "png": "/workspace/mixes/deliver/protrans/diagnostics/AB_joint_joe_syntax_hospital__00.png",
+ "halfbeat": {
+  "r0": 0.583,
+  "rh": 0.51,
+  "lag_ms": 0.0,
+  "bars": 8,
+  "phase_fail": false,
+  "lag_fail": false,
+  "fail": false,
+  "phase_a": -0.062,
+  "phase_b": 0.0,
+  "dphase_beats": -0.062,
+  "dphase_ms": -21.6,
+  "strength": 0.079,
+  "basis": "drum-phase+lag"
+ },
+ "pro_lock": {
+  "pro": null,
+  "ours": {
+   "phase_beats": 0.0164,
+   "rate": 1.0,
+   "r_a": 0.726,
+   "r_b": 0.901
+  },
+  "why": "deck not located (onset r < 0.2)"
+ },
+ "offset_ms_median": -11.6,
+ "offset_bars": 5,
+ "clash_bars": 2.25,
+ "sum_lows_dip_db": 9.1,
+ "bass_swap": [
+  96.0,
+  101.0
+ ],
+ "phrase_cut": null,
+ "spectral": {
+  "diagnostic_only": true,
+  "pcol": 0.041895,
+  "pcty": 1.511987,
+  "Scol": 0.7602,
+  "Scty": 0.8216,
+  "banger_clash_rate": 0.1276,
+  "start_s": 11.034,
+  "end_s": 22.069,
+  "continuity_fallback": false
+ }
+}
